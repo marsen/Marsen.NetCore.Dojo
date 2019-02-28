@@ -47,7 +47,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             //add footer lines
             result += "Amount owed is " + getTotalAmount() +
                       "\n";
-            result += "You earned " + frequentRenterPoints
+            result += "You earned " + getFrequentRenterPoints()
                                     +
                                     " frequent renter points";
             return result;
