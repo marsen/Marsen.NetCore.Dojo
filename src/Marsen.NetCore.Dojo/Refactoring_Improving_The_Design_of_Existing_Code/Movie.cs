@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Price;
 
 namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 {
@@ -24,11 +25,27 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         public int getPriceCode()
         {
+            return _price.getPriceCode();
             return _priceCode;
         }
 
         public void setPriceCode(int arg)
         {
+            switch (arg)
+            {
+                case 0: //// Movie.REGULAR
+                    _price = new RegularPrice();
+                    break;
+
+                case 1: //// Movie.NEW_RELEASE
+                    _price = new NewReleasePrice();
+                    break;
+
+                case 2: //// Movie.CHILDRENS:
+                    _price = new ChildrenPrice();
+                    break;
+            }
+
             _priceCode = arg;
         }
 
