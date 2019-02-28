@@ -4,7 +4,7 @@
     {
         public override int GetPriceCode()
         {
-            return Movie.NewRelease;
+            return (int) MoveType.NewRelease;
         }
 
         public override double GetCharge(int daysRented)
