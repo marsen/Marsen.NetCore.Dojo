@@ -4,24 +4,24 @@
     {
         public abstract int getPriceCode();
 
-        public double getCharge(int getDaysRented)
+        public double getCharge(int daysRented)
         {
             double result = 0;
             switch (getPriceCode())
             {
                 case 0: //// Movie.REGULAR:
                     result += 2;
-                    if (getDaysRented > 2)
+                    if (daysRented > 2)
 
-                        result += (getDaysRented - 2) * 1.5;
+                        result += (daysRented - 2) * 1.5;
                     break;
                 case 1: //// Movie.NEW_RELEASE
-                    result += getDaysRented * 3;
+                    result += daysRented * 3;
                     break;
                 case 2: //// Movie.CHILDRENS:
                     result += 1.5;
-                    if (getDaysRented > 3)
-                        result += (getDaysRented - 3) * 1.5;
+                    if (daysRented > 3)
+                        result += (daysRented - 3) * 1.5;
                     break;
             }
 
