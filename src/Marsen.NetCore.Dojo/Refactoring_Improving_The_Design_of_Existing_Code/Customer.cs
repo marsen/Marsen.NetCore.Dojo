@@ -62,10 +62,5 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                                     " frequent renter points";
             return result;
         }
-
-        private static double amountFor(Rental each)
-        {
-            return each.getCharge();
-        }
     }
 }
