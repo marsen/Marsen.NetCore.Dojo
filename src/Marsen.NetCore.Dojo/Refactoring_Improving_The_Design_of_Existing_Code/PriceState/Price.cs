@@ -2,11 +2,11 @@
 {
     public abstract class Price
     {
-        public abstract int getPriceCode();
+        public abstract int GetPriceCode();
 
-        public abstract double getCharge(int daysRented);
+        public abstract double GetCharge(int daysRented);
 
-        public virtual int getFrequentRenterPoints(int daysRented)
+        public virtual int GetFrequentRenterPoints(int daysRented)
         {
             return 1;
         }

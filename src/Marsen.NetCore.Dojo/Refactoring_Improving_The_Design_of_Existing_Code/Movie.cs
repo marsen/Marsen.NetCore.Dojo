@@ -7,10 +7,10 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 {
     public class Movie
     {
-        public static readonly int CHILDRENS = 2;
-        public static readonly int REGULAR = 0;
-        public static readonly int NEW_RELEASE = 1;
-        private string _title;
+        public static readonly int Childrens = 2;
+        public static readonly int Regular = 0;
+        public static readonly int NewRelease = 1;
+        private readonly string _title;
         private int _priceCode;
         private Price _price;
 
@@ -20,15 +20,15 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public Movie(string title, int priceCode)
         {
             _title = title;
-            setPriceCode(priceCode);
+            SetPriceCode(priceCode);
         }
 
         public int getPriceCode()
         {
-            return _price.getPriceCode();
+            return _price.GetPriceCode();
         }
 
-        public void setPriceCode(int arg)
+        public void SetPriceCode(int arg)
         {
             switch (arg)
             {
@@ -46,19 +46,19 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             }
         }
 
-        public string getTitle()
+        public string GetTitle()
         {
             return _title;
         }
 
-        public double getCharge(int daysRented)
+        public double GetCharge(int daysRented)
         {
-            return _price.getCharge(daysRented);
+            return _price.GetCharge(daysRented);
         }
 
-        public int getFrequentRenterPoints(int daysRented)
+        public int GetFrequentRenterPoints(int daysRented)
         {
-            return _price.getFrequentRenterPoints(daysRented);
+            return _price.GetFrequentRenterPoints(daysRented);
         }
     }
 }

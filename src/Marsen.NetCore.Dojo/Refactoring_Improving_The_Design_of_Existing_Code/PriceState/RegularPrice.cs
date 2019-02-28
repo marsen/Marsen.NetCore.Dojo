@@ -2,12 +2,12 @@
 {
     public class RegularPrice : Price
     {
-        public override int getPriceCode()
+        public override int GetPriceCode()
         {
-            return Movie.REGULAR;
+            return Movie.Regular;
         }
 
-        public override double getCharge(int daysRented)
+        public override double GetCharge(int daysRented)
         {
             double result = 0;
             result += 2;

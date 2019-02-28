@@ -2,12 +2,12 @@
 {
     public class ChildrenPrice : Price
     {
-        public override int getPriceCode()
+        public override int GetPriceCode()
         {
-            return Movie.CHILDRENS;
+            return Movie.Childrens;
         }
 
-        public override double getCharge(int daysRented)
+        public override double GetCharge(int daysRented)
         {
             double result = 0;
             result += 1.5;
