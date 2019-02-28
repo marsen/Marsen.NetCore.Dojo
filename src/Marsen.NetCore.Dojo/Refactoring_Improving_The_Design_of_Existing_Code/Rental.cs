@@ -32,12 +32,8 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         public int getFrequentRenterPoints()
         {
-            return getMovie().getFrequentRenterPoints(getDaysRented());
             // add bonus for a two day new release rental
-            return getMovie().getPriceCode() == Movie.NEW_RELEASE &&
-                   getDaysRented() > 1
-                ? 2
-                : 1;
+            return getMovie().getFrequentRenterPoints(getDaysRented());
         }
     }
 }
