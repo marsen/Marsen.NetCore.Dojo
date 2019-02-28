@@ -50,8 +50,8 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                     each.getDaysRented() > 1) frequentRenterPoints++;
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
-                          thisAmount + "\n";
-                totalAmount += thisAmount;
+                          each.getCharge() + "\n";
+                totalAmount += each.getCharge();
             }
 
             //add footer lines
