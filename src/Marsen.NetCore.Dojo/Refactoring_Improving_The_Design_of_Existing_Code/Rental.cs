@@ -27,6 +27,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         public double getCharge()
         {
+            return getMovie().getCharge(getDaysRented());
             double result = 0;
             switch (getMovie().getPriceCode())
             {
