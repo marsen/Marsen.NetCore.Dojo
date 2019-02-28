@@ -51,9 +51,9 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             return _title;
         }
 
-        public double getCharge(int getDaysRented)
+        public double getCharge(int daysRented)
         {
-            return _price.getCharge(getDaysRented);
+            return _price.getCharge(daysRented);
         }
 
         public int getFrequentRenterPoints(int getDaysRented)
