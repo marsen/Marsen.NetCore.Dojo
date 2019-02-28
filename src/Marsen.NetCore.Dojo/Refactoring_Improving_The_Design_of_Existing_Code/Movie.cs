@@ -58,6 +58,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         public int getFrequentRenterPoints(int getDaysRented)
         {
+            return _price.getFrequentRenterPoints(getDaysRented);
             return getPriceCode() == Movie.NEW_RELEASE &&
                    getDaysRented > 1
                 ? 2
