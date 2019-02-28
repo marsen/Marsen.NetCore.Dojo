@@ -55,18 +55,5 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                                     " frequent renter points";
             return result;
         }
-
-        private int frequentRenterPoints(Rental each)
-        {
-            return each.getFrequentRenterPoints();
-            int frequentRenterPoints = 0;
-// add frequent renter points
-            frequentRenterPoints++;
-            // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-                &&
-                each.getDaysRented() > 1) frequentRenterPoints++;
-            return frequentRenterPoints;
-        }
     }
 }
