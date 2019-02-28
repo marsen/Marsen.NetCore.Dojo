@@ -11,7 +11,6 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public static readonly int Regular = 0;
         public static readonly int NewRelease = 1;
         private readonly string _title;
-        private int _priceCode;
         private Price _price;
 
         /// <summary>
