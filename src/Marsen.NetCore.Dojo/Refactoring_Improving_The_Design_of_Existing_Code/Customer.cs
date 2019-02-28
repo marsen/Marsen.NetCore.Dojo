@@ -65,26 +65,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         private static double amountFor(Rental each)
         {
-            double result = 0;
-            switch (each.getMovie().getPriceCode())
-            {
-                case 0: //// Movie.REGULAR:
-                    result += 2;
-                    if (each.getDaysRented() > 2)
-
-                        result += (each.getDaysRented() - 2) * 1.5;
-                    break;
-                case 1: //// Movie.NEW_RELEASE
-                    result += each.getDaysRented() * 3;
-                    break;
-                case 2: //// Movie.CHILDRENS:
-                    result += 1.5;
-                    if (each.getDaysRented() > 3)
-                        result += (each.getDaysRented() - 3) * 1.5;
-                    break;
-            }
-
-            return result;
+            return each.getCharge();
         }
     }
 }
