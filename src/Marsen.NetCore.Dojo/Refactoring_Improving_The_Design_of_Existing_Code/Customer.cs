@@ -31,7 +31,6 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         public string statement()
         {
-            double totalAmount = 0;
             int frequentRenterPoints = 0;
             IEnumerator rentals = _rentals.GetEnumerator();
             string result = "Rental Record for " + getName() + "\n";
@@ -43,7 +42,6 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
                           each.getCharge() + "\n";
-                totalAmount += each.getCharge();
             }
 
             //add footer lines
