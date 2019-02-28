@@ -4,7 +4,7 @@
     {
         public override int getPriceCode()
         {
-            throw new System.NotImplementedException();
+            return Movie.REGULAR;
         }
     }
 }
