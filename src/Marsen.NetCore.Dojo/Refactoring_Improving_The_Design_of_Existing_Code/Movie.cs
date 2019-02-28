@@ -26,7 +26,6 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public int getPriceCode()
         {
             return _price.getPriceCode();
-            return _priceCode;
         }
 
         public void setPriceCode(int arg)
@@ -45,8 +44,6 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                     _price = new ChildrenPrice();
                     break;
             }
-
-            _priceCode = arg;
         }
 
         public string getTitle()
