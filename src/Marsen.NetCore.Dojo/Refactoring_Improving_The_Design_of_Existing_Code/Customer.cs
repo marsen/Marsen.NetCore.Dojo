@@ -29,12 +29,12 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             return _name;
         }
 
-        public String statement()
+        public string statement()
         {
             double totalAmount = 0;
             int frequentRenterPoints = 0;
             IEnumerator rentals = _rentals.GetEnumerator();
-            String result = "Rental Record for " + getName() + "\n";
+            string result = "Rental Record for " + getName() + "\n";
             while (rentals.MoveNext())
             {
                 double thisAmount = 0;
@@ -66,14 +66,14 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                     each.getDaysRented() > 1) frequentRenterPoints++;
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
-                          thisAmount.ToString() + "\n";
+                          thisAmount + "\n";
                 totalAmount += thisAmount;
             }
 
             //add footer lines
-            result += "Amount owed is " + totalAmount.ToString() +
+            result += "Amount owed is " + totalAmount +
                       "\n";
-            result += "You earned " + frequentRenterPoints.ToString()
+            result += "You earned " + frequentRenterPoints
                                     +
                                     " frequent renter points";
             return result;
