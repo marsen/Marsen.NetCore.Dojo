@@ -40,12 +40,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                 double thisAmount = 0;
                 Rental each = (Rental) rentals.Current;
 
-                // add frequent renter points
-                frequentRenterPoints++;
-                // add bonus for a two day new release rental
-                if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-                    &&
-                    each.getDaysRented() > 1) frequentRenterPoints++;
+                frequentRenterPoints = this.frequentRenterPoints(each);
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
                           each.getCharge() + "\n";
@@ -59,6 +54,18 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                                     +
                                     " frequent renter points";
             return result;
+        }
+
+        private int frequentRenterPoints(Rental each)
+        {
+            int frequentRenterPoints = 0;
+// add frequent renter points
+            frequentRenterPoints++;
+            // add bonus for a two day new release rental
+            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+                &&
+                each.getDaysRented() > 1) frequentRenterPoints++;
+            return frequentRenterPoints;
         }
     }
 }
