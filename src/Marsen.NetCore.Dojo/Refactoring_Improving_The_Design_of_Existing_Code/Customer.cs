@@ -31,14 +31,12 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         public string statement()
         {
-            int frequentRenterPoints = 0;
             IEnumerator rentals = _rentals.GetEnumerator();
             string result = "Rental Record for " + getName() + "\n";
             while (rentals.MoveNext())
             {
                 Rental each = (Rental) rentals.Current;
 
-                frequentRenterPoints = each.getFrequentRenterPoints();
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
                           each.getCharge() + "\n";
