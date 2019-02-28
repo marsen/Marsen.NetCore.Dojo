@@ -14,6 +14,7 @@
 
         public override int getFrequentRenterPoints(int daysRented)
         {
+            return daysRented > 1 ? 2 : 1;
             return getPriceCode() == Movie.NEW_RELEASE &&
                    daysRented > 1
                 ? 2
