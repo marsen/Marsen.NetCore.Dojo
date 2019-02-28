@@ -4,28 +4,6 @@
     {
         public abstract int getPriceCode();
 
-        public virtual double getCharge(int daysRented)
-        {
-            double result = 0;
-            switch (getPriceCode())
-            {
-                case 0: //// Movie.REGULAR:
-                    result += 2;
-                    if (daysRented > 2)
-
-                        result += (daysRented - 2) * 1.5;
-                    break;
-                case 1: //// Movie.NEW_RELEASE
-                    result += daysRented * 3;
-                    break;
-                case 2: //// Movie.CHILDRENS:
-                    result += 1.5;
-                    if (daysRented > 3)
-                        result += (daysRented - 3) * 1.5;
-                    break;
-            }
-
-            return result;
-        }
+        public abstract double getCharge(int daysRented);
     }
 }
