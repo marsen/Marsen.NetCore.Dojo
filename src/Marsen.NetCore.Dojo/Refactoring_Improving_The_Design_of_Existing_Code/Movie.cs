@@ -7,19 +7,16 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 {
     public class Movie
     {
-        public static readonly int Children = 2;
-        public static readonly int Regular = 0;
-        public static readonly int NewRelease = 1;
         private readonly string _title;
         private Price _price;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Movie" /> class.
         /// </summary>
-        public Movie(string title, int priceCode)
+        public Movie(string title, MoveType moveType)
         {
             _title = title;
-            SetPriceCode((MoveType) priceCode);
+            SetPriceCode((MoveType) moveType);
         }
 
         public void SetPriceCode(MoveType arg)
