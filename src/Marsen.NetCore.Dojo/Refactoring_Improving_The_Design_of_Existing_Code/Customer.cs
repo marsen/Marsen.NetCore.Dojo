@@ -40,23 +40,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                 double thisAmount = 0;
                 Rental each = (Rental) rentals.Current;
                 //determine amounts for each line
-                switch (each.getMovie().getPriceCode())
-                {
-                    case 0: //// Movie.REGULAR:
-                        thisAmount += 2;
-                        if (each.getDaysRented() > 2)
-
-                            thisAmount += (each.getDaysRented() - 2) * 1.5;
-                        break;
-                    case 1: //// Movie.NEW_RELEASE
-                        thisAmount += each.getDaysRented() * 3;
-                        break;
-                    case 2: //// Movie.CHILDRENS:
-                        thisAmount += 1.5;
-                        if (each.getDaysRented() > 3)
-                            thisAmount += (each.getDaysRented() - 3) * 1.5;
-                        break;
-                }
+                thisAmount = amountFor(each);
 
                 // add frequent renter points
                 frequentRenterPoints++;
@@ -76,6 +60,30 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             result += "You earned " + frequentRenterPoints
                                     +
                                     " frequent renter points";
+            return result;
+        }
+
+        private static double amountFor(Rental each)
+        {
+            double result = 0;
+            switch (each.getMovie().getPriceCode())
+            {
+                case 0: //// Movie.REGULAR:
+                    result += 2;
+                    if (each.getDaysRented() > 2)
+
+                        result += (each.getDaysRented() - 2) * 1.5;
+                    break;
+                case 1: //// Movie.NEW_RELEASE
+                    result += each.getDaysRented() * 3;
+                    break;
+                case 2: //// Movie.CHILDRENS:
+                    result += 1.5;
+                    if (each.getDaysRented() > 3)
+                        result += (each.getDaysRented() - 3) * 1.5;
+                    break;
+            }
+
             return result;
         }
     }
