@@ -4,7 +4,7 @@
     {
         public abstract int getPriceCode();
 
-        public double getCharge(int daysRented)
+        public virtual double getCharge(int daysRented)
         {
             double result = 0;
             switch (getPriceCode())
