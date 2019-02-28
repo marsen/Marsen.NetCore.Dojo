@@ -19,22 +19,22 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public Movie(string title, int priceCode)
         {
             _title = title;
-            SetPriceCode(priceCode);
+            SetPriceCode((MoveType) priceCode);
         }
 
-        public void SetPriceCode(int arg)
+        public void SetPriceCode(MoveType arg)
         {
             switch (arg)
             {
-                case 0: //// Movie.REGULAR
+                case MoveType.Regular: //// Movie.REGULAR
                     _price = new RegularPrice();
                     break;
 
-                case 1: //// Movie.NEW_RELEASE
+                case MoveType.NewRelease: //// Movie.NEW_RELEASE
                     _price = new NewReleasePrice();
                     break;
 
-                case 2: //// Movie.CHILDRENS:
+                case MoveType.Children: //// Movie.CHILDRENS:
                     _price = new ChildrenPrice();
                     break;
             }
