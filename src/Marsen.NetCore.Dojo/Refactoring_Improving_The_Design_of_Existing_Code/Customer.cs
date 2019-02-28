@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                 double thisAmount = 0;
                 Rental each = (Rental) rentals.Current;
 
-                frequentRenterPoints = this.frequentRenterPoints(each);
+                frequentRenterPoints = each.getFrequentRenterPoints();
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
                           each.getCharge() + "\n";
