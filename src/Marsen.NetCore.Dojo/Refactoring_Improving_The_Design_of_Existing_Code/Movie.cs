@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public Movie(string title, int priceCode)
         {
             _title = title;
-            _priceCode = priceCode;
+            setPriceCode(priceCode);
         }
 
         public int getPriceCode()
