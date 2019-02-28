@@ -58,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Tests.Refactoring_Improving_The_Design_of_Existing
         [Fact]
         public void rent_1_childrens_one_day()
         {
-            _customer.AddRental(new Rental(new Movie("A", Movie.Childrens), 1));
+            _customer.AddRental(new Rental(new Movie("A", Movie.Children), 1));
             var actual = _customer.Statement();
             var expected =
                 "Rental Record for Marsen\n\tA\t1.5\nAmount owed is 1.5\nYou earned 1 frequent renter points";
@@ -69,7 +69,7 @@ namespace Marsen.NetCore.Dojo.Tests.Refactoring_Improving_The_Design_of_Existing
         [Fact]
         public void rent_1_childrens_4_days()
         {
-            _customer.AddRental(new Rental(new Movie("A", Movie.Childrens), 4));
+            _customer.AddRental(new Rental(new Movie("A", Movie.Children), 4));
             var actual = _customer.Statement();
             var expected =
                 "Rental Record for Marsen\n\tA\t3\nAmount owed is 3\nYou earned 1 frequent renter points";

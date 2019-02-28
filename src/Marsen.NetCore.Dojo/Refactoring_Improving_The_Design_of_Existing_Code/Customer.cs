@@ -32,19 +32,18 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public string Statement()
         {
             IEnumerator rentals = _rentals.GetEnumerator();
-            string result = "Rental Record for " + GetName() + "\n";
+            var result = $"Rental Record for {GetName()}\n";
             while (rentals.MoveNext())
             {
-                Rental each = (Rental) rentals.Current;
+                var each = (Rental) rentals.Current;
 
                 //show figures for this rental
-                result += "\t" + each.GetMovie().GetTitle() + "\t" +
-                          each.GetCharge() + "\n";
+                result += $"\t{each.GetMovie().GetTitle()}\t{each.GetCharge()}\n";
             }
 
             //add footer lines
-            result += "Amount owed is " + GetTotalAmount() + "\n";
-            result += "You earned " + GetFrequentRenterPoints() + " frequent renter points";
+            result += $"Amount owed is {GetTotalAmount()}\n";
+            result += $"You earned {GetFrequentRenterPoints()} frequent renter points";
             return result;
         }
 
@@ -54,7 +53,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             IEnumerator rentals = _rentals.GetEnumerator();
             while (rentals.MoveNext())
             {
-                Rental each = (Rental) rentals.Current;
+                var each = (Rental) rentals.Current;
                 result += each.GetCharge();
             }
 
@@ -63,12 +62,12 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
         private int GetFrequentRenterPoints()
         {
-            int result = 0;
+            var result = 0;
 
             IEnumerator rentals = _rentals.GetEnumerator();
             while (rentals.MoveNext())
             {
-                Rental each = (Rental) rentals.Current;
+                var each = (Rental) rentals.Current;
                 result += each.GetFrequentRenterPoints();
             }
 
