@@ -59,5 +59,13 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 
             return result;
         }
+
+        public int getFrequentRenterPoints(int getDaysRented)
+        {
+            return getPriceCode() == Movie.NEW_RELEASE &&
+                   getDaysRented > 1
+                ? 2
+                : 1;
+        }
     }
 }
