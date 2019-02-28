@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
         public static readonly int NEW_RELEASE = 1;
         private string _title;
         private int _priceCode;
-        private Price _price;
+        private Price.Price _price;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Movie" /> class.
