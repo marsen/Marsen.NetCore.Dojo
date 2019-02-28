@@ -19,6 +19,11 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             _name = name;
         }
 
+        public void addRental(Rental arg)
+        {
+            _rentals.Add(arg);
+        }
+
         public string getName()
         {
             return _name;
@@ -37,21 +42,22 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                 //determine amounts for each line
                 switch (each.getMovie().getPriceCode())
                 {
-                    case 0://// Movie.REGULAR:
+                    case 0: //// Movie.REGULAR:
                         thisAmount += 2;
                         if (each.getDaysRented() > 2)
-                           
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
+
+                            thisAmount += (each.getDaysRented() - 2) * 1.5;
                         break;
-                    case 1://// Movie.NEW_RELEASE
+                    case 1: //// Movie.NEW_RELEASE
                         thisAmount += each.getDaysRented() * 3;
                         break;
-                    case 2://// Movie.CHILDRENS:
+                    case 2: //// Movie.CHILDRENS:
                         thisAmount += 1.5;
                         if (each.getDaysRented() > 3)
                             thisAmount += (each.getDaysRented() - 3) * 1.5;
                         break;
                 }
+
                 // add frequent renter points
                 frequentRenterPoints++;
                 // add bonus for a two day new release rental
@@ -60,9 +66,10 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                     each.getDaysRented() > 1) frequentRenterPoints++;
                 //show figures for this rental
                 result += "\t" + each.getMovie().getTitle() + "\t" +
-                           thisAmount.ToString() + "\n";
+                          thisAmount.ToString() + "\n";
                 totalAmount += thisAmount;
             }
+
             //add footer lines
             result += "Amount owed is " + totalAmount.ToString() +
                       "\n";
@@ -71,6 +78,5 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
                                     " frequent renter points";
             return result;
         }
-
     }
 }
