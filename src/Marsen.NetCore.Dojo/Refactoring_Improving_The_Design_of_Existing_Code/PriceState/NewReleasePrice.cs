@@ -6,5 +6,10 @@
         {
             return Movie.NEW_RELEASE;
         }
+
+        public override double getCharge(int daysRented)
+        {
+            return daysRented * 3;
+        }
     }
 }
