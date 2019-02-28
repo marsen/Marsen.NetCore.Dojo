@@ -8,8 +8,8 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
 {
     public class Customer
     {
-        private string _name;
-        private List<Rental> _rentals = new List<Rental>();
+        private readonly string _name;
+        private readonly List<Rental> _rentals = new List<Rental>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Customer" /> class.
@@ -19,52 +19,49 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             _name = name;
         }
 
-        public void addRental(Rental arg)
+        public void AddRental(Rental arg)
         {
             _rentals.Add(arg);
         }
 
-        public string getName()
+        public string GetName()
         {
             return _name;
         }
 
-        public string statement()
+        public string Statement()
         {
             IEnumerator rentals = _rentals.GetEnumerator();
-            string result = "Rental Record for " + getName() + "\n";
+            string result = "Rental Record for " + GetName() + "\n";
             while (rentals.MoveNext())
             {
                 Rental each = (Rental) rentals.Current;
 
                 //show figures for this rental
-                result += "\t" + each.getMovie().getTitle() + "\t" +
-                          each.getCharge() + "\n";
+                result += "\t" + each.GetMovie().GetTitle() + "\t" +
+                          each.GetCharge() + "\n";
             }
 
             //add footer lines
-            result += "Amount owed is " + getTotalAmount() +
-                      "\n";
-            result += "You earned " + getFrequentRenterPoints()
-                                    +
-                                    " frequent renter points";
+            result += "Amount owed is " + GetTotalAmount() + "\n";
+            result += "You earned " + GetFrequentRenterPoints() + " frequent renter points";
             return result;
         }
 
-        private double getTotalAmount()
+        private double GetTotalAmount()
         {
             double result = 0;
             IEnumerator rentals = _rentals.GetEnumerator();
             while (rentals.MoveNext())
             {
                 Rental each = (Rental) rentals.Current;
-                result += each.getCharge();
+                result += each.GetCharge();
             }
 
             return result;
         }
 
-        private int getFrequentRenterPoints()
+        private int GetFrequentRenterPoints()
         {
             int result = 0;
 
@@ -72,7 +69,7 @@ namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
             while (rentals.MoveNext())
             {
                 Rental each = (Rental) rentals.Current;
-                result += each.getFrequentRenterPoints();
+                result += each.GetFrequentRenterPoints();
             }
 
             return result;
