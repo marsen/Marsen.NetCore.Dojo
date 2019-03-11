@@ -75,5 +75,15 @@ namespace Marsen.NetCore.Dojo.Tests.Refactoring_Improving_The_Design_of_Existing
                 "Rental Record for Marsen\n\tA\t3\nAmount owed is 3\nYou earned 1 frequent renter points";
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void rent_1_childrens_3_days()
+        {
+            _customer.AddRental(new Rental(new Movie("A", MoveType.Children), 3));
+            var actual = _customer.Statement();
+            var expected =
+                "Rental Record for Marsen\n\tA\t1.5\nAmount owed is 1.5\nYou earned 1 frequent renter points";
+            Assert.Equal(expected, actual);
+        }
     }
 }

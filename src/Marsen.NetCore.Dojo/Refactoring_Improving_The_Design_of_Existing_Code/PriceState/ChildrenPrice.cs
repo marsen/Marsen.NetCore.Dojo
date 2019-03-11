@@ -2,11 +2,6 @@
 {
     public class ChildrenPrice : Price
     {
-        public override int GetPriceCode()
-        {
-            return (int) MoveType.Children;
-        }
-
         public override double GetCharge(int daysRented)
         {
             double result = 0;
