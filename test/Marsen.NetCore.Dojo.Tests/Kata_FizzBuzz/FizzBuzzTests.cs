@@ -37,5 +37,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_FizzBuzz
             var actual = _fizzBuzz.Get(4);
             Assert.Equal("4", actual);
         }
+
+        [Fact]
+        public void five_is_5()
+        {
+            var actual = _fizzBuzz.Get(5);
+            Assert.Equal("Buzz", actual);
+        }
     }
 }
