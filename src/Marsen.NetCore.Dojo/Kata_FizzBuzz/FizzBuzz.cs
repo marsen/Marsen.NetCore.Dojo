@@ -4,7 +4,7 @@
     {
         public string Get(int input)
         {
-            return "1";
+            return input.ToString();
         }
     }
 }

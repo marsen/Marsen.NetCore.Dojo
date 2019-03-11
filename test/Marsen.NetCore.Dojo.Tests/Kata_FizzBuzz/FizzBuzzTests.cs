@@ -8,12 +8,20 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_FizzBuzz
 {
     public class FizzBuzzTests
     {
+        private readonly FizzBuzz _fizzBuzz = new FizzBuzz();
+
         [Fact]
         public void one_is_1()
         {
-            FizzBuzz fizzBuzz = new FizzBuzz();
-            var actual = fizzBuzz.Get(1);
+            var actual = _fizzBuzz.Get(1);
             Assert.Equal("1", actual);
+        }
+
+        [Fact]
+        public void tow_is_2()
+        {
+            var actual = _fizzBuzz.Get(2);
+            Assert.Equal("2", actual);
         }
     }
 }
