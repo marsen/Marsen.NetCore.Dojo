@@ -2,11 +2,6 @@
 {
     public class RegularPrice : Price
     {
-        public override int GetPriceCode()
-        {
-            return (int) MoveType.Regular;
-        }
-
         public override double GetCharge(int daysRented)
         {
             double result = 0;

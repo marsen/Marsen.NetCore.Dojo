@@ -2,11 +2,6 @@
 {
     public class NewReleasePrice : Price
     {
-        public override int GetPriceCode()
-        {
-            return (int) MoveType.NewRelease;
-        }
-
         public override double GetCharge(int daysRented)
         {
             return daysRented * 3;
