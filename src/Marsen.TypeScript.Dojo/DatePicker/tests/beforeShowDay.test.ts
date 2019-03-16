@@ -12,17 +12,15 @@ describe('今天是 2019/3/18 號星期一上午12:00', function() {
       };
   });
 
-  afterEach(function () {
-      Date.now = originalDateNow;
-  });
-      
-  
-  it('卡尼想選 2019/3/18 星期日 出貨', function() {
+  it('卡尼想選 2019/3/18 星期一 出貨', function() {
     let result = D.IsShow(new Date("2019-3-18"))[0];
     expect(result).equal(false,"不能選,因為現在是上午12點");
   });
-
-  Date.now = originalDateNow;
+  
+  afterEach(function () {
+      Date.now = originalDateNow;
+  });
+  
 });
 
 describe('今天是 2019/3/18 號星期一上午10:00', function() {
