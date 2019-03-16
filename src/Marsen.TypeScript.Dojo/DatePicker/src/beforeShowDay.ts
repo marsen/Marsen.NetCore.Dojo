@@ -6,7 +6,7 @@ export default class beforeShowDay {
         var today = this.GetToday();
         //// console.log('today is '+today);
         
-        if(today.getHours() >= 12 &&  date.getDate() - today.getDate() <= 2 ){
+        if(today.getHours() >= 12 &&  date.getDate() - today.getDate() < 2 ){
             return [false];
         }
 
