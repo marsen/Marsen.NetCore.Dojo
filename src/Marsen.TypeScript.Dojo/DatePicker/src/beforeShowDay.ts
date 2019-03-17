@@ -8,7 +8,7 @@ export default class beforeShowDay {
         
         
         if(today.getHours() >= 12){
-            //console.log('date'+date.getDate()+' today '+today.getDate());
+            console.log('date'+date.getDate()+' today '+today.getDate());
             if(today.getDay() == 5 && date.getDate() - today.getDate() < 4){
                 return [false];
             } 
