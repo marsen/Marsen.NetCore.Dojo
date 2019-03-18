@@ -27,6 +27,11 @@ describe('今天是 2019/3/22 號星期五 12:59', function() {
     expect(result).equal(true,'可以選');
   });
 
+  it('卡尼想選 2019/3/23 星期六 出貨 不能選,因為現在時間超過 12 點', function() {
+    let result = D.IsShow(new Date('2019-3-23'))[0];
+    expect(result).equal(false,'不能選,因為現在超過12點');
+  });
+
   afterEach(function () {
       Date.now = originalDateNow;
   });
