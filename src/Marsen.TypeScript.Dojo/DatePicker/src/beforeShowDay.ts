@@ -3,12 +3,10 @@ export default class beforeShowDay {
     static IsShow(date: Date):Array<Boolean> {
         var day = date.getDay();
         var today = this.GetToday();
-        //console.log('today is '+today);
-        
         
         if(today.getHours() >= 12){
             console.log('date'+date.getDate()+' today '+today.getDate());
-            if(today.getDay() == 5 && date.getDate() - today.getDate() < 4){
+            if(today.getDay() == 5 && this.DiffDate(date,today)< 4){
                 return [false];
             } 
 
