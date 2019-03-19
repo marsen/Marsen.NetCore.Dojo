@@ -2,26 +2,22 @@
 export default class beforeShowDay {
     static IsShow(date: Date):Array<Boolean> {
         var day = date.getDay();
-        var today = this.GetToday();
-        
-        if(today.getHours() >= 12){
-            console.log('date'+date.getDate()+' today '+today.getDate());
-            if(today.getDay() == 5 && this.DiffDate(date,today)< 4){
-                return [false];
-            } 
-
-            if(this.DiffDate(date,today) < 2){
-                console.log(date);
-                console.log(today);
-                console.log(this.DiffDate(date,today));
-                return [false];
-            }
-        }    
-        
-
+        var now = this.GetToday();
+        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
         if(day==0){
             return [false];
         }
+        
+        if(now.getHours() >= 12){
+            console.log('date'+date.getDate()+' now '+now.getDate());
+            if(now.getDay() == 5 ){
+                var fourDay =new Date(now.toDateString()).valueOf() + 4 * _MS_PER_DAY;
+                return [date.valueOf()-fourDay>=0];
+            }
+
+            var twoDay = new Date(now.toDateString()).valueOf() + 2 * _MS_PER_DAY;
+            return [date.valueOf()-twoDay>=0];
+        }    
         return [true]  ;
     }
 
@@ -29,13 +25,4 @@ export default class beforeShowDay {
         var ms = Date.now();
         return new Date(ms);
     }
-
-    private static DiffDate(date1:Date,date2:Date):number{
-        //// 台灣 UTC+8
-        const _TIMEZONE_BUFFER = 1000 * 60  * 60 * 8;
-        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-        var diffMilliseconds =date1.valueOf() - date2.valueOf() + _TIMEZONE_BUFFER + _TIMEZONE_BUFFER;
-        return Math.floor(diffMilliseconds / _MS_PER_DAY);
-    }
-    
 }
