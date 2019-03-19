@@ -1,6 +1,43 @@
 import { expect } from 'chai';
 import D from '../src/beforeShowDay';
 
+describe('今天是 2019/3/22 號星期五 23:05', function() {
+
+  beforeEach(function () {
+      mockDate('2019-3-22 23:05');
+  });
+
+  it('卡尼想選 2019/3/25 星期一 出貨 不可以選', function() {
+    let result = D.IsShow(new Date('2019-3-25'))[0];
+    expect(result).equal(false,'不可以選');
+  });
+
+  it('卡尼想選 2019/3/26 星期二 出貨 可以選', function() {
+    let result = D.IsShow(new Date('2019-3-26'))[0];
+    expect(result).equal(true,'可以選');
+  });
+
+    afterEach(function () {
+      Date.now = originalDateNow;
+  });
+});
+
+describe('今天是 2019/3/19 號星期二 23:05', function() {
+
+  beforeEach(function () {
+      mockDate('2019-3-19 23:05');
+  });
+
+  it('卡尼想選 2019/3/21 星期四 出貨 可以選', function() {
+    let result = D.IsShow(new Date('2019-3-21'))[0];
+    expect(result).equal(true,'可以選');
+  });
+
+    afterEach(function () {
+      Date.now = originalDateNow;
+  });
+});
+
 describe('今天是 2019/3/22 號星期五 12:59', function() {
 
   beforeEach(function () {
