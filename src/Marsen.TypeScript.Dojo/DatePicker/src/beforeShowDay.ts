@@ -4,21 +4,35 @@ export default class beforeShowDay {
         var day = date.getDay();
         var now = this.GetToday();
         const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+        
         if(day==0){
             return [false];
         }
+        if(now.getDay()==6){
+            return this.RestDays(date,now,3);
+        }
+        if(now.getDay()==0){
+            return this.RestDays(date,now,2);;
+        }
         
         if(now.getHours() >= 12){
-            console.log('date'+date.getDate()+' now '+now.getDate());
+            ///console.log('date'+date.getDate()+' now '+now.getDate());
             if(now.getDay() == 5 ){
-                var fourDay =new Date(now.toDateString()).valueOf() + 4 * _MS_PER_DAY;
-                return [date.valueOf()-fourDay>=0];
+                return this.RestDays(date,now,4);
             }
-
-            var twoDay = new Date(now.toDateString()).valueOf() + 2 * _MS_PER_DAY;
-            return [date.valueOf()-twoDay>=0];
-        }    
+            return this.RestDays(date,now,2);
+        }
+        if(now.toDateString()==date.toDateString())   
+        {
+            return [false];
+        }
         return [true]  ;
+    }
+
+    private static RestDays(date:Date,now:Date,Days:number){
+        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+        var twoDay = new Date(now.toDateString()).valueOf() + Days * _MS_PER_DAY;
+        return [date.valueOf()-twoDay>=0];
     }
 
     private static GetToday(){
