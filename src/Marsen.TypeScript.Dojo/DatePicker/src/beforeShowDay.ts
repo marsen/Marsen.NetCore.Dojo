@@ -3,7 +3,6 @@ export default class beforeShowDay {
     static IsShow(date: Date):Array<Boolean> {
         var day = date.getDay();
         var now = this.GetToday();
-        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
         
         if(day==0){
             return [false];
