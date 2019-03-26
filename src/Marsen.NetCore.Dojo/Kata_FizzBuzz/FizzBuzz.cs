@@ -4,6 +4,11 @@
     {
         public string Get(int input)
         {
+            if (input % 15 == 0)
+            {
+                return "FizzBuzz";
+            }
+
             if (input == 5)
             {
                 return "Buzz";
