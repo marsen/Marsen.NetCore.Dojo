@@ -13,6 +13,13 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
 
             result = CheckBuzzRule(input, result);
 
+            result = CheckNormalRule(input, result);
+
+            return result;
+        }
+
+        private string CheckNormalRule(int input, string result)
+        {
             if (string.IsNullOrEmpty(result))
             {
                 result = input.ToString();
