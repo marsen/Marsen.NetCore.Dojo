@@ -7,10 +7,6 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
         public string Get(int input)
         {
             string result = string.Empty;
-            if (input % 5 == 0 && input % 3 == 0)
-            {
-                return "FizzBuzz";
-            }
 
 
             if (input % 3 == 0)
