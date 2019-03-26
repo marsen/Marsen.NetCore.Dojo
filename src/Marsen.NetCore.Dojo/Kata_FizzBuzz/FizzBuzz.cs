@@ -8,8 +8,8 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
         {
             string result = string.Empty;
 
-
-            result = CheckFizzRule(input, result);
+            var fizzRule = new FizzRule();
+            result = fizzRule.Apply(input, result);
 
             result = CheckBuzzRule(input, result);
 
