@@ -9,10 +9,7 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
             string result = string.Empty;
 
 
-            if (input % 3 == 0)
-            {
-                result += "Fizz";
-            }
+            result = CheckFizzRule(input, result);
 
             if (input % 5 == 0)
             {
@@ -22,6 +19,16 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
             if (string.IsNullOrEmpty(result))
             {
                 return input.ToString();
+            }
+
+            return result;
+        }
+
+        private string CheckFizzRule(int input, string result)
+        {
+            if (input % 3 == 0)
+            {
+                result += "Fizz";
             }
 
             return result;
