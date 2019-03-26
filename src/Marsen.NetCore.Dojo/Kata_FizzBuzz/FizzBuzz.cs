@@ -15,12 +15,11 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
             if (input % 5 == 0)
             {
                 result = "Buzz";
-                //return "Buzz";
             }
 
             if (input % 3 == 0)
             {
-                return "Fizz";
+                result = "Fizz";
             }
 
             if (string.IsNullOrEmpty(result))
