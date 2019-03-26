@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
 
             if (string.IsNullOrEmpty(result))
             {
-                return input.ToString();
+                result = input.ToString();
             }
 
             return result;
