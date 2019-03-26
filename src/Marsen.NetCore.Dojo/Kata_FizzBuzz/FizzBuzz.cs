@@ -10,8 +10,8 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
 
             var fizzRule = new FizzRule();
             result = fizzRule.Apply(input, result);
-
-            result = CheckBuzzRule(input, result);
+            var buzzRule = new BuzzRule();
+            result = buzzRule.Apply(input, result);
 
             result = CheckNormalRule(input, result);
 
