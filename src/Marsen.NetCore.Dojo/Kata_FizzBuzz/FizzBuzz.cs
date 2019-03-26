@@ -9,7 +9,8 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
         {
             List<IRule> rules = new List<IRule> {new FizzRule(), new BuzzRule(), new NormalRule()};
             string result = string.Empty;
-
+            rules.ForEach(rule => result = rule.Apply(input, result));
+            return result;
             IRule fizzRule = new FizzRule();
             result = fizzRule.Apply(input, result);
             IRule buzzRule = new BuzzRule();
