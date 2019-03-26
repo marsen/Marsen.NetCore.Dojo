@@ -17,35 +17,5 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
 
             return result;
         }
-
-        private string CheckNormalRule(int input, string result)
-        {
-            if (string.IsNullOrEmpty(result))
-            {
-                result = input.ToString();
-            }
-
-            return result;
-        }
-
-        private string CheckBuzzRule(int input, string result)
-        {
-            if (input % 5 == 0)
-            {
-                result += "Buzz";
-            }
-
-            return result;
-        }
-
-        private string CheckFizzRule(int input, string result)
-        {
-            if (input % 3 == 0)
-            {
-                result += "Fizz";
-            }
-
-            return result;
-        }
     }
 }
