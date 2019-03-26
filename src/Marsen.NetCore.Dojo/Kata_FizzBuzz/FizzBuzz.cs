@@ -11,14 +11,21 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
 
             result = CheckFizzRule(input, result);
 
-            if (input % 5 == 0)
-            {
-                result += "Buzz";
-            }
+            result = CheckBuzzRule(input, result);
 
             if (string.IsNullOrEmpty(result))
             {
                 return input.ToString();
+            }
+
+            return result;
+        }
+
+        private string CheckBuzzRule(int input, string result)
+        {
+            if (input % 5 == 0)
+            {
+                result += "Buzz";
             }
 
             return result;
