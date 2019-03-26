@@ -28,7 +28,6 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
             }
 
             return result;
-            return input.ToString();
         }
     }
 }
