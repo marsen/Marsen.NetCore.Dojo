@@ -10,8 +10,7 @@ namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
 
         public string Get(int input)
         {
-            string result = string.Empty;
-            return _rules.Aggregate(result, (s, r) => r.Apply(input, s));
+            return _rules.Aggregate(string.Empty, (s, r) => r.Apply(input, s));
         }
     }
 }
