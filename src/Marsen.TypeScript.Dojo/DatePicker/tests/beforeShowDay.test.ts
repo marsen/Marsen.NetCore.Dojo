@@ -1,6 +1,29 @@
 import { expect } from 'chai';
 import D from '../src/beforeShowDay';
 
+describe('今天是 2019/3/30 號星期六 12:05', function() {
+
+  beforeEach(function () {
+      mockDate('2019-3-30 12:05');
+  });
+
+  it('日曆上 2019/4/02 星期二 出貨 可以選', function() {
+    let result = D.IsShow(new Date('2019-4-02'))[0];
+    expect(result).equal(true,'可以選');
+  });
+
+  it('日曆上 2019/4/02 星期二 設定為國定假日, 出貨 不可以選', function() {
+    D.blockDateList.push("2019-4-2");
+    let result = D.IsShow(new Date('2019-4-02'))[0];
+    expect(result).equal(false,'不可以選');
+  });
+
+  afterEach(function () {
+      D.blockDateList=[];
+      Date.now = originalDateNow;
+  });
+});
+
 describe('今天是 2019/3/24 號星期日 12:05', function() {
 
   beforeEach(function () {
