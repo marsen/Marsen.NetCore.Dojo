@@ -4,7 +4,7 @@ export default class beforeShowDay {
     static IsShow(date: Date):Array<Boolean> {
         var day = date.getDay();
         var now = this.GetToday();
-        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW')).length > 0){
+        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW').replace(/\//g,'-')).length > 0){
             return [false];
         }
 
