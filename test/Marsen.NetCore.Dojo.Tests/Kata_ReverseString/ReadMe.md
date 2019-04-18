@@ -3,6 +3,7 @@
 ## Test Case
 
 A is A
+BB is BB
 ABC is CBA
 ABCDEF is FEDCBA
 null is null
