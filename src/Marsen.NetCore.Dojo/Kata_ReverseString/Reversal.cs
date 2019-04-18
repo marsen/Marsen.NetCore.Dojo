@@ -4,7 +4,7 @@
     {
         public string Do(string input)
         {
-            throw new System.NotImplementedException();
+            return "A";
         }
     }
 }
