@@ -4,7 +4,7 @@
     {
         public string Do(string input)
         {
-            return "A";
+            return input;
         }
     }
 }
