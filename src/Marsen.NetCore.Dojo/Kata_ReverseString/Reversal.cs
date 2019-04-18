@@ -4,7 +4,13 @@
     {
         public string Do(string input)
         {
-            return input;
+            var result = string.Empty;
+            foreach (var c in input.ToCharArray())
+            {
+                result = c.ToString() + result;
+            }
+
+            return result;
         }
     }
 }
