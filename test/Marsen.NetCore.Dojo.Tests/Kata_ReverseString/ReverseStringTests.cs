@@ -22,5 +22,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
             var actual = _reversal.Do("BB");
             Assert.Equal("BB", actual);
         }
+
+        [Fact]
+        public void ABC_is_ABC()
+        {
+            var actual = _reversal.Do("ABC");
+            Assert.Equal("CBA", actual);
+        }
     }
 }
