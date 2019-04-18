@@ -43,5 +43,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
             var actual = _reversal.Do(null);
             Assert.Equal(null, actual);
         }
+
+        [Fact]
+        public void stringEmpty_is_stringEmpty()
+        {
+            var actual = _reversal.Do(string.Empty);
+            Assert.Equal(string.Empty, actual);
+        }
     }
 }
