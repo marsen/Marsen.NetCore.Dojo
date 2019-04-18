@@ -4,7 +4,7 @@
     {
         public string Do(string input)
         {
-            if (string.IsNullOrEmpty(input))
+            if (input is null)
             {
                 return input;
             }
@@ -12,7 +12,7 @@
             var result = string.Empty;
             foreach (var c in input.ToCharArray())
             {
-                result = c.ToString() + result;
+                result = c + result;
             }
 
             return result;
