@@ -4,6 +4,11 @@
     {
         public string Do(string input)
         {
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
             var result = string.Empty;
             foreach (var c in input.ToCharArray())
             {
