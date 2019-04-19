@@ -17,8 +17,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
                 var temp = cArray[i];
                 cArray[i] = cArray[cArray.Length - 1 - i];
                 cArray[cArray.Length - 1 - i] = temp;
-//                return cArray.ToString();
             }
+
+            return new string(cArray);
 
             var result = string.Empty;
             for (int i = 0; i < input.Length; i++)
