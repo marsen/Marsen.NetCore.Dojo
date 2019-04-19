@@ -18,11 +18,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
                 result = c + result;
             }
 
-            foreach (var c in input.ToCharArray())
-            {
-                //result = c + result;
-            }
-
             return result;
         }
 
