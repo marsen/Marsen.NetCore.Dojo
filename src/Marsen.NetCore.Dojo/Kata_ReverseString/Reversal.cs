@@ -6,7 +6,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
     {
         public string Do(string input)
         {
-            return ByHalfLengthLoop(input);
+            return ByRecursion(input);
+        }
+
+        private string ByRecursion(string input)
+        {
+            if (string.IsNullOrEmpty(input) || input.Length == 1)
+            {
+                return input;
+            }
+
+            var s1 = input.Substring(0, 1);
+            var s2 = input.Substring(1);
+            return ByRecursion(s2) + s1;
         }
 
         private static string ByHalfLengthLoop(string input)
