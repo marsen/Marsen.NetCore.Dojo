@@ -6,17 +6,23 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
     {
         public string Do(string input)
         {
+            return ByHalfLengthLoop(input);
+        }
+
+        private static string ByHalfLengthLoop(string input)
+        {
             if (input is null)
             {
-                return input;
+                return null;
             }
 
             var cArray = input.ToCharArray();
-            for (int i = 0; i < cArray.Length / 2; i++)
+            for (var i = 0; i < cArray.Length / 2; i++)
             {
                 var temp = cArray[i];
-                cArray[i] = cArray[cArray.Length - 1 - i];
-                cArray[cArray.Length - 1 - i] = temp;
+                var l = cArray.Length - 1 - i;
+                cArray[i] = cArray[l];
+                cArray[l] = temp;
             }
 
             return new string(cArray);
