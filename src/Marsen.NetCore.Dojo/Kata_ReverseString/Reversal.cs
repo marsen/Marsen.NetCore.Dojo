@@ -20,15 +20,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
             }
 
             return new string(cArray);
-
-            var result = string.Empty;
-            for (int i = 0; i < input.Length; i++)
-            {
-                var c = input.Substring(i, 1);
-                result = c + result;
-            }
-
-            return result;
         }
 
         private string ByLambda(string input)
