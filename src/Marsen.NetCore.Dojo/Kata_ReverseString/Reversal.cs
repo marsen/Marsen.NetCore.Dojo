@@ -6,7 +6,24 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
     {
         public string Do(string input)
         {
-            return this.ByLambda(input);
+            if (input is null)
+            {
+                return input;
+            }
+
+            var result = string.Empty;
+            for (int i = 0; i < input.Length; i++)
+            {
+                var c = input.Substring(i, 1);
+                result = c + result;
+            }
+
+            foreach (var c in input.ToCharArray())
+            {
+                //result = c + result;
+            }
+
+            return result;
         }
 
         private string ByLambda(string input)
