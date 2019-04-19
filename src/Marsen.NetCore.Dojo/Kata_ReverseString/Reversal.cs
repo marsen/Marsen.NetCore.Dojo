@@ -6,7 +6,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
     {
         public string Do(string input)
         {
-            return ByRecursion(input);
+            return ByExtendMethod(input);
+        }
+
+        private static string ByExtendMethod(string input)
+        {
+            return input is null ? null : new string(input.Reverse().ToArray());
         }
 
         private string ByRecursion(string input)
