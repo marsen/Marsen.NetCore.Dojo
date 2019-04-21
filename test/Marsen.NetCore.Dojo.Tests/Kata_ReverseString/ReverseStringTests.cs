@@ -41,7 +41,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
         public void null_is_null()
         {
             var actual = _reversal.Do(null);
-            Assert.Equal(null, actual);
+            Assert.Null(actual);
         }
 
         [Fact]
