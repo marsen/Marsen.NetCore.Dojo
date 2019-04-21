@@ -2,11 +2,11 @@
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
 {
-    public class Reversal : IStringReversal
+    public class LoopReversal : IStringReversal
     {
         public string Do(string input)
         {
-            return input is null ? null : new string(input.Reverse().ToArray());
+            return input?.ToCharArray().Aggregate(string.Empty, (current, c) => c + current);
         }
     }
 }
