@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
 {
-    public class ReverseStringTests
+    public class LoopReversalTests
     {
-        readonly IStringReversal _reversal = new Reversal();
+        readonly IStringReversal _reversal = new LoopReversal();
 
         [Fact]
         public void A_is_A()
