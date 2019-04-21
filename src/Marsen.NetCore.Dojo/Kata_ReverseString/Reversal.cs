@@ -2,17 +2,13 @@
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
 {
-    public class Reversal
+    public class Reversal : IStringReversal
     {
         public string Do(string input)
         {
-            return ByExtendMethod(input);
-        }
-
-        private static string ByExtendMethod(string input)
-        {
             return input is null ? null : new string(input.Reverse().ToArray());
         }
+
 
         private string ByRecursion(string input)
         {
