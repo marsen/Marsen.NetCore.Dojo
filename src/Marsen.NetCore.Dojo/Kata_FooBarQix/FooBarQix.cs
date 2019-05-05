@@ -10,18 +10,27 @@
             }
 
             var result = string.Empty;
-            if (input % 3 == 0)
+            if (IsDivisibleBy3(input))
             {
                 result += "Foo";
             }
 
-
-            if (input.ToString().Contains("3"))
+            if (IsContains3(input))
             {
                 result += "Foo";
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
+
+        private bool IsDivisibleBy3(int input)
+        {
+            return input % 3 == 0;
+        }
+
+        private bool IsContains3(int input)
+        {
+            return input.ToString().Contains("3");
         }
     }
 }
