@@ -16,17 +16,12 @@
             }
 
 
-            if (input == 3)
+            if (input.ToString().Contains("3"))
             {
                 result += "Foo";
             }
 
-            if (string.IsNullOrEmpty(result))
-            {
-                return input.ToString();
-            }
-
-            return result;
+            return string.IsNullOrEmpty(result) ? input.ToString() : result;
         }
     }
 }
