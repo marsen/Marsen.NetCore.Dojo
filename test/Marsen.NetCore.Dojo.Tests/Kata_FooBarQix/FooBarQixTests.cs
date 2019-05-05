@@ -15,5 +15,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_FooBarQix
             string expected = fooBarQix.Get(1);
             Assert.Equal(expected, "1");
         }
+
+        [Fact]
+        public void two_is_2()
+        {
+            FooBarQix fooBarQix = new FooBarQix();
+            string expected = fooBarQix.Get(2);
+            Assert.Equal(expected, "2");
+        }
     }
 }
