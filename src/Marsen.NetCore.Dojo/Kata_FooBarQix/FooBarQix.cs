@@ -9,7 +9,7 @@
                 return "BarBar";
             }
 
-            string result = string.Empty;
+            var result = string.Empty;
             if (input % 3 == 0)
             {
                 result += "Foo";
@@ -22,11 +22,15 @@
 
             if (input == 3)
             {
-                return result += "Foo";
-                return "FooFoo";
+                return result + "Foo";
             }
 
-            return input.ToString();
+            if (string.IsNullOrEmpty(result))
+            {
+                return input.ToString();
+            }
+
+            return result;
         }
     }
 }
