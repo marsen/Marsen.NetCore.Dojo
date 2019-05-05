@@ -4,7 +4,7 @@
     {
         public string Get(int input)
         {
-            throw new System.NotImplementedException();
+            return "1";
         }
     }
 }
