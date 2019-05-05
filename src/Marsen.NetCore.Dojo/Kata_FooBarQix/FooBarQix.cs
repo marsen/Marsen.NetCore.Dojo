@@ -15,14 +15,10 @@
                 result += "Foo";
             }
 
-            if (input == 6)
-            {
-                return result;
-            }
 
             if (input == 3)
             {
-                return result + "Foo";
+                result += "Foo";
             }
 
             if (string.IsNullOrEmpty(result))
