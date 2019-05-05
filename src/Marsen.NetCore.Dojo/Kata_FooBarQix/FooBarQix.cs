@@ -4,6 +4,11 @@
     {
         public string Get(int input)
         {
+            if (input == 7)
+            {
+                return "QixQix";
+            }
+
             if (input == 5)
             {
                 return "BarBar";
