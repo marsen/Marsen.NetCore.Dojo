@@ -22,6 +22,7 @@
 
             if (input == 3)
             {
+                return result += "Foo";
                 return "FooFoo";
             }
 
