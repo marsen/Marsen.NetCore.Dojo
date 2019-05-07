@@ -4,11 +4,6 @@
     {
         public string Get(int input)
         {
-            if (input == 7)
-            {
-                //return "QixQix";
-            }
-
             var result = string.Empty;
 
             if (IsDivisibleBy(7, input))
