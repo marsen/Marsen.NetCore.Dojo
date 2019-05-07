@@ -6,10 +6,21 @@
         {
             if (input == 7)
             {
-                return "QixQix";
+                //return "QixQix";
             }
 
             var result = string.Empty;
+
+            if (IsDivisibleBy(7, input))
+            {
+                result += "Qix";
+            }
+
+            if (IsContains(7, input))
+            {
+                result += "Qix";
+            }
+
             if (IsDivisibleBy(5, input))
             {
                 result += "Bar";
