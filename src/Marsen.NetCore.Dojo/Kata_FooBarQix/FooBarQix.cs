@@ -16,6 +16,11 @@
                 result += "Qix";
             }
 
+            if (IsDivisibleBy(3, input))
+            {
+                result += "Foo";
+            }
+
             if (IsDivisibleBy(5, input))
             {
                 result += "Bar";
@@ -24,11 +29,6 @@
             if (IsContains(5, input))
             {
                 result += "Bar";
-            }
-
-            if (IsDivisibleBy(3, input))
-            {
-                result += "Foo";
             }
 
             if (IsContains(3, input))
