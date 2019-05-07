@@ -4,23 +4,13 @@
     {
         public string Get(int input)
         {
-            if (input == 10)
-            {
-                // return "Bar";
-            }
-
             if (input == 7)
             {
                 return "QixQix";
             }
 
-            if (input == 5)
-            {
-                ///return "BarBar";
-            }
-
             var result = string.Empty;
-            if (IsDivisibleBy5(input))
+            if (IsDivisibleBy(5, input))
             {
                 result += "Bar";
             }
@@ -30,7 +20,7 @@
                 result += "Bar";
             }
 
-            if (IsDivisibleBy3(input))
+            if (IsDivisibleBy(3, input))
             {
                 result += "Foo";
             }
@@ -41,6 +31,11 @@
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
+
+        private bool IsDivisibleBy(int i, int input)
+        {
+            return input % i == 0;
         }
 
         private bool IsContain5(int input)
