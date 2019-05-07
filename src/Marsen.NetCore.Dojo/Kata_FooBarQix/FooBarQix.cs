@@ -25,12 +25,17 @@
                 result += "Foo";
             }
 
-            if (IsContains3(input))
+            if (IsContains(3, input))
             {
                 result += "Foo";
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
+
+        private bool IsContains(int i, int input)
+        {
+            return input.ToString().Contains(i.ToString());
         }
 
         private bool IsDivisibleBy(int i, int input)
