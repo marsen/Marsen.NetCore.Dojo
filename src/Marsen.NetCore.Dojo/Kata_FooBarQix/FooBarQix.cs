@@ -5,17 +5,6 @@
         public string Get(int input)
         {
             var result = string.Empty;
-
-            if (IsDivisibleBy(7, input))
-            {
-                result += "Qix";
-            }
-
-            if (IsContains(7, input))
-            {
-                result += "Qix";
-            }
-
             if (IsDivisibleBy(3, input))
             {
                 result += "Foo";
@@ -26,14 +15,24 @@
                 result += "Bar";
             }
 
-            if (IsContains(5, input))
+            if (IsDivisibleBy(7, input))
             {
-                result += "Bar";
+                result += "Qix";
             }
 
             if (IsContains(3, input))
             {
                 result += "Foo";
+            }
+
+            if (IsContains(5, input))
+            {
+                result += "Bar";
+            }
+
+            if (IsContains(7, input))
+            {
+                result += "Qix";
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
