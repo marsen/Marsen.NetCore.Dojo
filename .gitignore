@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+src/Marsen\.TypeScript\.Dojo/DatePicker/\.nyc_output/
+
+src/Marsen\.TypeScript\.Dojo/DatePicker/coverage/
