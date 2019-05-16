@@ -262,3 +262,5 @@ __pycache__/
 src/Marsen\.TypeScript\.Dojo/DatePicker/\.nyc_output/
 
 src/Marsen\.TypeScript\.Dojo/DatePicker/coverage/
+
+\.sonarqube/
