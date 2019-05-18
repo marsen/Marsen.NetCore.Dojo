@@ -1,0 +1,220 @@
+
+ZMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.Statement()Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs   ("0*Œ
+0¿
+Ω
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs"" "(*(
+%0"System.Collections.Generic.List<T>"__id*Ö*ÇP
+NMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer".
+_rentals"System.Collections.Generic.List<T>ù
+ö
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs"" "(:3
+%1-System.Collections.Generic.List<T>.Enumerator"2System.Collections.Generic.List<T>.GetEnumerator()**
+(
+%0"System.Collections.Generic.List<T>
+Ì
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs" "(:)
+rentalsSystem.Collections.IEnumerator"__id*5
+3
+%1-System.Collections.Generic.List<T>.Enumeratorƒ
+¡
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs#. #(7
+%2string"XMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.GetName()*RP
+NMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer∏
+µ
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs# #(;
+%3string"__concat*
+""*
+
+%2string∏
+µ
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs# #(;
+%4string"__concat*
+
+%3string*
+""∞
+≠
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs# #(;
+resultstring"__id*
+
+%4string*
+1*Ü
+1¯ı
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs$ $(%
+
+%5bool")System.Collections.IEnumerator.MoveNext()*+
+)
+rentalsSystem.Collections.IEnumerator2
+MoveNext()*
+2
+3*∑
+2¸˘
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs&$ &(3
+%6object"*System.Collections.IEnumerator.Current.get*+
+)
+rentalsSystem.Collections.IEnumerator2Current.get§
+°
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs& &(3
+%7"__id*
+
+%6objectÏ
+È
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs& &(3T
+eachLMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental"__id*
+
+%7å
+â
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(.Q
+%8KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"WMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetMovie()*V
+T
+eachLMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental√
+¿
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(9
+%9string"VMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetTitle()*S
+Q
+%8KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie…
+∆
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs)= )(M
+%10double"XMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetCharge()*V
+T
+eachLMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rentalπ
+∂
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(Q
+%11string"__concat*
+""*
+
+%9string∫
+∑
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(Q
+%12string"__concat*
+
+%11string*
+""√
+¿
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(Q
+%13string"__concat*
+
+%12string*
+
+%10double∫
+∑
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(Q
+%14string"__concat*
+
+%13string*
+""∆
+√
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(Q
+%15string"__concat*
+
+resultstring*
+
+%14string±
+Æ
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs) )(Q
+resultstring"__id*
+
+%15string*
+1*¢
+3Ã
+…
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs-( -(8
+%16double"_Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.GetTotalAmount()*RP
+NMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer∫
+∑
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs- -(<
+%17double"__concat*
+""*
+
+%16double∫
+∑
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs- -(<
+%18double"__concat*
+
+%17double*
+""∆
+√
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs- -(<
+%19string"__concat*
+
+resultstring*
+
+%18double±
+Æ
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs- -(<
+resultstring"__id*
+
+%19string“
+œ
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs.$ .(=
+
+%20int"hMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.GetFrequentRenterPoints()*RP
+NMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer¥
+±
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs. .(V
+
+%21int"__concat*
+""*
+
+
+%20int¥
+±
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs. .(V
+
+%22int"__concat*
+
+
+%21int*
+""√
+¿
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs. .(V
+%23string"__concat*
+
+resultstring*
+
+
+%22int±
+Æ
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs. .(V
+resultstring"__id*
+
+%23string"ô
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs/ /(
+
+resultstring*†
+4"ö
+Ç
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.cs0 0(	
+implicit returnBRP
+NMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer

@@ -1,0 +1,8 @@
+Î
+KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movieobject‹
+]Movie(string, Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.MoveType)©Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.Movie(string, Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.MoveType)‰
+\SetPriceCode(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.MoveType)¨Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.SetPriceCode(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.MoveType)d
+
+GetTitle()VMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetTitle()l
+GetCharge(int)ZMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetCharge(int)ˆ
+GetFrequentRenterPoints(int)hMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetFrequentRenterPoints(int)
