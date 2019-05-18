@@ -22,23 +22,13 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                 result += "Qix";
             }
 
-            //            if (input == 33)
+            foreach (var c in input.ToString().ToCharArray())
             {
-                foreach (var c in input.ToString().ToCharArray())
+                if (c == '3')
                 {
-                    if (c == '3')
-                    {
-                        result += "Foo";
-                    }
+                    result += "Foo";
                 }
-
-                //                return result;
             }
-
-            //if (IsContains(3, input))
-            //{
-            //    result += "Foo";
-            //}
 
             if (IsContains(5, input))
             {
