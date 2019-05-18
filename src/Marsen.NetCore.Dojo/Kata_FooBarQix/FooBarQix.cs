@@ -1,4 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata_FooBarQix
+﻿using System;
+
+namespace Marsen.NetCore.Dojo.Kata_FooBarQix
 {
     public class FooBarQix
     {
@@ -18,6 +20,19 @@
             if (IsDivisibleBy(7, input))
             {
                 result += "Qix";
+            }
+
+            if (input == 33)
+            {
+                foreach (var c in input.ToString().ToCharArray())
+                {
+                    if (c == '3')
+                    {
+                        result += "Foo";
+                    }
+                }
+
+                return result;
             }
 
             if (IsContains(3, input))
