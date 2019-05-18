@@ -22,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                 result += "Qix";
             }
 
-            if (input == 33)
+            //            if (input == 33)
             {
                 foreach (var c in input.ToString().ToCharArray())
                 {
@@ -32,13 +32,13 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                     }
                 }
 
-                return result;
+                //                return result;
             }
 
-            if (IsContains(3, input))
-            {
-                result += "Foo";
-            }
+            //if (IsContains(3, input))
+            //{
+            //    result += "Foo";
+            //}
 
             if (IsContains(5, input))
             {
