@@ -1,0 +1,22 @@
+]
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\BuzzRule.csutf-8]
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.csutf-8]
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzRule.csutf-8Z
+QD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\IRule.csutf-8_
+VD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\NormalRule.csutf-8_
+VD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FooBarQix\FooBarQix.csutf-8j
+aD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\HalfLoopReversal.csutf-8i
+`D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\IStringReversal.csutf-8f
+]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.csutf-8k
+bD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\RecursionReversal.csutf-8b
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.csutf-8Å
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Customer.csutf-8Å
+xD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\MoveType.csutf-8~
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.csutf-8í
+àD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\PriceState\ChildrenPrice.csutf-8î
+äD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\PriceState\NewReleasePrice.csutf-8ä
+ÄD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\PriceState\Price.csutf-8ë
+áD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\PriceState\RegularPrice.csutf-8
+vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.csutf-8^
+SC:\Users\Mark Lin\AppData\Local\Temp\.NETCoreApp,Version=v2.2.AssemblyAttributes.csutf-8Å
+vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\obj\Debug\netcoreapp2.2\Marsen.NetCore.Dojo.AssemblyInfo.csutf-8

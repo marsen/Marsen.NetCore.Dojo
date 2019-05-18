@@ -1,0 +1,36 @@
+
+3Marsen.NetCore.Dojo.Kata_FizzBuzz.FizzBuzz.Get(int)^
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.cs ("0*ÿ
+0ó
+ð
+^
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.cs ((
+%0"System.Collections.Generic.List<T>"__id*^*\,
+*Marsen.NetCore.Dojo.Kata_FizzBuzz.FizzBuzz",
+_rules"System.Collections.Generic.List<T>–
+“
+^
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.cs$ (0
+%1string"__id**
+string"
+Emptystringø
+õ
+^
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.cs (N
+%2string"¤System.Linq.Enumerable.Aggregate<TSource, TAccumulate>(System.Collections.Generic.IEnumerable<TSource>, TAccumulate, System.Func<TAccumulate, TSource, TAccumulate>)*"
+System.Linq.Enumerable**
+(
+%0"System.Collections.Generic.List<T>*
+
+%1string*
+"""p
+^
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.cs (O
+
+%2string*z
+1"u
+^
+TD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_FizzBuzz\FizzBuzz.cs (	
+implicit return:
+inputintB.,
+*Marsen.NetCore.Dojo.Kata_FizzBuzz.FizzBuzz

@@ -1,0 +1,1 @@
+D:\Repo\Marsen\Marsen.NetCore.Dojo\.sonarqube\out\1
