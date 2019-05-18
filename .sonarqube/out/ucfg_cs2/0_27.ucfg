@@ -1,0 +1,71 @@
+
+¨Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.SetPriceCode(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.MoveType)
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs ( "0*
+0*
+1
+2
+3
+4*é
+3ÊÇ
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs# #(0d
+%0^Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.ChildrenPrice"^Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.ChildrenPriceè
+å
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs#! #(.
+
+%1void"nMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.ChildrenPrice.ChildrenPrice()*f
+d
+%0^Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.ChildrenPrice¦
+£
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs# #(0±M
+KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"`
+_priceVMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price"__id*f
+d
+%0^Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.ChildrenPrice*
+4*õ
+2ÎË
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs (2f
+%2`Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.NewReleasePrice"`Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.NewReleasePriceî
+ë
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs! (0
+
+%3void"rMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.NewReleasePrice.NewReleasePrice()*h
+f
+%2`Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.NewReleasePrice¨
+¥
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs (2±M
+KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"`
+_priceVMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price"__id*h
+f
+%2`Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.NewReleasePrice*
+4*ã
+1ÈÅ
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs (/c
+%4]Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.RegularPrice"]Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.RegularPriceå
+â
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs! (-
+
+%5void"lMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.RegularPrice.RegularPrice()*e
+c
+%4]Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.RegularPrice¥
+¢
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs (/±M
+KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"`
+_priceVMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price"__id*e
+c
+%4]Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.RegularPrice*
+4*œ
+4"–
+
+uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs& &(	
+implicit return:U
+argNMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.MoveTypeBOM
+KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie

@@ -1,0 +1,74 @@
+
+@Marsen.NetCore.Dojo.Tests.Kata_ReverseString.Reversal.Do(string)c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs ("0*
+0*
+1
+2*å
+1{
+y
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	# 	('
+%1"__id*
+""Ñ
+Å
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	# 	('
+%0string"__id*
+
+%1*
+3*ñ	
+2¢
+ü
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	5 	(D/
+%3)System.Collections.Generic.IEnumerable<T>"XSystem.Linq.Enumerable.Reverse<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*
+
+inputstringü
+ú
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	5 	(N
+%4char[]"XSystem.Linq.Enumerable.ToArray<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*1
+/
+%3)System.Collections.Generic.IEnumerable<T>}{
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	* 	(O
+%5string"string´
+®
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	. 	(4
+
+%6void"string.String(char[])*
+
+%5string*
+
+%4char[]ä
+á
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	* 	(O
+
+%2void"__id*
+
+%5stringä
+á
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	* 	(O
+%0string"__id*
+
+
+%2void*
+3*z
+3"u
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs	 	(P
+
+%0string*
+4"z
+c
+YD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\Reversal.cs
+ 
+(	
+implicit return:
+inputstringB97
+5Marsen.NetCore.Dojo.Tests.Kata_ReverseString.Reversal
