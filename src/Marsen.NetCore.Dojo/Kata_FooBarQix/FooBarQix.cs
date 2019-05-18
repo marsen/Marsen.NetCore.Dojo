@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_FooBarQix
 {
@@ -22,13 +23,8 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                 result += "Qix";
             }
 
-            foreach (var c in input.ToString().ToCharArray())
-            {
-                if (c == '3')
-                {
-                    result += "Foo";
-                }
-            }
+            result = input.ToString().ToCharArray().Where(c => c == '3')
+                .Aggregate(result, (current, c) => current + "Foo");
 
             if (IsContains(5, input))
             {
