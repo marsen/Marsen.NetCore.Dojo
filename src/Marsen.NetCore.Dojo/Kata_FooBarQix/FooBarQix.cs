@@ -40,18 +40,6 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                     result += "Qix";
                 }
             }
-            //// result = input.ToString().ToCharArray().Where(c => c == '3').Aggregate(result, (current, c) => current + "Foo");
-
-
-            if (IsContains(5, input))
-            {
-                //result += "Bar";
-            }
-
-            if (IsContains(7, input))
-            {
-                //result += "Qix";
-            }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
         }
