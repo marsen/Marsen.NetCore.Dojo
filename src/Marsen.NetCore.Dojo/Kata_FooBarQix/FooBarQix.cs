@@ -34,6 +34,11 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                 {
                     result += "Bar";
                 }
+
+                if (c == '7')
+                {
+                    result += "Qix";
+                }
             }
             //// result = input.ToString().ToCharArray().Where(c => c == '3').Aggregate(result, (current, c) => current + "Foo");
 
@@ -45,7 +50,7 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
 
             if (IsContains(7, input))
             {
-                result += "Qix";
+                //result += "Qix";
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
