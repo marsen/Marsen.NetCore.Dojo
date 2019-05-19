@@ -114,5 +114,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_FooBarQix
             string actual = _fooBarQix.Get(51);
             Assert.Equal("FooBar", actual);
         }
+
+        [Fact]
+        public void fiftyThree_is_BarFoo()
+        {
+            string actual = _fooBarQix.Get(53);
+            Assert.Equal("BarFoo", actual);
+        }
     }
 }

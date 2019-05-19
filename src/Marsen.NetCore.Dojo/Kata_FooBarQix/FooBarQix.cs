@@ -23,13 +23,24 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
                 result += "Qix";
             }
 
-            result = input.ToString().ToCharArray().Where(c => c == '3')
-                .Aggregate(result, (current, c) => current + "Foo");
+            foreach (var c in input.ToString().ToCharArray())
+            {
+                if (c == '3')
+                {
+                    result += "Foo";
+                }
+
+                if (c == '5')
+                {
+                    result += "Bar";
+                }
+            }
+            //// result = input.ToString().ToCharArray().Where(c => c == '3').Aggregate(result, (current, c) => current + "Foo");
 
 
             if (IsContains(5, input))
             {
-                result += "Bar";
+                //result += "Bar";
             }
 
             if (IsContains(7, input))
