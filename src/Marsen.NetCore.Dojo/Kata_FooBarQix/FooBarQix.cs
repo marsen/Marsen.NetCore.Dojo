@@ -26,6 +26,7 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             result = input.ToString().ToCharArray().Where(c => c == '3')
                 .Aggregate(result, (current, c) => current + "Foo");
 
+
             if (IsContains(5, input))
             {
                 result += "Bar";
