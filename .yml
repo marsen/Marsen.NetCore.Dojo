@@ -5,3 +5,4 @@ dist: bionic
 dotnet: 2.2.105
 script:
  - dotnet restore
+ - dotnet test
