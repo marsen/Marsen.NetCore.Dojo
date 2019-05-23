@@ -1,0 +1,6 @@
+language: csharp
+solution: Marsen.NetCore.Dojo.sln
+mono: none
+dotnet: 2.2
+script:
+ - dotnet restore
