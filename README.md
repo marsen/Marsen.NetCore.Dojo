@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/marsen/Marsen.NetCore.Dojo.svg?branch=master)](https://travis-ci.com/marsen/Marsen.NetCore.Dojo)
+
 # Marsen.NetCore.Dojo
 For Kata
 
