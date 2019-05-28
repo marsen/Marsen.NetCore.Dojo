@@ -129,5 +129,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             SecondPlayerScoreTimes(4);
             Assert.Equal("Tom Adv", _tennisGame.Score());
         }
+
+        [Fact]
+        public void SecondPlayer_Win()
+        {
+            FirstPlayerScoreTimes(3);
+            SecondPlayerScoreTimes(5);
+            Assert.Equal("Tom Win", _tennisGame.Score());
+        }
     }
 }
