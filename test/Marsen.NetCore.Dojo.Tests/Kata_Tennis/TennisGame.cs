@@ -10,6 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
         private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
         {
+            {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"},
@@ -18,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
         public string Score()
         {
-            if (_firstPlayerScore > 0 && _secondPlayerScore > 0)
+            if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
             {
                 return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
             }
