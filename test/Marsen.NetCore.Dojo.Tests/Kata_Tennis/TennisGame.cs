@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 {
@@ -39,6 +41,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
             if (_firstPlayerScore > 3)
             {
+                if (_firstPlayerScore - _secondPlayerScore > 1)
+                {
+                    return $"{_firstPlayerName} Win";
+                }
+
                 return $"{_firstPlayerName} Adv";
             }
 
