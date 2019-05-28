@@ -10,6 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
         {
             {1, "Fifteen"},
             {2, "Thirty"},
+            {3, "Forty"},
         };
 
         public string Score()
