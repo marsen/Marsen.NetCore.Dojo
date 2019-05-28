@@ -29,5 +29,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             _tennisGame.FirstPlayerScore();
             Assert.Equal("Thirty Love", _tennisGame.Score());
         }
+
+        [Fact]
+        public void Forty_Love()
+        {
+            _tennisGame.FirstPlayerScore();
+            _tennisGame.FirstPlayerScore();
+            _tennisGame.FirstPlayerScore();
+            Assert.Equal("Forty Love", _tennisGame.Score());
+        }
     }
 }
