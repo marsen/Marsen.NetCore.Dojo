@@ -4,6 +4,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 {
     public class TennisGame
     {
+        private readonly string _firstPlayerName;
         private int _firstPlayerScore;
 
         private int _secondPlayerScore;
@@ -16,6 +17,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             {3, "Forty"},
         };
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TennisGame" /> class.
+        /// </summary>
+        public TennisGame(string firstPlayerName)
+        {
+            _firstPlayerName = firstPlayerName;
+        }
 
         public string Score()
         {
@@ -31,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
             if (_firstPlayerScore > 3)
             {
-                return "Joey Adv";
+                return $"{_firstPlayerName} Adv";
             }
 
             return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
