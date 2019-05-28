@@ -7,12 +7,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 {
     public class TennisGameTests
     {
+        readonly TennisGame _tennisGame = new TennisGame();
+
         [Fact]
         public void Love_All()
         {
-            TennisGame tennisGame = new TennisGame();
-            var score = tennisGame.Score();
-            Assert.Equal("Love All", score);
+            Assert.Equal("Love All", _tennisGame.Score());
         }
     }
 }
