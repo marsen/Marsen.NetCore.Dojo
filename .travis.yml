@@ -1,0 +1,8 @@
+language: csharp
+solution: Marsen.NetCore.Dojo.sln
+mono: none
+dist: bionic 
+dotnet: 2.2.105
+script:
+ - dotnet restore
+ - dotnet test
