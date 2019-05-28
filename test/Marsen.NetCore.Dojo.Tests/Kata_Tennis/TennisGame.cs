@@ -31,22 +31,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
         public string Score()
         {
-            if (IsSameScore())
-            {
-                if (IsOverForty())
-                {
-                    return DeuceScore();
-                }
-
-                return SameScore();
-            }
-
-            if (IsReadyForWin())
-            {
-                return AdvScore();
-            }
-
-            return NormalScore();
+            return IsSameScore()
+                ? (IsOverForty() ? DeuceScore() : SameScore())
+                : (IsReadyForWin() ? AdvScore() : NormalScore());
         }
 
         private bool IsOverForty()
