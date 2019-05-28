@@ -17,6 +17,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             }
         }
 
+        private void SecondPlayerScoreTimes(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _tennisGame.SecondPlayerScore();
+            }
+        }
+
         [Fact]
         public void Love_All()
         {
@@ -50,14 +58,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
         {
             SecondPlayerScoreTimes(1);
             Assert.Equal("Love Fifteen", _tennisGame.Score());
-        }
-
-        private void SecondPlayerScoreTimes(int times)
-        {
-            for (int i = 0; i < times; i++)
-            {
-                _tennisGame.SecondPlayerScore();
-            }
         }
     }
 }
