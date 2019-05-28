@@ -44,7 +44,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
             {
                 var winner = _firstPlayerScore > _secondPlayerScore ? _firstPlayerName : _secondPlayerName;
-                if (_firstPlayerScore - _secondPlayerScore > 1)
+                if (Math.Abs(_firstPlayerScore - _secondPlayerScore) > 1)
                 {
                     return $"{winner} Win";
                 }
