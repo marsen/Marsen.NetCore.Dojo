@@ -7,7 +7,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 {
     public class TennisGameTests
     {
-        readonly TennisGame _tennisGame = new TennisGame();
+        readonly TennisGame _tennisGame = new TennisGame("Joey");
 
         private void FirstPlayerScoreTimes(int times)
         {
