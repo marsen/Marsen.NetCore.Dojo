@@ -28,8 +28,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             {
                 return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
             }
-
-            return "Love All";
         }
 
         public void FirstPlayerScore()
