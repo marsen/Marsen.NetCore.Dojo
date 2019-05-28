@@ -24,16 +24,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
                 return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
             }
 
-            if (_secondPlayerScore > 0)
-            {
-                return $"Love {_scoreLookup[_secondPlayerScore]}";
-            }
-
-            if (_firstPlayerScore > 0)
-            {
-                return $"{_scoreLookup[_firstPlayerScore]} Love";
-            }
-
             return "Love All";
         }
 
