@@ -33,20 +33,45 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
         {
             if (IsSameScore())
             {
-                if (_firstPlayerScore >= 3)
+                if (IsOverForty())
                 {
-                    return "Deuce";
+                    return DeuceScore();
                 }
 
-                return $"{_scoreLookup[_firstPlayerScore]} All";
+                return SameScore();
             }
 
             if (IsReadyForWin())
             {
-                return $"{GetWinnerName()} " + (IsLeading2() ? "Win" : "Adv");
+                return AdvScore();
             }
 
+            return NormalScore();
+        }
+
+        private bool IsOverForty()
+        {
+            return _firstPlayerScore >= 3;
+        }
+
+        private static string DeuceScore()
+        {
+            return "Deuce";
+        }
+
+        private string NormalScore()
+        {
             return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
+        }
+
+        private string SameScore()
+        {
+            return $"{_scoreLookup[_firstPlayerScore]} All";
+        }
+
+        private string AdvScore()
+        {
+            return $"{GetWinnerName()} " + (IsLeading2() ? "Win" : "Adv");
         }
 
         private bool IsLeading2()
