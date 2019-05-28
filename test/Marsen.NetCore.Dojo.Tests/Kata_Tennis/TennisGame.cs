@@ -21,6 +21,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
         {
             if (_firstPlayerScore == _secondPlayerScore)
             {
+                if (_firstPlayerScore == 3)
+                {
+                    return "Deuce";
+                }
+
                 return $"{_scoreLookup[_firstPlayerScore]} All";
             }
 
