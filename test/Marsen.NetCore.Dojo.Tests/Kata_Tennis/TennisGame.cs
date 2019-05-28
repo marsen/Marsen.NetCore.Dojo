@@ -43,7 +43,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
             if (IsReadyForWin())
             {
-                return IsLeading2() ? $"{GetWinnerName()} Win" : $"{GetWinnerName()} Adv";
+                return $"{GetWinnerName()} " + (IsLeading2() ? "Win" : "Adv");
             }
 
             return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
