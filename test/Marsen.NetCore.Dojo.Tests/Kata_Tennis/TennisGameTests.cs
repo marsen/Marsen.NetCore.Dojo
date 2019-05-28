@@ -89,5 +89,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             SecondPlayerScoreTimes(2);
             Assert.Equal("Thirty All", _tennisGame.Score());
         }
+
+        [Fact]
+        public void Deuce()
+        {
+            FirstPlayerScoreTimes(3);
+            SecondPlayerScoreTimes(3);
+            Assert.Equal("Deuce", _tennisGame.Score());
+        }
     }
 }
