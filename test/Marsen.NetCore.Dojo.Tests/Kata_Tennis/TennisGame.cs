@@ -18,6 +18,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 
         public string Score()
         {
+            if (_firstPlayerScore > 0 && _secondPlayerScore > 0)
+            {
+                return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
+            }
+
             if (_secondPlayerScore > 0)
             {
                 return $"Love {_scoreLookup[_secondPlayerScore]}";
