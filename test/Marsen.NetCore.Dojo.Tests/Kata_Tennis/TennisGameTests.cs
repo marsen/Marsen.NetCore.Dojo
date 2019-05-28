@@ -5,9 +5,9 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 {
-    public class TennisGameTests
+    public class tennisGameTests
     {
-        readonly TennisGame _tennisGame = new TennisGame("Joey");
+        readonly TennisGame _tennisGame = new TennisGame("Joey", "Tom");
 
         private void FirstPlayerScoreTimes(int times)
         {
@@ -120,6 +120,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             FirstPlayerScoreTimes(5);
             SecondPlayerScoreTimes(3);
             Assert.Equal("Joey Win", _tennisGame.Score());
+        }
+
+        [Fact]
+        public void SecondPlayer_Adv()
+        {
+            FirstPlayerScoreTimes(3);
+            SecondPlayerScoreTimes(4);
+            Assert.Equal("Tom Adv", _tennisGame.Score());
         }
     }
 }
