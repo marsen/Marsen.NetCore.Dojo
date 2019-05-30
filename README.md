@@ -11,7 +11,9 @@ For Kata
   - workingProcess
 - Vim
   - Resharp
-  - typing 
+  - typing
 - Pair
-  - Learn from others
-  - 
+  - Learn from others  
+- CI/CD Tools
+  - Travis CI
+  - SounarCloud
