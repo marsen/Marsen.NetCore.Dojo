@@ -11,9 +11,9 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             var divisibleRule = new DivisibleRule(3);
             result = divisibleRule.Apply(input, result);
             divisibleRule = new DivisibleRule(5);
-            //result = divisibleRule.Apply(input, result);
+            result = divisibleRule.Apply(input, result);
 
-            result = ApplyDivisible5Rule(input, result);
+            //result = ApplyDivisible5Rule(input, result);
 
             result = ApplyDivisible7Rule(input, result);
 
