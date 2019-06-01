@@ -1,8 +1,0 @@
-¡
-NMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customerobjects
-Customer(string)_Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.Customer(string)‚
-WAddRental(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental)¦Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.AddRental(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental)e
-	GetName()XMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.GetName()i
-Statement()ZMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.Statement()s
-GetTotalAmount()_Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.GetTotalAmount()…
-GetFrequentRenterPoints()hMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Customer.GetFrequentRenterPoints()

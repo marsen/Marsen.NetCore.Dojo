@@ -1,42 +1,0 @@
-
-DMarsen.NetCore.Dojo.Tests.Kata_ReverseString.LoopReversal.Do(string)g
-]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.cs ("0*
-0*
-1
-2*¸
-2£
- 
-g
-]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.cs	 	('
-%0char[]"string.ToCharArray()*
-
-inputstringŸ
-œ
-g
-]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.cs	2 	(>
-%1string"__id**
-string"
-Emptystringå
-â
-g
-]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.cs	 	(\
-%2string"¤System.Linq.Enumerable.Aggregate<TSource, TAccumulate>(System.Collections.Generic.IEnumerable<TSource>, TAccumulate, System.Func<TAccumulate, TSource, TAccumulate>)*"
-System.Linq.Enumerable*
-
-%0char[]*
-
-%1string*
-""*
-1*}
-1"x
-g
-]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.cs	 	(]
-	{unknown}*ƒ
-3"~
-g
-]D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Kata_ReverseString\LoopReversal.cs
- 
-(	
-implicit return:
-inputstringB=;
-9Marsen.NetCore.Dojo.Tests.Kata_ReverseString.LoopReversal
