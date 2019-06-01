@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_FooBarQix
@@ -8,12 +9,19 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
         public string Get(int input)
         {
             var result = string.Empty;
-            var divisibleRule = new DivisibleRule(3);
-            result = divisibleRule.Apply(input, result);
-            divisibleRule = new DivisibleRule(5);
-            result = divisibleRule.Apply(input, result);
-            divisibleRule = new DivisibleRule(7);
-            result = divisibleRule.Apply(input, result);
+            List<int> ruleNumbers = new List<int> {3, 5, 7};
+            foreach (var i in ruleNumbers)
+            {
+                var rule = new DivisibleRule(i);
+                result = rule.Apply(input, result);
+            }
+
+            //var divisibleRule = new DivisibleRule(3);
+            //result = divisibleRule.Apply(input, result);
+            //divisibleRule = new DivisibleRule(5);
+            //result = divisibleRule.Apply(input, result);
+            //divisibleRule = new DivisibleRule(7);
+            //result = divisibleRule.Apply(input, result);
             foreach (var c in input.ToString().ToCharArray())
             {
                 if (c == '3')
