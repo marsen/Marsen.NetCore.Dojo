@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/marsen/Marsen.NetCore.Dojo.svg?branch=master)](https://travis-ci.com/marsen/Marsen.NetCore.Dojo)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=marsen_Marsen.NetCore.Dojo&metric=alert_status)](https://sonarcloud.io/dashboard?id=marsen_Marsen.NetCore.Dojo)
 
 # Marsen.NetCore.Dojo
 For Kata
@@ -11,7 +12,9 @@ For Kata
   - workingProcess
 - Vim
   - Resharp
-  - typing 
+  - typing
 - Pair
-  - Learn from others
-  - 
+  - Learn from others  
+- CI/CD Tools
+  - Travis CI
+  - SounarCloud
