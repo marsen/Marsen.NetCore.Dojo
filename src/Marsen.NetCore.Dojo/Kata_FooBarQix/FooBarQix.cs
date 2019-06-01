@@ -35,35 +35,6 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
         }
 
-        private string ApplyDivisible7Rule(int input, string result)
-        {
-            if (IsDivisibleBy(7, input))
-            {
-                result += "Qix";
-            }
-
-            return result;
-        }
-
-        private string ApplyDivisible5Rule(int input, string result)
-        {
-            if (IsDivisibleBy(5, input))
-            {
-                result += "Bar";
-            }
-
-            return result;
-        }
-
-        private string ApplyDivisible3Rule(int input, string result)
-        {
-            if (IsDivisibleBy(3, input))
-            {
-                result += "Foo";
-            }
-
-            return result;
-        }
 
         private bool IsDivisibleBy(int i, int input)
         {
