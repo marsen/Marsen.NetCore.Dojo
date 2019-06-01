@@ -8,10 +8,7 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
         public string Get(int input)
         {
             var result = string.Empty;
-            if (IsDivisibleBy(3, input))
-            {
-                result += "Foo";
-            }
+            result = ApplyDivisible3Rule(input, result);
 
             if (IsDivisibleBy(5, input))
             {
@@ -42,6 +39,16 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
+
+        private string ApplyDivisible3Rule(int input, string result)
+        {
+            if (IsDivisibleBy(3, input))
+            {
+                result += "Foo";
+            }
+
+            return result;
         }
 
         private bool IsDivisibleBy(int i, int input)
