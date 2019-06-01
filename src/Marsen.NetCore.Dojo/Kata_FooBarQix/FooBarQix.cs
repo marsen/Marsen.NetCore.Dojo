@@ -6,22 +6,17 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
 {
     public class FooBarQix
     {
+        private readonly List<int> _ruleNumbers = new List<int> {3, 5, 7};
+
         public string Get(int input)
         {
             var result = string.Empty;
-            List<int> ruleNumbers = new List<int> {3, 5, 7};
-            foreach (var i in ruleNumbers)
+            foreach (var i in _ruleNumbers)
             {
                 var rule = new DivisibleRule(i);
                 result = rule.Apply(input, result);
             }
 
-            //var divisibleRule = new DivisibleRule(3);
-            //result = divisibleRule.Apply(input, result);
-            //divisibleRule = new DivisibleRule(5);
-            //result = divisibleRule.Apply(input, result);
-            //divisibleRule = new DivisibleRule(7);
-            //result = divisibleRule.Apply(input, result);
             foreach (var c in input.ToString().ToCharArray())
             {
                 if (c == '3')
