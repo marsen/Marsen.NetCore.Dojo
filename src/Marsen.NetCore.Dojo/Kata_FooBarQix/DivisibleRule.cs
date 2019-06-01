@@ -6,10 +6,11 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
     {
         private readonly int _divisor;
 
-        Dictionary<int, string> _lookup = new Dictionary<int, string>
+        private readonly Dictionary<int, string> _lookup = new Dictionary<int, string>
         {
             {3, "Foo"},
             {5, "Bar"},
+            {7, "Qix"},
         };
 
         /// <summary>

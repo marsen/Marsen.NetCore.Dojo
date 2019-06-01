@@ -12,11 +12,8 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             result = divisibleRule.Apply(input, result);
             divisibleRule = new DivisibleRule(5);
             result = divisibleRule.Apply(input, result);
-
-            //result = ApplyDivisible5Rule(input, result);
-
-            result = ApplyDivisible7Rule(input, result);
-
+            divisibleRule = new DivisibleRule(7);
+            result = divisibleRule.Apply(input, result);
             foreach (var c in input.ToString().ToCharArray())
             {
                 if (c == '3')
