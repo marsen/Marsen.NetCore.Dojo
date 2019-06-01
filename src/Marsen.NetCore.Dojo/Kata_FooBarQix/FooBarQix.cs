@@ -8,7 +8,10 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
         public string Get(int input)
         {
             var result = string.Empty;
-            result = ApplyDivisible3Rule(input, result);
+            var divisibleRule = new DivisibleRule(3);
+            result = divisibleRule.Apply(input, result);
+            divisibleRule = new DivisibleRule(5);
+            //result = divisibleRule.Apply(input, result);
 
             result = ApplyDivisible5Rule(input, result);
 
