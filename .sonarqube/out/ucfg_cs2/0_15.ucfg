@@ -1,31 +1,0 @@
-
-fMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetFrequentRenterPoints()Ä
-vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.cs! !(*"0*¡	
-0Ñ
-Å
-Ä
-vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.cs$ $(Q
-%0KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"WMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetMovie()*PN
-LMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental¡
-æ
-Ä
-vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.cs$6 $(E	
-%1int"\Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetDaysRented()*PN
-LMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental›
-⁄
-Ä
-vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.cs$ $(F	
-%2int"hMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetFrequentRenterPoints(int)*S
-Q
-%0KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie*
-	
-%1int"ê
-Ä
-vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.cs$ $(G
-	
-%2int*û
-1"ò
-Ä
-vD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Rental.cs% %(	
-implicit returnBPN
-LMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental

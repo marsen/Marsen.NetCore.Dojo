@@ -1,27 +1,0 @@
-
-hMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetFrequentRenterPoints(int)
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs2 2(*"0*Ã
-0Ÿ
-œ
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs4 4(\
-%0VMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price"__id*´*±M
-KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"`
-_priceVMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.PriceŠ‡
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs4 4(=	
-%1int"sMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price.GetFrequentRenterPoints(int)*^
-\
-%0VMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price*
-""2GetFrequentRenterPoints(int)"Ž
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs4 4(>
-	
-%1int*œ
-1"–
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs5 5(	
-implicit return:
-
-daysRentedintBOM
-KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie
