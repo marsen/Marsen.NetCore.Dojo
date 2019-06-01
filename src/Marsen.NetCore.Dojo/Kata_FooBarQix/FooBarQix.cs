@@ -11,11 +11,7 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
         public string Get(int input)
         {
             var result = string.Empty;
-            foreach (var i in _ruleNumbers)
-            {
-                var rule = new DivisibleRule(i);
-                result = rule.Apply(input, result);
-            }
+            result = _ruleNumbers.Aggregate(string.Empty, (s, i) => new DivisibleRule(i).Apply(input, s));
 
             foreach (var c in input.ToString().ToCharArray())
             {
