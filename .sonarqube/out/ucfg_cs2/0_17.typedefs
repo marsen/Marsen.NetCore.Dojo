@@ -1,8 +1,0 @@
-¢
-LMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rentalobject‚
-XRental(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie, int)¥Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.Rental(Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie, int)o
-GetDaysRented()\Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetDaysRented()e
-
-GetMovie()WMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetMovie()g
-GetCharge()XMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetCharge()ƒ
-GetFrequentRenterPoints()fMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Rental.GetFrequentRenterPoints()

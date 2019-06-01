@@ -1,28 +1,0 @@
-
-ZMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie.GetCharge(int)
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs- -("0*ù
-0ü
-ú
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs/ /(\
-%0VMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price"__id*¥*±M
-KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie"`
-_priceVMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price·
-ﬁ
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs/ /(/
-%1double"eMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price.GetCharge(int)*^
-\
-%0VMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState.Price*
-"""ë
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs/ /(0
-
-%1double*ú
-1"ñ
-
-uD:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.Dojo\Refactoring_Improving_The_Design_of_Existing_Code\Movie.cs0 0(	
-implicit return:
-
-daysRentedintBOM
-KMarsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.Movie
