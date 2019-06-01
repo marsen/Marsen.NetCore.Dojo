@@ -10,15 +10,9 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             var result = string.Empty;
             result = ApplyDivisible3Rule(input, result);
 
-            if (IsDivisibleBy(5, input))
-            {
-                result += "Bar";
-            }
+            result = ApplyDivisible5Rule(input, result);
 
-            if (IsDivisibleBy(7, input))
-            {
-                result += "Qix";
-            }
+            result = ApplyDivisible7Rule(input, result);
 
             foreach (var c in input.ToString().ToCharArray())
             {
@@ -39,6 +33,26 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
+
+        private string ApplyDivisible7Rule(int input, string result)
+        {
+            if (IsDivisibleBy(7, input))
+            {
+                result += "Qix";
+            }
+
+            return result;
+        }
+
+        private string ApplyDivisible5Rule(int input, string result)
+        {
+            if (IsDivisibleBy(5, input))
+            {
+                result += "Bar";
+            }
+
+            return result;
         }
 
         private string ApplyDivisible3Rule(int input, string result)
