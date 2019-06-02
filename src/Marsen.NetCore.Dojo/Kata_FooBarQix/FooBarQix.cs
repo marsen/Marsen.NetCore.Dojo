@@ -32,11 +32,5 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
         }
-
-
-        private bool IsDivisibleBy(int i, int input)
-        {
-            return input % i == 0;
-        }
     }
 }
