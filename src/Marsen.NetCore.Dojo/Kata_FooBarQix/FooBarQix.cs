@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
     {
         private readonly List<int> _ruleNumbers = new List<int> {3, 5, 7};
 
-        Dictionary<char, string> charLookup = new Dictionary<char, string>()
+        private readonly Dictionary<char, string> _charLookup = new Dictionary<char, string>()
         {
             {'3', "Foo"},
             {'5', "Bar"},
@@ -36,11 +36,11 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
         }
 
-        private static string ContainCharRule(char c, string result)
+        private string ContainCharRule(char c, string result)
         {
             if (c == '3')
             {
-                result += "Foo";
+                result += _charLookup[c];
             }
 
             return result;
