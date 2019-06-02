@@ -15,16 +15,10 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             {
                 ContainRule containRule = new ContainRule(3);
                 result = containRule.Apply(c, result);
-
-                if (c == '5')
-                {
-                    result += "Bar";
-                }
-
-                if (c == '7')
-                {
-                    result += "Qix";
-                }
+                containRule = new ContainRule(5);
+                result = containRule.Apply(c, result);
+                containRule = new ContainRule(7);
+                result = containRule.Apply(c, result);
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
