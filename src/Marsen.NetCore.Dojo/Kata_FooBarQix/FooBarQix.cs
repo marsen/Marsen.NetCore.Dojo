@@ -8,16 +8,19 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
     {
         private readonly List<int> _ruleNumbers = new List<int> {3, 5, 7};
 
+        Dictionary<char, string> charLookup = new Dictionary<char, string>()
+        {
+            {'3', "Foo"},
+            {'5', "Bar"},
+            {'7', "Qix"},
+        };
+
         public string Get(int input)
         {
             var result = _ruleNumbers.Aggregate(string.Empty, (s, i) => new DivisibleRule(i).Apply(input, s));
-
             foreach (var c in input.ToString().ToCharArray())
             {
-                if (c == '3')
-                {
-                    result += "Foo";
-                }
+                result = ContainCharRule(c, result);
 
                 if (c == '5')
                 {
@@ -31,6 +34,16 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
+
+        private static string ContainCharRule(char c, string result)
+        {
+            if (c == '3')
+            {
+                result += "Foo";
+            }
+
+            return result;
         }
     }
 }
