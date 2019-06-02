@@ -14,12 +14,6 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             foreach (var c in input.ToString().ToCharArray())
             {
                 result = _ruleNumbers.Aggregate(result, (s, i) => new ContainRule(i).Apply(c, s));
-                //ContainRule containRule = new ContainRule(3);
-                //result = containRule.Apply(c, result);
-                //containRule = new ContainRule(5);
-                //result = containRule.Apply(c, result);
-                //containRule = new ContainRule(7);
-                //result = containRule.Apply(c, result);
             }
 
             return string.IsNullOrEmpty(result) ? input.ToString() : result;
