@@ -20,7 +20,9 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             var result = _ruleNumbers.Aggregate(string.Empty, (s, i) => new DivisibleRule(i).Apply(input, s));
             foreach (var c in input.ToString().ToCharArray())
             {
-                result = ContainCharRule(c, result);
+                //result = ContainCharRule(c, result);
+                ContainRule containRule = new ContainRule();
+                result = containRule.Apply(c, result);
 
                 if (c == '5')
                 {
