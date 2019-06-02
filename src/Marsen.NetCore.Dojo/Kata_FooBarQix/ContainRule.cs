@@ -4,6 +4,8 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
 {
     public class ContainRule
     {
+        private readonly int _i;
+
         private readonly Dictionary<char, string> _charLookup = new Dictionary<char, string>()
         {
             {'3', "Foo"},
@@ -11,9 +13,14 @@ namespace Marsen.NetCore.Dojo.Kata_FooBarQix
             {'7', "Qix"},
         };
 
+        public ContainRule(int i)
+        {
+            _i = i + 48;
+        }
+
         public string Apply(char c, string result)
         {
-            if (c == '3')
+            if (c == _i)
             {
                 result += _charLookup[c];
             }
