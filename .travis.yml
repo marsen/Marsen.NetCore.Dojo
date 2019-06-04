@@ -6,9 +6,11 @@ dotnet: 2.2.105
 script:
 - dotnet restore
 - dotnet test
+- dotnet build
 - sonar-scanner
 addons:
   sonarcloud:
     organization: marsen-github
     token:
       secure: qs5msfRVMUwt0UoT8aoF/LdirdtveRwIzcW/hahBEO9GJagh/aiLaLTzLbgx7KCzRbaDMTY6MK53yGYSSMLcAdoqWzYPF69o2Qu1wJFNMQ3yfCoq01HK9vuCRQKmPAIgMp6shy854ZXxeAorACMPEurSDoVYOo3gqUXsqe51aG3DciEHYLVIJL7958e9rjKp8CzbwtjMgWIhWzym/+C13/YRcuxqcf9hdPpw2PnSpGf4pgPY2ST8aBqlpTymLgwfDueysvBUQbi5/+C2bUrP+0GeV37JXQz1Xe0VrEzAdTTQRLlexlZi7IAnC6SxKribwRdGPzww68UPJqRfQGSVys0DS02bDHoi1/nlL5lrdvCX7iwyYofrkqA8QcT6ZsD/IVmZhf/PPB0GPYXu9BFgnM3r8z5Fd0UETPUjoqRsPeRYNaYqUxNa3t89KyuvyZ3E3tcQFI/Tx0530Np4daiZlYIs7/LhauGXCfZri/oPem8YFITtvWSvmtNMXE3suUW4MDPZwmR925NrOPpK/FLiOMUOsmDe0LBlacOZpRiShDGvEJnRQRkJPhZ4zC15JakarCzlXNRnM65LhCid6gM92LNtgXRZ/XE3BLDxg16L/UEV8xa9TDMMMDRf+9QfKH8eO9zDWoWikK8En17dQ6vQlGlv4hN12rA3BgsM2hD0w/A=
+      
