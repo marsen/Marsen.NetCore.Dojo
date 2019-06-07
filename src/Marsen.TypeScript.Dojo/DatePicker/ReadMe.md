@@ -1,28 +1,33 @@
 # DatePicker
 
-## Context & User Stories 
+## Context & User Stories  
 
-## Test Cases 
+## Test Cases  
 
 ## Tools
 
 ### 使用 Mocha 與 Chai
+
 npm i -D chai mocha nyc ts-node typescript
 
 #### 安裝 [TypeScript](https://www.typescriptlang.org)
+
 安裝至專案
 
 ```shell
-$ npm i -D typescript ts-node
+npm i -D typescript ts-node
 ```
+
 安裝至全域
 
 ```shell
-$ npm i -g typescript
+npm i -g typescript
 ```
+
 建立專案 `tsconfig.json`
-```
-$ tsc --init
+
+```shell
+tsc --init
 ```
 
 #### 安裝 [MochaJs](https://mochajs.org/)
@@ -31,13 +36,16 @@ $ tsc --init
 npm i -D mocha @types/mocha
 ```
 
-#### 安裝 [Chai](https://www.chaijs.com/)
+#### 安裝 [Chai](https://www.chaijs.com/)  
+
 ```shell
 npm i -D Chai @types/chai
 ```
 
 #### 設定測試
+
 package.json\
+
 ```script
 "scripts":{
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
@@ -54,11 +62,12 @@ describe('calculate', function() {
   it('add', function() {
     let result = Calculator.Sum(5, 2);
     expect(result).equal(7);
-  }); 
+  });
 });
 ```
 
 #### 實作代碼
+
 ```script
 export default class calculator {
     static Sum(a: number, b: number): number {
@@ -67,11 +76,13 @@ export default class calculator {
 ```
 
 #### 執行測試
+
 ```shell
 npm t
 ```
 
 #### 修正代碼
+
 ```script
 export default class calculator {
     static Sum(a: number, b: number): number {
@@ -91,11 +102,10 @@ export default class calculator {
 ```
 
 ## 測試覆蓋率
+
 // TODO
 
-
-
 ## 參考
- - https://github.com/ChiragRupani/TSUnitTestsSetup
- - [Writing unit tests in TypeScript](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
- - 
+
+- <https://github.com/ChiragRupani/TSUnitTestsSetup>
+- [Writing unit tests in TypeScript](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
