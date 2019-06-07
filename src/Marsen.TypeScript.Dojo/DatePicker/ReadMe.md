@@ -109,3 +109,30 @@ export default class calculator {
 
 - <https://github.com/ChiragRupani/TSUnitTestsSetup>
 - [Writing unit tests in TypeScript](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
+
+## 20190608 補充
+
+Github 回報有高風險的漏洞，
+本機執行 `npm i` 進行確認
+
+```shell
+$ npm i
+npm WARN marsen.typescript.dojo.datepicker@1.0.0 No repository field.
+
+audited 1517 packages in 3.461s
+found 3 vulnerabilities (1 moderate, 2 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+```
+
+確認有漏洞，執行 `npm audit fix` 進行自動修複
+
+```shell
+$ npm audit fix
+npm WARN marsen.typescript.dojo.datepicker@1.0.0 No repository field.
+
++ mocha@6.1.4
+added 11 packages from 5 contributors, removed 126 packages, updated 16 packages and moved 4 packages in 9.188s
+fixed 2 of 3 vulnerabilities in 1517 scanned packages
+  1 package update for 1 vuln involved breaking changes
+  (use `npm audit fix --force` to install breaking changes; or refer to `npm audit` for steps to fix these manually)
+```
