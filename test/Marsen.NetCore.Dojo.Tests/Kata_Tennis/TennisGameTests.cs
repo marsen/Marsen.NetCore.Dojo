@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Marsen.NetCore.Dojo.Kata_Tennis;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
 {
     public class tennisGameTests
     {
-        readonly TennisGame _tennisGame = new TennisGame("Joey", "Tom");
+        private readonly TennisGame _tennisGame = new TennisGame("Joey", "Tom");
 
         private void FirstPlayerScoreTimes(int times)
         {
@@ -44,7 +42,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
             FirstPlayerScoreTimes(2);
             Assert.Equal("Thirty Love", _tennisGame.Score());
         }
-
 
         [Fact]
         public void Forty_Love()
