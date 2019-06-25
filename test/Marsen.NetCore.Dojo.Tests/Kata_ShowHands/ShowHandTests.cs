@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
         public void FourOfAKind_ThreeOfAKind()
         {
             ShowHand showHand = new ShowHand();
-            var actual = showHand.Deal("S3,C3,D3,H3,H7", "S3,C3,D3,H7,H8");
+            var actual = showHand.Duel("S3,C3,D3,H3,H7", "S3,C3,D3,H7,H8");
             Assert.Equal("Tom Win, Because Four Of a Kind", actual);
         }
     }
