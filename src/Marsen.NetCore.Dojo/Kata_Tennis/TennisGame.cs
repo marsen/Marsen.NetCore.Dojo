@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
+namespace Marsen.NetCore.Dojo.Kata_Tennis
 {
     public class TennisGame
     {
