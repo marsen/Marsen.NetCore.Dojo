@@ -63,6 +63,8 @@ Push, Because Flush, Key Card K
 
 #### HandCard 類別
 - 字串轉成手牌
+  - 牌型 (Deck)
+  - 牌 (Card)
     - 點數處理(Rank)
     - 花色處理(Suit)
 
