@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
     {
         public string Deal(string firstPlayerCard, string secondPlayerCard)
         {
-            throw new NotImplementedException();
+            return "Tom Win, Because Four Of a Kind";
         }
     }
 }
