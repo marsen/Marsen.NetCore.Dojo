@@ -56,9 +56,10 @@ Push, Because Flush, Key Card K
 - 比較牌型
 - 比較點數
 
-#### Game 類別
-- 輸入(input) 輸出(output)
+#### ShowHand 類別
+- 輸入(input)
 - 設定玩家名(Player Name)
+- Deul方法，輸出勝負結果
 
 #### HandCard 類別
 - 字串轉成手牌
