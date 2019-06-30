@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ExpectedObjects" Version="2.3.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.0" />
     <PackageReference Include="StrykerMutator.Core" Version="0.8.3" />
     <PackageReference Include="StrykerMutator.DotNetCoreCli" Version="0.8.3" />
