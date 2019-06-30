@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
@@ -46,11 +47,5 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             return Category.ThreeOfAKind;
         }
-    }
-
-    internal enum Category
-    {
-        ThreeOfAKind,
-        FourOfAKind,
     }
 }
