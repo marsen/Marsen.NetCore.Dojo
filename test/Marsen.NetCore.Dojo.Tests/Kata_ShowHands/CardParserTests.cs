@@ -24,5 +24,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             }.ToExpectedObject();
             expected.ShouldEqual(actual);
         }
+
+        [Fact]
+        public void Parse_Three_Of_a_Kind()
+        {
+            var input = "S3,C3,D3,H7,H8";
+            var actual = _cardParser.Parse(input);
+            var expected = new List<Card>
+            {
+                new Card {Rank = 3},
+                new Card {Rank = 3},
+                new Card {Rank = 3},
+                new Card {Rank = 7},
+                new Card {Rank = 8},
+            }.ToExpectedObject();
+            expected.ShouldEqual(actual);
+        }
     }
 }
