@@ -15,6 +15,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             var cardParser = new CardParser();
             List<Card> firstCardList = cardParser.Parse(firstPlayerCard);
+            List<Card> secondCardList = cardParser.Parse(secondPlayerCard);
             var firstPlayerCategory = "Four Of a Kind";
             return $"{_firstPlayerName} Win, Because {firstPlayerCategory}";
         }
