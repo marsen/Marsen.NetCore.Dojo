@@ -15,18 +15,24 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         public string Duel(string firstPlayerCard, string secondPlayerCard)
         {
             var cardParser = new CardParser();
+            var categoryLookup = new Dictionary<Category,string>
+            {
+                {Category.FourOfAKind, "Four Of a Kind"}
+            };
             List<Card> firstCardList = cardParser.Parse(firstPlayerCard);
             var firstCategory = GetCategory(firstCardList);
             List<Card> secondCardList = cardParser.Parse(secondPlayerCard);
             var secondCategory = GetCategory(secondCardList);
             string winner = null;
+            string winnerCategory = null;
             if (firstCategory - secondCategory > 0)
             {
                 winner = _firstPlayerName;
+                winnerCategory = categoryLookup[firstCategory];
             }
 
             var firstPlayerCategory = "Four Of a Kind";
-            return $"{winner} Win, Because {firstPlayerCategory}";
+            return $"{winner} Win, Because {winnerCategory}";
         }
 
         private Category GetCategory(List<Card> cardList)
