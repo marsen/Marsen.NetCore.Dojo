@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
@@ -15,9 +16,36 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             var cardParser = new CardParser();
             List<Card> firstCardList = cardParser.Parse(firstPlayerCard);
+            var firstCategory = GetCategory(firstCardList);
             List<Card> secondCardList = cardParser.Parse(secondPlayerCard);
+            var secondCategory = GetCategory(secondCardList);
+            string winner = null;
+            if (firstCategory - secondCategory > 0)
+            {
+                winner = _firstPlayerName;
+            }
+
             var firstPlayerCategory = "Four Of a Kind";
-            return $"{_firstPlayerName} Win, Because {firstPlayerCategory}";
+            return $"{winner} Win, Because {firstPlayerCategory}";
         }
+
+        private Category GetCategory(List<Card> cardList)
+        {
+            var groupCards = cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count()});
+            if (groupCards.Any(x => x.Count == 4))
+            {
+                return Category.FourOfAKind;
+            }
+
+            return Category.ThreeOfAKind;
+        }
+    }
+
+    internal enum Category
+    {
+        ThreeOfAKind,
+        FourOfAKind,
     }
 }
