@@ -13,7 +13,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public string Duel(string firstPlayerCard, string secondPlayerCard)
         {
-            return $"{_firstPlayerName} Win, Because Four Of a Kind";
+            var firstPlayerCategory = "Four Of a Kind";
+            return $"{_firstPlayerName} Win, Because {firstPlayerCategory}";
         }
     }
 }
