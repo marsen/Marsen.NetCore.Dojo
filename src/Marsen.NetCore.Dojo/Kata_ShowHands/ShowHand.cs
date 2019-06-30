@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
@@ -13,6 +13,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public string Duel(string firstPlayerCard, string secondPlayerCard)
         {
+            var cardParser = new CardParser();
+            List<Card> firstCardList = cardParser.Parse(firstPlayerCard);
             var firstPlayerCategory = "Four Of a Kind";
             return $"{_firstPlayerName} Win, Because {firstPlayerCategory}";
         }

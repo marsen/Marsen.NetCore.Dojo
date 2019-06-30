@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using Marsen.NetCore.Dojo.Kata_ShowHands;
 using Xunit;
 
