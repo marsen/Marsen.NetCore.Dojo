@@ -2,6 +2,7 @@
 {
     public enum Category
     {
+        TwoPair,
         ThreeOfAKind,
         FourOfAKind,
     }
