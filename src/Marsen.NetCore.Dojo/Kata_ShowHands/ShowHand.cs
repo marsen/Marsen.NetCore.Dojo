@@ -23,10 +23,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 {Category.FourOfAKind, "Four Of a Kind"},
                 {Category.ThreeOfAKind, "Three Of a Kind"}
             };
-            List<Card> firstCardList = cardParser.Parse(firstPlayerCard);
-            var firstCategory = GetCategory(firstCardList);
-            List<Card> secondCardList = cardParser.Parse(secondPlayerCard);
-            var secondCategory = GetCategory(secondCardList);
+            var firstCategory = GetCategory(cardParser.Parse(firstPlayerCard));
+            var secondCategory = GetCategory(cardParser.Parse(secondPlayerCard));
             string winner = null;
             string winnerCategory = null;
             string highCard = string.Empty;
