@@ -52,6 +52,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         winnerCategory = categoryLookup[secondPlayerHandCard.Category];
                         break;
                     }
+
+                    if (i == firstPlayerHandCard.KeyCard.Count - 1)
+                    {
+                        return "End in a tie";
+                    }
                 }
             }
 
