@@ -22,27 +22,28 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 {Category.ThreeOfAKind, "Three Of a Kind"}
             };
 
-            Category firstCategory = new HandCard(cardParser.Parse(firstPlayerCard)).Category;
-
-            Category secondCategory = new HandCard(cardParser.Parse(secondPlayerCard)).Category;
+            var firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
+            var secondHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             string winner = null;
             string winnerCategory = null;
             string highCard = string.Empty;
-            if (firstCategory - secondCategory > 0)
+            if (firstPlayerHandCard.Category - secondHandCard.Category > 0)
             {
                 winner = _firstPlayerName;
-                winnerCategory = categoryLookup[firstCategory];
+                winnerCategory = categoryLookup[firstPlayerHandCard.Category];
             }
-            else if (firstCategory - secondCategory == 0)
+
+            if (firstPlayerHandCard.Category - secondHandCard.Category == 0)
             {
                 winner = "Lee";
-                winnerCategory = categoryLookup[secondCategory];
+                winnerCategory = categoryLookup[secondHandCard.Category];
                 highCard = ", High Card 6";
             }
-            else
+
+            if (firstPlayerHandCard.Category - secondHandCard.Category < 0)
             {
                 winner = _secondPlayerName;
-                winnerCategory = categoryLookup[secondCategory];
+                winnerCategory = categoryLookup[secondHandCard.Category];
             }
 
             return $"{winner} Win, Because {winnerCategory}{highCard}";
