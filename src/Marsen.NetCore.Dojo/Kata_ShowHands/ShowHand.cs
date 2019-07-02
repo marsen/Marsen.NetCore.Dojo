@@ -26,7 +26,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             string winner = null;
             string winnerCategory = null;
-            string highCard = string.Empty;
+            string keyCard = string.Empty;
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
             {
                 winner = _firstPlayerName;
@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
                         winner = _firstPlayerName;
-                        highCard = $", High Card {firstPlayerHandCard.KeyCard[i]}";
+                        keyCard = $", High Card {firstPlayerHandCard.KeyCard[i]}";
                         winnerCategory = categoryLookup[firstPlayerHandCard.Category];
                         break;
                     }
@@ -48,7 +48,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
                     {
                         winner = _secondPlayerName;
-                        highCard = $", High Card {secondPlayerHandCard.KeyCard[i]}";
+                        keyCard = $", High Card {secondPlayerHandCard.KeyCard[i]}";
                         winnerCategory = categoryLookup[secondPlayerHandCard.Category];
                         break;
                     }
@@ -61,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 winnerCategory = categoryLookup[secondPlayerHandCard.Category];
             }
 
-            return $"{winner} Win, Because {winnerCategory}{highCard}";
+            return $"{winner} Win, Because {winnerCategory}{keyCard}";
         }
     }
 }
