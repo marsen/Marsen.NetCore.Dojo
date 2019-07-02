@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
@@ -47,26 +46,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 winnerCategory = categoryLookup[secondCategory];
             }
 
-
             return $"{winner} Win, Because {winnerCategory}{highCard}";
-        }
-
-        private Category GetCategory(List<Card> cardList)
-        {
-            var groupCards = cardList
-                .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count()});
-            if (groupCards.Any(x => x.Count == 4))
-            {
-                return Category.FourOfAKind;
-            }
-
-            if (groupCards.Any(x => x.Count == 3))
-            {
-                return Category.ThreeOfAKind;
-            }
-
-            return Category.TwoPair;
         }
     }
 
@@ -83,7 +63,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             var groupCards = cardList
                 .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count()});
+                .Select(g => new { Count = g.Count() });
             if (groupCards.Any(x => x.Count == 4))
             {
                 return Category.FourOfAKind;
