@@ -7,10 +7,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
     public class ShowHand
     {
         private readonly string _firstPlayerName;
+        private readonly string _secondPlayerName;
 
         public ShowHand(string firstPlayerName, string secondPlayerName)
         {
             this._firstPlayerName = firstPlayerName;
+            this._secondPlayerName = secondPlayerName;
         }
 
         public string Duel(string firstPlayerCard, string secondPlayerCard)
@@ -18,7 +20,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var cardParser = new CardParser();
             var categoryLookup = new Dictionary<Category, string>
             {
-                {Category.FourOfAKind, "Four Of a Kind"}
+                {Category.FourOfAKind, "Four Of a Kind"},
+                {Category.ThreeOfAKind, "Three Of a Kind"}
             };
             List<Card> firstCardList = cardParser.Parse(firstPlayerCard);
             var firstCategory = GetCategory(firstCardList);
@@ -31,6 +34,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 winner = _firstPlayerName;
                 winnerCategory = categoryLookup[firstCategory];
             }
+            else
+            {
+                winner = _secondPlayerName;
+                winnerCategory = categoryLookup[secondCategory];
+            }
+
 
             return $"{winner} Win, Because {winnerCategory}";
         }
