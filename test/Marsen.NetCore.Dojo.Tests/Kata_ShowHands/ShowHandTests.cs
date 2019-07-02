@@ -22,5 +22,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("S3,C3,D5,H5,H7", "S3,C3,D3,H7,H8");
             Assert.Equal("Lee Win, Because Three Of a Kind", actual);
         }
+
+        [Fact]
+        public void ThreeOfAKind_ThreeOfAKind()
+        {
+            var actual = showHand.Duel("S3,C3,D5,H5,H5", "S3,C3,D6,H6,H6");
+            Assert.Equal("Lee Win, Because Three Of a Kind, High Card 6", actual);
+        }
     }
 }

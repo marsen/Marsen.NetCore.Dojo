@@ -34,6 +34,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 winner = _firstPlayerName;
                 winnerCategory = categoryLookup[firstCategory];
             }
+            else if (firstCategory - secondCategory == 0)
+            {
+            }
             else
             {
                 winner = _secondPlayerName;
@@ -54,7 +57,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.FourOfAKind;
             }
 
+            if (groupCards.Any(x=>x.Count==3))
+            {
+                
             return Category.ThreeOfAKind;
+            }
+            return Category.TwoPair;
         }
     }
 }
