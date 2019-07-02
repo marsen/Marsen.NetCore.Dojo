@@ -24,10 +24,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
         }
 
         [Fact]
-        public void ThreeOfAKind_ThreeOfAKind()
+        public void ThreeOfAKind_ThreeOfAKind_With_High_Card_6()
         {
-            var actual = showHand.Duel("S3,C3,D5,H5,H5", "S3,C3,D6,H6,H6");
+            var actual = showHand.Duel("S3,C3,D5,H5,C5", "S3,C3,D6,H6,C6");
             Assert.Equal("Lee Win, Because Three Of a Kind, High Card 6", actual);
+        }
+
+        [Fact]
+        public void ThreeOfAKind_ThreeOfAKind_End_In_A_Tie()
+        {
+            var actual = showHand.Duel("S3,C3,D6,H6,C6", "S3,C3,D6,H6,C6");
+            Assert.Equal("End in a tie", actual);
         }
     }
 }
