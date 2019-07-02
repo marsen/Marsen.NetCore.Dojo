@@ -99,10 +99,17 @@ Tom Win, Because Four of a Kind
 
 #### case 2. 二對 > 三條 
 
-(開發目的:逼出判斷玩家勝負、判斷牌型-分群規則-二對與三條、比較牌型)
+(開發目的:逼出判斷玩家勝負、~~判斷牌型-分群規則-二對與三條~~、比較牌型)
 Tom : S4,C4,D5,H5,S7
 Lee : S4,C4,D4,S7,H8
 Lee Win, Because Three of a Kind
+
+#### case 3. 三條 vs 三條 
+
+(開發目的:逼出同牌型時，比較高牌)
+Tom : S4,C4,D5,H5,S5
+Lee : S4,C4,D6,S6,H6
+Lee Win, Because Three of a Kind, High Card is 6
 
 ### 變化
 
