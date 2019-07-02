@@ -97,7 +97,7 @@ Tom : S4,C4,D4,H4,S7
 Lee : S4,C4,D4,S7,H8
 Tom Win, Because Four of a Kind
 
-#### case 1. 二對 > 三條 
+#### case 2. 二對 > 三條 
 
 (開發目的:逼出判斷玩家勝負、判斷牌型-分群規則-二對與三條、比較牌型)
 Tom : S4,C4,D5,H5,S7
