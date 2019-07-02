@@ -40,19 +40,19 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
                         winner = _firstPlayerName;
+                        highCard = $", High Card {firstPlayerHandCard.KeyCard[i]}";
+                        winnerCategory = categoryLookup[firstPlayerHandCard.Category];
                         break;
                     }
 
                     if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
                     {
                         winner = _secondPlayerName;
+                        highCard = $", High Card {secondPlayerHandCard.KeyCard[i]}";
+                        winnerCategory = categoryLookup[secondPlayerHandCard.Category];
                         break;
                     }
                 }
-
-                ///winner = "Lee";
-                winnerCategory = categoryLookup[secondPlayerHandCard.Category];
-                highCard = ", High Card 6";
             }
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
