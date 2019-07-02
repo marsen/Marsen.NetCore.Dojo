@@ -111,6 +111,14 @@ Tom : S4,C4,D5,H5,S5
 Lee : S4,C4,D6,S6,H6
 Lee Win, Because Three of a Kind, High Card is 6
 
+#### case 4. 三條 vs 三條 
+
+(開發目的:逼出平手)
+Tom : S4,C4,D5,H5,S5
+Lee : S4,C4,D5,H5,S5
+
+End in a tie
+
 ### 變化
 
 - 加入花色
