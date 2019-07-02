@@ -23,27 +23,42 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             };
 
             var firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
-            var secondHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
+            var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             string winner = null;
             string winnerCategory = null;
             string highCard = string.Empty;
-            if (firstPlayerHandCard.Category - secondHandCard.Category > 0)
+            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
             {
                 winner = _firstPlayerName;
                 winnerCategory = categoryLookup[firstPlayerHandCard.Category];
             }
 
-            if (firstPlayerHandCard.Category - secondHandCard.Category == 0)
+            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
             {
-                winner = "Lee";
-                winnerCategory = categoryLookup[secondHandCard.Category];
+                for (int i = 0; i < firstPlayerHandCard.KeyCard.Count; i++)
+                {
+                    if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
+                    {
+                        winner = _firstPlayerName;
+                        break;
+                    }
+
+                    if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
+                    {
+                        winner = _secondPlayerName;
+                        break;
+                    }
+                }
+
+                ///winner = "Lee";
+                winnerCategory = categoryLookup[secondPlayerHandCard.Category];
                 highCard = ", High Card 6";
             }
 
-            if (firstPlayerHandCard.Category - secondHandCard.Category < 0)
+            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
             {
                 winner = _secondPlayerName;
-                winnerCategory = categoryLookup[secondHandCard.Category];
+                winnerCategory = categoryLookup[secondPlayerHandCard.Category];
             }
 
             return $"{winner} Win, Because {winnerCategory}{highCard}";
