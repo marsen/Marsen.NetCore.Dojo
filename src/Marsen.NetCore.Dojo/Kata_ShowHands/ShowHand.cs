@@ -29,6 +29,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var secondCategory = GetCategory(secondCardList);
             string winner = null;
             string winnerCategory = null;
+            string highCard = string.Empty;
             if (firstCategory - secondCategory > 0)
             {
                 winner = _firstPlayerName;
@@ -36,6 +37,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
             else if (firstCategory - secondCategory == 0)
             {
+                winner = "Lee";
+                winnerCategory = categoryLookup[secondCategory];
+                highCard = ", High Card 6";
             }
             else
             {
@@ -44,7 +48,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
 
-            return $"{winner} Win, Because {winnerCategory}";
+            return $"{winner} Win, Because {winnerCategory}{highCard}";
         }
 
         private Category GetCategory(List<Card> cardList)
@@ -57,11 +61,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.FourOfAKind;
             }
 
-            if (groupCards.Any(x=>x.Count==3))
+            if (groupCards.Any(x => x.Count == 3))
             {
-                
-            return Category.ThreeOfAKind;
+                return Category.ThreeOfAKind;
             }
+
             return Category.TwoPair;
         }
     }
