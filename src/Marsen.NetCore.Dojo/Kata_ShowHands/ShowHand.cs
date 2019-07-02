@@ -23,8 +23,10 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 {Category.FourOfAKind, "Four Of a Kind"},
                 {Category.ThreeOfAKind, "Three Of a Kind"}
             };
-            var firstCategory = GetCategory(cardParser.Parse(firstPlayerCard));
-            var secondCategory = GetCategory(cardParser.Parse(secondPlayerCard));
+
+            Category firstCategory = new HandCard(cardParser.Parse(firstPlayerCard)).Category;
+
+            Category secondCategory = new HandCard(cardParser.Parse(secondPlayerCard)).Category;
             string winner = null;
             string winnerCategory = null;
             string highCard = string.Empty;
@@ -48,6 +50,34 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             return $"{winner} Win, Because {winnerCategory}{highCard}";
         }
+
+        private Category GetCategory(List<Card> cardList)
+        {
+            var groupCards = cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count()});
+            if (groupCards.Any(x => x.Count == 4))
+            {
+                return Category.FourOfAKind;
+            }
+
+            if (groupCards.Any(x => x.Count == 3))
+            {
+                return Category.ThreeOfAKind;
+            }
+
+            return Category.TwoPair;
+        }
+    }
+
+    public class HandCard
+    {
+        public HandCard(List<Card> parse)
+        {
+            this.Category = this.GetCategory(parse);
+        }
+
+        public Category Category { get; }
 
         private Category GetCategory(List<Card> cardList)
         {
