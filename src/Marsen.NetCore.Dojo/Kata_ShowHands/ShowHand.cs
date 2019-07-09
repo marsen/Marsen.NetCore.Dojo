@@ -11,7 +11,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         private readonly Dictionary<Category, string> _categoryLookup = new Dictionary<Category, string>
         {
             {Category.FourOfAKind, "Four Of a Kind"},
-            {Category.ThreeOfAKind, "Three Of a Kind"}
+            {Category.ThreeOfAKind, "Three Of a Kind"},
+            {Category.TwoPair, "Two Pair"},
         };
 
         public ShowHand(string firstPlayerName, string secondPlayerName)
@@ -38,13 +39,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}, High Card {firstPlayerHandCard.KeyCard[i]}";
+                            $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}, Key Card {firstPlayerHandCard.KeyCard[i]}";
                     }
 
                     if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}, High Card {secondPlayerHandCard.KeyCard[i]}";
+                            $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}, Key Card {secondPlayerHandCard.KeyCard[i]}";
                     }
 
                     if (i == firstPlayerHandCard.KeyCard.Count - 1)
