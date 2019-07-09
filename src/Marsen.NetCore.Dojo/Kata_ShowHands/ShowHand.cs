@@ -47,12 +47,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         return
                             $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}, Key Card {secondPlayerHandCard.KeyCard[i]}";
                     }
-
-                    if (i == firstPlayerHandCard.KeyCard.Count - 1)
-                    {
-                        return "End in a tie";
-                    }
                 }
+
+                return "End in a tie";
             }
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
