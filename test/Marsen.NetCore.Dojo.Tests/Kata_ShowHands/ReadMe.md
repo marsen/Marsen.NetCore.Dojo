@@ -109,7 +109,7 @@ Lee Win, Because Three of a Kind
 (開發目的:逼出同牌型時，比較高牌)
 Tom : S4,C4,D5,H5,S5
 Lee : S4,C4,D6,S6,H6
-Lee Win, Because Three of a Kind, High Card is 6
+Lee Win, Because Three of a Kind, Key Card is 6
 
 #### case 4. 三條 vs 三條 
 
@@ -138,6 +138,15 @@ End in a tie
                 //// Do Something
             }
 ```
+> 第一階段的重構只消除了暫存變數，看起來好一些了，
+> 但是 if 仍然在，這個時候我發現 Key Card 平手時的測試案例不太夠。
+
+#### case 5. 二條 vs 二條 ，關鍵
+
+(開發目的:逼出同牌型時，比較高牌)
+Tom : S4,C4,D5,H5,C7
+Lee : S4,C4,D5,S5,S9
+Lee Win, Because Two Pair , Key Card is 9
 
 ### 變化
 
