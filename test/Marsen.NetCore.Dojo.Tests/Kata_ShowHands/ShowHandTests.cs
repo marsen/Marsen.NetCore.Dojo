@@ -36,5 +36,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("S3,C3,D6,H6,C6", "S3,C3,D6,H6,C6");
             Assert.Equal("End in a tie", actual);
         }
+
+        [Fact]
+        public void TwoPair_TwoPair_With_Key_Card_9()
+        {
+            var actual = showHand.Duel("S4,C4,D5,H5,C7", "S4,C4,D5,S5,S9");
+            Assert.Equal("Lee Win, Because Two Pair , Key Card is 9", actual);
+        }
     }
 }
