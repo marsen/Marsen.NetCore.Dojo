@@ -60,10 +60,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
-            {
-                winner = _secondPlayerName;
-                winnerCategory = _categoryLookup[secondPlayerHandCard.Category];
-                return $"{winner} Win, Because {winnerCategory}";
+            {                
+                return $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}";
             }
 
             throw new NotImplementedException("un know duel exception");
