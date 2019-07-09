@@ -119,6 +119,26 @@ Lee : S4,C4,D5,H5,S5
 
 End in a tie
 
+
+> 這個時間點我想重構了，if 的判斷式很噁心
+```
+            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
+            {
+                //// Do Something    
+            }
+
+            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
+            {
+                //// Do Something
+                
+            }
+
+            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
+            {
+                //// Do Something
+            }
+```
+
 ### 變化
 
 - 加入花色
