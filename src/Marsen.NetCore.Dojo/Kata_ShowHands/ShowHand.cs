@@ -27,14 +27,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             string winner = null;
             string winnerCategory = null;
-            var keyCard = string.Empty;
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
             {
-                return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}{keyCard}";
+                return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}";
             }
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
             {
+                var keyCard = string.Empty;
                 for (var i = 0; i < firstPlayerHandCard.KeyCard.Count; i++)
                 {
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
@@ -46,10 +46,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
                     if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
                     {
-                        winner = _secondPlayerName;
                         keyCard = $", High Card {secondPlayerHandCard.KeyCard[i]}";
-                        winnerCategory = _categoryLookup[secondPlayerHandCard.Category];
-                        return $"{winner} Win, Because {winnerCategory}{keyCard}";
+                        return
+                            $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}{keyCard}";
                     }
 
                     if (i == firstPlayerHandCard.KeyCard.Count - 1)
@@ -63,10 +62,10 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {
                 winner = _secondPlayerName;
                 winnerCategory = _categoryLookup[secondPlayerHandCard.Category];
-                return $"{winner} Win, Because {winnerCategory}{keyCard}";
+                return $"{winner} Win, Because {winnerCategory}";
             }
 
-            return $"{winner} Win, Because {winnerCategory}{keyCard}";
+            return $"{winner} Win, Because {winnerCategory}";
         }
     }
 }
