@@ -30,9 +30,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var keyCard = string.Empty;
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
             {
-                winner = _firstPlayerName;
-                winnerCategory = _categoryLookup[firstPlayerHandCard.Category];
-                return $"{winner} Win, Because {winnerCategory}{keyCard}";
+                return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}{keyCard}";
             }
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
