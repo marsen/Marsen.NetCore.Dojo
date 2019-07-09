@@ -26,8 +26,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             var firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
             var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
-            string winner = null;
-            string winnerCategory = null;
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
             {
                 return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}";
@@ -60,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
-            {                
+            {
                 return $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}";
             }
 
