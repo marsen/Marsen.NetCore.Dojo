@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
@@ -65,7 +66,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return $"{winner} Win, Because {winnerCategory}";
             }
 
-            return $"{winner} Win, Because {winnerCategory}";
+            throw new NotImplementedException("un know duel exception");
         }
     }
 }
