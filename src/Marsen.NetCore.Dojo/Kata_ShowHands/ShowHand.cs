@@ -33,9 +33,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
             {
-                var keyCard = string.Empty;
                 for (var i = 0; i < firstPlayerHandCard.KeyCard.Count; i++)
                 {
+                    string keyCard;
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
                         keyCard = $", High Card {firstPlayerHandCard.KeyCard[i]}";
