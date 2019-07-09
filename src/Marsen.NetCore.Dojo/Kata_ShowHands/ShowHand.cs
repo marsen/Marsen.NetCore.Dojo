@@ -39,10 +39,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 {
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
-                        winner = _firstPlayerName;
                         keyCard = $", High Card {firstPlayerHandCard.KeyCard[i]}";
-                        winnerCategory = _categoryLookup[firstPlayerHandCard.Category];
-                        return $"{winner} Win, Because {winnerCategory}{keyCard}";
+                        return
+                            $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}{keyCard}";
                     }
 
                     if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
