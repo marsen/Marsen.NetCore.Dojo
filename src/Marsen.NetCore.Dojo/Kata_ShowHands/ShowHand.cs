@@ -36,16 +36,17 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {
                 for (var i = 0; i < firstPlayerHandCard.KeyCard.Count; i++)
                 {
+                    var category = _categoryLookup[firstPlayerHandCard.Category];
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}, Key Card {firstPlayerHandCard.KeyCard[i]}";
+                            $"{_firstPlayerName} Win, Because {category}, Key Card {firstPlayerHandCard.KeyCard[i]}";
                     }
 
                     if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}, Key Card {secondPlayerHandCard.KeyCard[i]}";
+                            $"{_secondPlayerName} Win, Because {category}, Key Card {secondPlayerHandCard.KeyCard[i]}";
                     }
                 }
 
