@@ -50,5 +50,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("S4,C4,D5,H5,C7", "S4,C4,D5,S5,S7");
             Assert.Equal("End in a tie", actual);
         }
+
+
+        [Fact]
+        public void TwoPair_OnePair()
+        {
+            var actual = showHand.Duel("S4,C4,D5,H5,C7", "S4,C4,D5,S6,S7");
+            Assert.Equal("Tom Win, Because Two Pair", actual);
+        }
     }
 }
