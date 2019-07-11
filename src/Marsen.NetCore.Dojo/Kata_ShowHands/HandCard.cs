@@ -8,9 +8,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
     {
         private readonly List<Card> _cardList;
 
-        public HandCard(List<Card> cards)
+        public HandCard(List<Card> parse)
         {
-            this._cardList = cards;
+            this._cardList = parse;
         }
 
 
@@ -32,7 +32,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.ThreeOfAKind;
             }
 
-            return Category.TwoPair;
+            if (groupCards.Count(x => x.Count == 2) == 2)
+            {
+                return Category.TwoPair;
+            }
+
+            return Category.OnePair;
         }
     }
 }
