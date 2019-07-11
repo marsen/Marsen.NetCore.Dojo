@@ -27,16 +27,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             var firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
             var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
-            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
+            if (firstPlayerHandCard.GetCategory() - secondPlayerHandCard.GetCategory() > 0)
             {
-                return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.Category]}";
+                return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.GetCategory()]}";
             }
 
-            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
+            if (firstPlayerHandCard.GetCategory() - secondPlayerHandCard.GetCategory() == 0)
             {
                 for (var i = 0; i < firstPlayerHandCard.KeyCard.Count; i++)
                 {
-                    var category = _categoryLookup[firstPlayerHandCard.Category];
+                    var category = _categoryLookup[firstPlayerHandCard.GetCategory()];
                     if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
                     {
                         return
@@ -53,9 +53,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return "End in a tie";
             }
 
-            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
+            if (firstPlayerHandCard.GetCategory() - secondPlayerHandCard.GetCategory() < 0)
             {
-                return $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.Category]}";
+                return $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.GetCategory()]}";
             }
 
             throw new NotImplementedException("un know duel exception");
