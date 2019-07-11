@@ -163,6 +163,14 @@ End in a tie
 > 暫時無法處理 if ，看一下 HandCard 類別，
 > 我想把 GetCatogory 改成 public 而不使用 field 取得 Category
 
+
+#### case 7. 二條 vs 一條
+
+(開發目的:逼出同牌型時，比較高牌)
+Tom : S4,C4,D5,H5,C7
+Lee : S4,C4,D5,S6,S7
+Tom Win, Becasue Two Pair
+
 ### 變化
 
 - 加入花色
