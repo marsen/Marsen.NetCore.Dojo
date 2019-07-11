@@ -6,38 +6,19 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
     public class HandCard
     {
-        public HandCard(List<Card> parse)
-        {
-            this.CardList = parse;
-        }
+        private readonly List<Card> _cardList;
 
-        public List<Card> CardList { get; set; }
+        public HandCard(List<Card> cards)
+        {
+            this._cardList = cards;
+        }
 
 
         public List<int> KeyCard { get; set; }
 
         public Category GetCategory()
         {
-            var groupCards = this.CardList
-                .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key});
-            this.KeyCard = groupCards.OrderBy(x => x.Count).Select(x => x.Rank).ToList();
-            if (groupCards.Any(x => x.Count == 4))
-            {
-                return Category.FourOfAKind;
-            }
-
-            if (groupCards.Any(x => x.Count == 3))
-            {
-                return Category.ThreeOfAKind;
-            }
-
-            return Category.TwoPair;
-        }
-
-        private Category GetCategory(List<Card> cardList)
-        {
-            var groupCards = cardList
+            var groupCards = this._cardList
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key});
             this.KeyCard = groupCards.OrderBy(x => x.Count).Select(x => x.Rank).ToList();
