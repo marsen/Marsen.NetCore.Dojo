@@ -157,8 +157,11 @@ End in a tie
 > 事實証明原本的測試就已經足夠了，但是逼出了 Two Pair 的 Lookup
 > 測試案例多多益善，就無需刻意刪除了
 
-> 下一階段我仍打算處理 if ，這裡有兩個區段 
-> 一個是牌型的 if 一個是 Key Card 的 if
+~~ 下一階段我仍打算處理 if ，這裡有兩個區段 ~~
+~~ 一個是牌型的 if 一個是 Key Card 的 if ~~
+
+> 暫時無法處理 if ，看一下 HandCard 類別，
+> 我想把 GetCatogory 改成 public 而不使用 field 取得 Category
 
 ### 變化
 
