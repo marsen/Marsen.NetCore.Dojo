@@ -34,7 +34,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.FourOfAKind;
             }
 
-            if (allCard.Contains(string.Join(',', this._cardList.OrderBy(x => x.Rank).Select(x => x.Rank))))
+            if (IsStraight())
             {
                 return Category.Straight;
             }
@@ -61,6 +61,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
             return Category.HighCard;
+        }
+
+        private bool IsStraight()
+        {
+            return allCard.Contains(string.Join(',', this._cardList.OrderBy(x => x.Rank).Select(x => x.Rank)));
         }
 
         protected virtual bool IsFourOfAKind()
