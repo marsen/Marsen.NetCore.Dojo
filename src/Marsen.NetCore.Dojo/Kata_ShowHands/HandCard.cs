@@ -20,17 +20,18 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public Category GetCategory()
         {
-            var groupCards = this._cardList
+            this.KeyCard = this._cardList
                 .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key});
-            var enumerable = groupCards.ToList();
-            this.KeyCard = enumerable.OrderBy(x => x.Count).Select(x => x.Rank).ToList();
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
+                .ToList();
             if (IsFlush())
             {
                 return Category.Flush;
             }
 
-            if (enumerable.Any(x => x.Count == 4))
+            if (this._cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4))
             {
                 return Category.FourOfAKind;
             }
@@ -40,17 +41,23 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Straight;
             }
 
-            if (enumerable.Any(x => x.Count == 3))
+            if (this._cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 3))
             {
                 return Category.ThreeOfAKind;
             }
 
-            if (enumerable.Count(x => x.Count == 2) == 2)
+            if (this._cardList
+                    .GroupBy(x => x.Rank)
+                    .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Count(x => x.Count == 2) == 2)
             {
                 return Category.TwoPair;
             }
 
-            if (enumerable.Count(x => x.Count == 2) == 1)
+            if (this._cardList
+                    .GroupBy(x => x.Rank)
+                    .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Count(x => x.Count == 2) == 1)
             {
                 return Category.OnePair;
             }
