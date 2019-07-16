@@ -8,6 +8,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
     {
         private readonly List<Card> _cardList;
 
+        private const string allCard = "1,2,3,4,5,6,7,8,9,10,J,Q,K";
+
         public HandCard(List<Card> parse)
         {
             this._cardList = parse;
@@ -25,6 +27,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (groupCards.Any(x => x.Count == 4))
             {
                 return Category.FourOfAKind;
+            }
+
+            if (allCard.Contains(string.Join(',', this._cardList.OrderBy(x => x.Rank).Select(x => x.Rank))))
+            {
+                return Category.Straight;
             }
 
             if (groupCards.Any(x => x.Count == 3))
