@@ -178,12 +178,19 @@ Tom : S2,C4,D5,H9,C7
 Lee : S4,C4,D5,S6,S7
 Lee Win, Becasue One Pair
 
-#### case 9. 順子 vs 三條
+#### case 9. 三條 vs 順子
 
 (開發目的:逼出順子)
 Tom : S2,C4,D9,H9,C9
 Lee : S8,C4,D5,S6,S7
 Lee Win, Becasue Straight
+
+#### case 10. 順子 vs 同花
+
+(開發目的:逼出同花、花色)
+Tom : S8,C4,D5,S6,S7
+Lee : S2,S4,S9,S6,S5
+Lee Win, Becasue Flush
 
 ### 變化
 

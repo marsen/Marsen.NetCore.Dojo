@@ -67,10 +67,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
         }
 
         [Fact]
-        public void Straight_ThreeOfAKind()
+        public void ThreeOfAKind_Straight()
         {
             var actual = showHand.Duel("S2,C4,D9,H9,C9", "S8,C4,D5,S6,S7");
             Assert.Equal("Lee Win, Because Straight", actual);
+        }
+
+        [Fact]
+        public void Straight_Flush()
+        {
+            var actual = showHand.Duel("S8,C4,D5,S6,S7", "S2,S4,S9,S6,S5");
+            Assert.Equal("Lee Win, Because Flush", actual);
         }
     }
 }

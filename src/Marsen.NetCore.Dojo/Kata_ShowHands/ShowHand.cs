@@ -12,6 +12,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             {Category.FourOfAKind, "Four Of a Kind"},
             {Category.ThreeOfAKind, "Three Of a Kind"},
+            {Category.Straight, "Straight"},
             {Category.TwoPair, "Two Pair"},
             {Category.OnePair, "One Pair"},
         };
