@@ -192,6 +192,8 @@ Tom : S8,C4,D5,S6,S7
 Lee : S2,S4,S9,S6,S5
 Lee Win, Becasue Flush
 
+#### 考慮重構 HandCard 的 if
+
 ### 變化
 
 - 加入花色
