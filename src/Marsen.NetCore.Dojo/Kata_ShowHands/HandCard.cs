@@ -23,13 +23,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var groupCards = this._cardList
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key});
-            this.KeyCard = groupCards.OrderBy(x => x.Count).Select(x => x.Rank).ToList();
-            if (this._cardList.GroupBy(x => x.Suit).Count() == 1)
+            var enumerable = groupCards.ToList();
+            this.KeyCard = enumerable.OrderBy(x => x.Count).Select(x => x.Rank).ToList();
+            if (IsFlush())
             {
                 return Category.Flush;
             }
 
-            if (groupCards.Any(x => x.Count == 4))
+            if (enumerable.Any(x => x.Count == 4))
             {
                 return Category.FourOfAKind;
             }
@@ -39,22 +40,27 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Straight;
             }
 
-            if (groupCards.Any(x => x.Count == 3))
+            if (enumerable.Any(x => x.Count == 3))
             {
                 return Category.ThreeOfAKind;
             }
 
-            if (groupCards.Count(x => x.Count == 2) == 2)
+            if (enumerable.Count(x => x.Count == 2) == 2)
             {
                 return Category.TwoPair;
             }
 
-            if (groupCards.Count(x => x.Count == 2) == 1)
+            if (enumerable.Count(x => x.Count == 2) == 1)
             {
                 return Category.OnePair;
             }
 
             return Category.HighCard;
+        }
+
+        private bool IsFlush()
+        {
+            return this._cardList.GroupBy(x => x.Suit).Count() == 1;
         }
     }
 }
