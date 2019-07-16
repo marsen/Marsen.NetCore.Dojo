@@ -193,6 +193,8 @@ Lee : S2,S4,S9,S6,S5
 Lee Win, Becasue Flush
 
 #### 考慮重構 HandCard 的 if
+發現少了 HandCard 類別的測試，
+思考我的工序哪裡錯了 ?
 
 ### 變化
 
