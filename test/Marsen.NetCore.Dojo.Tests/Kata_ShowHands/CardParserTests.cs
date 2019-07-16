@@ -32,11 +32,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = _cardParser.Parse(input);
             var expected = new List<Card>
             {
-                new Card {Rank = 3},
-                new Card {Rank = 3},
-                new Card {Rank = 3},
-                new Card {Rank = 7},
-                new Card {Rank = 8},
+                new Card {Rank = 3, Suit = SuitEnum.S},
+                new Card {Rank = 3, Suit = SuitEnum.C},
+                new Card {Rank = 3, Suit = SuitEnum.D},
+                new Card {Rank = 7, Suit = SuitEnum.H},
+                new Card {Rank = 8, Suit = SuitEnum.H},
             }.ToExpectedObject();
             expected.ShouldEqual(actual);
         }
