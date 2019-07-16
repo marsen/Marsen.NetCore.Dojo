@@ -106,7 +106,7 @@ Lee Win, Because Three of a Kind
 
 #### case 3. 三條 vs 三條 
 
-(開發目的:逼出同牌型時，比較高牌)
+(開發目的:逼出同牌型時，比較 Key Card)
 Tom : S4,C4,D5,H5,S5
 Lee : S4,C4,D6,S6,H6
 Lee Win, Because Three of a Kind, Key Card is 6
@@ -142,14 +142,14 @@ End in a tie
 
 #### case 5. 二條 vs 二條 ，關鍵牌為 9 
 
-(開發目的:逼出同牌型時，比較高牌)
+(開發目的:逼出同牌型時，比較 Key Card)
 Tom : S4,C4,D5,H5,C7
 Lee : S4,C4,D5,S5,S9
 Lee Win, Because Two Pair , Key Card 9
 
 #### case 6. 二條 vs 二條
 
-(開發目的:逼出同牌型時，比較高牌)
+(開發目的:逼出同牌型時，比較 Key Card)
 Tom : S4,C4,D5,H5,C7
 Lee : S4,C4,D5,S5,S7
 End in a tie
@@ -166,10 +166,17 @@ End in a tie
 
 #### case 7. 二條 vs 一條
 
-(開發目的:逼出同牌型時，比較高牌)
+(開發目的:逼出一條)
 Tom : S4,C4,D5,H5,C7
 Lee : S4,C4,D5,S6,S7
 Tom Win, Becasue Two Pair
+
+#### case 8. 一條 vs 雜牌
+
+(開發目的:逼出高牌)
+Tom : S2,C4,D5,H9,C7
+Lee : S4,C4,D5,S6,S7
+Lee Win, Becasue One Pair
 
 ### 變化
 
