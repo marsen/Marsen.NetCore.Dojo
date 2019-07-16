@@ -29,9 +29,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Flush;
             }
 
-            if (this._cardList
-                .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4))
+            if (IsFourOfAKind())
             {
                 return Category.FourOfAKind;
             }
@@ -63,6 +61,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
             return Category.HighCard;
+        }
+
+        protected virtual bool IsFourOfAKind()
+        {
+            return this._cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4);
         }
 
         private bool IsFlush()
