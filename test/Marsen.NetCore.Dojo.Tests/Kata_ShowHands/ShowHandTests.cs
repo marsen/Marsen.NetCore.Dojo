@@ -65,5 +65,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("S2,C4,D5,H9,C7", "S4,C4,D5,S6,S7");
             Assert.Equal("Lee Win, Because One Pair", actual);
         }
+
+        [Fact]
+        public void Straight_ThreeOfAKind()
+        {
+            var actual = showHand.Duel("S2,C4,D9,H9,C9", "S8,C4,D5,S6,S7");
+            Assert.Equal("Lee Win, Because Straight", actual);
+        }
     }
 }
