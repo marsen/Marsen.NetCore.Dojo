@@ -37,7 +37,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.TwoPair;
             }
 
-            return Category.OnePair;
+            if (groupCards.Count(x => x.Count == 2) == 1)
+            {
+                return Category.OnePair;
+            }
+
+            return Category.HighCard;
         }
     }
 }
