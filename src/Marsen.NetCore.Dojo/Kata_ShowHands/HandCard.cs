@@ -39,28 +39,43 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Straight;
             }
 
-            if (this._cardList
-                .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 3))
+            if (IsThreeOfAKind())
             {
                 return Category.ThreeOfAKind;
             }
 
-            if (this._cardList
-                    .GroupBy(x => x.Rank)
-                    .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Count(x => x.Count == 2) == 2)
+            if (IsTwoPair())
             {
                 return Category.TwoPair;
             }
 
-            if (this._cardList
-                    .GroupBy(x => x.Rank)
-                    .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Count(x => x.Count == 2) == 1)
+            if (IsOnePair())
             {
                 return Category.OnePair;
             }
 
             return Category.HighCard;
+        }
+
+        protected virtual bool IsOnePair()
+        {
+            return this._cardList
+                       .GroupBy(x => x.Rank)
+                       .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Count(x => x.Count == 2) == 1;
+        }
+
+        protected virtual bool IsTwoPair()
+        {
+            return this._cardList
+                       .GroupBy(x => x.Rank)
+                       .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Count(x => x.Count == 2) == 2;
+        }
+
+        protected virtual bool IsThreeOfAKind()
+        {
+            return this._cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 3);
         }
 
         private bool IsStraight()
