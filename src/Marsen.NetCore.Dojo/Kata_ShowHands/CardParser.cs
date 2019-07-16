@@ -6,12 +6,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
     public class CardParser
     {
-        public List<Card> Parse(string firstPlayerCard)
+        public List<Card> Parse(string cards)
         {
-            return firstPlayerCard.Split(',').Select(x => new Card
+            return cards.Split(',').Select(x => new Card
             {
                 Rank = int.Parse(x.Substring(1)),
-                Suit = Enum.Parse<SuitEnum>(x.Substring(0,1))
+                Suit = Enum.Parse<SuitEnum>(x.Substring(0, 1))
             }).ToList();
         }
     }
