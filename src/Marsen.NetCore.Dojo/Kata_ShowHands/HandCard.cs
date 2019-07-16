@@ -24,9 +24,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key});
             this.KeyCard = groupCards.OrderBy(x => x.Count).Select(x => x.Rank).ToList();
-            if (this._cardList.GroupBy(x=>x.Suit).Count()==5)
+            if (this._cardList.GroupBy(x => x.Suit).Count() == 1)
             {
-                return Category.Straight;
+                return Category.Flush;
             }
 
             if (groupCards.Any(x => x.Count == 4))
