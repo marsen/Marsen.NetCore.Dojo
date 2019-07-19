@@ -29,7 +29,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Flush;
             }
 
-            if (IsFourOfAKind(this._cardList))
+            if (new FourOfAKind().Apply(this._cardList))
             {
                 return Category.FourOfAKind;
             }
