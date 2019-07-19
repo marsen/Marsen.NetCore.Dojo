@@ -21,5 +21,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Category expected = Category.FourOfAKind;
             Assert.Equal(expected, actual);
         }
+
     }
 }
