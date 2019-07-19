@@ -44,12 +44,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.ThreeOfAKind;
             }
 
-            if (IsTwoPair())
+            if (IsTwoPair(this._cardList))
             {
                 return Category.TwoPair;
             }
 
-            if (IsOnePair())
+            if (IsOnePair(this._cardList))
             {
                 return Category.OnePair;
             }
@@ -57,16 +57,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return Category.HighCard;
         }
 
-        protected virtual bool IsOnePair()
+        protected virtual bool IsOnePair(List<Card> cardList)
         {
-            return this._cardList
+            return cardList
                        .GroupBy(x => x.Rank)
                        .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 1;
         }
 
-        protected virtual bool IsTwoPair()
+        protected virtual bool IsTwoPair(List<Card> cardList)
         {
-            return this._cardList
+            return cardList
                        .GroupBy(x => x.Rank)
                        .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 2;
         }
