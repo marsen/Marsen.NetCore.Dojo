@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
                 .ToList();
-            if (IsFlush())
+            if (IsFlush(this._cardList))
             {
                 return Category.Flush;
             }
@@ -90,9 +90,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4);
         }
 
-        private bool IsFlush()
+        private bool IsFlush(List<Card> cardList)
         {
-            return this._cardList.GroupBy(x => x.Suit).Count() == 1;
+            return cardList.GroupBy(x => x.Suit).Count() == 1;
         }
     }
 }
