@@ -24,10 +24,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
                 .ToList();
-            if (IsFlush(this._cardList))
-            {
-                return Category.Flush;
-            }
+            if (new Flush().Apply(this._cardList))
+                if (IsFlush(this._cardList))
+                {
+                    return Category.Flush;
+                }
 
             if (IsFourOfAKind(this._cardList))
             {
@@ -91,6 +92,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         }
 
         private bool IsFlush(List<Card> cardList)
+        {
+            return cardList.GroupBy(x => x.Suit).Count() == 1;
+        }
+    }
+
+    public class Flush
+    {
+        public bool Apply(List<Card> cardList)
         {
             return cardList.GroupBy(x => x.Suit).Count() == 1;
         }
