@@ -223,6 +223,8 @@ protected virtual bool IsFourOfAKind()
 ```
 所以我要透過參數傳遞消除這樣的相依。
 
+**應該傳入 cardlist 回傳 Category**
+
 
 
 ### 變化
