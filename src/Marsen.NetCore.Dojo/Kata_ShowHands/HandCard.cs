@@ -39,17 +39,17 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Straight;
             }
 
-            if (IsThreeOfAKind(this._cardList))
+            if (new ThreeOfAKind().Apply(this._cardList))
             {
                 return Category.ThreeOfAKind;
             }
 
-            if (IsTwoPair(this._cardList))
+            if (new TwoPair().Apply(this._cardList))
             {
                 return Category.TwoPair;
             }
 
-            if (IsOnePair(this._cardList))
+            if (new OnePair().Apply(this._cardList))
             {
                 return Category.OnePair;
             }
@@ -88,6 +88,36 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return cardList
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4);
+        }
+    }
+
+    public class OnePair : ICategoryRule
+    {
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList
+                       .GroupBy(x => x.Rank)
+                       .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 1;
+        }
+    }
+
+    public class TwoPair : ICategoryRule
+    {
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList
+                       .GroupBy(x => x.Rank)
+                       .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 2;
+        }
+    }
+
+    public class ThreeOfAKind : ICategoryRule
+    {
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 3);
         }
     }
 
