@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Straight;
             }
 
-            if (IsThreeOfAKind())
+            if (IsThreeOfAKind(this._cardList))
             {
                 return Category.ThreeOfAKind;
             }
@@ -71,9 +71,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                        .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 2;
         }
 
-        protected virtual bool IsThreeOfAKind()
+        protected virtual bool IsThreeOfAKind(List<Card> cardList)
         {
-            return this._cardList
+            return cardList
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 3);
         }
