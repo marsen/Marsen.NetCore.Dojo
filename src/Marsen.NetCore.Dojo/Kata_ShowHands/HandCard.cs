@@ -29,7 +29,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return Category.Flush;
             }
 
-            if (IsFourOfAKind())
+            if (IsFourOfAKind(this._cardList))
             {
                 return Category.FourOfAKind;
             }
@@ -83,9 +83,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return allCard.Contains(string.Join(',', this._cardList.OrderBy(x => x.Rank).Select(x => x.Rank)));
         }
 
-        protected virtual bool IsFourOfAKind()
+        private bool IsFourOfAKind(List<Card> cardList)
         {
-            return this._cardList
+            return cardList
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4);
         }
