@@ -96,12 +96,4 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return cardList.GroupBy(x => x.Suit).Count() == 1;
         }
     }
-
-    public class Flush
-    {
-        public bool Apply(List<Card> cardList)
-        {
-            return cardList.GroupBy(x => x.Suit).Count() == 1;
-        }
-    }
 }
