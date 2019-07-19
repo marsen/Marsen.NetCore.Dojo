@@ -201,6 +201,29 @@ Lee Win, Becasue Flush
 考慮是否有必要性 ?
 決定暫時不補牌型的測試，現況的步驟並沒有逼出這些測試，故先略過
 
+#### 重構的思維
+
+我的目標是消除這些 if 。
+因為 IsXXX 相關的方法都是相同傳入與回傳值, 
+
+> 這裡有一個 pattern ，
+> 如果有一群相同的方法簽章與回傳值 ，
+> 我們可以透過一個 List 將這些規則 Rule 作分類(放到不同的類別)
+> 並使用 Loop 處理不同的規則 ，這是我在 FizzBuzz 的 Kata 學到的技巧。
+> 我先給它一個名字 `if rule to loop` 好了。
+
+要進一步作這樣的重構之前
+發現所有的方法都對 this._cardList 有相依。
+
+```
+protected virtual bool IsFourOfAKind()
+{
+    return this._cardList....
+}
+```
+所以我要透過參數傳遞消除這樣的相依。
+
+
 
 ### 變化
 
