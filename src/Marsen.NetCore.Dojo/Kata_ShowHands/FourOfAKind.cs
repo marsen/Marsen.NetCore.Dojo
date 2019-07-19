@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
-    public class FourOfAKind
+    public class FourOfAKind : ICategoryRule
     {
         public bool Apply(List<Card> cardList)
         {
