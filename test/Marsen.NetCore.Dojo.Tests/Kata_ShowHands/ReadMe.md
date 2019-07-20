@@ -225,6 +225,11 @@ protected virtual bool IsFourOfAKind()
 
 **應該傳入 cardlist 回傳 Category**
 
+完成重構之後,發現沒有同花順與葫蘆的 Rule
+立馬加上測試
+
+#### case 11 同花順的測試
+
 
 
 ### 變化
