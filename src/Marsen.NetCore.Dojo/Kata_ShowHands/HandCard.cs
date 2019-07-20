@@ -12,6 +12,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         public HandCard(List<Card> parse)
         {
             this._cardList = parse;
+            this.KeyCard = this.GetKeyCard();
         }
 
 
@@ -19,11 +20,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public Category GetCategory()
         {
-            this.KeyCard = this._cardList
-                .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
-                .ToList();
-            List<ICategoryRule> categoryRules = new List<ICategoryRule>
+            var categoryRules = new List<ICategoryRule>
             {
                 new Flush(),
                 new FourOfAKind(),
@@ -34,7 +31,15 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 new HighCard()
             };
 
-            return categoryRules.FirstOrDefault(x => x.Apply(this._cardList)).Category;
+            return categoryRules.First(x => x.Apply(this._cardList)).Category;
+        }
+
+        private List<int> GetKeyCard()
+        {
+            return this._cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
+                .ToList();
         }
     }
 }
