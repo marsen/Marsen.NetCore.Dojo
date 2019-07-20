@@ -11,5 +11,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4);
         }
+
+        public Category Category => Category.FourOfAKind;
     }
 }
