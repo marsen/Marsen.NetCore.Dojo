@@ -23,6 +23,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
                 .ToList();
+            List<ICategoryRule> categoryRules = new List<ICategoryRule>
+            {
+                new Flush(),
+                new FourOfAKind(),
+                new Straight(),
+                new ThreeOfAKind(),
+                new TwoPair(),
+                new OnePair()
+            };
+            categoryRules.ForEach(x => x.Apply(this._cardList));
             if (new Flush().Apply(this._cardList))
             {
                 return Category.Flush;
