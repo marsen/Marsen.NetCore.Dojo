@@ -9,5 +9,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             return cardList.GroupBy(x => x.Suit).Count() == 1;
         }
+
+        public Category Category => Category.Flush;
     }
 }

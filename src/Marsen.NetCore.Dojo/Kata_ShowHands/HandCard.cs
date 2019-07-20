@@ -30,9 +30,12 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 new Straight(),
                 new ThreeOfAKind(),
                 new TwoPair(),
-                new OnePair()
+                new OnePair(),
+                new HighCard()
             };
-            categoryRules.ForEach(x => x.Apply(this._cardList));
+
+            return categoryRules.FirstOrDefault(x => x.Apply(this._cardList)).Category;
+
             if (new Flush().Apply(this._cardList))
             {
                 return Category.Flush;
@@ -67,6 +70,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         }
     }
 
+    public class HighCard : ICategoryRule
+    {
+        public bool Apply(List<Card> cardList)
+        {
+            return true;
+        }
+
+        public Category Category => Category.HighCard;
+    }
+
     public class OnePair : ICategoryRule
     {
         public bool Apply(List<Card> cardList)
@@ -75,6 +88,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                        .GroupBy(x => x.Rank)
                        .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 1;
         }
+
+        public Category Category => Category.OnePair;
     }
 
     public class TwoPair : ICategoryRule
@@ -85,6 +100,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                        .GroupBy(x => x.Rank)
                        .Select(g => new {Count = g.Count(), Rank = g.Key}).Count(x => x.Count == 2) == 2;
         }
+
+        public Category Category => Category.TwoPair;
     }
 
     public class ThreeOfAKind : ICategoryRule
@@ -95,15 +112,20 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 3);
         }
+
+        public Category Category => Category.ThreeOfAKind;
     }
 
     public class Straight : ICategoryRule
     {
         private const string allCard = "1,2,3,4,5,6,7,8,9,10,J,Q,K";
 
+
         public bool Apply(List<Card> cardList)
         {
             return allCard.Contains(string.Join(',', cardList.OrderBy(x => x.Rank).Select(x => x.Rank)));
         }
+
+        public Category Category => Category.Straight;
     }
 }
