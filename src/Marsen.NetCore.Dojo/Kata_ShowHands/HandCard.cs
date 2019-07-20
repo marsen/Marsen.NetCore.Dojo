@@ -23,8 +23,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var categoryRules = new List<ICategoryRule>
             {
                 new StraightFlush(),
-                new Flush(),
                 new FourOfAKind(),
+                new FullHouse(),
+                new Flush(),
                 new Straight(),
                 new ThreeOfAKind(),
                 new TwoPair(),
@@ -42,6 +43,17 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
                 .ToList();
         }
+    }
+
+    public class FullHouse : ICategoryRule
+    {
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 3) &&
+                   cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 2);
+        }
+
+        public Category Category => Category.FullHouse;
     }
 
     public class StraightFlush : ICategoryRule
