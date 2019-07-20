@@ -55,5 +55,85 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Category expected = Category.FullHouse;
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void ThreeOfAKind()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 6, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = SuitEnum.C},
+                new Card {Rank = 6, Suit = SuitEnum.H},
+                new Card {Rank = 8, Suit = SuitEnum.C},
+                new Card {Rank = 9, Suit = SuitEnum.S},
+            });
+            var actual = target.GetCategory();
+            Category expected = Category.ThreeOfAKind;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void TwoPair()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 6, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = SuitEnum.C},
+                new Card {Rank = 8, Suit = SuitEnum.H},
+                new Card {Rank = 8, Suit = SuitEnum.C},
+                new Card {Rank = 9, Suit = SuitEnum.S},
+            });
+            var actual = target.GetCategory();
+            Category expected = Category.TwoPair;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void OnePair()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 6, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = SuitEnum.C},
+                new Card {Rank = 8, Suit = SuitEnum.H},
+                new Card {Rank = 7, Suit = SuitEnum.C},
+                new Card {Rank = 9, Suit = SuitEnum.S},
+            });
+            var actual = target.GetCategory();
+            Category expected = Category.OnePair;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Straight()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 5, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = SuitEnum.C},
+                new Card {Rank = 8, Suit = SuitEnum.H},
+                new Card {Rank = 7, Suit = SuitEnum.C},
+                new Card {Rank = 9, Suit = SuitEnum.S},
+            });
+            var actual = target.GetCategory();
+            Category expected = Category.Straight;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Flush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 6, Suit = SuitEnum.H},
+                new Card {Rank = 6, Suit = SuitEnum.H},
+                new Card {Rank = 8, Suit = SuitEnum.H},
+                new Card {Rank = 7, Suit = SuitEnum.H},
+                new Card {Rank = 9, Suit = SuitEnum.H},
+            });
+            var actual = target.GetCategory();
+            Category expected = Category.Flush;
+            Assert.Equal(expected, actual);
+        }
     }
 }
