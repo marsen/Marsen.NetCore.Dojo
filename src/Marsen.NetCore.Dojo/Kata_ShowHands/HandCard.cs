@@ -35,38 +35,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             };
 
             return categoryRules.FirstOrDefault(x => x.Apply(this._cardList)).Category;
-
-            if (new Flush().Apply(this._cardList))
-            {
-                return Category.Flush;
-            }
-
-            if (new FourOfAKind().Apply(this._cardList))
-            {
-                return Category.FourOfAKind;
-            }
-
-            if (new Straight().Apply(this._cardList))
-            {
-                return Category.Straight;
-            }
-
-            if (new ThreeOfAKind().Apply(this._cardList))
-            {
-                return Category.ThreeOfAKind;
-            }
-
-            if (new TwoPair().Apply(this._cardList))
-            {
-                return Category.TwoPair;
-            }
-
-            if (new OnePair().Apply(this._cardList))
-            {
-                return Category.OnePair;
-            }
-
-            return Category.HighCard;
         }
     }
 
