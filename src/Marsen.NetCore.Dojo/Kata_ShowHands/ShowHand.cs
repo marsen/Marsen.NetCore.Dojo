@@ -56,14 +56,19 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return "End in a tie";
             }
 
-            if (IsFirstPlayerWin())
-            {
-                return $"{_firstPlayerName} Win, Because {_categoryLookup[this._firstPlayerHandCard.GetCategory()]}";
-            }
-            else
-            {
-                return $"{_secondPlayerName} Win, Because {_categoryLookup[this._secondPlayerHandCard.GetCategory()]}";
-            }
+            return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
+        }
+
+        private string GetWinnerCategory()
+        {
+            return IsFirstPlayerWin()
+                ? _categoryLookup[this._firstPlayerHandCard.GetCategory()]
+                : _categoryLookup[this._secondPlayerHandCard.GetCategory()];
+        }
+
+        private string GetWinner()
+        {
+            return IsFirstPlayerWin() ? _firstPlayerName : _secondPlayerName;
         }
 
         private bool IsFirstPlayerWin()
