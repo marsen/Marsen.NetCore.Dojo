@@ -18,6 +18,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {Category.OnePair, "One Pair"},
         };
 
+        private HandCard _firstPlayerHandCard;
+        private HandCard _secondPlayerHandCard;
+
         public ShowHand(string firstPlayerName, string secondPlayerName)
         {
             this._firstPlayerName = firstPlayerName;
@@ -29,7 +32,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var cardParser = new CardParser();
 
             var firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
+            this._firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
             var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
+            this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
 
 
             if (firstPlayerHandCard.GetCategory() - secondPlayerHandCard.GetCategory() == 0)
@@ -53,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return "End in a tie";
             }
 
-            if (firstPlayerHandCard.GetCategory() - secondPlayerHandCard.GetCategory() > 0)
+            if (IsFirstPlayerWin())
             {
                 return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.GetCategory()]}";
             }
@@ -61,6 +66,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {
                 return $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.GetCategory()]}";
             }
+        }
+
+        private bool IsFirstPlayerWin()
+        {
+            return this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() > 0;
         }
     }
 }
