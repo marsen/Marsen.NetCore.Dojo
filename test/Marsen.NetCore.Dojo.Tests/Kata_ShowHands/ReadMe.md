@@ -246,6 +246,13 @@ protected virtual bool IsFourOfAKind()
 
 明顯 2 不合理，進行重構。
 
+#### case 19 同花順 vs 同花順
+
+(開發目的:逼出 Ace ，加入同牌型時第一位玩家勝zgc利)
+Tom : SA,SK,S10,SJ,SQ
+Lee : SA,S2,D3,D4,D5
+Tom Win, Becasue Straight Flush , Key Card K
+
 
 
 ### 變化
