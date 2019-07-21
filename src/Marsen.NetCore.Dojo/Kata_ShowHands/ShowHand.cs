@@ -31,27 +31,25 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             var cardParser = new CardParser();
 
-            var firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
             this._firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
-            var secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
 
 
-            if (firstPlayerHandCard.GetCategory() - secondPlayerHandCard.GetCategory() == 0)
+            if (this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() == 0)
             {
-                for (var i = 0; i < firstPlayerHandCard.KeyCard.Count; i++)
+                for (var i = 0; i < this._firstPlayerHandCard.KeyCard.Count; i++)
                 {
-                    var category = _categoryLookup[firstPlayerHandCard.GetCategory()];
-                    if (firstPlayerHandCard.KeyCard[i] > secondPlayerHandCard.KeyCard[i])
+                    var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
+                    if (this._firstPlayerHandCard.KeyCard[i] > this._secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_firstPlayerName} Win, Because {category}, Key Card {firstPlayerHandCard.KeyCard[i]}";
+                            $"{_firstPlayerName} Win, Because {category}, Key Card {this._firstPlayerHandCard.KeyCard[i]}";
                     }
 
-                    if (firstPlayerHandCard.KeyCard[i] < secondPlayerHandCard.KeyCard[i])
+                    if (this._firstPlayerHandCard.KeyCard[i] < this._secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_secondPlayerName} Win, Because {category}, Key Card {secondPlayerHandCard.KeyCard[i]}";
+                            $"{_secondPlayerName} Win, Because {category}, Key Card {this._secondPlayerHandCard.KeyCard[i]}";
                     }
                 }
 
@@ -60,11 +58,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (IsFirstPlayerWin())
             {
-                return $"{_firstPlayerName} Win, Because {_categoryLookup[firstPlayerHandCard.GetCategory()]}";
+                return $"{_firstPlayerName} Win, Because {_categoryLookup[this._firstPlayerHandCard.GetCategory()]}";
             }
             else
             {
-                return $"{_secondPlayerName} Win, Because {_categoryLookup[secondPlayerHandCard.GetCategory()]}";
+                return $"{_secondPlayerName} Win, Because {_categoryLookup[this._secondPlayerHandCard.GetCategory()]}";
             }
         }
 
