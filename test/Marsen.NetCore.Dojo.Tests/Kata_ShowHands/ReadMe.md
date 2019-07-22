@@ -248,7 +248,7 @@ protected virtual bool IsFourOfAKind()
 
 #### case 19 同花順 vs 同花順
 
-(開發目的:逼出 Ace ，加入同牌型時第一位玩家勝zgc利)
+(開發目的:逼出 Ace ，同牌型時第一位玩家 Key Card 勝利, Tom 的 Ace 被視作 14，而 Lee 的 Ace 視作 1)
 Tom : SA,SK,S10,SJ,SQ
 Lee : SA,S2,D3,D4,D5
 Tom Win, Becasue Straight Flush , Key Card K
