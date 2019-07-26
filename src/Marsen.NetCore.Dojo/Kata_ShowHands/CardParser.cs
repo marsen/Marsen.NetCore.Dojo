@@ -32,27 +32,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
             return result;
-            if (x == "A")
-            {
-                return 14;
-            }
-
-            if (x == "K")
-            {
-                return 13;
-            }
-
-            if (x == "Q")
-            {
-                return 12;
-            }
-
-            if (x == "J")
-            {
-                return 11;
-            }
-
-            return int.Parse(x);
         }
     }
 }
