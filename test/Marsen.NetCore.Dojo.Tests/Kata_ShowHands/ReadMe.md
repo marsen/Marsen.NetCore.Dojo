@@ -253,6 +253,11 @@ Tom : SA,SK,S10,SJ,SQ
 Lee : SA,S2,D3,D4,D5
 Tom Win, Becasue Straight Flush , Key Card K
 
+試著讓測試變綠燈，首先遇到 Ace 被當作 1 或 14 的問題，
+第一版的解法在 CardParser 作判斷，如果是 A 2 3 4 5 就視 A 作 1，
+10 J Q K A 就視作 14 。不過在 Compare 的階段，兩張 A 會被視作不同的牌導致測試失敗。
+
+
 
 
 ### 變化
