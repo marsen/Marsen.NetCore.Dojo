@@ -38,20 +38,21 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() == 0)
             {
+                var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
                 for (var i = 0; i < this._firstPlayerHandCard.KeyCard.Count; i++)
                 {
-                    var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
                     var firstKeyCard = this._firstPlayerHandCard.KeyCard[i];
-                    if (firstKeyCard > this._secondPlayerHandCard.KeyCard[i])
+                    var secondKeyCard = this._secondPlayerHandCard.KeyCard[i];
+                    if (firstKeyCard > secondKeyCard)
                     {
                         return
                             $"{_firstPlayerName} Win, Because {category}, Key Card {KeyCardDisplay(firstKeyCard)}";
                     }
 
-                    if (firstKeyCard < this._secondPlayerHandCard.KeyCard[i])
+                    if (firstKeyCard < secondKeyCard)
                     {
                         return
-                            $"{_secondPlayerName} Win, Because {category}, Key Card {this._secondPlayerHandCard.KeyCard[i]}";
+                            $"{_secondPlayerName} Win, Because {category}, Key Card {KeyCardDisplay(secondKeyCard)}";
                     }
                 }
 
@@ -66,6 +67,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (firstKeyCard == 13)
             {
                 return "K";
+            }
+
+            if (firstKeyCard == 12)
+            {
+                return "Q";
             }
 
             return firstKeyCard.ToString();
