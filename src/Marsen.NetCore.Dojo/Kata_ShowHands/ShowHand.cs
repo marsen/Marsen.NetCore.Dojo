@@ -41,13 +41,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 for (var i = 0; i < this._firstPlayerHandCard.KeyCard.Count; i++)
                 {
                     var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
-                    if (this._firstPlayerHandCard.KeyCard[i] > this._secondPlayerHandCard.KeyCard[i])
+                    var firstKeyCard = this._firstPlayerHandCard.KeyCard[i];
+                    if (firstKeyCard > this._secondPlayerHandCard.KeyCard[i])
                     {
                         return
-                            $"{_firstPlayerName} Win, Because {category}, Key Card {this._firstPlayerHandCard.KeyCard[i]}";
+                            $"{_firstPlayerName} Win, Because {category}, Key Card {KeyCardDisplay(firstKeyCard)}";
                     }
 
-                    if (this._firstPlayerHandCard.KeyCard[i] < this._secondPlayerHandCard.KeyCard[i])
+                    if (firstKeyCard < this._secondPlayerHandCard.KeyCard[i])
                     {
                         return
                             $"{_secondPlayerName} Win, Because {category}, Key Card {this._secondPlayerHandCard.KeyCard[i]}";
@@ -58,6 +59,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }
 
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
+        }
+
+        private string KeyCardDisplay(int firstKeyCard)
+        {
+            if (firstKeyCard == 13)
+            {
+                return "K";
+            }
+
+            return firstKeyCard.ToString();
         }
 
         private string GetWinnerCategory()
