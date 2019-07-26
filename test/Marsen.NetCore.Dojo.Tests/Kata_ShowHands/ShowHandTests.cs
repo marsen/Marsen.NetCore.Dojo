@@ -81,7 +81,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
         }
 
         [Fact]
-        public void StraightFlush_StraightFlush()
+        public void StraightFlush_StraightFlush_With_Key_Card_K()
         {
             var actual = showHand.Duel("SA,SK,SJ,S10,SQ", "S2,S4,SA,S3,S5");
             Assert.Equal("Tom Win, Because Straight Flush, Key Card K", actual);
