@@ -74,6 +74,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return "Q";
             }
 
+            if (firstKeyCard == 11)
+            {
+                return "J";
+            }
+
             return firstKeyCard.ToString();
         }
 
