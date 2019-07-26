@@ -86,5 +86,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("SA,SK,SJ,S10,SQ", "S2,S4,SA,S3,S5");
             Assert.Equal("Tom Win, Because Straight Flush, Key Card K", actual);
         }
+
+        [Fact]
+        public void StraightFlush_StraightFlush_With_Key_Card_Q()
+        {
+            var actual = showHand.Duel("D9,D8,D7,D5,D6", "S9,S8,SJ,S10,SQ");
+            Assert.Equal("Lee Win, Because Straight Flush, Key Card Q", actual);
+        }
     }
 }
