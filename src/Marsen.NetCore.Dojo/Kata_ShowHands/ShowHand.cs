@@ -10,6 +10,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         private readonly Dictionary<Category, string> _categoryLookup = new Dictionary<Category, string>
         {
+            {Category.StraightFlush, "Straight Flush"},
             {Category.Flush, "Flush"},
             {Category.FourOfAKind, "Four Of a Kind"},
             {Category.ThreeOfAKind, "Three Of a Kind"},
