@@ -10,7 +10,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public bool Apply(List<Card> cardList)
         {
-            return AllCard.Contains(string.Join(',', cardList.OrderBy(x => x.Rank).Select(x => x.Rank)));
+            var orderedRank = string.Join(',', cardList.OrderBy(x => x.Rank).Select(x => x.Rank));
+            return AllCard.Contains(orderedRank) || orderedRank == "2,3,4,5,14";
         }
 
         public Category Category => Category.Straight;
