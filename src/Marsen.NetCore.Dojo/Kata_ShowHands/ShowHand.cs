@@ -64,6 +64,20 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         private string KeyCardDisplay(int firstKeyCard)
         {
+            if (firstKeyCard < 11 && firstKeyCard > 1)
+            {
+                return firstKeyCard.ToString();
+            }
+
+            var rankLookup = new Dictionary<int, string>
+            {
+                {14, "A"},
+                {13, "K"},
+                {12, "Q"},
+                {11, "J"},
+            };
+            return rankLookup[firstKeyCard];
+
             if (firstKeyCard == 14)
             {
                 return "A";
