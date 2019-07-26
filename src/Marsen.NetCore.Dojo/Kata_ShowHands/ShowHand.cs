@@ -64,6 +64,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         private string KeyCardDisplay(int firstKeyCard)
         {
+            if (firstKeyCard == 14)
+            {
+                return "A";
+            }
+
             if (firstKeyCard == 13)
             {
                 return "K";
