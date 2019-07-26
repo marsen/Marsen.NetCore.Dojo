@@ -257,7 +257,8 @@ Tom Win, Becasue Straight Flush , Key Card K
 第一版的解法在 CardParser 作判斷，如果是 A 2 3 4 5 就視 A 作 1，
 10 J Q K A 就視作 14 。不過在 Compare 的階段，兩張 A 會被視作不同的牌導致測試失敗。
 
-
+調整思路，整副牌應該 2 最小 Ace 最大，所以 Ace 應該是 14 才對， 
+反而應該在 Straight Flush 的規則中作變異，把 2,3,4,5,14 視作順子。
 
 
 ### 變化
