@@ -6,12 +6,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
     public class CardParser
     {
-        private bool isAceBe14;
-
         public List<Card> Parse(string cards)
         {
-            this.isAceBe14 = string.Join(',', cards.Split(',').Select(x => x.Substring(1)).OrderBy(x => x).ToList())
-                .Contains("10,A,J,K,Q");
             return cards.Split(',').Select(x => new Card
             {
                 Rank = ParseRank(x.Substring(1)),
@@ -23,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             if (x == "A")
             {
-                return isAceBe14 ? 14 : 1;
+                return 14;
             }
 
             if (x == "K")

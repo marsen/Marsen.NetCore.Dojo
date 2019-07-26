@@ -40,7 +40,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             return this._cardList
                 .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count).Select(x => x.Rank)
+                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().OrderBy(x => x.Count)
+                .ThenByDescending(x => x.Rank)
+                .Select(x => x.Rank)
                 .ToList();
         }
     }
