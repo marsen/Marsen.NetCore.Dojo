@@ -77,28 +77,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 {11, "J"},
             };
             return rankLookup[firstKeyCard];
-
-            if (firstKeyCard == 14)
-            {
-                return "A";
-            }
-
-            if (firstKeyCard == 13)
-            {
-                return "K";
-            }
-
-            if (firstKeyCard == 12)
-            {
-                return "Q";
-            }
-
-            if (firstKeyCard == 11)
-            {
-                return "J";
-            }
-
-            return firstKeyCard.ToString();
         }
 
         private string GetWinnerCategory()
