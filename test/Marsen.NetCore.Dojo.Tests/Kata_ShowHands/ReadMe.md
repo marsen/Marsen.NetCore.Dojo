@@ -260,6 +260,14 @@ Tom Win, Becasue Straight Flush , Key Card K
 調整思路，整副牌應該 2 最小 Ace 最大，所以 Ace 應該是 14 才對， 
 反而應該在 Straight Flush 的規則中作變異，把 2,3,4,5,14 視作順子。
 
+####  case 20 同花順 vs 同花順 Key Card K
+####  case 21 同花順 vs 同花順 Key Card Q
+####  case 22 同花順 vs 同花順 Key Card J
+
+開發目的，逼出非數字的 Rank 判斷，出現大量 if 的 Pattern
+我使用查表法(Dictionary Lookup)重構這一段邏輯。
+
+
 
 ### 變化
 
