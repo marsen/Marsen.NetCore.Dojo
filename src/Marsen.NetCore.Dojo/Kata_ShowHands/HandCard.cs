@@ -12,7 +12,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         public HandCard(List<Card> parse)
         {
             this._cardList = parse;
-            this.KeyCard = this.GetKeyCard();
         }
 
 
@@ -36,7 +35,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return categoryRules.First(x => x.Apply(this._cardList)).Category;
         }
 
-        private List<int> GetKeyCard()
+        public List<int> GetKeyCard()
         {
             return this._cardList
                 .GroupBy(x => x.Rank)
