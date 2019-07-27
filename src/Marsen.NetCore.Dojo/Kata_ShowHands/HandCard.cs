@@ -46,25 +46,4 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .ToList();
         }
     }
-
-    public class FullHouse : ICategoryRule
-    {
-        public bool Apply(List<Card> cardList)
-        {
-            return cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 3) &&
-                   cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 2);
-        }
-
-        public Category Category => Category.FullHouse;
-    }
-
-    public class StraightFlush : ICategoryRule
-    {
-        public bool Apply(List<Card> cardList)
-        {
-            return new Straight().Apply(cardList) && new Flush().Apply(cardList);
-        }
-
-        public Category Category => Category.StraightFlush;
-    }
 }
