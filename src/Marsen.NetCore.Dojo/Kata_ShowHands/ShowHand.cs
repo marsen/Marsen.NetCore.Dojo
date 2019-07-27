@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
@@ -39,10 +40,10 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() == 0)
             {
                 var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
-                for (var i = 0; i < this._firstPlayerHandCard.GetKeyCard().Count; i++)
+                for (var i = 0; i < this._firstPlayerHandCard.GetKeyCard().Count(); i++)
                 {
-                    var firstKeyCard = this._firstPlayerHandCard.GetKeyCard()[i];
-                    var secondKeyCard = this._secondPlayerHandCard.GetKeyCard()[i];
+                    var firstKeyCard = this._firstPlayerHandCard.GetKeyCard().ElementAt(i);
+                    var secondKeyCard = this._secondPlayerHandCard.GetKeyCard().ElementAt(i);
                     if (firstKeyCard > secondKeyCard)
                     {
                         return
