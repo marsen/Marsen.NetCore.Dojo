@@ -32,14 +32,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return this._categoryRules.First(x => x.Apply(this._cardList)).Category;
         }
 
-        public List<int> GetKeyCard()
+        public IEnumerable<int> GetKeyCard()
         {
             return this._cardList
                 .GroupBy(x => x.Rank)
                 .OrderBy(x => x.Count())
                 .ThenByDescending(x => x.Key)
-                .Select(x => x.Key)
-                .ToList();
+                .Select(x => x.Key);
         }
     }
 }
