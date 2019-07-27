@@ -27,9 +27,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             new HighCard()
         };
 
-
-        public List<int> KeyCard { get; set; }
-
         public Category GetCategory()
         {
             return this._categoryRules.First(x => x.Apply(this._cardList)).Category;
