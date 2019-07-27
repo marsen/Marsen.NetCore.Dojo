@@ -14,25 +14,25 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             this._cardList = parse;
         }
 
+        private readonly List<ICategoryRule> _categoryRules = new List<ICategoryRule>
+        {
+            new StraightFlush(),
+            new FourOfAKind(),
+            new FullHouse(),
+            new Flush(),
+            new Straight(),
+            new ThreeOfAKind(),
+            new TwoPair(),
+            new OnePair(),
+            new HighCard()
+        };
+
 
         public List<int> KeyCard { get; set; }
 
         public Category GetCategory()
         {
-            var categoryRules = new List<ICategoryRule>
-            {
-                new StraightFlush(),
-                new FourOfAKind(),
-                new FullHouse(),
-                new Flush(),
-                new Straight(),
-                new ThreeOfAKind(),
-                new TwoPair(),
-                new OnePair(),
-                new HighCard()
-            };
-
-            return categoryRules.First(x => x.Apply(this._cardList)).Category;
+            return this._categoryRules.First(x => x.Apply(this._cardList)).Category;
         }
 
         public List<int> GetKeyCard()
