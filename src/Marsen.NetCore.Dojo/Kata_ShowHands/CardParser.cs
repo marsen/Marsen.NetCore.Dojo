@@ -16,22 +16,17 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             }).ToList();
         }
 
+        private readonly Dictionary<string, int> _rankLookup = new Dictionary<string, int>
+        {
+            {"A", 14},
+            {"K", 13},
+            {"Q", 12},
+            {"J", 11},
+        };
+
         private int ParseRank(string x)
         {
-            if (int.TryParse(x, out int result) == false)
-            {
-                var rankLookup = new Dictionary<string, int>
-                {
-                    {"A", 14},
-                    {"K", 13},
-                    {"Q", 12},
-                    {"J", 11},
-                };
-
-                return rankLookup[x];
-            }
-
-            return result;
+            return int.TryParse(x, out var result) ? result : _rankLookup[x];
         }
     }
 }
