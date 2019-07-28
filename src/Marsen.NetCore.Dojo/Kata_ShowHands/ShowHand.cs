@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -39,7 +39,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (this._firstPlayerHandCard.GetCategory() == this._secondPlayerHandCard.GetCategory())
             {
-                var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
                 for (var i = 0; i < this._firstPlayerHandCard.GetKeyCard().Count(); i++)
                 {
                     var firstKeyCard = this._firstPlayerHandCard.GetKeyCard().ElementAt(i);
@@ -62,7 +61,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         winnerKeyCard = secondKeyCard;
                     }
 
-                    return $"{winner} Win, Because {category}, Key Card {KeyCardDisplay(winnerKeyCard)}";
+                    return
+                        $"{winner} Win, Because {_categoryLookup[this._firstPlayerHandCard.GetCategory()]}, Key Card {KeyCardDisplay(winnerKeyCard)}";
                 }
 
                 return "End in a tie";
