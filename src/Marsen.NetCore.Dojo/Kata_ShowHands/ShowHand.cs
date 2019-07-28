@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,7 +37,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
 
 
-            if (this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() == 0)
+            if (this._firstPlayerHandCard.GetCategory() == this._secondPlayerHandCard.GetCategory())
             {
                 var category = _categoryLookup[this._firstPlayerHandCard.GetCategory()];
                 for (var i = 0; i < this._firstPlayerHandCard.GetKeyCard().Count(); i++)
