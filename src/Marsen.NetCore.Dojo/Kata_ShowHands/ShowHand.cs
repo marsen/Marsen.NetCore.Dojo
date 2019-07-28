@@ -63,17 +63,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     }
 
                     return $"{winner} Win, Because {category}, Key Card {KeyCardDisplay(winnerKeyCard)}";
-                    if (firstKeyCard > secondKeyCard)
-                    {
-                        return
-                            $"{_firstPlayerName} Win, Because {category}, Key Card {KeyCardDisplay(firstKeyCard)}";
-                    }
-
-                    if (firstKeyCard < secondKeyCard)
-                    {
-                        return
-                            $"{_secondPlayerName} Win, Because {category}, Key Card {KeyCardDisplay(secondKeyCard)}";
-                    }
                 }
 
                 return "End in a tie";
