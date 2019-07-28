@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Kata_ShowHands
+namespace Marsen.NetCore.Dojo.Kata_ShowHands.CategoryRules
 {
     public interface ICategoryRule
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata_ShowHands
+namespace Marsen.NetCore.Dojo.Kata_ShowHands.CategoryRules
 {
     public class FullHouse : ICategoryRule
     {
