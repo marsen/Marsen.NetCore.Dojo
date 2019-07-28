@@ -267,7 +267,8 @@ Tom Win, Becasue Straight Flush , Key Card K
 開發目的，逼出非數字的 Rank 判斷，出現大量 if 的 Pattern
 我使用查表法(Dictionary Lookup)重構這一段邏輯。
 
-
+接下來作了對檔案稍微分類了一下(依功能使用檔案路徑分類，並調整 namespace)
+並且作了一些比較小的重構。
 
 ### 變化
 
