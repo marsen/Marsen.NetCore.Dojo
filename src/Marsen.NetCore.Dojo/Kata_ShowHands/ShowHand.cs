@@ -44,6 +44,25 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 {
                     var firstKeyCard = this._firstPlayerHandCard.GetKeyCard().ElementAt(i);
                     var secondKeyCard = this._secondPlayerHandCard.GetKeyCard().ElementAt(i);
+                    if (firstKeyCard == secondKeyCard)
+                    {
+                        continue;
+                    }
+
+                    string winner;
+                    int winnerKeyCard;
+                    if (firstKeyCard > secondKeyCard)
+                    {
+                        winner = _firstPlayerName;
+                        winnerKeyCard = firstKeyCard;
+                    }
+                    else
+                    {
+                        winner = _secondPlayerName;
+                        winnerKeyCard = secondKeyCard;
+                    }
+
+                    return $"{winner} Win, Because {category}, Key Card {KeyCardDisplay(winnerKeyCard)}";
                     if (firstKeyCard > secondKeyCard)
                     {
                         return
