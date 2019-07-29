@@ -273,6 +273,10 @@ Tom Win, Becasue Straight Flush , Key Card K
 接下來作了對檔案稍微分類了一下(依功能使用檔案路徑分類，並調整 namespace)
 並且作了一些比較小的重構。
 
+#### 改善建議
+1. 相同 category 的 keyCard 逐步比較
+2. 使用 IComparer<HandCard> 減少 Duel() 的職責
+
 ### 變化
 
 - 加入花色
