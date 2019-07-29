@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -39,9 +39,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (this._firstPlayerHandCard.GetCategory() == this._secondPlayerHandCard.GetCategory())
             {
-                var keyCardWinner = GetKeyCardWinner();
-
-                return string.IsNullOrEmpty(keyCardWinner) ? "End in a tie" : keyCardWinner;
+                return string.IsNullOrEmpty(GetKeyCardWinner()) ? "End in a tie" : GetKeyCardWinner();
             }
 
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
