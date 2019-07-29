@@ -39,6 +39,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (this._firstPlayerHandCard.GetCategory() == this._secondPlayerHandCard.GetCategory())
             {
+                var result = this._firstPlayerHandCard.GetKeyCard().Zip(this._secondPlayerHandCard.GetKeyCard(),
+                        (x, y) => Tuple.Create(x - y != 0, x > y ? _firstPlayerName : _secondPlayerName, x > y ? x : y))
+                    .FirstOrDefault(x => x.Item1);
+                if (result != null)
+                {
+                    return
+                        $"{result.Item2} Win, Because {_categoryLookup[this._firstPlayerHandCard.GetCategory()]}, Key Card {KeyCardDisplay(result.Item3)}";
+                }
+
+
                 for (var i = 0; i < this._firstPlayerHandCard.GetKeyCard().Count(); i++)
                 {
                     var firstKeyCard = this._firstPlayerHandCard.GetKeyCard().ElementAt(i);
