@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,7 +55,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .FirstOrDefault(x => x.Item1);
             return result == null
                 ? null
-                : $"{result.Item2} Win, Because {_categoryLookup[this._firstPlayerHandCard.GetCategory()]}, Key Card {KeyCardDisplay(result.Item3)}";
+                : $"{result.Item2} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(result.Item3)}";
         }
 
         private string KeyCardDisplay(int firstKeyCard)
