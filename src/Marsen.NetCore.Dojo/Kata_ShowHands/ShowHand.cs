@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (this._firstPlayerHandCard.GetCategory() == this._secondPlayerHandCard.GetCategory())
             {
-                return string.IsNullOrEmpty(GetKeyCardCompareResult()) ? "End in a tie" : GetKeyCardCompareResult();
+                return GetKeyCardCompareResult();
             }
 
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
