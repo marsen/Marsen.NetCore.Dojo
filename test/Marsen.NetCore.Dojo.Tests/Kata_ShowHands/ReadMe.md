@@ -120,23 +120,25 @@ End in a tie
 
 
 > 這個時間點我想重構了，if 的判斷式很噁心
-```
-            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
-            {
-                //// Do Something    
-            }
 
-            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
-            {
-                //// Do Something
-                
-            }
-
-            if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
-            {
-                //// Do Something
-            }
 ```
+  if (firstPlayerHandCard.Category - secondPlayerHandCard.Category > 0)
+  {
+      //// Do Something    
+  }
+
+  if (firstPlayerHandCard.Category - secondPlayerHandCard.Category == 0)
+  {
+      //// Do Something
+      
+  }
+
+  if (firstPlayerHandCard.Category - secondPlayerHandCard.Category < 0)
+  {
+      //// Do Something
+  }
+```
+
 > 第一階段的重構只消除了暫存變數，看起來好一些了，
 > 但是 if 仍然在，這個時候我發現 Key Card 平手時的測試案例不太夠。
 
@@ -215,12 +217,13 @@ Lee Win, Becasue Flush
 要進一步作這樣的重構之前
 發現所有的方法都對 this._cardList 有相依。
 
-```
+```csharp
 protected virtual bool IsFourOfAKind()
 {
     return this._cardList....
 }
 ```
+
 所以我要透過參數傳遞消除這樣的相依。
 
 **應該傳入 cardlist 回傳 Category**
