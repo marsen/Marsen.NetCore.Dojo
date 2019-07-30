@@ -47,22 +47,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         private string GetKeyCardCompareResult()
         {
-            var result2 = this._firstPlayerHandCard.GetKeyCard()
+            var result = this._firstPlayerHandCard.GetKeyCard()
                 .Zip(this._secondPlayerHandCard.GetKeyCard(),
                     (x, y) =>
                         Tuple.Create(x != y,
                             $"{(x > y ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(x > y ? x : y)}"))
                 .FirstOrDefault(x => x.Item1);
-            return result2 == null ? "End in a tie" : result2.Item2;
-
-            var result = this._firstPlayerHandCard.GetKeyCard()
-                .Zip(this._secondPlayerHandCard.GetKeyCard(),
-                    (x, y) => Tuple.Create(x - y != 0, x > y ? _firstPlayerName : _secondPlayerName,
-                        KeyCardDisplay(x > y ? x : y)))
-                .FirstOrDefault(x => x.Item1);
-            return result == null
-                ? "End in a tie"
-                : $"{result.Item2} Win, Because {this.GetWinnerCategory()}, Key Card {result.Item3}";
+            return result == null ? "End in a tie" : result.Item2;
         }
 
         private string KeyCardDisplay(int firstKeyCard)
