@@ -35,12 +35,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             this._firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
             this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
-
-
-            if (Compare(this._firstPlayerHandCard.GetCategory(), this._secondPlayerHandCard.GetCategory()) == 0)
+            var handCardComparer = new HandCardComparer();
+            if (handCardComparer.Compare(this._firstPlayerHandCard, this._secondPlayerHandCard) == 0)
             {
                 return GetKeyCardCompareResult();
             }
+
+            //if (Compare(this._firstPlayerHandCard.GetCategory(), this._secondPlayerHandCard.GetCategory()) == 0)
+            //{
+            //    return GetKeyCardCompareResult();
+            //}
 
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
         }
@@ -93,6 +97,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         private bool IsFirstPlayerWin()
         {
             return this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() > 0;
+        }
+    }
+
+    public class HandCardComparer : IComparer<HandCard>
+    {
+        public int Compare(HandCard x, HandCard y)
+        {
+            return x.GetCategory() - y.GetCategory();
         }
     }
 }
