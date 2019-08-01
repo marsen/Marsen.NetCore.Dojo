@@ -288,7 +288,7 @@ Zip 的寫法我覺得很單純, 但是在 Tuple.Create 產生的 ItemN 我個�
        思考: Compare 是實作 IComparer<T> 的方法，但是我會很自然的比較 Category 而非 HandCard，
        但是 ShowHand 實作 IComparer<Category> 很奇怪，直覺上這不是它的職責。
        於是我決定把 IComparer<Category> 的邏輯搬進 HandCard 
-    2. 實作 handCardComparer
+    2. 實作 HandCardComparer 這個時候 KeyCard 的比較邏輯還在留在 ShowHand 就很奇怪了，應該被搬進 HandCardComparer
 
 
 
