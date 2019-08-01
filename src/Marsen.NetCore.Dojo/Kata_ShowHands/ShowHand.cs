@@ -38,6 +38,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var handCardComparer = new HandCardComparer();
             if (handCardComparer.Compare(this._firstPlayerHandCard, this._secondPlayerHandCard) == 0)
             {
+                return CompareKeyCard() == null
+                    ? "End in a tie"
+                    : $"{(CompareKeyCard().Item2 > CompareKeyCard().Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(Math.Max(CompareKeyCard().Item2, CompareKeyCard().Item3))}";
                 return GetKeyCardCompareResult();
             }
 
@@ -46,14 +49,19 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         private string GetKeyCardCompareResult()
         {
+            return CompareKeyCard() == null
+                ? "End in a tie"
+                : $"{(CompareKeyCard().Item2 > CompareKeyCard().Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(Math.Max(CompareKeyCard().Item2, CompareKeyCard().Item3))}";
+        }
+
+        private Tuple<int, int, int> CompareKeyCard()
+        {
             var result = this._firstPlayerHandCard.GetKeyCard()
                 .Zip(this._secondPlayerHandCard.GetKeyCard(),
                     (x, y) =>
                         Tuple.Create(x - y, x, y)
                 ).FirstOrDefault(x => x.Item1 != 0);
-            return result == null
-                ? "End in a tie"
-                : $"{(result.Item2 > result.Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(Math.Max(result.Item2, result.Item3))}";
+            return result;
         }
 
         private string KeyCardDisplay(int firstKeyCard)
