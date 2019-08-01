@@ -37,12 +37,17 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
 
 
-            if (this._firstPlayerHandCard.GetCategory() == this._secondPlayerHandCard.GetCategory())
+            if (Compare(this._firstPlayerHandCard.GetCategory(), this._secondPlayerHandCard.GetCategory()) == 0)
             {
                 return GetKeyCardCompareResult();
             }
 
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
+        }
+
+        private int Compare(Category x, Category y)
+        {
+            return x - y;
         }
 
         private string GetKeyCardCompareResult()
