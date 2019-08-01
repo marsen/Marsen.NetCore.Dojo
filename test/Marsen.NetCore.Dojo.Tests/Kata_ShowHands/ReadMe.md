@@ -283,7 +283,10 @@ Tom Win, Becasue Straight Flush , Key Card K
 Zip 的寫法我覺得很單純, 但是在 Tuple.Create 產生的 ItemN 我個人本身不太喜歡，覺得會降低可讀性，
 但是暫時想不到更好的寫法，也可能單純只是我個人的感覺問題。
 
-2.
+2. 使用 IComparer<HandCard> 減少 Duel() 的職責
+    1. 建立一個 Compare 方法，將 Category 比較邏輯抽換到 Compare 方法之中
+
+
 
 
 #### 參考
