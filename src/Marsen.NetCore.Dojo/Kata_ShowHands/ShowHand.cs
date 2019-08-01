@@ -53,7 +53,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 ).FirstOrDefault(x => x.Item1 != 0);
             return result2 == null
                 ? "End in a tie"
-                : $"{(result2.Item2 > result2.Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(result2.Item2 > result2.Item3 ? result2.Item2 : result2.Item3)}";
+                : $"{(result2.Item2 > result2.Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(Math.Max(result2.Item2, result2.Item3))}";
         }
 
         private string KeyCardDisplay(int firstKeyCard)
