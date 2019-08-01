@@ -285,7 +285,10 @@ Zip 的寫法我覺得很單純, 但是在 Tuple.Create 產生的 ItemN 我個�
 
 2. 使用 IComparer<HandCard> 減少 Duel() 的職責
     1. 建立一個 Compare 方法，將 Category 比較邏輯抽換到 Compare 方法之中
-
+       思考: Compare 是實作 IComparer<T> 的方法，但是我會很自然的比較 Category 而非 HandCard，
+       但是 ShowHand 實作 IComparer<Category> 很奇怪，直覺上這不是它的職責。
+       於是我決定把 IComparer<Category> 的邏輯搬進 HandCard 
+    2. 實作 handCardComparer
 
 
 
