@@ -41,18 +41,17 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return CompareKeyCard() == null
                     ? "End in a tie"
                     : $"{(CompareKeyCard().Item2 > CompareKeyCard().Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(Math.Max(CompareKeyCard().Item2, CompareKeyCard().Item3))}";
-                return GetKeyCardCompareResult();
+            }
+
+            if (handCardComparer.KeyCard > 0)
+            {
+                return
+                    $"{GetWinner()} Win, Because {GetWinnerCategory()}, Key Card{KeyCardDisplay(handCardComparer.KeyCard)}";
             }
 
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
         }
 
-        private string GetKeyCardCompareResult()
-        {
-            return CompareKeyCard() == null
-                ? "End in a tie"
-                : $"{(CompareKeyCard().Item2 > CompareKeyCard().Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(Math.Max(CompareKeyCard().Item2, CompareKeyCard().Item3))}";
-        }
 
         private Tuple<int, int, int> CompareKeyCard()
         {
@@ -105,5 +104,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             return x.GetCategory() - y.GetCategory();
         }
+
+        public int KeyCard { get; set; }
     }
 }
