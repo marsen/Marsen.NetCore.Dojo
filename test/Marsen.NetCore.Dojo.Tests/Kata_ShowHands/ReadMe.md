@@ -274,8 +274,21 @@ Tom Win, Becasue Straight Flush , Key Card K
 並且作了一些比較小的重構。
 
 #### 改善建議
-1. 相同 category 的 keyCard 逐步比較
+1. 使用 Enumerator 處理相同 category 的 keyCard 逐步比較
 2. 使用 IComparer<HandCard> 減少 Duel() 的職責
+
+#### 改善結果
+1. 使用 Zip 這個擴充方法處理兩個集合
+成功的讓 Deul 的方法可讀性提高了，不過 GetKeyCardCompareResult 本身不好理解，
+Zip 的寫法我覺得很單純, 但是在 Tuple.Create 產生的 ItemN 我個人本身不太喜歡，覺得會降低可讀性，
+但是暫時想不到更好的寫法，也可能單純只是我個人的感覺問題。
+
+2.
+
+
+#### 參考
+- ([.NET]快快樂樂學LINQ系列－Zip() 簡介)[https://dotblogs.com.tw/hatelove/2014/06/06/linq-enumerable-zip-introduction]
+
 
 ### 變化
 
