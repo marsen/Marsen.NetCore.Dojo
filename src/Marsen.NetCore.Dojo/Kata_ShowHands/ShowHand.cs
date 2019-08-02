@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {
                 return CompareKeyCard() == null
                     ? "End in a tie"
-                    : $"{(CompareKeyCard().Item2 > CompareKeyCard().Item3 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(KeyCard)}";
+                    : $"{KeyCardWinner} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(KeyCard)}";
             }
 
             if (handCardComparer.KeyCard > 0)
@@ -63,10 +63,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (result != null)
             {
                 KeyCard = Math.Max(result.Item2, result.Item3);
+                KeyCardWinner = result.Item2 > result.Item3 ? _firstPlayerName : _secondPlayerName;
             }
 
             return result;
         }
+
+        public string KeyCardWinner { get; set; }
 
         public int KeyCard { get; set; }
 
