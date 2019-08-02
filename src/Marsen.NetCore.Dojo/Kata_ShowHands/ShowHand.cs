@@ -43,12 +43,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     : $"{KeyCardWinner} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(KeyCard)}";
             }
 
-            if (handCardComparer.KeyCard > 0)
-            {
-                return
-                    $"{GetWinner()} Win, Because {GetWinnerCategory()}, Key Card{KeyCardDisplay(handCardComparer.KeyCard)}";
-            }
-
             return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
         }
 

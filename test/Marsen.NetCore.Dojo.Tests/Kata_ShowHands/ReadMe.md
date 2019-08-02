@@ -289,7 +289,8 @@ Zip 的寫法我覺得很單純, 但是在 Tuple.Create 產生的 ItemN 我個�
        但是 ShowHand 實作 IComparer<Category> 很奇怪，直覺上這不是它的職責。
        於是我決定把 IComparer<Category> 的邏輯搬進 HandCard 
     2. 實作 HandCardComparer 這個時候 KeyCard 的比較邏輯還在留在 ShowHand 就很奇怪了，應該被搬進 HandCardComparer
-       這時候 KeyCard 的比較就會發現與回傳值有耦合，應該把比較與回傳值(OutPut)作分離
+       這時候 KeyCard 的比較就會發現與回傳值有耦合，應該把比較與回傳值(OutPut)作分離。
+       回傳值進一步分析，會有 KeyCard 的值與贏家姓名兩個變數，同時又與比較邏輯相依。
 
 
 
