@@ -108,17 +108,5 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             return x.GetCategory() - y.GetCategory();
         }
-
-        private Tuple<int, int, int> CompareKeyCard(HandCard x, HandCard y)
-        {
-            var result = x.GetKeyCard()
-                .Zip(y.GetKeyCard(),
-                    (a, b) =>
-                        Tuple.Create(a - b, a, b)
-                ).FirstOrDefault(r => r.Item1 != 0);
-            return result;
-        }
-
-        public int KeyCard { get; set; }
     }
 }
