@@ -42,10 +42,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return $"{KeyCardWinner} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(KeyCard)}";
 
             return "End in a tie";
-
-            return CompareKeyCard() == null
-                ? "End in a tie"
-                : $"{KeyCardWinner} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(KeyCard)}";
         }
 
         private int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
@@ -63,23 +59,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (result != null) return result.Item1;
             return 0;
-        }
-
-
-        private Tuple<int, int, int> CompareKeyCard()
-        {
-            var result = this._firstPlayerHandCard.GetKeyCard()
-                .Zip(this._secondPlayerHandCard.GetKeyCard(),
-                    (x, y) =>
-                        Tuple.Create(x - y, x, y)
-                ).FirstOrDefault(x => x.Item1 != 0);
-            if (result != null)
-            {
-                KeyCard = Math.Max(result.Item2, result.Item3);
-                KeyCardWinner = result.Item2 > result.Item3 ? _firstPlayerName : _secondPlayerName;
-            }
-
-            return result;
         }
 
         public string KeyCardWinner { get; set; }
