@@ -49,26 +49,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return "End in a tie";
         }
 
-        private int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
-        {
-            var result = firstPlayerHandCard.GetKeyCard()
-                .Zip(secondPlayerHandCard.GetKeyCard(),
-                    (x, y) =>
-                        Tuple.Create(x - y, x, y)
-                ).FirstOrDefault(x => x.Item1 != 0);
-            if (result != null)
-            {
-                KeyCard = Math.Max(result.Item2, result.Item3);
-            }
-
-            if (result != null) return result.Item1;
-            return 0;
-        }
-
-        public string KeyCardWinner { get; set; }
-
-        public int KeyCard { get; set; }
-
         private string KeyCardDisplay(int firstKeyCard)
         {
             if (firstKeyCard < 11 && firstKeyCard > 1)
