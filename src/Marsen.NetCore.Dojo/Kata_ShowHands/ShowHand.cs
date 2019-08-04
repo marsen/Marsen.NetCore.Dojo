@@ -41,6 +41,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (KeyCardCompare(this._firstPlayerHandCard, this._secondPlayerHandCard) != 0)
                 return $"{KeyCardWinner} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(KeyCard)}";
 
+            return "End in a tie";
 
             return CompareKeyCard() == null
                 ? "End in a tie"
