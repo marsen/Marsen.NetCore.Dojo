@@ -106,12 +106,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     (x, y) =>
                         Tuple.Create(x - y, x, y)
                 ).FirstOrDefault(x => x.Item1 != 0);
+
             if (result != null)
             {
                 KeyCard = Math.Max(result.Item2, result.Item3);
+                return result.Item1;
             }
 
-            if (result != null) return result.Item1;
             return 0;
         }
 
