@@ -52,11 +52,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return "End in a tie";
         }
 
-        private string GetWinner()
-        {
-            return _secondPlayerName;
-        }
-
         private string KeyCardDisplay(int firstKeyCard)
         {
             if (firstKeyCard < 11 && firstKeyCard > 1)
