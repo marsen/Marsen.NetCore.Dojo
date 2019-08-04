@@ -36,8 +36,28 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             this._firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
             this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             var handCardComparer = new HandCardComparer();
-            if (handCardComparer.Compare(this._firstPlayerHandCard, this._secondPlayerHandCard) != 0)
-                return $"{GetWinner()} Win, Because {GetWinnerCategory()}";
+            if (handCardComparer.Compare(this._firstPlayerHandCard, this._secondPlayerHandCard) > 0)
+            {
+                if (handCardComparer.KeyCard > 0)
+                {
+                    return
+                        $"{_firstPlayerName} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(handCardComparer.KeyCard)}";
+                }
+
+                return $"{_firstPlayerName} Win, Because {this.GetWinnerCategory()}";
+            }
+
+            if (handCardComparer.Compare(this._firstPlayerHandCard, this._secondPlayerHandCard) < 0)
+            {
+                if (handCardComparer.KeyCard > 0)
+                {
+                    return
+                        $"{_secondPlayerName} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(handCardComparer.KeyCard)}";
+                }
+
+                return $"{_secondPlayerName} Win, Because {this.GetWinnerCategory()}";
+            }
+
             if (handCardComparer.KeyCardCompare(this._firstPlayerHandCard, this._secondPlayerHandCard) > 0)
                 return
                     $"{_firstPlayerName} Win, Because {this.GetWinnerCategory()}, Key Card {KeyCardDisplay(handCardComparer.KeyCard)}";
