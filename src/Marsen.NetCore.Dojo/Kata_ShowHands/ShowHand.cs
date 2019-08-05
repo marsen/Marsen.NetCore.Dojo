@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
@@ -80,37 +78,5 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             return this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() > 0;
         }
-    }
-
-    public class HandCardComparer : IComparer<HandCard>
-    {
-        public int Compare(HandCard x, HandCard y)
-        {
-            if (x.GetCategory() == y.GetCategory())
-            {
-                return KeyCardCompare(x, y);
-            }
-
-            return x.GetCategory() - y.GetCategory();
-        }
-
-        public int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
-        {
-            var result = firstPlayerHandCard.GetKeyCard()
-                .Zip(secondPlayerHandCard.GetKeyCard(),
-                    (x, y) =>
-                        Tuple.Create(x - y, x, y)
-                ).FirstOrDefault(x => x.Item1 != 0);
-
-            if (result != null)
-            {
-                KeyCard = Math.Max(result.Item2, result.Item3);
-                return result.Item1;
-            }
-
-            return 0;
-        }
-
-        public int KeyCard { get; set; }
     }
 }
