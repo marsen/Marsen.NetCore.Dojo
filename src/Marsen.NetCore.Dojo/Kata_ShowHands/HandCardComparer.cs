@@ -16,7 +16,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return x.GetCategory() - y.GetCategory();
         }
 
-        public int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
+        private int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
         {
             var result = firstPlayerHandCard.GetKeyCard()
                 .Zip(secondPlayerHandCard.GetKeyCard(),
