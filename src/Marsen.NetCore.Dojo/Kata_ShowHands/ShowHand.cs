@@ -39,13 +39,13 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {
                 return
                     $"{(compare > 0 ? _firstPlayerName : _secondPlayerName)} Win, Because {this.GetWinnerCategory()}" +
-                    KeyCardInfo(handCardComparer.KeyCard);
+                    GetKeyCardInfo(handCardComparer.KeyCard);
             }
 
             return "End in a tie";
         }
 
-        private string KeyCardInfo(int keyCard)
+        private string GetKeyCardInfo(int keyCard)
         {
             if (keyCard > 0)
                 return $", Key Card {KeyCardDisplay(keyCard)}";
