@@ -47,9 +47,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         private string GetKeyCardInfo(int keyCard)
         {
-            if (keyCard > 0)
-                return $", Key Card {KeyCardDisplay(keyCard)}";
-            return string.Empty;
+            return keyCard > 0 ? $", Key Card {KeyCardDisplay(keyCard)}" : string.Empty;
         }
 
         private string KeyCardDisplay(int firstKeyCard)
