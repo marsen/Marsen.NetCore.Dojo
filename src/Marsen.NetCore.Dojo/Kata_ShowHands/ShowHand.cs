@@ -67,17 +67,5 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             };
             return rankLookup[firstKeyCard];
         }
-
-        private string GetWinnerCategory()
-        {
-            return IsFirstPlayerWin()
-                ? _categoryLookup[this._firstPlayerHandCard.GetCategory()]
-                : _categoryLookup[this._secondPlayerHandCard.GetCategory()];
-        }
-
-        private bool IsFirstPlayerWin()
-        {
-            return this._firstPlayerHandCard.GetCategory() - this._secondPlayerHandCard.GetCategory() > 0;
-        }
     }
 }
