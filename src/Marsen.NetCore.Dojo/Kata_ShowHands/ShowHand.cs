@@ -28,10 +28,10 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         public string Duel(string firstPlayerCard, string secondPlayerCard)
         {
             var comparer = new HandCardComparer();
-            var compare = comparer.Compare(GetHandCard(firstPlayerCard), GetHandCard(secondPlayerCard));
-            return compare == 0
+            var compareResult = comparer.Compare(GetHandCard(firstPlayerCard), GetHandCard(secondPlayerCard));
+            return compareResult == 0
                 ? "End in a tie"
-                : $"{this.GetWinner(compare)} Win, Because {this._categoryLookup[comparer.Category]}{this.GetKeyCardInfo(comparer.KeyCard)}";
+                : $"{this.GetWinner(compareResult)} Win, Because {this._categoryLookup[comparer.Category]}{this.GetKeyCardInfo(comparer.KeyCard)}";
         }
 
         private HandCard GetHandCard(string firstPlayerCard)
