@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var temp = this._categoryLookup[comparer.Category];
             return compare == 0
                 ? "End in a tie"
-                : $"{this.GetWinner(compare)} Win, Because {this.GetWinnerCategory()}{this.GetKeyCardInfo(comparer.KeyCard)}";
+                : $"{this.GetWinner(compare)} Win, Because {temp}{this.GetKeyCardInfo(comparer.KeyCard)}";
         }
 
         private string GetWinner(int compare)
