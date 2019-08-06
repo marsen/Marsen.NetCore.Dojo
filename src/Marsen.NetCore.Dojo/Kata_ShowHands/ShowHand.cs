@@ -28,7 +28,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         public string Duel(string firstPlayerCard, string secondPlayerCard)
         {
             var comparer = new HandCardComparer();
-            var compareResult = comparer.Compare(GetHandCard(firstPlayerCard), GetHandCard(secondPlayerCard));
+            var compareResult = comparer.Compare(this.GetHandCard(firstPlayerCard), this.GetHandCard(secondPlayerCard));
             return compareResult == 0
                 ? "End in a tie"
                 : $"{this.GetWinner(compareResult)} Win, Because {this._categoryLookup[comparer.Category]}{this.GetKeyCardInfo(comparer.KeyCard)}";
