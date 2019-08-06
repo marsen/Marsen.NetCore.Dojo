@@ -26,13 +26,9 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         Tuple.Create<int, int, int>(x - y, x, y)
                 ).FirstOrDefault(x => x.Item1 != 0);
 
-            if (result != null)
-            {
-                KeyCard = Math.Max(result.Item2, result.Item3);
-                return result.Item1;
-            }
-
-            return 0;
+            if (result == null) return 0;
+            KeyCard = Math.Max(result.Item2, result.Item3);
+            return result.Item1;
         }
 
         public int KeyCard { get; set; }
