@@ -14,17 +14,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return KeyCardCompare(x, y);
             }
 
-            if (x.GetCategory() > y.GetCategory())
-            {
-                Category = x.GetCategory();
-            }
-            else
-            {
-                Category = y.GetCategory();
-            }
-
             Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
-
             return x.GetCategory() - y.GetCategory();
         }
 
