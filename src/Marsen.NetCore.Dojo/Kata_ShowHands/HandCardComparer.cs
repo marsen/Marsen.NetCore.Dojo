@@ -14,6 +14,15 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return KeyCardCompare(x, y);
             }
 
+            if (x.GetCategory() > y.GetCategory())
+            {
+                Category = x.GetCategory();
+            }
+            else
+            {
+                Category = y.GetCategory();
+            }
+
             return x.GetCategory() - y.GetCategory();
         }
 
@@ -28,15 +37,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (result != null)
             {
                 KeyCard = Math.Max(result.Item2, result.Item3);
-                if (result.Item2 > result.Item3)
-                {
-                    Category = firstPlayerHandCard.GetCategory();
-                }
-                else
-                {
-                    Category = secondPlayerHandCard.GetCategory();
-                }
-
                 return result.Item1;
             }
 
