@@ -23,6 +23,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 Category = y.GetCategory();
             }
 
+            Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
+
             return x.GetCategory() - y.GetCategory();
         }
 
