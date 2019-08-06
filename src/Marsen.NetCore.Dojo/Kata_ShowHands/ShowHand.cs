@@ -19,9 +19,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {Category.HighCard, "High Card"},
         };
 
-        private HandCard _firstPlayerHandCard;
-        private HandCard _secondPlayerHandCard;
-
         public ShowHand(string firstPlayerName, string secondPlayerName)
         {
             this._firstPlayerName = firstPlayerName;
@@ -30,10 +27,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public string Duel(string firstPlayerCard, string secondPlayerCard)
         {
-            var cardParser = new CardParser();
-
-            this._firstPlayerHandCard = new HandCard(cardParser.Parse(firstPlayerCard));
-            this._secondPlayerHandCard = new HandCard(cardParser.Parse(secondPlayerCard));
             var comparer = new HandCardComparer();
             var compare = comparer.Compare(GetHandCard(firstPlayerCard), GetHandCard(secondPlayerCard));
             return compare == 0
