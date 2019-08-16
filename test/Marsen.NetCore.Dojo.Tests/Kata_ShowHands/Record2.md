@@ -4,3 +4,6 @@
 我總共有 25 個有關 Kata_ShowHands 的測試
 15 個 ShowHand Tests , 8 個 HandCard Tests 以及 2 個 CardParse Tests。
 仔細看過只有 15 個的 ShowHand Tests 與花色比較有關。
+進一步分析，我們比較邏輯的順序是 牌型 > 點數 > 花色，
+也就是說現有的測試只有平手的情況需要進一步檢查，
+如果有花色相異，就要調整成相同並通過測試。
