@@ -112,5 +112,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("D9,DQ,D10,DJ,DK", "SA,S2,S3,S4,S5");
             Assert.Equal("Lee Win, Because Straight Flush, Key Card A", actual);
         }
+
+
+        [Fact(DisplayName = "同花順 vs 同花順，紅心大於方塊")]
+        public void StraightFlush_StraightFlush_Heart_Greater_Than_Diamond()
+        {
+            var actual = showHand.Duel("H5,H6,H7,H8,H9", "D5,D6,D7,D8,D9");
+            Assert.Equal("Tom Win, Because Straight Flush, And Heart", actual);
+        }
     }
 }
