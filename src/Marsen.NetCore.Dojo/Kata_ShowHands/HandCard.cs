@@ -54,25 +54,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     {SuitEnum.H, "Heart"},
                 };
                 return suitLookup[this._cardList[0].Suit];
-                if (this._cardList[0].Suit == SuitEnum.S)
-                {
-                    return "Spades";
-                }
-
-                if (this._cardList[0].Suit == SuitEnum.H)
-                {
-                    return "Heart";
-                }
-
-                if (this._cardList[0].Suit == SuitEnum.D)
-                {
-                    return "Diamond";
-                }
-
-                if (this._cardList[0].Suit == SuitEnum.C)
-                {
-                    return "Club";
-                }
             }
 
             return string.Empty;
