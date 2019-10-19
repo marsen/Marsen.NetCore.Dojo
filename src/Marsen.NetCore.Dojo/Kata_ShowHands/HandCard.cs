@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Marsen.NetCore.Dojo.Kata_ShowHands.CategoryRules;
 
@@ -39,6 +40,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .OrderBy(x => x.Count())
                 .ThenByDescending(x => x.Key)
                 .Select(x => x.Key);
+        }
+
+        public string GetSuit()
+        {
+            if (this.GetCategory() == Category.StraightFlush)
+            {
+                return this._cardList[0].Suit.ToString();
+            }
+
+            return string.Empty;
         }
     }
 }
