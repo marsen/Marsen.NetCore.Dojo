@@ -46,6 +46,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             if (this.GetCategory() == Category.StraightFlush)
             {
+                var suitLookup = new Dictionary<SuitEnum, string>
+                {
+                    {SuitEnum.C, "Club"},
+                    {SuitEnum.S, "Spades"},
+                    {SuitEnum.D, "Diamond"},
+                    {SuitEnum.H, "Heart"},
+                };
+                return suitLookup[this._cardList[0].Suit];
                 if (this._cardList[0].Suit == SuitEnum.S)
                 {
                     return "Spades";
