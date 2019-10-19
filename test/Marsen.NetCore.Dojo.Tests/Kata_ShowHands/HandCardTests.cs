@@ -149,9 +149,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
                 new Card {Rank = 5, Suit = SuitEnum.D},
             });
             var actual = target.GetSuit();
-            var expected = SuitEnum.D.ToString();
+            var expected = "Diamond";
             Assert.Equal(expected, actual);
         }
-
     }
 }
