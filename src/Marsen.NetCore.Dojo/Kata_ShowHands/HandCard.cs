@@ -46,6 +46,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
         {
             if (this.GetCategory() == Category.StraightFlush)
             {
+                if (this._cardList[0].Suit == SuitEnum.S)
+                {
+                    return "Spades";
+                }
+
                 if (this._cardList[0].Suit == SuitEnum.H)
                 {
                     return "Heart";
