@@ -28,5 +28,5 @@ Tom : H5 H6 H7 H8 H9
 Lee : D5 D6 D7 D8 D9 
 
 Tom Win, Because Straight Flush, And Heart .
-
+相同是同花順的比較下，先比哪個順子比較大，如果是相同的順子才會比較花色
 
