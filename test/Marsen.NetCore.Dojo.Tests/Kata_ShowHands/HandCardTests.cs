@@ -135,5 +135,23 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Category expected = Category.Flush;
             Assert.Equal(expected, actual);
         }
+
+
+        [Fact(DisplayName = "DA,D2,D3,D4,D5同花順的花色為方塊")]
+        public void DiamondStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.D},
+                new Card {Rank = 2, Suit = SuitEnum.D},
+                new Card {Rank = 3, Suit = SuitEnum.D},
+                new Card {Rank = 4, Suit = SuitEnum.D},
+                new Card {Rank = 5, Suit = SuitEnum.D},
+            });
+            var actual = target.GetSuit();
+            var expected = SuitEnum.D.ToString();
+            Assert.Equal(expected, actual);
+        }
+
     }
 }
