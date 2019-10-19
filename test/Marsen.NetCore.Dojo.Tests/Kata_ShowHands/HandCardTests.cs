@@ -168,5 +168,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var expected = "Spades";
             Assert.Equal(expected, actual);
         }
+
+        [Fact(DisplayName = "HA,H2,H3,H4,H5同花順的花色為紅心")]
+        public void HeartStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.H},
+                new Card {Rank = 2, Suit = SuitEnum.H},
+                new Card {Rank = 3, Suit = SuitEnum.H},
+                new Card {Rank = 4, Suit = SuitEnum.H},
+                new Card {Rank = 5, Suit = SuitEnum.H},
+            });
+            var actual = target.GetSuit();
+            var expected = "Heart";
+            Assert.Equal(expected, actual);
+        }
     }
 }
