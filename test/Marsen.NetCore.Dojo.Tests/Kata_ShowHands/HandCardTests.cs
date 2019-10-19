@@ -184,5 +184,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var expected = "Heart";
             Assert.Equal(expected, actual);
         }
+
+        [Fact(DisplayName = "CA,C2,C3,C4,C5同花順的花色為梅花")]
+        public void ClubStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.C},
+                new Card {Rank = 2, Suit = SuitEnum.C},
+                new Card {Rank = 3, Suit = SuitEnum.C},
+                new Card {Rank = 4, Suit = SuitEnum.C},
+                new Card {Rank = 5, Suit = SuitEnum.C},
+            });
+            var actual = target.GetSuit();
+            var expected = "Club";
+            Assert.Equal(expected, actual);
+        }
     }
 }
