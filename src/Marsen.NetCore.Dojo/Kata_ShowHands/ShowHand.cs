@@ -31,7 +31,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var compareResult = comparer.Compare(this.GetHandCard(firstPlayerCard), this.GetHandCard(secondPlayerCard));
             return compareResult == 0
                 ? "End in a tie"
-                : $"{this.GetWinner(compareResult)} Win, Because {this._categoryLookup[comparer.Category]}{this.GetKeyCardInfo(comparer.KeyCard)}";
+                : $"{this.GetWinner(compareResult)} Win, Because {this._categoryLookup[comparer.Category]}{this.GetKeyCardInfo(comparer)}";
         }
 
         private HandCard GetHandCard(string firstPlayerCard)
@@ -44,9 +44,10 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             return compare > 0 ? _firstPlayerName : _secondPlayerName;
         }
 
-        private string GetKeyCardInfo(int keyCard)
+        private string GetKeyCardInfo(HandCardComparer comparer)
         {
-            return keyCard > 0 ? $", Key Card {KeyCardDisplay(keyCard)}" : string.Empty;
+            return comparer.KeyCard > 0             ? $", Key Card {KeyCardDisplay(comparer.KeyCard)}" :
+                string.IsNullOrEmpty(comparer.Suit) ? string.Empty : $", And Heart";
         }
 
         private string KeyCardDisplay(int firstKeyCard)

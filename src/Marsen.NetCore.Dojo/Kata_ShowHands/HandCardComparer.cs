@@ -11,12 +11,23 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (x.GetCategory() == y.GetCategory())
             {
                 Category = x.GetCategory();
+                if (Category == Category.StraightFlush)
+                {
+                    if (KeyCardCompare(x, y) == 0)
+                    {
+                        Suit = x.GetSuit();
+                        return 1;
+                    }
+                }
+
                 return KeyCardCompare(x, y);
             }
 
             Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
             return x.GetCategory() - y.GetCategory();
         }
+
+        public string Suit { get; set; }
 
         private int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
         {
