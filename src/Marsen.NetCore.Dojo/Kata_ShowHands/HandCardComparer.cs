@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (x.GetCategory() == y.GetCategory())
             {
                 Category = x.GetCategory();
-                if (Category == Category.StraightFlush)
+                if (Category == Category.StraightFlush || Category == Category.FourOfAKind)
                 {
                     if (KeyCardCompare(x, y) == 0)
                     {
