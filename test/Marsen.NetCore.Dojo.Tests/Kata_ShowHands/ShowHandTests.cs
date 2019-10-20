@@ -115,9 +115,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
 
 
         [Fact(DisplayName = "同花順 vs 同花順，紅心大於方塊")]
-        public void StraightFlush_StraightFlush_Heart_Greater_Than_Diamond()
+        public void StraightFlush_Heart_Greater_Than_Diamond()
         {
             var actual = showHand.Duel("H5,H6,H7,H8,H9", "D5,D6,D7,D8,D9");
+            Assert.Equal("Tom Win, Because Straight Flush, And Heart", actual);
+        }
+
+        [Fact(DisplayName = "4條 vs 4條，Key Card 紅心大於梅花")]
+        public void FourOfAKind_Heart_Greater_Than_Diamond()
+        {
+            var actual = showHand.Duel("H5,C5,S5,D5,H9", "D5,H5,S5,C5,C9");
             Assert.Equal("Tom Win, Because Straight Flush, And Heart", actual);
         }
     }
