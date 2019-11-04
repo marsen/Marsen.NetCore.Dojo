@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -17,3 +17,8 @@ jobs:
       run: dotnet build --configuration Release
     - name: Test with dotnet
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: e0e93ca7d12c21cc6353c2cc9b978436727359c0 
+        SONAR_TOKEN: 8e6af68074a1d6788b49c6455ed381eea185fe50
