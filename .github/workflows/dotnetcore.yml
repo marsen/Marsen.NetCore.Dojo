@@ -19,6 +19,5 @@ jobs:
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: e0e93ca7d12c21cc6353c2cc9b978436727359c0 
-        SONAR_TOKEN: 8e6af68074a1d6788b49c6455ed381eea185fe50
+      env:        
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
