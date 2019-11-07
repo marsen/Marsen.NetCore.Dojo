@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Marsen.NetCore.Dojo.Kata_ShowHands.CategoryRules;
 
@@ -39,6 +40,28 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .OrderBy(x => x.Count())
                 .ThenByDescending(x => x.Key)
                 .Select(x => x.Key);
+        }
+
+        public string GetSuit()
+        {
+            var suitLookup = new Dictionary<SuitEnum, string>
+            {
+                {SuitEnum.C, "Club"},
+                {SuitEnum.S, "Spades"},
+                {SuitEnum.D, "Diamond"},
+                {SuitEnum.H, "Heart"},
+            };
+            if (this.GetCategory() == Category.StraightFlush)
+            {
+                return suitLookup[this._cardList[0].Suit];
+            }
+
+            if (this.GetCategory() == Category.FourOfAKind)
+            {
+                return suitLookup[this._cardList.GroupBy(x => x.Rank).First().First().Suit];
+            }
+
+            return string.Empty;
         }
     }
 }
