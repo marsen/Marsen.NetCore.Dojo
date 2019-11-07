@@ -16,7 +16,7 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: Test with dotnet
-      run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --logger:trx
+      run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --logger:trx;LogFileName=result.trx
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
