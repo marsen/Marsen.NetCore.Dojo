@@ -135,5 +135,70 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Category expected = Category.Flush;
             Assert.Equal(expected, actual);
         }
+
+
+        [Fact(DisplayName = "DA,D2,D3,D4,D5同花順的花色為方塊")]
+        public void DiamondStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.D},
+                new Card {Rank = 2, Suit = SuitEnum.D},
+                new Card {Rank = 3, Suit = SuitEnum.D},
+                new Card {Rank = 4, Suit = SuitEnum.D},
+                new Card {Rank = 5, Suit = SuitEnum.D},
+            });
+            var actual = target.GetSuit();
+            var expected = "Diamond";
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact(DisplayName = "SA,S2,S3,S4,S5同花順的花色為黑桃")]
+        public void SpadesStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.S},
+                new Card {Rank = 2, Suit = SuitEnum.S},
+                new Card {Rank = 3, Suit = SuitEnum.S},
+                new Card {Rank = 4, Suit = SuitEnum.S},
+                new Card {Rank = 5, Suit = SuitEnum.S},
+            });
+            var actual = target.GetSuit();
+            var expected = "Spades";
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact(DisplayName = "HA,H2,H3,H4,H5同花順的花色為紅心")]
+        public void HeartStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.H},
+                new Card {Rank = 2, Suit = SuitEnum.H},
+                new Card {Rank = 3, Suit = SuitEnum.H},
+                new Card {Rank = 4, Suit = SuitEnum.H},
+                new Card {Rank = 5, Suit = SuitEnum.H},
+            });
+            var actual = target.GetSuit();
+            var expected = "Heart";
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact(DisplayName = "CA,C2,C3,C4,C5同花順的花色為梅花")]
+        public void ClubStraightFlush()
+        {
+            var target = new HandCard(new List<Card>
+            {
+                new Card {Rank = 1, Suit = SuitEnum.C},
+                new Card {Rank = 2, Suit = SuitEnum.C},
+                new Card {Rank = 3, Suit = SuitEnum.C},
+                new Card {Rank = 4, Suit = SuitEnum.C},
+                new Card {Rank = 5, Suit = SuitEnum.C},
+            });
+            var actual = target.GetSuit();
+            var expected = "Club";
+            Assert.Equal(expected, actual);
+        }
     }
 }
