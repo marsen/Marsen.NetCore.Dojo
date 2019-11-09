@@ -22,6 +22,21 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
                 if (Category == Category.Flush && KeyCardRankCompare(x, y) == 0)
                 {
+                    if (x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
+                        y.GetKeyCard().OrderBy(c => c.Rank).First().Suit > 0)
+                    {
+                        Suit = x.GetSuit();
+                        return 1;
+                    }
+
+                    if (x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
+                        y.GetKeyCard().OrderBy(c => c.Rank).First().Suit < 0)
+                    {
+                        Suit = y.GetSuit();
+                        return -1;
+                    }
+
+                    return 0;
                     Suit = x.GetSuit();
                     return x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
                            y.GetKeyCard().OrderBy(c => c.Rank).First().Suit;
