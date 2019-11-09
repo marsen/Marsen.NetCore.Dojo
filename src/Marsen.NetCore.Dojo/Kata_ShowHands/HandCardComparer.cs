@@ -34,7 +34,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             var result = firstPlayerHandCard.GetKeyCard()
                 .Zip(secondPlayerHandCard.GetKeyCard(),
                     (x, y) =>
-                        Tuple.Create<int, int, int>(x - y, x, y)
+                        Tuple.Create<int, int, int>(x.Rank - y.Rank, x.Rank, y.Rank)
                 ).FirstOrDefault(x => x.Item1 != 0);
 
             if (result == null) return 0;
