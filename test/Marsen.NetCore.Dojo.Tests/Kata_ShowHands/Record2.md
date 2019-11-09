@@ -61,3 +61,4 @@ Tom Win, Because Straight Flush, And Heart .
 如果 Key Card 相同，才會進行花色的比較
 
 #### 突然發現 Get KeyCard 如果只有牌的數字沒有花色會很難處理
+#### 突然發現 x 是寫死的。應該要有反向的測試案例
