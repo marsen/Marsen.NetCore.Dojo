@@ -37,9 +37,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     }
 
                     return 0;
-                    Suit = x.GetSuit();
-                    return x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
-                           y.GetKeyCard().OrderBy(c => c.Rank).First().Suit;
                 }
 
                 return KeyCardRankCompare(x, y);
