@@ -13,14 +13,21 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 Category = x.GetCategory();
                 if (Category == Category.StraightFlush || Category == Category.FourOfAKind)
                 {
-                    if (KeyCardCompare(x, y) == 0)
+                    if (KeyCardRankCompare(x, y) == 0)
                     {
                         Suit = x.GetSuit();
                         return 1;
                     }
                 }
 
-                return KeyCardCompare(x, y);
+                if (Category == Category.Flush && KeyCardRankCompare(x, y) == 0)
+                {
+                    Suit = x.GetSuit();
+                    return x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
+                           y.GetKeyCard().OrderBy(c => c.Rank).First().Suit;
+                }
+
+                return KeyCardRankCompare(x, y);
             }
 
             Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
@@ -29,7 +36,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
         public string Suit { get; set; }
 
-        private int KeyCardCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
+        private int KeyCardRankCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
         {
             var result = firstPlayerHandCard.GetKeyCard()
                 .Zip(secondPlayerHandCard.GetKeyCard(),
