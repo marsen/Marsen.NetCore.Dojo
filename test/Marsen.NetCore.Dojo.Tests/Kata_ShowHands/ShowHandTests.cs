@@ -128,6 +128,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Assert.Equal("Tom Win, Because Four Of a Kind, And Heart", actual);
         }
 
+        [Fact(DisplayName = "4條 vs 4條，Key Card 方塊大於梅花")]
+        public void FourOfAKind_Diamond_Greater_Than_Club()
+        {
+            var actual = showHand.Duel("D5,H5,S5,C5,C9", "H5,C5,S5,D5,D9");
+            Assert.Equal("Lee Win, Because Four Of a Kind, And Diamond", actual);
+        }
+
         [Fact(DisplayName = "同花 vs 同花，Key Card 相同，紅心大於梅花")]
         public void Flush_Heart_Greater_Than_Diamond()
         {
