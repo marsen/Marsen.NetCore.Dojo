@@ -132,7 +132,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
         public void Flush_Heart_Greater_Than_Diamond()
         {
             var actual = showHand.Duel("H6,H5,H9,H7,H3", "C9,C3,C6,C5,C7");
-            Assert.Equal("Tom Win, Because Flush , And Heart", actual);
+            Assert.Equal("Tom Win, Because Flush, And Heart", actual);
         }
     }
 }
