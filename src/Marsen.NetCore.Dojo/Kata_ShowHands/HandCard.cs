@@ -58,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
             if (this.GetCategory() == Category.FourOfAKind || this.GetCategory() == Category.Flush)
             {
-                return suitLookup[this._cardList.GroupBy(x => x.Rank).First().First().Suit];
+                return suitLookup[this._cardList.GroupBy(x => x.Rank).Last().First().Suit];
             }
 
             return string.Empty;
