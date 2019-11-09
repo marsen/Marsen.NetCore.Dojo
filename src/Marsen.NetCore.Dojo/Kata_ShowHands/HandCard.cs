@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 .GroupBy(x => x.Rank)
                 .OrderBy(x => x.Count())
                 .ThenByDescending(x => x.Key)
-                .Select(x => new Card{Rank = x.Key});
+                .Select(x => new Card {Rank = x.Key, Suit = x.Max(y => y.Suit)});
         }
 
         public string GetSuit()
@@ -56,7 +56,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return suitLookup[this._cardList[0].Suit];
             }
 
-            if (this.GetCategory() == Category.FourOfAKind)
+            if (this.GetCategory() == Category.FourOfAKind || this.GetCategory() == Category.Flush)
             {
                 return suitLookup[this._cardList.GroupBy(x => x.Rank).First().First().Suit];
             }
