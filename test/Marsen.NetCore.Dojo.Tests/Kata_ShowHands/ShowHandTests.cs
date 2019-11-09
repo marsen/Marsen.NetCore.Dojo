@@ -134,5 +134,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("H6,H5,H9,H7,H3", "C9,C3,C6,C5,C7");
             Assert.Equal("Tom Win, Because Flush, And Heart", actual);
         }
+
+        [Fact(DisplayName = "同花 vs 同花，Key Card 相同，紅心大於梅花")]
+        public void Flush_Diamond_Greater_Than_Club()
+        {
+            var actual = showHand.Duel("C9,C3,C6,C5,C7", "D6,D5,D9,D7,D3");
+            Assert.Equal("Lee Win, Because Flush, And Diamond", actual);
+        }
     }
 }
