@@ -59,3 +59,5 @@ Tom Win, Because Straight Flush, And Heart .
 
 如果兩個人都拿到同花，直接比 Key Card
 如果 Key Card 相同，才會進行花色的比較
+
+#### 突然發現 Get KeyCard 如果只有牌的數字沒有花色會很難處理
