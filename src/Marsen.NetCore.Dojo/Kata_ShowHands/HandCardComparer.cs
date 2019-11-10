@@ -31,8 +31,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         }
 
                         return 0;
-                        Suit = x.GetSuit();
-                        return 1;
                     }
                 }
 
