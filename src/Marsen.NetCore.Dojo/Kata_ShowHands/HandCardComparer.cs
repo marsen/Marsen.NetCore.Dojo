@@ -12,7 +12,8 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             {
                 Category = x.GetCategory();
 
-                if (Category == Category.StraightFlush || Category == Category.FourOfAKind)
+                if (Category == Category.StraightFlush || Category == Category.FourOfAKind ||
+                    Category == Category.Flush)
                 {
                     if (KeyCardRankCompare(x, y) == 0)
                     {
@@ -32,25 +33,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
 
                         return 0;
                     }
-                }
-
-                if (Category == Category.Flush && KeyCardRankCompare(x, y) == 0)
-                {
-                    if (x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
-                        y.GetKeyCard().OrderBy(c => c.Rank).First().Suit > 0)
-                    {
-                        Suit = x.GetSuit();
-                        return 1;
-                    }
-
-                    if (x.GetKeyCard().OrderBy(c => c.Rank).First().Suit -
-                        y.GetKeyCard().OrderBy(c => c.Rank).First().Suit < 0)
-                    {
-                        Suit = y.GetSuit();
-                        return -1;
-                    }
-
-                    return 0;
                 }
 
                 return KeyCardRankCompare(x, y);
