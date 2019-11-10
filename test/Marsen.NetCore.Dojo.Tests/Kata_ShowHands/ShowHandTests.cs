@@ -149,12 +149,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Assert.Equal("Lee Win, Because Flush, And Diamond", actual);
         }
 
-
         [Fact(DisplayName = "順子 vs 順子，平手")]
         public void Straight_End_in_a_tie()
         {
             var actual = showHand.Duel("D9,C8,S6,H5,C7", "D6,S5,C9,D7,H8");
             Assert.Equal("End in a tie", actual);
+        }
+
+        [Fact(DisplayName = "兩對 vs 兩對, Key Card 黑桃大於梅花")]
+        public void TwoPairs_Spade_Greater_Than_Club()
+        {
+            var actual = showHand.Duel("D9,C9,S6,H6,C7", "D6,S6,C9,D8,S7");
+            Assert.Equal("Lee Win, Because Two Pairs, And Spade", actual);
         }
     }
 }
