@@ -162,5 +162,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("D9,C9,S6,H6,C7", "D6,S6,C9,D9,S7");
             Assert.Equal("Lee Win, Because Two Pair, And Spades", actual);
         }
+
+        [Fact(DisplayName = "兩條 vs 兩條, Key Card 黑桃大於紅心")]
+        public void TwoPairs_Spade_Greater_Than_Heart()
+        {
+            var actual = showHand.Duel("D9,C9,S6,H6,S7", "D6,S6,C9,D9,H7");
+            Assert.Equal("Tom Win, Because Two Pair, And Spades", actual);
+        }
     }
 }
