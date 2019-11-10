@@ -121,28 +121,28 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Assert.Equal("Tom Win, Because Straight Flush, And Heart", actual);
         }
 
-        [Fact(DisplayName = "4條 vs 4條，Key Card 紅心大於梅花")]
+        [Fact(DisplayName = "四條 5 + 梅花 9 vs 四條 5 + 方塊 9 ，Key Card 紅心大於梅花")]
         public void FourOfAKind_Heart_Greater_Than_Diamond()
         {
             var actual = showHand.Duel("H5,C5,S5,D5,H9", "D5,H5,S5,C5,C9");
             Assert.Equal("Tom Win, Because Four Of a Kind, And Heart", actual);
         }
 
-        [Fact(DisplayName = "4條 vs 4條，Key Card 方塊大於梅花")]
+        [Fact(DisplayName = "四條 5 + 梅花 9 vs 四條 5 + 方塊 9 ，Key Card 方塊大於梅花")]
         public void FourOfAKind_Diamond_Greater_Than_Club()
         {
             var actual = showHand.Duel("D5,H5,S5,C5,C9", "H5,C5,S5,D5,D9");
             Assert.Equal("Lee Win, Because Four Of a Kind, And Diamond", actual);
         }
 
-        [Fact(DisplayName = "同花 vs 同花，Key Card 相同，紅心大於梅花")]
+        [Fact(DisplayName = "紅心同花 vs 梅花同花，Key Card 相同，紅心大於梅花")]
         public void Flush_Heart_Greater_Than_Diamond()
         {
             var actual = showHand.Duel("H6,H5,H9,H7,H3", "C9,C3,C6,C5,C7");
             Assert.Equal("Tom Win, Because Flush, And Heart", actual);
         }
 
-        [Fact(DisplayName = "同花 vs 同花，Key Card 相同，紅心大於梅花")]
+        [Fact(DisplayName = "梅花同花 vs 方塊同花，Key Card 相同，方塊大於梅花")]
         public void Flush_Diamond_Greater_Than_Club()
         {
             var actual = showHand.Duel("C9,C3,C6,C5,C7", "D6,D5,D9,D7,D3");
