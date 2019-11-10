@@ -35,6 +35,7 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     }
                 }
 
+
                 return KeyCardRankCompare(x, y);
             }
 
