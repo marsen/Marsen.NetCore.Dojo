@@ -156,7 +156,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Assert.Equal("End in a tie", actual);
         }
 
-        [Fact(DisplayName = "兩對 vs 兩對, Key Card 黑桃大於梅花")]
+        [Fact(DisplayName = "兩條 vs 兩條, Key Card 黑桃大於梅花")]
         public void TwoPairs_Spade_Greater_Than_Club()
         {
             var actual = showHand.Duel("D9,C9,S6,H6,C7", "D6,S6,C9,D9,S7");
