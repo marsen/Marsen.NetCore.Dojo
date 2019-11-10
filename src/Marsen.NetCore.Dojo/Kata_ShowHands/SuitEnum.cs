@@ -3,8 +3,8 @@
     public enum SuitEnum
     {
         C,
-        S,
         D,
-        H
+        H,
+        S,
     }
 }
