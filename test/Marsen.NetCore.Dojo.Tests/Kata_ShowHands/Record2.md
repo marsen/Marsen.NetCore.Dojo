@@ -77,3 +77,6 @@ Tom Win, Because Straight Flush, And Heart .
 
 兩對若數字皆相同，會進行 Key Card 的比對  
 Key Card 比對應先數字後花色
+
+### 高牌的情況
+直接比較最大的那張牌，點數相同再比花色
