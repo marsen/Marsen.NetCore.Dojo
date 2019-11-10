@@ -72,3 +72,8 @@ Tom Win, Because Straight Flush, And Heart .
 三條的情況，剩下的兩張肯定不結對，否則就是葫蘆了  
 三條不比花色，剩下的兩張也不比花色
 所以也是平手
+
+### 兩對的情況
+
+兩對若數字皆相同，會進行 Key Card 的比對  
+Key Card 比對應先數字後花色
