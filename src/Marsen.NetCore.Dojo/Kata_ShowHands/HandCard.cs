@@ -61,6 +61,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return suitLookup[this._cardList.GroupBy(x => x.Rank).Last().First().Suit];
             }
 
+            if (this.GetCategory() == Category.TwoPair)
+            {
+                return "Spades";
+            }
+
             return string.Empty;
         }
     }
