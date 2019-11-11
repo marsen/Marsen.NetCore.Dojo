@@ -171,18 +171,24 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
         }
 
         [Fact(DisplayName = "高牌 vs 高牌, Key Card 黑桃大於方塊")]
-        public void HighCard_Spade_Greater_Than_Heart()
+        public void HighCard_Spade_Greater_Than_Diamond()
         {
             var actual = showHand.Duel("D4,S6,H5,S3,S10", "D10,S5,C8,D9,H7");
             Assert.Equal("Tom Win, Because High Card, And Spades", actual);
         }
 
-
         [Fact(DisplayName = "高牌 vs 高牌, Key Card 最大張相同，第二張黑桃大於方塊")]
-        public void HighCard_Same_Largest_Card_Spade_Greater_Than_Heart()
+        public void HighCard_Same_Largest_Card_Spade_Greater_Than_Diamond()
         {
             var actual = showHand.Duel("D4,S6,H5,D9,S10", "S10,S5,C8,S9,H7");
             Assert.Equal("Lee Win, Because High Card, And Spades", actual);
+        }
+
+        [Fact(DisplayName = "高牌 vs 高牌, Key Card 最大張相同，第二張方塊大於梅花")]
+        public void HighCard_Same_Top2_Card_Diamond_Greater_Than_Club()
+        {
+            var actual = showHand.Duel("D8,S6,H5,S9,S10", "S10,S5,C8,S9,H7");
+            Assert.Equal("Tom Win, Because High Card, And Diamond", actual);
         }
     }
 }
