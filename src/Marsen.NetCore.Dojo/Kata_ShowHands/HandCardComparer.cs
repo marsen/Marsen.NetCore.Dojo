@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 
 namespace Marsen.NetCore.Dojo.Kata_ShowHands
 {
@@ -11,6 +12,23 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
             if (x.GetCategory() == y.GetCategory())
             {
                 Category = x.GetCategory();
+                if (Category == Category.HighCard)
+                {
+                    var first = x.GetKeyCard().Zip(
+                        y.GetKeyCard(),
+                        (c, d) =>
+                        {
+                            if (c.Rank == d.Rank && c.Suit == d.Suit)
+                                return Tuple.Create<int, Card>(0, c);
+                            else if (c.Rank == d.Rank)
+                                return Tuple.Create<int, Card>(c.Suit - d.Suit, c);
+                            else
+                                return Tuple.Create<int, Card>(c.Rank - d.Rank, c);
+                        }).First();
+                    Suit = x.GetSuit();
+                    return first.Item1;
+                }
+
                 if (Category == Category.TwoPair && KeyCardRankCompare(x, y) == 0)
                 {
                     if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
