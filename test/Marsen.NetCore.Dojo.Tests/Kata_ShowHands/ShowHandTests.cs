@@ -176,5 +176,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             var actual = showHand.Duel("D4,S6,H5,S3,S10", "D10,S5,C8,D9,H7");
             Assert.Equal("Tom Win, Because High Card, And Spades", actual);
         }
+
+
+        [Fact(DisplayName = "高牌 vs 高牌, Key Card 最大張相同，第二張黑桃大於方塊")]
+        public void HighCard_Same_Largest_Card_Spade_Greater_Than_Heart()
+        {
+            var actual = showHand.Duel("D4,S6,H5,D9,S10", "S10,S5,C8,S9,H7");
+            Assert.Equal("Tom Win, Because High Card, And Spades", actual);
+        }
     }
 }
