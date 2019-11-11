@@ -24,9 +24,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                                 return Tuple.Create<int, Card>(c.Suit - d.Suit, c);
                             else
                                 return Tuple.Create<int, Card>(c.Rank - d.Rank, c);
-                        }).First();
-                    Suit = x.GetSuit();
-                    return first.Item1;
+                        }).First(k => k.Item1 != 0);
+                    if (first != null)
+                    {
+                        Suit = x.GetSuit();
+                        return first.Item1;
+                    }
+
+                    return 0;
                 }
 
                 if (Category == Category.TwoPair && KeyCardRankCompare(x, y) == 0)
