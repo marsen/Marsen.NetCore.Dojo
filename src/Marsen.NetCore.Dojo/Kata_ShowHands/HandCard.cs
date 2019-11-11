@@ -66,6 +66,11 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                 return suitLookup[this._cardList.GroupBy(x => x.Rank).OrderBy(x => x.Count()).First().First().Suit];
             }
 
+            if (this.GetCategory() == Category.HighCard)
+            {
+                return suitLookup[this._cardList.OrderBy(x => x.Rank).Last().Suit];
+            }
+
             return string.Empty;
         }
     }
