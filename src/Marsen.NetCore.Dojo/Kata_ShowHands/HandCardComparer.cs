@@ -9,6 +9,14 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
     {
         public int Compare(HandCard x, HandCard y)
         {
+            var suitLookup = new Dictionary<SuitEnum, string>
+            {
+                {SuitEnum.C, "Club"},
+                {SuitEnum.S, "Spades"},
+                {SuitEnum.D, "Diamond"},
+                {SuitEnum.H, "Heart"},
+            };
+
             if (x.GetCategory() == y.GetCategory())
             {
                 Category = x.GetCategory();
@@ -20,14 +28,16 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         {
                             if (c.Rank == d.Rank && c.Suit == d.Suit)
                                 return Tuple.Create<int, Card>(0, c);
-                            else if (c.Rank == d.Rank)
+                            else if (c.Rank == d.Rank && c.Suit > d.Suit)
                                 return Tuple.Create<int, Card>(c.Suit - d.Suit, c);
+                            else if (c.Rank == d.Rank && d.Suit > c.Suit)
+                                return Tuple.Create<int, Card>(c.Suit - d.Suit, d);
                             else
                                 return Tuple.Create<int, Card>(c.Rank - d.Rank, c);
                         }).First(k => k.Item1 != 0);
                     if (first != null)
                     {
-                        Suit = x.GetSuit();
+                        Suit = suitLookup[first.Item2.Suit];
                         return first.Item1;
                     }
 
