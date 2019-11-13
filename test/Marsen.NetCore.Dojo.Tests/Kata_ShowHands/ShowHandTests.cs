@@ -191,8 +191,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
             Assert.Equal("Tom Win, Because High Card, And Diamond", actual);
         }
 
-        [Fact(DisplayName = "一條 vs 一條, 黑桃大於紅心")]
-        public void OnePair_Same_Top2_Card_Diamond_Greater_Than_Club()
+        [Fact(DisplayName = "一條 vs 一條, 8 8 7 9 10 大於 8 8 5 9 10")]
+        public void OnePair_8_8_7_9_10_Greater_Than_8_8_5_9_10()
         {
             var actual = showHand.Duel("C8,S8,H5,S9,S10", "S10,D8,H8,S9,H7");
             Assert.Equal("Lee Win, Because One Pair, Key Card 7", actual);
