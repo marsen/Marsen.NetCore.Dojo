@@ -44,6 +44,10 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     return 0;
                 }
 
+                if (Category == Category.OnePair)
+                {
+                }
+
                 if (Category == Category.TwoPair && KeyCardRankCompare(x, y) == 0)
                 {
                     if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
