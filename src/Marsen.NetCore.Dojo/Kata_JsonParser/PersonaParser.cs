@@ -10,8 +10,7 @@ namespace Marsen.NetCore.Dojo.Kata_JsonParser
             var originEntity = JsonSerializer.Deserialize<PersonaOriginEntity>(json);
             return new PersonaEntity
             {
-                Age = 30,
-                Name = originEntity.FirstName +" "+ originEntity.LastName
+                Name = originEntity.FirstName + " " + originEntity.LastName
             };
         }
     }
