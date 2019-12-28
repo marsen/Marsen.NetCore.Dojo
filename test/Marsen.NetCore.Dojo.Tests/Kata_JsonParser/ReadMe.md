@@ -24,7 +24,6 @@ Age = 35
 
 如何透過 TDD 的工序達到這個目標 ?
 
-## Step 1. 建立測試專案與方法
 ### Arrange 
 傳入的字串如下
 ```json
@@ -51,4 +50,10 @@ new PersonEntity {
 第二個案例，我會驗証 Age 的計算邏輯
 如果未來有多新的欄位再逐步加上測試。
 但在實務上我極有可能會驗証大量的欄位
+
+### Case 1. Name 是 First Name 與 Last Name 的組合
+### Case 2. Age 是現在時間減去生日的年份差
+   - 要注意 Json Parser 的處理
+   - 要注意如何處理 `現在時間` 
+
 
