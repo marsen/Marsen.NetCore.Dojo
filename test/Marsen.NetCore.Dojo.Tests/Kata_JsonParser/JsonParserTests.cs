@@ -50,5 +50,28 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
             };
             actual.Should().BeEquivalentTo(expected);
         }
+
+
+        [Fact]
+        public void CovertAgeIfTodayIs2030()
+        {
+            ////Arrange
+            var json = "{" +
+                       "\"FirstName\": \"Tian\"," +
+                       "\"LastName\": \"Tank\"," +
+                       "\"BirthDate\": \"1989/06/04\"" +
+                       "}";
+            var parser = new PersonaParser();
+            SystemDateTime.Now = Convert.ToDateTime("2030/05/06");
+            ////Act
+            var actual = parser.Parse(json);
+            ////Assert
+            var expected = new PersonaEntity
+            {
+                Age = 41,
+                Name = "Tian Tank"
+            };
+            actual.Should().BeEquivalentTo(expected);
+        }
     }
 }
