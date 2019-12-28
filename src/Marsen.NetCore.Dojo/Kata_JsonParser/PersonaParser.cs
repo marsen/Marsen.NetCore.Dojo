@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
+﻿namespace Marsen.NetCore.Dojo.Kata_JsonParser
 {
     public class PersonaParser
     {
