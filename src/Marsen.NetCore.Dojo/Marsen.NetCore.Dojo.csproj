@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.csproj" />
+  </ItemGroup>
+
 </Project>
