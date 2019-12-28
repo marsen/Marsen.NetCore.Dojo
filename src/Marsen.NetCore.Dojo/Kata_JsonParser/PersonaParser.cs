@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Marsen.NetCore.Dojo.Kata_JsonParser
 {
@@ -10,8 +9,8 @@ namespace Marsen.NetCore.Dojo.Kata_JsonParser
             var serializeOptions = new JsonSerializerOptions();
             serializeOptions.Converters.Add(new DateTimeOffsetConverter());
             serializeOptions.WriteIndented = true;
-            var originEntity = JsonSerializer.Deserialize<PersonaOriginEntity>(json,serializeOptions);
-            var age = DateTime.Now.Year - originEntity.BirthDate.Year;
+            var originEntity = JsonSerializer.Deserialize<PersonaOriginEntity>(json, serializeOptions);
+            var age = SystemDateTime.Now.Year - originEntity.BirthDate.Year;
             return new PersonaEntity
             {
                 Age = age,
