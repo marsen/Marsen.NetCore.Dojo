@@ -16,20 +16,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
                               "\"BirthDate\": \"1989/06/04\"" +
                               "}";
 
+        private readonly PersonaParser _target = new PersonaParser();
+
         [Fact]
         public void CovertName()
         {
             ////Arrange
-            var parser = new PersonaParser();
+
             ////Act
-            var actual = parser.Parse(json).Name;
+            var actual = _target.Parse(json).Name;
             ////Assert
-            var expected = new PersonaEntity
-            {
-                Age = 30,
-                Name = "Tian Tank"
-            };
-            actual.Should().BeEquivalentTo(expected.Name);
+            var expected = "Tian Tank";
+            actual.Should().BeEquivalentTo(expected);
         }
 
         [Fact]
