@@ -30,22 +30,4 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
             actual.Should().BeEquivalentTo(expected);
         }
     }
-
-    public class PersonaEntity
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
-    }
-
-    public class PersonaParser
-    {
-        public PersonaEntity Parse(string json)
-        {
-            return new PersonaEntity
-            {
-                Age = 30,
-                Name = "Tian Tank"
-            };
-        }
-    }
 }
