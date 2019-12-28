@@ -18,11 +18,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
                 'LastName': 'Tank',
                 'BirthDate': '1989/06/04'
             }";
-            var parser = new Parser();
+            var parser = new PersonaParser();
             ////Act
             var actual = parser.Parse(json);
             ////Assert
-            var expected = new PersonEntity
+            var expected = new PersonaEntity
             {
                 Age = 30,
                 Name = "Tian Tank"
@@ -31,17 +31,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
         }
     }
 
-    public class PersonEntity
+    public class PersonaEntity
     {
         public string Name { get; set; }
         public int Age { get; set; }
     }
 
-    public class Parser
+    public class PersonaParser
     {
-        public PersonEntity Parse(string json)
+        public PersonaEntity Parse(string json)
         {
-            return new PersonEntity
+            return new PersonaEntity
             {
                 Age = 30,
                 Name = "Tian Tank"
