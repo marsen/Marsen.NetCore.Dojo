@@ -13,12 +13,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
         public void CovertFirstName()
         {
             ////Arrange
-            var json = @"
-            { 
-                'FirstName': 'Tian',
-                'LastName': 'Tank',
-                'BirthDate': '1989/06/04'
-            }";
+            var json = "{" +
+                       "\"FirstName\": \"Tian\"," +
+                       "\"LastName\": \"Tank\"," +
+                       "\"BirthDate\": \"1989/06/04\"" +
+                       "}";
             var parser = new PersonaParser();
             ////Act
             var actual = parser.Parse(json);
