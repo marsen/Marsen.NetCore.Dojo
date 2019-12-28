@@ -8,17 +8,18 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
 {
-    public class JsonParserTests:IDisposable
+    public class JsonParserTests : IDisposable
     {
+        private string json = "{" +
+                              "\"FirstName\": \"Tian\"," +
+                              "\"LastName\": \"Tank\"," +
+                              "\"BirthDate\": \"1989/06/04\"" +
+                              "}";
+
         [Fact]
         public void CovertName()
         {
             ////Arrange
-            var json = "{" +
-                       "\"FirstName\": \"Tian\"," +
-                       "\"LastName\": \"Tank\"," +
-                       "\"BirthDate\": \"1989/06/04\"" +
-                       "}";
             var parser = new PersonaParser();
             ////Act
             var actual = parser.Parse(json).Name;
@@ -35,12 +36,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
         public void CovertAge()
         {
             ////Arrange
-            var json = "{" +
-                       "\"FirstName\": \"Tian\"," +
-                       "\"LastName\": \"Tank\"," +
-                       "\"BirthDate\": \"1989/06/04\"" +
-                       "}";
             var parser = new PersonaParser();
+            SystemDateTime.Now = Convert.ToDateTime("2019/12/28");
             ////Act
             var actual = parser.Parse(json);
             ////Assert
@@ -57,11 +54,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
         public void CovertAgeIfTodayIs2030()
         {
             ////Arrange
-            var json = "{" +
-                       "\"FirstName\": \"Tian\"," +
-                       "\"LastName\": \"Tank\"," +
-                       "\"BirthDate\": \"1989/06/04\"" +
-                       "}";
             var parser = new PersonaParser();
             SystemDateTime.Now = Convert.ToDateTime("2030/05/06");
             ////Act
