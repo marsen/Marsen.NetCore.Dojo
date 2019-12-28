@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
 {
-    public class JsonParserTests
+    public class JsonParserTests:IDisposable
     {
         [Fact]
         public void CovertName()
@@ -73,6 +73,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
                 Name = "Tian Tank"
             };
             actual.Should().BeEquivalentTo(expected);
+        }
+
+        public void Dispose()
+        {
+            SystemDateTime.Reset();
         }
     }
 }
