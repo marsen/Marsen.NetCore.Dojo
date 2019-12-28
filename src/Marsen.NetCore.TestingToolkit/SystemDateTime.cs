@@ -14,5 +14,10 @@ namespace Marsen.NetCore.TestingToolkit
             get => _mockDateTime ?? DateTime.Now;
             internal set => _mockDateTime = value;
         }
+
+        internal static void Reset()
+        {
+            _mockDateTime = null;
+        }
     }
 }
