@@ -10,11 +10,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
 {
     public class JsonParserTests : IDisposable
     {
-        private string json = "{" +
-                              "\"FirstName\": \"Tian\"," +
-                              "\"LastName\": \"Tank\"," +
-                              "\"BirthDate\": \"1989/06/04\"" +
-                              "}";
+        private string testJson = "{" +
+                                  "\"FirstName\": \"Tian\"," +
+                                  "\"LastName\": \"Tank\"," +
+                                  "\"BirthDate\": \"1989/06/04\"" +
+                                  "}";
 
         private readonly PersonaParser _target = new PersonaParser();
 
@@ -24,10 +24,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
             ////Arrange
 
             ////Act
-            var actual = _target.Parse(json).Name;
+            var actual = _target.Parse(testJson).Name;
             ////Assert
-            var expected = "Tian Tank";
-            actual.Should().BeEquivalentTo(expected);
+            actual.Should().BeEquivalentTo("Tian Tank");
         }
 
         [Fact]
@@ -36,10 +35,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
             ////Arrange
             SystemDateTime.Now = Convert.ToDateTime("2019/12/28");
             ////Act
-            var actual = _target.Parse(json).Age;
+            var actual = _target.Parse(testJson).Age;
             ////Assert
-            var expected = 30;
-            actual.Should().Be(expected);
+            actual.Should().Be(30);
         }
 
 
@@ -49,10 +47,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
             ////Arrange
             SystemDateTime.Now = Convert.ToDateTime("2030/05/06");
             ////Act
-            var actual = _target.Parse(json).Age;
+            var actual = _target.Parse(testJson).Age;
             ////Assert
-            var expected = 41;
-            actual.Should().Be(expected);
+            actual.Should().Be(41);
         }
 
         public void Dispose()
