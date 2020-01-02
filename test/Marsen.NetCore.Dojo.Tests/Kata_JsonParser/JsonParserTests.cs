@@ -10,11 +10,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
 {
     public class JsonParserTests : IDisposable
     {
-        private string testJson = "{" +
-                                  "\"FirstName\": \"Tian\"," +
-                                  "\"LastName\": \"Tank\"," +
-                                  "\"BirthDate\": \"1989/06/04\"" +
-                                  "}";
+        private string testJson = @"{ ""FirstName"": ""Tian"",
+                                  ""LastName"": ""Tank"",
+                                  ""BirthDate"": ""1989/06/04""
+                                  }";
 
         private readonly PersonaParser _target = new PersonaParser();
 
