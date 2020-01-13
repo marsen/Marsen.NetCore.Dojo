@@ -18,5 +18,6 @@ For Kata
 - Pair
   - Learn from others  
 - CI/CD Tools
+  - Github Action
   - Travis CI
   - SounarCloud
