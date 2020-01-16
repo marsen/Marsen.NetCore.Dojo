@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
 {
     public class JsonParserTests : IDisposable
     {
-        private string testJson = @"{ ""FirstName"": ""Tian"",
+        private readonly string _defaultTestJson = @"{ ""FirstName"": ""Tian"",
                                   ""LastName"": ""Tank"",
                                   ""BirthDate"": ""1989/06/04""
                                   }";
@@ -18,37 +18,34 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
         private readonly PersonaParser _target = new PersonaParser();
 
         [Fact]
-        public void CovertName()
+        public void ParseName()
         {
-            ////Arrange
+            AfterParseJson().Name.Should().Be("Tian Tank");
+        }
 
-            ////Act
-            var actual = _target.Parse(testJson).Name;
-            ////Assert
-            actual.Should().BeEquivalentTo("Tian Tank");
+        private PersonaEntity AfterParseJson()
+        {
+            return _target.Parse(_defaultTestJson);
         }
 
         [Fact]
         public void CovertAgeTodayIs2019()
         {
-            ////Arrange
-            SystemDateTime.Now = Convert.ToDateTime("2019/12/28");
-            ////Act
-            var actual = _target.Parse(testJson).Age;
-            ////Assert
-            actual.Should().Be(30);
+            GiveTodayIs("2019/12/28").Age.Should().Be(30);
         }
-
 
         [Fact]
         public void CovertAgeIfTodayIs2030()
         {
+            GiveTodayIs("2030/05/06").Age.Should().Be(41);
+        }
+
+        private PersonaEntity GiveTodayIs(string date)
+        {
             ////Arrange
-            SystemDateTime.Now = Convert.ToDateTime("2030/05/06");
+            SystemDateTime.Now = Convert.ToDateTime(date);
             ////Act
-            var actual = _target.Parse(testJson).Age;
-            ////Assert
-            actual.Should().Be(41);
+            return AfterParseJson();
         }
 
         public void Dispose()
