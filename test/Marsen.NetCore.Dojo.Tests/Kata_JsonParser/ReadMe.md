@@ -350,11 +350,35 @@ public void CovertAgeTodayIs2020()
         }
 ```
 
+#### Step2.5 
+
+改用 Given When Then，  
+測試案例如下，這樣會比較**好讀**嗎?:
+
+```csharp
+[Fact]
+public void parse_name()
+{
+    AfterParseJson().Name.Should().Be("Tian Tank");
+}
+
+[Fact]
+public void parse_age_today_is_2019()
+{
+    GiveTodayIs("2019/12/28").Age.Should().Be(30);
+}
+
+[Fact]
+public void parse_age_today_is_2030()
+{
+    GiveTodayIs("2030/05/06").Age.Should().Be(41);
+}
+```
+
 ### 後續
 
 - 如果未來有多新的欄位再逐步加上測試。  
 - 但在實務上我極有可能會同時驗証大量的欄位 ，比如說欄位是一對一的 Mapping
-- 想省略 PersonaOriginEntity 
-- 改用 Given When Then
+- 想省略 PersonaOriginEntity ，有可能用 Dynamic 嗎 ?
 
 (fin)

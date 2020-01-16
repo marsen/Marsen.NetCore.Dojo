@@ -18,26 +18,26 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_JsonParser
         private readonly PersonaParser _target = new PersonaParser();
 
         [Fact]
-        public void ParseName()
+        public void parse_name()
         {
             AfterParseJson().Name.Should().Be("Tian Tank");
         }
 
-        private PersonaEntity AfterParseJson()
-        {
-            return _target.Parse(_defaultTestJson);
-        }
-
         [Fact]
-        public void CovertAgeTodayIs2019()
+        public void parse_age_today_is_2019()
         {
             GiveTodayIs("2019/12/28").Age.Should().Be(30);
         }
 
         [Fact]
-        public void CovertAgeIfTodayIs2030()
+        public void parse_age_today_is_2030()
         {
             GiveTodayIs("2030/05/06").Age.Should().Be(41);
+        }
+
+        private PersonaEntity AfterParseJson()
+        {
+            return _target.Parse(_defaultTestJson);
         }
 
         private PersonaEntity GiveTodayIs(string date)
