@@ -356,3 +356,5 @@ public void CovertAgeTodayIs2020()
 - 但在實務上我極有可能會同時驗証大量的欄位 ，比如說欄位是一對一的 Mapping
 - 想省略 PersonaOriginEntity 
 - 改用 Given When Then
+
+(fin)
