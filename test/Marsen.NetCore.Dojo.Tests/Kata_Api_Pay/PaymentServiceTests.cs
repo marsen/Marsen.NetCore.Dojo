@@ -25,7 +25,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
             IHttpClient httpClient = Substitute.For<IHttpClient>();
             var target = new PaymentService(httpClient);
             target.Pay();
-            httpClient.Received().PostAsync("https://testing.url/api/v1/requestId", Arg.Any<HttpContent>());
+            httpClient.Received().PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
         }
     }
 }
