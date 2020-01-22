@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
         [Fact]
         public void pay_should_Get_requestId()
         {
-            IHttpClient httpClient = null;
+            IHttpClient httpClient = Substitute.For<IHttpClient>();
             var target = new PaymentService(httpClient);
             target.Pay();
             httpClient.Received().GetAsync("https://testing.url/api/v1/requestId");
@@ -29,12 +29,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
 
         public PaymentService(IHttpClient httpClient)
         {
-            _httpClient = httpClient;
+            this._httpClient = httpClient;
         }
 
         public void Pay()
         {
-            throw new NotImplementedException();
+            this._httpClient.GetAsync("https://testing.url/api/v1/requestId");
         }
     }
 }

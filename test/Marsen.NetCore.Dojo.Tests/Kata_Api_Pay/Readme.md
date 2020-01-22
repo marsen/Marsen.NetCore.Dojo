@@ -55,7 +55,9 @@ POST {{url}}/api/{{version}}/pay/CreditCard/{{transationId}}
 ```text
 幾個想法，
 這樣算是 Proxy Pattern 嗎 ? 我覺得算是:P
-另一點，這個階段我會擔心 HttpClient 的問題
+另一點，這個階段我會擔心 HttpClient 的問題,
+不處理是對的嗎 ?
+如果不刻意處理的話 HttpClientProxy 好像會長不出來 
 ```
 
 ```csharp
