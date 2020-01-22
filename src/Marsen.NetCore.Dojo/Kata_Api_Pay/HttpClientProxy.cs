@@ -9,5 +9,10 @@ namespace Marsen.NetCore.Dojo.Kata_Api_Pay
         {
             return new HttpClient().GetAsync(uri);
         }
+
+        public Task<HttpResponseMessage> PostAsync(string uri, HttpContent content)
+        {
+            return new HttpClient().PostAsync(uri, content);
+        }
     }
 }
