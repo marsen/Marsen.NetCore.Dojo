@@ -1,4 +1,7 @@
-﻿namespace Marsen.NetCore.Dojo.Kata_Api_Pay
+﻿using System.Net.Http;
+using System.Net.Http.Headers;
+
+namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 {
     public class PaymentService
     {
@@ -12,6 +15,8 @@
         public void Pay()
         {
             this._httpClient.GetAsync("https://testing.url/api/v1/requestId");
+
+            this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", null);
         }
     }
 }
