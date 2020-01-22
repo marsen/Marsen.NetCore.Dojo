@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Marsen.NetCore.Dojo.Kata_Api_Pay;
 using NSubstitute;
 using Xunit;
 

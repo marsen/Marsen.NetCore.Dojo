@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
+﻿namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 {
     public class PaymentService
     {
