@@ -92,20 +92,69 @@ POST {{url}}/api/{{version}}/pay/CreditCard/{{transationId}}
 馬上修改 Production Code ，拿到綠燈。
 
 ```csharp
- public class PaymentService
- {
-     private readonly IHttpClient _httpClient;
+public class PaymentService
+{
+    private readonly IHttpClient _httpClient;
+    public PaymentService(IHttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
 
-     public PaymentService(IHttpClient httpClient)
-     {
-         _httpClient = httpClient;
-     }
+    public void Pay()
+    {
+        _httpClient.GetAsync("https://testing.url/api/v1/requestId");
+    }
+}
+```
 
-     public void Pay()
-     {
-         _httpClient.GetAsync("https://testing.url/api/v1/requestId");
-     }
- }
+## 第二個 Case，Pay 的時候應該呼叫 POST Pay CreditCard 1 次
+
+測試案例:
+
+```csharp
+[Fact]
+public void pay_should_Post_Pay_CreditCard()
+{
+    IHttpClient httpClient = Substitute.For<IHttpClient>();
+    var target = new PaymentService(httpClient);
+    target.Pay();
+    this._httpClient.Received().PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
+}
+```
+
+修改 Production Code
+
+```csharp
+public void Pay()
+{
+    var readAsStringAsync = this._httpClient.GetAsync("https://testing.url/api/v1/requestId");
+                
+    this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", null);
+}
+```
+
+重構測試
+
+```csharp
+[Fact]
+public void pay_should_Get_requestId()
+{
+    WhenPay();
+    this._httpClient.Received().GetAsync("https://testing.url/api/v1/requestId");
+    }
+
+[Fact]
+public void pay_should_Post_Pay_CreditCard()
+{
+    WhenPay();
+    this._httpClient.Received().PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
+}
+
+private void WhenPay()
+{
+    var target = new PaymentService(_httpClient);
+    target.Pay();
+}
 ```
 
 ## 參考
