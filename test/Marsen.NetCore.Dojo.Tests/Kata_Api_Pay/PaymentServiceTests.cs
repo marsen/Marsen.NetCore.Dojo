@@ -33,15 +33,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
         public void pay_should_Get_requestId()
         {
             WhenPay();
-            this._httpClient.Received().GetAsync($"{_testingApiUrl}requestId");
+            ShouldGetRequestId();
         }
 
         [Fact]
         public void pay_should_Post_Pay_CreditCard()
         {
             WhenPay();
-            this._httpClient.Received().PostAsync($"{_testingApiUrl}pay/CreditCard", Arg.Any<HttpContent>());
+            ShouldPayByCreditCard();
         }
+
 
         [Fact]
         public void pay_should_Get_RequestId_Before_Post_Pay_CreditCard()
@@ -49,8 +50,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
             WhenPay();
             Received.InOrder(() =>
             {
-                this._httpClient.Received().GetAsync("https://testing.url/api/v1/requestId");
-                this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
+                ShouldGetRequestId();
+                ShouldPayByCreditCard();
             });
         }
 
@@ -58,6 +59,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
         {
             var target = new PaymentService(_httpClient);
             target.Pay();
+        }
+
+        private void ShouldGetRequestId()
+        {
+            this._httpClient.Received().GetAsync($"{_testingApiUrl}requestId");
+        }
+
+        private Task<HttpResponseMessage> ShouldPayByCreditCard()
+        {
+            return this._httpClient.Received().PostAsync($"{_testingApiUrl}pay/CreditCard", Arg.Any<HttpContent>());
         }
     }
 }
