@@ -34,6 +34,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
             this._httpClient.Received().PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
         }
 
+        [Fact]
+        public void pay_should_Get_RequestId_Before_Post_Pay_CreditCard()
+        {
+            WhenPay();
+            Received.InOrder(() =>
+            {
+                this._httpClient.Received().GetAsync("https://testing.url/api/v1/requestId");
+                this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
+            });
+        }
+
         private void WhenPay()
         {
             var target = new PaymentService(_httpClient);
