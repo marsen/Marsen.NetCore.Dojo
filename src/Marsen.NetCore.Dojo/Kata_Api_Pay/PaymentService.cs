@@ -16,7 +16,6 @@ namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 
         public void Pay(PayEntity payEntity)
         {
-            //var apiUrl = "https://testing.url/api/v1/";
             var apiUrl = this._configure.Setting("PayService.Url");
             var requestId = this._httpClient.GetAsync($"{apiUrl}requestId").Result.Content
                 .ReadAsStringAsync().Result;
@@ -26,10 +25,5 @@ namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 
             this._httpClient.PostAsync($"{apiUrl}pay/CreditCard", content);
         }
-    }
-
-    public interface IConfigure
-    {
-        string Setting(string key);
     }
 }
