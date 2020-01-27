@@ -140,14 +140,14 @@ public void Pay()
 public void pay_should_Get_requestId()
 {
     WhenPay();
-    this._httpClient.Received().GetAsync("https://testing.url/api/v1/requestId");
-    }
+    ShouldGetRequestId();    
+}
 
 [Fact]
 public void pay_should_Post_Pay_CreditCard()
 {
     WhenPay();
-    this._httpClient.Received().PostAsync("https://testing.url/api/v1/pay/CreditCard", Arg.Any<HttpContent>());
+    ShouldPayByCreditCard();
 }
 
 private void WhenPay()
@@ -155,7 +155,47 @@ private void WhenPay()
     var target = new PaymentService(_httpClient);
     target.Pay();
 }
+
+private void ShouldGetRequestId()
+{
+    this._httpClient.Received(1).GetAsync($"{_testingApiUrl}requestId");
+}
+
+private void ShouldPayByCreditCard()
+{
+    this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard",
+        Arg.Any<HttpContent>()));
+}
 ```
+
+## 第三個 Case，Pay 的時候應該先呼叫 Get RequestId 再 POST Pay CreditCard
+
+```
+[Fact]
+public void pay_should_Get_RequestId_Before_Post_Pay_CreditCard()
+{
+    WhenPay();
+    Received.InOrder(() =>
+    {
+        ShouldGetRequestId();
+        ShouldPayByCreditCard();
+    });
+}
+```
+
+想法，有了第三個案例，我還需要前面兩個案例嗎 ?
+
+下一步，調整 ShouldPayByCreditCard 的 Assert 邏輯，
+原因是實務上我必須將 RequestId 帶入 Post Pay 時的 HttpContent 裡面。
+
+```csharp
+private void ShouldPayByCreditCard()
+{
+    this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard",
+    Arg.Is<HttpContent>(x => x.ReadAsStringAsync().Result.Contains(_testRequestId)));
+}
+```
+
 
 ## 參考
 
