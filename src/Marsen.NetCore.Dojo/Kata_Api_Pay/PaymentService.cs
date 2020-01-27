@@ -14,7 +14,7 @@ namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 
         public void Pay()
         {
-            var readAsStringAsync = this._httpClient.GetAsync("https://testing.url/api/v1/requestId").Result.Content
+            var requestId = this._httpClient.GetAsync("https://testing.url/api/v1/requestId").Result.Content
                 .ReadAsStringAsync().Result;
             this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", null);
         }
