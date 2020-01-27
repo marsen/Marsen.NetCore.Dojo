@@ -196,6 +196,59 @@ private void ShouldPayByCreditCard()
 }
 ```
 
+Prodouction Code 因而長出 `PayEntity`
+
+```csharp
+public void Pay()
+{
+    var requestId = this._httpClient.GetAsync("https://testing.url/api/v1/requestId").Result.Content
+        .ReadAsStringAsync().Result;
+    HttpContent content = new StringContent(
+    JsonSerializer.Serialize(
+        new PayEntity
+        {
+            RequestId = requestId
+        }));
+
+    this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", content);
+}
+
+public class PayEntity
+{
+    public string RequestId { get; set; }
+}
+```
+
+## Case4 組合資料邏輯
+
+### 4.1 組合 PayEntity 的邏輯
+
+這次我假設外部的元件已組合好 `PayEntity` 傳入 PaymentService.Pay 方法，  
+唯一的組合邏輯就只剩 RequestId。  
+至於外部的 PayEntity 組合邏輯如何用 TDD 長出 Production Code 可以參考[這篇](https://blog.marsen.me/2020/01/17/2020/tdd_with_parse_json/)。
+
+
+```csharp
+private void WhenPay()
+{
+    var target = new PaymentService(_httpClient);
+    target.Pay(new PayEntity());
+}
+
+```
+```csharp
+public void Pay(PayEntity payEntity)
+{
+     var requestId = this._httpClient.GetAsync("https://testing.url/api/v1/requestId").Result.Content
+         .ReadAsStringAsync().Result;
+     HttpContent content = new StringContent(
+         JsonSerializer.Serialize(
+             payEntity.RequestId = requestId));
+      this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", content);
+}
+```
+
+剩下只有一個，url 應該透過 config 注入
 
 ## 參考
 
