@@ -57,7 +57,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
         private void WhenPay()
         {
             var target = new PaymentService(_httpClient);
-            target.Pay();
+            target.Pay(new PayEntity());
         }
 
         private void ShouldGetRequestId()
