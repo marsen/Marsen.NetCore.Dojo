@@ -10,9 +10,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
     {
         private readonly IHttpClient _httpClient;
 
-        private string _testRequestId = "Test_Request_Id";
+        private readonly string _testRequestId = "Test_Request_Id";
 
-        private string _testingApiUrl = "https://testing.url/api/v1/";
+        private readonly string _testingApiUrl = "https://testing.url/api/v1/";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentServiceTests" /> class.
@@ -27,7 +27,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
                         Content = new StringContent(_testRequestId)
                     }));
         }
-
 
         [Fact]
         public void pay_should_Get_requestId()
@@ -63,12 +62,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
 
         private void ShouldGetRequestId()
         {
-            this._httpClient.Received().GetAsync($"{_testingApiUrl}requestId");
+            this._httpClient.Received(1).GetAsync($"{_testingApiUrl}requestId");
         }
 
-        private Task<HttpResponseMessage> ShouldPayByCreditCard()
+        private void ShouldPayByCreditCard()
         {
-            return this._httpClient.Received().PostAsync($"{_testingApiUrl}pay/CreditCard", Arg.Any<HttpContent>());
+            this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard", Arg.Any<HttpContent>());
         }
     }
 }
