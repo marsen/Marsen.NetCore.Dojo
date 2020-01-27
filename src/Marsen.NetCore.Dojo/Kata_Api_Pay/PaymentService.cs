@@ -14,13 +14,14 @@ namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 
         public void Pay(PayEntity payEntity)
         {
-            var requestId = this._httpClient.GetAsync("https://testing.url/api/v1/requestId").Result.Content
+            var apiUrl = "https://testing.url/api/v1/";
+            var requestId = this._httpClient.GetAsync($"{apiUrl}requestId").Result.Content
                 .ReadAsStringAsync().Result;
             HttpContent content = new StringContent(
                 JsonSerializer.Serialize(
                     payEntity.RequestId = requestId));
 
-            this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", content);
+            this._httpClient.PostAsync($"{apiUrl}pay/CreditCard", content);
         }
     }
 }
