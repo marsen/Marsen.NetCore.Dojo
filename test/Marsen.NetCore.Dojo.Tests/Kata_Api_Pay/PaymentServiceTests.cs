@@ -68,8 +68,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
         private void ShouldPayByCreditCard()
         {
             this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard",
-                Arg.Is<HttpContent>(new StringContent(
-                    JsonSerializer.Serialize(new PayEntity {RequestId = _testRequestId}))));
+                Arg.Is<HttpContent>(x => x.ReadAsStringAsync().Result.Contains(_testRequestId)));
         }
     }
 }
