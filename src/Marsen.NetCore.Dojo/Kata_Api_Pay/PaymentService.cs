@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 {
@@ -16,7 +17,8 @@ namespace Marsen.NetCore.Dojo.Kata_Api_Pay
         {
             var requestId = this._httpClient.GetAsync("https://testing.url/api/v1/requestId").Result.Content
                 .ReadAsStringAsync().Result;
-            this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", null);
+            HttpContent content = new StringContent(JsonSerializer.Serialize(new PayEntity {RequestId = requestId}));
+            this._httpClient.PostAsync("https://testing.url/api/v1/pay/CreditCard", content);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Marsen.NetCore.Dojo.Kata_Api_Pay;
 using NSubstitute;
@@ -42,7 +43,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
             ShouldPayByCreditCard();
         }
 
-
         [Fact]
         public void pay_should_Get_RequestId_Before_Post_Pay_CreditCard()
         {
@@ -67,7 +67,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
 
         private void ShouldPayByCreditCard()
         {
-            this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard", Arg.Any<HttpContent>());
+            this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard",
+                Arg.Is<HttpContent>(new StringContent(
+                    JsonSerializer.Serialize(new PayEntity {RequestId = _testRequestId}))));
         }
     }
 }
