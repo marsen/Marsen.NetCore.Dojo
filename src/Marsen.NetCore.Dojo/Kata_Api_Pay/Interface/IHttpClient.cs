@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Marsen.NetCore.Dojo.Kata_Api_Pay
+namespace Marsen.NetCore.Dojo.Kata_Api_Pay.Interface
 {
     public interface IHttpClient
     {

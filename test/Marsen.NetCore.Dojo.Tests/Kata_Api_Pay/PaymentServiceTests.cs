@@ -2,6 +2,7 @@
 using System.Text.Json;
 using System.Threading.Tasks;
 using Marsen.NetCore.Dojo.Kata_Api_Pay;
+using Marsen.NetCore.Dojo.Kata_Api_Pay.Interface;
 using NSubstitute;
 using Xunit;
 
