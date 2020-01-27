@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
+using Marsen.NetCore.Dojo.Kata_Api_Pay.Interface;
 
 namespace Marsen.NetCore.Dojo.Kata_Api_Pay
 {
