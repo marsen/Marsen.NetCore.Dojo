@@ -11,6 +11,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
     {
         private readonly IHttpClient _httpClient;
 
+        private readonly IConfigure _configure;
+
         private readonly string _testRequestId = "Test_Request_Id";
 
         private readonly string _testingApiUrl = "https://testing.url/api/v1/";
@@ -27,6 +29,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
                     {
                         Content = new StringContent(_testRequestId)
                     }));
+            this._configure = Substitute.For<IConfigure>();
+            this._configure.Setting(Arg.Any<string>()).Returns(_testingApiUrl);
         }
 
         [Fact]
@@ -56,9 +60,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
 
         private void WhenPay()
         {
-            var target = new PaymentService(_httpClient);
+            var target = new PaymentService(_httpClient, _configure);
             target.Pay(new PayEntity());
         }
+
 
         private void ShouldGetRequestId()
         {
