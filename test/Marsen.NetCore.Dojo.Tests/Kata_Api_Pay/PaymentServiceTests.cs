@@ -31,7 +31,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
                         Content = new StringContent(_testRequestId)
                     }));
             this._configure = Substitute.For<IConfigure>();
-            this._configure.Setting(Arg.Any<string>()).Returns(_testingApiUrl);
+            this._configure.Setting("PayService.Url").Returns(_testingApiUrl);
         }
 
         [Fact]
