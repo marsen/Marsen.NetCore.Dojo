@@ -1,0 +1,37 @@
+@Prod https://pickup/service/
+@Sandbox http://sandbox/service/
+@host = @Sandbox
+
+@loginId = apitest
+@auth = 
+
+# 711 TEST01
+# Alfred locker TEST02
+# Circle K TEST04
+@marchantId = "TEST01"
+@senderId = "TESTW"
+@locationId = "001"
+
+
+###
+POST {{host}}/getParcelList
+login_id: {{loginId}}
+authorization: {{auth}}
+Content-Type: application/json
+
+{
+    "type":"DeliveryOrder",
+	"waybillNo": [      
+    "TESTDO2002101800008",
+	"TESTDO2002101800015",
+	"TESTDO2002101800010",
+	"TESTDO2002101800017",
+	"TESTDO2002101800009",
+	"TESTDO2002102200011",
+	"TESTDO2002102200002",
+	"TESTDO2002102200011",
+	"TESTDO2002102200004",
+	"TESTDO2002102200013",
+	"TESTDO2002102200003",
+	"TESTDO2002102200012" ]
+}
