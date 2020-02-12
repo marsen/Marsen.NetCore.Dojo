@@ -23,7 +23,13 @@
 Step0 . 這次不是從無到有，而是在遺留代碼之中建立測試，
 所以我會準備一些「遺留代碼」來呈現我面臨的狀況。
 
-Step1 . 這次 TDD 先不是 Test 而 TODO，直接對 Production Code 寫下 Todo List
+Step1 . 這次 TDD 先不是 Test 而 TODO，
+直接對 Production Code 寫下 Todo List, 
+這個 TODO 的過程其實就是一種分析，一種需求拆分。
+
+這裡我先簡單拆成兩步，
+1. 打 API 問狀態
+2. 將問到的資料轉換成回傳資料
 
 ## 心得小結
 
