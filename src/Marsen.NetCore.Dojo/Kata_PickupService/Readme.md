@@ -23,7 +23,7 @@
 Step0 . 這次不是從無到有，而是在遺留代碼之中建立測試，
 所以我會準備一些「遺留代碼」來呈現我面臨的狀況。
 
-Step1 .
+Step1 . 這次 TDD 先不是 Test 而 TODO，直接對 Production Code 寫下 Todo List
 
 ## 心得小結
 
