@@ -7,7 +7,11 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
     {
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
         {
-            throw new NotImplementedException();
+            var result = new List<ShippingOrderUpdateEntity>();
+            //// TODO Call API
+            //// TODO Parse Response
+            ////  
+            return result;
         }
     }
 }
