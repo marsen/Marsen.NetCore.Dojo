@@ -53,7 +53,7 @@ Step 2 . 隨著過程把 TODO 拆的更細
 我目前對測試案例有任何的想法(這是個壞味道)， 
 但是我打算直接呼叫我的 Prodction Code 
 
-```
+```csharp
 [Fact]
 public void Case1_Just_Run()
 {
@@ -67,7 +67,16 @@ public void Case1_Just_Run()
 因為沒有想法，所以沒有 `Assert`
 但是我得到一個小工具可以隨時呼叫我的 Prodcution Code
 
+### Do Todo 建立 HttpClient
 
+這裡依造我以前的開發習慣，直接開幹，  
+把 HttpClient new 出來，刪除 Todo Comment  
+Commited 然後發 Pull Request
+
+```csharp
+-            //// TODO 1.建立 HttpClient
++            var httpClient = new HttpClient();
+```
 
 ## 心得小結
 
