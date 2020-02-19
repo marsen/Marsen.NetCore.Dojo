@@ -1,8 +1,9 @@
 ﻿# 
 ## 前情提要
 
-作完金流作物流，這次在開發的過程中首次全程用 TDD 進行， 
-雖然因為某些因素測試沒有進版控，但是稍微記錄一下心路歷程。
+作完金流作物流，這次在開發的過程中首次全程用 TDD 進行，  
+因為某些因素，測試沒有進版控，所以稍微記錄一下心路歷程。  
+至於那個 T 是什麼? 就請各位看下去了…
 
 ## 需求說明 
 
@@ -23,8 +24,8 @@
 Step0 . 這次不是從無到有，而是在遺留代碼之中建立測試，
 所以我會準備一些「遺留代碼」來呈現我面臨的狀況。
 
-Step1 . 這次 TDD 先不是 Test 而 TODO，
-直接對 Production Code 寫下 Todo List, 
+Step1 . 這次 TDD 先不是 Test 而 TODO，   
+直接對 Production Code 寫下 Todo List，   
 這個 TODO 的過程其實就是一種分析，一種需求拆分。
 
 這裡我先簡單拆成兩步，
@@ -40,10 +41,10 @@ Step 2 . 隨著過程把 TODO 拆的更細
    5. 呼叫
 ...
 
-一般這個時候，我就會進開發了， 
-這次我不打算刻意改變我的開發習慣， 
-但是我會多作一件事，寫測試。
-這個測試會直接呼叫我即將開發的方法， 
+一般這個時候，我就會進開發了，  
+這次我不打算刻意改變我的開發習慣，  
+但是我會多作一件事，寫測試。  
+這個測試會直接呼叫我即將開發的方法，  
 而我的方法會真的去打 API 存取 DB 讀 Config Files 諸如此類的事情。
 
 ## 測試 
@@ -126,6 +127,29 @@ Commited 然後發 Pull Request
 1. 我會 inline 掉多餘的參數 requestContent
 2. Type = "DeliveryOrder" 對我來說是個 magic variable ，我會加 TODO 預計未來抽成常數(壞味道，Why not now ?)
 
+
+### Do TODO 4.指定 API URL & TODO 5.呼叫
+
+修改代碼如下，拿到第一個紅燈
+因為我沒有指定 url
+
+```
+            //// TODO 4.指定 API URL
+            string url=string.Empty;
+            var responseMessage = httpClient.PostAsync(url, httpContent).Result;
+```
+
+為了修正這個紅燈我會指定 url，  
+實務上我會使用沙盒的 url ，  
+這裡我先用 mock api 取代 ，  
+mock api 的服務為 [mocky](https://www.mocky.io/)，  
+類似的服務很多，也不是本篇的重點，就不贅述了。
+
+這次一次處理掉兩個 TODO ，  
+表示當初我 TODO Task 切的過小，  
+下次可以切大一些。
+
+不算壞味道，就當學個經驗。
 
 ## 心得小結
 
