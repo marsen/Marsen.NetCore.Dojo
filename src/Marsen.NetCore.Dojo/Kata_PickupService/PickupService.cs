@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 
 namespace Marsen.NetCore.Dojo.Kata_PickupService
 {
@@ -22,8 +23,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             //// TODO url 抽參數
             string url= "http://www.mocky.io/v2/5e4d09c22d00002800c0d91e";
             var responseMessage = httpClient.PostAsync(url, httpContent).Result;
-            //// TODO Parse Response
-            ////  
+            //// TODO Parse Response Entity
+            //// TODO Switch Status
+            //// TODO Return ShippingOrderUpdateEntity List 
             return result;
         }
     }
