@@ -98,6 +98,22 @@ Commited 然後發 Pull Request
 +           httpClient.DefaultRequestHeaders.Add("authorization", "testAuth");
 ```
 
+### Do Todo 準備 HttpContent 資料
+
+準備 HttpContent 有很多種方式，  
+這裡我選擇 StringContent 來實作。  
+所以要包含物件轉換成 Json String 的行為，  
+需要參考 JsonSerializer 。   
+如果是不太熟悉的開發人員可能會另開 TODO，  
+但是我這裡就一次性的作掉了 。 
+
+```csharp
+-           //// TODO 3.準備 HttpContent 資料
+            
++           var requestContent = JsonSerializer.Serialize(new { Type = "DeliveryOrder", waybillNo });
++           var httpContent = new StringContent(requestContent, Encoding.UTF8, "application/json");
+```
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
