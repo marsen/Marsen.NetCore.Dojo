@@ -11,7 +11,10 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var result = new List<ShippingOrderUpdateEntity>();
             //// TODO Call API
             var httpClient = new HttpClient();
-            //// TODO 2.建立 auth
+            //// TODO login id 抽參數
+            httpClient.DefaultRequestHeaders.Add("login_id", "testId");
+            //// TODO authorization 抽參數
+            httpClient.DefaultRequestHeaders.Add("authorization", "testAuth");
             //// TODO 3.準備 HttpContent 資料
             //// TODO 4.指定 API URL
             //// TODO 5.呼叫
