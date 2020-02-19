@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 
 namespace Marsen.NetCore.Dojo.Kata_PickupService
 {
@@ -9,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
         {
             var result = new List<ShippingOrderUpdateEntity>();
             //// TODO Call API
-            //// TODO 1.建立 HttpClient
+            var httpClient = new HttpClient();
             //// TODO 2.建立 auth
             //// TODO 3.準備 HttpContent 資料
             //// TODO 4.指定 API URL
