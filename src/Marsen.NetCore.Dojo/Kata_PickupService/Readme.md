@@ -114,6 +114,19 @@ Commited 然後發 Pull Request
 +           var httpContent = new StringContent(requestContent, Encoding.UTF8, "application/json");
 ```
 
+### Take a break
+
+稍微休息一下，這裡我的開發流程基本上沒有改變，
+除了多寫一個(整合)測試，而且每次都會稍微跑一下測試，
+這個測試其實沒有 Assert ，唯一的幫助只能驗証執行方法時沒有 Exception
+
+### 重構
+
+重構應該落在開發之中，我看到兩個小問題
+1. 我會 inline 掉多餘的參數 requestContent
+2. Type = "DeliveryOrder" 對我來說是個 magic variable ，我會加 TODO 預計未來抽成常數(壞味道，Why not now ?)
+
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
