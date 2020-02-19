@@ -78,6 +78,26 @@ Commited 然後發 Pull Request
 +            var httpClient = new HttpClient();
 ```
 
+### Do Todo 建立 auth
+
+通常在串接第三方服務的過程中，  
+第三方會提供沙盒(SandBob)作開發人員測試使用  
+這裡我加了一點遮罩，但實務上如果是沙盒的 auth 資訊  
+我可能會直接 Commit 進去(壞味道)。
+
+注意!! 這時候還是 Production Code 喔  
+我可以在測試加個 TODO ，  
+未來這段應該被 Mock 而不是 Hard Code 寫死。
+
+
+```csharp
+-           //// TODO 2.建立 auth
++           //// TODO login id 抽參數
++           httpClient.DefaultRequestHeaders.Add("login_id", "testId");
++           //// TODO authorization 抽參數
++           httpClient.DefaultRequestHeaders.Add("authorization", "testAuth");
+```
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
