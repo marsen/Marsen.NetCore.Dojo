@@ -31,6 +31,16 @@ Step1 . 這次 TDD 先不是 Test 而 TODO，
 1. 打 API 問狀態
 2. 將問到的資料轉換成回傳資料
 
+Step 2 . 隨著過程把 TODO 拆的更細
+1. 打 API 問狀態
+   1. 建立 HttpClient
+   2. 建立 auth
+   3. 準備 HttpContent 資料
+   4. 指定 API URL 
+   5. 呼叫
+
+
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
