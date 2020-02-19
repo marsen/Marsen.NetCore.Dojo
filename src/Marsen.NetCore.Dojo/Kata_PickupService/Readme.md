@@ -151,6 +151,32 @@ mock api 的服務為 [mocky](https://www.mocky.io/)，
 
 不算壞味道，就當學個經驗。
 
+### 第一次 TODO 作完之後
+
+當初規劃的 TODO Task 都作完了，  
+但是其實工作並沒有完成。 
+
+我會再作進一步的分析，  
+可以看到原本的 TODO 產生了更多的 TODO ，  
+另外打完 API 後的處理也是個問題。
+
+這邊要用到 [walking skeleton](https://blog.marsen.me/2018/12/27/2018/csm/to_sum_up_scrum/) 的概念，　　
+
+前面產生的 TODO 項目並不是「最」重要的，  
+我應該先處理回傳的資料。  
+開立 TODO 如下
+
+```csharp
++           //// TODO Parse Response Entity
++           //// TODO Switch Status
++           //// TODO Return ShippingOrderUpdateEntity List 
+```  
+
+可以得知，我最終會回傳一包 List，  
+這個時候我可以 Assert 了
+
+
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
