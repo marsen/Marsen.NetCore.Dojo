@@ -38,6 +38,34 @@ Step 2 . 隨著過程把 TODO 拆的更細
    3. 準備 HttpContent 資料
    4. 指定 API URL 
    5. 呼叫
+...
+
+一般這個時候，我就會進開發了， 
+這次我不打算刻意改變我的開發習慣， 
+但是我會多作一件事，寫測試。
+這個測試會直接呼叫我即將開發的方法， 
+而我的方法會真的去打 API 存取 DB 讀 Config Files 諸如此類的事情。
+
+## 測試 
+
+### Case 1 
+
+我目前對測試案例有任何的想法(這是個壞味道)， 
+但是我打算直接呼叫我的 Prodction Code 
+
+```
+[Fact]
+public void Case1_Just_Run()
+{
+    var target = new PickupService();
+    long storeId = 0;
+    List<string> waybillNo = new List<string>();
+    target.GetUpdateStatus(storeId, waybillNo);
+}
+```
+
+因為沒有想法，所以沒有 `Assert`
+但是我得到一個小工具可以隨時呼叫我的 Prodcution Code
 
 
 
