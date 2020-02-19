@@ -19,8 +19,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var httpContent = new StringContent(
                 JsonSerializer.Serialize(new {Type = "DeliveryOrder", waybillNo}),
                 Encoding.UTF8, "application/json");
-            //// TODO 4.指定 API URL
-            //// TODO 5.呼叫
+            //// TODO url 抽參數
+            string url= "http://www.mocky.io/v2/5e4d09c22d00002800c0d91e";
+            var responseMessage = httpClient.PostAsync(url, httpContent).Result;
             //// TODO Parse Response
             ////  
             return result;
