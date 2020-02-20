@@ -21,7 +21,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                 JsonSerializer.Serialize(new {Type = "DeliveryOrder", waybillNo}),
                 Encoding.UTF8, "application/json");
             //// TODO url 抽參數
-            string url= "http://www.mocky.io/v2/5e4d09c22d00002800c0d91e";
+            //string url= "http://www.mocky.io/v2/5e4d09c22d00002800c0d91e";
+            string url = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
             var responseMessage = httpClient.PostAsync(url, httpContent).Result;
             //// TODO Parse Response Entity
             //// TODO Switch Status
