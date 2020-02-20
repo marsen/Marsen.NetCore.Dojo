@@ -220,8 +220,16 @@ public void Case1_Query_Done_waybillNo()
 ### 拿到紅燈 ，Do TODO Parse Response Entity
 
 如果是 Test Driven 我可能會速解再加案例，  
-但是我現在是 Todo Driven 所以造著 Todo 作事， 
+但是我現在是 Todo Driven 所以造著 Todo 作事，  
 透過 json2csharp 快速產生 Entity 來轉置 JSON 資料。
+
+### 如何從 T(odo)DD 到 T(est)DD
+
+寫到這裡我已經開始感覺 Todo 的挶限性了，   
+由於這個方法職責不分，所以要測試是困難的，   
+但是 Todo 的作法是無法趨動改變的。
+
+現在開始，試著把每個 Todo Task 改變成 Test Case
 
 
 
