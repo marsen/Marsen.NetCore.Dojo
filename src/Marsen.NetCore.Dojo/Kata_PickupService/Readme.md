@@ -175,7 +175,47 @@ mock api 的服務為 [mocky](https://www.mocky.io/)，
 可以得知，我最終會回傳一包 List，  
 這個時候我可以 Assert 了
 
+### 修改 Case1  
 
+這個階段我開始撥雲見日，我要很明確的寫下第一個測試案例，  
+第一個案例我會直接作 Happy Case ，  
+也就是目前的呼叫的 API
+只打一筆，回傳 Done 的資料。
+
+這裡進一步作需求分析，
+呼叫完 API 我會收到一大包 JSON 資料，  
+需要轉成我可以處理的物件，  
+其中最重要的欄位 lastStatusId 會回傳各種狀態， 
+
+- DONE
+- FAIL
+- Arrived
+- Shipping
+- SMS
+- Expiry
+
+我只處理
+
+- 已取貨(DONE) 系統狀態為 Finish        
+- 失敗(FAIL、Expiry) 系統狀態為 Abnormal
+- 貨到待取(Arrived) 系統狀態為 Arrived
+- 出貨中(Shipping) 系統狀態為 Processing
+
+分析後，我的測項將會是向 API 循問一筆資料  
+且回傳一筆為 Done 的 ShippingOrderUpdateEntity 給我。
+
+
+```csharp
+[Fact]
+public void Case1_Query_Done_waybillNo()
+{
+    var target = new PickupService();
+    long storeId = 1;
+    List<string> waybillNo = new List<string> {"TEST2002181800010"};
+    var actual = target.GetUpdateStatus(storeId, waybillNo).FirstOrDefault().Status;
+    actual.Should().Be(StatusEnum.Finish);
+}
+```
 
 ## 心得小結
 
@@ -184,3 +224,4 @@ mock api 的服務為 [mocky](https://www.mocky.io/)，
 - 整合測試有異常怎麼辦 ? 加一個測試案例。
 
 (fin)
+
