@@ -217,6 +217,15 @@ public void Case1_Query_Done_waybillNo()
 }
 ```
 
+### 拿到紅燈 ，Do TODO Parse Response Entity
+
+如果是 Test Driven 我可能會速解再加案例，  
+但是我現在是 Todo Driven 所以造著 Todo 作事， 
+透過 json2csharp 快速產生 Entity 來轉置 JSON 資料。
+
+
+
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
