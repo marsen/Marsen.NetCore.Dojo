@@ -231,7 +231,39 @@ public void Case1_Query_Done_waybillNo()
 
 現在開始，試著把每個 Todo Task 改變成 Test Case
 
+### 第二個測試案例開始之前
 
+再次說明一下商務需求，我可以提供 waybillNo 向 API 循問物流的狀態。  
+理想上我會擁有一堆不同貨態的 waybillNo ，剛好可以作我測試的案例  
+但是在實務上，我拿不到這些案例， 我折衷的作法是透過 Dummy API 來偽裝回傳值。  
+這仍是整合測試的一種，雖然我可以 Mock API 的回傳值，  
+但在網路狀況異常下，測試仍會紅燈
+
+在作 Dummy API 的前提下，要能抽換 URL 
+所以我會先作 TODO url 抽參數 
+
+重構如下:
+
+Production Code
+
+```csharp
+-        //// TODO url 抽參數
+-        //// string url= "http://www.mocky.io/v2/********";
+-        string url = "http://www.mocky.io/v2/********";
++        string url = this._configService.GetAppSetting("pickup.service.url");
+```
+
+Test Mock Return Value
+
+```csharp
+        var configService = Substitute.For<IConfigService>();
+        configService.GetAppSetting("pickup.service.url")
+                .Returns("http://www.mocky.io/v2/********");
+        var target = new PickupService(configService);
+```
+
+
+###
 
 
 ## 心得小結

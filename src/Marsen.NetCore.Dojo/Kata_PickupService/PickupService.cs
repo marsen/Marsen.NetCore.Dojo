@@ -7,6 +7,16 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
 {
     public class PickupService : IQueryStatus
     {
+        private readonly IConfigService _configService;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PickupService" /> class.
+        /// </summary>
+        public PickupService(IConfigService configService)
+        {
+            this._configService = configService;
+        }
+
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
         {
             var result = new List<ShippingOrderUpdateEntity>();
@@ -20,14 +30,12 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var httpContent = new StringContent(
                 JsonSerializer.Serialize(new {Type = "DeliveryOrder", waybillNo}),
                 Encoding.UTF8, "application/json");
-            //// TODO url 抽參數
-            //string url= "http://www.mocky.io/v2/5e4d09c22d00002800c0d91e";
-            string url = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
+            var url = this._configService.GetAppSetting("pickup.service.url");
             var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
-            //// TODO Parse Response Entity
             var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
             //// TODO Switch Status
             //// TODO Return ShippingOrderUpdateEntity List 
+            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
             return result;
         }
     }
@@ -75,5 +83,4 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
         public string customerMobile { get; set; }
         public string customerEmail { get; set; }
     }
-    
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using FluentAssertions;
-using Marsen.NetCore.Dojo.Kata_JsonParser;
 using Marsen.NetCore.Dojo.Kata_PickupService;
-using Marsen.NetCore.TestingToolkit;
+using NSubstitute;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
@@ -15,9 +12,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void Case1_Query_Done_waybillNo()
         {
-            var target = new PickupService();
+            var configService = Substitute.For<IConfigService>();
+            configService.GetAppSetting("pickup.service.url")
+                .Returns("http://www.mocky.io/v2/5e4e56832f0000f55116a60b");
+            var target = new PickupService(configService);
             long storeId = 1;
-            List<string> waybillNo = new List<string> {"TEST2002181800010"};
+            var waybillNo = new List<string> {"TEST2002181800010"};
             var actual = target.GetUpdateStatus(storeId, waybillNo).FirstOrDefault().Status;
             actual.Should().Be(StatusEnum.Finish);
         }
