@@ -47,6 +47,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                     case "Expiry":
                         result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Abnormal});
                         break;
+                    case "Arrived":
+                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Arrived});
+                        break;
                 }
             }
 
