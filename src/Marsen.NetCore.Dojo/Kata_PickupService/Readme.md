@@ -277,6 +277,44 @@ Test Mock Return Value
         }
 ```
 
+
+### 第二個測試案例 - 出貨中(Shipping)
+
+這裡就是用簡單的 Test Case 趨動 Production Code 的代碼生成
+
+Test Code
+
+```csharp
+        [Fact]
+        public void Case2_Query_Shipping_waybillNo()
+        {
+            var actual = QueryWithShippingWaybillNo();
+            actual.Should().Be(StatusEnum.Processing);
+        }
+```
+
+Production Code (部份)
+
+```
+-           //// TODO Switch Status
+-           //// TODO Return ShippingOrderUpdateEntity List 
+-           result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
++           foreach (var c in obj.content)
++           {
++               switch (c.lastStatusId)
++               {
++                   case "DONE":
++                       result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
++                       break;
++                   case "Shipping":
++                       result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Processing});
++                       break;
++               }
++           }
+
+```
+
+
 ## 心得小結
 
 - TDD 不一定要用單元測試

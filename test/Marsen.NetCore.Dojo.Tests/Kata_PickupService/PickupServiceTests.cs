@@ -29,6 +29,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             actual.Should().Be(StatusEnum.Finish);
         }
 
+        [Fact]
+        public void Case2_Query_Shipping_waybillNo()
+        {
+            var actual = QueryWithShippingWaybillNo();
+            actual.Should().Be(StatusEnum.Processing);
+        }
+
+        private StatusEnum? QueryWithShippingWaybillNo()
+        {
+            _configService.GetAppSetting("pickup.service.url")
+                .Returns("http://www.mocky.io/v2/5e5284962d0000f622357b3f");
+            target = new PickupService(_configService);
+            return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
+        }
+
         private StatusEnum? QueryWithDoneWaybillNo()
         {
             _configService.GetAppSetting("pickup.service.url")

@@ -33,9 +33,19 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var url = this._configService.GetAppSetting("pickup.service.url");
             var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
             var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
-            //// TODO Switch Status
-            //// TODO Return ShippingOrderUpdateEntity List 
-            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
+            foreach (var c in obj.content)
+            {
+                switch (c.lastStatusId)
+                {
+                    case "DONE":
+                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
+                        break;
+                    case "Shipping":
+                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Processing});
+                        break;
+                }
+            }
+
             return result;
         }
     }
