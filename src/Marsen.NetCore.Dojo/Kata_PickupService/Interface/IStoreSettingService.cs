@@ -2,6 +2,6 @@
 {
     public interface IStoreSettingService
     {
-        string GetValue(long shopId, string groupTypeDef, string key);
+        string GetValue(long storeId, string groupTypeDef, string key);
     }
 }
