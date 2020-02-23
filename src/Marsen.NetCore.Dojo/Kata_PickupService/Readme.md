@@ -328,6 +328,8 @@ Production Code (部份)
 
 ### 剩下的測試案例
 
+- 失敗(FAIL) 系統狀態為 Abnormal
+- 失敗(Expiry) 系統狀態為 Abnormal
 
 ## 心得小結
 
