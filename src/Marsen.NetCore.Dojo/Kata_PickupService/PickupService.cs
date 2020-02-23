@@ -31,8 +31,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var loginId = this._storeSettingService.GetValue(storeId,"pickup.service","loginId");
             httpClient.DefaultRequestHeaders.Add("login_id", loginId);
             
-            //// TODO authorization 抽參數
-            httpClient.DefaultRequestHeaders.Add("authorization", "testAuth");
+            var auth = this._storeSettingService.GetValue(storeId,"pickup.service","auth");
+            httpClient.DefaultRequestHeaders.Add("authorization", auth);
             //// TODO DeliveryOrder 抽常數
             var httpContent = new StringContent(
                 JsonSerializer.Serialize(new {Type = "DeliveryOrder", waybillNo}),

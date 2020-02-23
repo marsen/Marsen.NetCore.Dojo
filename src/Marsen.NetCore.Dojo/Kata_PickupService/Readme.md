@@ -348,14 +348,29 @@ Database、Config Service 或 Settring API 等…
 +           httpClient.DefaultRequestHeaders.Add("login_id", loginId);
 ```
 
-同時測試代碼也要修改， 
-注意這裡的 testId 其實是 Pickup Service 提供給我們的測試 Id
-在 Production 你需要整合進你的 Database、Config Service 或 Settring API 裡
+同時測試代碼也要修改，  
+注意這裡的 testId 其實是 Pickup Service 提供給我們的測試 Id  
+在 Production 你需要整合進你的 Database、Config Service 或 Settring API 裡  
 在整合測試可以直接 mock 它
 
 
 ```csharp
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
+```
+
+Auth 也是相同的處理
+
+```csharp
+-           //// TODO authorization 抽參數
+-           httpClient.DefaultRequestHeaders.Add("authorization", "testAuth");
++           var auth = this._storeSettingService.GetValue(storeId,"pickup.service","auth");
++           httpClient.DefaultRequestHeaders.Add("authorization", auth);
+```
+
+Testing Mock 
+
+```
+            _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
 ```
 
 ## 心得小結

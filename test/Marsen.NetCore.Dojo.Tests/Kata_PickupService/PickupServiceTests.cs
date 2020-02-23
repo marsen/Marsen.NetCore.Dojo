@@ -74,6 +74,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             _configService.GetAppSetting("pickup.service.url")
                 .Returns(url);
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
+            _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
             target = new PickupService(_configService, _storeSettingService);
             return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
         }
