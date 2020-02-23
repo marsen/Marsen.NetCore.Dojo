@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marsen.NetCore.Dojo", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marsen.NetCore.Dojo.Tests", "test\Marsen.NetCore.Dojo.Tests\Marsen.NetCore.Dojo.Tests.csproj", "{AF335305-DF99-4423-9A05-E809EEE173A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marsen.NetCore.TestingToolkit", "src\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.csproj", "{19C45786-A7EA-4192-A155-D09395C43E0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marsen.NetCore.TestingToolkit", "src\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.csproj", "{19C45786-A7EA-4192-A155-D09395C43E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marsen.NetCore.Dojo.Integration.Tests", "test\Marsen.NetCore.Dojo.Integration.Tests\Marsen.NetCore.Dojo.Integration.Tests.csproj", "{88021316-2C23-45A8-B115-BDD24EB99229}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{19C45786-A7EA-4192-A155-D09395C43E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19C45786-A7EA-4192-A155-D09395C43E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19C45786-A7EA-4192-A155-D09395C43E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88021316-2C23-45A8-B115-BDD24EB99229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88021316-2C23-45A8-B115-BDD24EB99229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88021316-2C23-45A8-B115-BDD24EB99229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88021316-2C23-45A8-B115-BDD24EB99229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
