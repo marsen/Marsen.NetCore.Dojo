@@ -26,13 +26,12 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
         {
             var result = new List<ShippingOrderUpdateEntity>();
-            //// TODO Call API
             var httpClient = new HttpClient();
 
-            var loginId = this._storeSettingService.GetValue(storeId,"pickup.service","loginId");
+            var loginId = this._storeSettingService.GetValue(storeId, "pickup.service", "loginId");
             httpClient.DefaultRequestHeaders.Add("login_id", loginId);
-            
-            var auth = this._storeSettingService.GetValue(storeId,"pickup.service","auth");
+
+            var auth = this._storeSettingService.GetValue(storeId, "pickup.service", "auth");
             httpClient.DefaultRequestHeaders.Add("authorization", auth);
             var httpContent = new StringContent(
                 JsonSerializer.Serialize(new { Type = DeliveryOrder, waybillNo }),
@@ -45,17 +44,20 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                 switch (c.Status)
                 {
                     case Status.DONE:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
+                        result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Finish });
                         break;
+
                     case Status.Shipping:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Processing});
+                        result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Processing });
                         break;
+
                     case Status.FAIL:
                     case Status.Expiry:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Abnormal});
+                        result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Abnormal });
                         break;
+
                     case Status.Arrived:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Arrived});
+                        result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Arrived });
                         break;
                 }
             }
