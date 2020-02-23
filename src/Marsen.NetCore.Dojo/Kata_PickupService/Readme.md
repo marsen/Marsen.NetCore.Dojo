@@ -314,6 +314,20 @@ Production Code (部份)
 
 ```
 
+順手再重構了一下測試，
+希望能提高可讀性
+
+```csharp
+        [Fact]
+        public void Case2_Query_Shipping_waybillNo()
+        {
+            var actual = QueryWaybillNoWith(UrlMockShipping);
+            actual.Should().Be(StatusEnum.Processing);
+        }
+```
+
+### 剩下的測試案例
+
 
 ## 心得小結
 
