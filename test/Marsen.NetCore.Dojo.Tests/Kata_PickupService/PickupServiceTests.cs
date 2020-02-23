@@ -13,8 +13,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         private PickupService target;
         private readonly long _testStoreId = 1;
         private readonly List<string> _testWaybillNo = new List<string> {"TEST2002181800010"};
-        string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
-        string UrlMockShipping = "http://www.mocky.io/v2/5e5284962d0000f622357b3f";
+        private string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
+        private string UrlMockShipping = "http://www.mocky.io/v2/5e5284962d0000f622357b3f";
+        private string UrlMockFAIL = "http://www.mocky.io/v2/5e5290812d0000261d357b5c";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupServiceTests" /> class.
@@ -36,6 +37,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         {
             var actual = QueryWaybillNoWith(UrlMockShipping);
             actual.Should().Be(StatusEnum.Processing);
+        }
+
+
+        [Fact]
+        public void Case2_Query_FAIL_waybillNo()
+        {
+            var actual = QueryWaybillNoWith(UrlMockFAIL);
+            actual.Should().Be(StatusEnum.Abnormal);
         }
 
 
