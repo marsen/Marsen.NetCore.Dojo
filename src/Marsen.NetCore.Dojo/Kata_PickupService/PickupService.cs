@@ -12,6 +12,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
     {
         private readonly IConfigService _configService;
         private readonly IStoreSettingService _storeSettingService;
+        private const string DeliveryOrder = "DeliveryOrder";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupService" /> class.
@@ -33,9 +34,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             
             var auth = this._storeSettingService.GetValue(storeId,"pickup.service","auth");
             httpClient.DefaultRequestHeaders.Add("authorization", auth);
-            //// TODO DeliveryOrder 抽常數
             var httpContent = new StringContent(
-                JsonSerializer.Serialize(new {Type = "DeliveryOrder", waybillNo}),
+                JsonSerializer.Serialize(new { Type = DeliveryOrder, waybillNo }),
                 Encoding.UTF8, "application/json");
             var url = this._configService.GetAppSetting("pickup.service.url");
             var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
