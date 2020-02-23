@@ -330,6 +330,7 @@ Production Code (部份)
 
 - 失敗(FAIL) 系統狀態為 Abnormal
 - 失敗(Expiry) 系統狀態為 Abnormal
+- 貨到待取(Arrived) 系統狀態為 Arrived
 
 ## 心得小結
 
