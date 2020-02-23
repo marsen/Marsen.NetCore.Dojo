@@ -2,6 +2,9 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
+using Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService;
+using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
 
 namespace Marsen.NetCore.Dojo.Kata_PickupService
 {
