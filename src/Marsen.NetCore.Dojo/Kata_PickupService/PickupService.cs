@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Marsen.NetCore.Dojo.Kata_PickupService
 {
@@ -33,9 +34,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var url = this._configService.GetAppSetting("pickup.service.url");
             var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
             var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
-            foreach (var c in obj.content)
+            foreach (var c in obj.Content)
             {
-                switch (c.lastStatusId)
+                switch (c.Status)
                 {
                     case "DONE":
                         result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
@@ -60,7 +61,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
     public class ResponseEntity
     {
         public string result { get; set; }
-        public List<Content> content { get; set; }
+
+        [JsonPropertyName("content")]
+        public List<Content> Content { get; set; }
     }
 
     public class Item
@@ -93,7 +96,10 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
         public string codAmt { get; set; }
         public string sizeCode { get; set; }
         public List<Item> item { get; set; }
-        public string lastStatusId { get; set; }
+
+        [JsonPropertyName("lastStatusId")]
+        public string Status { get; set; }
+
         public string lastStatusDescription { get; set; }
         public string lastStatusDate { get; set; }
         public string lastStatusTime { get; set; }
