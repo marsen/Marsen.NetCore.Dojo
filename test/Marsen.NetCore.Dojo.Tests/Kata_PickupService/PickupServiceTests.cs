@@ -13,6 +13,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         private PickupService target;
         private readonly long _testStoreId = 1;
         private readonly List<string> _testWaybillNo = new List<string> {"TEST2002181800010"};
+        string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
+        string UrlMockShipping = "http://www.mocky.io/v2/5e5284962d0000f622357b3f";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupServiceTests" /> class.
@@ -25,29 +27,22 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void Case1_Query_Done_waybillNo()
         {
-            var actual = QueryWithDoneWaybillNo();
+            var actual = QueryWaybillNoWith(UrlMockDone);
             actual.Should().Be(StatusEnum.Finish);
         }
 
         [Fact]
         public void Case2_Query_Shipping_waybillNo()
         {
-            var actual = QueryWithShippingWaybillNo();
+            var actual = QueryWaybillNoWith(UrlMockShipping);
             actual.Should().Be(StatusEnum.Processing);
         }
 
-        private StatusEnum? QueryWithShippingWaybillNo()
-        {
-            _configService.GetAppSetting("pickup.service.url")
-                .Returns("http://www.mocky.io/v2/5e5284962d0000f622357b3f");
-            target = new PickupService(_configService);
-            return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
-        }
 
-        private StatusEnum? QueryWithDoneWaybillNo()
+        private StatusEnum? QueryWaybillNoWith(string url)
         {
             _configService.GetAppSetting("pickup.service.url")
-                .Returns("http://www.mocky.io/v2/5e4e56832f0000f55116a60b");
+                .Returns(url);
             target = new PickupService(_configService);
             return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
         }
