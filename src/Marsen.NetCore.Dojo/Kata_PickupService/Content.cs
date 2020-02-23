@@ -25,7 +25,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
         public List<Item> item { get; set; }
 
         [JsonPropertyName("lastStatusId")]
-        public string Status { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public Status Status { get; set; }
 
         public string lastStatusDescription { get; set; }
         public string lastStatusDate { get; set; }
