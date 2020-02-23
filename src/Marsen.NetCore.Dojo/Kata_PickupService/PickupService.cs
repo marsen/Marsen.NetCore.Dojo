@@ -11,13 +11,15 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
     public class PickupService : IQueryStatus
     {
         private readonly IConfigService _configService;
+        private readonly IStoreSettingService _storeSettingService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupService" /> class.
         /// </summary>
-        public PickupService(IConfigService configService)
+        public PickupService(IConfigService configService, IStoreSettingService storeSettingService)
         {
             this._configService = configService;
+            this._storeSettingService = storeSettingService;
         }
 
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
@@ -25,8 +27,10 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var result = new List<ShippingOrderUpdateEntity>();
             //// TODO Call API
             var httpClient = new HttpClient();
-            //// TODO login id 抽參數
-            httpClient.DefaultRequestHeaders.Add("login_id", "testId");
+
+            var loginId = this._storeSettingService.GetValue(storeId,"pickup.service","loginId");
+            httpClient.DefaultRequestHeaders.Add("login_id", loginId);
+            
             //// TODO authorization 抽參數
             httpClient.DefaultRequestHeaders.Add("authorization", "testAuth");
             //// TODO DeliveryOrder 抽常數

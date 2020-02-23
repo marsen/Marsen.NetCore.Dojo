@@ -332,6 +332,32 @@ Production Code (部份)
 - 失敗(Expiry) 系統狀態為 Abnormal
 - 貨到待取(Arrived) 系統狀態為 Arrived
 
+
+### 剩下的 TODO 項目
+
+這個時候基本的功能都好了，來收拾一下剩下的 TODO 項目吧  
+主要都是取得設定值的功能，實務上這些設定值可能來自不同的服務  
+Database、Config Service 或 Settring API 等…  
+我在這裡先簡化成 `IStoreSettingService` 取值就好。
+
+```csharp
+-           //// TODO login id 抽參數
+-           httpClient.DefaultRequestHeaders.Add("login_id", "testId");
+
++           var loginId = this._storeSettingService.GetValue(storeId,"pickup.service","loginId");
++           httpClient.DefaultRequestHeaders.Add("login_id", loginId);
+```
+
+同時測試代碼也要修改， 
+注意這裡的 testId 其實是 Pickup Service 提供給我們的測試 Id
+在 Production 你需要整合進你的 Database、Config Service 或 Settring API 裡
+在整合測試可以直接 mock 它
+
+
+```csharp
+            _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
+```
+
 ## 心得小結
 
 - TDD 不一定要用單元測試
