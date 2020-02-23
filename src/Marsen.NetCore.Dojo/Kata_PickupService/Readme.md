@@ -263,8 +263,19 @@ Test Mock Return Value
 ```
 
 
-###
+### 進一步增新測試的可讀性
 
+可讀性真的是一個很抽象的觀念，之後有機會再深入探討  
+我的修改如下，主要的想法是「讓測試案例可以像對話般被閱讀」
+
+```csharp
+        [Fact]
+        public void Case1_Query_Done_waybillNo()
+        {
+            var actual = QueryWithDoneWaybillNo();
+            actual.Should().Be(StatusEnum.Finish);
+        }
+```
 
 ## 心得小結
 
