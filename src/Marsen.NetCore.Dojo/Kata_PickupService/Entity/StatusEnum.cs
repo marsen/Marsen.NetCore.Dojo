@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace Marsen.NetCore.Dojo.Kata_PickupService
+﻿namespace Marsen.NetCore.Dojo.Kata_PickupService.Entity
 {
     public enum StatusEnum
     {

@@ -2,6 +2,8 @@
 using System.Linq;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata_PickupService;
+using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
+using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
 using NSubstitute;
 using Xunit;
 
