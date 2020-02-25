@@ -22,7 +22,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - name: Run Stryker
-      run: dotnet stryker
-      env:
-        STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
