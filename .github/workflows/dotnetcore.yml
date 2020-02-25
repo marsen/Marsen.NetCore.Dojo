@@ -12,9 +12,11 @@ jobs:
       with:
         dotnet-version: 3.1.100
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build Marsen.NetCore.Dojo.sln --configuration Release
     - name: Test with dotnet
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --logger:trx;LogFileName=result.trx
+    - name: Integration Test with dotnet
+      run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx
   sonarCloudTrigger:
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
