@@ -1,0 +1,9 @@
+{
+  "stryker-config": {    
+    "dashboard-project": "github.com/marsen/Marsen.NetCore.Dojo",
+    "dashboard-version": "master",    
+    "reporters": [
+      "json"
+    ]
+  }
+}
