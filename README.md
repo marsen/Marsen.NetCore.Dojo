@@ -21,6 +21,7 @@ For Kata
   - issue analysis
   - workingProcess
 - Vim
+  - Rider
   - Resharp
   - typing
 - Pair
