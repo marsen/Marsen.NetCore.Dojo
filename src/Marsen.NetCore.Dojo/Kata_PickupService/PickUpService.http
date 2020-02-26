@@ -5,14 +5,6 @@
 @loginId = apitest
 @auth = 
 
-# 711 TEST01
-# Alfred locker TEST02
-# Circle K TEST04
-@marchantId = "TEST01"
-@senderId = "TESTW"
-@locationId = "001"
-
-
 ###
 POST {{host}}/getParcelList
 login_id: {{loginId}}
