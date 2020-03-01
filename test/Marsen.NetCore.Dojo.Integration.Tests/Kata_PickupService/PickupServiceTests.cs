@@ -5,7 +5,9 @@ using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata_PickupService;
 using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
+using Microsoft.Extensions.Logging;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
@@ -23,12 +25,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         private string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
         private string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
         private readonly IStoreSettingService _storeSettingService;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupServiceTests" /> class.
         /// </summary>
         public PickupServiceTests()
         {
+            _logger = Substitute.For<ILogger>();
             _configService = Substitute.For<IConfigService>();
             _storeSettingService = Substitute.For<IStoreSettingService>();
         }
@@ -77,7 +81,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             GetPickupServiceWith(UrlMockResultError);
             Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
             act.Should().Throw<Exception>();
+            _logger.ReceivedWithAnyArgs().LogError(default(string));
         }
+
 
         private void GetPickupServiceWith(string url)
         {
@@ -85,7 +91,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
                 .Returns(url);
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
-            target = new PickupService(_configService, _storeSettingService);
+            target = new PickupService(_configService, _storeSettingService, _logger);
         }
 
 

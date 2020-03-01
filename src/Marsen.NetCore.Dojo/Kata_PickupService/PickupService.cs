@@ -6,6 +6,7 @@ using System.Text.Json;
 using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService;
 using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
+using Microsoft.Extensions.Logging;
 
 namespace Marsen.NetCore.Dojo.Kata_PickupService
 {
@@ -13,15 +14,17 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
     {
         private readonly IConfigService _configService;
         private readonly IStoreSettingService _storeSettingService;
+        private readonly ILogger _logger;
         private const string DeliveryOrder = "DeliveryOrder";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupService" /> class.
         /// </summary>
-        public PickupService(IConfigService configService, IStoreSettingService storeSettingService)
+        public PickupService(IConfigService configService, IStoreSettingService storeSettingService, ILogger logger)
         {
             this._configService = configService;
             this._storeSettingService = storeSettingService;
+            this._logger = logger;
         }
 
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
@@ -42,6 +45,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
             if (obj.result == "error")
             {
+                this._logger.LogError(obj.result);
                 throw new Exception();
             }
 

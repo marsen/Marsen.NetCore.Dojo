@@ -42,6 +42,58 @@
 ```
 
 
+Production Code 就單純很多了
 
+```csharp
+    if (obj.result == "error")
+    {
+        throw new Exception();
+    }
+```
 
+下一步我要驗証記錄 Log 的行為
+出錯的時候應該呼叫 LogError 的方法
 
+原本想直接驗証 LogError 有沒有被呼叫
+
+```csharp 
+    [Fact]
+    public void Case7_Query_Error_Result_Should_LogError()
+    {
+        GetPickupServiceWith(UrlMockResultError);
+        target.GetUpdateStatus(_testStoreId, _testWaybillNo);        
+        _logger.Received().LogError(Arg.Any<string>());
+    }
+
+```
+
+但是這裡因為會拋出 Exception 所以直接修改前一個測試
+
+```csharp
+    [Fact]
+    public void Case6_Query_Error_Result()
+    {
+        GetPickupServiceWith(UrlMockResultError);
+        Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+        act.Should().Throw<Exception>();
+        _logger.ReceivedWithAnyArgs().LogError(default(string));
+    }
+```
+
+而 Produciton Code 很單純的加上 Logger 並調整建構子
+
+```csharp
+-   public PickupService(IConfigService configService, IStoreSettingService storeSettingService)        
++   public PickupService(IConfigService configService, IStoreSettingService storeSettingService, ILogger logger)
+    {
+        this._configService = configService;
+        this._storeSettingService = storeSettingService;
++       this._logger = logger;
+    }
+
+    if (obj.result == "error")
+    {
++       this._logger.LogError(obj.result);
+        throw new Exception();
+    }
+```
