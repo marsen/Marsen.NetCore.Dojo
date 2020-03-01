@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata_PickupService;
@@ -20,6 +21,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         private string UrlMockFAIL = "http://www.mocky.io/v2/5e5290812d0000261d357b5c";
         private string UrlMockExpiry = "http://www.mocky.io/v2/5e5292462d00004c00357b5e";
         private string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
+        private string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
         private readonly IStoreSettingService _storeSettingService;
 
         /// <summary>
@@ -66,6 +68,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         {
             var actual = QueryWaybillNoWith(UrlMockArrived);
             actual.Should().Be(StatusEnum.Arrived);
+        }
+
+
+        [Fact]
+        public void Case6_Query_Error_Result()
+        {
+            _configService.GetAppSetting("pickup.service.url")
+                .Returns(UrlMockResultError);
+            _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
+            _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
+            target = new PickupService(_configService, _storeSettingService);
+            Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            act.Should().Throw<Exception>();
         }
 
 
