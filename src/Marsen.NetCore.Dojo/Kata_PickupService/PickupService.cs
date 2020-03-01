@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -39,6 +40,11 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var url = this._configService.GetAppSetting("pickup.service.url");
             var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
             var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
+            if (obj.result == "error")
+            {
+                throw new Exception();
+            }
+
             foreach (var c in obj.Content)
             {
                 switch (c.Status)
