@@ -74,23 +74,24 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void Case6_Query_Error_Result()
         {
-            _configService.GetAppSetting("pickup.service.url")
-                .Returns(UrlMockResultError);
-            _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
-            _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
-            target = new PickupService(_configService, _storeSettingService);
+            GetPickupServiceWith(UrlMockResultError);
             Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
             act.Should().Throw<Exception>();
         }
 
-
-        private StatusEnum? QueryWaybillNoWith(string url)
+        private void GetPickupServiceWith(string url)
         {
             _configService.GetAppSetting("pickup.service.url")
                 .Returns(url);
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
             target = new PickupService(_configService, _storeSettingService);
+        }
+
+
+        private StatusEnum? QueryWaybillNoWith(string url)
+        {
+            GetPickupServiceWith(url);
             return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
         }
     }
