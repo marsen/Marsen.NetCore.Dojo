@@ -67,7 +67,9 @@ Production Code 就單純很多了
 
 ```
 
-但是這裡因為會拋出 Exception 所以直接修改前一個測試
+因為這裡會拋出 Exception ，
+所以無法直接呼叫  GetUpdateStatus 
+要修改前一個測試
 
 ```csharp
     [Fact]
