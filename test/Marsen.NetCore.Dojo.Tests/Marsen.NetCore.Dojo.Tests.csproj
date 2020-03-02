@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="StrykerOutput\**" />
+    <EmbeddedResource Remove="StrykerOutput\**" />
+    <None Remove="StrykerOutput\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ExpectedObjects" Version="2.3.4" />
     <PackageReference Include="FluentAssertions" Version="5.10.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
