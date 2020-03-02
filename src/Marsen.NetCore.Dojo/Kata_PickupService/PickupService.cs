@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -40,7 +41,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                 var auth = this._storeSettingService.GetValue(storeId, "pickup.service", "auth");
                 httpClient.DefaultRequestHeaders.Add("authorization", auth);
                 var httpContent = new StringContent(
-                    JsonSerializer.Serialize(new { Type = DeliveryOrder, waybillNo }),
+                    JsonSerializer.Serialize(new {Type = DeliveryOrder, waybillNo}),
                     Encoding.UTF8, "application/json");
                 var url = this._configService.GetAppSetting("pickup.service.url");
                 var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
@@ -51,29 +52,28 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                     throw new Exception();
                 }
 
-                foreach (var c in obj.Content)
+                foreach (var c in obj.Content.Where(c => string.IsNullOrEmpty(c.ErrorCode)))
                 {
-                    if (string.IsNullOrEmpty(c.ErrorCode))
+                    switch (c.Status)
                     {
-                        switch (c.Status)
-                        {
-                            case Status.DONE:
-                                result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Finish });
-                                break;
+                        case Status.DONE:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
+                            break;
 
-                            case Status.Shipping:
-                                result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Processing });
-                                break;
+                        case Status.Shipping:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Processing});
+                            break;
 
-                            case Status.FAIL:
-                            case Status.Expiry:
-                                result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Abnormal });
-                                break;
+                        case Status.FAIL:
+                        case Status.Expiry:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Abnormal});
+                            break;
 
-                            case Status.Arrived:
-                                result.Add(new ShippingOrderUpdateEntity { Status = StatusEnum.Arrived });
-                                break;
-                        }
+                        case Status.Arrived:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Arrived});
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                 }
 
