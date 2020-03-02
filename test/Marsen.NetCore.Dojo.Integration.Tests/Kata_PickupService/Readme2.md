@@ -139,3 +139,27 @@ Production Code 就單純很多了
 ```
 
 Production Code 就直接整個用 try Catch 包起來再記 Log
+
+## 實務上的案例
+
+這裡補充一些實務上的情境，
+1. 呼叫狀態查詢時，對方的 API 只允許同查詢 100 筆 WayBillNo
+2. 呼叫 API 後多了幾種文件外的狀態需要處理
+   - D → Finish
+   - F → Finish
+   - E → Abnormal 
+
+## 單元測試現身
+現在我已經有一些整合測試作保護了，
+但是想要修改或重構仍然很麻煩，
+原因是我每次有新的情境就需要準備新的 Mock API(實務上我需要準備符合情境的 WayBillNo)，
+透過 Todo 與整合測試，已經讓我們的代碼有了雛型。
+在一切太晚之前，我們需撰寫單元測試。
+
+
+### Do TODO 建立單元測試
+
+這裡小小提個 Visual Studio 2019 的小問題 ，  
+預設只會安裝 MSTest 的 Generator ，  
+這裡我要安裝 [XUnit 的 Generator](https://marketplace.visualstudio.com/items?itemName=YowkoTsai.xUnitnetTestGenerator) ，  
+
