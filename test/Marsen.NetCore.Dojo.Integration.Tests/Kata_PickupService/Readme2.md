@@ -162,4 +162,4 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 這裡小小提個 Visual Studio 2019 的小問題 ，  
 預設只會安裝 MSTest 的 Generator ，  
 這裡我要安裝 [XUnit 的 Generator](https://marketplace.visualstudio.com/items?itemName=YowkoTsai.xUnitnetTestGenerator) ，  
-
+安裝完成後再透過 Code Generator 產生第一個測試，紅燈。
