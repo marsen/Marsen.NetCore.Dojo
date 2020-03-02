@@ -122,3 +122,20 @@ Production Code 就單純很多了
         }
 +    }
 ```
+
+## 超乎預期的異常，記錄異常資料, 拋出 Exception
+
+測試
+
+```csharp
+    [Fact]
+    public void Case8_Query_Exception()
+    {
+        GetPickupServiceWith(UrlMockException);
+        Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+        act.Should().Throw<Exception>();
+        _logger.ReceivedWithAnyArgs().LogError(default(string));
+    }
+```
+
+Production Code 就直接整個用 try Catch 包起來再記 Log

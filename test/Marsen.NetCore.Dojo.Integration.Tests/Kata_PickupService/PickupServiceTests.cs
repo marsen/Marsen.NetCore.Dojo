@@ -25,6 +25,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         private string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
         private string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
         private string UrlMockContentError = "http://www.mocky.io/v2/5e5c83cd3200006d0043c197";
+        private string UrlMockException = "https://www.mocky.io/v2/5e5cad1b320000530043c260";
         private readonly IStoreSettingService _storeSettingService;
         private readonly ILogger _logger;
 
@@ -94,6 +95,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             actual.Should().BeEmpty();
         }
 
+        [Fact]
+        public void Case8_Query_Exception()
+        {
+            GetPickupServiceWith(UrlMockException);
+            Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            act.Should().Throw<Exception>();
+            _logger.ReceivedWithAnyArgs().LogError(default(string));
+        }
 
         private void GetPickupServiceWith(string url)
         {
