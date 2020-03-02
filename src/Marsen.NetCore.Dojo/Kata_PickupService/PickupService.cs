@@ -43,9 +43,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             var url = this._configService.GetAppSetting("pickup.service.url");
             var responseMessage = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
             var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
-            if (obj.result == "error")
+            if (obj.Result == "error")
             {
-                this._logger.LogError(obj.result);
+                this._logger.LogError(obj.Result);
                 throw new Exception();
             }
 
