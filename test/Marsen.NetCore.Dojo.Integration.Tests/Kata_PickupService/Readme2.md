@@ -99,3 +99,29 @@ Production Code 就單純很多了
         throw new Exception();
     }
 ```
+
+## 回傳的資料有異常，記錄回傳的異常資料，回傳空資料
+
+測試案例
+
+```csharp
+   [Fact]
+   public void Case7_Query_Error_Content()
+   {
+        GetPickupServiceWith(UrlMockContentError);
+        var actual = target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+        actual.Should().BeEmpty();
+   }
+```
+
+調整代碼以通過測試
+
+```csharp
++    if (string.IsNullOrEmpty(c.ErrorCode))
++    {
+        switch (c.Status)
+        {
+            ////略…
+        }
++    }
+```

@@ -51,24 +51,27 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
 
             foreach (var c in obj.Content)
             {
-                switch (c.Status)
+                if (string.IsNullOrEmpty(c.ErrorCode))
                 {
-                    case Status.DONE:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
-                        break;
+                    switch (c.Status)
+                    {
+                        case Status.DONE:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Finish});
+                            break;
 
-                    case Status.Shipping:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Processing});
-                        break;
+                        case Status.Shipping:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Processing});
+                            break;
 
-                    case Status.FAIL:
-                    case Status.Expiry:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Abnormal});
-                        break;
+                        case Status.FAIL:
+                        case Status.Expiry:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Abnormal});
+                            break;
 
-                    case Status.Arrived:
-                        result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Arrived});
-                        break;
+                        case Status.Arrived:
+                            result.Add(new ShippingOrderUpdateEntity {Status = StatusEnum.Arrived});
+                            break;
+                    }
                 }
             }
 

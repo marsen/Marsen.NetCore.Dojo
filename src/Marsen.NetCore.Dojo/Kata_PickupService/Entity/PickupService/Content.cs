@@ -33,5 +33,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService
         public string lastStatusTime { get; set; }
         public string customerMobile { get; set; }
         public string customerEmail { get; set; }
+
+        [JsonPropertyName("errorCode")]
+        public string ErrorCode { get; set; }
     }
 }
