@@ -163,3 +163,29 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 預設只會安裝 MSTest 的 Generator ，  
 這裡我要安裝 [XUnit 的 Generator](https://marketplace.visualstudio.com/items?itemName=YowkoTsai.xUnitnetTestGenerator) ，  
 安裝完成後再透過 Code Generator 產生第一個測試，紅燈。
+
+當然這種 Generator 產生的 Code 不是實際要的測試案例
+調整一下測試案例
+
+```csharp
+    [Fact]
+    public void GetUpdateStatusTest()
+    {
+        ILogger logger = Substitute.For<ILogger>();
+        IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
+        IConfigService configService = Substitute.For<IConfigService>();
+        var target = new PickupService(configService, storeSettingService, logger);
+        
+        var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+        actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
+        {
+            new ShippingOrderUpdateEntity
+            {
+                AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
+                OuterCode = "TestWayBillNo",
+                Status = StatusEnum.Finish
+            }
+        });
+    }
+```
+
