@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Repo\Marsen\Marsen.NetCore.Dojo\src\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
