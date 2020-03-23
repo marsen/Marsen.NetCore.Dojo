@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata_PickupService;
 using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
+using Microsoft.Extensions.Logging;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
@@ -20,13 +23,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         private string UrlMockFAIL = "http://www.mocky.io/v2/5e5290812d0000261d357b5c";
         private string UrlMockExpiry = "http://www.mocky.io/v2/5e5292462d00004c00357b5e";
         private string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
+        private string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
+        private string UrlMockContentError = "http://www.mocky.io/v2/5e5c83cd3200006d0043c197";
+        private string UrlMockException = "https://www.mocky.io/v2/5e5cad1b320000530043c260";
         private readonly IStoreSettingService _storeSettingService;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupServiceTests" /> class.
         /// </summary>
         public PickupServiceTests()
         {
+            _logger = Substitute.For<ILogger>();
             _configService = Substitute.For<IConfigService>();
             _storeSettingService = Substitute.For<IStoreSettingService>();
         }
@@ -69,13 +77,46 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         }
 
 
-        private StatusEnum? QueryWaybillNoWith(string url)
+        [Fact]
+        public void Case6_Query_Error_Result()
+        {
+            GetPickupServiceWith(UrlMockResultError);
+            Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            act.Should().Throw<Exception>();
+            _logger.ReceivedWithAnyArgs().LogError(default(string));
+        }
+
+
+        [Fact]
+        public void Case7_Query_Error_Content()
+        {
+            GetPickupServiceWith(UrlMockContentError);
+            var actual = target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            actual.Should().BeEmpty();
+        }
+
+        [Fact]
+        public void Case8_Query_Exception()
+        {
+            GetPickupServiceWith(UrlMockException);
+            Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            act.Should().Throw<Exception>();
+            _logger.ReceivedWithAnyArgs().LogError(default(string));
+        }
+
+        private void GetPickupServiceWith(string url)
         {
             _configService.GetAppSetting("pickup.service.url")
                 .Returns(url);
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
-            target = new PickupService(_configService, _storeSettingService);
+            target = new PickupService(_configService, _storeSettingService, _logger);
+        }
+
+
+        private StatusEnum? QueryWaybillNoWith(string url)
+        {
+            GetPickupServiceWith(url);
             return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
         }
     }
