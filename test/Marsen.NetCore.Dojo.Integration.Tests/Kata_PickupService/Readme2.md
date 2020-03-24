@@ -168,24 +168,41 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 調整一下測試案例
 
 ```csharp
-    [Fact]
-    public void GetUpdateStatusTest()
-    {
-        ILogger logger = Substitute.For<ILogger>();
-        IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
-        IConfigService configService = Substitute.For<IConfigService>();
-        var target = new PickupService(configService, storeSettingService, logger);
-        
-        var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
-        actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
-        {
-            new ShippingOrderUpdateEntity
-            {
-                AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
-                OuterCode = "TestWayBillNo",
-                Status = StatusEnum.Finish
-            }
-        });
-    }
-```
+    ILogger logger = Substitute.For<ILogger>();
+    IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
+    storeSettingService.GetValue(Arg.Any<long>(), "pickup.service", "auth").Returns("FakeAuth");
+    IConfigService configService = Substitute.For<IConfigService>();
+    configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");
 
+    var target = new PickupService(configService, storeSettingService, logger);
+
+    var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+    actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
+    {
+        new ShippingOrderUpdateEntity
+        {
+            AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
+            OuterCode = "TestWayBillNo",
+            Status = StatusEnum.Finish
+        }
+    });
+```
+### Legacy Code 相依 HttpClient
+
+大部份的功能我都可以透過 DI 的手段隔離，
+但是之前的 Test Driven Develop 的方法並沒有將 HttpClient 轉換成可以隔離的物件。
+另外一部份代碼是透過 Copy Paste 手法產生的代碼，所以也有可能會有 Legacy Code。
+這裡我優先處理 HttpClient 。
+
+首先我要重構一小段代碼，所幸之前的整合測試可以保護我這段重構
+
+```csharp
++       internal HttpClient _httpClient;
+        private const string DeliveryOrder = "DeliveryOrder";
+
+        try
+        {
+            var result = new List<ShippingOrderUpdateEntity>();
+-           var httpClient = new HttpClient();
++           _httpClient = new HttpClient();
+```

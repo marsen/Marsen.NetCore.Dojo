@@ -17,7 +17,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         {
             ILogger logger = Substitute.For<ILogger>();
             IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
+            storeSettingService.GetValue(Arg.Any<long>(), "pickup.service", "auth").Returns("FakeAuth");
             IConfigService configService = Substitute.For<IConfigService>();
+            configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");
+
             var target = new PickupService(configService, storeSettingService, logger);
 
             var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
