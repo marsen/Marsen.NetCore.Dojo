@@ -206,3 +206,11 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 -           var httpClient = new HttpClient();
 +           _httpClient = new HttpClient();
 ```
+
+
+### 隔離 HttpClient
+
+在測試的保護下，我要逐步修改我的 HttpClient ，
+好讓我的單元測能夠通過。
+其實我目前的單元測試還未完成，所以可以先 Skip 掉，
+等 HttpClient 隔離完成後再回頭完成單元測試。

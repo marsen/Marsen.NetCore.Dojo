@@ -27,6 +27,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             this._configService = configService;
             this._storeSettingService = storeSettingService;
             this._logger = logger;
+            this.HttpClient = new HttpClient();
         }
 
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
@@ -34,7 +35,6 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             try
             {
                 var result = new List<ShippingOrderUpdateEntity>();
-                this.HttpClient = new HttpClient();
 
                 var loginId = this._storeSettingService.GetValue(storeId, "pickup.service", "loginId");
                 this.HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
