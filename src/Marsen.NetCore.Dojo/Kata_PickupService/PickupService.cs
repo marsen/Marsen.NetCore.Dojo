@@ -27,7 +27,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
             this._configService = configService;
             this._storeSettingService = storeSettingService;
             this._logger = logger;
-            this.HttpClient = new HttpClient();
+            this.HttpClient ??= new HttpClient();
         }
 
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
