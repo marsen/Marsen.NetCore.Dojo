@@ -197,20 +197,44 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 首先我要重構一小段代碼，所幸之前的整合測試可以保護我這段重構
 
 ```csharp
-+       internal HttpClient _httpClient;
++       internal HttpClient HttpClient;
         private const string DeliveryOrder = "DeliveryOrder";
 
         try
         {
             var result = new List<ShippingOrderUpdateEntity>();
 -           var httpClient = new HttpClient();
-+           _httpClient = new HttpClient();
++           this.HttpClient?? = new HttpClient();
 ```
 
 
-### 隔離 HttpClient
 
 在測試的保護下，我要逐步修改我的 HttpClient ，
 好讓我的單元測能夠通過。
 其實我目前的單元測試還未完成，所以可以先 Skip 掉，
 等 HttpClient 隔離完成後再回頭完成單元測試。
+
+### 隔離 HttpClient
+
+這裡我要回顧一下，之前在作 [Kata_Api_Pay]() 的時候，
+我在 Production Code 建立了 `IHttpClient` 的介面，
+用於隔離 `HttpClient` 。
+我可以延用 HttpClient 但是因為我未實作 `DefaultRequestHeaders` 欄位，
+這會導致一些錯誤; 
+雖然我可以一併調整但是這樣我要同時面對兩份遺留代碼，
+我認為這樣的風險太大，而且使用 `IHttpClient` 目前看起來出現一些問題。
+
+1. 雖然抽出介面，但依賴在 `HttpClient` 之上，未來有功能不足或未實作 HttpClient 的功能就仍需要調整。
+2. 最初的目的其實是為了隔離，而隔離的目的是為了好測試，這些代碼卻放在 Production Code 上實在很奇怪。
+
+基於以上種種理由，我要重新作一次隔離。
+要達到幾個目地。
+
+1. 真正的與 `HttpClient` 解耦，未來再有用到 HttpClient 的任何方法/欄位皆不影響即有代碼。
+2. 將這類的工具放到正確專案 `TestingToolkit` 之下，不再影響 Production Code
+
+
+
+### 參考
+
+- https://dev.to/n_develop/mocking-the-httpclient-in-net-core-with-nsubstitute-k4j
