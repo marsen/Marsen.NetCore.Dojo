@@ -234,6 +234,38 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 2. 將這類的工具放到正確專案 `TestingToolkit` 之下，不再影響 Production Code
 
 
+首先允許測試專案存取 Production Code 的 Internal 欄位
+```csharp
++       [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
+        namespace Marsen.NetCore.Dojo.Kata_PickupService
+```
+
+下一步，偽造 HttpClient 的回傳值，  
+我們可以透過 HttpClient 的建構子作到這件事。  
+參考這篇[文章](https://dev.to/n_develop/mocking-the-httpclient-in-net-core-with-nsubstitute-k4j)
+
+
+```csharp
+    target.HttpClient =
+        new HttpClient(
+        new MockHttpMessageHandler(JsonSerializer.Serialize(
+        new ResponseEntity
+        {
+            Result = "",
+            Content = new List<Content>
+            {
+                new Content
+                {                                    
+                    ErrorCode = string.Empty,
+                    Status = Status.DONE,
+                    lastStatusDate = "2020-03-03",
+                    lastStatusTime = "17:51:20"
+                }
+            }
+        }), 
+    HttpStatusCode.OK));
+```
+
 
 ### 參考
 
