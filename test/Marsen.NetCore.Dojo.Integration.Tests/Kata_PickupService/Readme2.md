@@ -168,24 +168,105 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 調整一下測試案例
 
 ```csharp
-    [Fact]
-    public void GetUpdateStatusTest()
+    ILogger logger = Substitute.For<ILogger>();
+    IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
+    storeSettingService.GetValue(Arg.Any<long>(), "pickup.service", "auth").Returns("FakeAuth");
+    IConfigService configService = Substitute.For<IConfigService>();
+    configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");
+
+    var target = new PickupService(configService, storeSettingService, logger);
+
+    var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+    actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
     {
-        ILogger logger = Substitute.For<ILogger>();
-        IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
-        IConfigService configService = Substitute.For<IConfigService>();
-        var target = new PickupService(configService, storeSettingService, logger);
-        
-        var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
-        actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
+        new ShippingOrderUpdateEntity
         {
-            new ShippingOrderUpdateEntity
-            {
-                AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
-                OuterCode = "TestWayBillNo",
-                Status = StatusEnum.Finish
-            }
-        });
-    }
+            AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
+            OuterCode = "TestWayBillNo",
+            Status = StatusEnum.Finish
+        }
+    });
+```
+### Legacy Code 相依 HttpClient
+
+大部份的功能我都可以透過 DI 的手段隔離，
+但是之前的 Test Driven Develop 的方法並沒有將 HttpClient 轉換成可以隔離的物件。
+另外一部份代碼是透過 Copy Paste 手法產生的代碼，所以也有可能會有 Legacy Code。
+這裡我優先處理 HttpClient 。
+
+首先我要重構一小段代碼，所幸之前的整合測試可以保護我這段重構
+
+```csharp
++       internal HttpClient HttpClient;
+        private const string DeliveryOrder = "DeliveryOrder";
+
+        try
+        {
+            var result = new List<ShippingOrderUpdateEntity>();
+-           var httpClient = new HttpClient();
++           this.HttpClient?? = new HttpClient();
 ```
 
+
+
+在測試的保護下，我要逐步修改我的 HttpClient ，
+好讓我的單元測能夠通過。
+其實我目前的單元測試還未完成，所以可以先 Skip 掉，
+等 HttpClient 隔離完成後再回頭完成單元測試。
+
+### 隔離 HttpClient
+
+這裡我要回顧一下，之前在作 [Kata_Api_Pay]() 的時候，
+我在 Production Code 建立了 `IHttpClient` 的介面，
+用於隔離 `HttpClient` 。
+我可以延用 HttpClient 但是因為我未實作 `DefaultRequestHeaders` 欄位，
+這會導致一些錯誤; 
+雖然我可以一併調整但是這樣我要同時面對兩份遺留代碼，
+我認為這樣的風險太大，而且使用 `IHttpClient` 目前看起來出現一些問題。
+
+1. 雖然抽出介面，但依賴在 `HttpClient` 之上，未來有功能不足或未實作 HttpClient 的功能就仍需要調整。
+2. 最初的目的其實是為了隔離，而隔離的目的是為了好測試，這些代碼卻放在 Production Code 上實在很奇怪。
+
+基於以上種種理由，我要重新作一次隔離。
+要達到幾個目地。
+
+1. 真正的與 `HttpClient` 解耦，未來再有用到 HttpClient 的任何方法/欄位皆不影響即有代碼。
+2. 將這類的工具放到正確專案 `TestingToolkit` 之下，不再影響 Production Code
+
+
+首先允許測試專案存取 Production Code 的 Internal 欄位
+```csharp
++       [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
+        namespace Marsen.NetCore.Dojo.Kata_PickupService
+```
+
+下一步，偽造 HttpClient 的回傳值，  
+我們可以透過 HttpClient 的建構子作到這件事。  
+參考這篇[文章](https://dev.to/n_develop/mocking-the-httpclient-in-net-core-with-nsubstitute-k4j)
+
+
+```csharp
+    target.HttpClient =
+        new HttpClient(
+        new MockHttpMessageHandler(JsonSerializer.Serialize(
+        new ResponseEntity
+        {
+            Result = "",
+            Content = new List<Content>
+            {
+                new Content
+                {                                    
+                    ErrorCode = string.Empty,
+                    Status = Status.DONE,
+                    lastStatusDate = "2020-03-03",
+                    lastStatusTime = "17:51:20"
+                }
+            }
+        }), 
+    HttpStatusCode.OK));
+```
+
+
+### 參考
+
+- https://dev.to/n_develop/mocking-the-httpclient-in-net-core-with-nsubstitute-k4j
