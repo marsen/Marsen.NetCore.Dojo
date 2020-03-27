@@ -99,8 +99,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
 
         private DateTime GetAcceptTime(string date, string time)
         {
-            //// TODO:Remove Hard Code
-            return new DateTime(2020, 3, 3, 17, 51, 20);
+            return DateTime.Parse($"{date} {time}");
         }
     }
 }
