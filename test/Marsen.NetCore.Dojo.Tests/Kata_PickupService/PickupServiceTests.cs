@@ -31,20 +31,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             target.HttpClient =
                 new HttpClient(
                     new MockHttpMessageHandler(JsonSerializer.Serialize(
-                        new ResponseEntity
-                        {
-                            Result = "",
-                            Content = new List<Content>
+                            new ResponseEntity
                             {
-                                new Content
-                                {                                    
-                                    ErrorCode = string.Empty,
-                                    Status = Status.DONE,
-                                    lastStatusDate = "2020-03-03",
-                                    lastStatusTime = "17:51:20"
+                                Result = "",
+                                Content = new List<Content>
+                                {
+                                    new Content
+                                    {
+                                        ErrorCode = string.Empty,
+                                        Status = Status.DONE,
+                                        lastStatusDate = "2020-03-03",
+                                        lastStatusTime = "17:51:20",
+                                        waybillNo = "TestWayBillNo"
+                                    }
                                 }
-                            }
-                        }), 
+                            }),
                         HttpStatusCode.OK));
             var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
             actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>

@@ -58,10 +58,9 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
 
                 foreach (var c in obj.Content.Where(c => string.IsNullOrEmpty(c.ErrorCode)))
                 {
-                    ////TODO Remove Hard Code
                     var shippingOrderUpdateEntity = new ShippingOrderUpdateEntity
                     {
-                        OuterCode = "TestWayBillNo", AcceptTime = this.GetAcceptTime(c.lastStatusDate, c.lastStatusTime)
+                        OuterCode = c.waybillNo, AcceptTime = this.GetAcceptTime(c.lastStatusDate, c.lastStatusTime)
                     };
                     switch (c.Status)
                     {
