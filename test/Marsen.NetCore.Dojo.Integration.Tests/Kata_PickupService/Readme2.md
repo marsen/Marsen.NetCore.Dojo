@@ -271,6 +271,9 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 案例蠻多的，但是大同小異也沒有什麼特別的技法，
 就不多贅述。
 
+稍微提一下，反而在寫 Unit Test 過程中發現了 Production Code 一個不可能會跑到的分支
+而將它移除，也就是說原本的代碼是有點 OverDesign 的
+
 ### 參考
 
 - https://dev.to/n_develop/mocking-the-httpclient-in-net-core-with-nsubstitute-k4j

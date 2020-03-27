@@ -81,8 +81,6 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                         case Status.Arrived:
                             shippingOrderUpdateEntity.Status = StatusEnum.Arrived;
                             break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
                     }
 
                     result.Add(shippingOrderUpdateEntity);

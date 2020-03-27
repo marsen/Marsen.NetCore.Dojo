@@ -63,6 +63,45 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Arrived));
         }
 
+        [Fact]
+        public void OneUnKnowDataShouldThrowException()
+        {
+            Action act = () => UnKnowResponse("Un Know Status");
+            act.Should().Throw<Exception>();
+        }
+
+        private void UnKnowResponse(string unKnowStatus)
+        {
+            _target.HttpClient = new HttpClient(new MockHttpMessageHandler($"{{\"result\":null," +
+                                                                           $"\"content\":" +
+                                                                           $"[{{\"merchantId\":null," +
+                                                                           $"\"merchantRef\":null," +
+                                                                           $"\"waybillNo\":null," +
+                                                                           $"\"locationId\":null," +
+                                                                           $"\"pudoRef\":null," +
+                                                                           $"\"pudoVerifyCode\":null," +
+                                                                           $"\"senderId\":null," +
+                                                                           $"\"consigneeId\":null," +
+                                                                           $"\"customerName\":null," +
+                                                                           $"\"customerAddress1\":null," +
+                                                                           $"\"customerAddress2\":null," +
+                                                                           $"\"customerAddress3\":null," +
+                                                                           $"\"customerAddress4\":null," +
+                                                                           $"\"feedbackURL\":null," +
+                                                                           $"\"eta\":null," +
+                                                                           $"\"codAmt\":null," +
+                                                                           $"\"sizeCode\":null," +
+                                                                           $"\"item\":null," +
+                                                                           $"\"lastStatusId\":\"{{{unKnowStatus}}}\"," +
+                                                                           $"\"lastStatusDescription\":null," +
+                                                                           $"\"lastStatusDate\":null," +
+                                                                           $"\"lastStatusTime\":null," +
+                                                                           $"\"customerMobile\":null," +
+                                                                           $"\"customerEmail\":null," +
+                                                                           $"\"errorCode\":\"\"}}]}}",
+                HttpStatusCode.OK));
+            _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+        }
 
         private static List<ShippingOrderUpdateEntity> SingleEntity(StatusEnum status)
         {
