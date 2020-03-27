@@ -19,38 +19,48 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
     public class PickupServiceTests
     {
         [Fact]
-        public void GetUpdateStatusTest()
+        public void OneDoneDataShouldBeFinish()
         {
             var target = GetPickupService();
             target.HttpClient =
                 new HttpClient(
-                    new MockHttpMessageHandler(JsonSerializer.Serialize(
-                            new ResponseEntity
-                            {
-                                Result = "",
-                                Content = new List<Content>
-                                {
-                                    new Content
-                                    {
-                                        ErrorCode = string.Empty,
-                                        Status = Status.DONE,
-                                        LastStatusDate = "2020-03-03",
-                                        LastStatusTime = "17:51:20",
-                                        WaybillNo = "TestWayBillNo"
-                                    }
-                                }
-                            }),
+                    new MockHttpMessageHandler(SingleData(Status.DONE),
                         HttpStatusCode.OK));
             var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
             actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
             {
-                new ShippingOrderUpdateEntity
-                {
-                    AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
-                    OuterCode = "TestWayBillNo",
-                    Status = StatusEnum.Finish
-                }
+                SingleEntity(StatusEnum.Finish)
             });
+        }
+
+        private ShippingOrderUpdateEntity SingleEntity(StatusEnum status)
+        {
+            return new ShippingOrderUpdateEntity
+            {
+                AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
+                OuterCode = "TestWayBillNo",
+                Status = status
+            };
+        }
+
+        private string SingleData(Status status)
+        {
+            return JsonSerializer.Serialize(
+                new ResponseEntity
+                {
+                    Result = "",
+                    Content = new List<Content>
+                    {
+                        new Content
+                        {
+                            ErrorCode = string.Empty,
+                            Status = status,
+                            LastStatusDate = "2020-03-03",
+                            LastStatusTime = "17:51:20",
+                            WaybillNo = "TestWayBillNo"
+                        }
+                    }
+                });
         }
 
         private static PickupService GetPickupService()
