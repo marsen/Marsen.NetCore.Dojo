@@ -235,6 +235,7 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 
 
 首先允許測試專案存取 Production Code 的 Internal 欄位
+
 ```csharp
 +       [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
         namespace Marsen.NetCore.Dojo.Kata_PickupService
@@ -266,6 +267,28 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
     HttpStatusCode.OK));
 ```
 
+偽造 HttpClient 的回傳值後，我就可以把單元測試的部份完成，  
+案例蠻多的，但是大同小異也沒有什麼特別的技法，
+就不多贅述。
+
+稍微提一下，反而在寫 Unit Test 過程中，  
+發現了 Production Code 一些 Over Design 的代碼。
+
+比如說，多餘的邏輯分支，在某些因果條件，跟本不可能被執行到的代碼。
+我視作無用的代碼將他移除。
+
+另外也有發現一些 Entity 在呼叫 API 的過程不會取用它的資料或欄位，
+也許有得人會想要移除這些 Entity ，但我會傾向保留，
+原因是這些 Entity 是在整合測試階段被趨動出來的，  
+雖然沒有用到而且會使代碼的覆蓋率下降，  
+但是我認為這些代碼很有可能再下一個階段就會被用到，
+在不影響功能的情況我不會刻意移除。
+
+整體而言，測試已 100% 覆蓋，  
+也記錄了如何從 Todo Driven 到 TDD 的想法與技巧。
+最後整理一下代碼，
+把 MockHttpMessageHandler 搬到 TestingToolkit。
+最後回頭把 api apy 對 HttpClient 的處理調整一下就大功告成啦。
 
 ### 參考
 

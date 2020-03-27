@@ -1,28 +1,135 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata_PickupService;
 using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService;
 using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Text.Json;
+using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
 {
     public class PickupServiceTests
     {
-        [Fact]
-        public void GetUpdateStatusTest()
+        private readonly PickupService _target;
+
+        public PickupServiceTests()
         {
-            var target = GetPickupService();
-            target.HttpClient =
+            _target = GetPickupService();
+        }
+
+        [Fact]
+        public void OneDoneDataShouldBeFinish()
+        {
+            var actual = SingleResponse("DONE");
+            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Finish));
+        }
+
+        [Fact]
+        public void OneShippingDataShouldBeProcessing()
+        {
+            var actual = SingleResponse("Shipping");
+            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Processing));
+        }
+
+        [Fact]
+        public void OneFAILDataShouldBeAbnormal()
+        {
+            var actual = SingleResponse("FAIL");
+            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
+        }
+
+        [Fact]
+        public void OneExpiryDataShouldBeAbnormal()
+        {
+            var actual = SingleResponse("Expiry");
+            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
+        }
+
+        [Fact]
+        public void OneArrivedDataShouldBeArrived()
+        {
+            var actual = SingleResponse("Arrived");
+            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Arrived));
+        }
+
+        [Fact]
+        public void OneUnKnowDataShouldThrowException()
+        {
+            Action act = () => UnKnowResponse("Un Know Status");
+            act.Should().Throw<Exception>();
+        }
+
+        [Fact]
+        public void OneErrorDataShouldThrowException()
+        {
+            Action act = ErrorResponse;
+            act.Should().Throw<Exception>();
+        }
+
+        private void ErrorResponse()
+        {
+            _target.HttpClient = new HttpClient(
+                new MockHttpMessageHandler(
+                    $"{{\"result\":\"error\"}}", HttpStatusCode.OK));
+            _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+        }
+
+        private void UnKnowResponse(string unKnowStatus)
+        {
+            _target.HttpClient = new HttpClient(new MockHttpMessageHandler($"{{\"result\":null," +
+                                                                           $"\"content\":" +
+                                                                           $"[{{\"merchantId\":null," +
+                                                                           $"\"merchantRef\":null," +
+                                                                           $"\"waybillNo\":null," +
+                                                                           $"\"locationId\":null," +
+                                                                           $"\"pudoRef\":null," +
+                                                                           $"\"pudoVerifyCode\":null," +
+                                                                           $"\"senderId\":null," +
+                                                                           $"\"consigneeId\":null," +
+                                                                           $"\"customerName\":null," +
+                                                                           $"\"customerAddress1\":null," +
+                                                                           $"\"customerAddress2\":null," +
+                                                                           $"\"customerAddress3\":null," +
+                                                                           $"\"customerAddress4\":null," +
+                                                                           $"\"feedbackURL\":null," +
+                                                                           $"\"eta\":null," +
+                                                                           $"\"codAmt\":null," +
+                                                                           $"\"sizeCode\":null," +
+                                                                           $"\"item\":null," +
+                                                                           $"\"lastStatusId\":\"{{{unKnowStatus}}}\"," +
+                                                                           $"\"lastStatusDescription\":null," +
+                                                                           $"\"lastStatusDate\":null," +
+                                                                           $"\"lastStatusTime\":null," +
+                                                                           $"\"customerMobile\":null," +
+                                                                           $"\"customerEmail\":null," +
+                                                                           $"\"errorCode\":\"\"}}]}}",
+                HttpStatusCode.OK));
+            _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+        }
+
+        private static List<ShippingOrderUpdateEntity> SingleEntity(StatusEnum status)
+        {
+            return new List<ShippingOrderUpdateEntity>
+            {
+                new ShippingOrderUpdateEntity
+                {
+                    AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
+                    OuterCode = "TestWayBillNo",
+                    Status = status
+                }
+            };
+        }
+
+        private List<ShippingOrderUpdateEntity> SingleResponse(string status)
+        {
+            _target.HttpClient =
                 new HttpClient(
                     new MockHttpMessageHandler(JsonSerializer.Serialize(
                             new ResponseEntity
@@ -33,7 +140,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
                                     new Content
                                     {
                                         ErrorCode = string.Empty,
-                                        Status = Status.DONE,
+                                        Status = (Status) Enum.Parse(typeof(Status), status),
                                         LastStatusDate = "2020-03-03",
                                         LastStatusTime = "17:51:20",
                                         WaybillNo = "TestWayBillNo"
@@ -41,16 +148,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
                                 }
                             }),
                         HttpStatusCode.OK));
-            var actual = target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
-            actual.Should().BeEquivalentTo(new List<ShippingOrderUpdateEntity>
-            {
-                new ShippingOrderUpdateEntity
-                {
-                    AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
-                    OuterCode = "TestWayBillNo",
-                    Status = StatusEnum.Finish
-                }
-            });
+            var actual = _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+            return actual;
         }
 
         private static PickupService GetPickupService()
@@ -63,37 +162,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
 
             var target = new PickupService(configService, storeSettingService, logger);
             return target;
-        }
-    }
-
-    public class MockHttpMessageHandler : HttpMessageHandler
-    {
-        private readonly string _response;
-        private readonly HttpStatusCode _statusCode;
-
-        public string Input { get; private set; }
-        public int NumberOfCalls { get; private set; }
-
-        public MockHttpMessageHandler(string response, HttpStatusCode statusCode)
-        {
-            _response = response;
-            _statusCode = statusCode;
-        }
-
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
-            CancellationToken cancellationToken)
-        {
-            NumberOfCalls++;
-            if (request.Content != null) // Could be a GET-request without a body
-            {
-                Input = await request.Content.ReadAsStringAsync();
-            }
-
-            return new HttpResponseMessage
-            {
-                StatusCode = _statusCode,
-                Content = new StringContent(_response)
-            };
         }
     }
 }
