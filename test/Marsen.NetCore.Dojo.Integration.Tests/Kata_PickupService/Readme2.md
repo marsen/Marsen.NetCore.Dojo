@@ -235,6 +235,7 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 
 
 首先允許測試專案存取 Production Code 的 Internal 欄位
+
 ```csharp
 +       [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
         namespace Marsen.NetCore.Dojo.Kata_PickupService
@@ -266,6 +267,9 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
     HttpStatusCode.OK));
 ```
 
+偽造 HttpClient 的回傳值後，我就可以把單元測試的部份完成，  
+案例蠻多的，但是大同小異也沒有什麼特別的技法，
+就不多贅述。
 
 ### 參考
 
