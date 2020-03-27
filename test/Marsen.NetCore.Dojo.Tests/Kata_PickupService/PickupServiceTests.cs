@@ -39,7 +39,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Processing));
         }
 
-
         [Fact]
         public void OneFAILDataShouldBeAbnormal()
         {
@@ -47,14 +46,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
         }
 
-
         [Fact]
         public void OneExpiryDataShouldBeAbnormal()
         {
             var actual = SingleResponse("Expiry");
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
         }
-
 
         [Fact]
         public void OneArrivedDataShouldBeArrived()
@@ -68,6 +65,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         {
             Action act = () => UnKnowResponse("Un Know Status");
             act.Should().Throw<Exception>();
+        }
+
+        [Fact]
+        public void OneErrorDataShouldThrowException()
+        {
+            Action act = ErrorResponse;
+            act.Should().Throw<Exception>();
+        }
+
+        private void ErrorResponse()
+        {
+            _target.HttpClient = new HttpClient(
+                new MockHttpMessageHandler(
+                    $"{{\"result\":\"error\"}}", HttpStatusCode.OK));
+            _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
         }
 
         private void UnKnowResponse(string unKnowStatus)

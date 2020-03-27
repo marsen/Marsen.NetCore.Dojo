@@ -51,9 +51,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                 var responseMessage = HttpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
                 var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
                 if (obj.Result == "error")
-                {
-                    this._logger.LogError(obj.Result);
-                    throw new Exception();
+                {                    
+                    throw new Exception($"response is:{obj}");
                 }
 
                 foreach (var c in obj.Content.Where(c => string.IsNullOrEmpty(c.ErrorCode)))
