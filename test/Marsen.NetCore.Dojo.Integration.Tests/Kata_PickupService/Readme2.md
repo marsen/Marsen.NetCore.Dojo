@@ -284,6 +284,11 @@ Production Code 就直接整個用 try Catch 包起來再記 Log
 但是我認為這些代碼很有可能再下一個階段就會被用到，
 在不影響功能的情況我不會刻意移除。
 
+整體而言，測試已 100% 覆蓋，  
+也記錄了如何從 Todo Driven 到 TDD 的想法與技巧。
+最後整理一下代碼，
+把 MockHttpMessageHandler 搬到 TestingToolkit。
+最後回頭把 api apy 對 HttpClient 的處理調整一下就大功告成啦。
 
 ### 參考
 
