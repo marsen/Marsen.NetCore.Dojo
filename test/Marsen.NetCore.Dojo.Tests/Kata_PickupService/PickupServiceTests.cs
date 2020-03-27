@@ -40,9 +40,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
                                     {
                                         ErrorCode = string.Empty,
                                         Status = Status.DONE,
-                                        lastStatusDate = "2020-03-03",
-                                        lastStatusTime = "17:51:20",
-                                        waybillNo = "TestWayBillNo"
+                                        LastStatusDate = "2020-03-03",
+                                        LastStatusTime = "17:51:20",
+                                        WaybillNo = "TestWayBillNo"
                                     }
                                 }
                             }),

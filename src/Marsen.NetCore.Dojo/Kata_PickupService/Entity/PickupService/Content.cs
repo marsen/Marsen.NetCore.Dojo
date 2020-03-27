@@ -7,7 +7,8 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService
     {
         public string merchantId { get; set; }
         public string merchantRef { get; set; }
-        public string waybillNo { get; set; }
+        [JsonPropertyName("WaybillNo")]
+        public string WaybillNo { get; set; }
         public string locationId { get; set; }
         public string pudoRef { get; set; }
         public string pudoVerifyCode { get; set; }
@@ -29,8 +30,11 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService
         public Status Status { get; set; }
 
         public string lastStatusDescription { get; set; }
-        public string lastStatusDate { get; set; }
-        public string lastStatusTime { get; set; }
+        [JsonPropertyName("LastStatusDate")]
+        public string LastStatusDate { get; set; }
+
+        [JsonPropertyName("LastStatusTime")]
+        public string LastStatusTime { get; set; }
         public string customerMobile { get; set; }
         public string customerEmail { get; set; }
 
