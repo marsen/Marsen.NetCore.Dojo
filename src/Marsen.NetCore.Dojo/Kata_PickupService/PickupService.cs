@@ -60,7 +60,7 @@ namespace Marsen.NetCore.Dojo.Kata_PickupService
                 {
                     var shippingOrderUpdateEntity = new ShippingOrderUpdateEntity
                     {
-                        OuterCode = c.WaybillNo, 
+                        OuterCode = c.WaybillNo,
                         AcceptTime = this.GetAcceptTime(c.LastStatusDate, c.LastStatusTime)
                     };
                     switch (c.Status)

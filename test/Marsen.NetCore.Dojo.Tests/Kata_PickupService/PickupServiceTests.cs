@@ -28,14 +28,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void OneDoneDataShouldBeFinish()
         {
-            var actual = SingleResponse(Status.DONE);
+            var actual = SingleResponse("DONE");
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Finish));
         }
 
         [Fact]
         public void OneShippingDataShouldBeProcessing()
         {
-            var actual = SingleResponse(Status.Shipping);
+            var actual = SingleResponse("Shipping");
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Processing));
         }
 
@@ -43,7 +43,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void OneFAILDataShouldBeAbnormal()
         {
-            var actual = SingleResponse(Status.FAIL);
+            var actual = SingleResponse("FAIL");
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
         }
 
@@ -51,7 +51,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void OneExpiryDataShouldBeAbnormal()
         {
-            var actual = SingleResponse(Status.Expiry);
+            var actual = SingleResponse("Expiry");
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
         }
 
@@ -59,7 +59,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
         [Fact]
         public void OneArrivedDataShouldBeArrived()
         {
-            var actual = SingleResponse(Status.Arrived);
+            var actual = SingleResponse("Arrived");
             actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Arrived));
         }
 
@@ -77,7 +77,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             };
         }
 
-        private List<ShippingOrderUpdateEntity> SingleResponse(Status status)
+        private List<ShippingOrderUpdateEntity> SingleResponse(string status)
         {
             _target.HttpClient =
                 new HttpClient(
@@ -90,7 +90,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
                                     new Content
                                     {
                                         ErrorCode = string.Empty,
-                                        Status = status,
+                                        Status = (Status) Enum.Parse(typeof(Status), status),
                                         LastStatusDate = "2020-03-03",
                                         LastStatusTime = "17:51:20",
                                         WaybillNo = "TestWayBillNo"
