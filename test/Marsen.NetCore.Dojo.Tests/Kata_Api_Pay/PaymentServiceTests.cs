@@ -1,35 +1,25 @@
-﻿using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Marsen.NetCore.Dojo.Kata_Api_Pay;
+﻿using Marsen.NetCore.Dojo.Kata_Api_Pay;
 using Marsen.NetCore.Dojo.Kata_Api_Pay.Interface;
+using Marsen.NetCore.TestingToolkit;
 using NSubstitute;
+using System.Net;
+using System.Net.Http;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
 {
     public class PaymentServiceTests
     {
-        private readonly IHttpClient _httpClient;
-
         private readonly IConfigure _configure;
-
         private readonly string _testRequestId = "Test_Request_Id";
-
         private readonly string _testingApiUrl = "https://testing.url/api/v1/";
+        private MockHttpMessageHandler _mockHttpMessageHandler;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentServiceTests" /> class.
         /// </summary>
         public PaymentServiceTests()
         {
-            this._httpClient = Substitute.For<IHttpClient>();
-            this._httpClient.GetAsync(Arg.Any<string>()).ReturnsForAnyArgs(
-                Task.FromResult(
-                    new HttpResponseMessage
-                    {
-                        Content = new StringContent(_testRequestId)
-                    }));
             this._configure = Substitute.For<IConfigure>();
             this._configure.Setting("PayService.Url").Returns(_testingApiUrl);
         }
@@ -61,20 +51,22 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
 
         private void WhenPay()
         {
-            var target = new PaymentService(_httpClient, _configure);
+            _mockHttpMessageHandler = new MockHttpMessageHandler(_testRequestId, HttpStatusCode.OK);
+            var target = new PaymentService(_configure)
+            {
+                httpClient = new HttpClient(_mockHttpMessageHandler)
+            };
             target.Pay(new PayEntity());
         }
 
-
         private void ShouldGetRequestId()
         {
-            this._httpClient.Received(1).GetAsync($"{_testingApiUrl}requestId");
+            this._mockHttpMessageHandler.CallTimes(1).AssertGet($"{_testingApiUrl}requestId");
         }
 
         private void ShouldPayByCreditCard()
         {
-            this._httpClient.Received(1).PostAsync($"{_testingApiUrl}pay/CreditCard",
-                Arg.Is<HttpContent>(x => x.ReadAsStringAsync().Result.Contains(_testRequestId)));
+            this._mockHttpMessageHandler.CallTimes(1).AssertPost($"{_testingApiUrl}pay/CreditCard");
         }
     }
 }
