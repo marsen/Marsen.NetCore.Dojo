@@ -52,7 +52,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
         private void WhenPay()
         {
             _mockHttpMessageHandler = new MockHttpMessageHandler(_testRequestId, HttpStatusCode.OK);
-            var target = new PaymentService(_configure)
+            var target = new PaymentService(this._configure)
             {
                 httpClient = new HttpClient(_mockHttpMessageHandler)
             };
