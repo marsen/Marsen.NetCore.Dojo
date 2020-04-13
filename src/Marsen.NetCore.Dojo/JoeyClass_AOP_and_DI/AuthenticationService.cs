@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
+using Dapper;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
@@ -11,11 +14,12 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         public bool Verify(string accountId, string password, string otp)
         {
             string passwordFromDb = string.Empty;
-            //using (var connection = new SqlConnection("my connection string"))
-            //{
-            //    passwordFromDb = connection.Query<string>("spGetUserPassword", new {Id = accountId},
-            //        commandType: CommandType.StoredProcedure).SingleOrDefault();
-            //}
+            using (var connection = new SqlConnection("my connection string"))
+            {
+                passwordFromDb = connection
+                    .Query<string>("spGetUserPassword", new { Id = accountId },
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
 
             var crypt = new System.Security.Cryptography.SHA256Managed();
             var hash = new StringBuilder();
