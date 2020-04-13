@@ -15,14 +15,16 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         public bool Verify(string accountId, string password, string otp)
         {            
             var httpClient = new HttpClient() {BaseAddress = new Uri("http://joey.com/")};            
-            var isLockedResponse = httpClient.PostAsync("api/failedCounter/IsLocked",new StringContent(accountId)).Result;
 
+            //// check is locked
+            var isLockedResponse = httpClient.PostAsync("api/failedCounter/IsLocked",new StringContent(accountId)).Result;
             isLockedResponse.EnsureSuccessStatusCode();
             if (isLockedResponse.Content.ReadAsStringAsync().Result == "true")
             {
                 throw new FailedTooManyTimesException() {AccountId = accountId};
             }
 
+            //// get the password from database
             string passwordFromDb = string.Empty;
             using (var connection = new SqlConnection("my connection string"))
             {
@@ -31,6 +33,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
                     commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
 
+            //// hash the password
             var crypt = new System.Security.Cryptography.SHA256Managed();
             var hash = new StringBuilder();
             var crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -38,9 +41,9 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             {
                 hash.Append(theByte.ToString("x2"));
             }
-
             var hashedPassword = hash.ToString();
 
+            //// get the otp (One Time Password)
             var response = httpClient.PostAsync("api/otps", new StringContent(accountId)).Result;
             if (!response.IsSuccessStatusCode)
             {
@@ -49,19 +52,21 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 
             var currentOtp = response.Content.ReadAsStringAsync().Result;
 
+            //// compare
             if (passwordFromDb == hashedPassword && currentOtp == otp)
             {
+                //// reset failed counter
                 var resetResponse = httpClient.PostAsync("api/failedCounter/Reset",new StringContent(accountId)).Result;
                 resetResponse.EnsureSuccessStatusCode();
                 return true;
             }
             else
             {
-                //失敗
+                //// add failed counter
                 var addFailedCountResponse = httpClient.PostAsync("api/failedCounter/Add", new StringContent(accountId)).Result;
                 addFailedCountResponse.EnsureSuccessStatusCode();
 
-                //紀錄失敗次數 
+                //// get failed counter
                 var failedCountResponse =
                     httpClient.PostAsync("api/failedCounter/GetFailedCount", new StringContent(accountId)).Result;
 
@@ -71,7 +76,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
                 var logger = NLog.LogManager.GetCurrentClassLogger();
                 logger.Info($"accountId:{accountId} failed times:{failedCount}");
 
-                //notify
+                //// notify
                 string message = $"account:{accountId} try to login failed";
                 var slackClient = new SlackClient("my api token");
                 slackClient.PostMessage(messageResponse => { }, "my channel", message, "my bot name");
