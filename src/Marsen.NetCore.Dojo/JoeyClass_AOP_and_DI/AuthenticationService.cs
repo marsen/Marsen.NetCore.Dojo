@@ -9,6 +9,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         private readonly HashAdapter _hashAdapter = new HashAdapter();
         private readonly OtpServer _otpServer = new OtpServer();
         private readonly Slack _slack = new Slack();
+        private readonly NLogLogger _nLogLogger = new NLogLogger();
 
         public bool Verify(string accountId, string password, string otp)
         {
@@ -33,12 +34,8 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             else
             {
                 _accountService.AddFailedCounter(accountId);
-
-                var failedCount = _accountService.FailedCount(accountId);
-                var logger = NLog.LogManager.GetCurrentClassLogger();
-                logger.Info($"accountId:{accountId} failed times:{failedCount}");
-
-                _slack.Notification(accountId);
+                _nLogLogger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
+                _slack.Notification( $"account:{accountId} try to login failed");
                 return false;
             }
         }
