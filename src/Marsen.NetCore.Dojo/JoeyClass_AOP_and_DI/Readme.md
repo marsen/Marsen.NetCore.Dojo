@@ -6,12 +6,23 @@
 所以未能即時整理當初上課筆記。
 
 
-## 起程 : 從一份小型遺留代碼開始
-
-故事是這樣的，AuthenticationService 是我們的一個類別，
+## 起程 : 從一份小型遺留代碼開始 
+我們的 AuthenticationService 類別有一個 Verify 方法，  
 它要作的事情很簡單，就是驗証登入的身份。
 
 1. 驗証使用者登入的帳號與密碼是否正確 ?
 2. 驗証使用者輸入的 OTP 是否正確 ?
 
-    
+[![](https://i.imgur.com/dsQtRIK.jpg)](https://github.com/marsen/Marsen.NetCore.Dojo/commit/640e640cc960fd82ad58fd3ad2f9657770b2f8e1)  
+
+## 增胖 : 功能追加
+
+1. 驗證失敗，用 Slack 通知
+2. 驗證失敗超過 3 次，鎖帳號
+   - 記錄驗證失敗次數
+   - 驗證成功 Reset 失敗次數 
+3. 確認帳號沒有被鎖才進行驗證
+
+
+
+
