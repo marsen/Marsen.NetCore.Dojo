@@ -35,7 +35,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             {
                 _accountService.AddFailedCounter(accountId);
                 _nLogLogger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
-                _slack.Notification( $"account:{accountId} try to login failed");
+                _slack.Notification($"account:{accountId} try to login failed");
                 return false;
             }
         }
