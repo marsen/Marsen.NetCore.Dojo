@@ -27,6 +27,47 @@
 有點胖(職責不分)，但是段落清楚，也有寫註解。
 雖然東西有點多，但是認真看仍然可以了解其意圖。
 
-## 重構 : Extracted Method
+## 重構 : Extract Method
+
+[-](https://github.com/marsen/Marsen.NetCore.Dojo/commit/fce3a350b71c48ac3a70c44b7d67ffa82e4124d2)
+
+重構的一個大原則，如果你可以分段落寫註解，  
+那麼你就一定可以抽成對應的方法。  
+
+如果你可以抽出方法，那麼我們就可以進行下一步，分類。  
+
+
+## 分類 
+
+分類的原則，依職責分類
+
+| Method | Response | Class |
+| -------- | -------- | -------- |
+| PasswordFromDb    | 取 DB 資料     | DAO     |
+| IsLocked    | 檢查帳號是否鎖定     | Account     |
+| HashedPassword    | 加密密碼    | Hash     |
+| CurrentOtp    | 取 OTP     | OTP     |
+| ResetFailedCounter    | 重設失敗次數     | Account     |
+| AddFailedCounter    | 增加失敗次數     | Account     |
+| FailedCount    | 取得失敗次數     | Account     |
+| Notification    | 通知     | Account     |
+| LogFailedCount   | 記錄失敗次數     | ???     |
+
+這裡我寫得很簡略，但是這裡大家可以想一想，  
+LogFailedCount 應該屬於什麼 Class 呢 ?
+隨著過程，後面將會解答。  
+但我認為這個思考過程是重要的，可以思考一下再往下一步進行。
+
+產生類別(Extract Class)的小技巧，  
+Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`  
+就可以呼叫 Extract Class 的重構指令。
+
+順代一提，在 Extract Method 的步驟中，  
+我們抽出來的方法都是 private static ，  
+而在 Extract Class 的步驟前，  
+就是要將這些方法改 public non-static 的方法。
+依照重構順序的不同，你可能會發現 `LogFailedCount`對於 FailedCount 存取權限不足。
+對我來說這是個訊號，明示了 Log 的行為與 FailedCount 的相依，  
+應該提早拆開成為兩個不同的步驟。 1. 取失敗次數 2.記錄
 
 
