@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net.Http;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         public  bool IsLocked(string accountId)
         {

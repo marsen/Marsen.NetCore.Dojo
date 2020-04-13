@@ -1,16 +1,26 @@
-﻿using System;
+﻿using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
     public class AuthenticationService
     {
-        private readonly UserDao _userDao = new UserDao();
-        private readonly AccountService _accountService = new AccountService();
-        private readonly HashAdapter _hashAdapter = new HashAdapter();
-        private readonly OtpServer _otpServer = new OtpServer();
-        private readonly Slack _slack = new Slack();
-        private readonly NLogLogger _nLogLogger = new NLogLogger();
+        private readonly IUserDao _userDao;
+        private readonly IAccountService _accountService;
+        private readonly IHash _hash;
+        private readonly IOtpServer _otpServer;
+        private readonly INotification _slack ;
+        private readonly ILogger _nLogLogger ;
 
+        public AuthenticationService(IUserDao userDao, IAccountService accountService, IHash hash, IOtpServer otpServer, INotification slack, ILogger nLogLogger)
+        {
+            _userDao = userDao;
+            _accountService = accountService;
+            _hash = hash;
+            _otpServer = otpServer;
+            _slack = slack;
+            _nLogLogger = nLogLogger;
+        }
+        
         public bool Verify(string accountId, string password, string otp)
         {
             var isLocked = _accountService.IsLocked(accountId);
@@ -21,7 +31,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 
             var passwordFromDb = _userDao.PasswordFromDb(accountId);
 
-            var hashedPassword = _hashAdapter.HashedPassword(password);
+            var hashedPassword = _hash.HashedPassword(password);
 
             var currentOtp = _otpServer.CurrentOtp(accountId);
 
@@ -39,10 +49,5 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
                 return false;
             }
         }
-    }
-
-    public class FailedTooManyTimesException : Exception
-    {
-        public string AccountId { get; set; }
     }
 }

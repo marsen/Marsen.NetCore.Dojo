@@ -1,8 +1,9 @@
-﻿using SlackAPI;
+﻿using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
+using SlackAPI;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class Slack
+    public class Slack : INotification
     {
         public void Notification(string message)
         {

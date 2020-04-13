@@ -1,8 +1,9 @@
 ﻿using System.Text;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class HashAdapter
+    public class Hash : IHash
     {
         public string HashedPassword(string password)
         {

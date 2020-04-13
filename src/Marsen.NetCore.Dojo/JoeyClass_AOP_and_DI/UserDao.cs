@@ -2,10 +2,11 @@
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class UserDao
+    public class UserDao : IUserDao
     {
         public string PasswordFromDb(string accountId)
         {

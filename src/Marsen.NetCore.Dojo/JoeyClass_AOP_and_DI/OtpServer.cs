@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net.Http;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class OtpServer
+    public class OtpServer : IOtpServer
     {
         public string CurrentOtp(string accountId)
         {
