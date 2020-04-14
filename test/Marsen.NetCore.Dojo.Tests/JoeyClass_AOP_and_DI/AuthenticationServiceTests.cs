@@ -1,6 +1,9 @@
+using System;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
@@ -17,6 +20,9 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         private readonly string _testOtp = "test_otp";
         private readonly string correctOtp = "test_otp";
         private readonly string wrongOtp = "wrong_otp";
+        private readonly string _wrongPassword = "wrong_password";
+        private readonly string _testPassword = "test_password";
+        private readonly string _correctPassword = "hashed password";
 
         public AuthenticationServiceTests()
         {
@@ -31,16 +37,41 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         [Fact]
         public void Verify_True()
         {
+            _userDao.PasswordFromDb(_testAccount).Returns(_correctPassword);
+            _hash.HashedPassword(_testPassword).Returns("hashed password");
             _otpServer.CurrentOtp(_testAccount).Returns(correctOtp);
-            Assert.True(Target().Verify(_testAccount, "test_password", _testOtp));
+            Assert.True(Target().Verify(_testAccount, _testPassword, _testOtp));
         }
 
         [Fact]
         public void Verify_False()
         {
+            _userDao.PasswordFromDb(_testAccount).Returns(_correctPassword);
+            _hash.HashedPassword(_testPassword).Returns("hashed password");
             _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
-            Assert.False(Target().Verify(_testAccount, "test_password", _testOtp));
+            Assert.False(Target().Verify(_testAccount, _testPassword, _testOtp));
         }
+
+        [Fact]
+        public void Verify_False_Error_Password()
+        {
+            _userDao.PasswordFromDb(_testAccount).Returns(_wrongPassword);
+            _hash.HashedPassword(_testPassword).Returns("hashed password");
+            _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
+            Assert.False(Target().Verify(_testAccount, _testPassword, _testOtp));
+        }
+
+        [Fact]
+        public void Verify_IsLocked_Exception()
+        {
+            _accountService.IsLocked(_testAccount).Returns(true);
+            _userDao.PasswordFromDb(_testAccount).Returns(_correctPassword);
+            _hash.HashedPassword(_testPassword).Returns("hashed password");
+            _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
+            Action act = () => Target().Verify(_testAccount,_testPassword,_testOtp);
+            act.Should().Throws<FailedTooManyTimesException>();
+        }
+
 
         private AuthenticationService Target()
         {
