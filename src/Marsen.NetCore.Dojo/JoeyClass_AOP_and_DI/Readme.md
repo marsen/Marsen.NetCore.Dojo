@@ -108,4 +108,7 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 可以使用 `ctorf` 這個技巧，這是 JetBrain 的 Generative Completion 功能。
 首先欄位不可以初始化，只有宣告就可以使用這個功能。
 
+此外在介面化的過程之中，也不要忘記正確命名的重要性，  
+適時的 rename 可以幫助程式理解。
+
 (fin)
