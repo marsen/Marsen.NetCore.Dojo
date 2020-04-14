@@ -14,25 +14,39 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         private IAccountService _accountService;
         private IUserDao _userDao;
         private readonly string _testAccount = "test_account";
-        private readonly string _returnThis = "test_otp";
+        private readonly string _testOtp = "test_otp";
+        private readonly string correctOtp = "test_otp";
+        private readonly string wrongOtp = "wrong_otp";
 
         public AuthenticationServiceTests()
-        {
-
-        }
-        [Fact]
-        public void Verify_True()
         {
             _logger = Substitute.For<ILogger>();
             _notification = Substitute.For<INotification>();
             _otpServer = Substitute.For<IOtpServer>();
             _hash = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
-            _userDao =Substitute.For<IUserDao>();
-            
-            _otpServer.CurrentOtp(_testAccount).Returns(_returnThis);
-            var target = new AuthenticationService(_userDao, _accountService, _hash, _otpServer, _notification, _logger);
-            Assert.True(target.Verify(_testAccount, "test_password", _returnThis));
+            _userDao = Substitute.For<IUserDao>();
+        }
+
+        [Fact]
+        public void Verify_True()
+        {
+            _otpServer.CurrentOtp(_testAccount).Returns(correctOtp);
+            Assert.True(Target().Verify(_testAccount, "test_password", _testOtp));
+        }
+
+        [Fact]
+        public void Verify_False()
+        {
+            _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
+            Assert.False(Target().Verify(_testAccount, "test_password", _testOtp));
+        }
+
+        private AuthenticationService Target()
+        {
+            var target =
+                new AuthenticationService(_userDao, _accountService, _hash, _otpServer, _notification, _logger);
+            return target;
         }
     }
 }
