@@ -3,7 +3,7 @@ using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class SHA256Adapter : IHash
+    public class SHA256Adapter : IHashAdapter
     {
         public string HashedPassword(string password)
         {

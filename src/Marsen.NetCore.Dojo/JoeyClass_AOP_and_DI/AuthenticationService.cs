@@ -6,18 +6,18 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
     {
         private readonly IUserDao _userDao;
         private readonly IAccountService _accountService;
-        private readonly IHash _hash;
+        private readonly IHashAdapter _hashAdapter;
         private readonly IOtpServer _otpServer;
-        private readonly INotification _slack ;
+        private readonly INotification _notification ;
         private readonly ILogger _logger ;
 
-        public AuthenticationService(IUserDao userDao, IAccountService accountService, IHash hash, IOtpServer otpServer, INotification slack, ILogger logger)
+        public AuthenticationService(IUserDao userDao, IAccountService accountService, IHashAdapter hashAdapter, IOtpServer otpServer, INotification notification, ILogger logger)
         {
             _userDao = userDao;
             _accountService = accountService;
-            _hash = hash;
+            _hashAdapter = hashAdapter;
             _otpServer = otpServer;
-            _slack = slack;
+            _notification = notification;
             _logger = logger;
         }
         
@@ -25,9 +25,9 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         {
              _userDao = new UserDao();
              _accountService = new AccountService();
-             _hash = new SHA256Adapter();
+             _hashAdapter = new SHA256Adapter();
              _otpServer = new OtpServer();
-             _slack = new Slack();
+             _notification = new Slack();
              _logger = new NLogLogger();           
         }
         public bool Verify(string accountId, string password, string otp)
@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 
             var passwordFromDb = _userDao.PasswordFromDb(accountId);
 
-            var hashedPassword = _hash.HashedPassword(password);
+            var hashedPassword = _hashAdapter.HashedPassword(password);
 
             var currentOtp = _otpServer.CurrentOtp(accountId);
 
@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             {
                 _accountService.AddFailedCounter(accountId);
                 _logger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
-                _slack.Notification($"account:{accountId} try to login failed");
+                _notification.Notification($"account:{accountId} try to login failed");
                 return false;
             }
         }
