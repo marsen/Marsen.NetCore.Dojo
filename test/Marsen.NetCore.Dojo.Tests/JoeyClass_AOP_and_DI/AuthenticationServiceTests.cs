@@ -12,23 +12,19 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         private readonly ILogger _logger;
         private readonly INotification _notification;
         private readonly IOtpServer _otpServer;
-        private readonly IHashAdapter _hash;
+        private readonly IHashAdapter _hashAdapter;
         private readonly IAccountService _accountService;
         private readonly IUserDao _userDao;
         private readonly string _testAccount = "test_account";
-        private readonly string _testOtp = "test_otp";
-        private readonly string correctOtp = "test_otp";
-        private readonly string wrongOtp = "wrong_otp";
         private readonly string _wrongPassword = "wrong_password";
         private readonly string _testPassword = "test_password";
-        private readonly string _correctPassword = "hashed password";
 
         public AuthenticationServiceTests()
         {
             _logger = Substitute.For<ILogger>();
             _notification = Substitute.For<INotification>();
             _otpServer = Substitute.For<IOtpServer>();
-            _hash = Substitute.For<IHashAdapter>();
+            _hashAdapter = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
             _userDao = Substitute.For<IUserDao>();
         }
@@ -36,47 +32,72 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         [Fact]
         public void Verify_True()
         {
-            _userDao.PasswordFromDb(_testAccount).Returns(_correctPassword);
-            _hash.HashedPassword(_testPassword).Returns("hashed password");
-            _otpServer.CurrentOtp(_testAccount).Returns(correctOtp);
-            Assert.True(Target().Verify(_testAccount, _testPassword, _testOtp));
-        }
-
-        [Fact]
-        public void Verify_False()
-        {
-            _userDao.PasswordFromDb(_testAccount).Returns(_correctPassword);
-            _hash.HashedPassword(_testPassword).Returns("hashed password");
-            _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
-            Assert.False(Target().Verify(_testAccount, _testPassword, _testOtp));
+            GivenAccountIsLocked(false);
+            GivenPasswordFromDb("hashed password");
+            GivenHashedPassword(_testPassword, "hashed password");
+            GivenOtp("correct_otp");
+            Assert.True(Target().Verify(_testAccount, _testPassword, "correct_otp"));
         }
 
         [Fact]
         public void Verify_False_Error_Password()
         {
-            _userDao.PasswordFromDb(_testAccount).Returns(_wrongPassword);
-            _hash.HashedPassword(_testPassword).Returns("hashed password");
-            _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
-            Assert.False(Target().Verify(_testAccount, _testPassword, _testOtp));
+            GivenAccountIsLocked(false);
+            GivenPasswordFromDb("wrong password");
+            _hashAdapter.HashedPassword(_testPassword).Returns("hashed password");
+            GivenOtp("correct_otp");
+            Assert.False(Target().Verify(_testAccount, _testPassword, "correct_otp"));
         }
 
         [Fact]
         public void Verify_IsLocked_Exception()
         {
-            _accountService.IsLocked(_testAccount).Returns(true);
-            _userDao.PasswordFromDb(_testAccount).Returns(_correctPassword);
-            _hash.HashedPassword(_testPassword).Returns("hashed password");
-            _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
-            Action act = () => Target().Verify(_testAccount,_testPassword,_testOtp);
+            GivenAccountIsLocked(true);
+            GivenPasswordFromDb("hashed password");
+            _hashAdapter.HashedPassword(_testPassword).Returns("hashed password");
+            GivenOtp("correct_otp");
+            Action act = () => Target().Verify(_testAccount, _testPassword, "correct_otp");
             act.Should().Throw<FailedTooManyTimesException>();
         }
 
 
+        [Fact]
+        public void Verify_False()
+        {
+            GivenAccountIsLocked(false);
+            GivenPasswordFromDb("hashed password");
+            _hashAdapter.HashedPassword(_testPassword).Returns("hashed password");
+            GivenOtp("wrong_otp");
+            Assert.False(Target().Verify(_testAccount, _testPassword, "correct_otp"));
+        }
+
+        [Fact]
         private AuthenticationService Target()
         {
             var target =
-                new AuthenticationService(_userDao, _accountService, _hash, _otpServer, _notification, _logger);
+                new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer, _notification, _logger);
             return target;
+        }
+
+        private void GivenOtp(string otp)
+        {
+            _otpServer.CurrentOtp(_testAccount).Returns(otp);
+        }
+
+        private void GivenAccountIsLocked(bool isLocked)
+        {
+            _accountService.IsLocked(_testAccount).Returns(isLocked);
+        }
+        
+        private void GivenPasswordFromDb(string password)
+        {
+            _userDao.PasswordFromDb(_testAccount).Returns(password);
+        }
+
+
+        private void GivenHashedPassword(string password, string hashedPassword)
+        {
+            _hashAdapter.HashedPassword(password).Returns(hashedPassword);
         }
     }
 }
