@@ -44,7 +44,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         {
             GivenAccountIsLocked(false);
             GivenPasswordFromDb("wrong password");
-            _hashAdapter.HashedPassword(_testPassword).Returns("hashed password");
+            GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("correct_otp");
             Assert.False(Target().Verify(_testAccount, _testPassword, "correct_otp"));
         }
@@ -54,19 +54,18 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         {
             GivenAccountIsLocked(true);
             GivenPasswordFromDb("hashed password");
-            _hashAdapter.HashedPassword(_testPassword).Returns("hashed password");
+            GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("correct_otp");
             Action act = () => Target().Verify(_testAccount, _testPassword, "correct_otp");
             act.Should().Throw<FailedTooManyTimesException>();
         }
-
 
         [Fact]
         public void Verify_False()
         {
             GivenAccountIsLocked(false);
             GivenPasswordFromDb("hashed password");
-            _hashAdapter.HashedPassword(_testPassword).Returns("hashed password");
+            GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("wrong_otp");
             Assert.False(Target().Verify(_testAccount, _testPassword, "correct_otp"));
         }
