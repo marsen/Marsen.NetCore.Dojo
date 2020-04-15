@@ -3,19 +3,18 @@ using FluentAssertions;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
 {
     public class AuthenticationServiceTests
     {
-        private ILogger _logger;
-        private INotification _notification;
-        private IOtpServer _otpServer;
-        private IHashAdapter _hash;
-        private IAccountService _accountService;
-        private IUserDao _userDao;
+        private readonly ILogger _logger;
+        private readonly INotification _notification;
+        private readonly IOtpServer _otpServer;
+        private readonly IHashAdapter _hash;
+        private readonly IAccountService _accountService;
+        private readonly IUserDao _userDao;
         private readonly string _testAccount = "test_account";
         private readonly string _testOtp = "test_otp";
         private readonly string correctOtp = "test_otp";
@@ -69,7 +68,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hash.HashedPassword(_testPassword).Returns("hashed password");
             _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
             Action act = () => Target().Verify(_testAccount,_testPassword,_testOtp);
-            act.Should().Throws<FailedTooManyTimesException>();
+            act.Should().Throw<FailedTooManyTimesException>();
         }
 
 
