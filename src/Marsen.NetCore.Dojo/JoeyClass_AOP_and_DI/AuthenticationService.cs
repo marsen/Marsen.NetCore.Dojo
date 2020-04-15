@@ -1,8 +1,9 @@
-﻿using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
+﻿using System.Net;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
-    public class AuthenticationService
+    public class AuthenticationService : IAuthentication
     {
         private readonly IUserDao _userDao;
         private readonly IAccountService _accountService;

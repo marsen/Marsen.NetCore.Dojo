@@ -130,6 +130,12 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 
 ## 重構 Decorator Pattern
 
+這裡我覺得是這堂課第一個亮點，
+特別記錄一下步驟，
+
+### Step 1. 對關鍵方法抽介面
+
+
 
 
 (fin)
