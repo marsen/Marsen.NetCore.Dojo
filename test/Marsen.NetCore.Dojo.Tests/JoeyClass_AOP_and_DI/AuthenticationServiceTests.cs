@@ -69,7 +69,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hash.HashedPassword(_testPassword).Returns("hashed password");
             _otpServer.CurrentOtp(_testAccount).Returns(wrongOtp);
             Action act = () => Target().Verify(_testAccount, _testPassword, _testOtp);
-            Assert.Throws<FailedTooManyTimesException>(act);
+            act.Should().Throw<FailedTooManyTimesException>();
         }
 
 
