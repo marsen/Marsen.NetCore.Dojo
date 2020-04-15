@@ -92,7 +92,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
 
         private void GivenHashedPassword(string password, string hashedPassword)
         {
-            _hashAdapter.HashedPassword(password).Returns(hashedPassword);
+            _hashAdapter.Hash(password).Returns(hashedPassword);
         }
     }
 }

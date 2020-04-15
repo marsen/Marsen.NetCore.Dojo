@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 
             var passwordFromDb = _userDao.PasswordFromDb(accountId);
 
-            var hashedPassword = _hashAdapter.HashedPassword(password);
+            var hashedPassword = _hashAdapter.Hash(password);
 
             var currentOtp = _otpServer.CurrentOtp(accountId);
 
@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             {
                 _accountService.AddFailedCounter(accountId);
                 _logger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
-                _notification.Notification($"account:{accountId} try to login failed");
+                _notification.Send($"account:{accountId} try to login failed");
                 return false;
             }
         }

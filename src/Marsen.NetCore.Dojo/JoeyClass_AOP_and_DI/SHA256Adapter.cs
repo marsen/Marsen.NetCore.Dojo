@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
     public class SHA256Adapter : IHashAdapter
     {
-        public string HashedPassword(string password)
+        public string Hash(string password)
         {
             //// hash the password
             var crypt = new System.Security.Cryptography.SHA256Managed();

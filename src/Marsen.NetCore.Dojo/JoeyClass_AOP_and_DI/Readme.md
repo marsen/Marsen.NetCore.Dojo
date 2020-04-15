@@ -128,4 +128,8 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 3. 密碼錯誤
 4. 錯誤達上限，帳戶被鎖定
 
+## 重構 Decorator Pattern
+
+
+
 (fin)
