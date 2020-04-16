@@ -3,6 +3,7 @@ using FluentAssertions;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
@@ -17,6 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         private readonly IUserDao _userDao;
         private readonly string _testAccount = "test_account";
         private readonly string _testPassword = "test_password";
+        private readonly AuthenticationService _target;
 
         public AuthenticationServiceTests()
         {
@@ -26,6 +28,8 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hashAdapter = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
             _userDao = Substitute.For<IUserDao>();
+            _target = new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer, _notification,
+                _logger);
         }
 
         [Fact]
@@ -35,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             GivenPasswordFromDb("hashed password");
             GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("correct_otp");
-            Assert.True(Target().Verify(_testAccount, _testPassword, "correct_otp"));
+            Assert.True(_target.Verify(_testAccount, _testPassword, "correct_otp"));
         }
 
         [Fact]
@@ -45,7 +49,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             GivenPasswordFromDb("wrong password");
             GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("correct_otp");
-            Assert.False(Target().Verify(_testAccount, _testPassword, "correct_otp"));
+            Assert.False(_target.Verify(_testAccount, _testPassword, "correct_otp"));
         }
 
         [Fact]
@@ -55,7 +59,8 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             GivenPasswordFromDb("hashed password");
             GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("correct_otp");
-            ((Action) (() => Target().Verify(_testAccount, _testPassword, "correct_otp"))).Should().Throw<FailedTooManyTimesException>();
+            ((Action) (() => _target.Verify(_testAccount, _testPassword, "correct_otp"))).Should()
+                .Throw<FailedTooManyTimesException>();
         }
 
         [Fact]
@@ -65,15 +70,20 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             GivenPasswordFromDb("hashed password");
             GivenHashedPassword(_testPassword, "hashed password");
             GivenOtp("wrong_otp");
-            Assert.False(Target().Verify(_testAccount, _testPassword, "correct_otp"));
+            Assert.False(_target.Verify(_testAccount, _testPassword, "correct_otp"));
         }
 
-        private AuthenticationService Target()
+        [Fact]
+        public void Verify_False_Log()
         {
-            var target =
-                new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer, _notification, _logger);
-            return target;
-        }
+            GivenAccountIsLocked(false);
+            GivenPasswordFromDb("hashed password");
+            GivenHashedPassword(_testPassword, "hashed password");
+            GivenOtp("wrong_otp");
+            Assert.False(_target.Verify(_testAccount, _testPassword, "correct_otp"));
+            _logger.ReceivedWithAnyArgs().Log(default);
+    }
+
 
         private void GivenOtp(string otp)
         {
@@ -84,7 +94,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         {
             _accountService.IsLocked(_testAccount).Returns(isLocked);
         }
-        
+
         private void GivenPasswordFromDb(string password)
         {
             _userDao.PasswordFromDb(_testAccount).Returns(password);
