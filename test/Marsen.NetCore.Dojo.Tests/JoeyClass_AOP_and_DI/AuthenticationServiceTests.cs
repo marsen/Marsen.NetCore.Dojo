@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         private readonly IUserDao _userDao;
         private readonly string _testAccount = "test_account";
         private readonly string _testPassword = "test_password";
-        private readonly AuthenticationService _target;
+        private readonly IAuthentication _target;
 
         public AuthenticationServiceTests()
         {
@@ -28,8 +28,9 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hashAdapter = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
             _userDao = Substitute.For<IUserDao>();
-            _target = new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer, _notification,
+            var authenticationService = new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer, _notification,
                 _logger);
+            _target = new NotificationDecorator(authenticationService,_notification);
         }
 
         [Fact]
