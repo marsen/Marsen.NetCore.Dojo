@@ -82,7 +82,18 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             GivenOtp("wrong_otp");
             Assert.False(_target.Verify(_testAccount, _testPassword, "correct_otp"));
             _logger.ReceivedWithAnyArgs().Log(default);
-    }
+        }
+
+        [Fact]
+        public void Verify_False_Notify()
+        {
+            GivenAccountIsLocked(false);
+            GivenPasswordFromDb("hashed password");
+            GivenHashedPassword(_testPassword, "hashed password");
+            GivenOtp("wrong_otp");
+            Assert.False(_target.Verify(_testAccount, _testPassword, "correct_otp"));
+            _notification.ReceivedWithAnyArgs().Send(default);
+        }
 
 
         private void GivenOtp(string otp)
