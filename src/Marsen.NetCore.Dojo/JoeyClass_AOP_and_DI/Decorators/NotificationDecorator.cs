@@ -4,10 +4,10 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators
 {
     public class NotificationDecorator : IAuthentication
     {
-        private readonly AuthenticationService _authenticationService;
+        private readonly IAuthentication _authenticationService;
         private readonly INotification _notification;
 
-        public NotificationDecorator(AuthenticationService authenticationService, INotification notification)
+        public NotificationDecorator(IAuthentication authenticationService, INotification notification)
         {
             _authenticationService = authenticationService;
             _notification = notification;

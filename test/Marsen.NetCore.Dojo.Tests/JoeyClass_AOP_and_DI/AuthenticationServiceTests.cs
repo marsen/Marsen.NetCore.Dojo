@@ -28,9 +28,11 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hashAdapter = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
             _userDao = Substitute.For<IUserDao>();
-            var authenticationService = new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer,
+            IAuthentication authenticationService = new AuthenticationService(_userDao, _accountService, _hashAdapter,
+                _otpServer,
                 _logger);
-            _target = new NotificationDecorator(authenticationService, _notification);
+            authenticationService = new NotificationDecorator(authenticationService, _notification);
+            _target = new LoggerDecorator(authenticationService, _logger, _accountService);
         }
 
         [Fact]
