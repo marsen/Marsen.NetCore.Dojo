@@ -28,8 +28,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hashAdapter = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
             _userDao = Substitute.For<IUserDao>();
-            _target = new AuthenticationService(_userDao, _hashAdapter,
-                _otpServer);
+            _target = new AuthenticationService(_userDao, _hashAdapter, _otpServer);
             _target = new NotificationDecorator(_target, _notification);
             _target = new LoggerDecorator(_target, _logger, _accountService);
             _target = new AccountServiceDecorator(_target, _accountService);
@@ -67,7 +66,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         }
 
         [Fact]
-        public void Verify_False()
+        public void Verify_False_Error_Otp()
         {
             GivenAccountIsLocked(false);
             GivenPasswordFromDb("hashed password");
@@ -77,7 +76,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         }
 
         [Fact]
-        public void Verify_False_Log()
+        public void Log_When_Verify_False()
         {
             GivenAccountIsLocked(false);
             GivenPasswordFromDb("hashed password");
@@ -88,7 +87,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
         }
 
         [Fact]
-        public void Verify_False_Notify()
+        public void Notify_When_Verify_False()
         {
             GivenAccountIsLocked(false);
             GivenPasswordFromDb("hashed password");
