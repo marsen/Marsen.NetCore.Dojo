@@ -9,17 +9,15 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         private readonly IAccountService _accountService;
         private readonly IHashAdapter _hashAdapter;
         private readonly IOtpServer _otpServer;
-        private readonly INotification _notification;
         private readonly ILogger _logger;
 
         public AuthenticationService(IUserDao userDao, IAccountService accountService, IHashAdapter hashAdapter,
-            IOtpServer otpServer, INotification notification, ILogger logger)
+            IOtpServer otpServer, ILogger logger)
         {
             _userDao = userDao;
             _accountService = accountService;
             _hashAdapter = hashAdapter;
             _otpServer = otpServer;
-            _notification = notification;
             _logger = logger;
         }
 
@@ -29,7 +27,6 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             _accountService = new AccountService();
             _hashAdapter = new SHA256Adapter();
             _otpServer = new OtpServer();
-            _notification = new Slack();
             _logger = new NLogLogger();
         }
 
