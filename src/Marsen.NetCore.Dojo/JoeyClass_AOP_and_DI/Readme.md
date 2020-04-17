@@ -147,9 +147,22 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 觀察一下我們的方法，最主要的邏輯是密碼與OTP的比較，
 帳號是否鎖定，重設失敗次數，記錄失敗次數，發通知與記錄，都只是「衣服」而已。
 
-### Step 2.  對裝飾品抽成私有方法
+### Step 2. 對裝飾品抽成私有方法
 
 我抽的順序為 Notification、Logger、AccountService
+
+### Step 3. 將私有方法抽到 Decorator 類別
+
+如果沒有就創建一個吧，這個 Decorator 類別有一些地方需要調整，  
+首先是要繼承「身體」的介面，我會想像成「衣服」上為脖子、手、身體所留的洞。
+再來是建構子的部份要留有參數讓「實作身體介面」的實體進來，  
+
+```
+想像一下人穿衣服，但是你也可以讓衣服穿著衣服，這樣的例子在服飾店很多;
+店員會設計自已的穿搭在假人或衣架身上，T 恤加個背心再加個外套之類的。
+```
+
+再把需要的其它服務透過建構子注入，最後實作「介面」就完成了一個 Decorator 啦。
 
 ### 小技巧 Move Instance Method
 
@@ -161,7 +174,7 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 再對方法重構才能完成。
 
 ```
-The list of potential target types includes types of the method 
+The list of potential target types includes types of the method  
 parameters and types of fields in the current type.
 ```
 
