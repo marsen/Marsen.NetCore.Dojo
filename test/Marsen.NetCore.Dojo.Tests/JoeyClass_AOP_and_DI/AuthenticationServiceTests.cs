@@ -1,9 +1,9 @@
-using System;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 using NSubstitute;
-using NSubstitute.ReceivedExtensions;
+using System;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
@@ -28,9 +28,10 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             _hashAdapter = Substitute.For<IHashAdapter>();
             _accountService = Substitute.For<IAccountService>();
             _userDao = Substitute.For<IUserDao>();
-            var authenticationService = new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer, _notification,
+            var authenticationService = new AuthenticationService(_userDao, _accountService, _hashAdapter, _otpServer,
+                _notification,
                 _logger);
-            _target = new NotificationDecorator(authenticationService,_notification);
+            _target = new NotificationDecorator(authenticationService, _notification);
         }
 
         [Fact]
@@ -95,7 +96,6 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
             Assert.False(_target.Verify(_testAccount, _testPassword, "correct_otp"));
             _notification.ReceivedWithAnyArgs().Send(default);
         }
-
 
         private void GivenOtp(string otp)
         {
