@@ -9,7 +9,6 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         private readonly IOtpServer _otpServer;
 
         public AuthenticationService(IUserDao userDao, IHashAdapter hashAdapter, IOtpServer otpServer)
-
         {
             _userDao = userDao;
             _hashAdapter = hashAdapter;
