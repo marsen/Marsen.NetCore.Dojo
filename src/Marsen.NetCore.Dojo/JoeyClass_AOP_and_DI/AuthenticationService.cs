@@ -8,9 +8,8 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         private readonly IHashAdapter _hashAdapter;
         private readonly IOtpServer _otpServer;
 
+        public AuthenticationService(IUserDao userDao, IHashAdapter hashAdapter, IOtpServer otpServer)
 
-        public AuthenticationService(IUserDao userDao, IAccountService accountService, IHashAdapter hashAdapter,
-            IOtpServer otpServer, ILogger logger)
         {
             _userDao = userDao;
             _hashAdapter = hashAdapter;
