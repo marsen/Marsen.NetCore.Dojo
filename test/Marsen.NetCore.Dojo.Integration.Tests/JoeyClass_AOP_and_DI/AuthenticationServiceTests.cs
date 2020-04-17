@@ -1,12 +1,12 @@
+using System;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 using NSubstitute;
-using System;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
+namespace Marsen.NetCore.Dojo.Integration.Tests.JoeyClass_AOP_and_DI
 {
     public class AuthenticationServiceTests
     {
