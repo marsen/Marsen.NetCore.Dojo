@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
     public class AccountService : IAccountService
     {
-        public  bool IsLocked(string accountId)
+        public bool IsLocked(string accountId)
         {
             var httpClient = new HttpClient() {BaseAddress = new Uri("http://joey.com/")};
             //// check is locked

@@ -1,26 +1,18 @@
-﻿using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators;
-using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
+﻿using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 {
     public class AuthenticationService : IAuthentication
     {
         private readonly IUserDao _userDao;
-        private readonly IAccountService _accountService;
         private readonly IHashAdapter _hashAdapter;
         private readonly IOtpServer _otpServer;
-        public AccountServiceDecorator _accountServiceDecorator { get; set; }
 
-        public IAccountService accountService1
-        {
-            get { return _accountService; }
-        }
 
         public AuthenticationService(IUserDao userDao, IAccountService accountService, IHashAdapter hashAdapter,
             IOtpServer otpServer, ILogger logger)
         {
             _userDao = userDao;
-            _accountService = accountService;
             _hashAdapter = hashAdapter;
             _otpServer = otpServer;
         }
@@ -28,15 +20,12 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
         public AuthenticationService()
         {
             _userDao = new UserDao();
-            _accountService = new AccountService();
             _hashAdapter = new SHA256Adapter();
             _otpServer = new OtpServer();
         }
 
         public bool Verify(string accountId, string password, string otp)
         {
-            //_accountServiceDecorator.IsLocked(accountId);
-
             var passwordFromDb = _userDao.PasswordFromDb(accountId);
 
             var hashedPassword = _hashAdapter.Hash(password);
@@ -46,7 +35,6 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             //// compare
             if (passwordFromDb == hashedPassword && currentOtp == otp)
             {
-                //_accountServiceDecorator.ResetFailedCounter(accountId);
                 return true;
             }
             else
