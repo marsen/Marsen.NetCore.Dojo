@@ -110,7 +110,8 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 依據類別建立出介面，將主要代碼的欄位改用介面介接，  
 再建一個傳入介面的建構子，我們準備用來測試。
 
-小技巧 : 如果使用 JetBrain 系列的產品，例如 : ReSharpe、Rider,  
+### 小技巧 : Generative Completion 
+如果使用 JetBrain 系列的產品，例如 : ReSharpe、Rider,  
 可以使用 `ctorf` 這個技巧，這是 JetBrain 的 Generative Completion 功能。
 首先欄位不可以初始化，只有宣告就可以使用這個功能。
 
@@ -148,7 +149,30 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 
 ### Step 2.  對裝飾品抽成私有方法
 
-我抽的順序為 Notification、Logger
+我抽的順序為 Notification、Logger、AccountService
+
+### 小技巧 Move Instance Method
+
+如果使用 JetBrain 系列的產品，例如 : ReSharpe、Rider,  
+可以使用 `Refactor > Move Instance Method` 這個技巧，  
+將一個方法移動到別的類別。
+但是要透過 IDE 的命令移動有一個大前提，就是需要在目前所在的類別位置，
+可以存取到想要移動到的目標類別，所以要以方法簽章或是目前類別的欄位形式宣告變數，  
+再對方法重構才能完成。
+
+```
+The list of potential target types includes types of the method 
+parameters and types of fields in the current type.
+```
+
+手法我覺得點繞路，還不如剪下貼上的手段，  
+當然剪下貼上也會有參考相依的問題。
+但是我們在使用工具重構的時候，有兩個大目的，  
+一個是讓步驟 SOP 化避免犯錯、提昇信心指數，  
+一個加快開發的速度與效率。
+
+就這個案例而言，我覺得剪下貼上的步驟反而單純而直覺。
+所以我反而不會透過工具的命令來執行這次的重構。
 
 
 (fin)

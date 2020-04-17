@@ -33,6 +33,7 @@ namespace Marsen.NetCore.Dojo.Tests.JoeyClass_AOP_and_DI
                 _logger);
             _target = new NotificationDecorator(_target, _notification);
             _target = new LoggerDecorator(_target, _logger, _accountService);
+            _target = new AccountServiceDecorator(_target, _accountService);
         }
 
         [Fact]
