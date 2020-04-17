@@ -25,21 +25,17 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
 
         public bool Verify(string accountId, string password, string otp)
         {
-            var passwordFromDb = _userDao.PasswordFromDb(accountId);
+            return IsSamePassword(accountId, password) && IsOtpCorrect(accountId, otp);
+        }
 
-            var hashedPassword = _hashAdapter.Hash(password);
+        private bool IsOtpCorrect(string accountId, string otp)
+        {
+            return _otpServer.CurrentOtp(accountId) == otp;
+        }
 
-            var currentOtp = _otpServer.CurrentOtp(accountId);
-
-            //// compare
-            if (passwordFromDb == hashedPassword && currentOtp == otp)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+        private bool IsSamePassword(string accountId, string password)
+        {
+            return _userDao.PasswordFromDb(accountId) == _hashAdapter.Hash(password);
         }
     }
 }
