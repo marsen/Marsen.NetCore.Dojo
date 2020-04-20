@@ -22,8 +22,8 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
         public static void Start()
         {
             Console.WriteLine("AOP & DI Start");
-            //IoCRegister();
-            NewInstance();
+            IoCRegister();
+            //NewInstance();
             _target.Verify("account", "password", "otp");
         }
 
