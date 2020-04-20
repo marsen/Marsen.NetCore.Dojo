@@ -9,12 +9,34 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
 {
     public class TripServiceTest
     {
+        private readonly StubTripService _target;
+
+        public TripServiceTest()
+        {
+            _target = new StubTripService();
+        }
+
         [Fact]
         public void NotLoginThrowException()
         {
-            var target = new TripService();
-            Action act = () => target.GetTripsByUser(new User());
+            _target.SetLoggedUser(null);
+            Action act = () => _target.GetTripsByUser(new User());
             act.Should().Throw<UserNotLoggedInException>();
+        }
+    }
+
+    internal class StubTripService : TripService
+    {
+        private User _mockLoggedUser;
+
+        public void SetLoggedUser(User user)
+        {
+            _mockLoggedUser = user;
+        }
+
+        protected override User GetLoggedUser()
+        {
+            return _mockLoggedUser;
         }
     }
 }

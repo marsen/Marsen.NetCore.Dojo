@@ -21,3 +21,11 @@
 
 ## 第一個測試，拋出例外
 
+紅燈，開始重構。
+修改 Production Code 只能使用 IDE 自動建 CODE 是這個挑戰的限制。
+
+1. Extract Method `UserSession.GetInstance().GetLoggedUser();` 成為 private 方法 `GetLoggedUser`
+2. 將 `GetLoggedUser` 方法改為 protected (Make method protected) 
+3. 將 `GetLoggedUser` 方法改為 virtual (To Virtual) 
+4. 修改測試，建立 Mock 類別, overide `GetLoggedUser` 方法
+5.  

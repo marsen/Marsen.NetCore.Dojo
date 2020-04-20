@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
         public List<Trip> GetTripsByUser(User.User user)
         {
             List<Trip> tripList = new List<Practice01.Trip.Trip>();
-            User.User loggedUser = UserSession.GetInstance().GetLoggedUser();
+            User.User loggedUser = GetLoggedUser();
             bool isFriend = false;
             if (loggedUser != null)
             {
@@ -33,6 +33,11 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             {
                 throw new UserNotLoggedInException();
             }
+        }
+
+        protected virtual User.User GetLoggedUser()
+        {
+            return UserSession.GetInstance().GetLoggedUser();
         }
     }
 }
