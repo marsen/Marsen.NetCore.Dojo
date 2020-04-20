@@ -194,5 +194,14 @@ parameters and types of fields in the current type.
 缺點，呼叫端的組合順序將會大大影響你的代碼運行結果。
 也就是說目前的單元測試都變成整合測試了。
 
+改用 Autofac 注入，注入的順序就會決定代碼運行的結果，
+更多參考　RegisterDecorator
+
+我們可以透過工廠方法作取得整合好的模組，但是在維運是有點困難的，
+不明白這裡套用了 Decorator Pattern 的維運人員在第一視角將看不出來，
+log、notify、甚至 islocked 從何而來 ?
+如果要調整順序要怎麼調整 ?
+這個時候就要導入 aop 了
+
 (fin)
 
