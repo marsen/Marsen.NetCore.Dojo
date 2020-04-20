@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Autofac;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
@@ -16,22 +17,46 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
         private static IOtpServer _otpServer;
         private static IHashAdapter _hashAdapter;
         private static IUserDao _userDao;
+        private static IContainer _container;
 
         public static void Start()
         {
             Console.WriteLine("AOP & DI Start");
+            //IoCRegister();
+            NewInstance();
+            _target.Verify("account", "password", "otp");
+        }
+
+        private static void NewInstance()
+        {
             _logger = new FakeLogger();
             _notification = new FakeNotification();
             _otpServer = new FakeOtpServer();
             _hashAdapter = new FakeHashAdapter();
             _accountService = new FakeAccountService();
             _userDao = new FakeUserDao();
-            
+
             _target = new AuthenticationService(_userDao, _hashAdapter, _otpServer);
             _target = new NotificationDecorator(_target, _notification);
             _target = new LoggerDecorator(_target, _logger, _accountService);
             _target = new AccountServiceDecorator(_target, _accountService);
-            _target.Verify("account","password","otp");
+        }
+
+        private static void IoCRegister()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<FakeLogger>().As<ILogger>();
+            builder.RegisterType<FakeNotification>().As<INotification>();
+            builder.RegisterType<FakeAccountService>().As<IAccountService>();
+            builder.RegisterType<FakeHashAdapter>().As<IHashAdapter>();
+            builder.RegisterType<FakeOtpServer>().As<IOtpServer>();
+            builder.RegisterType<FakeUserDao>().As<IUserDao>();
+            builder.RegisterType<AuthenticationService>().As<IAuthentication>();
+            builder.RegisterDecorator<AccountServiceDecorator, IAuthentication>();
+            builder.RegisterDecorator<NotificationDecorator, IAuthentication>();
+            builder.RegisterDecorator<LoggerDecorator, IAuthentication>();
+            _container = builder.Build();
+            _target = _container.Resolve<IAuthentication>();
         }
     }
 
@@ -91,7 +116,6 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
     {
         public void Send(string message)
         {
-            
             Console.WriteLine($"Send");
         }
     }

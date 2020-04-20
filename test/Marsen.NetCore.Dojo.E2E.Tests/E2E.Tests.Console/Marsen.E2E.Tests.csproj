@@ -9,4 +9,8 @@
     <ProjectReference Include="..\..\..\src\Marsen.NetCore.Dojo\Marsen.NetCore.Dojo.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
+  </ItemGroup>
+
 </Project>
