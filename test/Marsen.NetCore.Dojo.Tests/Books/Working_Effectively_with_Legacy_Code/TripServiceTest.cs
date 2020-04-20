@@ -23,6 +23,16 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
             Action act = () => _target.GetTripsByUser(new User());
             act.Should().Throw<UserNotLoggedInException>();
         }
+
+
+        [Fact]
+        public void EmptyList_Not_Friend()
+        {
+            _target.SetLoggedUser(new User());
+            var actual = _target.GetTripsByUser(new User());
+            actual.Should().BeNullOrEmpty();
+        }
+
     }
 
     internal class StubTripService : TripService

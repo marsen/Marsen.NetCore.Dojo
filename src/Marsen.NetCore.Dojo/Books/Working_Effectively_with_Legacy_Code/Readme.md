@@ -28,4 +28,9 @@
 2. 將 `GetLoggedUser` 方法改為 protected (Make method protected) 
 3. 將 `GetLoggedUser` 方法改為 virtual (To Virtual) 
 4. 修改測試，建立 Mock 類別, overide `GetLoggedUser` 方法
-5.  
+ 
+
+## 第二個測試，回空的 Trip 清單
+
+1. mock 階段應注入有實體的 new User()
+
