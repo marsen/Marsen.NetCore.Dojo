@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
-using Marsen.NetCore.Dojo.Kata_Api_Pay;
-using Marsen.NetCore.Dojo.Kata_Api_Pay.Interface;
+using Marsen.NetCore.Dojo.Kata.Api_Pay;
+using Marsen.NetCore.Dojo.Kata.Api_Pay.Interface;
 using Marsen.NetCore.TestingToolkit;
 using NSubstitute;
 using Xunit;

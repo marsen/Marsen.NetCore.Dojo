@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Kata_Tennis
+namespace Marsen.NetCore.Dojo.Kata.Tennis
 {
     public class TennisGame
     {

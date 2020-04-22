@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Marsen.NetCore.Dojo.Kata_JsonParser
+namespace Marsen.NetCore.Dojo.Kata.JsonParser
 {
     public class DateTimeOffsetConverter : JsonConverter<DateTime>
     {

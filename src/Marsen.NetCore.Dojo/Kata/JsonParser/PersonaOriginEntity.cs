@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Marsen.NetCore.Dojo.Kata_JsonParser
+namespace Marsen.NetCore.Dojo.Kata.JsonParser
 {
     public class PersonaOriginEntity
     {

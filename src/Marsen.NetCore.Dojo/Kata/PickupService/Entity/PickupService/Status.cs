@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService
+﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService
 {
     public enum Status
     {

@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Kata_ShowHands;
+﻿using Marsen.NetCore.Dojo.Kata.ShowHands;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShowHands

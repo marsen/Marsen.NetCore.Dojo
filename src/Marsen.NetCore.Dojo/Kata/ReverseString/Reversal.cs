@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
+namespace Marsen.NetCore.Dojo.Kata.ReverseString
 {
     public class Reversal : IStringReversal
     {

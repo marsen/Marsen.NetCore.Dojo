@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
+using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
 
-namespace Marsen.NetCore.Dojo.Kata_PickupService.Interface
+namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface
 {
     internal interface IQueryStatus
     {

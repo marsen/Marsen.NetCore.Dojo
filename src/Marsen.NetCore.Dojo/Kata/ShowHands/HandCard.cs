@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Marsen.NetCore.Dojo.Kata_ShowHands.CategoryRules;
+using Marsen.NetCore.Dojo.Kata.ShowHands.CategoryRules;
 
-namespace Marsen.NetCore.Dojo.Kata_ShowHands
+namespace Marsen.NetCore.Dojo.Kata.ShowHands
 {
     public class HandCard
     {

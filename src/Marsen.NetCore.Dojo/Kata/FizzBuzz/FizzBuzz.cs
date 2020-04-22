@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
+namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
     public class FizzBuzz
     {

@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Kata_Tennis;
+﻿using Marsen.NetCore.Dojo.Kata.Tennis;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.Tennis

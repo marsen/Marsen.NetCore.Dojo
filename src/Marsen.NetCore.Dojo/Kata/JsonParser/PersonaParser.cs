@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Marsen.NetCore.TestingToolkit;
 
-namespace Marsen.NetCore.Dojo.Kata_JsonParser
+namespace Marsen.NetCore.Dojo.Kata.JsonParser
 {
     public class PersonaParser
     {

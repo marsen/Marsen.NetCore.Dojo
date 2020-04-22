@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 
-namespace Marsen.NetCore.Dojo.Kata_ShowHands
+namespace Marsen.NetCore.Dojo.Kata.ShowHands
 {
     public class HandCardComparer : IComparer<HandCard>
     {
@@ -63,7 +62,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                     }
                 }
 
-
                 if (Category == Category.StraightFlush || Category == Category.FourOfAKind ||
                     Category == Category.Flush)
                 {
@@ -86,7 +84,6 @@ namespace Marsen.NetCore.Dojo.Kata_ShowHands
                         return 0;
                     }
                 }
-
 
                 return KeyCardRankCompare(x, y);
             }

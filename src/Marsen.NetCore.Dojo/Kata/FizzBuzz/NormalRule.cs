@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Kata_FizzBuzz
+﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
     public class NormalRule : IRule
     {

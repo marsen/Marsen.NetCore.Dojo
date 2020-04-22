@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.FizzBuzz
 {
     public class FizzBuzzTests
     {
-        private readonly Kata_FizzBuzz.FizzBuzz _fizzBuzz = new Kata_FizzBuzz.FizzBuzz();
+        private readonly Dojo.Kata.FizzBuzz.FizzBuzz _fizzBuzz = new Dojo.Kata.FizzBuzz.FizzBuzz();
 
         [Fact]
         public void one_is_1()

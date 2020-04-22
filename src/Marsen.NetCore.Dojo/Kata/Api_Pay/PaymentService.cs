@@ -1,9 +1,8 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text.Json;
-using Marsen.NetCore.Dojo.Kata_Api_Pay.Interface;
+using Marsen.NetCore.Dojo.Kata.Api_Pay.Interface;
 
-namespace Marsen.NetCore.Dojo.Kata_Api_Pay
+namespace Marsen.NetCore.Dojo.Kata.Api_Pay
 {
     public class PaymentService
     {

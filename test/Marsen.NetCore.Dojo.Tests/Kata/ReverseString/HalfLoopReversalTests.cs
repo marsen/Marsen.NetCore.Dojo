@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Tests.Kata_ReverseString;
+﻿using Marsen.NetCore.Dojo.Kata.ReverseString;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ReverseString

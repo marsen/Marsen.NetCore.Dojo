@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata_ShowHands
+namespace Marsen.NetCore.Dojo.Kata.ShowHands
 {
     public class CardParser
     {

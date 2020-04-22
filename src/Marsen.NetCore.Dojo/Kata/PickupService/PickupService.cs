@@ -1,18 +1,18 @@
-﻿using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
-using Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService;
-using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
+using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
+using Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
+using Marsen.NetCore.Dojo.Kata.PickupService.Interface;
+using Microsoft.Extensions.Logging;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
 
-namespace Marsen.NetCore.Dojo.Kata_PickupService
+namespace Marsen.NetCore.Dojo.Kata.PickupService
 {
     public class PickupService : IQueryStatus
     {

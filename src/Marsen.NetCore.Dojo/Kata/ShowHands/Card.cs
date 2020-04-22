@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Kata_ShowHands
+﻿namespace Marsen.NetCore.Dojo.Kata.ShowHands
 {
     public class Card
     {

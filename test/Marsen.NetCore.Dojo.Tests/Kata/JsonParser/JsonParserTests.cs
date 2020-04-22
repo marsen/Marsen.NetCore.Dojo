@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentAssertions;
-using Marsen.NetCore.Dojo.Kata_JsonParser;
+using Marsen.NetCore.Dojo.Kata.JsonParser;
 using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
