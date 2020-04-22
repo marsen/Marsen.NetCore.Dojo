@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interceptors;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
+using System;
 
 namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
 {
@@ -44,15 +42,13 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
 
             builder.RegisterType<LoggerInterceptor>();
 
-            builder.RegisterType<AuthenticationService>()                
+            builder.RegisterType<AuthenticationService>()
                 .As<IAuthentication>()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(LoggerInterceptor));
-            
-                   
+
             builder.RegisterDecorator<AccountServiceDecorator, IAuthentication>();
             builder.RegisterDecorator<NotificationDecorator, IAuthentication>();
-
 
             _container = builder.Build();
             _target = _container.Resolve<IAuthentication>();
@@ -85,16 +81,14 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
 
             builder.RegisterType<LoggerInterceptor>();
 
-            builder.RegisterType<AuthenticationService>()                
+            builder.RegisterType<AuthenticationService>()
                 .As<IAuthentication>()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(LoggerInterceptor));
-            
-                   
+
             builder.RegisterDecorator<AccountServiceDecorator, IAuthentication>();
             builder.RegisterDecorator<NotificationDecorator, IAuthentication>();
             builder.RegisterDecorator<LoggerDecorator, IAuthentication>();
-
 
             _container = builder.Build();
             _target = _container.Resolve<IAuthentication>();
