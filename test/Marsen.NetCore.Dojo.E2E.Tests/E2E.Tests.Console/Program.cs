@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Marsen.E2E.Tests.Classes.Joey.AOP_and_DI;
 
 namespace Marsen.E2E.Tests
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            JoeyClass_AOP_and_DI.Startup.Start();
+            Startup.Start();
         }
     }
 }
