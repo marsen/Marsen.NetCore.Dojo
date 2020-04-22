@@ -7,10 +7,9 @@ using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
-using NSubstitute.ReceivedExtensions;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
+namespace Marsen.NetCore.Dojo.Integration.Tests.Kata_PickupService
 {
     public class PickupServiceTests
     {
