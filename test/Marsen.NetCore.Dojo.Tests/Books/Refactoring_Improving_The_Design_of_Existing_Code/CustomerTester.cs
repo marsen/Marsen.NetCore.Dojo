@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code;
+﻿using Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Refactoring_Improving_The_Design_of_Existing_Code
+namespace Marsen.NetCore.Dojo.Tests.Books.Refactoring_Improving_The_Design_of_Existing_Code
 {
     public class CustomerTester
     {

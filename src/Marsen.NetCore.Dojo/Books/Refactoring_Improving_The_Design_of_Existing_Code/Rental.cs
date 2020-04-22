@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code
+﻿namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code
 {
     public class Rental
     {

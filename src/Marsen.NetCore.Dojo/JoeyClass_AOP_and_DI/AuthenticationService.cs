@@ -22,7 +22,7 @@ namespace Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI
             _hashAdapter = new SHA256Adapter();
             _otpServer = new OtpServer();
         }
-        
+
         public bool Verify(string accountId, string password, string otp)
         {
             return IsSamePassword(accountId, password) && IsOtpCorrect(accountId, otp);

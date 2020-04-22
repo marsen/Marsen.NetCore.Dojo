@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Marsen.NetCore.Dojo.Tests.Kata_ReverseString;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
+namespace Marsen.NetCore.Dojo.Tests.Kata.ReverseString
 {
     public class ReverseStringTests
     {

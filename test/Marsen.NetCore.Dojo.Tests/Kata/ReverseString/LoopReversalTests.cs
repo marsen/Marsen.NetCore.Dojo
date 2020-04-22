@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using Marsen.NetCore.Dojo.Tests.Kata_ReverseString;
+using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_ReverseString
+namespace Marsen.NetCore.Dojo.Tests.Kata.ReverseString
 {
     public class LoopReversalTests
     {

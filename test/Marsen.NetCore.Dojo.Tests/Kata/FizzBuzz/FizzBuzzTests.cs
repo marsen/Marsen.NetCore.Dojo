@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Marsen.NetCore.Dojo.Kata_FizzBuzz;
-using Xunit;
+﻿using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_FizzBuzz
+namespace Marsen.NetCore.Dojo.Tests.Kata.FizzBuzz
 {
     public class FizzBuzzTests
     {
-        private readonly FizzBuzz _fizzBuzz = new FizzBuzz();
+        private readonly Kata_FizzBuzz.FizzBuzz _fizzBuzz = new Kata_FizzBuzz.FizzBuzz();
 
         [Fact]
         public void one_is_1()

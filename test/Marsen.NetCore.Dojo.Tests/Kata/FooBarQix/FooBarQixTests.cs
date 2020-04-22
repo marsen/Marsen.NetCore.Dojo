@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Marsen.NetCore.Dojo.Kata_FooBarQix;
-using Xunit;
+﻿using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_FooBarQix
+namespace Marsen.NetCore.Dojo.Tests.Kata.FooBarQix
 {
     public class FooBarQixTests
     {
-        readonly FooBarQix _fooBarQix = new FooBarQix();
+        readonly Kata_FooBarQix.FooBarQix _fooBarQix = new Kata_FooBarQix.FooBarQix();
 
         [Fact]
         public void one_is_1()

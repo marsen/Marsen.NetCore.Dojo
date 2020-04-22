@@ -1,12 +1,12 @@
-﻿using Marsen.NetCore.Dojo.Kata_Api_Pay;
+﻿using System.Net;
+using System.Net.Http;
+using Marsen.NetCore.Dojo.Kata_Api_Pay;
 using Marsen.NetCore.Dojo.Kata_Api_Pay.Interface;
 using Marsen.NetCore.TestingToolkit;
 using NSubstitute;
-using System.Net;
-using System.Net.Http;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_Api_Pay
+namespace Marsen.NetCore.Dojo.Tests.Kata.Api_Pay
 {
     public class PaymentServiceTests
     {

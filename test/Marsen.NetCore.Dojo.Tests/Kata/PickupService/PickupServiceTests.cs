@@ -1,23 +1,22 @@
-﻿using FluentAssertions;
-using Marsen.NetCore.Dojo.Kata_PickupService;
-using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
-using Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService;
-using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
-using Microsoft.Extensions.Logging;
-using NSubstitute;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
+using FluentAssertions;
+using Marsen.NetCore.Dojo.Kata_PickupService.Entity;
+using Marsen.NetCore.Dojo.Kata_PickupService.Entity.PickupService;
+using Marsen.NetCore.Dojo.Kata_PickupService.Interface;
 using Marsen.NetCore.TestingToolkit;
+using Microsoft.Extensions.Logging;
+using NSubstitute;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
+namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
 {
     public class PickupServiceTests
     {
-        private readonly PickupService _target;
+        private readonly Kata_PickupService.PickupService _target;
 
         public PickupServiceTests()
         {
@@ -152,7 +151,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             return actual;
         }
 
-        private static PickupService GetPickupService()
+        private static Kata_PickupService.PickupService GetPickupService()
         {
             ILogger logger = Substitute.For<ILogger>();
             IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
@@ -160,7 +159,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata_PickupService
             IConfigService configService = Substitute.For<IConfigService>();
             configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");
 
-            var target = new PickupService(configService, storeSettingService, logger);
+            var target = new Kata_PickupService.PickupService(configService, storeSettingService, logger);
             return target;
         }
     }

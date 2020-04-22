@@ -1,9 +1,9 @@
 ﻿using Marsen.NetCore.Dojo.Kata_Tennis;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_Tennis
+namespace Marsen.NetCore.Dojo.Tests.Kata.Tennis
 {
-    public class tennisGameTests
+    public class TennisGameTests
     {
         private readonly TennisGame _tennisGame = new TennisGame("Joey", "Tom");
 

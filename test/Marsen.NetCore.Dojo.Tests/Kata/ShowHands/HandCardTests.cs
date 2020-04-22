@@ -2,7 +2,7 @@
 using Marsen.NetCore.Dojo.Kata_ShowHands;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata_ShowHands
+namespace Marsen.NetCore.Dojo.Tests.Kata.ShowHands
 {
     public class HandCardTests
     {
