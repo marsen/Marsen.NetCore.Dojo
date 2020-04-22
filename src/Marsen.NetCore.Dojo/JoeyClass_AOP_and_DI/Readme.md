@@ -132,7 +132,7 @@ Resharpe 可以在編輯畫面上按下 `Alt+Enter` 再輸入 `EC`
 5. 錯誤發通知
 6. 錯誤記 log
 
-## 重構 Decorator Pattern
+## 重構 with Decorator Pattern
 
 這裡我覺得是這堂課第一個亮點，
 特別記錄一下步驟，
@@ -194,14 +194,44 @@ parameters and types of fields in the current type.
 缺點，呼叫端的組合順序將會大大影響你的代碼運行結果。
 也就是說目前的單元測試都變成整合測試了。
 
-改用 Autofac 注入，注入的順序就會決定代碼運行的結果，
-更多參考　RegisterDecorator
+改用 Autofac 注入，注入的順序就會決定代碼運行的結果，
+更多參考　[RegisterDecorator](https://autofaccn.readthedocs.io/en/latest/advanced/interceptors.html#create-interceptors)
 
-我們可以透過工廠方法作取得整合好的模組，但是在維運是有點困難的，
-不明白這裡套用了 Decorator Pattern 的維運人員在第一視角將看不出來，
-log、notify、甚至 islocked 從何而來 ?
-如果要調整順序要怎麼調整 ?
-這個時候就要導入 aop 了
+我們可以透過工廠方法作取得整合好的模組，但是在維運是有點困難的，  
+不明白這裡套用了 Decorator Pattern 的維運人員在第一視角將看不出來，  
+log、notify、甚至 islocked 從何而來 ?  
+如果要調整順序要怎麼調整 ?  
+
+
+## 重構 with Interceptor
+
+類似於 Decorator 的概念，Interceptor 並不把整個類或方法包起來。
+拿 Logger 記錄一下實作步驟
+
+1. 引入 Castle.DynamicProxy 組件
+2. 建立 LoggerInterceptor 實作 IInterceptor, 內容我們後面再填上
+3. 建立 LogAttribute 繼承 Attribute
+4. 透過以下語法檢查是否有掛載 `[Log]` Attribute
+    (Attribute.GetCustomAttribute(invocation.Method, typeof(LogAttribute)) is LogAttribute logAttribute == false)
+    另外 logAttribute 是個 C# 7.0 之後的語法糖，請[參考](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/keywords/is#constant-pattern)
+5. Nuget 安裝 Autofac.Extras.DynamicProxy 透過 Autofac 註冊欄截器
+6. 將 `[Log]` Attribute 掛載在介面上
+
+
+### 點評 Interceptor
+
+
+
+## 後記
+
+
+1. 什麼是 AOP ，什麼時候要導入 ? 
+2. AOP的優缺點
+3. Interceptor 跟 Decorator 的差別在哪裡
+4. Autofac 兩種欄截器的差別
+   - EnableInterfaceInterceptors
+   - EnableClassInterceptors 
+5. 
 
 (fin)
 

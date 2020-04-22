@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Autofac;
+using Autofac.Extras.DynamicProxy;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Decorators;
+using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interceptors;
 using Marsen.NetCore.Dojo.JoeyClass_AOP_and_DI.Interface;
 
 namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
@@ -22,9 +24,38 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
         public static void Start()
         {
             Console.WriteLine("AOP & DI Start");
-            IoCRegister();
+            IoCRegisterInterceptors();
+            //IoCRegisterDecorator();
             //NewInstance();
-            _target.Verify("account", "password", "otp");
+
+            _target.Verify("account", "password", "otpError");
+            //_target.Verify("account", "password", "otp");
+        }
+
+        private static void IoCRegisterInterceptors()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<FakeLogger>().As<ILogger>();
+            builder.RegisterType<FakeNotification>().As<INotification>();
+            builder.RegisterType<FakeAccountService>().As<IAccountService>();
+            builder.RegisterType<FakeHashAdapter>().As<IHashAdapter>();
+            builder.RegisterType<FakeOtpServer>().As<IOtpServer>();
+            builder.RegisterType<FakeUserDao>().As<IUserDao>();
+
+            builder.RegisterType<LoggerInterceptor>();
+
+            builder.RegisterType<AuthenticationService>()                
+                .As<IAuthentication>()
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(LoggerInterceptor));
+            
+                   
+            builder.RegisterDecorator<AccountServiceDecorator, IAuthentication>();
+            builder.RegisterDecorator<NotificationDecorator, IAuthentication>();
+
+
+            _container = builder.Build();
+            _target = _container.Resolve<IAuthentication>();
         }
 
         private static void NewInstance()
@@ -42,7 +73,7 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
             _target = new AccountServiceDecorator(_target, _accountService);
         }
 
-        private static void IoCRegister()
+        private static void IoCRegisterDecorator()
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<FakeLogger>().As<ILogger>();
@@ -51,10 +82,20 @@ namespace Marsen.E2E.Tests.JoeyClass_AOP_and_DI
             builder.RegisterType<FakeHashAdapter>().As<IHashAdapter>();
             builder.RegisterType<FakeOtpServer>().As<IOtpServer>();
             builder.RegisterType<FakeUserDao>().As<IUserDao>();
-            builder.RegisterType<AuthenticationService>().As<IAuthentication>();
+
+            builder.RegisterType<LoggerInterceptor>();
+
+            builder.RegisterType<AuthenticationService>()                
+                .As<IAuthentication>()
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(LoggerInterceptor));
+            
+                   
             builder.RegisterDecorator<AccountServiceDecorator, IAuthentication>();
             builder.RegisterDecorator<NotificationDecorator, IAuthentication>();
             builder.RegisterDecorator<LoggerDecorator, IAuthentication>();
+
+
             _container = builder.Build();
             _target = _container.Resolve<IAuthentication>();
         }
