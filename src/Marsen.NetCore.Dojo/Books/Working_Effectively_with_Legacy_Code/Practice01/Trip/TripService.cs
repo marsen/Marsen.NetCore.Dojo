@@ -16,12 +16,13 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
                 if (Enumerable.Contains(user.GetFriends(), GetLoggedUser()))
                 {
                     isFriend = true;
-                }
-
-                if (isFriend)
-                {
                     tripList = TripDao.FindTripsByUser(user);
                 }
+
+                //if (isFriend)
+                //{
+                //    tripList = TripDao.FindTripsByUser(user);
+                //}
 
                 return tripList;
             }
