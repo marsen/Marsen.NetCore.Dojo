@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Marsen.NetCore.Dojo\Marsen.NetCore.Dojo.csproj" />
+    <ProjectReference Include="..\..\src\Marsen.NetCore.Dojo\Marsen.NetCore.Dojo.csproj" />
   </ItemGroup>
 
   <ItemGroup>
