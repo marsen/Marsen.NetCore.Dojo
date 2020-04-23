@@ -65,6 +65,7 @@
 4. 消除無用代碼
 5. 消除回傳值的暫存變數 
 6. 簡化 if else
+7. Extract Method GetUserTripsList 與 IsUserFriendsContainsLoggedUser
 
 
 
