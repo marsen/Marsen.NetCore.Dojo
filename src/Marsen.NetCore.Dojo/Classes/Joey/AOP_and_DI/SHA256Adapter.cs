@@ -16,8 +16,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
                 hash.Append(theByte.ToString("x2"));
             }
 
-            var hashedPassword = hash.ToString();
-            return hashedPassword;
+            return hash.ToString();
         }
     }
 }
