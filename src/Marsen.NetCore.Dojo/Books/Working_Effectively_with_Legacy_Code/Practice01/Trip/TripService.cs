@@ -9,11 +9,11 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
         public List<Trip> GetTripsByUser(User user)
         {
             List<Trip> tripList = new List<Trip>();
-            Users.User loggedUser = GetLoggedUser();
+            var loggedUser = GetLoggedUser();
             bool isFriend = false;
             if (loggedUser != null)
             {
-                foreach (Users.User friend in user.GetFriends())
+                foreach (User friend in user.GetFriends())
                 {
                     if (friend.Equals(loggedUser))
                     {
@@ -35,7 +35,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             }
         }
 
-        protected virtual Users.User GetLoggedUser()
+        protected virtual User GetLoggedUser()
         {
             return UserSession.GetInstance().GetLoggedUser();
         }
