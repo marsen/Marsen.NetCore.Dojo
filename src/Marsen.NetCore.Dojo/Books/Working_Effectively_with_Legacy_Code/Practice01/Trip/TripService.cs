@@ -25,7 +25,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             }
         }
 
-        private static List<Trip> GetTripsList(User user)
+        protected virtual List<Trip> GetTripsList(User user)
         {
             return TripDao.FindTripsByUser(user);
         }
