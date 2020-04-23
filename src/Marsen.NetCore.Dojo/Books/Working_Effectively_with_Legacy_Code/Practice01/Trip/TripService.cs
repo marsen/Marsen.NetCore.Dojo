@@ -10,19 +10,12 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
         public List<Trip> GetTripsByUser(User user)
         {
             List<Trip> tripList = new List<Trip>();
-            bool isFriend = false;
             if (GetLoggedUser() != null)
             {
                 if (Enumerable.Contains(user.GetFriends(), GetLoggedUser()))
                 {
-                    isFriend = true;
                     tripList = TripDao.FindTripsByUser(user);
                 }
-
-                //if (isFriend)
-                //{
-                //    tripList = TripDao.FindTripsByUser(user);
-                //}
 
                 return tripList;
             }

@@ -62,6 +62,7 @@
 1. 將 foreach 改為 LINQ.Expression
 2. 消除暫存變數 loggedUser
 3. 移除多餘的條件邏輯
+4. 消除無用代碼
 
 
 
