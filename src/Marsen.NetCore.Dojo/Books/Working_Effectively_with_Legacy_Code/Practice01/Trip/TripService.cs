@@ -9,12 +9,9 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
     {
         public List<Trip> GetTripsByUser(User user)
         {
-            if (GetLoggedUser() != null)
-            {
-                return GetUserTripsList(user);
-            }
+            if (GetLoggedUser() == null) throw new UserNotLoggedInException();
+            return GetUserTripsList(user);
 
-            throw new UserNotLoggedInException();
         }
 
         private List<Trip> GetUserTripsList(User user)
