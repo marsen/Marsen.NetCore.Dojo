@@ -60,6 +60,7 @@
 接下來就可以重構了。
 
 1. 將 foreach 改為 LINQ.Expression
+2. 消除暫存變數 loggedUser
 
 
 
