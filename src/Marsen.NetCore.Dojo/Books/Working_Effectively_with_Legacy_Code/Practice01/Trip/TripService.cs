@@ -14,15 +14,12 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
                 if (Enumerable.Contains(user.GetFriends(), GetLoggedUser()))
                 {
                     return GetTripsList(user);
-                    //tripList = GetTripsList(user);
                 }
 
                 return new List<Trip>();
             }
-            else
-            {
-                throw new UserNotLoggedInException();
-            }
+
+            throw new UserNotLoggedInException();
         }
 
         protected virtual List<Trip> GetTripsList(User user)
