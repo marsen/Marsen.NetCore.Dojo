@@ -14,7 +14,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             {
                 if (Enumerable.Contains(user.GetFriends(), GetLoggedUser()))
                 {
-                    tripList = TripDao.FindTripsByUser(user);
+                    tripList = GetTripsList(user);
                 }
 
                 return tripList;
@@ -23,6 +23,11 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             {
                 throw new UserNotLoggedInException();
             }
+        }
+
+        private static List<Trip> GetTripsList(User user)
+        {
+            return TripDao.FindTripsByUser(user);
         }
 
         protected virtual User GetLoggedUser()
