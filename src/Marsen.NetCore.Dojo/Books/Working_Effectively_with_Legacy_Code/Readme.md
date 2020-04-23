@@ -59,16 +59,16 @@
 上面的測試，我使用了 Stub 的技法墊開了原始類別，達到最小化的改動，
 接下來就可以重構了。
 
-1. 將 foreach 改為 LINQ.Expression
-2. 消除暫存變數 loggedUser
-3. 移除多餘的條件邏輯
-4. 消除無用代碼
-5. 消除回傳值的暫存變數 
-6. 簡化 if else
-7. Extract Method GetUserTripsList 與 IsUserFriendsContainsLoggedUser
-8. 正向表示 if 判斷式
-9. Extract Method IsLogin
-10. 消除 if
+1. [將 foreach 改為 LINQ.Expression](https://github.com/marsen/Marsen.NetCore.Dojo/commit/f00119155ad418e43428995cd9a27891c85a404c)
+2. [消除暫存變數 loggedUser](https://github.com/marsen/Marsen.NetCore.Dojo/commit/3d3ca3e437e988f6c72266a020863697b70337e5)
+3. [移除多餘的條件邏輯](https://github.com/marsen/Marsen.NetCore.Dojo/commit/b20d4cc107fb4cfebaaa6b43cf1b5332667982f8)
+4. [消除無用代碼](https://github.com/marsen/Marsen.NetCore.Dojo/commit/97e77cdce45c0dc897101c09d2be5c1af46c3c60)
+5. [消除回傳值的暫存變數](https://github.com/marsen/Marsen.NetCore.Dojo/commit/374e4210aa6b6b9ea3bc231a8c415cd14f2905d9) 
+6. [簡化 if else](https://github.com/marsen/Marsen.NetCore.Dojo/commit/18aee0c55a49e828a2155af0ce1b6d4add13d60e)
+7. [Extract Method GetUserTripsList 與 IsUserFriendsContainsLoggedUser](https://github.com/marsen/Marsen.NetCore.Dojo/commit/86c15f69c45e1a261fe45e85b2f7a7182b4dd8aa)
+8. ~~正向表示 if 判斷式~~
+9. [Extract Method IsLogin](https://github.com/marsen/Marsen.NetCore.Dojo/commit/05815341b7d73b313529e70de991234b3bfc6c49)
+10. [消除 if](https://github.com/marsen/Marsen.NetCore.Dojo/commit/a2db909ff80ad33bdf1f5942e1d1ef25b9312255)
 
 
 
