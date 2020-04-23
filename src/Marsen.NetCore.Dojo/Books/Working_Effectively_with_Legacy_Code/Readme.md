@@ -68,6 +68,7 @@
 7. Extract Method GetUserTripsList 與 IsUserFriendsContainsLoggedUser
 8. 正向表示 if 判斷式
 9. Extract Method IsLogin
+10. 消除 if
 
 
 

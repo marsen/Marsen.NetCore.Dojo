@@ -9,9 +9,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
     {
         public List<Trip> GetTripsByUser(User user)
         {
-            if (IsLogin()) return GetUserTripsList(user);
-            throw new UserNotLoggedInException();
-
+            return IsLogin() ? GetUserTripsList(user) : throw new UserNotLoggedInException();
         }
 
         private bool IsLogin()
