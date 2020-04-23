@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState
+﻿namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code.PriceState
 {
     public class NewReleasePrice : Price
     {

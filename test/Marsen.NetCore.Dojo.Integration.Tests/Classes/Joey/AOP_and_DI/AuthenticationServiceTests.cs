@@ -2,6 +2,7 @@ using System;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
+using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Exceptions;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 using NSubstitute;
 using Xunit;

@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Refactoring_Improving_The_Design_of_Existing_Code.PriceState;
+﻿using Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code.PriceState;
 
 namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code
 {
@@ -13,7 +13,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
         public Movie(string title, MoveType moveType)
         {
             _title = title;
-            SetPriceCode((MoveType) moveType);
+            SetPriceCode(moveType);
         }
 
         public void SetPriceCode(MoveType arg)
