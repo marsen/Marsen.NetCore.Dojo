@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Exception;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Users;
 
@@ -13,13 +14,9 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             bool isFriend = false;
             if (loggedUser != null)
             {
-                foreach (User friend in user.GetFriends())
+                if (Enumerable.Contains(user.GetFriends(), loggedUser))
                 {
-                    if (friend.Equals(loggedUser))
-                    {
-                        isFriend = true;
-                        break;
-                    }
+                    isFriend = true;
                 }
 
                 if (isFriend)
