@@ -2,16 +2,16 @@
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Exception;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Trip;
-using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.User;
+using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Users;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
 {
-    public class TripServiceTest
+    public class TripServiceTests
     {
         private readonly StubTripService _target;
 
-        public TripServiceTest()
+        public TripServiceTests()
         {
             _target = new StubTripService();
         }
@@ -24,7 +24,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
             act.Should().Throw<UserNotLoggedInException>();
         }
 
-
         [Fact]
         public void EmptyList_Not_Friend()
         {
@@ -32,7 +31,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
             var actual = _target.GetTripsByUser(new User());
             actual.Should().BeNullOrEmpty();
         }
-
     }
 
     internal class StubTripService : TripService

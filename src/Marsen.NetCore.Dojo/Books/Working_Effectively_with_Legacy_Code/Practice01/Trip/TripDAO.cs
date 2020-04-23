@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
 {
     public class TripDao
     {
-        public static List<Trip> FindTripsByUser(User.User user)
+        public static List<Trip> FindTripsByUser(Users.User user)
         {
             throw new DependentClassCallDuringUnitTestException(
                         "TripDAO should not be invoked on an unit test.");

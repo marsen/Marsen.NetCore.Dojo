@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Exception;
-using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.User;
+using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Users;
 
 namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Trip
 {
     public class TripService
     {
-        public List<Trip> GetTripsByUser(User.User user)
+        public List<Trip> GetTripsByUser(User user)
         {
-            List<Trip> tripList = new List<Practice01.Trip.Trip>();
-            User.User loggedUser = GetLoggedUser();
+            List<Trip> tripList = new List<Trip>();
+            Users.User loggedUser = GetLoggedUser();
             bool isFriend = false;
             if (loggedUser != null)
             {
-                foreach (User.User friend in user.GetFriends())
+                foreach (Users.User friend in user.GetFriends())
                 {
                     if (friend.Equals(loggedUser))
                     {
@@ -35,7 +35,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             }
         }
 
-        protected virtual User.User GetLoggedUser()
+        protected virtual Users.User GetLoggedUser()
         {
             return UserSession.GetInstance().GetLoggedUser();
         }
