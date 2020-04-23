@@ -9,15 +9,15 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
     {
         public List<Trip> GetTripsByUser(User user)
         {
-            List<Trip> tripList = new List<Trip>();
             if (GetLoggedUser() != null)
             {
                 if (Enumerable.Contains(user.GetFriends(), GetLoggedUser()))
                 {
-                    tripList = GetTripsList(user);
+                    return GetTripsList(user);
+                    //tripList = GetTripsList(user);
                 }
 
-                return tripList;
+                return new List<Trip>();
             }
             else
             {
