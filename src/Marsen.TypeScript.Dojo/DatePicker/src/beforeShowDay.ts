@@ -1,7 +1,7 @@
 
 export default class beforeShowDay {
     static blockDateList:string[] = [];
-    static IsShow(date: Date):Array<Boolean> {
+    static IsShow(date: Date):Array<boolean> {
         var day = date.getDay();
         var now = this.GetToday();
         if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW').replace(/\//g,'-')).length > 0){
@@ -15,7 +15,7 @@ export default class beforeShowDay {
             return this.RestDays(date,now,3);
         }
         if(now.getDay()==0){
-            return this.RestDays(date,now,2);;
+            return this.RestDays(date,now,2);
         }
         
         if(now.getHours() >= 12){
