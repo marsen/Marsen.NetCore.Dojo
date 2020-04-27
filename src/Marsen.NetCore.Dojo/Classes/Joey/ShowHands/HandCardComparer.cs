@@ -6,61 +6,43 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
     public class HandCardComparer : IComparer<HandCard>
     {
+        private readonly Dictionary<SuitEnum, string> _suitLookup = new Dictionary<SuitEnum, string>
+        {
+            {SuitEnum.C, "Club"},
+            {SuitEnum.S, "Spades"},
+            {SuitEnum.D, "Diamond"},
+            {SuitEnum.H, "Heart"},
+        };
+
         public int Compare(HandCard x, HandCard y)
         {
-            var suitLookup = new Dictionary<SuitEnum, string>
-            {
-                {SuitEnum.C, "Club"},
-                {SuitEnum.S, "Spades"},
-                {SuitEnum.D, "Diamond"},
-                {SuitEnum.H, "Heart"},
-            };
-
             if (x.GetCategory() == y.GetCategory())
             {
                 Category = x.GetCategory();
-                if (Category == Category.HighCard)
+                switch (Category)
                 {
-                    var first = x.GetKeyCard().Zip(
-                        y.GetKeyCard(),
-                        (c, d) =>
+                    case Category.HighCard:
+                    {
+                        return HighCardCompare(x, y);
+                    }
+                    case Category.TwoPair when KeyCardRankCompare(x, y) == 0:
+                    {
+                        if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
                         {
-                            if (c.Rank == d.Rank && c.Suit == d.Suit)
-                                return Tuple.Create<int, Card>(0, c);
-                            else if (c.Rank == d.Rank && c.Suit > d.Suit)
-                                return Tuple.Create<int, Card>(c.Suit - d.Suit, c);
-                            else if (c.Rank == d.Rank && d.Suit > c.Suit)
-                                return Tuple.Create<int, Card>(c.Suit - d.Suit, d);
-                            else
-                                return Tuple.Create<int, Card>(c.Rank - d.Rank, c);
-                        }).First(k => k.Item1 != 0);
-                    if (first != null)
-                    {
-                        Suit = suitLookup[first.Item2.Suit];
-                        return first.Item1;
-                    }
+                            Suit = x.GetSuit();
+                            return 1;
+                        }
 
-                    return 0;
-                }
+                        if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
+                        {
+                            Suit = y.GetSuit();
+                            return -1;
+                        }
 
-                if (Category == Category.OnePair)
-                {
-                }
-
-                if (Category == Category.TwoPair && KeyCardRankCompare(x, y) == 0)
-                {
-                    if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
-                    {
-                        Suit = x.GetSuit();
-                        return 1;
-                    }
-
-                    if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
-                    {
-                        Suit = y.GetSuit();
-                        return -1;
+                        break;
                     }
                 }
+
 
                 if (Category == Category.StraightFlush || Category == Category.FourOfAKind ||
                     Category == Category.Flush)
@@ -90,6 +72,29 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 
             Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
             return x.GetCategory() - y.GetCategory();
+        }
+
+        private int HighCardCompare(HandCard x, HandCard y)
+        {
+            var first = x.GetKeyCard().Zip(
+                y.GetKeyCard(),
+                (c, d) =>
+                {
+                    if (c.Rank == d.Rank && c.Suit == d.Suit)
+                        return Tuple.Create<int, Card>(0, c);
+                    if (c.Rank == d.Rank && c.Suit > d.Suit)
+                        return Tuple.Create<int, Card>(c.Suit - d.Suit, c);
+                    if (c.Rank == d.Rank && d.Suit > c.Suit)
+                        return Tuple.Create<int, Card>(c.Suit - d.Suit, d);
+                    return Tuple.Create<int, Card>(c.Rank - d.Rank, c);
+                }).First(k => k.Item1 != 0);
+            if (first != null)
+            {
+                Suit = _suitLookup[first.Item2.Suit];
+                return first.Item1;
+            }
+
+            return 0;
         }
 
         public string Suit { get; set; }
