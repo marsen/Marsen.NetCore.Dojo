@@ -12,7 +12,7 @@ jobs:
       with:
         dotnet-version: 3.1.100
     - name: Install Dotnet Sonarscanner	
-      run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0      
+      run: dotnet tool install --global dotnet-sonarscanner      
     - name: SonarScanner Begin    
       run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN       
     - name: Build with dotnet
