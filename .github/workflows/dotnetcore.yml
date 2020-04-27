@@ -19,5 +19,6 @@ jobs:
       run: dotnet build ".\Marsen.NetCore.Dojo.Integration.Test.sln"    
     - name: SonarScanner End
       run: dotnet sonarscanner end /d:"sonar.login="$SONAR_LOGIN 
-    env: 
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
