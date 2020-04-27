@@ -23,5 +23,5 @@ jobs:
     - name: Install TypeScript	
       run: npm install typescript 	
     - name: SonarCloud Scan	
-      run: sonar-scanner -D"sonar.organization=marsen-github" -D"sonar.projectKey=marsen_Marsen.NetCore.Dojo" -D"sonar.sources=./src/" -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=${{ secrets.SONAR_LOGIN }}"
+      uses: SonarSource/sonarcloud-github-action@v1.1
       
