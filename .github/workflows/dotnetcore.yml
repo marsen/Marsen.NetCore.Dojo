@@ -20,6 +20,6 @@ jobs:
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0      
     - name: where sonarscanner    
-      run: where sonarscanner
-    - name: where dotnet-sonarscanner
       run: where dotnet-sonarscanner
+    - name: where dotnet-sonarscanner      
+      run: where sonarscanner        
