@@ -19,5 +19,7 @@ jobs:
       run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx        
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0      
+    - name: where sonarscanner    
       run: where sonarscanner
+    - name: where dotnet-sonarscanner
       run: where dotnet-sonarscanner
