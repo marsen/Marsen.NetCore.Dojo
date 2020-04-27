@@ -16,8 +16,7 @@ jobs:
     - name: SonarScanner Begin    
       run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN       
     - name: Build with dotnet
-      run: dotnet build Marsen.NetCore.Dojo.sln --configuration Release    
-    - name: SonarScanner End
-      run: dotnet sonarscanner end /d:"sonar.login="$SONAR_LOGIN
+      run: dotnet build ".\Marsen.NetCore.Dojo.Integration.Test.sln"    
+
     env: 
       SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
