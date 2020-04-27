@@ -22,59 +22,66 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 switch (Category)
                 {
                     case Category.HighCard:
-                    {
                         return HighCardCompare(x, y);
-                    }
                     case Category.TwoPair:
-                    {
-                        if (KeyCardRankCompare(x, y) == 0)
-                        {
-                            if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
-                            {
-                                Suit = x.GetSuit();
-                            }
-
-                            if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
-                            {
-                                Suit = y.GetSuit();
-                            }
-
-                            return x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit;
-                        }
-
-                        break;
-                    }
+                        return TwoPairCompare(x, y);
+                    case Category.OnePair:
+                    case Category.Straight:
+                        return KeyCardRankCompare(x, y);
+                    default:
+                        return NormalCompare(x, y);
                 }
-
-
-                if (Category == Category.StraightFlush || Category == Category.FourOfAKind ||
-                    Category == Category.Flush)
-                {
-                    if (KeyCardRankCompare(x, y) == 0)
-                    {
-                        if (x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
-                            y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit > 0)
-                        {
-                            Suit = x.GetSuit();
-                            return 1;
-                        }
-
-                        if (x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
-                            y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit < 0)
-                        {
-                            Suit = y.GetSuit();
-                            return -1;
-                        }
-
-                        return 0;
-                    }
-                }
-
-                return KeyCardRankCompare(x, y);
             }
 
+            return CategoryCompare(x, y);
+        }
+
+        private int CategoryCompare(HandCard x, HandCard y)
+        {
             Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
             return x.GetCategory() - y.GetCategory();
+        }
+
+        private int NormalCompare(HandCard x, HandCard y)
+        {
+            if (KeyCardRankCompare(x, y) == 0)
+            {
+                if (x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
+                    y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit > 0)
+                {
+                    Suit = x.GetSuit();
+                    return 1;
+                }
+
+                if (x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
+                    y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit < 0)
+                {
+                    Suit = y.GetSuit();
+                    return -1;
+                }
+            }
+
+            return KeyCardRankCompare(x, y);
+        }
+
+        private int TwoPairCompare(HandCard x, HandCard y)
+        {
+            if (KeyCardRankCompare(x, y) == 0)
+            {
+                if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
+                {
+                    Suit = x.GetSuit();
+                }
+
+                if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
+                {
+                    Suit = y.GetSuit();
+                }
+
+                return x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit;
+            }
+
+            return KeyCardRankCompare(x, y);
         }
 
         private int HighCardCompare(HandCard x, HandCard y)
