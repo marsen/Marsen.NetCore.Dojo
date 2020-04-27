@@ -16,11 +16,7 @@ jobs:
     - name: Test with dotnet
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --logger:trx;LogFileName=result.trx
     - name: Integration Test with dotnet
-      run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx
-  sonarcloud:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2       
+      run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx     
     - name: Install TypeScript	
       run: npm install typescript        
     - name: SonarCloud Scan
