@@ -25,18 +25,21 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                     {
                         return HighCardCompare(x, y);
                     }
-                    case Category.TwoPair when KeyCardRankCompare(x, y) == 0:
+                    case Category.TwoPair:
                     {
-                        if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
+                        if (KeyCardRankCompare(x, y) == 0)
                         {
-                            Suit = x.GetSuit();
-                            return 1;
-                        }
+                            if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
+                            {
+                                Suit = x.GetSuit();
+                            }
 
-                        if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
-                        {
-                            Suit = y.GetSuit();
-                            return -1;
+                            if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
+                            {
+                                Suit = y.GetSuit();
+                            }
+
+                            return x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit;
                         }
 
                         break;
