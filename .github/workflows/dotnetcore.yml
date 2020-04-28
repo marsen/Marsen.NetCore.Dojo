@@ -19,8 +19,8 @@ jobs:
       run: dotnet build ".\Marsen.NetCore.Dojo.Integration.Test.sln"   
     - name: UnitTest Result
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --logger:trx;LogFileName=result.trx
-    - name: UnitTest Coverage
-      run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --collect:"XPlat Code Coverage" --settings .coverlet       
+#    - name: UnitTest Coverage
+#      run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --collect:"XPlat Code Coverage" --settings .coverlet       
     - name: Integration Test with dotnet
       run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx 
     - name: SonarScanner End
