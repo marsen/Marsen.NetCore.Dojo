@@ -50,15 +50,15 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                     y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit > 0)
                 {
                     Suit = x.GetSuit();
-                    return 1;
                 }
-
-                if (x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
-                    y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit < 0)
+                else
                 {
                     Suit = y.GetSuit();
-                    return -1;
                 }
+
+
+                return x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
+                       y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit;
             }
 
             return KeyCardRankCompare(x, y);
