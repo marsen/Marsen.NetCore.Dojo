@@ -3,18 +3,15 @@ name: .NET Core
 on: [push]
 
 jobs:
-  prepare:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.100
-      - name: Install Dotnet Sonarscanner	
-        run: dotnet tool install --global dotnet-sonarscanner  
-  build:    
-    runs-on: ubuntu-latest
-    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.100
+    - name: Install Dotnet Sonarscanner	
+      run: dotnet tool install --global dotnet-sonarscanner  
     - uses: actions/checkout@master    
     - name: SonarScanner Begin    
       run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN       
