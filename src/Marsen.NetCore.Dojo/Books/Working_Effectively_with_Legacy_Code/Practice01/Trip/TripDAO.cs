@@ -3,12 +3,12 @@ using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.
 
 namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Trip
 {
-    public class TripDao
+    public static class TripDao
     {
         public static List<Trip> FindTripsByUser(Users.User user)
         {
             throw new DependentClassCallDuringUnitTestException(
-                        "TripDAO should not be invoked on an unit test.");
+                "TripDAO should not be invoked on an unit test.");
         }
     }
 }
