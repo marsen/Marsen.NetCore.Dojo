@@ -16,7 +16,11 @@ jobs:
     - name: SonarScanner Begin    
       run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN       
     - name: Build with dotnet
-      run: dotnet build ".\Marsen.NetCore.Dojo.Integration.Test.sln"    
+      run: dotnet build ".\Marsen.NetCore.Dojo.Integration.Test.sln"   
+    - name: Test with dotnet
+      run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --logger:trx;LogFileName=result.trx
+    - name: Integration Test with dotnet
+      run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx 
     - name: SonarScanner End
       run: dotnet sonarscanner end /d:"sonar.login="$SONAR_LOGIN 
     env:
