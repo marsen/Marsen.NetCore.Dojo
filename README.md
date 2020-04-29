@@ -23,7 +23,7 @@ For Kata
 - Vim
   - Rider
   - Resharp
-  - typing
+- Typing
 - Pair
   - Learn from others  
 - CI/CD Tools
