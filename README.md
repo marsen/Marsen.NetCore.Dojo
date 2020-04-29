@@ -3,7 +3,7 @@
 ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/.NET%20Core/badge.svg)
 [![Travis CI](https://travis-ci.com/marsen/Marsen.NetCore.Dojo.svg?branch=master)](https://travis-ci.com/marsen/Marsen.NetCore.Dojo)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=marsen_Marsen.NetCore.Dojo&metric=alert_status)](https://sonarcloud.io/dashboard?id=marsen_Marsen.NetCore.Dojo)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=marsen_Marsen.NetCore.Dojo)](https://sonarcloud.io/dashboard?id=marsen_Marsen.NetCore.Dojo)
 
 ## Test Result
 
@@ -29,4 +29,8 @@ For Kata
 - CI/CD Tools
   - Github Action `PROCESSING`
   - Travis CI `PENDING`
-  - SounarCloud `TODO`
+  - SounarCloud
+    - [x] C# Unit Test
+    - [x] C# Coverage
+    - [ ] TS Unit Test
+    - [ ] TS Coverage
