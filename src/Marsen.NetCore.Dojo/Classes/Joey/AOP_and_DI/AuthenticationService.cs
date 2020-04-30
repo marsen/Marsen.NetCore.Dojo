@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
         public AuthenticationService()
         {
             _userDao = new UserDao();
-            _hashAdapter = new SHA256Adapter();
+            _hashAdapter = new Sha256Adapter();
             _otpServer = new OtpServer();
         }
 
