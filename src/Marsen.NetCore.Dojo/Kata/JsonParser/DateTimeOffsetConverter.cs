@@ -11,13 +11,12 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options) =>
-            DateTime.ParseExact(reader.GetString(), "yyyy/MM/dd",CultureInfo.InvariantCulture);
+            DateTime.ParseExact(reader.GetString(), "yyyy/MM/dd", CultureInfo.InvariantCulture);
 
         public override void Write(
             Utf8JsonWriter writer,
             DateTime value,
             JsonSerializerOptions options) =>
-            writer.WriteStringValue(value.ToString(
-                "yyyy/MM/dd", CultureInfo.InvariantCulture));
+            writer.WriteStringValue(value.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture));
     }
 }
