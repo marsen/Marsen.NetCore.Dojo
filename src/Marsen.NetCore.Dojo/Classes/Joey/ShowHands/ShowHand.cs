@@ -46,8 +46,17 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 
         private string GetKeyCardInfo(HandCardComparer comparer)
         {
-            return comparer.KeyCard > 0             ? $", Key Card {KeyCardDisplay(comparer.KeyCard)}" :
-                string.IsNullOrEmpty(comparer.Suit) ? string.Empty : $", And {comparer.Suit}";
+            return comparer.KeyCard > 0 ? KeyCardInfo(comparer) : SuitInfo(comparer);
+        }
+
+        private static string SuitInfo(HandCardComparer comparer)
+        {
+            return string.IsNullOrEmpty(comparer.Suit) ? string.Empty : $", And {comparer.Suit}";
+        }
+
+        private string KeyCardInfo(HandCardComparer comparer)
+        {
+            return $", Key Card {KeyCardDisplay(comparer.KeyCard)}";
         }
 
         private string KeyCardDisplay(int firstKeyCard)
