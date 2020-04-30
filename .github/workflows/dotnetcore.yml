@@ -10,6 +10,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.100
+    - name: Install Dotnet Stryker
+      run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
     - uses: actions/checkout@master    
