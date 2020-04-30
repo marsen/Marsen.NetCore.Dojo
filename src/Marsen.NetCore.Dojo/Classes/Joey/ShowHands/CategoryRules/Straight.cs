@@ -7,7 +7,6 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
     {
         private const string AllCard = "1,2,3,4,5,6,7,8,9,10,11,12,13,14";
 
-
         public bool Apply(List<Card> cardList)
         {
             var orderedRank = string.Join(',', cardList.OrderBy(x => x.Rank).Select(x => x.Rank));

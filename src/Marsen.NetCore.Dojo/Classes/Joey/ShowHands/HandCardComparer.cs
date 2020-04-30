@@ -23,11 +23,14 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 {
                     case Category.HighCard:
                         return HighCardCompare(x, y);
+
                     case Category.TwoPair:
                         return TwoPairCompare(x, y);
+
                     case Category.OnePair:
                     case Category.Straight:
                         return KeyCardRankCompare(x, y);
+
                     default:
                         return NormalCompare(x, y);
                 }
@@ -38,7 +41,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 
         private int CategoryCompare(HandCard x, HandCard y)
         {
-            Category = (Category) Math.Max((int) x.GetCategory(), (int) y.GetCategory());
+            Category = (Category)Math.Max((int)x.GetCategory(), (int)y.GetCategory());
             return x.GetCategory() - y.GetCategory();
         }
 
@@ -55,7 +58,6 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 {
                     Suit = y.GetSuit();
                 }
-
 
                 return x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
                        y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit;

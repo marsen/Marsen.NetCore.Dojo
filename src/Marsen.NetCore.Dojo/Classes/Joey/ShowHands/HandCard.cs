@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
+using System.Collections.Generic;
 using System.Linq;
-using Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
     public class HandCard
     {
         private readonly List<Card> _cardList;
-
 
         public HandCard(List<Card> parse)
         {
@@ -38,7 +37,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 .GroupBy(x => x.Rank)
                 .OrderBy(x => x.Count())
                 .ThenByDescending(x => x.Key)
-                .Select(x => new Card {Rank = x.Key, Suit = x.Max(y => y.Suit)});
+                .Select(x => new Card { Rank = x.Key, Suit = x.Max(y => y.Suit) });
         }
 
         public string GetSuit()
