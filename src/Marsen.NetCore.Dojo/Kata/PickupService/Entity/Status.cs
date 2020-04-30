@@ -1,6 +1,6 @@
 ﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity
 {
-    public enum StatusEnum
+    public enum Status
     {
         Finish,
         Processing,
@@ -8,4 +8,3 @@
         Abnormal
     }
 }
-

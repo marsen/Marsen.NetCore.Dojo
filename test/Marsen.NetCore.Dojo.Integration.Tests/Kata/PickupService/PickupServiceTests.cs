@@ -41,14 +41,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         public void Case1_Query_Done_waybillNo()
         {
             var actual = QueryWaybillNoWith(UrlMockDone);
-            actual.Should().Be(StatusEnum.Finish);
+            actual.Should().Be(Status.Finish);
         }
 
         [Fact]
         public void Case2_Query_Shipping_waybillNo()
         {
             var actual = QueryWaybillNoWith(UrlMockShipping);
-            actual.Should().Be(StatusEnum.Processing);
+            actual.Should().Be(Status.Processing);
         }
 
 
@@ -56,7 +56,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         public void Case3_Query_FAIL_waybillNo()
         {
             var actual = QueryWaybillNoWith(UrlMockFAIL);
-            actual.Should().Be(StatusEnum.Abnormal);
+            actual.Should().Be(Status.Abnormal);
         }
 
 
@@ -64,14 +64,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         public void Case4_Query_Expiry_waybillNo()
         {
             var actual = QueryWaybillNoWith(UrlMockExpiry);
-            actual.Should().Be(StatusEnum.Abnormal);
+            actual.Should().Be(Status.Abnormal);
         }
 
         [Fact]
         public void Case5_Query_Arrived_waybillNo()
         {
             var actual = QueryWaybillNoWith(UrlMockArrived);
-            actual.Should().Be(StatusEnum.Arrived);
+            actual.Should().Be(Status.Arrived);
         }
 
 
@@ -112,7 +112,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         }
 
 
-        private StatusEnum? QueryWaybillNoWith(string url)
+        private Status? QueryWaybillNoWith(string url)
         {
             GetPickupServiceWith(url);
             return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;

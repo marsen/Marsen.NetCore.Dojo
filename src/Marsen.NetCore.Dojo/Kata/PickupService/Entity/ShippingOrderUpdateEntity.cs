@@ -23,6 +23,6 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity
         /// <value>
         /// The status.
         /// </value>
-        public StatusEnum? Status { get; set; }
+        public Status? Status { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
 using Marsen.NetCore.Dojo.Kata.PickupService.Interface;
 using Microsoft.Extensions.Logging;
+using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.Status;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
 
@@ -64,21 +65,21 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService
                     };
                     switch (c.Status)
                     {
-                        case Status.DONE:
-                            shippingOrderUpdateEntity.Status = StatusEnum.Finish;
+                        case Entity.PickupService.Status.DONE:
+                            shippingOrderUpdateEntity.Status = Status.Finish;
                             break;
 
-                        case Status.Shipping:
-                            shippingOrderUpdateEntity.Status = StatusEnum.Processing;
+                        case Entity.PickupService.Status.Shipping:
+                            shippingOrderUpdateEntity.Status = Status.Processing;
                             break;
 
-                        case Status.FAIL:
-                        case Status.Expiry:
-                            shippingOrderUpdateEntity.Status = StatusEnum.Abnormal;
+                        case Entity.PickupService.Status.FAIL:
+                        case Entity.PickupService.Status.Expiry:
+                            shippingOrderUpdateEntity.Status = Status.Abnormal;
                             break;
 
-                        case Status.Arrived:
-                            shippingOrderUpdateEntity.Status = StatusEnum.Arrived;
+                        case Entity.PickupService.Status.Arrived:
+                            shippingOrderUpdateEntity.Status = Status.Arrived;
                             break;
                     }
 

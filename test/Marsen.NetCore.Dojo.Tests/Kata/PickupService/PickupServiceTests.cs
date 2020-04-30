@@ -11,6 +11,7 @@ using Marsen.NetCore.TestingToolkit;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using Xunit;
+using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.Status;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
 {
@@ -27,35 +28,35 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
         public void OneDoneDataShouldBeFinish()
         {
             var actual = SingleResponse("DONE");
-            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Finish));
+            actual.Should().BeEquivalentTo(SingleEntity(Status.Finish));
         }
 
         [Fact]
         public void OneShippingDataShouldBeProcessing()
         {
             var actual = SingleResponse("Shipping");
-            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Processing));
+            actual.Should().BeEquivalentTo(SingleEntity(Status.Processing));
         }
 
         [Fact]
         public void OneFAILDataShouldBeAbnormal()
         {
             var actual = SingleResponse("FAIL");
-            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
+            actual.Should().BeEquivalentTo(SingleEntity(Status.Abnormal));
         }
 
         [Fact]
         public void OneExpiryDataShouldBeAbnormal()
         {
             var actual = SingleResponse("Expiry");
-            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Abnormal));
+            actual.Should().BeEquivalentTo(SingleEntity(Status.Abnormal));
         }
 
         [Fact]
         public void OneArrivedDataShouldBeArrived()
         {
             var actual = SingleResponse("Arrived");
-            actual.Should().BeEquivalentTo(SingleEntity(StatusEnum.Arrived));
+            actual.Should().BeEquivalentTo(SingleEntity(Status.Arrived));
         }
 
         [Fact]
@@ -113,7 +114,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
             _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
         }
 
-        private static List<ShippingOrderUpdateEntity> SingleEntity(StatusEnum status)
+        private static List<ShippingOrderUpdateEntity> SingleEntity(Status status)
         {
             return new List<ShippingOrderUpdateEntity>
             {
@@ -139,7 +140,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
                                     new Content
                                     {
                                         ErrorCode = string.Empty,
-                                        Status = (Status) Enum.Parse(typeof(Status), status),
+                                        Status = (Dojo.Kata.PickupService.Entity.PickupService.Status) Enum.Parse(typeof(Dojo.Kata.PickupService.Entity.PickupService.Status), status),
                                         LastStatusDate = "2020-03-03",
                                         LastStatusTime = "17:51:20",
                                         WaybillNo = "TestWayBillNo"
