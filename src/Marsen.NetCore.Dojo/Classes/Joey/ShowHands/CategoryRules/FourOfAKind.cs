@@ -9,7 +9,9 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
         {
             return cardList
                 .GroupBy(x => x.Rank)
-                .Select(g => new {Count = g.Count(), Rank = g.Key}).ToList().Any(x => x.Count == 4);
+                .Select(g => new {Count = g.Count(), Rank = g.Key})
+                .AsEnumerable()
+                .Any(x => x.Count == 4);
         }
 
         public Category Category => Category.FourOfAKind;
