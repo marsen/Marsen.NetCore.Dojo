@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Kata.Tennis
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 {
     public class TennisGame
     {
@@ -31,8 +31,18 @@ namespace Marsen.NetCore.Dojo.Kata.Tennis
         public string Score()
         {
             return IsSameScore()
-                ? (IsOverForty() ? DeuceScore() : SameScore())
-                : (IsReadyForWin() ? AdvScore() : NormalScore());
+                ? DrawScore()
+                : SeesawScore();
+        }
+
+        private string SeesawScore()
+        {
+            return IsReadyForWin() ? AdvScore() : NormalScore();
+        }
+
+        private string DrawScore()
+        {
+            return IsOverForty() ? DeuceScore() : SameScore();
         }
 
         private bool IsOverForty()
