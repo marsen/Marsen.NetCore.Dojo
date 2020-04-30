@@ -25,6 +25,8 @@ jobs:
       run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx 
     - name: SonarScanner End
       run: dotnet sonarscanner end /d:"sonar.login="$SONAR_LOGIN 
+    - name: Dotnet Stryker
+      run: dotnet stryker
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
