@@ -43,12 +43,12 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 
         public string GetSuit()
         {
-            var suitLookup = new Dictionary<SuitEnum, string>
+            var suitLookup = new Dictionary<Suit, string>
             {
-                {SuitEnum.C, "Club"},
-                {SuitEnum.S, "Spades"},
-                {SuitEnum.D, "Diamond"},
-                {SuitEnum.H, "Heart"},
+                {Suit.C, "Club"},
+                {Suit.S, "Spades"},
+                {Suit.D, "Diamond"},
+                {Suit.H, "Heart"},
             };
             if (this.GetCategory() == Category.StraightFlush)
             {

@@ -12,7 +12,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
             return cards.Split(',').Select(x => new Card
             {
                 Rank = ParseRank(x.Substring(1)),
-                Suit = Enum.Parse<SuitEnum>(x.Substring(0, 1))
+                Suit = Enum.Parse<Suit>(x.Substring(0, 1))
             }).ToList();
         }
 

@@ -3,6 +3,6 @@
     public class Card
     {
         public int Rank { get; set; }
-        public SuitEnum Suit { get; set; }
+        public Suit Suit { get; set; }
     }
 }

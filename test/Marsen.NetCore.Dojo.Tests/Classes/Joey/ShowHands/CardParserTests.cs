@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
             return input.Split(',').Select(x => new Card
             {
                 Rank = int.Parse(x.Substring(1)),
-                Suit = Enum.Parse<SuitEnum>(x.Substring(0, 1))
+                Suit = Enum.Parse<Suit>(x.Substring(0, 1))
             }).ToList().ToExpectedObject();
         }
 

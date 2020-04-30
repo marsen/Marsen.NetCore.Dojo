@@ -6,12 +6,12 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
     public class HandCardComparer : IComparer<HandCard>
     {
-        private readonly Dictionary<SuitEnum, string> _suitLookup = new Dictionary<SuitEnum, string>
+        private readonly Dictionary<Suit, string> _suitLookup = new Dictionary<Suit, string>
         {
-            {SuitEnum.C, "Club"},
-            {SuitEnum.S, "Spades"},
-            {SuitEnum.D, "Diamond"},
-            {SuitEnum.H, "Heart"},
+            {ShowHands.Suit.C, "Club"},
+            {ShowHands.Suit.S, "Spades"},
+            {ShowHands.Suit.D, "Diamond"},
+            {ShowHands.Suit.H, "Heart"},
         };
 
         public int Compare(HandCard x, HandCard y)

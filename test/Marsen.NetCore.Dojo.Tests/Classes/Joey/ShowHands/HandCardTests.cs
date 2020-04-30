@@ -11,11 +11,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.S},
-                new Card {Rank = 6, Suit = SuitEnum.H},
-                new Card {Rank = 6, Suit = SuitEnum.C},
-                new Card {Rank = 6, Suit = SuitEnum.D},
-                new Card {Rank = 8, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = Suit.S},
+                new Card {Rank = 6, Suit = Suit.H},
+                new Card {Rank = 6, Suit = Suit.C},
+                new Card {Rank = 6, Suit = Suit.D},
+                new Card {Rank = 8, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.FourOfAKind;
@@ -28,11 +28,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.S},
-                new Card {Rank = 7, Suit = SuitEnum.S},
-                new Card {Rank = 8, Suit = SuitEnum.S},
-                new Card {Rank = 9, Suit = SuitEnum.S},
-                new Card {Rank = 10, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = Suit.S},
+                new Card {Rank = 7, Suit = Suit.S},
+                new Card {Rank = 8, Suit = Suit.S},
+                new Card {Rank = 9, Suit = Suit.S},
+                new Card {Rank = 10, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.StraightFlush;
@@ -45,11 +45,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.S},
-                new Card {Rank = 6, Suit = SuitEnum.C},
-                new Card {Rank = 6, Suit = SuitEnum.H},
-                new Card {Rank = 9, Suit = SuitEnum.C},
-                new Card {Rank = 9, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = Suit.S},
+                new Card {Rank = 6, Suit = Suit.C},
+                new Card {Rank = 6, Suit = Suit.H},
+                new Card {Rank = 9, Suit = Suit.C},
+                new Card {Rank = 9, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.FullHouse;
@@ -61,11 +61,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.S},
-                new Card {Rank = 6, Suit = SuitEnum.C},
-                new Card {Rank = 6, Suit = SuitEnum.H},
-                new Card {Rank = 8, Suit = SuitEnum.C},
-                new Card {Rank = 9, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = Suit.S},
+                new Card {Rank = 6, Suit = Suit.C},
+                new Card {Rank = 6, Suit = Suit.H},
+                new Card {Rank = 8, Suit = Suit.C},
+                new Card {Rank = 9, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.ThreeOfAKind;
@@ -77,11 +77,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.S},
-                new Card {Rank = 6, Suit = SuitEnum.C},
-                new Card {Rank = 8, Suit = SuitEnum.H},
-                new Card {Rank = 8, Suit = SuitEnum.C},
-                new Card {Rank = 9, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = Suit.S},
+                new Card {Rank = 6, Suit = Suit.C},
+                new Card {Rank = 8, Suit = Suit.H},
+                new Card {Rank = 8, Suit = Suit.C},
+                new Card {Rank = 9, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.TwoPair;
@@ -93,11 +93,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.S},
-                new Card {Rank = 6, Suit = SuitEnum.C},
-                new Card {Rank = 8, Suit = SuitEnum.H},
-                new Card {Rank = 7, Suit = SuitEnum.C},
-                new Card {Rank = 9, Suit = SuitEnum.S},
+                new Card {Rank = 6, Suit = Suit.S},
+                new Card {Rank = 6, Suit = Suit.C},
+                new Card {Rank = 8, Suit = Suit.H},
+                new Card {Rank = 7, Suit = Suit.C},
+                new Card {Rank = 9, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.OnePair;
@@ -109,11 +109,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 5, Suit = SuitEnum.S},
-                new Card {Rank = 6, Suit = SuitEnum.C},
-                new Card {Rank = 8, Suit = SuitEnum.H},
-                new Card {Rank = 7, Suit = SuitEnum.C},
-                new Card {Rank = 9, Suit = SuitEnum.S},
+                new Card {Rank = 5, Suit = Suit.S},
+                new Card {Rank = 6, Suit = Suit.C},
+                new Card {Rank = 8, Suit = Suit.H},
+                new Card {Rank = 7, Suit = Suit.C},
+                new Card {Rank = 9, Suit = Suit.S},
             });
             var actual = target.GetCategory();
             Category expected = Category.Straight;
@@ -125,11 +125,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 6, Suit = SuitEnum.H},
-                new Card {Rank = 6, Suit = SuitEnum.H},
-                new Card {Rank = 8, Suit = SuitEnum.H},
-                new Card {Rank = 7, Suit = SuitEnum.H},
-                new Card {Rank = 9, Suit = SuitEnum.H},
+                new Card {Rank = 6, Suit = Suit.H},
+                new Card {Rank = 6, Suit = Suit.H},
+                new Card {Rank = 8, Suit = Suit.H},
+                new Card {Rank = 7, Suit = Suit.H},
+                new Card {Rank = 9, Suit = Suit.H},
             });
             var actual = target.GetCategory();
             Category expected = Category.Flush;
@@ -142,11 +142,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 1, Suit = SuitEnum.D},
-                new Card {Rank = 2, Suit = SuitEnum.D},
-                new Card {Rank = 3, Suit = SuitEnum.D},
-                new Card {Rank = 4, Suit = SuitEnum.D},
-                new Card {Rank = 5, Suit = SuitEnum.D},
+                new Card {Rank = 1, Suit = Suit.D},
+                new Card {Rank = 2, Suit = Suit.D},
+                new Card {Rank = 3, Suit = Suit.D},
+                new Card {Rank = 4, Suit = Suit.D},
+                new Card {Rank = 5, Suit = Suit.D},
             });
             var actual = target.GetSuit();
             var expected = "Diamond";
@@ -158,11 +158,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 1, Suit = SuitEnum.S},
-                new Card {Rank = 2, Suit = SuitEnum.S},
-                new Card {Rank = 3, Suit = SuitEnum.S},
-                new Card {Rank = 4, Suit = SuitEnum.S},
-                new Card {Rank = 5, Suit = SuitEnum.S},
+                new Card {Rank = 1, Suit = Suit.S},
+                new Card {Rank = 2, Suit = Suit.S},
+                new Card {Rank = 3, Suit = Suit.S},
+                new Card {Rank = 4, Suit = Suit.S},
+                new Card {Rank = 5, Suit = Suit.S},
             });
             var actual = target.GetSuit();
             var expected = "Spades";
@@ -174,11 +174,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 1, Suit = SuitEnum.H},
-                new Card {Rank = 2, Suit = SuitEnum.H},
-                new Card {Rank = 3, Suit = SuitEnum.H},
-                new Card {Rank = 4, Suit = SuitEnum.H},
-                new Card {Rank = 5, Suit = SuitEnum.H},
+                new Card {Rank = 1, Suit = Suit.H},
+                new Card {Rank = 2, Suit = Suit.H},
+                new Card {Rank = 3, Suit = Suit.H},
+                new Card {Rank = 4, Suit = Suit.H},
+                new Card {Rank = 5, Suit = Suit.H},
             });
             var actual = target.GetSuit();
             var expected = "Heart";
@@ -190,11 +190,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var target = new HandCard(new List<Card>
             {
-                new Card {Rank = 1, Suit = SuitEnum.C},
-                new Card {Rank = 2, Suit = SuitEnum.C},
-                new Card {Rank = 3, Suit = SuitEnum.C},
-                new Card {Rank = 4, Suit = SuitEnum.C},
-                new Card {Rank = 5, Suit = SuitEnum.C},
+                new Card {Rank = 1, Suit = Suit.C},
+                new Card {Rank = 2, Suit = Suit.C},
+                new Card {Rank = 3, Suit = Suit.C},
+                new Card {Rank = 4, Suit = Suit.C},
+                new Card {Rank = 5, Suit = Suit.C},
             });
             var actual = target.GetSuit();
             var expected = "Club";
