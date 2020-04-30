@@ -28,7 +28,7 @@ jobs:
     - name: SonarScanner End
       run: dotnet sonarscanner end /d:"sonar.login="$SONAR_LOGIN 
     - name: Dotnet Stryker
-      run: dotnet stryker -tp "['./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj']"
+      run: dotnet stryker -tp "['./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj']" --project-file="./test/Marsen.NetCore.Dojo/Marsen.NetCore.Dojo.csproj"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
