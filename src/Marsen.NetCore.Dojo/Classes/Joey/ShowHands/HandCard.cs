@@ -37,7 +37,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 .GroupBy(x => x.Rank)
                 .OrderBy(x => x.Count())
                 .ThenByDescending(x => x.Key)
-                .Select(x => new Card { Rank = x.Key, Suit = x.Max(y => y.Suit) });
+                .Select(x => new Card {Rank = x.Key, Suit = x.Max(y => y.Suit)});
         }
 
         public string GetSuit()
@@ -64,12 +64,8 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 return suitLookup[this._cardList.GroupBy(x => x.Rank).OrderBy(x => x.Count()).First().First().Suit];
             }
 
-            if (this.GetCategory() == Category.HighCard)
-            {
-                return suitLookup[this._cardList.OrderBy(x => x.Rank).Last().Suit];
-            }
-
-            return string.Empty;
+            // HighCard 
+            return suitLookup[this._cardList.OrderBy(x => x.Rank).Last().Suit];
         }
     }
 }
