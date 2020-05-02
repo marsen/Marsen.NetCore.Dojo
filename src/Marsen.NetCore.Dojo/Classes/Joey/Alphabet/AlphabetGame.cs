@@ -8,13 +8,13 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Alphabet
     {
         public string Generate(string input)
         {
-            var chars = new List<char>();
+            var temp = new List<string>();
 
             for (int i = 0 ;i < input.Length; i++)
             {
-                chars.Add(Char.ToUpper(input[i]));
+                temp.Add(input.Substring(i,1).ToUpper());
             }
-            return string.Join('-', chars);
+            return string.Join('-', temp);
         }
     }
 }
