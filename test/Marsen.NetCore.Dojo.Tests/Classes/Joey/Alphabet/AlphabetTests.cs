@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.Alphabet;
 using Xunit;
 
@@ -11,14 +12,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Alphabet
         [Fact]
         public void The_A_GetA()
         {
-            Assert.Equal("A", _alphabet.Generate("A"));
+            _alphabet.Generate("A").Should().Be("A");
         }
 
         [Fact]
         public void The_a_GetA()
         {
-            Assert.Equal("A", _alphabet.Generate("a"));
+            _alphabet.Generate("a").Should().Be("A");
         }
-        
     }
 }
