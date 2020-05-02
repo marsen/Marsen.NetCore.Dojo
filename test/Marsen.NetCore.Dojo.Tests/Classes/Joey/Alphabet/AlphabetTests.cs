@@ -26,5 +26,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Alphabet
         {
             _alphabet.Generate("ab").Should().Be("A-Bb");
         }
+
+        [Fact]
+        public void The_abc_Get_A_Bb_Ccc()
+        {
+            _alphabet.Generate("abc").Should().Be("A-Bb-Ccc");
+        }
     }
 }
