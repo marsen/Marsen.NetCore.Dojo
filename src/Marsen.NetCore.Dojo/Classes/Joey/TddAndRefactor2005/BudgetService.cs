@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 {
     public class BudgetService
     {
-        private IBudgetRepo _budgetRepo;
+        private readonly IBudgetRepo _budgetRepo;
 
         public BudgetService(IBudgetRepo budgetRepo)
         {
@@ -50,20 +50,6 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 
             return amount / 30 * totalDays;
 
-        }
-
-
-        private Dictionary<string, int> GetDaysDict(DateTime start, DateTime end)
-        {
-            var diffM = end.Month - start.Month;
-            var result = new Dictionary<string, int>();
-            for (int i = 0; i < diffM + 1; i++)
-            {
-                var date = start.AddMonths(i);
-                result.Add(date.ToString("yyyyMM"), DateTime.DaysInMonth(date.Year, date.Month));
-            }
-
-            return result;
         }
     }
 }
