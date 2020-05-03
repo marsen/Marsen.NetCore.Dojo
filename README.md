@@ -7,9 +7,9 @@
 
 ## Test Result
 
-- Unit Test Result 
+- [x] Unit Test Result 
 
-- Integration Test Result `TODO`
+- [x] Integration Test Result
 
 For Kata
 
