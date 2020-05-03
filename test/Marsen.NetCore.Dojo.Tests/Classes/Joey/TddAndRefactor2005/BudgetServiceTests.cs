@@ -16,7 +16,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
             _budgetService = new BudgetService(_fakeRepo);
         }
 
-        [Fact()]
+        [Fact]
         public void April_OneDay()
         {
             _fakeRepo.SetBudgets(new List<Budget>()
@@ -31,7 +31,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
         }
 
 
-        [Fact()]
+        [Fact]
         public void April_MultiDay()
         {
             _fakeRepo.SetBudgets(new List<Budget>()
@@ -45,7 +45,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
             BudgetShouldBe(5000, new DateTime(2020, 04, 01), new DateTime(2020, 04, 05));
         }
 
-        [Fact()]
+        [Fact]
         public void April_OneMonth()
         {
             _fakeRepo.SetBudgets(new List<Budget>()
@@ -59,7 +59,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
             BudgetShouldBe(60000, new DateTime(2020, 04, 01), new DateTime(2020, 04, 30));
         }
 
-        [Fact()]
+        [Fact]
         public void April_MultiMonth()
         {
             _fakeRepo.SetBudgets(new List<Budget>()
@@ -78,7 +78,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
             BudgetShouldBe(3050, new DateTime(2020, 02, 01), new DateTime(2020, 03, 15));
         }
 
-        [Fact()]
+        [Fact]
         public void Reverse_Date()
         {
             _fakeRepo.SetBudgets(new List<Budget>()

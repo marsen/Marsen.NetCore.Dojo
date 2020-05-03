@@ -41,16 +41,14 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 
                 return startAmount + endAmount;
             }
-            else
-            {
-                int totoalDay = (end - start).Days + 1;
 
-                var amount = budgets
-                    .Where(x => x.YearMonth == start.ToString("yyyyMM"))
-                    .Sum(a => a.Amount);
+            int totalDays = (end - start).Days + 1;
 
-                return amount / 30 * totoalDay;
-            }
+            var amount = budgets
+                .Where(x => x.YearMonth == start.ToString("yyyyMM"))
+                .Sum(a => a.Amount);
+
+            return amount / 30 * totalDays;
 
         }
 
