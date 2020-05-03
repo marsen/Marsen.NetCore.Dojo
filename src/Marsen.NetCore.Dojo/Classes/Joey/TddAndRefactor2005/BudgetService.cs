@@ -27,8 +27,8 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 
             var dayAmountDict = budgets.Select(x => new
             {
-                YearMonth = x.YearMonth,
-                DayAmount = x.Amount / DateTime.DaysInMonth(DateTime.ParseExact((string) x.YearMonth, "yyyyMM", null).Year, DateTime.ParseExact((string) x.YearMonth, "yyyyMM", null).Month)
+                x.YearMonth,
+                DayAmount = x.Amount / DateTime.DaysInMonth(DateTime.ParseExact(x.YearMonth, "yyyyMM", null).Year, DateTime.ParseExact(x.YearMonth, "yyyyMM", null).Month)
 
             }).ToDictionary(x => x.YearMonth, y => y.DayAmount);
 
