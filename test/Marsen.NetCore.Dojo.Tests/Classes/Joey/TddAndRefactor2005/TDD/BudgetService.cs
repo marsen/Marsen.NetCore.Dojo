@@ -12,13 +12,20 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             _budgetRepo = budgetRepo;
         }
 
-        public int Query(string start, string end)
+        public decimal Query(string start, string end)
         {
             var budgets = _budgetRepo.GetAll();
             if (budgets.Any())
             {
                 var period = new Period(start, end);
                 var budget = budgets.First();
+                decimal result=0m;
+                foreach (var b in budgets)
+                {
+                    result = b.GetAmount(period);
+                }
+
+                // return result;
                 return budget.GetAmount(period);
             }
 
