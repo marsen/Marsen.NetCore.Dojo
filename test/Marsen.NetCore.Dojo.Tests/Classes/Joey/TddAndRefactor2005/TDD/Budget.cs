@@ -14,7 +14,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
 
         public DateTime EndDay()
         {
-            return DateTime.ParseExact(YearMonth + DateTime.DaysInMonth(FirstDay().Year,FirstDay().Month), "yyyyMMdd", null);
+            return DateTime.ParseExact(YearMonth + DateTime.DaysInMonth(FirstDay().Year, FirstDay().Month), "yyyyMMdd",
+                null);
         }
 
         public int OverlapDays(Period period)
@@ -31,9 +32,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
 
         public int GetBudgetAmount(Period period)
         {
-            var dailyAmount = Amount / DateTime.DaysInMonth(
-                DateTime.ParseExact(YearMonth + "01", "yyyyMMdd", null).Year,
-                DateTime.ParseExact(YearMonth + "01", "yyyyMMdd", null).Month);
+            var dailyAmount = Amount / DateTime.DaysInMonth( FirstDay().Year, FirstDay().Month);
             return dailyAmount * OverlapDays(period);
         }
     }
