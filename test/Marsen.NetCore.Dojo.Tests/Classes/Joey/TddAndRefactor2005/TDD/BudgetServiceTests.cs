@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using FluentAssertions;
+using Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.TDD;
 using NSubstitute;
 using Xunit;
 

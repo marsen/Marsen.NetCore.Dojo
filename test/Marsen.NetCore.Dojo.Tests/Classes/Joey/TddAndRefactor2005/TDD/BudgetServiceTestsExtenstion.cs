@@ -1,3 +1,4 @@
+using Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.TDD;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD

@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
+namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.TDD
 {
     public class BudgetService
     {
