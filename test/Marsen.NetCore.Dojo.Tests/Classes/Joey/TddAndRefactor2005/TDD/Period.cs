@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             End = DateTime.ParseExact(end, "yyyyMMdd", null);
         }
 
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public DateTime Start { get; private set; }
+        public DateTime End { get; private set; }
     }
 }
