@@ -19,18 +19,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             {
                 var period = new Period(start, end);
                 var budget = budgets.First();
-                return GetBudgetAmount(budget, period);
+                return budget.GetBudgetAmount(period);
             }
 
             return 0;
-        }
-
-        private static int GetBudgetAmount(Budget budget, Period period)
-        {
-            var dailyAmount = budget.Amount / DateTime.DaysInMonth(
-                DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null).Year,
-                DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null).Month);
-            return dailyAmount * budget.OverlapDays(period);
         }
     }
 }
