@@ -23,7 +23,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
                 {
                     return 0;
                 }
-                return period.Days();
+
+                return (period.End - budget.FirstDay()).Days + 1;
             }
             return 0;
         }

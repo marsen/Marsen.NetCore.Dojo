@@ -12,10 +12,5 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
 
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-
-        public int Days()
-        {
-            return (Start - End).Days + 1;
-        }
     }
 }
