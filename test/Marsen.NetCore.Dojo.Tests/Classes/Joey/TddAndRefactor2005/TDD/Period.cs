@@ -7,15 +7,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
         public Period(string start, string end)
         {
             Start = DateTime.ParseExact(start, "yyyyMMdd", null);
-            EndDate = DateTime.ParseExact(end, "yyyyMMdd", null);
+            End = DateTime.ParseExact(end, "yyyyMMdd", null);
         }
 
         public DateTime Start { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime End { get; set; }
 
         public int Days()
         {
-            return (Start - EndDate).Days + 1;
+            return (Start - End).Days + 1;
         }
     }
 }
