@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using NSubstitute;
@@ -19,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             BudgetAmount().Between("20200401").And("20200401").ShouldBe(0);
         }
 
-        [Fact]
+        [Fact(Skip = "Maybe Not Now")]
         public void PeriodInBudgetMonth()
         {
             GiveBudgetIs(new Budget {YearMonth = "202004", Amount = 30});
@@ -52,16 +51,5 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             _budgetService = new BudgetService(_budgetRepo);
             return _budgetService;
         }
-    }
-
-    public class Budget
-    {
-        public string YearMonth { get; set; }
-        public int Amount { get; set; }
-    }
-
-    public interface IBudgetRepo
-    {
-        List<Budget> GetAll();
     }
 }
