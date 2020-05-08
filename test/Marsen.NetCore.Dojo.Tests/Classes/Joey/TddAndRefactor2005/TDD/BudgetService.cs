@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
@@ -15,7 +16,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
         {
             var budgets = _budgetRepo.GetAll();
             var period = new Period(start, end);
-            return budgets.Aggregate(0m, (current, b) => current + b.GetAmount(period));
+            decimal result = 0m;
+            foreach (var b in budgets)
+            {
+                result += b.GetAmount(period);
+            }
+
+            return result;
         }
     }
 }
