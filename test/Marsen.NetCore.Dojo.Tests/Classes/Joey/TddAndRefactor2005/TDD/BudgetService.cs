@@ -25,8 +25,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
                     result = b.GetAmount(period);
                 }
 
+                
                 return result;
-                return budget.GetAmount(period);
             }
 
             return 0;
