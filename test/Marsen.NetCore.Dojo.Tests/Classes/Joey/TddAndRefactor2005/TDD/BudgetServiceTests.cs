@@ -32,6 +32,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             BudgetAmount().Between("20200310").And("20200320").ShouldBe(0);
         }
 
+        [Fact]
+        public void PeriodAfterBudgetMonth()
+        {
+            GiveBudgetIs(new Budget {YearMonth = "202004", Amount = 30});
+            BudgetAmount().Between("20200510").And("20200520").ShouldBe(0);
+        }
+
 
         [Fact(Skip = "Maybe Not Now")]
         public void LeftPeriodOverlapBudgetMonth()
