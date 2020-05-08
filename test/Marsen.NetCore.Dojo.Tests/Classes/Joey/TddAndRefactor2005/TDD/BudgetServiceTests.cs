@@ -14,6 +14,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
         [Fact]
         public void NoBudget()
         {
+            _budgetRepo.GetAll().Returns(new List<Budget>());
             BudgetAmount().Between("20200401").And("20200401").ShouldBe(0);
         }
 
@@ -26,7 +27,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
 
         private BudgetService BudgetAmount()
         {
-            _budgetService = new BudgetService();
+            _budgetService = new BudgetService(_budgetRepo);
             return _budgetService;
         }
     }
