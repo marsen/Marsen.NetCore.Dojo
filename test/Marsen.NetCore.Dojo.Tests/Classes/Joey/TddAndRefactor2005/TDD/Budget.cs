@@ -30,7 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             return (overlapEndDay - overlapStartDay).Days + 1;
         }
 
-        public int GetBudgetAmount(Period period)
+        public int GetAmount(Period period)
         {
             var dailyAmount = Amount / DateTime.DaysInMonth( FirstDay().Year, FirstDay().Month);
             return dailyAmount * OverlapDays(period);

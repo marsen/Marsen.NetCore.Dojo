@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             {
                 var period = new Period(start, end);
                 var budget = budgets.First();
-                return budget.GetBudgetAmount(period);
+                return budget.GetAmount(period);
             }
 
             return 0;
