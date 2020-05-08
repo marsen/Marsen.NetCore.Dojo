@@ -6,11 +6,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
     {
         public Period(string start, string end)
         {
-            Start = start;
-            End = end;
+            Start = DateTime.ParseExact(start, "yyyyMMdd", null);
+            EndDate = DateTime.ParseExact(end, "yyyyMMdd", null);
         }
 
-        public string Start { get; private set; }
         public string End { get; private set; }
+        public DateTime Start { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

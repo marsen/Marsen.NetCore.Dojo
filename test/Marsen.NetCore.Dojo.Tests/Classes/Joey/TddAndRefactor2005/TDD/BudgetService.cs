@@ -18,9 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             if (budgets.Any())
             {
                 var period = new Period(start, end);
-                var startDate = DateTime.ParseExact(start, "yyyyMMdd", null);
-                var endDate = DateTime.ParseExact(period.End, "yyyyMMdd", null);
-                return (startDate - endDate).Days + 1;
+                return (period.Start - period.EndDate).Days + 1;
             }
             return 0;
         }
