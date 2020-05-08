@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;
@@ -14,15 +15,20 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
         [Fact]
         public void NoBudget()
         {
-            _budgetRepo.GetAll().Returns(new List<Budget>());
+            GiveBudgetIs();
             BudgetAmount().Between("20200401").And("20200401").ShouldBe(0);
         }
 
         [Fact]
         public void PeriodInBudgetMonth()
         {
-            _budgetRepo.GetAll().Returns(new List<Budget> {new Budget {YearMonth = "202004",Amount=30}});
+            GiveBudgetIs(new Budget {YearMonth = "202004", Amount = 30});
             BudgetAmount().Between("20200401").And("20200401").ShouldBe(1);
+        }
+
+        private void GiveBudgetIs(params Budget[] budgets)
+        {
+            _budgetRepo.GetAll().Returns(budgets.ToList());
         }
 
         private BudgetService BudgetAmount()
