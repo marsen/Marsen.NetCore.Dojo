@@ -17,11 +17,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             var budgets = _budgetRepo.GetAll();
             if (budgets.Any())
             {
-                var startDate = DateTime.ParseExact(start,"yyyyMMdd",null);
-                var endDate = DateTime.ParseExact(end,"yyyyMMdd",null);
-                return (startDate-endDate).Days+1;
+                return Days(start, end);
             }
             return 0;
+        }
+
+        private static int Days(string start, string end)
+        {
+            var startDate = DateTime.ParseExact(start, "yyyyMMdd", null);
+            var endDate = DateTime.ParseExact(end, "yyyyMMdd", null);
+            return (startDate - endDate).Days + 1;
         }
     }
 }
