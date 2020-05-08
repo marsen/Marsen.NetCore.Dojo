@@ -27,8 +27,8 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 
             var dayAmountDict = budgets.Select(x => new
             {
-                YearMonth = x.YearMonth,
-                DayAmount = x.Amount / DateTime.DaysInMonth(DateTime.ParseExact((string) x.YearMonth, "yyyyMM", null).Year, DateTime.ParseExact((string) x.YearMonth, "yyyyMM", null).Month)
+                x.YearMonth,
+                DayAmount = x.Amount / DateTime.DaysInMonth(DateTime.ParseExact(x.YearMonth, "yyyyMM", null).Year, DateTime.ParseExact(x.YearMonth, "yyyyMM", null).Month)
 
             }).ToDictionary(x => x.YearMonth, y => y.DayAmount);
 
@@ -41,31 +41,13 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 
                 return startAmount + endAmount;
             }
-            else
-            {
-                int totoalDay = (end - start).Days + 1;
 
-                var amount = budgets
-                    .Where(x => x.YearMonth == start.ToString("yyyyMM"))
-                    .Sum(a => a.Amount);
+            var amount = budgets
+                .Where(x => x.YearMonth == start.ToString("yyyyMM"))
+                .Sum(a => a.Amount);
 
-                return amount / 30 * totoalDay;
-            }
+            return amount / DateTime.DaysInMonth(start.Year,start.Month) * ((end - start).Days + 1);
 
-        }
-
-
-        private Dictionary<string, int> GetDaysDict(DateTime start, DateTime end)
-        {
-            var diffM = end.Month - start.Month;
-            var result = new Dictionary<string, int>();
-            for (int i = 0; i < diffM + 1; i++)
-            {
-                var date = start.AddMonths(i);
-                result.Add(date.ToString("yyyyMM"), DateTime.DaysInMonth(date.Year, date.Month));
-            }
-
-            return result;
         }
     }
 }
