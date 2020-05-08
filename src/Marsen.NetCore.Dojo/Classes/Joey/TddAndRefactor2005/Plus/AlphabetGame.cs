@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
+namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
 {
     public class AlphabetGame
     {

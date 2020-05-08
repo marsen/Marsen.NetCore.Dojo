@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
 {
     public class BudgetService
     {
-        private IBudgetRepo _budgetRepo;
+        private readonly IBudgetRepo _budgetRepo;
 
         public BudgetService(IBudgetRepo budgetRepo)
         {

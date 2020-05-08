@@ -7,8 +7,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
 {
     public class BudgetServiceTests
     {
-        private BudgetService _budgetService;
-        private FakeBudgetRepo _fakeRepo;
+        private readonly BudgetService _budgetService;
+        private readonly FakeBudgetRepo _fakeRepo;
 
         public BudgetServiceTests()
         {
