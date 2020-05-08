@@ -72,45 +72,4 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
             ((StubUser) UserAmy).SetFriends(friends);
         }
     }
-
-    internal class StubTripService : TripService
-    {
-        private User _mockLoggedUser = new User();
-        private List<Trip> _mockTripsList = new List<Trip>();
-
-        public void SetLoggedUser(User user)
-        {
-            _mockLoggedUser = user;
-        }
-
-        public void SetTripsList(List<Trip> tripsList)
-        {
-            _mockTripsList = tripsList;
-        }
-
-        protected override User GetLoggedUser()
-        {
-            return _mockLoggedUser;
-        }
-
-        protected override List<Trip> GetTripsList(User user)
-        {
-            return _mockTripsList;
-        }
-    }
-
-    internal class StubUser : User
-    {
-        private List<User> _mockFriendsList;
-
-        public override List<User> GetFriends()
-        {
-            return _mockFriendsList;
-        }
-
-        public void SetFriends(List<User> friends)
-        {
-            this._mockFriendsList = friends;
-        }
-    }
 }

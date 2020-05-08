@@ -102,19 +102,4 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
             Assert.Equal(expected, _budgetService.Query(start, end));
         }
     }
-
-    public class FakeBudgetRepo : IBudgetRepo
-    {
-        private List<Budget> _budgetList;
-
-        public void SetBudgets(List<Budget> budgets)
-        {
-            _budgetList = budgets;
-        }
-
-        public List<Budget> GetAll()
-        {
-            return _budgetList;
-        }
-    }
 }
