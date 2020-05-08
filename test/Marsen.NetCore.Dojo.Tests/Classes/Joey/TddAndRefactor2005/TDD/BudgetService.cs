@@ -18,13 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             if (budgets.Any())
             {
                 var period = new Period(start, end);
-                var budget = budgets.First();
-                decimal result=0m;
-                foreach (var b in budgets)
-                {
-                    result += b.GetAmount(period);
-                }
-                return result;
+                return budgets.Aggregate(0m, (current, b) => current + b.GetAmount(period));
             }
 
             return 0;
