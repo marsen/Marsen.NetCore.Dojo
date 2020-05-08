@@ -25,14 +25,19 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
 
         private int OverlapDays(Period period)
         {
-            if (period.End >= FirstDay() && EndDay() >= period.Start)
-            {
-                var overlapStartDay = FirstDay() < period.Start ? period.Start : FirstDay();
-                var overlapEndDay = EndDay() < period.End ? EndDay() : period.End;
-                return (overlapEndDay - overlapStartDay).Days + 1;
-            }
+            return IsOverlap(period) ? Days(period) : 0;
+        }
 
-            return 0;
+        private int Days(Period period)
+        {
+            var overlapStartDay = FirstDay() < period.Start ? period.Start : FirstDay();
+            var overlapEndDay = EndDay() < period.End ? EndDay() : period.End;
+            return (overlapEndDay - overlapStartDay).Days + 1;
+        }
+
+        private bool IsOverlap(Period period)
+        {
+            return period.End >= FirstDay() && EndDay() >= period.Start;
         }
 
         public int GetAmount(Period period)
