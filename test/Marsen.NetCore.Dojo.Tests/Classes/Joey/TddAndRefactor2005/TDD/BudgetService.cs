@@ -18,9 +18,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             if (budgets.Any())
             {
                 var period = new Period(start, end);
-                return (period.Start - period.EndDate).Days + 1;
+                return Days(period);
             }
             return 0;
+        }
+
+        private static int Days(Period period)
+        {
+            return (period.Start - period.EndDate).Days + 1;
         }
     }
 }
