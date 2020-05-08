@@ -22,10 +22,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
                 decimal result=0m;
                 foreach (var b in budgets)
                 {
-                    result = b.GetAmount(period);
+                    result += b.GetAmount(period);
                 }
-
-                
                 return result;
             }
 
