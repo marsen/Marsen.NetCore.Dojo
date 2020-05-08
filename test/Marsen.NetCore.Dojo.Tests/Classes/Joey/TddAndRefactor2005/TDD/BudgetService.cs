@@ -13,6 +13,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
 
         public string Start { get; private set; }
         public string End { get; private set; }
+
+        public int Days()
+        {
+            var startDate = DateTime.ParseExact(Start, "yyyyMMdd", null);
+            var endDate = DateTime.ParseExact(End, "yyyyMMdd", null);
+            return (startDate - endDate).Days + 1;
+        }
     }
 
     public class BudgetService
@@ -29,16 +36,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             var budgets = _budgetRepo.GetAll();
             if (budgets.Any())
             {
-                return Days(new Period(start, end));
+                return new Period(start, end).Days();
             }
             return 0;
-        }
-
-        private static int Days(Period period)
-        {
-            var startDate = DateTime.ParseExact(period.Start, "yyyyMMdd", null);
-            var endDate = DateTime.ParseExact(period.End, "yyyyMMdd", null);
-            return (startDate - endDate).Days + 1;
         }
     }
 }
