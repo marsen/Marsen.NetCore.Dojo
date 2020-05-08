@@ -36,7 +36,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             var budgets = _budgetRepo.GetAll();
             if (budgets.Any())
             {
-                return new Period(start, end).Days();
+                var period = new Period(start, end);
+                return period.Days();
             }
             return 0;
         }
