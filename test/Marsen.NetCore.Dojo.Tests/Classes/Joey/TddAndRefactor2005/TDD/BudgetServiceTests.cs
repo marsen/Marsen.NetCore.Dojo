@@ -61,6 +61,17 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             BudgetAmount().Between("20200328").And("20200502").ShouldBe(30);
         }
 
+        [Fact]
+        public void MultipleBudgets()
+        {
+            GiveBudgetIs(
+                new Budget {YearMonth = "202003", Amount = 310},
+                new Budget {YearMonth = "202004", Amount = 30},
+                new Budget {YearMonth = "202005", Amount = 3000}
+            );
+            BudgetAmount().Between("20200328").And("20200502").ShouldBe(40+30+200);
+        }
+
 
         private void GiveBudgetIs(params Budget[] budgets)
         {
