@@ -11,5 +11,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
         {
             return DateTime.ParseExact(YearMonth + "01", "yyyyMMdd", null);
         }
+
+        public DateTime EndDay()
+        {
+            return DateTime.ParseExact(YearMonth + DateTime.DaysInMonth(FirstDay().Year,FirstDay().Month), "yyyyMMdd", null);
+        }
     }
 }

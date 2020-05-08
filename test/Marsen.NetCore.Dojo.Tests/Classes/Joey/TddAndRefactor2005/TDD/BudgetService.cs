@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
             {
                 var period = new Period(start, end);
                 var budget = budgets.First();
-                if (period.End<budget.FirstDay())
+                if (period.End<budget.FirstDay() || budget.EndDay()<period.Start)
                 {
                     return 0;
                 }
