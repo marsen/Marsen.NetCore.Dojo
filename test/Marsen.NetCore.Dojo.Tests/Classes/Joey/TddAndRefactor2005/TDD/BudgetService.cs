@@ -24,7 +24,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.TDD
                     return 0;
                 }
 
-                return (period.End - budget.FirstDay()).Days + 1;
+                var overlapStartDay = budget.FirstDay() < period.Start ? period.Start : budget.FirstDay();
+                var overlapEndDay = budget.EndDay() < period.End ? budget.EndDay() : period.End;
+                return (overlapEndDay - overlapStartDay).Days + 1;
             }
             return 0;
         }
