@@ -27,7 +27,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
         [Fact]
         public void The_bb_GetB_Bb()
         {
-            AfterRepeat("bb").ShouldBe("Bb");
+            AfterRepeat("bb").ShouldBe("B-Bb");
         }
 
 
