@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
                 }
                 else
                 {
-                    var lower = substring.ToLower();
+                    var lower = RepeatLower(substring,i);
                     result += "-" + substring.ToUpper() + lower;
                 }
             }
