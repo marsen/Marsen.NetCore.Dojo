@@ -10,16 +10,18 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             for (var i = 1; i < input.Length; i++)
             {
                 var substring = input.Substring(i, 1);
-                if (i > 1)
-                {
-                    var lower = RepeatLower(substring,i);
-                    result += "-" + substring.ToUpper() + lower;
-                }
-                else
-                {
-                    var lower = RepeatLower(substring,i);
-                    result += "-" + substring.ToUpper() + lower;
-                }
+                var lower = RepeatLower(substring,i);
+                result += "-" + substring.ToUpper() + lower;
+                // if (i > 1)
+                // {
+                //     var lower = RepeatLower(substring,i);
+                //     result += "-" + substring.ToUpper() + lower;
+                // }
+                // else
+                // {
+                //     var lower = RepeatLower(substring,i);
+                //     result += "-" + substring.ToUpper() + lower;
+                // }
             }
 
             return result;
