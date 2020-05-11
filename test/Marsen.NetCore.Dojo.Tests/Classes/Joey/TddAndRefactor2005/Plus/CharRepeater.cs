@@ -12,11 +12,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
                 var substring = input.Substring(i, 1);
                 if (i > 1)
                 {
-                    result += "-" + substring.ToUpper() + substring.ToLower() + substring.ToLower();
+                    var lower = substring.ToLower() + substring.ToLower();
+                    result += "-" + substring.ToUpper() + lower;
                 }
                 else
                 {
-                    result += "-" + substring.ToUpper() + substring.ToLower();
+                    var lower = substring.ToLower();
+                    result += "-" + substring.ToUpper() + lower;
                 }
             }
 
