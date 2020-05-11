@@ -17,10 +17,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             return result;
         }
 
-        private static string RepeatLower(string substring,int times)
+        private string RepeatLower(string substring,int times)
         {
-            string result = string.Empty;
-            for (int i = 0; i < times; i++)
+            var result = string.Empty;
+            for (var i = 0; i < times; i++)
             {
                 result += substring.ToLower();
             }
