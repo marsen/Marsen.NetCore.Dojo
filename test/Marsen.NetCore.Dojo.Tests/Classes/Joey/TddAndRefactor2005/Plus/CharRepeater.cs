@@ -3,7 +3,7 @@
     public class CharRepeater
     {
         public string Repeat(string input)
-        {
+        { 
             return input.ToUpper();
         }
     }
