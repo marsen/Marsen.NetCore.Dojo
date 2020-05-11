@@ -58,8 +58,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
         [Fact]
         public void The_string_Empty_Should_Throw_Exception()
         {
-            Assert.Throws<Exception>(()=>AfterRepeat(string.Empty));
+            Assert.Throws<Exception>(() => AfterRepeat(string.Empty));
         }
+
+        [Fact]
+        public void The_null_Should_Throw_Exception()
+        {
+            Assert.Throws<Exception>(() => AfterRepeat(null));
+        }
+
 
         private string AfterRepeat(string input)
         {
