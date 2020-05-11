@@ -30,6 +30,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             AfterRepeat("bb").ShouldBe("B-Bb");
         }
 
+        [Fact]
+        public void The_ab_GetA_Bb()
+        {
+            AfterRepeat("ab").ShouldBe("A-Bb");
+        }
+
 
         private string AfterRepeat(string input)
         {
