@@ -11,8 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             var list = new List<string>();
             for (var i = 0; i < input.Length; i++)
             {
-                var lower = RepeatLower(input.Substring(i, 1), i);
-                list.Add(input.Substring(i, 1).ToUpper() + lower);
+                list.Add(input.Substring(i, 1).ToUpper() + RepeatLower(input.Substring(i, 1), i));
             }
 
             return string.Join('-', list);
