@@ -15,9 +15,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
         [Fact]
         public void The_A_GetA()
         {
-            var input = "A";
-            AfterRepeat(input).ShouldBe("A");
+            AfterRepeat("A").ShouldBe("A");
         }
+
+        [Fact]
+        public void The_b_GetB()
+        {
+            AfterRepeat("b").ShouldBe("B");
+        }
+
 
         private string AfterRepeat(string input)
         {
