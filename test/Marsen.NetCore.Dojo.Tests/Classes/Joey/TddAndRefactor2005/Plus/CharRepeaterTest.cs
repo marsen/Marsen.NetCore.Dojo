@@ -36,6 +36,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             AfterRepeat("ab").ShouldBe("A-Bb");
         }
 
+        [Fact]
+        public void The_abc_Should_Be_A_Bb_Ccc()
+        {
+            AfterRepeat("abc").ShouldBe("A-Bb-Ccc");
+        }
+
 
         private string AfterRepeat(string input)
         {

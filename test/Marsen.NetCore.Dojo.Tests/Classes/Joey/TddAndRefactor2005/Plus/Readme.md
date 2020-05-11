@@ -33,4 +33,5 @@ abc → A-Bb-Ccc
 A → A : 決定方法的簽章
 b → B : 決定首字大寫
 bb → B-Bb : 決定中間用`-`串接
-Ab → A-Ab : 用 loop 輪循字元zgc
+ab → a-Bb : 用 loop 輪循字元
+abc → a-Bb-Ccc : 用 loop 輪循字元
