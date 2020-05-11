@@ -2,9 +2,9 @@
 {
     public class CharRepeater
     {
-        public string Repeat(string s)
+        public string Repeat(string input)
         {
-            return s.ToUpper();
+            return input.ToUpper();
         }
     }
 }
