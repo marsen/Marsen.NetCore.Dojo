@@ -8,7 +8,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
     {
         public string Repeat(string input)
         {
-            var list = input.Select((t, i) => t.ToString().ToUpper() + Repeat(t.ToString(), i).ToLower()).ToList();
+            var list = input
+                .Select(
+                    (c, index) => c.ToString().ToUpper() +
+                    Repeat(c.ToString(), index).ToLower())
+                .ToList();
 
             return string.Join('-', list);
         }
