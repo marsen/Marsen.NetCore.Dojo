@@ -4,7 +4,7 @@
     {
         public string Repeat(string s)
         {
-            return "A";
+            return s.ToUpper();
         }
     }
 }
