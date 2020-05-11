@@ -12,7 +12,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
                 var substring = input.Substring(i, 1);
                 if (i > 1)
                 {
-                    var lower = RepeatLower(substring);
+                    var lower = RepeatLower(substring,2);
                     result += "-" + substring.ToUpper() + lower;
                 }
                 else
@@ -25,8 +25,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             return result;
         }
 
-        private static string RepeatLower(string substring)
+        private static string RepeatLower(string substring,int times)
         {
+            string result = string.Empty;
+            for (int i = 0; i < times; i++)
+            {
+                result += substring.ToLower();
+            }
+
+            return result;
             var lower = substring.ToLower() + substring.ToLower();
             return lower;
         }
