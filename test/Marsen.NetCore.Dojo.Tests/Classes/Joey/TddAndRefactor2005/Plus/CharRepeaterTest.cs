@@ -1,25 +1,35 @@
-using System.Collections.Generic;
+using FluentAssertions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
 {
     public class CharRepeaterTest
     {
+        private readonly CharRepeater _charRepeater;
+
+        public CharRepeaterTest()
+        {
+            _charRepeater = new CharRepeater();
+        }
 
         [Fact]
         public void The_A_GetA()
         {
-            var charRepeater = new CharRepeater();
-            var repeat = charRepeater.Repeat("A");
-            Assert.Equal("A",repeat);
+            var input = "A";
+            AfterRepeat(input).ShouldBe("A");
+        }
+
+        private string AfterRepeat(string input)
+        {
+            return this._charRepeater.Repeat(input);
         }
     }
 
-    public class CharRepeater
+    public static class CharRepeaterTestExt
     {
-        public string Repeat(string s)
+        public static void ShouldBe(this string actual, string expected)
         {
-            return "A";
+            Assert.Equal(expected, actual);
         }
     }
 }
