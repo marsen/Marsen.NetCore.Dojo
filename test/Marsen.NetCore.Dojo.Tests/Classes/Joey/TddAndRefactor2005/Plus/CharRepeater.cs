@@ -13,7 +13,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             }
 
             return result;
-            return input.ToUpper();
         }
     }
 }
