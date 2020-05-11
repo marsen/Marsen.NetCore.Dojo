@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
     {
         public string Repeat(string input)
         {
-            var result = input[0].ToString().ToUpper();
+            var result = input.Substring(0,1).ToUpper();
             for (var i = 1; i < input.Length; i++)
             {
                 var substring = input.Substring(i, 1);
