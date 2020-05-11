@@ -12,7 +12,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
                 var substring = input.Substring(i, 1);
                 if (i > 1)
                 {
-                    var lower = RepeatLower(substring,2);
+                    var lower = RepeatLower(substring,i);
                     result += "-" + substring.ToUpper() + lower;
                 }
                 else
