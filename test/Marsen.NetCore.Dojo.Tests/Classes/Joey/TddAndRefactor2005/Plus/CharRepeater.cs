@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             var list = new List<string>();
             for (var i = 0; i < input.Length; i++)
             {
-                list.Add(input.Substring(i, 1).ToUpper() + RepeatLower(input.Substring(i, 1), i));
+                list.Add(input.Substring(i, 1).ToUpper() + RepeatLower(input.Substring(i, 1), i).ToLower());
             }
 
             return string.Join('-', list);
@@ -22,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             var result = string.Empty;
             for (var i = 0; i < times; i++)
             {
-                result += substring.ToLower();
+                result += substring;
             }
 
             return result;
