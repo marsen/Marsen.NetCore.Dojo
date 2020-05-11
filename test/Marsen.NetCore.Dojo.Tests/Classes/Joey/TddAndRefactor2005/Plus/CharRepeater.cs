@@ -9,8 +9,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             var result = input[0].ToString().ToUpper();
             for (var i = 1; i < input.Length; i++)
             {
-                var substring = input.Substring(i,1);
-                result += "-" + substring.ToUpper() + substring.ToLower();
+                var substring = input.Substring(i, 1);
+                if (i > 1)
+                {
+                    result += "-" + substring.ToUpper() + substring.ToLower()+substring.ToLower();
+                }
+                else
+                {
+                    result += "-" + substring.ToUpper() + substring.ToLower();
+                }
             }
 
             return result;
