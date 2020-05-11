@@ -12,16 +12,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
                 var substring = input.Substring(i, 1);
                 var lower = RepeatLower(substring,i);
                 result += "-" + substring.ToUpper() + lower;
-                // if (i > 1)
-                // {
-                //     var lower = RepeatLower(substring,i);
-                //     result += "-" + substring.ToUpper() + lower;
-                // }
-                // else
-                // {
-                //     var lower = RepeatLower(substring,i);
-                //     result += "-" + substring.ToUpper() + lower;
-                // }
             }
 
             return result;
@@ -36,8 +26,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             }
 
             return result;
-            var lower = substring.ToLower() + substring.ToLower();
-            return lower;
         }
     }
 }
