@@ -11,12 +11,8 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
             {
                 throw new Exception("input should not be null or empty");
             }
-            var list = input
-                .Select(
-                    (c, index) => c.ToString().ToUpper() +
-                    Repeat(c.ToString(), index).ToLower())
-                .ToList();
 
+            var list = input.Select((c, index) => c.ToString().ToUpper() + Repeat(c.ToString(), index).ToLower());
             return string.Join('-', list);
         }
 
