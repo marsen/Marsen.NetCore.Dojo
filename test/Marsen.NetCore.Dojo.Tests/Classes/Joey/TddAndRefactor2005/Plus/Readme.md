@@ -28,10 +28,40 @@ abc → A-Bb-Ccc
 2. 首字一定要大寫
 3. 中間用 `-` 分隔
 
-### 
+### 計劃
 
 A → A : 決定方法的簽章
 b → B : 決定首字大寫
 bb → B-Bb : 決定中間用`-`串接
 ab → A-Bb : 用 loop 輪循字元
 abc → A-Bb-Ccc : 用 loop 輪循字元
+
+### 後記補充
+
+A → A : 決定方法的簽章
+b → B : ToUpper
+*bb → Bb : 用 loop 輪循字元
+這個測試一開始寫錯，後來改成 bb → B-Bb，也逼出中間用`-`串接
+ab → A-Bb : 決定中間用`-`串接
+因為前一個測試我一開始想錯，所以其實它沒有逼出任何新東西
+
+abc → A-Bb-Ccc : 這裡我想逼出小寫字母重複的邏輯
+
+一開始我先用比較粗暴的寫法通過測試，
+但是也製造出 `substring.ToLower()` 的重複
+EX:
+```csharp
+	if (i > 1)
+	{
+		result += "-" + substring.ToUpper() + substring.ToLower()+substring.ToLower();
+	}
+	else
+	{
+		result += "-" + substring.ToUpper() + substring.ToLower();
+	}
+```	
+之後就是重構，
+然後一開始我忘記了 A1→A-11 與空字串的案例，
+所以這兩個是最後補的
+
+(fin)
