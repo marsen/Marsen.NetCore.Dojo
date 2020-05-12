@@ -67,6 +67,7 @@ EX:
 ### 後記補充2
 
 - 參考 [91 Blog](https://dotblogs.com.tw/hatelove/2017/03/28/codewars-Mumbling-by-TDD)
+- [91 實作歷程](https://bitbucket.org/hatelove/twmvc_lab1_mumbling/commits/branch/master)
 - [題目](https://www.codewars.com/kata/mumbling/train/csharp)
 - 建議命名 Mumbling
 
