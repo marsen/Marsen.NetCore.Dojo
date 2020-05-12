@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using NSubstitute.Core;
 
-namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
+namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
 {
     public class CharRepeater
     {
