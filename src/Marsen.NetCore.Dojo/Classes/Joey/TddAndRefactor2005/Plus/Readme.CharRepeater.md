@@ -61,7 +61,13 @@ EX:
 	}
 ```	
 之後就是重構，
-然後一開始我忘記了 A1→A-11 與空字串的案例，
+然後一開始我忘記了 A1 → A-11 與空字串的案例，
 所以這兩個是最後補的
+
+### 後記補充2
+
+- 參考 [91 Blog](https://dotblogs.com.tw/hatelove/2017/03/28/codewars-Mumbling-by-TDD)
+- [題目](https://www.codewars.com/kata/mumbling/train/csharp)
+- 建議命名 Mumbling
 
 (fin)
