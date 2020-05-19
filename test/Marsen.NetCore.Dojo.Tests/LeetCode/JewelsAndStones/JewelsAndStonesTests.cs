@@ -31,6 +31,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
         {
             ShouldBe("a", "aa", 2);
         }
+        [Fact]
+        public void aB_aBa_ShouldBe_3()
+        {
+            ShouldBe("aB", "aBa", 3);
+        }
+
+
+        
         
         private void ShouldBe(string jewels, string stones, int expected)
         {
