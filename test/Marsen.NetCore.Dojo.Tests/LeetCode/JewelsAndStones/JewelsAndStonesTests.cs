@@ -6,5 +6,20 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
 {
     public class JewelsAndStonesTests
     {
+        [Fact]
+        public void a_b_ShouldBe_0()
+        {
+            var jewelsSelector = new JewelsSelector();
+            var actual = jewelsSelector.Filter("a", "b");
+            Assert.Equal(0,actual);
+        }
+    }
+
+    public class JewelsSelector
+    {
+        public int Filter(string jewels, string stones)
+        {
+            return 0;
+        }
     }
 }
