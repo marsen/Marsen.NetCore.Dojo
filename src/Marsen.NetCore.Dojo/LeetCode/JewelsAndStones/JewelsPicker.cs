@@ -9,7 +9,6 @@
             {
                 foreach (var s in stones)
                 {
-                    // if (s.ToString().Contains(j.ToString()))
                     if (s==j)
                     {
                         result++;
