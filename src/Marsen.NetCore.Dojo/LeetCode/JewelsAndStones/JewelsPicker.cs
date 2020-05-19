@@ -1,22 +1,12 @@
-﻿namespace Marsen.NetCore.Dojo.LeetCode.JewelsAndStones
+﻿using System.Linq;
+
+namespace Marsen.NetCore.Dojo.LeetCode.JewelsAndStones
 {
     public class JewelsPicker
     {
         public int Filter(string jewels, string stones)
         {
-            var result = 0;
-            foreach (var j in jewels)
-            {
-                foreach (var s in stones)
-                {
-                    if (s==j)
-                    {
-                        result++;
-                    }
-                }
-            }
-
-            return result;
+            return jewels.Sum(j => stones.Count(s => s == j));
         }
     }
 }
