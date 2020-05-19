@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
         [Fact]
         public void a_b_ShouldBe_0()
         {
-            var jewelsSelector = new Picker();
+            var jewelsSelector = new JewelsPicker();
             var actual = jewelsSelector.Filter("a", "b");
             Assert.Equal(0,actual);
         }
