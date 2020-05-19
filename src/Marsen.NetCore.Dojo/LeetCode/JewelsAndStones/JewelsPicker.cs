@@ -5,9 +5,12 @@
         public int Filter(string jewels, string stones)
         {
             var result = 0;
-            if (stones.Contains(jewels))
+            foreach (var s in stones)
             {
-                result++;
+                if (s.ToString().Contains(jewels))
+                {
+                    result++;
+                }
             }
 
             return result;
