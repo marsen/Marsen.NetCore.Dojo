@@ -6,7 +6,8 @@ namespace Marsen.NetCore.Dojo.LeetCode.JewelsAndStones
     {
         public int Filter(string jewels, string stones)
         {
-            return jewels.Sum(j => stones.Count(s => s == j));
+            return stones.Count(s=>jewels.Contains(s));
+            // return jewels.Sum(j => stones.Count(s => s == j));
         }
     }
 }
