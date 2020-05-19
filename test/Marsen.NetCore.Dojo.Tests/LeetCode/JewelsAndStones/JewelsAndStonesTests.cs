@@ -7,12 +7,22 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
 {
     public class JewelsAndStonesTests
     {
+        private readonly JewelsPicker _jewelsSelector;
+
+        public JewelsAndStonesTests()
+        {
+            _jewelsSelector = new JewelsPicker();
+        }
+
         [Fact]
         public void a_b_ShouldBe_0()
         {
-            var jewelsSelector = new JewelsPicker();
-            var actual = jewelsSelector.Filter("a", "b");
-            Assert.Equal(0,actual);
+            ShouldBe("a", "b", 0);
+        }
+
+        private void ShouldBe(string jewels, string stones, int expected)
+        {
+            Assert.Equal(expected, _jewelsSelector.Filter(jewels, stones));
         }
     }
 }
