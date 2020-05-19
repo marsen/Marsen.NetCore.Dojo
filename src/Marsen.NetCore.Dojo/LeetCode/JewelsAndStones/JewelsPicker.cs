@@ -8,7 +8,6 @@
             if (stones.Contains(jewels))
             {
                 result++;
-                // return 1;
             }
 
             return result;
