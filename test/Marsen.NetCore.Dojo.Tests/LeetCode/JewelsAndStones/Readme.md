@@ -42,3 +42,7 @@ The characters in J are distinct.
 
 ### J = "aB" , S = "aBa" , 回傳 3
 建立對 J 字串的迴圈
+
+## leetcode 參考
+
+https://leetcode.com/problems/jewels-and-stones/submissions/
