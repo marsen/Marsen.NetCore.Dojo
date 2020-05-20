@@ -11,9 +11,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
     public class TripServiceTests
     {
         private readonly StubTripService _target;
-        private User UserAmy = new StubUser();
-        private User UserBob = new User();
-        private User UserCarter = new User();
+        private readonly User _userAmy = new StubUser();
+        private readonly User _userBob = new User();
+        private readonly User _userCarter = new User();
 
         public TripServiceTests()
         {
@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
         public void NotLoginThrowException()
         {
             GiveLoggedUser(null);
-            Action act = () => _target.GetTripsByUser(UserAmy);
+            Action act = () => _target.GetTripsByUser(_userAmy);
             act.Should().Throw<UserNotLoggedInException>();
         }
 
@@ -32,28 +32,28 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
         public void UserWithoutFriendsReturnEmptyList()
         {
             GiveUserFriends(new List<User>());
-            GiveLoggedUser(UserBob);
-            var actual = _target.GetTripsByUser(UserAmy);
+            GiveLoggedUser(_userBob);
+            var actual = _target.GetTripsByUser(_userAmy);
             actual.Should().BeNullOrEmpty();
         }
 
         [Fact]
         public void UserFriendsNotIncludedLoggedUser()
         {
-            GiveUserFriends(new List<User> {UserCarter});
-            GiveLoggedUser(UserBob);
-            var actual = _target.GetTripsByUser(UserAmy);
+            GiveUserFriends(new List<User> {_userCarter});
+            GiveLoggedUser(_userBob);
+            var actual = _target.GetTripsByUser(_userAmy);
             actual.Should().BeNullOrEmpty();
         }
 
         [Fact]
         public void UserFriendsIncludedLoggedUser()
         {
-            GiveUserFriends(new List<User> {UserBob, UserCarter});
-            GiveLoggedUser(UserBob);
+            GiveUserFriends(new List<User> {_userBob, _userCarter});
+            GiveLoggedUser(_userBob);
             var expected = new List<Trip> {new Trip()};
             GiveTripsList(expected);
-            var actual = _target.GetTripsByUser(UserAmy);
+            var actual = _target.GetTripsByUser(_userAmy);
             actual.Should().BeEquivalentTo(expected);
         }
 
@@ -69,7 +69,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
 
         private void GiveUserFriends(List<User> friends)
         {
-            ((StubUser) UserAmy).SetFriends(friends);
+            ((StubUser) _userAmy).SetFriends(friends);
         }
     }
 }
