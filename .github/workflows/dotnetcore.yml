@@ -15,7 +15,9 @@ jobs:
     - name: SonarScanner TypeScript CURL
       run: curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip 
     - name: SonarScanner TypeScript Unzip
-      run: ls $HOME/.sonar/
+      run: unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/ 
+    - name: SonarScanner TypeScript Unzip      
+      run: ls $HOME/.sonar/    
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
