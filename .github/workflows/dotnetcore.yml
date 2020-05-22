@@ -15,9 +15,13 @@ jobs:
     - name: SonarScanner TypeScript Unzip              
       run:  unzip $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
     - name: SonarScanner TypeScript List
-      run: ls $HOME/work      
+      run: ls $HOME/work/Marsen.NetCore.Dojo     
     - name: SonarScanner TypeScript Run              
-      run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner -Dsonar.organization=marsen-github -Dsonar.projectKey=Marsen.NetCore.Dojo.TypeScript -Dsonar.sources=./work/Marsen.NetCore.Dojo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=bdc631931013cbd512c1437dedbaf4be86ade6bf
+      run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner |
+          -Dsonar.organization=marsen-github | 
+          -Dsonar.projectKey=Marsen.NetCore.Dojo.TypeScript |
+          -Dsonar.sources=. |
+          -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=bdc631931013cbd512c1437dedbaf4be86ade6bf
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
