@@ -25,7 +25,7 @@ jobs:
       run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner 
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo
-          -Dsonar.sources=.
+          -Dsonar.sources=./src/Marsen.TypeScript.Dojo/DatePicker
           -Dsonar.host.url=https://sonarcloud.io 
           -Dsonar.login=1ae1fa107fbe41368a6232fe92e388dffcc49fe5                
     - name: SonarScanner Begin    
