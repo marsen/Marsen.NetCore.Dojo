@@ -23,7 +23,7 @@ jobs:
       run: dotnet tool install --global dotnet-sonarscanner  
     - uses: actions/checkout@master    
     - name: SonarScanner TypeScript List
-      run: ls | npm link typescript     
+      run: ls | npm link typescript | npm install typescript     
     - name: SonarScanner TypeScript Run              
       run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner 
           -Dsonar.organization=marsen-github 
