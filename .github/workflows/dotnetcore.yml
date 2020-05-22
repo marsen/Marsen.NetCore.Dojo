@@ -10,10 +10,11 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.100
-    - name: SonarScanner TypeScript Install
+    - name: SonarScanner TypeScript Download
       run: export SONAR_SCANNER_VERSION=4.2.0.1873 export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux |
             curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip |
-            ls  $HOME/.sonar 
+    - name: SonarScanner TypeScript Ls              
+      run:  ls  $HOME/.sonar 
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
