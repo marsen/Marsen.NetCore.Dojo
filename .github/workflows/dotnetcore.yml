@@ -25,7 +25,7 @@ jobs:
     - name: SonarScanner TypeScript npm link
       run: npm link typescript     
     - name: SonarScanner TypeScript npm link
-      run: npm link sonarqube-scanner 
+      run: npm i -D sonarqube-scanner 
     - name: SonarScanner TypeScript Run              
       run: sonar-scanner 
           -Dsonar.organization=marsen-github 
