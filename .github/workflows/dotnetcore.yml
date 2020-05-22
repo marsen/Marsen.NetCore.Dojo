@@ -26,10 +26,10 @@ jobs:
     - name: SonarScanner TypeScript Run              
       run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner 
           -Dsonar.organization=marsen-github 
-          -Dsonar.projectKey=Marsen.NetCore.Dojo.TypeScript
-          -Dsonar.sources=./src/Marsen.TypeScript.Dojo         
+          -Dsonar.projectKey=Marsen.TypeScript.Dojo
+          -Dsonar.sources=.
           -Dsonar.host.url=https://sonarcloud.io 
-          -Dsonar.login=bdc631931013cbd512c1437dedbaf4be86ade6bf      
+          -Dsonar.login=1ae1fa107fbe41368a6232fe92e388dffcc49fe5                
     - name: SonarScanner Begin    
       run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN
     - name: Build with dotnet
