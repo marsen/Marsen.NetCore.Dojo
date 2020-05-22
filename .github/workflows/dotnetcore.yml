@@ -10,6 +10,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.100
+    - uses: sonarsource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: ./src/Marsen.TypeScript.Dojo
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
