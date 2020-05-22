@@ -24,8 +24,10 @@ jobs:
     - uses: actions/checkout@master    
     - name: SonarScanner TypeScript npm link
       run: npm link typescript     
+    - name: SonarScanner TypeScript npm link
+      run: npm i sonarqube-scanner 
     - name: SonarScanner TypeScript Run              
-      run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner 
+      run: sonar-scanner 
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/DatePicker
