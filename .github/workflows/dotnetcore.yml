@@ -17,7 +17,7 @@ jobs:
     - name: SonarScanner TypeScript LS      
       run: ls $HOME/.sonar/   
     - name: SonarScanner TypeScript Unzip
-      run: unzip -o $HOME/.sonar/sonar-scanner -d $HOME/.sonar    
+      run: unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/    
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
