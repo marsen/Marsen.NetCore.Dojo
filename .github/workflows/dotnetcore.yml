@@ -15,7 +15,7 @@ jobs:
     - name: SonarScanner TypeScript Unzip              
       run:  unzip $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
     - name: SonarScanner TypeScript List
-      run: ls $HOME/work/Marsen.NetCore.Dojo     
+      run: ls $HOME/work/Marsen.NetCore.Dojo/Marsen.NetCore.Dojo
     - name: SonarScanner TypeScript Run              
       run: $HOME/.sonar/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner 
           -Dsonar.organization=marsen-github 
