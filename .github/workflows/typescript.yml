@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master 
-    - name: Run LS
-      run: ls src/Marsen.TypeScript.Dojo | date
     - name: Npm install
       run: npm i --prefix src/Marsen.TypeScript.Dojo
     - name: Run Cover
@@ -24,7 +22,7 @@ jobs:
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src
           -Dsonar.host.url=https://sonarcloud.io 
           -Dsonar.login=$SONAR_TS_LOGIN
-          -Dsonar.javascript.lcov.reportPaths=src/Marsen.TypeScript.Dojo/coverage
+          -Dsonar.typescript.lcov.reportPaths=src/Marsen.TypeScript.Dojo/coverage/lcov.info
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}           
       SONAR_TS_LOGIN: ${{ secrets.SONAR_TS_LOGIN }} 
