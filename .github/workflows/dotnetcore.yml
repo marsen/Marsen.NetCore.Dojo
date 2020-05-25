@@ -15,7 +15,9 @@ jobs:
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
     - uses: actions/checkout@master      
-    - name: SonarScanner TypeScript Run              
+    - name: SonarScanner TSProject Setup sonarqube
+      uses: warchant/setup-sonar-scanner@v1      
+    - name: SonarScanner TSProject Run              
       run:  sonar-scanner
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo
@@ -39,5 +41,4 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
-      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-      SONAR_SCANNER_VERSION: 4.2.0.1873
+      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}      
