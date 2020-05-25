@@ -27,7 +27,7 @@ jobs:
     - name: SonarScanner TypeScript install sonarqube-scanner
       run: npm i -D sonarqube-scanner     
     - name: SonarScanner TypeScript Run              
-      run: sonar-scanner 
+      run:  sonar-scanner
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/DatePicker
