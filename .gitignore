@@ -266,3 +266,6 @@ src/Marsen\.TypeScript\.Dojo/DatePicker/coverage/
 \.sonarqube/
 src/Marsen.NetCore.TestingToolkit/Marsen.NetCore.TestingToolkit.xml
 .DS_Store
+src/Marsen.TypeScript.Dojo/.nyc_output
+src/Marsen.TypeScript.Dojo/.scannerwork
+src/Marsen.TypeScript.Dojo/coverage
