@@ -10,22 +10,11 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.100
-    - name: SonarScanner TypeScript Download
-      run: curl 
-            --create-dirs 
-            -sSLo $HOME/.sonar/sonar-scanner.zip 
-            https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
-    - name: SonarScanner TypeScript Unzip            
-      run: unzip $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
-    - uses: actions/checkout@master    
-    - name: SonarScanner TypeScript npm link
-      run: npm link typescript     
-    - name: SonarScanner TypeScript Setup sonarqube
-      uses: warchant/setup-sonar-scanner@v1  
+    - uses: actions/checkout@master      
     - name: SonarScanner TypeScript Run              
       run:  sonar-scanner
           -Dsonar.organization=marsen-github 
