@@ -11,6 +11,8 @@ jobs:
       run: ls src/Marsen.TypeScript.Dojo
     - name: Run Cover
       run: npm run cover --prefix src/Marsen.TypeScript.Dojo
+    - name: Nyc install
+      run: npm i nyc
     - name: npm link TypeScript
       run: npm link typescript          
     - name: Setup Sonarqube
