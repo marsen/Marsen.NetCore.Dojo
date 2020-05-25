@@ -6,7 +6,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master       
+    - uses: actions/checkout@master  
+    - name: Run LS
+      run: ls
+    - name: Run Cover
+      run: npm run cover --prefix src/Marsen.Typescript.Dojo/           
     - name: npm link TypeScript
       run: npm link typescript          
     - name: Setup Sonarqube
@@ -18,7 +22,6 @@ jobs:
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src
           -Dsonar.host.url=https://sonarcloud.io 
           -Dsonar.login=1ae1fa107fbe41368a6232fe92e388dffcc49fe5   
-    - name: Run Cover
-      run: npm run cover --prefix src/Marsen.Typescript.Dojo/
+
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}           
