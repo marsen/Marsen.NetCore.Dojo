@@ -2,10 +2,7 @@
 export default class beforeShowDay {
     static blockDateList:string[] = [];
     static IsShow(date: Date):Array<boolean> {        
-        const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-        console.log(date.toLocaleDateString('zh-TW',options));
-        console.log(this.blockDateList[0]);
-        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW',options).replace(/\//g,'-')).length !== 0){
+        if(this.blockDateList.filter(x=>x===this.FormateDate(date)).length !== 0){
             return [false];
         }
         
@@ -41,8 +38,15 @@ export default class beforeShowDay {
         return [date.valueOf()-twoDay>=0];
     }
 
-    private static GetToday(){
+    private static GetToday():Date{
         var ms = Date.now();
         return new Date(ms);
+    }
+
+    private static FormateDate(date: Date):string{                
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDay();
+        return year + '-' +  month + '-' + day;
     }
 }
