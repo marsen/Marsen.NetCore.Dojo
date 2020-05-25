@@ -2,15 +2,17 @@
 export default class beforeShowDay {
     static blockDateList:string[] = [];
     static IsShow(date: Date):Array<boolean> {
-        var day = date.getDay();
-        var now = this.GetToday();
-        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW').replace(/\//g,'-')).length > 0){
+        console.log(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW').replace(/\//g,'-')).length);
+        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW').replace(/\//g,'-')).length !== 0){
             return [false];
         }
-
+        
+        var day = date.getDay();
         if(day==0){
             return [false];
         }
+
+        var now = this.GetToday();
         if(now.getDay()==6){
             return this.RestDays(date,now,3);
         }
@@ -19,7 +21,6 @@ export default class beforeShowDay {
         }
         
         if(now.getHours() >= 12){
-            ///console.log('date'+date.getDate()+' now '+now.getDate());
             if(now.getDay() == 5 ){
                 return this.RestDays(date,now,4);
             }
