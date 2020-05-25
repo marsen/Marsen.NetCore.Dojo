@@ -6,7 +6,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@master 
+    - name: Setup timezone
+      uses: zcong1993/setup-timezone@master
+      with:
+        timezone: Asia/Taipei
     - name: Run LS
       run: ls src/Marsen.TypeScript.Dojo
     - name: Npm install
