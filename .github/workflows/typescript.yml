@@ -7,16 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master       
-    - name: SonarScanner TSProject npm link
+    - name: npm link TypeScript
       run: npm link typescript          
-    - name: SonarScanner TSProject Setup sonarqube
+    - name: Setup Sonarqube
       uses: warchant/setup-sonar-scanner@v1      
-    - name: SonarScanner TSProject Run              
+    - name: Run Sonarqube
       run:  sonar-scanner
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src
           -Dsonar.host.url=https://sonarcloud.io 
           -Dsonar.login=1ae1fa107fbe41368a6232fe92e388dffcc49fe5   
+    - name: Run Cover
+      run: npm run cover --prefix src/Marsen.Typescript.Dojo/
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}           
