@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@master  
     - name: Run LS
-      run: ls src/Marsen.Typescript.Dojo
+      run: ls src
     - name: Run Cover
       run: npm run cover --prefix src/Marsen.Typescript.Dojo/           
     - name: npm link TypeScript
