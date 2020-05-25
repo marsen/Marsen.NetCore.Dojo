@@ -11,7 +11,7 @@ jobs:
     - name: Setup sonarqube
       uses: warchant/setup-sonar-scanner@v1
     - name: ls
-      uses: ls
+      run: ls
     - name: Run sonarqube
       env:
         # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
