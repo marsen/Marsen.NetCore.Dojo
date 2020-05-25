@@ -32,6 +32,6 @@ For Kata
   - SounarCloud
     - [x] C# Unit Test
     - [x] C# Coverage
-    - [ ] TS Unit Test
+    - [x] TS Unit Test
     - [ ] TS Coverage
   - [x] Mutation Stryker.Net
