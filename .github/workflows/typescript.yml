@@ -1,0 +1,19 @@
+name: TypeScript
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:  
+  build:    
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install TypeScript	
+      run: npm install typescript     
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
