@@ -24,8 +24,8 @@ jobs:
     - uses: actions/checkout@master    
     - name: SonarScanner TypeScript npm link
       run: npm link typescript     
-    - name: SonarScanner TypeScript install sonarqube-scanner
-      run: npm i -D sonarqube-scanner     
+    - name: SonarScanner TypeScript Setup sonarqube
+      uses: warchant/setup-sonar-scanner@v1  
     - name: SonarScanner TypeScript Run              
       run:  sonar-scanner
           -Dsonar.organization=marsen-github 
