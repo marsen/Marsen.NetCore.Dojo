@@ -23,6 +23,7 @@ jobs:
           -Dsonar.projectKey=Marsen.TypeScript.Dojo
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src
           -Dsonar.host.url=https://sonarcloud.io 
-          -Dsonar.login=1ae1fa107fbe41368a6232fe92e388dffcc49fe5
+          -Dsonar.login=$SONAR_TS_LOGIN
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}           
+      SONAR_TS_LOGIN: ${{ secrets.SONAR_TS_LOGIN }} 
