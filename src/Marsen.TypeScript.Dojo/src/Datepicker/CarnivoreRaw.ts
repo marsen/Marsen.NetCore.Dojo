@@ -1,10 +1,9 @@
 
 export default class beforeShowDay {
     static blockDateList:string[] = [];
-    static IsShow(date: Date):Array<boolean> {
-        console.log(date.toLocaleDateString('zh-TW'));
-        console.log(this.blockDateList[0]);
-        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW').replace(/\//g,'-')).length !== 0){
+    static IsShow(date: Date):Array<boolean> {        
+        const options = { year: 'numeric', month: 'numeric', day: 'numeric' };        
+        if(this.blockDateList.filter(x=>x==date.toLocaleDateString('zh-TW', options).replace(/\//g,'-')).length !== 0){
             return [false];
         }
         
