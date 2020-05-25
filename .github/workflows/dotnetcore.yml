@@ -10,31 +10,11 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.100
-    - name: SonarScanner TypeScript Download
-      run: curl 
-            --create-dirs 
-            -sSLo $HOME/.sonar/sonar-scanner.zip 
-            https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
-    - name: SonarScanner TypeScript Unzip            
-      run: unzip $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
-    - uses: actions/checkout@master    
-    - name: SonarScanner TypeScript npm link
-      run: npm link typescript     
-    - name: SonarScanner TypeScript npm link
-      run: npm i -D sonarqube-scanner 
-    - name: SonarScanner TypeScript npm link
-      run: npm link sonarqube-scanner       
-    - name: SonarScanner TypeScript Run              
-      run: sonar-scanner 
-          -Dsonar.organization=marsen-github 
-          -Dsonar.projectKey=Marsen.TypeScript.Dojo
-          -Dsonar.sources=./src/Marsen.TypeScript.Dojo/DatePicker
-          -Dsonar.host.url=https://sonarcloud.io 
-          -Dsonar.login=1ae1fa107fbe41368a6232fe92e388dffcc49fe5                
+    - uses: actions/checkout@master                    
     - name: SonarScanner Begin    
       run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN
     - name: Build with dotnet
@@ -52,5 +32,4 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
-      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-      SONAR_SCANNER_VERSION: 4.2.0.1873
+      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}      
