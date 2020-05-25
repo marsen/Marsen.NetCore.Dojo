@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@master  
     - name: Run LS
       run: ls src/Marsen.TypeScript.Dojo
-    - name: Nyc install
-      run: npm i nyc      
+    - name: Npm install
+      run: npm i
     - name: Run Cover
       run: npm run cover --prefix src/Marsen.TypeScript.Dojo
     - name: npm link TypeScript
