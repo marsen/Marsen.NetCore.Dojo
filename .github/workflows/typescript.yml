@@ -10,7 +10,7 @@ jobs:
     - name: Run LS
       run: ls src/Marsen.TypeScript.Dojo
     - name: Run Cover
-      run: npm run cover --prefix src/Marsen.Typescript.Dojo
+      run: npm run cover --prefix src/Marsen.TypeScript.Dojo
     - name: npm link TypeScript
       run: npm link typescript          
     - name: Setup Sonarqube
