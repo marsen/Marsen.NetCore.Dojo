@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import D from '../../src/DatePicker/beforeShowDay';
+import D from '../../src/Datepicker/CarnivoreRaw';
 
 describe('今天是 2019/3/30 號星期六 12:05', function() {
 

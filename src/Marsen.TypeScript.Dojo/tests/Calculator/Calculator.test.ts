@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import C from '../../src/DatePicker/Calculator';
+import C from '../../src/Calculator/Calculator';
 
 describe('calculate', function() {
   it('add', function() {
