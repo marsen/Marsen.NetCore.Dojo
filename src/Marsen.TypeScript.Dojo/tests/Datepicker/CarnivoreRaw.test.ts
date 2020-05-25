@@ -13,8 +13,8 @@ describe('今天是 2019/3/30 號星期六 12:05', function() {
   });
 
   it('日曆上 2019/4/02 星期二 設定為國定假日, 出貨 不可以選', function() {
-    D.blockDateList.push("2019-4-2");    
-    let result = D.IsShow(new Date(Date.UTC(2019,4-1,2)))[0];
+    D.blockDateList.push("2019-4-2");
+    let result = D.IsShow(new Date('2019-4-02'))[0];
     expect(result).equal(false,'不可以選');
   });
 
