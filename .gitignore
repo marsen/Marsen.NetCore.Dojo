@@ -269,3 +269,4 @@ src/Marsen.NetCore.TestingToolkit/Marsen.NetCore.TestingToolkit.xml
 src/Marsen.TypeScript.Dojo/.nyc_output
 src/Marsen.TypeScript.Dojo/.scannerwork
 src/Marsen.TypeScript.Dojo/coverage
+.scannerwork
