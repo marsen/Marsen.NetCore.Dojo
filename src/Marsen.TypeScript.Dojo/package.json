@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
-    "cover": "nyc npm run test"
+    "cover": "nyc --reporter=lcov npm run test"
   },
   "keywords": [
     "datepicker"
