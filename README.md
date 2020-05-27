@@ -15,21 +15,21 @@ For Kata
 
 ## Goal
 
-- Refator
+- Refactor
   - bad smell
   - design pattern
   - issue analysis
   - workingProcess
 - Vim
   - Rider
-  - Resharp
+  - ReSharper
 - Typing
 - Pair
   - Learn from others  
 - CI/CD Tools
   - Github Action `PROCESSING`
   - Travis CI `PENDING`
-  - SounarCloud
+  - SonarCloud
     - [x] C# Unit Test
     - [x] C# Coverage
     - [x] TS Unit Test
