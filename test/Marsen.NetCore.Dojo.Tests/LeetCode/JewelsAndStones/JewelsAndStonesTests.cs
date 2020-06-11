@@ -19,18 +19,19 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
         {
             ShouldBe("a", "b", 0);
         }
-        
+
         [Fact]
         public void a_a_ShouldBe_1()
         {
             ShouldBe("a", "a", 1);
         }
-        
+
         [Fact]
         public void a_aa_ShouldBe_2()
         {
             ShouldBe("a", "aa", 2);
         }
+
         [Fact]
         public void aB_aBa_ShouldBe_3()
         {
@@ -38,8 +39,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
         }
 
 
-        
-        
+        [Fact]
+        public void abc_cat_ShouldBe_2()
+        {
+            ShouldBe("abc", "cat", 2);
+        }
+
+
         private void ShouldBe(string jewels, string stones, int expected)
         {
             Assert.Equal(expected, _jewelsSelector.Filter(jewels, stones));
