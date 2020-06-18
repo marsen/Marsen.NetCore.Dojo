@@ -46,6 +46,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
         }
 
 
+        [Fact]
+        public void abc_apple_ShouldBe_1()
+        {
+            ShouldBe("abc", "apple", 1);
+        }
+
+
         private void ShouldBe(string jewels, string stones, int expected)
         {
             Assert.Equal(expected, _jewelsSelector.Filter(jewels, stones));
