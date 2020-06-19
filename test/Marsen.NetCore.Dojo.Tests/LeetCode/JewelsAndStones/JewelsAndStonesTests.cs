@@ -1,6 +1,4 @@
-﻿using System;
-using Marsen.NetCore.Dojo.LeetCode.JewelsAndStones;
-using NSubstitute;
+﻿using Marsen.NetCore.Dojo.LeetCode.JewelsAndStones;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
@@ -38,20 +36,17 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.JewelsAndStones
             ShouldBe("aB", "aBa", 3);
         }
 
-
         [Fact]
         public void abc_cat_ShouldBe_2()
         {
             ShouldBe("abc", "cat", 2);
         }
 
-
         [Fact]
         public void abc_apple_ShouldBe_1()
         {
             ShouldBe("abc", "apple", 1);
         }
-
 
         private void ShouldBe(string jewels, string stones, int expected)
         {
