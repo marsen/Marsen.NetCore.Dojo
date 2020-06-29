@@ -39,6 +39,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
             GiveTheArrayIs(new[] {1, 2, 3});
             ShouldBe(2);
         }
+
+        [Fact]
+        public void arr_2_3_1_should_be_2()
+        {
+            GiveTheArrayIs(new[] {2, 3, 1});
+            ShouldBe(2);
+        }
     }
 
     public class ArrayFinder
