@@ -10,15 +10,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
         [Fact]
         public void arr_1_should_be_1()
         {
-            var arr = new int[] {1};
-            Assert.Equal(1, _target.Median(arr));
+            Assert.Equal(1, _target.Median(new[] {1}));
         }
 
         [Fact]
         public void arr_2_should_be_2()
         {
-            var arr = new int[] {2};
-            Assert.Equal(2, actual: _target.Median(arr));
+            Assert.Equal(2, actual: _target.Median(new[] {2}));
         }
     }
 
