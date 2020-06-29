@@ -1,4 +1,4 @@
-using System.Linq;
+using Marsen.NetCore.Dojo.LeetCode.FindTheMedian;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
@@ -52,15 +52,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
         {
             GiveTheArrayIs(new[] {0, 1, 2, 4, 6, 5, 3});
             ShouldBe(3);
-        }
-    }
-
-    public class ArrayFinder
-    {
-        public int Median(int[] array)
-        {
-            var list = array.ToList().OrderBy(x => x).ToList();
-            return list.ElementAt(list.Count / 2);
         }
     }
 }
