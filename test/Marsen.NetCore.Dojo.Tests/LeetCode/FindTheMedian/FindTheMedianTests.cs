@@ -52,7 +52,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
     {
         public int Median(int[] array)
         {
-            var list = array.ToList();
+            var list = array.ToList().OrderBy(x=>x).ToList();
             return list.ElementAt(list.Count / 2);
         }
     }
