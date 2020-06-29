@@ -46,13 +46,20 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
             GiveTheArrayIs(new[] {2, 3, 1});
             ShouldBe(2);
         }
+
+        [Fact]
+        public void arr_0_1_2_4_6_5_3_should_be_3()
+        {
+            GiveTheArrayIs(new[] {0, 1, 2, 4, 6, 5, 3});
+            ShouldBe(3);
+        }
     }
 
     public class ArrayFinder
     {
         public int Median(int[] array)
         {
-            var list = array.ToList().OrderBy(x=>x).ToList();
+            var list = array.ToList().OrderBy(x => x).ToList();
             return list.ElementAt(list.Count / 2);
         }
     }
