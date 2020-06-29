@@ -1,3 +1,4 @@
+using System.Linq;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
@@ -31,13 +32,21 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.FindTheMedian
             GiveTheArrayIs(new[] {2});
             ShouldBe(2);
         }
+
+        [Fact]
+        public void arr_1_2_3_should_be_2()
+        {
+            GiveTheArrayIs(new[] {1, 2, 3});
+            ShouldBe(2);
+        }
     }
 
     public class ArrayFinder
     {
         public int Median(int[] array)
         {
-            return array[0];
+            var list = array.ToList();
+            return list.ElementAt(list.Count / 2);
         }
     }
 }
