@@ -67,10 +67,10 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 
         private string AdvScore()
         {
-            return $"{GetWinnerName()} " + (IsLeading2() ? "Win" : "Adv");
+            return $"{GetWinnerName()} " + (IsLeading() ? "Win" : "Adv");
         }
 
-        private bool IsLeading2()
+        private bool IsLeading()
         {
             return Math.Abs(_firstPlayerScore - _secondPlayerScore) > 1;
         }
