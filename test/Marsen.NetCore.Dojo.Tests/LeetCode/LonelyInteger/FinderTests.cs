@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+﻿using Marsen.NetCore.Dojo.LeetCode.LonelyInteger;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
@@ -53,14 +52,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
         private void GivenArrayAs(int[] array)
         {
             _array = array;
-        }
-    }
-
-    public class Finder
-    {
-        public int Get(int[] array)
-        {
-            return array.GroupBy(x => x).First(x => x.Count() == 1).Key;
         }
     }
 }
