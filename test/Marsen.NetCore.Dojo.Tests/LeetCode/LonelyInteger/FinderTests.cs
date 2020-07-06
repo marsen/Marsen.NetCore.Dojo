@@ -5,13 +5,12 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
 {
     public class FinderTests
     {
+        private readonly Finder _finder = new Finder();
+
         [Fact]
         public void arr_1_should_be_1()
         {
-            var arr = new[] {1};
-            var finder = new Finder();
-            int result = finder.Get(arr);
-            Assert.Equal(1,result);
+            Assert.Equal(1,_finder.Get(new[] {1}));
         }
     }
 
