@@ -5,23 +5,22 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
-using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
-using Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
-using Marsen.NetCore.Dojo.Kata.PickupService.Interface;
+using Marsen.NetCore.Dojo.Kata.Service.Entity;
+using Marsen.NetCore.Dojo.Kata.Service.Entity.PickupService;
+using Marsen.NetCore.Dojo.Kata.Service.Interface;
 using Microsoft.Extensions.Logging;
-using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.Status;
+using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService.Status;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
-
-namespace Marsen.NetCore.Dojo.Kata.PickupService
+namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
 {
     public class PickupService : IQueryStatus
     {
         private readonly IConfigService _configService;
         private readonly IStoreSettingService _storeSettingService;
         private readonly ILogger _logger;
-        internal HttpClient HttpClient;
         private const string DeliveryOrder = "DeliveryOrder";
+        internal HttpClient HttpClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PickupService" /> class.
@@ -40,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService
             {
                 var result = new List<ShippingOrderUpdateEntity>();
 
-                var loginId = this._storeSettingService.GetValue(storeId, "pickup.service", "loginId");
+                var loginId = this._storeSettingService.GetValue(storeId, "", "loginId");
                 this.HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
 
                 var auth = this._storeSettingService.GetValue(storeId, "pickup.service", "auth");
@@ -65,21 +64,21 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService
                     };
                     switch (c.Status)
                     {
-                        case Entity.PickupService.Status.DONE:
-                            shippingOrderUpdateEntity.Status = Status.Finish;
+                        case Status.DONE:
+                            shippingOrderUpdateEntity.Status = Entity.Status.Finish;
                             break;
 
-                        case Entity.PickupService.Status.Shipping:
-                            shippingOrderUpdateEntity.Status = Status.Processing;
+                        case Status.Shipping:
+                            shippingOrderUpdateEntity.Status = Entity.Status.Processing;
                             break;
 
-                        case Entity.PickupService.Status.FAIL:
-                        case Entity.PickupService.Status.Expiry:
-                            shippingOrderUpdateEntity.Status = Status.Abnormal;
+                        case Status.FAIL:
+                        case Status.Expiry:
+                            shippingOrderUpdateEntity.Status = Entity.Status.Abnormal;
                             break;
 
-                        case Entity.PickupService.Status.Arrived:
-                            shippingOrderUpdateEntity.Status = Status.Arrived;
+                        case Status.Arrived:
+                            shippingOrderUpdateEntity.Status = Entity.Status.Arrived;
                             break;
                     }
 

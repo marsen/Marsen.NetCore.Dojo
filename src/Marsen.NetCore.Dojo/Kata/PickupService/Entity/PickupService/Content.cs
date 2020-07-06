@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService
+namespace Marsen.NetCore.Dojo.Kata.Service.Entity.PickupService
 {
     public class Content
     {
@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService
 
         [JsonPropertyName("lastStatusId")]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public Status Status { get; set; }
+        public Kata.PickupService.Entity.PickupService.Status Status { get; set; }
 
         public string lastStatusDescription { get; set; }
         [JsonPropertyName("lastStatusDate")] public string LastStatusDate { get; set; }

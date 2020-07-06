@@ -4,24 +4,24 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using FluentAssertions;
-using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
-using Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
-using Marsen.NetCore.Dojo.Kata.PickupService.Interface;
+using Marsen.NetCore.Dojo.Kata.Service.Entity;
+using Marsen.NetCore.Dojo.Kata.Service.Entity.PickupService;
+using Marsen.NetCore.Dojo.Kata.Service.Interface;
 using Marsen.NetCore.TestingToolkit;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using Xunit;
 using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.Status;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
+namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService.Services
 {
     public class PickupServiceTests
     {
-        private readonly Dojo.Kata.PickupService.PickupService _target;
+        private readonly Dojo.Kata.PickupService.Services.PickupService _target;
 
         public PickupServiceTests()
         {
-            _target = GetPickupService();
+            _target = this.GetPickupService();
         }
 
         [Fact]
@@ -152,15 +152,15 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService
             return actual;
         }
 
-        private static Dojo.Kata.PickupService.PickupService GetPickupService()
+        private Dojo.Kata.PickupService.Services.PickupService GetPickupService()
         {
             ILogger logger = Substitute.For<ILogger>();
             IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
-            storeSettingService.GetValue(Arg.Any<long>(), "pickup.service", "auth").Returns("FakeAuth");
+            storeSettingService.GetValue(Arg.Any<long>(), Arg.Is("pickup.service"), Arg.Is("auth")).Returns("FakeAuth");
             IConfigService configService = Substitute.For<IConfigService>();
             configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");
 
-            var target = new Dojo.Kata.PickupService.PickupService(configService, storeSettingService, logger);
+            var target = new Dojo.Kata.PickupService.Services.PickupService(configService, storeSettingService, logger);
             return target;
         }
     }

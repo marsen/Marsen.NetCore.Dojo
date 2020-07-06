@@ -1,6 +1,7 @@
 ﻿using System;
+using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
 
-namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity
+namespace Marsen.NetCore.Dojo.Kata.Service.Entity
 {
     public class ShippingOrderUpdateEntity
     {
