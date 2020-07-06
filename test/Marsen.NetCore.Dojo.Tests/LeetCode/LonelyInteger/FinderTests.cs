@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
@@ -15,6 +16,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
             ShouldBe(1);
         }
 
+        [Fact]
+        public void arr_2_should_be_2()
+        {
+            GivenArrayAs(new[] {2});
+            ShouldBe(2);
+        }
+
+
         private void ShouldBe(int expected)
         {
             Assert.Equal(expected, _finder.Get(_array));
@@ -30,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
     {
         public int Get(int[] arr)
         {
-            return 1;
+            return arr.First();
         }
     }
 }
