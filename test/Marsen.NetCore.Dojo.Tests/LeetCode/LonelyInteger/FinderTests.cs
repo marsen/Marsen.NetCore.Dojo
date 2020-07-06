@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
     {
         public int Get(int[] arr)
         {
-            throw new System.NotImplementedException();
+            return 1;
         }
     }
 }
