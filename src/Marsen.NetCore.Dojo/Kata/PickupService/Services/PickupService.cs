@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using Castle.Core.Internal;
-using Marsen.NetCore.Dojo.Kata.Service.Entity;
-using Marsen.NetCore.Dojo.Kata.Service.Entity.PickupService;
-using Marsen.NetCore.Dojo.Kata.Service.Interface;
+using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
+using Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
+using Marsen.NetCore.Dojo.Kata.PickupService.Interface;
 using Microsoft.Extensions.Logging;
 using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService.Status;
 

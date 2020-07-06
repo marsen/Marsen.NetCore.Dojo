@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Marsen.NetCore.Dojo.Kata.Service.Entity.PickupService
+namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService
 {
     public class Content
     {

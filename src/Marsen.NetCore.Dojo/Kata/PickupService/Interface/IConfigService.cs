@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.Service.Interface
+﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface
 {
     public interface IConfigService
     {
