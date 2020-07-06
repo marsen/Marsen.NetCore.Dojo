@@ -37,6 +37,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
             ShouldBe(3);
         }
 
+        [Fact]
+        public void arr_1_2_3_4_3_2_1_should_be_4()
+        {
+            GivenArrayAs(new[] {1, 2, 3, 4, 3, 2, 1});
+            ShouldBe(4);
+        }
+
 
         private void ShouldBe(int expected)
         {
