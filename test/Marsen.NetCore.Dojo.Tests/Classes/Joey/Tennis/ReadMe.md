@@ -19,3 +19,15 @@
 | 5     | 3     | Joey Win     |
 | 3     | 4     | Tom Adv     |
 | 3     | 5     | Tom Win     |
+
+## State Pattern
+
+因為 91 大上課的一句話，「有人使用狀態機」完成這個 Kata ，所以我也想來試一下。
+這是設計理念上的不同，所以我依然要用 TDD 來趨動。
+步驟如下：
+- 了解 State Pattern 
+- 分析 Tennis Kata 的 State
+- 設計 Test Cases
+- TDD
+
+### 什麼是 State Pattern ?
