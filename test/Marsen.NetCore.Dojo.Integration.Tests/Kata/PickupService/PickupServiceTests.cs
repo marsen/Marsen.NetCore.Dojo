@@ -13,7 +13,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
     public class PickupServiceTests
     {
         private readonly IConfigService _configService;
-        private Dojo.Kata.PickupService.PickupService target;
+        private Dojo.Kata.PickupService.Services.PickupService target;
         private readonly long _testStoreId = 1;
         private readonly List<string> _testWaybillNo = new List<string> {"TEST2002181800010"};
         private string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
@@ -108,7 +108,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
                 .Returns(url);
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
             _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
-            target = new Dojo.Kata.PickupService.PickupService(_configService, _storeSettingService, _logger);
+            target = new Dojo.Kata.PickupService.Services.PickupService(_configService, _storeSettingService, _logger);
         }
 
 
