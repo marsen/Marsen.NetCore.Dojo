@@ -23,6 +23,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
             ShouldBe(2);
         }
 
+        [Fact]
+        public void arr_2_2_3_should_be_3()
+        {
+            GivenArrayAs(new[] {2,2,3});
+            ShouldBe(3);
+        }
+
 
         private void ShouldBe(int expected)
         {
@@ -37,9 +44,9 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
 
     public class Finder
     {
-        public int Get(int[] arr)
+        public int Get(int[] array)
         {
-            return arr.First();
+            return array.Last();
         }
     }
 }
