@@ -65,8 +65,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void FirstPlayer_Win()
         {
-            FirstPlayerScoreTimes(5);
-            SecondPlayerScoreTimes(3);
+            GivenDeuce();
+            FirstPlayerScoreTimes(2);
             Assert.Equal("Joey Win", _tennisGame.Score());
         }
 
@@ -107,16 +107,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void SecondPlayer_Adv()
         {
-            FirstPlayerScoreTimes(3);
-            SecondPlayerScoreTimes(4);
+            GivenDeuce();
+            SecondPlayerScoreTimes(1);
             Assert.Equal("Tom Adv", _tennisGame.Score());
         }
 
         [Fact]
         public void SecondPlayer_Win()
         {
-            FirstPlayerScoreTimes(3);
-            SecondPlayerScoreTimes(5);
+            GivenDeuce();
+            SecondPlayerScoreTimes(2);
             Assert.Equal("Tom Win", _tennisGame.Score());
         }
 
