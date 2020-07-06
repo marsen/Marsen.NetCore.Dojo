@@ -26,7 +26,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
         [Fact]
         public void arr_2_2_3_should_be_3()
         {
-            GivenArrayAs(new[] {2,2,3});
+            GivenArrayAs(new[] {2, 2, 3});
+            ShouldBe(3);
+        }
+
+        [Fact]
+        public void arr_2_3_2_should_be_3()
+        {
+            GivenArrayAs(new[] {2, 3, 2});
             ShouldBe(3);
         }
 
@@ -46,7 +53,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
     {
         public int Get(int[] array)
         {
-            return array.Last();
+            return array.GroupBy(x=>x).First(x=>x.Count()==1).Key;
         }
     }
 }
