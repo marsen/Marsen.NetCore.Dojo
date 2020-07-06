@@ -156,6 +156,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService.Services
         {
             ILogger logger = Substitute.For<ILogger>();
             IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
+            storeSettingService.GetValue(Arg.Any<long>(), Arg.Is("pickup.service"), Arg.Is("loginId")).Returns("FakeLoginId");
             storeSettingService.GetValue(Arg.Any<long>(), Arg.Is("pickup.service"), Arg.Is("auth")).Returns("FakeAuth");
             IConfigService configService = Substitute.For<IConfigService>();
             configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");

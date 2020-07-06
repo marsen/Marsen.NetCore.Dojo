@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
+using Castle.Core.Internal;
 using Marsen.NetCore.Dojo.Kata.Service.Entity;
 using Marsen.NetCore.Dojo.Kata.Service.Entity.PickupService;
 using Marsen.NetCore.Dojo.Kata.Service.Interface;
@@ -39,7 +40,12 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
             {
                 var result = new List<ShippingOrderUpdateEntity>();
 
-                var loginId = this._storeSettingService.GetValue(storeId, "", "loginId");
+                var loginId = this._storeSettingService.GetValue(storeId, "pickup.service", "loginId");
+                if (loginId.IsNullOrEmpty())
+                {
+                    throw new Exception("error login Id");
+                }
+                
                 this.HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
 
                 var auth = this._storeSettingService.GetValue(storeId, "pickup.service", "auth");
