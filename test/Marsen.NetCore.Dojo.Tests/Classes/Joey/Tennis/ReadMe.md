@@ -13,8 +13,8 @@
 | 0     | 3     | Love Forty    |
 | 1     | 1     | Fifteen All     |
 | 2     | 2     | Thirty All     |
-| 3     | 3     | Duece        |
-| 4     | 4     | Duece        |
+| 3     | 3     | Deuce        |
+| 4     | 4     | Deuce        |
 | 4     | 3     | Joey Adv     |
 | 5     | 3     | Joey Win     |
 | 3     | 4     | Tom Adv     |
@@ -22,8 +22,9 @@
 
 ## State Pattern
 
-因為 91 大上課的一句話，「有人使用狀態機」完成這個 Kata ，所以我也想來試一下。
-這是設計理念上的不同，所以我依然要用 TDD 來趨動。
+因為 91 大上課的一句話，「有人使用狀態機」完成這個 Kata ，  
+所以我也想來試一下。  
+這僅僅是設計理念上的不同，所以我依然要用 TDD 來趨動。 
 步驟如下：
 - 了解 State Pattern 
 - 分析 Tennis Kata 的 State
