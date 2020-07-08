@@ -194,3 +194,7 @@ NormalState 看不到 GameContext 必須將 GameContext 作為 State 的欄位�
 加上 score 當同分時才需要切換 state
 
 ##### Case Fifteen_All_After_ServerScored
+
+重構
+- 檔案分離
+- 抽取介面
