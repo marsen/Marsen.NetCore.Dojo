@@ -16,7 +16,7 @@
 
         public void ChangeState(GameContext gameContext)
         {
-            if (_gameContext._serverScore == _gameContext._receiverScore)
+            if (_gameContext.ServerScore == _gameContext.ReceiverScore)
             {
                 _gameContext.State = new AllState();
             }
