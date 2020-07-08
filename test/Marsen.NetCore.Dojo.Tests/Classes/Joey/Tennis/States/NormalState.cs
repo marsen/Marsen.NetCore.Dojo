@@ -2,8 +2,6 @@
 {
     public class NormalState : State
     {
-        private GameContext _gameContext;
-
         public override string ServerScore()
         {
             return "Fifteen Love";
@@ -11,6 +9,12 @@
 
         public override string ReceiverScore()
         {
+            if (_gameContext.ServerScore == _gameContext.ReceiverScore)
+            {
+                _gameContext.State = new AllState();
+                return _gameContext.State.ReceiverScore();
+            }
+            
             return "Love Fifteen";
         }
     }

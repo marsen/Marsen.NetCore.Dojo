@@ -24,8 +24,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public string ReceiverScored()
         {
             ReceiverScore++;
-            State.ChangeState();
             return State.ReceiverScore();
         }
+        
+   
     }
 }
