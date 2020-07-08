@@ -190,3 +190,5 @@ NormalState 看不到 GameContext 必須將 GameContext 作為 State 的欄位�
 最後 NormalState 才有可能呼叫本身 GameContext 來進行欄位的切換。
 
 先用最小的代價讓測試通過 (AllState 繼承 NormalState)
+有改 A 壞 B 的問題要先修正
+加上 score 當同分時才需要切換 state
