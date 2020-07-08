@@ -4,27 +4,28 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContext
     {
-        internal State _state = new NormalState();
+        internal State State ;
         protected internal int _serverScore;
         protected internal int _receiverScore;
 
         public GameContext()
         {
-            _state.SetContext(this);
+            State = new NormalState();
+            State.SetContext(this);
         }
 
         public string ServerScore()
         {
             _serverScore++;
-            _state.ChangeState(this);
-            return _state.ServerScore();
+            State.ChangeState();
+            return State.ServerScore();
         }
 
         public string ReceiverScore()
         {
             _receiverScore++;
-            _state.ChangeState(this);
-            return _state.ReceiverScore();
+            State.ChangeState();
+            return State.ReceiverScore();
         }
     }
 }

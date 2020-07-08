@@ -18,7 +18,7 @@
         {
             if (_gameContext._serverScore == _gameContext._receiverScore)
             {
-                _gameContext._state = new AllState();
+                _gameContext.State = new AllState();
             }
         }
 

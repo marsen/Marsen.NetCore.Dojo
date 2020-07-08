@@ -11,11 +11,11 @@
             this._gameContext = gameContext;
         }
 
-        public void ChangeState(GameContext gameContext)
+        public void ChangeState()
         {
             if (_gameContext._serverScore == _gameContext._receiverScore)
             {
-                _gameContext._state = new AllState();
+                _gameContext.State = new AllState();
             }
         }
     }
