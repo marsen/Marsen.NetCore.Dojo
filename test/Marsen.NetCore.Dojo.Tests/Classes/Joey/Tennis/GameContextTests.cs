@@ -30,7 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Fifteen All");
         }
 
-        [Fact(Skip = "2 Tests Case Error")]
+        [Fact]
         public void Fifteen_All_After_ServerScore()
         {
             _result = _game.ReceiverScore();
@@ -54,18 +54,23 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public string ServerScore()
         {
             _serverScore++;
+            ChangeState();
             return _state.ServerScore();
         }
 
         public string ReceiverScore()
         {
             _receiverScore++;
+            ChangeState();
+            return _state.ReceiverScore();
+        }
+
+        private void ChangeState()
+        {
             if (_serverScore == _receiverScore)
             {
                 this._state = new AllState();
             }
-
-            return _state.ReceiverScore();
         }
     }
 
@@ -75,11 +80,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             return "Fifteen All";
         }
+
+        public override string ServerScore()
+        {
+            return "Fifteen All";
+        }
     }
 
     public class NormalState
     {
-        public string ServerScore()
+        public virtual string ServerScore()
         {
             return "Fifteen Love";
         }
