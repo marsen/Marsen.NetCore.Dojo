@@ -4,12 +4,12 @@
     {
         private GameContext _gameContext;
 
-        public virtual string ServerScore()
+        public override string ServerScore()
         {
             return "Fifteen Love";
         }
 
-        public virtual string ReceiverScore()
+        public override string ReceiverScore()
         {
             return "Love Fifteen";
         }
