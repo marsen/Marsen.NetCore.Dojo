@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string ServerScore()
         {
-            throw new System.NotImplementedException();
+            return "Fifteen Love";
         }
     }
 }
