@@ -104,17 +104,67 @@ public void Change(string state)
 ### 分析 Tennis Kata 
 
 #### 行為
+
 - First Player 得分
 - Second Player 得分
 
 #### 狀態
+
 - 同分
-    - 小於 3 分 ， Love
-    - 大於等於 3 分 ， Deuce
+    - 小於 3 分 ， All
+        - Love All
+        - Fifteen All
+        - Thirty All
+    - 大於等於 3 分 ， Deuce        
 - 不同分
     - 雙方都小於等於 3 分， Normal
+        - 0-15
+        - 0-30
+        - 0-40 
+        - 15-0
+        - 15-30
+        - 15-40
+        - 30-0
+        - 30-15
+        - 30-40
+        - 40-0
+        - 40-15
+        - 40-30
     - 有一方大於 3 分
         - 分差等於 1 分 領先者的 Adv
+            - First Player Adv
+            - Second Player Adv
         - 分差等於 2 分 領先者 Win, 遊戲結束。
-    
+            - First Player Win
+            - Second Player Win
+            
+#### 思考           
+
+應該怎麼選擇狀態呢 ? 如 Deuce 或 Adv , 還是選擇 15-40 這樣明確的記分作為狀態 ? 
+直覺上應該選用前者，以此為基點將狀態設計如下
+- All : 小於 3 分的平手狀態
+- Deuce : 大於等於 3 分的平手狀態
+- Normal : 雙方都小於 3 分，且不是 All 的狀態
+- Advantage : 領先方得分大於 3 分，且只領先 1 分的狀態
+- Win : 領先方得分大於 3 分，且領先 2 分的狀態
+
+![](https://imgur.com/jDUiYE8.jpg)
+<div https://i.imgur.com/YNx92Hp.jpg />
+
+隨手畫了上圖的狀態機，  
+想一下要怎產生測試案例。
+
+#### Test Cases
+
+設計模式提供我們指引與目標，  
+TDD 則透過案例將代碼逐一產生出來。
+State Pattern 將會是我們的目標，
+Tennis Game 進行中應該會有一個實體記錄著狀態，並且會回報我們現在的賽況。
+
+##### Case Fifteen-Love
+產生 GameContext 與方法介面。
+由 Domain Know How 我可以了解
+GameContext 應該具備 SeverScore(發球方得分)/ReceiverScore(接發方得分) 兩個方法(行為)來改變 GameContext 的狀態。  
+第一個案例，我想產生 SeverScore 的方法介面。
+
 
