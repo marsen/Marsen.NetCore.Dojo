@@ -1,6 +1,6 @@
 ﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
-    public class NormalState : IState
+    public class NormalState : State
     {
         private GameContext _gameContext;
 

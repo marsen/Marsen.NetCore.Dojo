@@ -1,6 +1,6 @@
 ﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
-    public abstract class IState
+    public abstract class State
     {
         private GameContext _gameContext;
         public abstract string ServerScore();
