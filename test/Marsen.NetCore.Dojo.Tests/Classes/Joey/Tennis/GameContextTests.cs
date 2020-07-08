@@ -23,7 +23,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void Fifteen_All()
+        public void Fifteen_All_After_ReceiverScore()
         {
             _result = _game.ServerScore();
             _result = _game.ReceiverScore();

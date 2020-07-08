@@ -181,3 +181,7 @@ GameContext 應該具備 SeverScore(發球方得分)/ReceiverScore(接發方得�
 - Context 要先改變 State 
 - 紅燈 
 
+這個時候我發現當狀態在 Normal 時得分的話 需要改變狀態為 All
+因為得分有兩種情境 ReceiverScore 或 ServerScore 所以我會重新命名測試案例
+Fifteen_All_After_ReceiverScored
+- 紅燈
