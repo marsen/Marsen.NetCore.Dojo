@@ -4,6 +4,11 @@
     {
         public override string ServerScore()
         {
+            if (_gameContext.ServerScore == _gameContext.ReceiverScore)
+            {
+                _gameContext.State = new AllState();
+                return _gameContext.State.ReceiverScore();
+            }
             return "Fifteen Love";
         }
 

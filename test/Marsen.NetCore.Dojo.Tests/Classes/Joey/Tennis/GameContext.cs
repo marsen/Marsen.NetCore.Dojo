@@ -17,7 +17,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public string ServerScored()
         {
             ServerScore++;
-            State.ChangeState();
             return State.ServerScore();
         }
 
@@ -26,7 +25,5 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ReceiverScore++;
             return State.ReceiverScore();
         }
-        
-   
     }
 }
