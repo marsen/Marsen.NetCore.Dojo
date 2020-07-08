@@ -31,10 +31,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class GameContext
     {
+        readonly NormalState _state = new NormalState();
+
         public string ServerScore()
         {
-            var normalState = new NormalState();
-            return normalState.ServerScore();
+            return _state.ServerScore();
         }
 
         public string ReceiverScore()
