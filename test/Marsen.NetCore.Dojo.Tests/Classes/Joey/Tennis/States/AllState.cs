@@ -1,13 +1,13 @@
 ﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
-    public class AllState : IState
+    public class AllState : NormalState
     {
-        public string ReceiverScore()
+        public override string ReceiverScore()
         {
             return "Fifteen All";
         }
 
-        public string ServerScore()
+        public override string ServerScore()
         {
             return "Fifteen All";
         }

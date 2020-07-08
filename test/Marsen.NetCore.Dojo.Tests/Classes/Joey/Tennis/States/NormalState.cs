@@ -2,12 +2,12 @@
 {
     public class NormalState : IState
     {
-        public string ServerScore()
+        public virtual string ServerScore()
         {
             return "Fifteen Love";
         }
 
-        public string ReceiverScore()
+        public virtual string ReceiverScore()
         {
             return "Love Fifteen";
         }

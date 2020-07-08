@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContext
     {
-        IState _state = new NormalState();
+        NormalState _state = new NormalState();
         private int _serverScore;
         private int _receiverScore;
 
