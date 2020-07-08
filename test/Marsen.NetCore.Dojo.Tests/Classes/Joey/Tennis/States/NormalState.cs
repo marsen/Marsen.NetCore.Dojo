@@ -16,9 +16,9 @@
 
         public void ChangeState(GameContext gameContext)
         {
-            if (gameContext._serverScore == gameContext._receiverScore)
+            if (_gameContext._serverScore == _gameContext._receiverScore)
             {
-                gameContext._state = new AllState();
+                _gameContext._state = new AllState();
             }
         }
 
