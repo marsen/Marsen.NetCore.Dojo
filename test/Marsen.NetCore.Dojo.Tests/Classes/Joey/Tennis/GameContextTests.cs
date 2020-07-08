@@ -40,8 +40,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public string ReceiverScore()
         {
-            var normalState = new NormalState();
-            return normalState.ReceiverScore();
+            return _state.ReceiverScore();
         }
     }
 
