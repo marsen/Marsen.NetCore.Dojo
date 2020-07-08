@@ -188,3 +188,5 @@ Fifteen_All_After_ReceiverScored
 NormalState 看不到 GameContext 必須將 GameContext 作為 State 的欄位。
 且 GameContext 應該提供 ChangeState 方法來改變本身的 State， 
 最後 NormalState 才有可能呼叫本身 GameContext 來進行欄位的切換。
+
+先用最小的代價讓測試通過 (AllState 繼承 NormalState)
