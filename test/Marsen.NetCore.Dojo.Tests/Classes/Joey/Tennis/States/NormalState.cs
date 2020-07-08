@@ -2,6 +2,8 @@
 {
     public class NormalState : IState
     {
+        private GameContext _gameContext;
+
         public virtual string ServerScore()
         {
             return "Fifteen Love";
@@ -18,6 +20,11 @@
             {
                 gameContext.State = new AllState();
             }
+        }
+
+        public void SetContext(GameContext gameContext)
+        {
+            this._gameContext = gameContext;
         }
     }
 }

@@ -8,6 +8,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         protected internal int _serverScore;
         protected internal int _receiverScore;
 
+        public GameContext()
+        {
+            _state.SetContext(this);
+        }
         public NormalState State
         {
             set { _state = value; }
