@@ -167,4 +167,7 @@ Tennis Game 進行中應該會有一個實體記錄著狀態，並且會回報�
 GameContext 應該具備 SeverScore(發球方得分)/ReceiverScore(接發方得分) 兩個方法(行為)來改變 GameContext 的狀態。  
 第一個案例，我想產生 SeverScore 的方法介面。
 
+第一個案例通過後，我打算先重構並朝 State Pattern 邁進。
+首先 GameContext 應該存在某一種 State, 以上圖的分析，
+應該是屬於 Normal , 所以我會建立 Normal Class 並產生方法回傳比分結果。
 
