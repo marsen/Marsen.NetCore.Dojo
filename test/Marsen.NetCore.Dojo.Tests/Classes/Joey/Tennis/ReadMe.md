@@ -173,5 +173,11 @@ GameContext 應該具備 SeverScore(發球方得分)/ReceiverScore(接發方得�
 
 ##### Case Love_Fifteen 
 - 產生 ReceiverScore 的方法簽章
+- 通過測試
+- 重構
 
+##### Case Fifteen_All
+- 產生第二種 State All
+- Context 要先改變 State 
+- 紅燈 
 

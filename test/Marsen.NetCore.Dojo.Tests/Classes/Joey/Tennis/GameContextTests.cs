@@ -22,6 +22,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Love Fifteen");
         }
 
+        [Fact]
+        public void Fifteen_All()
+        {
+            _result = _game.ServerScore();
+            _result = _game.ReceiverScore();
+            ScoreShouldBe("Fifteen All");
+        }
+
 
         private void ScoreShouldBe(string expected)
         {
