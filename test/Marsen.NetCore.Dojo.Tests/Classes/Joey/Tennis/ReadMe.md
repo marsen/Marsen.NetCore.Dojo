@@ -149,7 +149,7 @@ public void Change(string state)
 - Win : 領先方得分大於 3 分，且領先 2 分的狀態
 
 ![](https://imgur.com/jDUiYE8.jpg)
-<div https://i.imgur.com/YNx92Hp.jpg />
+<hidden value='https://i.imgur.com/YNx92Hp.jpg' />
 
 隨手畫了上圖的狀態機，  
 想一下要怎產生測試案例。
@@ -185,3 +185,6 @@ GameContext 應該具備 SeverScore(發球方得分)/ReceiverScore(接發方得�
 因為得分有兩種情境 ReceiverScore 或 ServerScore 所以我會重新命名測試案例
 Fifteen_All_After_ReceiverScored
 - 紅燈
+NormalState 看不到 GameContext 必須將 GameContext 作為 State 的欄位。
+且 GameContext 應該提供 ChangeState 方法來改變本身的 State， 
+最後 NormalState 才有可能呼叫本身 GameContext 來進行欄位的切換。

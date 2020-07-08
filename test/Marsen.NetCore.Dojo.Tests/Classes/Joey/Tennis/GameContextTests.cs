@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class GameContext
     {
-        readonly NormalState _state = new NormalState();
+        NormalState _state = new NormalState();
 
         public string ServerScore()
         {
@@ -48,7 +48,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public string ReceiverScore()
         {
+            this._state = new AllState();
             return _state.ReceiverScore();
+        }
+    }
+
+    public class AllState : NormalState
+    {
+        public override string ReceiverScore()
+        {
+            return "Fifteen All";
         }
     }
 
@@ -59,7 +68,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             return "Fifteen Love";
         }
 
-        public string ReceiverScore()
+        public virtual string ReceiverScore()
         {
             return "Love Fifteen";
         }
