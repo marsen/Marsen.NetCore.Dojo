@@ -12,17 +12,17 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public void Fifteen_Love()
         {
             _game.ServerScored();
-            ScoreShouldToBe("Fifteen Love");
+            ScoreShouldBe("Fifteen Love");
         }
 
         [Fact]
         public void Love_Fifteen()
         {
             _result = _game.ReceiverScored();
-            ScoreShouldToBe("Love Fifteen");
+            ScoreShouldBe("Love Fifteen");
         }
 
-        private void ScoreShouldToBe(string expected)
+        private void ScoreShouldBe(string expected)
         {
             Assert.Equal(expected, _game.State.Score);
         }
@@ -32,7 +32,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             _result = _game.ServerScored();
             _result = _game.ReceiverScored();
-            ScoreShouldToBe("Fifteen All");
+            ScoreShouldBe("Fifteen All");
         }
 
         [Fact]
@@ -40,13 +40,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             _result = _game.ReceiverScored();
             _result = _game.ServerScored();
-            ScoreShouldToBe("Fifteen All");
-        }
-
-
-        private void ScoreShouldBe(string expected)
-        {
-            Assert.Equal(expected, _result);
+            ScoreShouldBe("Fifteen All");
         }
     }
 }
