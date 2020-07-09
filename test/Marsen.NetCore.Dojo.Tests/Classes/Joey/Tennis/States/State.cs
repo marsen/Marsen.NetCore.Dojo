@@ -10,13 +10,5 @@
         {
             this._gameContext = gameContext;
         }
-
-        public void ChangeState()
-        {
-            if (_gameContext.ServerScore == _gameContext.ReceiverScore)
-            {
-                _gameContext.State = new AllState();
-            }
-        }
     }
 }

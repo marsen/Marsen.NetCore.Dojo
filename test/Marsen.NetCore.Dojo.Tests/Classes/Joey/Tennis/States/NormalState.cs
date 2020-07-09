@@ -6,7 +6,7 @@
         {
             if (_gameContext.IsSame())
             {
-                _gameContext.State = new AllState();
+                _gameContext.ChangeState(new AllState());
                 return _gameContext.State.ReceiverScore();
             }
             return "Fifteen Love";
@@ -16,7 +16,7 @@
         {
             if (_gameContext.IsSame())
             {
-                _gameContext.State = new AllState();
+                _gameContext.ChangeState(new AllState());
                 return _gameContext.State.ReceiverScore();
             }
             

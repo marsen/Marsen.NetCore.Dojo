@@ -30,5 +30,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             return ServerScore == ReceiverScore;
         }
+
+        public void ChangeState(State state)
+        {
+            this.State = state;
+        }
     }
 }
