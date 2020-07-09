@@ -4,7 +4,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContextTests
     {
-        readonly GameContext _game = new GameContext();
+        private readonly GameContext _game;
+
+        public GameContextTests()
+        {
+            _game = new GameContext();
+        }
 
         [Fact]
         public void Fifteen_Love()
