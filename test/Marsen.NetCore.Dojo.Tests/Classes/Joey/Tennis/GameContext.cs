@@ -25,5 +25,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ReceiverScore++;
             return State.ReceiverScore();
         }
+
+        public bool IsSame()
+        {
+            return ServerScore == ReceiverScore;
+        }
     }
 }

@@ -4,7 +4,7 @@
     {
         public override string ServerScore()
         {
-            if (_gameContext.ServerScore == _gameContext.ReceiverScore)
+            if (_gameContext.IsSame())
             {
                 _gameContext.State = new AllState();
                 return _gameContext.State.ReceiverScore();
@@ -14,7 +14,7 @@
 
         public override string ReceiverScore()
         {
-            if (_gameContext.ServerScore == _gameContext.ReceiverScore)
+            if (_gameContext.IsSame())
             {
                 _gameContext.State = new AllState();
                 return _gameContext.State.ReceiverScore();
