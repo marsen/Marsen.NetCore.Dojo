@@ -5,8 +5,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     public class GameContext
     {
         internal State State;
-        private int _serverScore;
-        private int _receiverScore;
+        public int _serverScore;
+        public int _receiverScore;
 
         public GameContext()
         {

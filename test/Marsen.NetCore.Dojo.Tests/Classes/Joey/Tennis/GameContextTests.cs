@@ -18,6 +18,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Fifteen Love");
         }
 
+        [Fact(Skip = "Refactor")]
+        public void Thirty_Love()
+        {
+            _game.ServerScored();
+            _game.ServerScored();
+            ScoreShouldBe("Thirty Love");
+        }
+
+
         [Fact]
         public void Love_Fifteen()
         {
