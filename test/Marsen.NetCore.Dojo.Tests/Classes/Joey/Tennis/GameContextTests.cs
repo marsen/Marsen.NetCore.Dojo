@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Love_Fifteen()
         {
-            _result = _game.ReceiverScored();
+            _game.ReceiverScored();
             ScoreShouldBe("Love Fifteen");
         }
 
@@ -30,16 +30,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Fifteen_All_After_ReceiverScore()
         {
-            _result = _game.ServerScored();
-            _result = _game.ReceiverScored();
+            _game.ServerScored();
+            _game.ReceiverScored();
             ScoreShouldBe("Fifteen All");
         }
 
         [Fact]
         public void Fifteen_All_After_ServerScore()
         {
-            _result = _game.ReceiverScored();
-            _result = _game.ServerScored();
+            _game.ReceiverScored();
+            _game.ServerScored();
             ScoreShouldBe("Fifteen All");
         }
     }
