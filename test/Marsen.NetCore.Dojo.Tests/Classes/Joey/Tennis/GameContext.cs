@@ -14,16 +14,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             State.SetContext(this);
         }
 
-        public string ServerScored()
+        public void ServerScored()
         {
             ServerScore++;
-            return State.ServerScore();
+            State.ServerScore();
         }
 
-        public string ReceiverScored()
+        public void ReceiverScored()
         {
             ReceiverScore++;
-            return State.ReceiverScore();
+            State.ReceiverScore();
         }
 
         public bool IsSame()
