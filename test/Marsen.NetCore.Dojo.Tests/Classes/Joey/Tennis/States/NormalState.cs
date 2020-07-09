@@ -22,6 +22,7 @@
                 return _gameContext.State.ReceiverScore();
             }
 
+            Score = "Love Fifteen";
             return "Love Fifteen";
         }
     }
