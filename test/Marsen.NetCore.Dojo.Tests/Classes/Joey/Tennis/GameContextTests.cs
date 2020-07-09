@@ -10,9 +10,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         [Fact]
         public void Fifteen_Love()
-        {
-            _result = _game.ServerScored();
-            ScoreShouldBe("Fifteen Love");
+        { 
+            _game.ServerScored();
+            Assert.Equal("Fifteen Love", _game.State.Score);
         }
 
         [Fact]

@@ -3,6 +3,7 @@
     public abstract class State
     {
         protected GameContext _gameContext;
+        public string Score;
         public abstract string ServerScore();
         public abstract string ReceiverScore();
 

@@ -9,6 +9,8 @@
                 _gameContext.ChangeState(new AllState());
                 return _gameContext.State.ReceiverScore();
             }
+
+            Score = "Fifteen Love";
             return "Fifteen Love";
         }
 
@@ -19,7 +21,7 @@
                 _gameContext.ChangeState(new AllState());
                 return _gameContext.State.ReceiverScore();
             }
-            
+
             return "Love Fifteen";
         }
     }
