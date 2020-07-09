@@ -5,8 +5,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     public class GameContext
     {
         internal State State;
-        protected internal int ServerScore;
-        protected internal int ReceiverScore;
+        private int _serverScore;
+        private int _receiverScore;
 
         public GameContext()
         {
@@ -16,19 +16,19 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public void ServerScored()
         {
-            ServerScore++;
+            _serverScore++;
             State.ServerScore();
         }
 
         public void ReceiverScored()
         {
-            ReceiverScore++;
+            _receiverScore++;
             State.ReceiverScore();
         }
 
         public bool IsSame()
         {
-            return ServerScore == ReceiverScore;
+            return _serverScore == _receiverScore;
         }
 
         public void ChangeState(State state)
