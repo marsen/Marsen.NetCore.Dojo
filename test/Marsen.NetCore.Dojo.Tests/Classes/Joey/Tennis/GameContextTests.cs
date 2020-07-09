@@ -32,7 +32,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             _result = _game.ServerScored();
             _result = _game.ReceiverScored();
-            ScoreShouldBe("Fifteen All");
+            ScoreShouldToBe("Fifteen All");
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             _result = _game.ReceiverScored();
             _result = _game.ServerScored();
-            ScoreShouldBe("Fifteen All");
+            ScoreShouldToBe("Fifteen All");
         }
 
 
