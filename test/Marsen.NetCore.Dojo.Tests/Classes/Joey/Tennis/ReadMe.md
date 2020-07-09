@@ -198,3 +198,5 @@ NormalState 看不到 GameContext 必須將 GameContext 作為 State 的欄位�
 重構
 - 檔案分離
 - 抽取介面
+- 實作 ChangeState
+- 取消 Return String 改用 Score 
