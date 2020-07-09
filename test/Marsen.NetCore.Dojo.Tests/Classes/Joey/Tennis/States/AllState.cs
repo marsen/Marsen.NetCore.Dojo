@@ -2,16 +2,14 @@
 {
     public class AllState : NormalState
     {
-        public override string ReceiverScore()
+        public override void ReceiverScore()
         {
             Score = "Fifteen All";
-            return "Fifteen All";
         }
 
-        public override string ServerScore()
+        public override void ServerScore()
         {
             Score = "Fifteen All";
-            return "Fifteen All";
         }
     }
 }

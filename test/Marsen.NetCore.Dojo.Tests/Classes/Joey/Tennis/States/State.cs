@@ -4,8 +4,8 @@
     {
         protected GameContext _gameContext;
         public string Score;
-        public abstract string ServerScore();
-        public abstract string ReceiverScore();
+        public abstract void ServerScore();
+        public abstract void ReceiverScore();
 
         public void SetContext(GameContext gameContext)
         {

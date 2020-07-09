@@ -2,28 +2,26 @@
 {
     public class NormalState : State
     {
-        public override string ServerScore()
+        public override void ServerScore()
         {
             if (_gameContext.IsSame())
             {
                 _gameContext.ChangeState(new AllState());
-                return _gameContext.State.ReceiverScore();
+                _gameContext.State.ReceiverScore();
             }
 
             Score = "Fifteen Love";
-            return "Fifteen Love";
         }
 
-        public override string ReceiverScore()
+        public override void ReceiverScore()
         {
             if (_gameContext.IsSame())
             {
                 _gameContext.ChangeState(new AllState());
-                return _gameContext.State.ReceiverScore();
+                _gameContext.State.ReceiverScore();
             }
 
             Score = "Love Fifteen";
-            return "Love Fifteen";
         }
     }
 }
