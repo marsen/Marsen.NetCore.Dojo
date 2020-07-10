@@ -6,6 +6,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
     {
         private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
         {
+            {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"},
@@ -14,13 +15,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
         public override void ServerScore()
         {
             Scored();
-            Score = $"{_scoreLookup[_gameContext._serverScore]} Love";
         }
 
         public override void ReceiverScore()
         {
             Scored();
-            Score = $"Love {_scoreLookup[_gameContext._receiverScore]}";
         }
 
         private void Scored()
@@ -30,6 +29,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
                 _gameContext.ChangeState(new AllState());
                 _gameContext.State.ReceiverScore();
             }
+            
+            Score = $"{_scoreLookup[_gameContext._serverScore]} {_scoreLookup[_gameContext._receiverScore]}";
         }
     }
 }
