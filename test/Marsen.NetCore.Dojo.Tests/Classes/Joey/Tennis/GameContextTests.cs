@@ -44,20 +44,20 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Love_Fifteen()
         {
-            _game.ReceiverScored();
+            GivenReceiverScored(1);
             ScoreShouldBe("Love Fifteen");
         }
 
         [Fact]
         public void Love_Thirty()
         {
-            GivenReceiverScored();
+            GivenReceiverScored(2);
             ScoreShouldBe("Love Thirty");
         }
 
-        private void GivenReceiverScored()
+        private void GivenReceiverScored(int times)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < times; i++)
             {
                 _game.ReceiverScored();
             }
