@@ -14,15 +14,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Fifteen_Love()
         {
-            _game.ServerScored();
+            GivenServerScored(1);
             ScoreShouldBe("Fifteen Love");
         }
 
         [Fact]
         public void Thirty_Love()
         {
-            _game.ServerScored();
-            _game.ServerScored();
+            GivenServerScored(2);
             ScoreShouldBe("Thirty Love");
         }
 
