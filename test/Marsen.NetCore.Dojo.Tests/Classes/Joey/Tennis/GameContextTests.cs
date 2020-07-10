@@ -48,6 +48,22 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Love Fifteen");
         }
 
+        [Fact]
+        public void Love_Thirty()
+        {
+            GivenReceiverScored();
+            ScoreShouldBe("Love Thirty");
+        }
+
+        private void GivenReceiverScored()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                _game.ReceiverScored();
+            }
+        }
+
+
         private void ScoreShouldBe(string expected)
         {
             Assert.Equal(expected, _game.State.Score);
