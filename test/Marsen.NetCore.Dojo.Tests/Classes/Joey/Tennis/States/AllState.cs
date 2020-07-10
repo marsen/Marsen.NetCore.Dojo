@@ -10,6 +10,11 @@
         private void Scored()
         {
             Score = $"{_gameContext.ServerScore} All";
+            if (_gameContext._serverScore == 3)
+            {
+                Score = "Deuce";
+            }
+
         }
 
         public override void ServerScore()

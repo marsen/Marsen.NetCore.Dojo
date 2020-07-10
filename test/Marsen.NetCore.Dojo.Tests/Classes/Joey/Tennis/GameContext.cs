@@ -14,8 +14,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         };
 
         internal State State;
-        private int _serverScore;
-        public int _receiverScore;
+        public int _serverScore;
+        private int _receiverScore;
 
         public string ServerScore => _scoreLookup[_serverScore];
 
