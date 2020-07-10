@@ -27,6 +27,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             if (_gameContext.IsSame())
             {
                 _gameContext.ChangeState(new AllState());
+                _gameContext.State.SetContext(_gameContext);
                 _gameContext.State.ReceiverScore();
             }
 
