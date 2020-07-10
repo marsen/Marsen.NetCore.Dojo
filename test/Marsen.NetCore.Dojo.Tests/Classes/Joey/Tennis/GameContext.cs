@@ -1,12 +1,25 @@
-﻿using Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States;
+﻿using System.Collections.Generic;
+using Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContext
     {
+        private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
+        {
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"},
+        };
+
         internal State State;
-        public int _serverScore;
+        private int _serverScore;
         public int _receiverScore;
+
+        public string ServerScore => _scoreLookup[_serverScore];
+
+        public string ReceiverScore => _scoreLookup[_receiverScore];
 
         public GameContext()
         {

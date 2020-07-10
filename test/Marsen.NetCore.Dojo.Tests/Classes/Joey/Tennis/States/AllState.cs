@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 
         private void Scored()
         {
-            Score = $"{_scoreLookup[_gameContext._serverScore]} All";
+            Score = $"{_gameContext.ServerScore} All";
         }
 
         public override void ServerScore()
