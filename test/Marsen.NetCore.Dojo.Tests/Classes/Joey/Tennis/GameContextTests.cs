@@ -45,7 +45,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void Thirty_All_After_ServerScore()
+        public void Thirty_All()
         {
             GivenReceiverScored(2);
             GivenServerScored(2);
