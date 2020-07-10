@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
     public class NormalState : State
     {
-        readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
+        private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
         {
             {1, "Fifteen"},
             {2, "Thirty"},
