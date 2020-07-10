@@ -29,7 +29,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
                 _gameContext.ChangeState(new AllState());
                 _gameContext.State.ReceiverScore();
             }
-            
+
             Score = $"{_scoreLookup[_gameContext._serverScore]} {_scoreLookup[_gameContext._receiverScore]}";
         }
     }
