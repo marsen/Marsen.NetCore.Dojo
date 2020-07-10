@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Fifteen Love");
         }
 
-        [Fact(Skip = "Refactor")]
+        [Fact]
         public void Thirty_Love()
         {
             _game.ServerScored();

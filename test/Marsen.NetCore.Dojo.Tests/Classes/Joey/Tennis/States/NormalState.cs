@@ -6,7 +6,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
     {
         readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
         {
-            {1, "Fifteen"}
+            {1, "Fifteen"},
+            {2, "Thirty"}
         };
 
         public override void ServerScore()
