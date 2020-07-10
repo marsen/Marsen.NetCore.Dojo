@@ -204,3 +204,6 @@ NormalState 看不到 GameContext 必須將 GameContext 作為 State 的欄位�
 ##### Case Love_Thirty
 
 - 修改 Thirty Score
+##### Case Love_Forty
+##### Case Forty_Love
+逼出 NormalState 的 dictionary mapping
