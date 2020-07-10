@@ -29,13 +29,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Forty_Love()
         {
-            GivenServerScored();
+            GivenServerScored(3);
             ScoreShouldBe("Forty Love");
         }
 
-        private void GivenServerScored()
+        private void GivenServerScored(int times)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < times; i++)
             {
                 _game.ServerScored();
             }
