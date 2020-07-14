@@ -98,23 +98,23 @@ public void Change(string state)
 這裡我們稱作 Context
 
 ![](https://imgur.com/vHLzkjB.png)
+![](https://refactoring.guru/images/patterns/diagrams/state/structure-en.png)
 
 下面我們直接用 Tennis Kata 作示範。
 
 ### 分析 Tennis Kata 
 
-#### 行為
+#### 行為(Method)
 - First Player 得分
 - Second Player 得分
 
 #### 狀態
-- 同分
-    - 小於 3 分 ， Love
-    - 大於等於 3 分 ， Deuce
-- 不同分
-    - 雙方都小於等於 3 分， Normal
-    - 有一方大於 3 分
-        - 分差等於 1 分 領先者的 Adv
-        - 分差等於 2 分 領先者 Win, 遊戲結束。
-    
 
+![](https://imgur.com/FPw0joi.jpg)
+
+#### Tennis Game Context
+- 應該具備 State 屬性
+- 建構子應傳傳初始狀態，邏輯上為 LoveAll 
+- 應該具備與 State 相同的公開方法
+
+#### 測試案例
