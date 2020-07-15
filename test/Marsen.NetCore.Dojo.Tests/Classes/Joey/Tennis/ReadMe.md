@@ -127,6 +127,7 @@ public void Change(string state)
 
 #### 測試案例
 
+Love All:產生 Score 方法與介面
 
 
 (fin)
