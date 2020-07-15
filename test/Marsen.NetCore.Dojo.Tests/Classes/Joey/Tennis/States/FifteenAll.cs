@@ -1,10 +1,10 @@
-﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
+﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
-    public class LoveThirty : State
+    public class FifteenAll : State
     {
         public override string Score()
         {
-            return "Love Thirty";
+            return "Fifteen All";
         }
 
         public override void ServerScore()
@@ -14,7 +14,7 @@
 
         public override void ReceiverScore()
         {
-            this.Context.ChangeState(new LoveForty());
+            throw new System.NotImplementedException();
         }
     }
 }

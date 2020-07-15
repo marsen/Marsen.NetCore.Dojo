@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
+﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
     public class ThirtyLove : State
     {
