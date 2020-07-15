@@ -14,7 +14,9 @@
 
         public override void ReceiverScore()
         {
-            this.Context.ChangeState(new LoveThirty());
+            var state = new LoveThirty();
+            state.SetContext(this.Context);
+            this.Context.ChangeState(state);
         }
     }
 }
