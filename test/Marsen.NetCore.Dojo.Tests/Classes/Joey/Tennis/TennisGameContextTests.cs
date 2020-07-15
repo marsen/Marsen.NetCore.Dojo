@@ -15,6 +15,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Fifteen_Love()
         {
+            _tennisGameContext.State.ServerScore();
             ScoreShouldBe("Fifteen Love");
         }
 
@@ -28,13 +29,49 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     public interface IState
     {
         string Score();
+        void SetContext(TennisGameContext context);
+        void ServerScore();
     }
 
     public class LoveAll : IState
     {
+        private TennisGameContext _context;
+
         public string Score()
         {
             return "Love All";
+        }
+
+        public void SetContext(TennisGameContext context)
+        {
+            this._context = context;
+        }
+
+        public void ServerScore()
+        {
+            var fifteenLove = new FifteenLove();
+            this._context.ChangeState(fifteenLove);
+
+        }
+    }
+
+    public class FifteenLove :IState
+    {
+        private TennisGameContext _context;
+
+        public string Score()
+        {
+            return "Fifteen Love";
+        }
+
+        public void SetContext(TennisGameContext context)
+        {
+            this._context = context;
+        }
+
+        public void ServerScore()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
@@ -43,14 +80,20 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public TennisGameContext(IState state)
         {
-            this._state = state;
+            this.State = state;
+            state.SetContext(this);
         }
 
         public string Score()
         {
-            return _state.Score();
+            return State.Score();
         }
 
-        private IState _state { get; }
+        public IState State { get; set; }
+
+        public void ChangeState(IState state)
+        {
+            this.State = state;
+        }
     }
 }
