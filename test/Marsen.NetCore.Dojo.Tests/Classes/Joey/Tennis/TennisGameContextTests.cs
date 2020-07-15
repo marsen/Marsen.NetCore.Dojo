@@ -26,50 +26,40 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
     }
 
-    public interface IState
+    public abstract class State
     {
-        string Score();
-        void SetContext(TennisGameContext context);
-        void ServerScore();
+        protected TennisGameContext Context;
+        public abstract string Score();
+        public void SetContext(TennisGameContext context)
+        {
+            this.Context = context;
+        }
+        public abstract void ServerScore();
     }
 
-    public class LoveAll : IState
+    public class LoveAll : State
     {
-        private TennisGameContext _context;
-
-        public string Score()
+        public override string Score()
         {
             return "Love All";
         }
 
-        public void SetContext(TennisGameContext context)
-        {
-            this._context = context;
-        }
-
-        public void ServerScore()
+        public override void ServerScore()
         {
             var fifteenLove = new FifteenLove();
-            this._context.ChangeState(fifteenLove);
+            this.Context.ChangeState(fifteenLove);
 
         }
     }
 
-    public class FifteenLove :IState
+    public class FifteenLove :State
     {
-        private TennisGameContext _context;
-
-        public string Score()
+        public override string Score()
         {
             return "Fifteen Love";
         }
-
-        public void SetContext(TennisGameContext context)
-        {
-            this._context = context;
-        }
-
-        public void ServerScore()
+        
+        public override void ServerScore()
         {
             throw new System.NotImplementedException();
         }
@@ -78,7 +68,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class TennisGameContext
     {
-        public TennisGameContext(IState state)
+        public TennisGameContext(State state)
         {
             this.State = state;
             state.SetContext(this);
@@ -89,9 +79,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             return State.Score();
         }
 
-        public IState State { get; set; }
+        public State State { get; private set; }
 
-        public void ChangeState(IState state)
+        public void ChangeState(State state)
         {
             this.State = state;
         }
