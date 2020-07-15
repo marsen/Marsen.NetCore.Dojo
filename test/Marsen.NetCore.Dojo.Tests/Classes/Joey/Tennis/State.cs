@@ -11,5 +11,7 @@
         }
 
         public abstract void ServerScore();
+
+        public abstract void ReceiverScore();
     }
 }

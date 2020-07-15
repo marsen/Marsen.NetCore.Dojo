@@ -11,5 +11,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public override void ReceiverScore()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

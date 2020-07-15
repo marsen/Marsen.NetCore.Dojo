@@ -9,8 +9,30 @@
 
         public override void ServerScore()
         {
-            var fifteenLove = new FifteenLove();
-            this.Context.ChangeState(fifteenLove);
+            this.Context.ChangeState(new FifteenLove());
+        }
+
+        public override void ReceiverScore()
+        {
+            this.Context.ChangeState(new LoveFifteen());
+        }
+    }
+
+    public class LoveFifteen : State
+    {
+        public override string Score()
+        {
+            return "Love Fifteen";
+        }
+
+        public override void ServerScore()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void ReceiverScore()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
