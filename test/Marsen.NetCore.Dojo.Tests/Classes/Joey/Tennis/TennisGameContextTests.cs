@@ -22,15 +22,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Love_Fifteen()
         {
-            _tennisGameContext.State.ReceiverScore();
+            GivenReceiverPoint(1);
             ScoreShouldBe("Love Fifteen");
         }
 
         [Fact]
         public void Love_Thirty()
         {
-            _tennisGameContext.State.ReceiverScore();
-            _tennisGameContext.State.ReceiverScore();
+            GivenReceiverPoint(2);
             ScoreShouldBe("Love Thirty");
         }
 
