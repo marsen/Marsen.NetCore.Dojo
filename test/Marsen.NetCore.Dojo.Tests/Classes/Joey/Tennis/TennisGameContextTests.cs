@@ -12,6 +12,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Love All");
         }
 
+        [Fact]
+        public void Fifteen_Love()
+        {
+            ScoreShouldBe("Fifteen Love");
+        }
+
+
         private void ScoreShouldBe(string expected)
         {
             Assert.Equal(expected, _tennisGameContext.Score());
@@ -23,7 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         string Score();
     }
 
-    public class LoveAll:IState
+    public class LoveAll : IState
     {
         public string Score()
         {
