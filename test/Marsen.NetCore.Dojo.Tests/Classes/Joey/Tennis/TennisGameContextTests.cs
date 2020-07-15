@@ -37,10 +37,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Love_Forty()
         {
-            _tennisGameContext.State.ReceiverScore();
-            _tennisGameContext.State.ReceiverScore();
-            _tennisGameContext.State.ReceiverScore();
+            GivenReceiverPoint(3);
             ScoreShouldBe("Love Forty");
+        }
+
+        private void GivenReceiverPoint(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _tennisGameContext.State.ReceiverScore();
+            }
         }
 
 
