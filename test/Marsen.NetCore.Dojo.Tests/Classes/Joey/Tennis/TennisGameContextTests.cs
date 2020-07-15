@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Fifteen_Love()
         {
-            _tennisGameContext.State.ServerScore();
+            GivenServerPoint(1);
             ScoreShouldBe("Fifteen Love");
         }
 
@@ -43,9 +43,17 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Fifteen_All()
         {
-            _tennisGameContext.State.ServerScore();
+            GivenServerPoint(1);
             GivenReceiverPoint(1);
             ScoreShouldBe("Fifteen All");
+        }
+
+        private void GivenServerPoint(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _tennisGameContext.State.ServerScore();
+            }
         }
 
 
