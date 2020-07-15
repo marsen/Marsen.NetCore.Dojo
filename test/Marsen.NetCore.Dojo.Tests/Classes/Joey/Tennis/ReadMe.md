@@ -112,9 +112,21 @@ public void Change(string state)
 
 ![](https://imgur.com/FPw0joi.jpg)
 
-#### Tennis Game Context
+#### 程式規劃
+
+##### Tennis Game Context
+
 - 應該具備 State 屬性
 - 建構子應傳傳初始狀態，邏輯上為 LoveAll 
 - 應該具備與 State 相同的公開方法
 
+##### State 介面與類別
+
+- 應該考慮介面或抽象類別
+- 應該先產生類別再重構出介面或抽像類別
+
 #### 測試案例
+
+
+
+(fin)
