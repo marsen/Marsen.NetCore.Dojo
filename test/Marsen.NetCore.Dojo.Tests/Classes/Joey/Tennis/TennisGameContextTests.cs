@@ -40,6 +40,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Love Forty");
         }
 
+        [Fact]
+        public void Fifteen_All()
+        {
+            _tennisGameContext.State.ServerScore();
+            GivenReceiverPoint(1);
+            ScoreShouldBe("Fifteen All");
+        }
+
+
         private void GivenReceiverPoint(int times)
         {
             for (int i = 0; i < times; i++)

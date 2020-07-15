@@ -14,7 +14,9 @@
 
         public override void ReceiverScore()
         {
-            throw new System.NotImplementedException();
+            var state = new FifteenAll();
+            state.SetContext(this.Context);
+            this.Context.ChangeState(state);
         }
     }
 }

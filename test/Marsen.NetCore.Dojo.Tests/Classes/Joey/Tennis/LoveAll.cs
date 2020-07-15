@@ -9,7 +9,9 @@
 
         public override void ServerScore()
         {
-            this.Context.ChangeState(new FifteenLove());
+            var state = new FifteenLove();
+            state.SetContext(this.Context);
+            this.Context.ChangeState(state);
         }
 
         public override void ReceiverScore()
