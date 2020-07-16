@@ -96,6 +96,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Thirty Fifteen");
         }
 
+        [Fact]
+        public void FifteenAll_To_Fifteen_Thirty()
+        {
+            GivenReceiverPoint(1);
+            GivenServerPoint(1);
+            GivenReceiverPoint(1);
+            ScoreShouldBe("Fifteen Thirty");
+        }
+
 
         private void GivenServerPoint(int times)
         {
