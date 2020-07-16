@@ -1,16 +1,28 @@
+using System.Reflection.Metadata;
+
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
     public class SameState : State
     {
         public override string Score()
         {
+            if (Context.ServerPoint==3)
+            {
+                return "Deuce";
+            }
+
             return $"{ScoreLookup[Context.ServerPoint]} All";
         }
 
         public override void ServerScore()
         {
             Context.ServerPoint++;
-            var state = new NormalState();
+            ChangeState();
+        }
+
+        private void ChangeState()
+        {
+            State state = new NormalState();
             state.SetContext(this.Context);
             Context.ChangeState(state);
         }
@@ -18,9 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
         public override void ReceiverScore()
         {
             Context.ReceiverPoint++;
-            var state = new NormalState();
-            state.SetContext(this.Context);
-            this.Context.ChangeState(state);
+            ChangeState();
         }
     }
 }
