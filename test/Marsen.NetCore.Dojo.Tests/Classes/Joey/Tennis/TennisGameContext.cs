@@ -14,6 +14,9 @@
         }
 
         public State State { get; private set; }
+        public int ServerPoint { get; set; }
+        public int ReceiverPoint { get; set; }
+
 
         public void ChangeState(State state)
         {

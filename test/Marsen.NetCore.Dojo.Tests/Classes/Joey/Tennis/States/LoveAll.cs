@@ -9,14 +9,38 @@
 
         public override void ServerScore()
         {
-            var state = new FifteenLove();
+            Context.ServerPoint++;
+            var state = new NormalState();
+            state.SetContext(this.Context);
+            Context.ChangeState(state);
+        }
+
+        public override void ReceiverScore()
+        {
+            var state = new LoveFifteen();
+            //var state = new NormalState();
+            state.SetContext(this.Context);
+            this.Context.ChangeState(state);
+        }
+    }
+
+    public class NormalState : State
+    {
+        public override string Score()
+        {
+            return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
+        }
+
+        public override void ServerScore()
+        {
+            var state = new ThirtyLove();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
 
         public override void ReceiverScore()
         {
-            var state = new LoveFifteen();
+            var state = new FifteenAll();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
