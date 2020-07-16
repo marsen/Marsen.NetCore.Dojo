@@ -16,7 +16,8 @@
 
         public override void ReceiverScore()
         {
-            var state = new FifteenThirty();
+            Context.ReceiverPoint++;
+            var state = new NormalState();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
