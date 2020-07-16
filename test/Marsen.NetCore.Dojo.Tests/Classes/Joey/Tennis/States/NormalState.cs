@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             State state = new NormalState();
             if (Context.ServerPoint == Context.ReceiverPoint)
             {
-                state = new FifteenAll();
+                state = new SameState();
             }
 
             state.SetContext(this.Context);
