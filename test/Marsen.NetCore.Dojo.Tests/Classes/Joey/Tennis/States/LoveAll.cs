@@ -35,7 +35,11 @@
         public override void ServerScore()
         {
             Context.ServerPoint++;
-            var state = new NormalState();
+            State state = new NormalState();
+            if (Context.ServerPoint == Context.ReceiverPoint)
+            {
+                state = new FifteenAll();
+            }
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
@@ -48,6 +52,7 @@
             {
                 state = new FifteenAll();
             }
+
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
