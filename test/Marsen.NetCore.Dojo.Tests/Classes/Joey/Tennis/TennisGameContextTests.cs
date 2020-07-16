@@ -56,6 +56,21 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Thirty Love");
         }
 
+        [Fact]
+        public void Forty_Love()
+        {
+            GivenServerPoint(3);
+            ScoreShouldBe("Forty Love");
+        }
+
+        [Fact]
+        public void Forty_Fifteen()
+        {
+            GivenServerPoint(3);
+            GivenReceiverPoint(1);
+            ScoreShouldBe("Forty Fifteen");
+        }
+
 
         private void GivenServerPoint(int times)
         {
