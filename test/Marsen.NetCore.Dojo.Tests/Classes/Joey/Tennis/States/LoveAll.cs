@@ -17,6 +17,7 @@
 
         public override void ReceiverScore()
         {
+            Context.ReceiverPoint++;
             var state = new LoveFifteen();
             //var state = new NormalState();
             state.SetContext(this.Context);
@@ -33,7 +34,8 @@
 
         public override void ServerScore()
         {
-            var state = new ThirtyLove();
+            Context.ServerPoint++;
+            var state = new NormalState();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
