@@ -97,7 +97,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void FifteenAll_To_Thirty_Fifteen()
+        public void FifteenAll_To_ThirtyFifteen()
         {
             GivenServerPoint(1);
             GivenReceiverPoint(1);
@@ -106,7 +106,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void FifteenAll_To_Fifteen_Thirty()
+        public void FifteenAll_To_FifteenThirty()
         {
             GivenReceiverPoint(1);
             GivenServerPoint(1);

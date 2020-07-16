@@ -9,7 +9,8 @@
 
         public override void ServerScore()
         {
-            var state = new ThirtyFifteen();
+            Context.ServerPoint++;
+            var state = new NormalState();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
