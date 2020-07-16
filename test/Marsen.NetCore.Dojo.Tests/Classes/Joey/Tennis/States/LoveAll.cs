@@ -18,8 +18,8 @@
         public override void ReceiverScore()
         {
             Context.ReceiverPoint++;
-            var state = new LoveFifteen();
-            //var state = new NormalState();
+            //var state = new LoveFifteen();
+            var state = new NormalState();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
@@ -42,7 +42,8 @@
 
         public override void ReceiverScore()
         {
-            var state = new FifteenAll();
+            Context.ReceiverPoint++;
+            var state = new NormalState();
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
