@@ -4,7 +4,13 @@
     {
         public override string Score()
         {
-            return "Mark Adv";
+            return $"{Winner()} Adv";
+        }
+
+        private string Winner()
+        {
+            var winner = Context.ServerPoint > Context.ReceiverPoint ? Context.ServerPlayer : "Iris";
+            return winner;
         }
 
         public override void ServerScore()

@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public TennisGameContextTests()
         {
-            _tennisGameContext = new TennisGameContext("Mark");
+            _tennisGameContext = new TennisGameContext("Mark","Iris");
         }
 
         [Fact]
