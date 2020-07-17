@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public TennisGameContextTests()
         {
-            _tennisGameContext = new TennisGameContext("Mark","Iris");
+            _tennisGameContext = new TennisGameContext("Mark", "Iris");
         }
 
         [Fact]
@@ -205,6 +205,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             GivenDeuce();
             GivenReceiverPoint(1);
             ScoreShouldBe("Iris Adv");
+        }
+
+        [Fact]
+        public void ReceiverWin()
+        {
+            GivenDeuce();
+            GivenReceiverPoint(2);
+            ScoreShouldBe("Iris Win");
         }
 
 

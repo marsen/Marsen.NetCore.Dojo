@@ -9,8 +9,9 @@
 
         private string Winner()
         {
-            var winner = Context.ServerPoint > Context.ReceiverPoint ? Context.ServerPlayer : "Iris";
-            return winner;
+            return Context.ServerPoint > Context.ReceiverPoint
+                ? Context.ServerPlayer
+                : Context.ReceiverPlayer;
         }
 
         public override void ServerScore()
