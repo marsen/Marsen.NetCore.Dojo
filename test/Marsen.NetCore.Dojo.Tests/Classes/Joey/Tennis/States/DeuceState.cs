@@ -8,7 +8,7 @@
         }
 
         public override void ServerScore()
-        
+
         {
             Context.ServerPoint++;
             ChangeState();

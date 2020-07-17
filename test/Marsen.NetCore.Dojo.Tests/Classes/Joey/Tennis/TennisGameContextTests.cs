@@ -200,10 +200,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
 
-        [Fact(Skip = "ServerAdv")]
+        [Fact]
         public void ServerAdv()
         {
-            ScoreShouldBe("Deuce");
+            GivenDeuce();
+            GivenServerPoint(1);
+            ScoreShouldBe("Mark Adv");
         }
 
 
