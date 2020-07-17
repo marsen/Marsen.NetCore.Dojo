@@ -31,10 +31,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
         private void ChangeState()
         {
             State state = (Context.ServerPoint == Context.ReceiverPoint) ? (State) new DeuceState() : new AdvState();
-            if (Math.Abs(Context.ServerPoint-Context.ReceiverPoint)==2)
+            if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) == 2)
             {
                 state = new WinState();
             }
+
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
@@ -44,7 +45,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
     {
         public override string Score()
         {
-            return "Iris Win";
+            return $"{Winner()} Win";
+        }
+
+        private string Winner()
+        {
+            return Context.ServerPoint > Context.ReceiverPoint
+                ? Context.ServerPlayer
+                : Context.ReceiverPlayer;
         }
 
         public override void ServerScore()
