@@ -43,27 +43,4 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             ChangeState();
         }
     }
-
-    public class DeuceState : State
-    {
-        public override string Score()
-        {
-            return "Deuce";
-        }
-
-        public override void ServerScore()
-        {
-            State state = new NormalState();
-            state.SetContext(this.Context);
-            this.Context.ChangeState(state);
-        }
-
-        public override void ReceiverScore()
-        {
-            Context.ReceiverPoint++;
-            State state = new NormalState();
-            state.SetContext(this.Context);
-            this.Context.ChangeState(state);
-        }
-    }
 }
