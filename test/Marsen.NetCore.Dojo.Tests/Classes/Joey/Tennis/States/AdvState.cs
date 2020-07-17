@@ -9,13 +9,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             return $"{Winner()} Adv";
         }
 
-        private string Winner()
-        {
-            return Context.ServerPoint > Context.ReceiverPoint
-                ? Context.ServerPlayer
-                : Context.ReceiverPlayer;
-        }
-
         public override void ServerScore()
         {
             Context.ServerPoint++;
@@ -48,12 +41,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             return $"{Winner()} Win";
         }
 
-        private string Winner()
-        {
-            return Context.ServerPoint > Context.ReceiverPoint
-                ? Context.ServerPlayer
-                : Context.ReceiverPlayer;
-        }
 
         public override void ServerScore()
         {
