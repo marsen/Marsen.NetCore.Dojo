@@ -4,7 +4,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
     {
         public override string Score()
         {
-            return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
+            if (Context.ServerPoint < 4 && Context.ReceiverPoint < 4)
+            {
+                return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
+            }
+
+            return "";
         }
 
         public override void ServerScore()
@@ -18,7 +23,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             State state = new NormalState();
             if (Context.ServerPoint == Context.ReceiverPoint)
             {
-                state = new SameState();
+                if (Context.ServerPoint >= 3)
+                {
+                    state = new DeuceState();
+                }
+                else
+                {
+                    state = new SameState();
+                }
             }
 
             state.SetContext(this.Context);
@@ -29,6 +41,29 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
         {
             Context.ReceiverPoint++;
             ChangeState();
+        }
+    }
+
+    public class DeuceState : State
+    {
+        public override string Score()
+        {
+            return "Deuce";
+        }
+
+        public override void ServerScore()
+        {
+            State state = new NormalState();
+            state.SetContext(this.Context);
+            this.Context.ChangeState(state);
+        }
+
+        public override void ReceiverScore()
+        {
+            Context.ReceiverPoint++;
+            State state = new NormalState();
+            state.SetContext(this.Context);
+            this.Context.ChangeState(state);
         }
     }
 }

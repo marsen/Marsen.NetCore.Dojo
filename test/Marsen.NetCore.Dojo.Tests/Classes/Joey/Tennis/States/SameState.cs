@@ -6,11 +6,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
     {
         public override string Score()
         {
-            if (Context.ServerPoint >= 3)
-            {
-                return "Deuce";
-            }
-
             return $"{ScoreLookup[Context.ServerPoint]} All";
         }
 
