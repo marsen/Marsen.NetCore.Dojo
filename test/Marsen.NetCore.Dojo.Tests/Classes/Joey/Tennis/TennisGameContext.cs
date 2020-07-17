@@ -1,11 +1,14 @@
-﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
+﻿using Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States;
+
+namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class TennisGameContext
     {
-        public TennisGameContext(State state)
+        public TennisGameContext()
         {
-            this.State = state;
+            State state = new SameState();
             state.SetContext(this);
+            ChangeState(state);
         }
 
         public string Score()
