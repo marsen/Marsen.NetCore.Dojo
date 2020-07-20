@@ -1,6 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States;
-
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
 {
     public class AdvState : State
     {
@@ -15,6 +13,5 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
         }
-
     }
 }
