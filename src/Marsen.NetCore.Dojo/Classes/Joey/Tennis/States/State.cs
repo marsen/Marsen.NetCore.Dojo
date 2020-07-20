@@ -20,6 +20,11 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
             this.Context = context;
         }
 
+        protected bool IsSamePoint()
+        {
+            return Context.ServerPoint == Context.ReceiverPoint;
+        }
+
         protected string Winner()
         {
             return Context.ServerPoint > Context.ReceiverPoint

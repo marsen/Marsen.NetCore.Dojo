@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
         protected override void ChangeState()
         {
             State state = new NormalState();
-            if (Context.ServerPoint == Context.ReceiverPoint)
+            if (IsSamePoint())
             {
                 state = Context.ServerPoint >= 3 ? (State) new DeuceState() : new SameState();
             }
