@@ -12,12 +12,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             return "";
         }
 
-        // public override void ServerScore()
-        // {
-        //     Context.ServerPoint++;
-        //     ChangeState();
-        // }
-
         protected override void ChangeState()
         {
             State state = new NormalState();
@@ -28,12 +22,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 
             state.SetContext(this.Context);
             this.Context.ChangeState(state);
-        }
-
-        public override void ReceiverScore()
-        {
-            Context.ReceiverPoint++;
-            ChangeState();
         }
     }
 }

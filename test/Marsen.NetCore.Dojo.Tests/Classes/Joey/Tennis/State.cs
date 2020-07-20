@@ -35,6 +35,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected abstract void ChangeState();
 
-        public abstract void ReceiverScore();
+        public void ReceiverScore()
+        {
+            Context.ReceiverPoint++;
+            ChangeState();
+        }
     }
 }

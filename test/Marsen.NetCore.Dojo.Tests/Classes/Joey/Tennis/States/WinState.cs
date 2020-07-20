@@ -13,10 +13,5 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
         {
             throw new NotImplementedException();
         }
-
-        public override void ReceiverScore()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

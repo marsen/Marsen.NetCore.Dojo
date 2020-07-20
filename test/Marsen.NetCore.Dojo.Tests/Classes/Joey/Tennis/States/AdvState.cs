@@ -9,21 +9,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             return $"{Winner()} Adv";
         }
 
-        // public void ServerScore()
-        // {
-        //     Context.ServerPoint++;
-        //     ChangeState();
-        // }
-
-        public override void ReceiverScore()
-        {
-            Context.ReceiverPoint++;
-            ChangeState();
-        }
-
         protected override void ChangeState()
         {
-            State state = (Context.ServerPoint == Context.ReceiverPoint) ? (State) new DeuceState() : new AdvState();
+            State state = Context.ServerPoint == Context.ReceiverPoint ? (State) new DeuceState() : new AdvState();
             if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) == 2)
             {
                 state = new WinState();
