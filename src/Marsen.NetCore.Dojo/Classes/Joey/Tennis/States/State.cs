@@ -35,15 +35,15 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
         public void ServerScore()
         {
             Context.ServerPoint++;
-            ChangeState();
+            this.ChangeState();
         }
-
-        protected abstract void ChangeState();
 
         public void ReceiverScore()
         {
             Context.ReceiverPoint++;
-            ChangeState();
+            this.ChangeState();
         }
+
+        protected abstract void ChangeState();
     }
 }
