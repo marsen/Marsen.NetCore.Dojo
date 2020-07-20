@@ -223,6 +223,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Mark Win");
         }
 
+        [Fact]
+        public void ServerWin_When_4_0()
+        {
+            GivenServerPoint(4);
+            ScoreShouldBe("Mark Win");
+        }
+
 
         private void GivenServerPoint(int times)
         {
