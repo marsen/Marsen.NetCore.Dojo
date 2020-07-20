@@ -23,8 +23,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         protected string Winner()
         {
             return Context.ServerPoint > Context.ReceiverPoint
-                ? Context.ServerPlayer
-                : Context.ReceiverPlayer;
+                ? Context.ServerName
+                : Context.ReceiverName;
         }
 
         public abstract void ServerScore();

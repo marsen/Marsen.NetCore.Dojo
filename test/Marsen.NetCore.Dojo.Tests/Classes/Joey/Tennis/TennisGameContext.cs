@@ -4,13 +4,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class TennisGameContext
     {
-        public readonly string ReceiverPlayer;
-        public readonly string ServerPlayer;
+        public readonly string ServerName;
+        public readonly string ReceiverName;
 
-        public TennisGameContext(string serverPlayer, string receiverPlayer)
+        public TennisGameContext(string serverName, string receiverName)
         {
-            ReceiverPlayer = receiverPlayer;
-            ServerPlayer = serverPlayer;
+            ReceiverName = receiverName;
+            ServerName = serverName;
             State state = new SameState();
             state.SetContext(this);
             ChangeState(state);
