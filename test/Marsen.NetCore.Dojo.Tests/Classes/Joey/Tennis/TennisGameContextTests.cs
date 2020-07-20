@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States;
+﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis

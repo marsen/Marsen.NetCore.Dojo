@@ -1,4 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
+﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
+
+namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
 {
     public class DeuceState : State
     {

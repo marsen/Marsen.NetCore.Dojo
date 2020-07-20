@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
 {
     public abstract class State
     {
