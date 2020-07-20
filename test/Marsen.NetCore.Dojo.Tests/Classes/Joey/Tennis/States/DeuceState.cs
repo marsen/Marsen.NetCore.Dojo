@@ -7,12 +7,11 @@
             return "Deuce";
         }
 
-        public override void ServerScore()
-
-        {
-            Context.ServerPoint++;
-            ChangeState();
-        }
+        // public override void ServerScore()
+        // {
+        //     Context.ServerPoint++;
+        //     ChangeState();
+        // }
 
         public override void ReceiverScore()
         {
@@ -20,7 +19,7 @@
             ChangeState();
         }
 
-        private void ChangeState()
+        protected override void ChangeState()
         {
             State state = new AdvState();
             state.SetContext(this.Context);

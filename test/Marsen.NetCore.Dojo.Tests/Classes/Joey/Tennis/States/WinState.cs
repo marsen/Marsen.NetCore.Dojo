@@ -9,8 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             return $"{Winner()} Win";
         }
 
-
-        public override void ServerScore()
+        protected override void ChangeState()
         {
             throw new NotImplementedException();
         }

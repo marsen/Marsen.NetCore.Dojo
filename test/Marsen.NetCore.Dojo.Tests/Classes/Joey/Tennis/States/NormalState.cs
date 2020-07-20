@@ -12,13 +12,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
             return "";
         }
 
-        public override void ServerScore()
-        {
-            Context.ServerPoint++;
-            ChangeState();
-        }
+        // public override void ServerScore()
+        // {
+        //     Context.ServerPoint++;
+        //     ChangeState();
+        // }
 
-        private void ChangeState()
+        protected override void ChangeState()
         {
             State state = new NormalState();
             if (Context.ServerPoint == Context.ReceiverPoint)

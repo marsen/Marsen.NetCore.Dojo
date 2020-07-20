@@ -27,7 +27,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 : Context.ReceiverName;
         }
 
-        public abstract void ServerScore();
+        public void ServerScore()
+        {
+            Context.ServerPoint++;
+            ChangeState();
+        }
+
+        protected abstract void ChangeState();
 
         public abstract void ReceiverScore();
     }
