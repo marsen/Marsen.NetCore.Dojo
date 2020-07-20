@@ -224,10 +224,25 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void ServerWin_When_4_0()
+        public void Server_Win_When_4_0()
         {
             GivenServerPoint(4);
             ScoreShouldBe("Mark Win");
+        }
+
+        [Fact]
+        public void Receiver_Win_When_0_4()
+        {
+            GivenReceiverPoint(4);
+            ScoreShouldBe("Iris Win");
+        }
+
+        [Fact]
+        public void Receiver_Win_When_1_4()
+        {
+            GivenServerPoint(1);
+            GivenReceiverPoint(4);
+            ScoreShouldBe("Iris Win");
         }
 
 

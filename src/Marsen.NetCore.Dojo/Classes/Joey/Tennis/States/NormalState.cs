@@ -22,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis.States
                 state = Context.ServerPoint >= 3 ? (State) new DeuceState() : new SameState();
             }
 
-            if (Context.ServerPoint >= 4)
+            if (Context.ServerPoint >= 4 || Context.ReceiverPoint >= 4)
             {
                 state = new WinState();
             }
