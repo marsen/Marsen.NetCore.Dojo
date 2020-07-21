@@ -11,7 +11,7 @@
 
 - [x] Integration Test Result
 
-For Kata
+For KATA
 
 ## Goal
 
@@ -33,5 +33,25 @@ For Kata
     - [x] C# Unit Test
     - [x] C# Coverage
     - [x] TS Unit Test
-    - [ ] TS Coverage
+    - [x] TS Coverage
   - [x] Mutation Stryker.Net
+
+## React
+
+Install yarn
+
+```shell
+npm i yarn
+```
+
+Create App
+
+```shell
+npx create-react-app marsen.react
+```
+
+Setting Storybook
+
+```shell
+npx -p @storybook/cli sb init
+```
