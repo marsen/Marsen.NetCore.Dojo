@@ -50,6 +50,12 @@ Create App
 npx create-react-app marsen.react
 ```
 
+安裝 Storybook CLI
+
+```shell
+npm i sb
+```
+
 Setting Storybook
 
 ```shell
