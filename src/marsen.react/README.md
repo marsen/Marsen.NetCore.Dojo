@@ -1,3 +1,33 @@
+# App Log
+
+Install yarn
+
+```shell
+npm i yarn
+```
+
+Create App
+
+```shell
+npx create-react-app marsen.react
+```
+
+安裝 Storybook CLI
+
+```shell
+npm i sb
+```
+
+Setting Storybook
+
+```shell
+npx -p @storybook/cli sb init
+```
+
+(以下為原始生成文件)
+
+----
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
