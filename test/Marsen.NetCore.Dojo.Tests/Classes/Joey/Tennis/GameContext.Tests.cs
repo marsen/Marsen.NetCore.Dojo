@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
             if (ReceiverPoint == 1)
             {
-                ChangeState();
+                // ChangeState();
                 return _state.Score();
             }
 
@@ -110,7 +110,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             _context.ServerPoint++;
         }
 
-        public void ReceiverScore()
+        public virtual void ReceiverScore()
         {
             _context.ReceiverPoint++;
         }
@@ -127,6 +127,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             _context.ChangeState();
             _context.ServerPoint++;
+        }
+
+        public override void ReceiverScore()
+        {
+            _context.ChangeState();
+            _context.ReceiverPoint++;
         }
     }
 }
