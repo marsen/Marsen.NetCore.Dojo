@@ -46,14 +46,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public string Score()
         {
-            if (ServerPoint == 1)
-            {
-                _state = new NormalState();
-                _state.SetContext(this);
-                return _state.Score();
-            }
-
-            if (ReceiverPoint == 1)
+            if (ServerPoint == 1 || ReceiverPoint == 1)
             {
                 _state = new NormalState();
                 _state.SetContext(this);
