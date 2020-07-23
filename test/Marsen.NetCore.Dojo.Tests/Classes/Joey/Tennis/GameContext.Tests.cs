@@ -30,12 +30,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string Score()
         {
-            if (ReceiverPoint==1)
+            if (ReceiverPoint == 1)
             {
                 var normalState = new NormalState();
                 return normalState.Score();
-                return "Love Fifteen";
             }
+
             var state = new SameState();
             return state.Score();
         }
@@ -52,7 +52,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string Score()
         {
-            throw new System.NotImplementedException();
+            return "Love Fifteen";
         }
     }
 
