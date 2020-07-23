@@ -48,7 +48,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (ServerPoint == 1)
             {
-                return "Fifteen Love";
+                _state = new NormalState();
+                _state.SetContext(this);
+                return _state.Score();
             }
 
             if (ReceiverPoint == 1)
