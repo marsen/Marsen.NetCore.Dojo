@@ -65,7 +65,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public void ServerScore()
         {
-            ServerPoint++;
+            _state.ServerScore();
         }
 
         internal int ServerPoint { get; set; }
@@ -92,6 +92,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public void SetContext(GameContext context)
         {
             this._context = context;
+        }
+
+        public void ServerScore()
+        {
+            _context.ServerPoint++; 
         }
     }
 
