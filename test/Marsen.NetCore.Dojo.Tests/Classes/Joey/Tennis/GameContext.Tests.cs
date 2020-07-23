@@ -74,7 +74,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            if (this._context.ServerPoint == 1)
+            if (this.Context.ServerPoint == 1)
             {
                 return "Fifteen Love";
             }
@@ -85,22 +85,22 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public abstract class State
     {
-        protected GameContext _context;
+        protected GameContext Context;
         public abstract string Score();
 
         public void SetContext(GameContext context)
         {
-            this._context = context;
+            this.Context = context;
         }
 
         public virtual void ServerScore()
         {
-            _context.ServerPoint++;
+            Context.ServerPoint++;
         }
 
         public virtual void ReceiverScore()
         {
-            _context.ReceiverPoint++;
+            Context.ReceiverPoint++;
         }
     }
 
@@ -113,14 +113,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public override void ServerScore()
         {
-            _context.ChangeState();
-            _context.ServerPoint++;
+            Context.ChangeState();
+            Context.ServerPoint++;
         }
 
         public override void ReceiverScore()
         {
-            _context.ChangeState();
-            _context.ReceiverPoint++;
+            Context.ChangeState();
+            Context.ReceiverPoint++;
         }
     }
 }
