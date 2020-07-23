@@ -36,7 +36,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class GameContext
     {
-        internal State _state;
+        private State _state;
 
         public GameContext()
         {
