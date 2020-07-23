@@ -30,6 +30,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         private IState _state;
 
+        public GameContext()
+        {
+            _state = new SameState();
+        }
+
         public string Score()
         {
             if (ReceiverPoint == 1)
@@ -38,7 +43,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 return _state.Score();
             }
 
-            _state = new SameState();
             return _state.Score();
         }
 
