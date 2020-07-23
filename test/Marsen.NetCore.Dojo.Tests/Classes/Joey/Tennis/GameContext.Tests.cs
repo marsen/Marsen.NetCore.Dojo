@@ -30,6 +30,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string Score()
         {
+            if (ReceiverPoint==1)
+            {
+                return "Love Fifteen";
+            }
             var state = new SameState();
             return state.Score();
         }
