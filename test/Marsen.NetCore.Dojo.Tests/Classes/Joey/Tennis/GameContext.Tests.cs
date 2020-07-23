@@ -76,37 +76,28 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class NormalState : State
     {
-        private GameContext _context;
-
         public override string Score()
         {
             return "Love Fifteen";
-        }
-
-        public override void SetContext(GameContext context)
-        {
-            this._context = context;
         }
     }
 
     public abstract class State
     {
+        private GameContext _context;
         public abstract string Score();
-        public abstract void SetContext(GameContext gameContext);
+
+        public void SetContext(GameContext context)
+        {
+            this._context = context;
+        }
     }
 
     public class SameState : State
     {
-        private GameContext _context;
-
         public override string Score()
         {
             return "Love All";
-        }
-
-        public override void SetContext(GameContext context)
-        {
-            this._context = context;
         }
     }
 }
