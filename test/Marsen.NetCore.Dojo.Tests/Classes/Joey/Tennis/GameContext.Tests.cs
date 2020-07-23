@@ -32,6 +32,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (ReceiverPoint==1)
             {
+                var normalState = new NormalState();
+                return normalState.Score();
                 return "Love Fifteen";
             }
             var state = new SameState();
@@ -44,6 +46,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         private int ReceiverPoint { get; set; }
+    }
+
+    public class NormalState
+    {
+        public string Score()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     public class SameState
