@@ -13,6 +13,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Love All");
         }
 
+        [Fact]
+        public void LoveFifteen()
+        {
+            _context.ReceiverScore();
+            ScoreShouldBe("Love Fifteen");
+        }
+
         private void ScoreShouldBe(string expected)
         {
             Assert.Equal(expected, _context.Score());
@@ -26,6 +33,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             var state = new SameState();
             return state.Score();
         }
+
+        public void ReceiverScore()
+        {
+            ReceiverPoint++;
+        }
+
+        private int ReceiverPoint { get; set; }
     }
 
     public class SameState
