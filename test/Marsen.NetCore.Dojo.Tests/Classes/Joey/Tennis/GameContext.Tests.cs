@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string Score()
         {
-            throw new System.NotImplementedException();
+            return "Love All";
         }
     }
 }
