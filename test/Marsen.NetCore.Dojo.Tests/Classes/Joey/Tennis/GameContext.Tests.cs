@@ -20,7 +20,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             var state = new SameState();
             return state.Score();
-            return "Love All";
         }
     }
 
@@ -28,7 +27,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string Score()
         {
-            throw new System.NotImplementedException();
+            return "Love All";
         }
     }
 }
