@@ -36,7 +36,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class GameContext
     {
-        private IState _state;
+        private State _state;
 
         public GameContext()
         {
@@ -74,7 +74,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         private int ServerPoint { get; set; }
     }
 
-    public class NormalState : IState
+    public class NormalState : State
     {
         private GameContext _context;
 
@@ -89,13 +89,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
     }
 
-    public abstract class IState
+    public abstract class State
     {
         public abstract string Score();
         public abstract void SetContext(GameContext gameContext);
     }
 
-    public class SameState : IState
+    public class SameState : State
     {
         private GameContext _context;
 
