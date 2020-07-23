@@ -36,7 +36,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class GameContext
     {
-        private State _state;
+        internal State _state;
 
         public GameContext()
         {
@@ -63,10 +63,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public void ReceiverScore()
         {
-            ReceiverPoint++;
+            _state.ReceiverScore();
         }
 
-        private int ReceiverPoint { get; set; }
+        public int ReceiverPoint { get; set; }
 
         public void ServerScore()
         {
@@ -101,7 +101,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public void ServerScore()
         {
-            _context.ServerPoint++; 
+            _context.ServerPoint++;
+        }
+
+        public void ReceiverScore()
+        {
+            _context.ReceiverPoint++;
         }
     }
 
@@ -110,6 +115,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public override string Score()
         {
             return "Love All";
+        }
+
+        public new void ServerScore()
+        {
+            _context._state = new NormalState();
+            _context.ServerPoint++;
         }
     }
 }
