@@ -48,8 +48,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (ServerPoint == 1)
             {
-                return "Fifteen Love";
+                _state = new NormalState();
+                return _state.Score();
+                // return "Fifteen Love";
             }
+
             if (ReceiverPoint == 1)
             {
                 _state = new NormalState();
@@ -71,20 +74,25 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ServerPoint++;
         }
 
-        private int ServerPoint { get; set; }
+        internal int ServerPoint { get; set; }
     }
 
     public class NormalState : State
     {
         public override string Score()
         {
+            if (this._context.ServerPoint == 1)
+            {
+                return "Fifteen Love";
+            }
+
             return "Love Fifteen";
         }
     }
 
     public abstract class State
     {
-        private GameContext _context;
+        protected GameContext _context;
         public abstract string Score();
 
         public void SetContext(GameContext context)
