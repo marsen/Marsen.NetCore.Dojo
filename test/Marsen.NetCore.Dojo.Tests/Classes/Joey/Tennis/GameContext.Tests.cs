@@ -48,7 +48,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (ServerPoint == 1)
             {
-                ChangeState();
+                // ChangeState();
                 return _state.Score();
             }
 
@@ -61,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             return _state.Score();
         }
 
-        private void ChangeState()
+        internal void ChangeState()
         {
             _state = new NormalState();
             _state.SetContext(this);
@@ -105,7 +105,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             this._context = context;
         }
 
-        public void ServerScore()
+        public virtual void ServerScore()
         {
             _context.ServerPoint++;
         }
@@ -123,9 +123,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             return "Love All";
         }
 
-        public new void ServerScore()
+        public override void ServerScore()
         {
-            _context._state = new NormalState();
+            _context.ChangeState();
             _context.ServerPoint++;
         }
     }
