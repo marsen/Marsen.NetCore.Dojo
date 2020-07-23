@@ -41,6 +41,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public GameContext()
         {
             _state = new SameState();
+            _state.SetContext(this);
         }
 
         public string Score()
@@ -75,22 +76,37 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class NormalState : IState
     {
+        private GameContext _context;
+
         public string Score()
         {
             return "Love Fifteen";
+        }
+
+        public void SetContext(GameContext context)
+        {
+            this._context = context;
         }
     }
 
     public interface IState
     {
         string Score();
+        void SetContext(GameContext gameContext);
     }
 
     public class SameState : IState
     {
+        private GameContext _context;
+
         public string Score()
         {
             return "Love All";
+        }
+
+        public void SetContext(GameContext context)
+        {
+            this._context = context;
         }
     }
 }
