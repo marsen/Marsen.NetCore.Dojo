@@ -28,16 +28,18 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class GameContext
     {
+        private IState _state;
+
         public string Score()
         {
             if (ReceiverPoint == 1)
             {
-                var normalState = new NormalState();
-                return normalState.Score();
+                _state = new NormalState();
+                return _state.Score();
             }
 
-            var state = new SameState();
-            return state.Score();
+            _state = new SameState();
+            return _state.Score();
         }
 
         public void ReceiverScore()
@@ -48,7 +50,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         private int ReceiverPoint { get; set; }
     }
 
-    public class NormalState
+    public class NormalState : IState
     {
         public string Score()
         {
@@ -56,7 +58,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
     }
 
-    public class SameState
+    public interface IState
+    {
+        string Score();
+    }
+
+    public class SameState : IState
     {
         public string Score()
         {
