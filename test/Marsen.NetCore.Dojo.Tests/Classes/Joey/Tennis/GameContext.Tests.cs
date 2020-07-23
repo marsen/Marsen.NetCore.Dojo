@@ -5,13 +5,18 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContextTests
     {
+        readonly GameContext _context = new GameContext();
+
         [Fact]
         public void LoveAll()
         {
-            var context = new GameContext();
-            Assert.Equal("Love All", context.Score());
+            ScoreShouldBe("Love All");
         }
 
+        private void ScoreShouldBe(string expected)
+        {
+            Assert.Equal(expected, _context.Score());
+        }
     }
 
     public class GameContext
