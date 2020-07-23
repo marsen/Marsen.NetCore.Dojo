@@ -46,16 +46,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public string Score()
         {
-            if (ServerPoint == 1)
-            {
-                return _state.Score();
-            }
-
-            if (ReceiverPoint == 1)
-            {
-                return _state.Score();
-            }
-
             return _state.Score();
         }
 
