@@ -18,7 +18,17 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public string Score()
         {
+            var state = new SameState();
+            return state.Score();
             return "Love All";
+        }
+    }
+
+    public class SameState
+    {
+        public string Score()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
