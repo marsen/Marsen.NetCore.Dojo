@@ -35,7 +35,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Fifteen All");
         }
 
-
         private void ScoreShouldBe(string expected)
         {
             Assert.Equal(expected, _context.Score());
@@ -57,9 +56,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             return _state.Score();
         }
 
-        internal void ChangeState()
+        internal void ChangeState(State state)
         {
-            _state = new NormalState();
+            // _state = new NormalState();
+            _state = state;
             _state.SetContext(this);
         }
 
@@ -89,6 +89,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
             return "Love Fifteen";
         }
+
+        public override void ReceiverScore()
+        {
+            Context.ChangeState(new SameState());
+            Context.ReceiverPoint++;
+        }
     }
 
     public abstract class State
@@ -116,18 +122,23 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
+            if (Context.ServerPoint==1)
+            {
+                return "Fifteen All";
+            }
+
             return "Love All";
         }
 
         public override void ServerScore()
         {
-            Context.ChangeState();
+            Context.ChangeState(new NormalState());
             Context.ServerPoint++;
         }
 
         public override void ReceiverScore()
         {
-            Context.ChangeState();
+            Context.ChangeState(new NormalState());
             Context.ReceiverPoint++;
         }
     }
