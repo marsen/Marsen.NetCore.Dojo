@@ -90,12 +90,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             return "Love Fifteen";
         }
 
-        public override void ReceiverScore()
-        {
-            ChangeState();
-            Context.ReceiverPoint++;
-        }
-
         protected override void ChangeState()
         {
             Context.ChangeState(new SameState());
@@ -142,12 +136,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             Context.ChangeState(new NormalState());
             Context.ServerPoint++;
-        }
-
-        public override void ReceiverScore()
-        {
-            ChangeState();
-            Context.ReceiverPoint++;
         }
 
         protected override void ChangeState()
