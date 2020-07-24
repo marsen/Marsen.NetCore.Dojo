@@ -108,6 +108,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
+            var scoreLookup = new Dictionary<int,string>
+            {
+                {1,"Fifteen"},
+            };
             if (this.Context.ServerPoint == 3)
             {
                 return "Forty Love";
@@ -119,7 +123,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
             if (this.Context.ServerPoint == 1)
             {
-                return "Fifteen Love";
+                return $"{scoreLookup[Context.ServerPoint]} Love";
             }
 
             return "Love Fifteen";
