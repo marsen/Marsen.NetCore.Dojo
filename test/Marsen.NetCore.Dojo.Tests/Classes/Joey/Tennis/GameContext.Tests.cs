@@ -40,14 +40,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public void ThirtyAll()
         {
             _context.ServerScore();
-            GiveReceiverScore();
+            GiveReceiverScore(2);
             _context.ServerScore();
             ScoreShouldBe("Thirty All");
         }
 
-        private void GiveReceiverScore()
+        private void GiveReceiverScore(int times)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < times; i++)
             {
                 _context.ReceiverScore();
             }
