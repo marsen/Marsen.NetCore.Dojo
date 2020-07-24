@@ -35,6 +35,17 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Fifteen All");
         }
 
+        [Fact]
+        public void ThirtyAll()
+        {
+            _context.ServerScore();
+            _context.ReceiverScore();
+            _context.ReceiverScore();
+            _context.ServerScore();
+            ScoreShouldBe("Thirty All");
+        }
+
+
         private void ScoreShouldBe(string expected)
         {
             Assert.Equal(expected, _context.Score());
@@ -108,6 +119,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public virtual void ServerScore()
         {
+            ChangeState();
             Context.ServerPoint++;
         }
 
@@ -124,6 +136,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
+            if (Context.ServerPoint==2)
+            {
+                return "Thirty All";
+            }
             if (Context.ServerPoint == 1)
             {
                 return "Fifteen All";
