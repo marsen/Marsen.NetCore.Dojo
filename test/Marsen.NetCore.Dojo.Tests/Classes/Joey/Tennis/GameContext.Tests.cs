@@ -29,6 +29,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
+        public void ThirtyLove()
+        {
+            _context.ServerScore();
+            _context.ServerScore();
+            ScoreShouldBe("Thirty Love");
+        }
+
+
+        [Fact]
         public void FifteenAll()
         {
             _context.ServerScore();
@@ -51,7 +60,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             {
                 _context.ReceiverScore();
             }
-
         }
 
 
