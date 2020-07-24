@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
@@ -97,6 +96,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
+            if (this.Context.ServerPoint == 2)
+            {
+                return "Thirty Love";
+            }
+
             if (this.Context.ServerPoint == 1)
             {
                 return "Fifteen Love";
@@ -107,7 +111,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            Context.ChangeState(new SameState());
+            if (Context.ServerPoint == Context.ReceiverPoint)
+            {
+                Context.ChangeState(new SameState());
+            }
+            else
+            {
+                Context.ChangeState(new NormalState());
+            }
         }
     }
 
@@ -123,14 +134,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public void ServerScore()
         {
-            ChangeState();
             Context.ServerPoint++;
+            ChangeState();
         }
 
         public void ReceiverScore()
         {
-            ChangeState();
             Context.ReceiverPoint++;
+            ChangeState();
         }
 
         protected abstract void ChangeState();
