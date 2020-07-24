@@ -114,7 +114,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public virtual void ReceiverScore()
         {
+            ChangeState();
             Context.ReceiverPoint++;
+        }
+
+        private void ChangeState()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
