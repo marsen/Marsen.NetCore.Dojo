@@ -34,14 +34,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Thirty Love");
         }
 
-        private void GiveServerScore(int times)
-        {
-            for (int i = 0; i < times; i++)
-            {
-                _context.ServerScore();
-            }
-        }
-
 
         [Fact]
         public void FifteenAll()
@@ -59,6 +51,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Thirty All");
         }
 
+        private void GiveServerScore(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _context.ServerScore();
+            }
+        }
+
         private void GiveReceiverScore(int times)
         {
             for (int i = 0; i < times; i++)
@@ -66,7 +66,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 _context.ReceiverScore();
             }
         }
-
 
         private void ScoreShouldBe(string expected)
         {
