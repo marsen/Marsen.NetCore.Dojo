@@ -111,7 +111,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             Context.ServerPoint++;
         }
 
-        public virtual void ReceiverScore()
+        public void ReceiverScore()
         {
             ChangeState();
             Context.ReceiverPoint++;
