@@ -34,6 +34,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Thirty Love");
         }
 
+        [Fact]
+        public void FortyLove()
+        {
+            GiveServerScore(3);
+            ScoreShouldBe("Forty Love");
+        }
+
 
         [Fact]
         public void FifteenAll()
@@ -101,6 +108,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
+            if (this.Context.ServerPoint == 3)
+            {
+                return "Forty Love";
+            }
             if (this.Context.ServerPoint == 2)
             {
                 return "Thirty Love";
