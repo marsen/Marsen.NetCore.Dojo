@@ -92,8 +92,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public override void ReceiverScore()
         {
-            Context.ChangeState(new SameState());
+            ChangeState();
             Context.ReceiverPoint++;
+        }
+
+        private void ChangeState()
+        {
+            Context.ChangeState(new SameState());
         }
     }
 
@@ -144,8 +149,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         public override void ReceiverScore()
         {
-            Context.ChangeState(new NormalState());
+            ChangeState();
             Context.ReceiverPoint++;
+        }
+
+        private void ChangeState()
+        {
+            Context.ChangeState(new NormalState());
         }
     }
 }
