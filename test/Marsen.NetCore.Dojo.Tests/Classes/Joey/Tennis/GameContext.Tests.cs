@@ -16,40 +16,46 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void LoveFifteen()
         {
-            _context.ReceiverScore();
+            GiveReceiverScore(1);
             ScoreShouldBe("Love Fifteen");
         }
 
         [Fact]
         public void FifteenLove()
         {
-            _context.ServerScore();
+            GiveServerScore(1);
             ScoreShouldBe("Fifteen Love");
         }
 
         [Fact]
         public void ThirtyLove()
         {
-            _context.ServerScore();
-            _context.ServerScore();
+            GiveServerScore(2);
             ScoreShouldBe("Thirty Love");
+        }
+
+        private void GiveServerScore(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _context.ServerScore();
+            }
         }
 
 
         [Fact]
         public void FifteenAll()
         {
-            _context.ServerScore();
-            _context.ReceiverScore();
+            GiveServerScore(1);
+            GiveReceiverScore(1);
             ScoreShouldBe("Fifteen All");
         }
 
         [Fact]
         public void ThirtyAll()
         {
-            _context.ServerScore();
             GiveReceiverScore(2);
-            _context.ServerScore();
+            GiveServerScore(2);
             ScoreShouldBe("Thirty All");
         }
 
