@@ -69,23 +69,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         internal void ChangeState(State state)
         {
-            // _state = new NormalState();
             _state = state;
             _state.SetContext(this);
         }
 
-        public void ReceiverScore()
-        {
-            _state.ReceiverScore();
-        }
-
-        public int ReceiverPoint { get; set; }
-
-        public void ServerScore()
-        {
-            _state.ServerScore();
-        }
-
+        public void ReceiverScore() => _state.ReceiverScore();
+        internal int ReceiverPoint { get; set; }
+        public void ServerScore() => _state.ServerScore();
         internal int ServerPoint { get; set; }
     }
 
