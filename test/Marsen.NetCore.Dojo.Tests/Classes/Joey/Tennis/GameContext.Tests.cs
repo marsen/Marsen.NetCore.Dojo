@@ -130,6 +130,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 {1, "Fifteen"},
                 {0, "Love"},
             };
+                return $"{scoreLookup[Context.ServerPoint]} All";
             if (Context.ServerPoint == 2)
             {
                 return $"{scoreLookup[Context.ServerPoint]} All";
