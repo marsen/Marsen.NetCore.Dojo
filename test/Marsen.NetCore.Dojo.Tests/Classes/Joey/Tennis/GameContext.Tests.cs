@@ -122,7 +122,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            if (Context.ServerPoint==1)
+            if (Context.ServerPoint == 1)
             {
                 return "Fifteen All";
             }
