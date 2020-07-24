@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
@@ -132,7 +133,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 return "Fifteen All";
             }
 
-            return "Love All";
+            if (Context.ServerPoint == 0)
+            {
+                return "Love All";
+            }
+            throw new NotImplementedException();
         }
 
         protected override void ChangeState()
