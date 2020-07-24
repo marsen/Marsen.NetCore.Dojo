@@ -96,7 +96,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             Context.ReceiverPoint++;
         }
 
-        private void ChangeState()
+        protected override void ChangeState()
         {
             Context.ChangeState(new SameState());
         }
@@ -123,10 +123,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             Context.ReceiverPoint++;
         }
 
-        private void ChangeState()
-        {
-            throw new System.NotImplementedException();
-        }
+        protected abstract void ChangeState();
     }
 
     public class SameState : State
@@ -153,7 +150,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             Context.ReceiverPoint++;
         }
 
-        private void ChangeState()
+        protected override void ChangeState()
         {
             Context.ChangeState(new NormalState());
         }
