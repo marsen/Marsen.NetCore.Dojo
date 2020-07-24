@@ -117,7 +117,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             this.Context = context;
         }
 
-        public virtual void ServerScore()
+        public void ServerScore()
         {
             ChangeState();
             Context.ServerPoint++;
@@ -146,12 +146,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             }
 
             return "Love All";
-        }
-
-        public override void ServerScore()
-        {
-            Context.ChangeState(new NormalState());
-            Context.ServerPoint++;
         }
 
         protected override void ChangeState()
