@@ -128,6 +128,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             {
                 {2, "Thirty"},
                 {1, "Fifteen"},
+                {0, "Love"},
             };
             if (Context.ServerPoint == 2)
             {
@@ -143,6 +144,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
             if (Context.ServerPoint == 0)
             {
+                return $"{scoreLookup[Context.ServerPoint]} All";
                 return "Love All";
             }
 
