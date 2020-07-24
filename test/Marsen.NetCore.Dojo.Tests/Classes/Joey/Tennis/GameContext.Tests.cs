@@ -62,10 +62,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             _state.SetContext(this);
         }
 
-        public string Score()
-        {
-            return _state.Score();
-        }
+        public string Score() => _state.Score();
 
         internal void ChangeState(State state)
         {
