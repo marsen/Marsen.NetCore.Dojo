@@ -122,34 +122,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class SameState : State
     {
+        private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
+        {
+            {2, "Thirty"},
+            {1, "Fifteen"},
+            {0, "Love"},
+        };
+
         public override string Score()
         {
-            var scoreLookup = new Dictionary<int, string>
-            {
-                {2, "Thirty"},
-                {1, "Fifteen"},
-                {0, "Love"},
-            };
-                return $"{scoreLookup[Context.ServerPoint]} All";
-            if (Context.ServerPoint == 2)
-            {
-                return $"{scoreLookup[Context.ServerPoint]} All";
-                return "Thirty All";
-            }
-
-            if (Context.ServerPoint == 1)
-            {
-                return $"{scoreLookup[Context.ServerPoint]} All";
-                return "Fifteen All";
-            }
-
-            if (Context.ServerPoint == 0)
-            {
-                return $"{scoreLookup[Context.ServerPoint]} All";
-                return "Love All";
-            }
-
-            throw new NotImplementedException();
+            return $"{_scoreLookup[Context.ServerPoint]} All";
         }
 
         protected override void ChangeState()
