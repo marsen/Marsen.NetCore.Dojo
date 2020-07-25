@@ -27,6 +27,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Love Thirty");
         }
 
+        [Fact]
+        public void LoveForty()
+        {
+            GiveReceiverScore(3);
+            ScoreShouldBe("Love Forty");
+        }
+
 
         [Fact]
         public void FifteenLove()
@@ -130,6 +137,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             if (this.Context.ReceiverPoint == 2)
             {
                 return "Love Thirty";
+            }
+            if (this.Context.ReceiverPoint==3)
+            {
+                return "Love Forty";
             }
 
             return "Love Fifteen";
