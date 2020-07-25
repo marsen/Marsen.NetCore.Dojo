@@ -81,6 +81,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Deuce");
         }
 
+        [Fact]
+        public void Deuce_When_4_4()
+        {
+            GiveReceiverScore(4);
+            GiveServerScore(4);
+            ScoreShouldBe("Deuce");
+        }
+
 
         private void GiveServerScore(int times)
         {
