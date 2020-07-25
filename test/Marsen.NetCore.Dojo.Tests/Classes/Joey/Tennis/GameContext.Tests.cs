@@ -148,6 +148,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
+            {3, "Forty"},
         };
 
         protected Dictionary<int, string> _scoreLookup1 = new Dictionary<int, string>
