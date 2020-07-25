@@ -123,7 +123,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            return $"{_scoreLookup[Context.ServerPoint]} {_scoreLookup[Context.ReceiverPoint]}";
+            return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
         }
 
         protected override void ChangeState()
@@ -143,7 +143,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         protected GameContext Context;
 
-        protected readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
+        protected readonly Dictionary<int, string> ScoreLookup = new Dictionary<int, string>
         {
             {0, "Love"},
             {1, "Fifteen"},
@@ -177,7 +177,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            return $"{_scoreLookup[Context.ServerPoint]} All";
+            return $"{ScoreLookup[Context.ServerPoint]} All";
         }
 
         protected override void ChangeState()
