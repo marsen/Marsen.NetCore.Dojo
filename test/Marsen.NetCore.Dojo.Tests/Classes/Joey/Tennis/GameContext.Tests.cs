@@ -200,7 +200,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            throw new System.NotImplementedException();
+            Context.ChangeState(new DeuceState());
         }
     }
 
