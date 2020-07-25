@@ -145,9 +145,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
         {
-            {2, "Thirty"},
-            {1, "Fifteen"},
             {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
         };
 
         protected Dictionary<int, string> _scoreLookup1 = new Dictionary<int, string>
