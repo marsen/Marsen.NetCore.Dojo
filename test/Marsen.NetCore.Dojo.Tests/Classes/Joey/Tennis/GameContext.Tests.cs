@@ -147,7 +147,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (Context.ServerPoint == Context.ReceiverPoint)
             {
-                if (Context.ServerPoint == 3)
+                if (Context.ServerPoint >= 3)
                 {
                     Context.ChangeState(new DeuceState());
                 }
