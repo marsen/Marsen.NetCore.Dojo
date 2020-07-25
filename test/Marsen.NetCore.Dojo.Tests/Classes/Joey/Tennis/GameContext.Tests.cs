@@ -96,7 +96,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
 
-        [Fact(Skip = "Not Implement AdvState")]
+        [Fact]
         public void Deuce_When_4_4()
         {
             GivenDeuce();
