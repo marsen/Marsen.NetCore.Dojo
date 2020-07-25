@@ -139,12 +139,32 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (Context.ServerPoint == Context.ReceiverPoint)
             {
-                Context.ChangeState(new SameState());
+                if (Context.ServerPoint == 3)
+                {
+                    Context.ChangeState(new DeuceState());
+                }
+                else
+                {
+                    Context.ChangeState(new SameState());
+                }
             }
             else
             {
                 Context.ChangeState(new NormalState());
             }
+        }
+    }
+
+    public class DeuceState : State
+    {
+        public override string Score()
+        {
+            return "Deuce";
+        }
+
+        protected override void ChangeState()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
