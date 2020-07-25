@@ -136,7 +136,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
             if (this.Context.ReceiverPoint == 2)
             {
-                return "Love Thirty";
+                return $"Love {scoreLookup[Context.ReceiverPoint]}";
             }
             if (this.Context.ReceiverPoint==3)
             {
