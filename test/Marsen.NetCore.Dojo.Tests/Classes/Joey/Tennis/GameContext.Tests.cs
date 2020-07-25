@@ -121,16 +121,17 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class NormalState : State
     {
+        private Dictionary<int, string> _scoreLookup1 = new Dictionary<int, string>
+        {
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"},
+        };
+
         public override string Score()
         {
-            var scoreLookup = new Dictionary<int, string>
-            {
-                {0, "Love"},
-                {1, "Fifteen"},
-                {2, "Thirty"},
-                {3, "Forty"},
-            };
-            return $"{scoreLookup[Context.ServerPoint]} {scoreLookup[Context.ReceiverPoint]}";
+            return $"{_scoreLookup1[Context.ServerPoint]} {_scoreLookup1[Context.ReceiverPoint]}";
         }
 
         protected override void ChangeState()
