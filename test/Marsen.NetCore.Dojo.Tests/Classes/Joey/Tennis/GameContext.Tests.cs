@@ -108,25 +108,31 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            var scoreLookup = new Dictionary<int,string>
+            var scoreLookup = new Dictionary<int, string>
             {
-                {1,"Fifteen"},
-                {2,"Thirty"},
-                {3,"Forty"},
+                {1, "Fifteen"},
+                {2, "Thirty"},
+                {3, "Forty"},
             };
-            if (this.Context.ServerPoint == 3)
-            {
-                return $"{scoreLookup[Context.ServerPoint]} Love";
-            }
-            if (this.Context.ServerPoint == 2)
+            if (this.Context.ServerPoint > 0)
             {
                 return $"{scoreLookup[Context.ServerPoint]} Love";
             }
 
-            if (this.Context.ServerPoint == 1)
-            {
-                return $"{scoreLookup[Context.ServerPoint]} Love";
-            }
+            // if (this.Context.ServerPoint == 3)
+            // {
+            //     return $"{scoreLookup[Context.ServerPoint]} Love";
+            // }
+            //
+            // if (this.Context.ServerPoint == 2)
+            // {
+            //     return $"{scoreLookup[Context.ServerPoint]} Love";
+            // }
+            //
+            // if (this.Context.ServerPoint == 1)
+            // {
+            //     return $"{scoreLookup[Context.ServerPoint]} Love";
+            // }
 
             return "Love Fifteen";
         }
