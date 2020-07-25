@@ -76,19 +76,24 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Deuce()
         {
+            GivenDeuce();
+            ScoreShouldBe("Deuce");
+        }
+
+        private void GivenDeuce()
+        {
             GiveReceiverScore(3);
             GiveServerScore(3);
-            ScoreShouldBe("Deuce");
         }
 
-        [Fact]
+        [Fact(Skip = "Not Implement AdvState")]
         public void Deuce_When_4_4()
         {
-            GiveReceiverScore(4);
-            GiveServerScore(4);
+            GivenDeuce();
+            GiveReceiverScore(1);
+            GiveServerScore(1);
             ScoreShouldBe("Deuce");
         }
-
 
         private void GiveServerScore(int times)
         {
