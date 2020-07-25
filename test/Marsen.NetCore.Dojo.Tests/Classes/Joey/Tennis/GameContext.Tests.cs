@@ -149,6 +149,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     public abstract class State
     {
         protected GameContext Context;
+
+        protected readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
+        {
+            {2, "Thirty"},
+            {1, "Fifteen"},
+            {0, "Love"},
+        };
+
         public abstract string Score();
 
         public void SetContext(GameContext context)
@@ -173,13 +181,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
     public class SameState : State
     {
-        private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
-        {
-            {2, "Thirty"},
-            {1, "Fifteen"},
-            {0, "Love"},
-        };
-
         public override string Score()
         {
             return $"{_scoreLookup[Context.ServerPoint]} All";
