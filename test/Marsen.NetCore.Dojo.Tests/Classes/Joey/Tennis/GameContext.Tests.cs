@@ -130,12 +130,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 {2, "Thirty"},
                 {3, "Forty"},
             };
-            if (this.Context.ServerPoint > 0)
-            {
-                return $"{scoreLookup[Context.ServerPoint]} {scoreLookup[Context.ReceiverPoint]}";
-            }
-
-            return $"Love {scoreLookup[Context.ReceiverPoint]}";
+            return $"{scoreLookup[Context.ServerPoint]} {scoreLookup[Context.ReceiverPoint]}";
         }
 
         protected override void ChangeState()
