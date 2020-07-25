@@ -125,13 +125,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             var scoreLookup = new Dictionary<int, string>
             {
+                {0, "Love"},
                 {1, "Fifteen"},
                 {2, "Thirty"},
                 {3, "Forty"},
             };
             if (this.Context.ServerPoint > 0)
             {
-                return $"{scoreLookup[Context.ServerPoint]} Love";
+                return $"{scoreLookup[Context.ServerPoint]} {scoreLookup[Context.ReceiverPoint]}";
             }
 
             return $"Love {scoreLookup[Context.ReceiverPoint]}";
