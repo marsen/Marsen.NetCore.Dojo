@@ -21,6 +21,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
+        public void LoveThirty()
+        {
+            GiveReceiverScore(2);
+            ScoreShouldBe("Love Thirty");
+        }
+
+
+        [Fact]
         public void FifteenLove()
         {
             GiveServerScore(1);
@@ -117,6 +125,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             if (this.Context.ServerPoint > 0)
             {
                 return $"{scoreLookup[Context.ServerPoint]} Love";
+            }
+
+            if (this.Context.ReceiverPoint == 2)
+            {
+                return "Love Thirty";
             }
 
             return "Love Fifteen";
