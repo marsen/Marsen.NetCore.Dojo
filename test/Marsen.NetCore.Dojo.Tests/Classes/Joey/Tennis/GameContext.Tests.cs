@@ -111,6 +111,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             var scoreLookup = new Dictionary<int,string>
             {
                 {1,"Fifteen"},
+                {2,"Thirty"},
             };
             if (this.Context.ServerPoint == 3)
             {
@@ -118,7 +119,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             }
             if (this.Context.ServerPoint == 2)
             {
-                return "Thirty Love";
+                return $"{scoreLookup[Context.ServerPoint]} Love";
             }
 
             if (this.Context.ServerPoint == 1)
