@@ -119,21 +119,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 return $"{scoreLookup[Context.ServerPoint]} Love";
             }
 
-            // if (this.Context.ServerPoint == 3)
-            // {
-            //     return $"{scoreLookup[Context.ServerPoint]} Love";
-            // }
-            //
-            // if (this.Context.ServerPoint == 2)
-            // {
-            //     return $"{scoreLookup[Context.ServerPoint]} Love";
-            // }
-            //
-            // if (this.Context.ServerPoint == 1)
-            // {
-            //     return $"{scoreLookup[Context.ServerPoint]} Love";
-            // }
-
             return "Love Fifteen";
         }
 
