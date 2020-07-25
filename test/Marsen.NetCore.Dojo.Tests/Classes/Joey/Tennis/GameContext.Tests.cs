@@ -80,11 +80,21 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Deuce");
         }
 
+        [Fact]
+        public void ServerAdv()
+        {
+            GivenDeuce();
+            GiveServerScore(1);
+            ScoreShouldBe("Sam Adv");
+        }
+
+
         private void GivenDeuce()
         {
             GiveReceiverScore(3);
             GiveServerScore(3);
         }
+
 
         [Fact(Skip = "Not Implement AdvState")]
         public void Deuce_When_4_4()
@@ -173,6 +183,19 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public override string Score()
         {
             return "Deuce";
+        }
+
+        protected override void ChangeState()
+        {
+            Context.ChangeState(new AdvState());
+        }
+    }
+
+    public class AdvState : State
+    {
+        public override string Score()
+        {
+            return "Sam Adv";
         }
 
         protected override void ChangeState()
