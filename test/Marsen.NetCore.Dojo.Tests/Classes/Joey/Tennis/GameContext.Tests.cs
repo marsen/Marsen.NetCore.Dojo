@@ -74,7 +74,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void Deuce()
+        public void Ben()
         {
             GivenDeuce();
             ScoreShouldBe("Deuce");
@@ -86,6 +86,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             GivenDeuce();
             GiveServerScore(1);
             ScoreShouldBe("Sam Adv");
+        }
+
+        [Fact]
+        public void ReceiverAdv()
+        {
+            GivenDeuce();
+            GiveReceiverScore(1);
+            ScoreShouldBe("Ben Adv");
         }
 
 
@@ -104,6 +112,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             GiveServerScore(1);
             ScoreShouldBe("Deuce");
         }
+
 
         private void GiveServerScore(int times)
         {
@@ -195,6 +204,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
+            if (Context.ReceiverPoint>Context.ServerPoint)
+            {
+                return "Ben Adv";
+            }
+
             return "Sam Adv";
         }
 
