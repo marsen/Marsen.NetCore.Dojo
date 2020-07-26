@@ -74,7 +74,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void Ben()
+        public void Deuce()
         {
             GivenDeuce();
             ScoreShouldBe("Deuce");
@@ -158,8 +158,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         internal int ReceiverPoint { get; set; }
         public void ServerScore() => _state.ServerScore();
         internal int ServerPoint { get; set; }
+        public string ReceiverName = "Ben";
     }
 
+    
     public class NormalState : State
     {
         public override string Score()
@@ -206,7 +208,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             if (Context.ReceiverPoint>Context.ServerPoint)
             {
-                return "Ben Adv";
+                return $"{Context.ReceiverName} Adv";
             }
 
             return "Sam Adv";
