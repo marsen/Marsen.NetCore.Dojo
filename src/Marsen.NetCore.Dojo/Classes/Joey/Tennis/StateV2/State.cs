@@ -37,7 +37,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
 
         protected string Winner()
         {
-            return Context.ReceiverPoint >= Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
+            return Context.ReceiverPoint < Context.ServerPoint ? $"{Context.ServerName}" : $"{Context.ReceiverName}";
         }
 
         protected bool IsSame()
