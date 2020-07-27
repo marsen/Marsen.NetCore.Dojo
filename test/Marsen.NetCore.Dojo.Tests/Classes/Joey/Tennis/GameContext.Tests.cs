@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
@@ -71,6 +72,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         {
             GiveServerScore(3);
             ScoreShouldBe("Forty Love");
+        }
+
+        [Fact]
+        public void SamWin()
+        {
+            GiveServerScore(4);
+            ScoreShouldBe("Sam Win");
         }
 
 
@@ -202,8 +210,28 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             }
             else
             {
-                Context.ChangeState(new NormalState());
+                if (Context.ServerPoint > 3)
+                {
+                    Context.ChangeState(new WinState());
+                }
+                else
+                {
+                    Context.ChangeState(new NormalState());
+                }
             }
+        }
+    }
+
+    public class WinState : State
+    {
+        public override string Score()
+        {
+            return "Sam Win";
+        }
+
+        protected override void ChangeState()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
