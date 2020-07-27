@@ -164,7 +164,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         private void GiveServerScore(int times)
         {
-            for (int i = 0; i < times; i++)
+            for (var i = 0; i < times; i++)
             {
                 _context.ServerScore();
             }
@@ -172,7 +172,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         private void GiveReceiverScore(int times)
         {
-            for (int i = 0; i < times; i++)
+            for (var i = 0; i < times; i++)
             {
                 _context.ReceiverScore();
             }
@@ -208,7 +208,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         internal int ReceiverPoint { get; set; }
         public void ServerScore() => _state.ServerScore();
         internal int ServerPoint { get; set; }
-        public string ServerName;
+        
+        public readonly string ServerName;
 
         public readonly string ReceiverName;
     }
@@ -257,7 +258,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 
