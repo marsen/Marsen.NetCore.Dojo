@@ -130,6 +130,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
+        public void ReceiverWinAfterDeuce()
+        {
+            GivenDeuce();
+            GiveReceiverScore(2);
+            ScoreShouldBe("Ben Win");
+        }
+
+
+        [Fact]
         public void Deuce_When_4_4()
         {
             GivenDeuce();
