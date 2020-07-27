@@ -122,6 +122,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
+        public void ServerWinAfterDeuce()
+        {
+            GivenDeuce();
+            GiveServerScore(2);
+            ScoreShouldBe("Sam Win");
+        }
+
+
+        [Fact]
         public void ReceiverAdv()
         {
             GivenDeuce();
@@ -274,7 +283,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            if (Context.ReceiverPoint - Context.ServerPoint >= 2)
+            if (Context.ReceiverPoint - Context.ServerPoint >= 2 || Context.ServerPoint - Context.ReceiverPoint >= 2)
             {
                 Context.ChangeState(new WinState());
             }
