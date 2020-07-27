@@ -218,7 +218,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             }
             else
             {
-                if (Context.ServerPoint > 3)
+                if (Context.ServerPoint > 3 || Context.ReceiverPoint > 3)
                 {
                     Context.ChangeState(new WinState());
                 }
@@ -234,7 +234,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            return "Sam Win";
+            return $"{Winner()} Win";
         }
 
         protected override void ChangeState()
@@ -261,11 +261,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         public override string Score()
         {
             return $"{Winner()} Adv";
-        }
-
-        private string Winner()
-        {
-            return Context.ReceiverPoint > Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
         }
 
         protected override void ChangeState()
@@ -306,6 +301,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         protected abstract void ChangeState();
+
+        protected string Winner()
+        {
+            return Context.ReceiverPoint > Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
+        }
     }
 
     public class SameState : State
