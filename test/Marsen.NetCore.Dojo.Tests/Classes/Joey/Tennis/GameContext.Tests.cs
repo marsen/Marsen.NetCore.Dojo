@@ -109,14 +109,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Deuce()
         {
-            GivenDeuce();
+            GivenDeuce(3);
             ScoreShouldBe("Deuce");
         }
 
         [Fact]
         public void ServerAdv()
         {
-            GivenDeuce();
+            GivenDeuce(3);
             GiveServerScore(1);
             ScoreShouldBe("Sam Adv");
         }
@@ -124,7 +124,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void ServerWinAfterDeuce()
         {
-            GivenDeuce();
+            GivenDeuce(3);
             GiveServerScore(2);
             ScoreShouldBe("Sam Win");
         }
@@ -133,7 +133,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void ReceiverAdv()
         {
-            GivenDeuce();
+            GivenDeuce(3);
             GiveReceiverScore(1);
             ScoreShouldBe("Ben Adv");
         }
@@ -141,7 +141,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void ReceiverWinAfterDeuce()
         {
-            GivenDeuce();
+            GivenDeuce(3);
             GiveReceiverScore(2);
             ScoreShouldBe("Ben Win");
         }
@@ -150,16 +150,19 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         [Fact]
         public void Deuce_When_4_4()
         {
-            GivenDeuce();
+            GivenDeuce(3);
             GiveReceiverScore(1);
             GiveServerScore(1);
             ScoreShouldBe("Deuce");
         }
 
-        private void GivenDeuce()
+        private void GivenDeuce(int times)
         {
-            GiveReceiverScore(3);
-            GiveServerScore(3);
+            for (var i = 0; i < times; i++)
+            {
+                GiveReceiverScore(1);
+                GiveServerScore(1);
+            }
         }
 
         private void GiveServerScore(int times)
