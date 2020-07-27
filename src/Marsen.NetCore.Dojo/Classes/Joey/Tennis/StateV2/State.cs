@@ -1,0 +1,48 @@
+﻿using System.Collections.Generic;
+
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
+{
+    public abstract class State
+    {
+        protected GameContext Context;
+
+        protected readonly Dictionary<int, string> ScoreLookup = new Dictionary<int, string>
+        {
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"},
+        };
+
+        public abstract string Score();
+
+        public void SetContext(GameContext context)
+        {
+            this.Context = context;
+        }
+
+        public void ServerScore()
+        {
+            Context.ServerPoint++;
+            ChangeState();
+        }
+
+        public void ReceiverScore()
+        {
+            Context.ReceiverPoint++;
+            ChangeState();
+        }
+
+        protected abstract void ChangeState();
+
+        protected string Winner()
+        {
+            return Context.ReceiverPoint > Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
+        }
+
+        protected bool IsSame()
+        {
+            return Context.ServerPoint == Context.ReceiverPoint;
+        }
+    }
+}
