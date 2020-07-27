@@ -224,7 +224,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            State state = new NormalState();
             if (IsSame())
             {
                 if (Context.ServerPoint >= 3)
