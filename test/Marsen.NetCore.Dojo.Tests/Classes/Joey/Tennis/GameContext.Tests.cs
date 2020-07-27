@@ -224,7 +224,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            if (Context.ServerPoint == Context.ReceiverPoint)
+            if (IsSame())
             {
                 if (Context.ServerPoint >= 3)
                 {
@@ -284,7 +284,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            // if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) < 2)
             if (Context.ServerPoint == Context.ReceiverPoint)
             {
                 Context.ChangeState(new DeuceState());
@@ -332,6 +331,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         protected string Winner()
         {
             return Context.ReceiverPoint > Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
+        }
+
+        protected bool IsSame()
+        {
+            return Context.ServerPoint == Context.ReceiverPoint;
         }
     }
 
