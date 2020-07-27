@@ -227,14 +227,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             State state = new NormalState();
             if (IsSame())
             {
-                if (Context.ServerPoint >= 3)
-                {
-                    state = new DeuceState();
-                }
-                else
-                {
-                    state = new SameState();
-                }
+                state = Context.ServerPoint >= 3 ? (State) new DeuceState() : new SameState();
             }
 
             if (Context.ServerPoint > 3 || Context.ReceiverPoint > 3)
