@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContextTests
     {
-        readonly GameContext _context = new GameContext("Ben");
+        readonly GameContext _context = new GameContext("Sam","Ben");
 
         [Fact]
         public void LoveAll()
@@ -140,8 +140,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         private State _state;
 
-        public GameContext(string receiverName)
+        public GameContext(string serverName, string receiverName)
         {
+            ServerName = serverName;
             ReceiverName = receiverName;
             _state = new SameState();
             _state.SetContext(this);
@@ -159,6 +160,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         internal int ReceiverPoint { get; set; }
         public void ServerScore() => _state.ServerScore();
         internal int ServerPoint { get; set; }
+        public string ServerName;
+
         public readonly string ReceiverName ;
     }
 
@@ -212,7 +215,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                 return $"{Context.ReceiverName} Adv";
             }
 
-            return "Sam Adv";
+            return $"{Context.ServerName} Adv";
         }
 
         protected override void ChangeState()
