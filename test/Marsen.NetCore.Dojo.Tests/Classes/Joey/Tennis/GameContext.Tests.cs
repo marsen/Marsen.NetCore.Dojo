@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContextTests
     {
-        readonly GameContext _context = new GameContext("Sam","Ben");
+        readonly GameContext _context = new GameContext("Sam", "Ben");
 
         [Fact]
         public void LoveAll()
@@ -96,14 +96,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Ben Adv");
         }
 
-
-        private void GivenDeuce()
-        {
-            GiveReceiverScore(3);
-            GiveServerScore(3);
-        }
-
-
         [Fact]
         public void Deuce_When_4_4()
         {
@@ -113,6 +105,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             ScoreShouldBe("Deuce");
         }
 
+        private void GivenDeuce()
+        {
+            GiveReceiverScore(3);
+            GiveServerScore(3);
+        }
 
         private void GiveServerScore(int times)
         {
@@ -162,10 +159,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         internal int ServerPoint { get; set; }
         public string ServerName;
 
-        public readonly string ReceiverName ;
+        public readonly string ReceiverName;
     }
 
-    
+
     public class NormalState : State
     {
         public override string Score()
