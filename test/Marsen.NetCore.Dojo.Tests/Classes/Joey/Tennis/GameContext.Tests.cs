@@ -36,6 +36,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
+        public void ReceiverWin()
+        {
+            GiveReceiverScore(4);
+            ScoreShouldBe("Ben Win");
+        }
+
+
+        [Fact]
         public void FifteenForty()
         {
             GiveReceiverScore(3);
