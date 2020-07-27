@@ -208,7 +208,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         internal int ReceiverPoint { get; set; }
         public void ServerScore() => _state.ServerScore();
         internal int ServerPoint { get; set; }
-        
+
         public readonly string ServerName;
 
         public readonly string ReceiverName;
@@ -284,7 +284,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) < 2)
+            // if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) < 2)
+            if (Context.ServerPoint == Context.ReceiverPoint)
             {
                 Context.ChangeState(new DeuceState());
             }
