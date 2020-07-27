@@ -284,13 +284,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
-            if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) >= 2)
+            if (Math.Abs(Context.ServerPoint - Context.ReceiverPoint) < 2)
             {
-                Context.ChangeState(new WinState());
+                Context.ChangeState(new DeuceState());
             }
             else
             {
-                Context.ChangeState(new DeuceState());
+                Context.ChangeState(new WinState());
             }
         }
     }
