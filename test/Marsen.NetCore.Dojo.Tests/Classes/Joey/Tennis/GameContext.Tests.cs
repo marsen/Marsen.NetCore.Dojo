@@ -210,8 +210,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
     {
         public override string Score()
         {
-            var result = Context.ReceiverPoint>Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
-            return result+" Adv";
+            return $"{Winner()} Adv";
+        }
+
+        private string Winner()
+        {
+            return Context.ReceiverPoint > Context.ServerPoint ? $"{Context.ReceiverName}" : $"{Context.ServerName}";
         }
 
         protected override void ChangeState()
