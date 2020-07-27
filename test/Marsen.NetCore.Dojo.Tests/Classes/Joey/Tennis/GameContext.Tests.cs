@@ -224,6 +224,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         protected override void ChangeState()
         {
+            State state = new NormalState();
             if (IsSame())
             {
                 if (Context.ServerPoint >= 3)
@@ -235,16 +236,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
                     Context.ChangeState(new SameState());
                 }
             }
-            else
+
+            if (Context.ServerPoint > 3 || Context.ReceiverPoint > 3)
             {
-                if (Context.ServerPoint > 3 || Context.ReceiverPoint > 3)
-                {
-                    Context.ChangeState(new WinState());
-                }
-                else
-                {
-                    Context.ChangeState(new NormalState());
-                }
+                Context.ChangeState(new WinState());
             }
         }
     }
