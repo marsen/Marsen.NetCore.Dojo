@@ -75,7 +75,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
         }
 
         [Fact]
-        public void SamWin()
+        public void ServerWin()
         {
             GiveServerScore(4);
             ScoreShouldBe("Sam Win");
