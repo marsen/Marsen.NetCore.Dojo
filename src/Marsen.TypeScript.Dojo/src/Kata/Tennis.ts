@@ -13,6 +13,10 @@ export default class Tennis {
     ServerScore() {
         this.ServerPoint++;
         this.state = new SameState();
+        if(this.ServerPoint != this.ReceiverPoint)
+        {
+            this.state = new NormalState();
+        }
         this.state.SetContext(this);
     }
 
@@ -53,6 +57,10 @@ class NormalState extends State {
             [2,"Thirty"],
             [3,"Forty"]
         ]);
+
+        if(this.Context.ServerPoint == 1){
+            return "Fifteen Love";
+        }
         
         return `Love ${scoreLookup.get(this.Context.ReceiverPoint)}`;
     }    
