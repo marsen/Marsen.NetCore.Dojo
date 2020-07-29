@@ -45,9 +45,11 @@ class SameState implements IState{
 }
 
 class NormalState implements IState {
+    Context!: Tennis;
     SetContext(context: Tennis) {
-        throw new Error("Method not implemented.");
+        this.Context = context;
     }
+    
     Score(): string{
         return "Love Fifteen";
     }    
