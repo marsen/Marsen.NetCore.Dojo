@@ -1,6 +1,6 @@
 export default class Tennis {
     state!: State;
-    ReceiverPoint!: number;
+    ReceiverPoint: number = 0;
     ServerPoint: number = 0;
     /**
      *
@@ -17,8 +17,9 @@ export default class Tennis {
     }
 
     ReceiverScore() {
-        this.state = new NormalState();
         this.ReceiverPoint++;
+        this.state = new NormalState();
+        this.state.SetContext(this);
     }
 
     Score(): string{
@@ -47,6 +48,10 @@ class SameState extends State{
 class NormalState extends State {
         
     Score(): string{
+        console.log("normal state score",this.Context);
+        if(this.Context.ReceiverPoint == 2){
+            return "Love Thirty";
+        }
         return "Love Fifteen";
     }    
 }
