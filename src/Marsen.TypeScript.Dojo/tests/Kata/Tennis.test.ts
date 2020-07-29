@@ -10,7 +10,7 @@ describe('SameSate', function() {
 
   it('1-1 Should Be Fifteen All', ()=>{
     GivenReceiverScore(1)
-    tennis.ServerScore();
+    GivenServerScore(1);
     ScoreShouldBe("Fifteen All")
   });
 
@@ -37,16 +37,21 @@ describe('NormalSate', function() {
   });
 
   it('1-0 Should Be Fifteen Love', ()=>{
-    tennis.ServerScore();
+    GivenServerScore(1);
     ScoreShouldBe("Fifteen Love");    
   });
 
   it('2-0 Should Be Thirty Love', ()=>{
-    tennis.ServerScore();
-    tennis.ServerScore();
+    GivenServerScore(2);
     ScoreShouldBe("Thirty Love");    
   });
 });
+
+function GivenServerScore(times:number) {
+  for (let i = 0; i < times; i++) {
+    tennis.ServerScore();
+  }
+}
 
 function ScoreShouldBe(expected:string) {
   expect(expected).equal(tennis.Score());
