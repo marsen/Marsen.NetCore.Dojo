@@ -1,5 +1,5 @@
 export default class Tennis {
-    state!: IState;
+    state!: State;
     ReceiverPoint!: number;
     ServerPoint: number = 0;
     /**
@@ -26,16 +26,16 @@ export default class Tennis {
     }
 } 
 
-interface IState{
-  SetContext(context: Tennis):void
-  Score()  :string
-}
-
-class SameState implements IState{
+abstract class State{
     Context!: Tennis;
     SetContext(context: Tennis) {
         this.Context = context;
-    }
+    }  
+    abstract Score()  :string
+}
+
+class SameState extends State{
+    
     Score(): string{        
         if(this.Context.ServerPoint == 1){
             return "Fifteen All";
@@ -44,12 +44,8 @@ class SameState implements IState{
     }
 }
 
-class NormalState implements IState {
-    Context!: Tennis;
-    SetContext(context: Tennis) {
-        this.Context = context;
-    }
-    
+class NormalState extends State {
+        
     Score(): string{
         return "Love Fifteen";
     }    
