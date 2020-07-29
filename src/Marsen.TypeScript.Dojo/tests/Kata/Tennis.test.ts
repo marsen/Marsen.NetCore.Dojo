@@ -45,6 +45,11 @@ describe('NormalSate', function() {
     GivenServerScore(2);
     ScoreShouldBe("Thirty Love");    
   });
+
+  it('3-0 Should Be Forty Love', ()=>{
+    GivenServerScore(3);
+    ScoreShouldBe("Forty Love");    
+  });
 });
 
 function GivenServerScore(times:number) {
