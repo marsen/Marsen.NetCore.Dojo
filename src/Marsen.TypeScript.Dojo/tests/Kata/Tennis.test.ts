@@ -20,15 +20,21 @@ describe('NormalSate', function() {
   beforeEach(()=>{
     tennis = new Tennis();
   });
-  
+
   it('0-1 Should Be Love Fifteen', ()=>{
     tennis.ReceiverScore();
     expect("Love Fifteen").equal(tennis.Score());    
   });
 
   it('0-2 Should Be Love Thirty', ()=>{
-    tennis.ReceiverScore();
-    tennis.ReceiverScore();
+    GivenReceiverScore(2);
     expect("Love Thirty").equal(tennis.Score());    
   });
+
 });
+
+function GivenReceiverScore(times:number) {
+  for (let i = 0; i < times; i++) {
+    tennis.ReceiverScore();
+  }
+}
