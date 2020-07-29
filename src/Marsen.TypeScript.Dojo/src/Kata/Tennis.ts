@@ -1,13 +1,32 @@
 export default class Tennis {
+    state!: IState;
+    ReceiverPoint!: number;
+    /**
+     *
+     */
+    constructor() {
+       this.state = new SameState();
+    }
+    
+    ReceiverScore() {
+        this.state = new NormalState();
+        this.ReceiverPoint++;
+    }
+
     Score(): string{
-        var state = new SameState();
-        return state.Score();
+        return this.state.Score();
     }
 } 
-
-class SameState{
+interface IState{
+  Score()  :string
+}
+class SameState implements IState{
     Score(): string{
         return "Love All";
     }
-
+}
+class NormalState implements IState {
+    Score(): string{
+        return "Love Fifteen";
+    }    
 }
