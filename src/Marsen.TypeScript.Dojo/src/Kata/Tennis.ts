@@ -53,21 +53,12 @@ class NormalState extends State {
         
     Score(): string{
         const scoreLookup: Map<number,string> = new Map([
+            [0,"Love"],
             [1,"Fifteen"],
             [2,"Thirty"],
             [3,"Forty"]
         ]);
-
-        if(this.Context.ServerPoint == 3){
-            return "Forty Love";
-        }
-        if(this.Context.ServerPoint == 2){
-            return "Thirty Love";
-        }
-        if(this.Context.ServerPoint == 1){
-            return "Fifteen Love";
-        }
         
-        return `Love ${scoreLookup.get(this.Context.ReceiverPoint)}`;
+        return `${scoreLookup.get(this.Context.ServerPoint)} ${scoreLookup.get(this.Context.ReceiverPoint)}`;
     }    
 }
