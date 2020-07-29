@@ -4,6 +4,9 @@ import { expect } from 'chai';
 let tennis = new Tennis();
 
 describe('SameSate', function() {
+  beforeEach(()=>{
+    tennis = new Tennis();
+  })
   it('0-0 Should Be Love All', ()=>{
     ScoreShouldBe("Love All")
   });
@@ -12,6 +15,12 @@ describe('SameSate', function() {
     GivenReceiverScore(1)
     GivenServerScore(1);
     ScoreShouldBe("Fifteen All")
+  });
+
+  it('2-2 Should Be Forty All', ()=>{
+    GivenReceiverScore(2)
+    GivenServerScore(2);
+    ScoreShouldBe("Forty All")
   });
 
 });

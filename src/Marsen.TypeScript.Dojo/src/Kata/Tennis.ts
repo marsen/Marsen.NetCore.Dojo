@@ -22,7 +22,11 @@ export default class Tennis {
 
     ReceiverScore() {
         this.ReceiverPoint++;
-        this.state = new NormalState();
+        this.state = new SameState();
+        if(this.ServerPoint != this.ReceiverPoint)
+        {
+            this.state = new NormalState();
+        }
         this.state.SetContext(this);
     }
 
@@ -42,6 +46,9 @@ abstract class State{
 class SameState extends State{
     
     Score(): string{        
+        if(this.Context.ServerPoint == 2){
+            return "Forty All";
+        }
         if(this.Context.ServerPoint == 1){
             return "Fifteen All";
         }
