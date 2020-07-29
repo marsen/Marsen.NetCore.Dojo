@@ -48,13 +48,12 @@ class SameState extends State{
 class NormalState extends State {
         
     Score(): string{
-        console.log("normal state score",this.Context);
-        if(this.Context.ReceiverPoint == 3){
-            return "Love Forty";
-        }
-        if(this.Context.ReceiverPoint == 2){
-            return "Love Thirty";
-        }
-        return "Love Fifteen";
+        const scoreLookup: Map<number,string> = new Map([
+            [1,"Fifteen"],
+            [2,"Thirty"],
+            [3,"Forty"]
+        ]);
+        
+        return `Love ${scoreLookup.get(this.Context.ReceiverPoint)}`;
     }    
 }
