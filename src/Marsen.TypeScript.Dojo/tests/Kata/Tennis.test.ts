@@ -9,7 +9,7 @@ describe('SameSate', function() {
   });
 
   it('1-1 Should Be Fifteen All', ()=>{
-    tennis.ReceiverScore();
+    GivenReceiverScore(1)
     tennis.ServerScore();
     expect("Fifteen All").equal(tennis.Score());    
   });
@@ -22,7 +22,7 @@ describe('NormalSate', function() {
   });
 
   it('0-1 Should Be Love Fifteen', ()=>{
-    tennis.ReceiverScore();
+    GivenReceiverScore(1)
     expect("Love Fifteen").equal(tennis.Score());    
   });
 
