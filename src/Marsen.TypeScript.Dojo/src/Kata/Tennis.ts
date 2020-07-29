@@ -49,6 +49,9 @@ class NormalState extends State {
         
     Score(): string{
         console.log("normal state score",this.Context);
+        if(this.Context.ReceiverPoint == 3){
+            return "Love Forty";
+        }
         if(this.Context.ReceiverPoint == 2){
             return "Love Thirty";
         }

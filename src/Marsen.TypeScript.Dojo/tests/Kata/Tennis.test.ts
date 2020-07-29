@@ -31,6 +31,11 @@ describe('NormalSate', function() {
     ScoreShouldBe("Love Thirty");    
   });
   
+  it('0-3 Should Be Love Forty', ()=>{
+    GivenReceiverScore(3);
+    ScoreShouldBe("Love Forty");    
+  });
+
 });
 
 function ScoreShouldBe(expected:string) {
