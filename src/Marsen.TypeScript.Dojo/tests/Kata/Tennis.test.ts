@@ -5,7 +5,13 @@ let tennis = new Tennis();
 
 describe('SameSate', function() {
   it('0-0 Should Be Love All', ()=>{
-    expect(tennis.Score()).equal("Love All");    
+    expect("Love All").equal(tennis.Score());    
+  });
+
+  it('1-1 Should Be Fifteen All', ()=>{
+    tennis.ReceiverScore();
+    tennis.ServerScore();
+    expect("Fifteen All").equal(tennis.Score());    
   });
 
 });
@@ -13,7 +19,7 @@ describe('SameSate', function() {
 describe('NormalSate', function() {
   it('0-1 Should Be Love Fifteen', ()=>{
     tennis.ReceiverScore();
-    expect(tennis.Score()).equal("Love Fifteen");    
+    expect("Love Fifteen").equal(tennis.Score());    
   });
 
 });

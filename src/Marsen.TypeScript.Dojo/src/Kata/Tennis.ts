@@ -1,11 +1,19 @@
 export default class Tennis {
     state!: IState;
     ReceiverPoint!: number;
+    ServerPoint: number = 0;
     /**
      *
      */
     constructor() {
-       this.state = new SameState();
+        this.state = new SameState();        
+        this.state.SetContext(this);
+    }
+    
+    ServerScore() {
+        this.ServerPoint++;
+        this.state = new SameState();
+        this.state.SetContext(this);
     }
 
     ReceiverScore() {
@@ -19,16 +27,27 @@ export default class Tennis {
 } 
 
 interface IState{
+  SetContext(context: Tennis):void
   Score()  :string
 }
 
 class SameState implements IState{
-    Score(): string{
+    Context!: Tennis;
+    SetContext(context: Tennis) {
+        this.Context = context;
+    }
+    Score(): string{        
+        if(this.Context.ServerPoint == 1){
+            return "Fifteen All";
+        }
         return "Love All";
     }
 }
 
 class NormalState implements IState {
+    SetContext(context: Tennis) {
+        throw new Error("Method not implemented.");
+    }
     Score(): string{
         return "Love Fifteen";
     }    
