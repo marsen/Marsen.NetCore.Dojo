@@ -58,6 +58,9 @@ class NormalState extends State {
             [3,"Forty"]
         ]);
 
+        if(this.Context.ServerPoint == 2){
+            return "Thirty Love";
+        }
         if(this.Context.ServerPoint == 1){
             return "Fifteen Love";
         }
