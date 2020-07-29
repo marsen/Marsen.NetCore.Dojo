@@ -40,6 +40,12 @@ describe('NormalSate', function() {
     tennis.ServerScore();
     ScoreShouldBe("Fifteen Love");    
   });
+
+  it('2-0 Should Be Thirty Love', ()=>{
+    tennis.ServerScore();
+    tennis.ServerScore();
+    ScoreShouldBe("Thirty Love");    
+  });
 });
 
 function ScoreShouldBe(expected:string) {
