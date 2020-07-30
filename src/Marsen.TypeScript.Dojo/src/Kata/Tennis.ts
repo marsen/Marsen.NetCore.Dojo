@@ -60,9 +60,10 @@ class SameState extends State{
 class NormalState extends State {
     
     ChangeState() {
-                  this.Context.state = new SameState();
-        if (this.Context.ServerPoint != this.Context.ReceiverPoint) {
-            this.Context.state = new NormalState();
+        this.Context.state = new NormalState();
+        if (this.Context.ServerPoint == this.Context.ReceiverPoint) {
+            this.Context.state = new SameState();
+            //this.Context.state = new NormalState();
         }
 
     }
