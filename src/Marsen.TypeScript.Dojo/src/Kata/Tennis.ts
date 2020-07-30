@@ -34,45 +34,30 @@ export default class Tennis {
 } 
 
 abstract class State{
+    ScoreLookup: Map<number,string> = new Map([
+        [0,"Love"],
+        [1,"Fifteen"],
+        [2,"Thirty"],
+        [3,"Forty"]
+    ]);
+
     Context!: Tennis;
+
     SetContext(context: Tennis) {
         this.Context = context;
     }  
+
     abstract Score()  :string
 }
 
 class SameState extends State{
-    
     Score(): string{        
-        const scoreLookup: Map<number,string> = new Map([
-            [0,"Love"],
-            [1,"Fifteen"],
-            [2,"Thirty"],
-            [3,"Forty"]
-        ]);
-        if(this.Context.ServerPoint == 2){
-            return `${scoreLookup.get(2)} All`;
-            return "Forty All";
-        }
-        if(this.Context.ServerPoint == 1){
-            return `${scoreLookup.get(1)} All`;
-            return "Fifteen All";
-        }
-        return `${scoreLookup.get(0)} All`;
-        return "Love All";
+        return `${this.ScoreLookup.get(this.Context.ServerPoint)} All`;
     }
 }
 
 class NormalState extends State {
-        
     Score(): string{
-        const scoreLookup: Map<number,string> = new Map([
-            [0,"Love"],
-            [1,"Fifteen"],
-            [2,"Thirty"],
-            [3,"Forty"]
-        ]);
-        
-        return `${scoreLookup.get(this.Context.ServerPoint)} ${scoreLookup.get(this.Context.ReceiverPoint)}`;
+        return `${this.ScoreLookup.get(this.Context.ServerPoint)} ${this.ScoreLookup.get(this.Context.ReceiverPoint)}`;
     }    
 }
