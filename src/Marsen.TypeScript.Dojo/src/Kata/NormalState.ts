@@ -33,7 +33,10 @@ class DeuceState extends  State{
 }
 class AdvState extends  State{
     Score(): string {
-        return "Jon Adv";
+        if (this.Context.ServerPoint > this.Context.ReceiverPoint)
+            return `${this.Context.ServerName} Adv`;
+        return `${this.Context.ReceiverName} Adv`;
+
     }
     ChangeState(): void {
         throw new Error("Method not implemented.");

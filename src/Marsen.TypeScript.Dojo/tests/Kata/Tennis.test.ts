@@ -98,6 +98,12 @@ describe('AdvState', function() {
     GivenServerScore(1);
     ScoreShouldBe("Jon Adv");
   });
+
+  it('3-4 Should Be Adv', ()=>{
+    GivenDeuce();
+    GivenReceiverScore(1)
+    ScoreShouldBe("Neo Adv");
+  });
 });
 
 function GivenDeuce() {
