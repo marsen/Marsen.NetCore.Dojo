@@ -75,6 +75,12 @@ describe('WinState', function() {
     GivenReceiverScore(4)
     ScoreShouldBe("Neo Win");    
   });
+
+  it('3-5 Should Be Neo Win', ()=>{
+    GivenDeuce();
+    GivenReceiverScore(2);
+    ScoreShouldBe("Neo Win");    
+  });
 });
 
 describe('DeuceState', function() {
