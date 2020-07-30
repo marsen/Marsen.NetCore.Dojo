@@ -86,6 +86,14 @@ describe('DeuceState', function() {
     GivenDeuce();
     ScoreShouldBe("Deuce");
   });
+
+  it('4-4 Should Be Deuce', ()=>{
+    GivenDeuce();
+    GivenServerScore(1);
+    GivenReceiverScore(1);
+    ScoreShouldBe("Deuce");
+  });
+  
 });
 
 describe('AdvState', function() {

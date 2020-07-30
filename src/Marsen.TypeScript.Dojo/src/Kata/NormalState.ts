@@ -22,6 +22,7 @@ export class NormalState extends State {
         return `${this.ScoreLookup.get(this.Context.ServerPoint)} ${this.ScoreLookup.get(this.Context.ReceiverPoint)}`;
     }
 }
+
 class DeuceState extends  State{
     Score(): string {
         return "Deuce";
