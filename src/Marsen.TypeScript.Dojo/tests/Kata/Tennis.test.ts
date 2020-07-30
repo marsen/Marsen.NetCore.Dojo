@@ -95,8 +95,9 @@ describe('AdvState', function() {
   });
 
   it('4-3 Should Be Adv', ()=>{
-    GivenServerScore(4);
+    GivenServerScore(3);
     GivenReceiverScore(3);
+    GivenServerScore(1);
     ScoreShouldBe("Jon Adv");
   });
 });

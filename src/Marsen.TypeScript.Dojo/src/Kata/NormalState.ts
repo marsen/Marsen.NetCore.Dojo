@@ -27,6 +27,16 @@ class DeuceState extends  State{
         return "Deuce";
     }
     ChangeState(): void {
+        this.Context.State = new AdvState();
+
+    }
+}
+class AdvState extends  State{
+    Score(): string {
+        return "Jon Adv";
+    }
+    ChangeState(): void {
         throw new Error("Method not implemented.");
     }
+        
 }
