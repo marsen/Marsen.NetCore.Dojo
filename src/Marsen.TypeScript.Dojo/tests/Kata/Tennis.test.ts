@@ -93,6 +93,13 @@ describe('DeuceState', function() {
     GivenReceiverScore(1);
     ScoreShouldBe("Deuce");
   });
+
+  it('100-100 Should Be Deuce', ()=>{
+    GivenDeuce();
+    GivenSeesaw(100);
+    ScoreShouldBe("Deuce");
+  });
+  
   
 });
 
@@ -113,6 +120,13 @@ describe('AdvState', function() {
     ScoreShouldBe("Neo Adv");
   });
 });
+
+function GivenSeesaw(times:number) {
+  for (let i = 0; i < times; i++) {
+    GivenServerScore(1);
+    GivenReceiverScore(1);
+  }
+}
 
 function GivenDeuce() {
   GivenServerScore(3);
