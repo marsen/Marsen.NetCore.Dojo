@@ -35,5 +35,3 @@ For KATA
     - [x] TS Unit Test
     - [x] TS Coverage
   - [x] Mutation Stryker.Net
-
-
