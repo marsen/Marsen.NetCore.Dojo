@@ -1,6 +1,8 @@
 import { WinState } from "./WinState";
 import { State } from "./State";
 import { SameState } from "./SameState";
+import { DeuceState } from "./DeuceState";
+
 export class NormalState extends State {
     ChangeState() {
 
@@ -22,29 +24,4 @@ export class NormalState extends State {
     Score(): string {
         return `${this.ScoreLookup.get(this.Context.ServerPoint)} ${this.ScoreLookup.get(this.Context.ReceiverPoint)}`;
     }
-}
-
-class DeuceState extends  State{
-    Score(): string {
-        return "Deuce";
-    }
-    ChangeState(): void {
-        this.Context.State = new AdvState();
-
-    }
-}
-
-class AdvState extends  State{
-    Score(): string {
-        return `${this.Winner()} Adv`;
-    }
-
-    ChangeState(): void {
-        if(this.IsSame()){
-            this.Context.State = new DeuceState();
-        }else{
-            this.Context.State = new WinState();
-        }
-    }
-        
 }
