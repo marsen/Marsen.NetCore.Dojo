@@ -4,7 +4,7 @@ import { SameState } from "./SameState";
 export class NormalState extends State {
     ChangeState() {
 
-        if (this.Context.ServerPoint == this.Context.ReceiverPoint) {
+        if (this.IsSame()) {
 
             if(this.Context.ServerPoint<3){
                 this.Context.State = new SameState();
@@ -17,6 +17,7 @@ export class NormalState extends State {
             this.Context.State = new WinState();
         }
     }
+
 
     Score(): string {
         return `${this.ScoreLookup.get(this.Context.ServerPoint)} ${this.ScoreLookup.get(this.Context.ReceiverPoint)}`;
@@ -39,7 +40,11 @@ class AdvState extends  State{
     }
 
     ChangeState(): void {
-        this.Context.State = new DeuceState();
+        if(this.IsSame()){
+            this.Context.State = new DeuceState();
+        }else{
+            this.Context.State = new WinState();
+        }
     }
         
 }

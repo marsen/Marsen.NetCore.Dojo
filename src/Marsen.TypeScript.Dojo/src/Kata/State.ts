@@ -18,6 +18,10 @@ export abstract class State {
         return (this.Context.ServerPoint > this.Context.ReceiverPoint) ? this.Context.ServerName : this.Context.ReceiverName;
     }
 
+    IsSame(): boolean {
+        return this.Context.ServerPoint == this.Context.ReceiverPoint;
+    }
+
     abstract Score(): string;
     abstract ChangeState(): void;
 }
