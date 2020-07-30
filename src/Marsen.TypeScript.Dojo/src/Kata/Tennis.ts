@@ -28,12 +28,7 @@ export default class Tennis {
 } 
 
 abstract class State{
-    ChangeState() {
-        this.Context.state = new SameState();
-        if (this.Context.ServerPoint != this.Context.ReceiverPoint) {
-            this.Context.state = new NormalState();
-        }
-    }
+    ChangeState() {}
     ScoreLookup: Map<number,string> = new Map([
         [0,"Love"],
         [1,"Fifteen"],
@@ -51,12 +46,26 @@ abstract class State{
 }
 
 class SameState extends State{
+    ChangeState() {
+                  this.Context.state = new SameState();
+        if (this.Context.ServerPoint != this.Context.ReceiverPoint) {
+            this.Context.state = new NormalState();
+        }
+    }
     Score(): string{        
         return `${this.ScoreLookup.get(this.Context.ServerPoint)} All`;
     }
 }
 
 class NormalState extends State {
+    
+    ChangeState() {
+                  this.Context.state = new SameState();
+        if (this.Context.ServerPoint != this.Context.ReceiverPoint) {
+            this.Context.state = new NormalState();
+        }
+
+    }
     Score(): string{
         return `${this.ScoreLookup.get(this.Context.ServerPoint)} ${this.ScoreLookup.get(this.Context.ReceiverPoint)}`;
     }    
