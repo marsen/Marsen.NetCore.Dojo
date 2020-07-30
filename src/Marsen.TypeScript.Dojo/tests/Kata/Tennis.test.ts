@@ -77,6 +77,17 @@ describe('WinState', function() {
   });
 });
 
+describe('DeuceState', function() {
+  beforeEach(()=>{
+    InitialTennisGame();
+  });
+
+  it('3-3 Should Be Deuce', ()=>{
+    GivenServerScore(3);
+    GivenReceiverScore(3);
+    ScoreShouldBe("Deuce");
+  });
+});
 function InitialTennisGame() {
   tennis = new Tennis("Jon","Neo");
 }
