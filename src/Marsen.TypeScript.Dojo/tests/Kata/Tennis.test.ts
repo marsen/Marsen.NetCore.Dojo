@@ -61,6 +61,17 @@ describe('NormalSate', function() {
   });
 });
 
+describe('WinState', function() {
+  beforeEach(()=>{
+    tennis = new Tennis();
+  });
+  
+  it('4-0 Should Be Jon Win', ()=>{
+    GivenServerScore(4);
+    ScoreShouldBe("Jon Win");    
+  });
+});
+
 function GivenServerScore(times:number) {
   for (let i = 0; i < times; i++) {
     tennis.ServerScore();
