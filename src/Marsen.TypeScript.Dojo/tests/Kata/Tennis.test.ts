@@ -78,7 +78,7 @@ describe('WinState', function() {
 });
 
 function InitialTennisGame() {
-  tennis = new Tennis();
+  tennis = new Tennis("Jon","Neo");
 }
 
 function GivenServerScore(times:number) {

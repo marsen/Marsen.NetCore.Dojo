@@ -2,10 +2,14 @@ export default class Tennis {
     state!: State;
     ReceiverPoint: number = 0;
     ServerPoint: number = 0;
+    ServerName: string;
+    ReceiverName: string;
     /**
      *
      */
-    constructor() {
+    constructor(serverName:string,receiverName:string) {
+        this.ServerName = serverName;
+        this.ReceiverName = receiverName;
         this.state = new SameState();        
         this.state.SetContext(this);
     }
@@ -75,8 +79,8 @@ class NormalState extends State {
 class WinState extends State {
     Score(): string {
         if(this.Context.ServerPoint > this.Context.ReceiverPoint)
-            return "Jon Win";
-        return "Neo Win";
+            return `${this.Context.ServerName} Win`;
+        return `${this.Context.ReceiverName} Win`;
     }
 
     ChangeState(): void {
