@@ -14,6 +14,9 @@ export abstract class State {
         this.Context = context;
     }
 
+    Winner(): string {
+        return (this.Context.ServerPoint > this.Context.ReceiverPoint) ? this.Context.ServerName : this.Context.ReceiverName;
+    }
 
     abstract Score(): string;
     abstract ChangeState(): void;

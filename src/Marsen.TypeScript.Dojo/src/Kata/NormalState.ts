@@ -31,13 +31,10 @@ class DeuceState extends  State{
 
     }
 }
+
 class AdvState extends  State{
     Score(): string {
         return `${this.Winner()} Adv`;
-    }
-
-    private Winner(): string {
-        return (this.Context.ServerPoint > this.Context.ReceiverPoint) ? this.Context.ServerName : this.Context.ReceiverName;
     }
 
     ChangeState(): void {
