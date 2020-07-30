@@ -1,11 +1,11 @@
 import Tennis from '../../src/Kata/Tennis';
 import { expect } from 'chai';
 
-let tennis = new Tennis();
+let tennis:Tennis;
 
 describe('SameSate', function() {
   beforeEach(()=>{
-    tennis = new Tennis();
+    InitialTennisGame();
   })
   it('0-0 Should Be Love All', ()=>{
     ScoreShouldBe("Love All")
@@ -27,7 +27,7 @@ describe('SameSate', function() {
 
 describe('NormalSate', function() {
   beforeEach(()=>{
-    tennis = new Tennis();
+    InitialTennisGame();
   });
 
   it('0-1 Should Be Love Fifteen', ()=>{
@@ -63,7 +63,7 @@ describe('NormalSate', function() {
 
 describe('WinState', function() {
   beforeEach(()=>{
-    tennis = new Tennis();
+    InitialTennisGame();
   });
 
   it('4-0 Should Be Jon Win', ()=>{
@@ -76,6 +76,10 @@ describe('WinState', function() {
     ScoreShouldBe("Neo Win");    
   });
 });
+
+function InitialTennisGame() {
+  tennis = new Tennis();
+}
 
 function GivenServerScore(times:number) {
   for (let i = 0; i < times; i++) {

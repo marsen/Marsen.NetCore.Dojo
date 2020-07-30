@@ -62,7 +62,7 @@ class NormalState extends State {
             this.Context.state = new SameState();
         }
 
-        if(this.Context.ServerPoint >3 || this.Context.ReceiverPoint > 3){
+        if(this.Context.ServerPoint > 3 || this.Context.ReceiverPoint > 3){
             this.Context.state = new WinState();
         }
     }
