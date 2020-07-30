@@ -62,7 +62,7 @@ class NormalState extends State {
             this.Context.state = new SameState();
         }
 
-        if(this.Context.ServerPoint >3 ){
+        if(this.Context.ServerPoint >3 || this.Context.ReceiverPoint > 3){
             this.Context.state = new WinState();
         }
     }
@@ -74,7 +74,9 @@ class NormalState extends State {
 
 class WinState extends State {
     Score(): string {
-        return "Jon Win";
+        if(this.Context.ServerPoint > this.Context.ReceiverPoint)
+            return "Jon Win";
+        return "Neo Win";
     }
 
     ChangeState(): void {

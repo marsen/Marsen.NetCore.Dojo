@@ -65,10 +65,15 @@ describe('WinState', function() {
   beforeEach(()=>{
     tennis = new Tennis();
   });
-  
+
   it('4-0 Should Be Jon Win', ()=>{
     GivenServerScore(4);
     ScoreShouldBe("Jon Win");    
+  });
+
+  it('0-4 Should Be Neo Win', ()=>{
+    GivenReceiverScore(4)
+    ScoreShouldBe("Neo Win");    
   });
 });
 
