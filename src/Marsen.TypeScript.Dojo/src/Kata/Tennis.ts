@@ -2,7 +2,7 @@ import { SameState } from "./SameState";
 import { State } from "./State";
 
 export default class Tennis {
-    state!: State;
+    State!: State;
     ReceiverPoint: number = 0;
     ServerPoint: number = 0;
     ServerName: string;
@@ -13,24 +13,24 @@ export default class Tennis {
     constructor(serverName:string,receiverName:string) {
         this.ServerName = serverName;
         this.ReceiverName = receiverName;
-        this.state = new SameState();        
-        this.state.SetContext(this);
+        this.State = new SameState();        
+        this.State.SetContext(this);
     }
     
     ServerScore() {
         this.ServerPoint++;
-        this.state.ChangeState();
-        this.state.SetContext(this);
+        this.State.ChangeState();
+        this.State.SetContext(this);
     }
 
     ReceiverScore() {
         this.ReceiverPoint++;
-        this.state.ChangeState();
-        this.state.SetContext(this);
+        this.State.ChangeState();
+        this.State.SetContext(this);
     }
 
     Score(): string{
-        return this.state.Score();
+        return this.State.Score();
     }
 } 
 
