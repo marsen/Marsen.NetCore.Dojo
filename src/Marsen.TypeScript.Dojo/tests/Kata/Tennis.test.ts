@@ -88,6 +88,19 @@ describe('DeuceState', function() {
     ScoreShouldBe("Deuce");
   });
 });
+
+describe('AdvState', function() {
+  beforeEach(()=>{
+    InitialTennisGame();
+  });
+
+  it('4-3 Should Be Adv', ()=>{
+    GivenServerScore(4);
+    GivenReceiverScore(3);
+    ScoreShouldBe("Jon Adv");
+  });
+});
+
 function InitialTennisGame() {
   tennis = new Tennis("Jon","Neo");
 }
