@@ -33,11 +33,13 @@ class DeuceState extends  State{
 }
 class AdvState extends  State{
     Score(): string {
-        if (this.Context.ServerPoint > this.Context.ReceiverPoint)
-            return `${this.Context.ServerName} Adv`;
-        return `${this.Context.ReceiverName} Adv`;
-
+        return `${this.Winner()} Adv`;
     }
+
+    private Winner(): string {
+        return (this.Context.ServerPoint > this.Context.ReceiverPoint) ? this.Context.ServerName : this.Context.ReceiverName;
+    }
+
     ChangeState(): void {
         throw new Error("Method not implemented.");
     }
