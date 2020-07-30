@@ -33,5 +33,3 @@ export default class Tennis {
         return this.State.Score();
     }
 } 
-
-

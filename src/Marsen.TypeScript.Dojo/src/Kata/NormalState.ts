@@ -5,13 +5,18 @@ import { DeuceState } from "./DeuceState";
 
 export class NormalState extends State {
     ChangeState() {
-        if (this.IsSame()) {
-            this.Context.State = this.Context.ServerPoint < 3 ? new SameState() : new DeuceState();        
-        }
+        this.Context.State = 
+            this.IsWin() ? 
+                new WinState() :
+            this.IsDeuce() ? 
+                new DeuceState() : 
+            this.IsSame() ?
+                new SameState(): 
+                new NormalState();        
+    }
 
-        if (this.IsWin()) {
-            this.Context.State = new WinState();
-        }
+    private IsDeuce() {
+        return this.IsSame() && this.Context.ServerPoint >= 3;
     }
 
     private IsWin() {
