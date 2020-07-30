@@ -7,12 +7,7 @@ export class NormalState extends State {
     ChangeState() {
 
         if (this.IsSame()) {
-
-            if(this.Context.ServerPoint<3){
-                this.Context.State = new SameState();
-            }else{
-                this.Context.State = new DeuceState();
-            }
+            this.Context.State = this.Context.ServerPoint < 3 ? new SameState() : new DeuceState();        
         }
 
         if (this.Context.ServerPoint > 3 || this.Context.ReceiverPoint > 3) {
