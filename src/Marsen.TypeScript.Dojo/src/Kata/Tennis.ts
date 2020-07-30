@@ -12,20 +12,14 @@ export default class Tennis {
     
     ServerScore() {
         this.ServerPoint++;
-        this.ChangeState();
-    }
-
-    private ChangeState() {
-        this.state = new SameState();
-        if (this.ServerPoint != this.ReceiverPoint) {
-            this.state = new NormalState();
-        }
+        this.state.ChangeState();
         this.state.SetContext(this);
     }
 
     ReceiverScore() {
         this.ReceiverPoint++;
-        this.ChangeState();
+        this.state.ChangeState();
+        this.state.SetContext(this);
     }
 
     Score(): string{
@@ -34,6 +28,12 @@ export default class Tennis {
 } 
 
 abstract class State{
+    ChangeState() {
+        this.Context.state = new SameState();
+        if (this.Context.ServerPoint != this.Context.ReceiverPoint) {
+            this.Context.state = new NormalState();
+        }
+    }
     ScoreLookup: Map<number,string> = new Map([
         [0,"Love"],
         [1,"Fifteen"],
