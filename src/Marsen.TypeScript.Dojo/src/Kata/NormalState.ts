@@ -5,7 +5,12 @@ export class NormalState extends State {
     ChangeState() {
 
         if (this.Context.ServerPoint == this.Context.ReceiverPoint) {
-            this.Context.State = new SameState();
+
+            if(this.Context.ServerPoint<3){
+                this.Context.State = new SameState();
+            }else{
+                this.Context.State = new DeuceState();
+            }
         }
 
         if (this.Context.ServerPoint > 3 || this.Context.ReceiverPoint > 3) {
@@ -15,5 +20,13 @@ export class NormalState extends State {
 
     Score(): string {
         return `${this.ScoreLookup.get(this.Context.ServerPoint)} ${this.ScoreLookup.get(this.Context.ReceiverPoint)}`;
+    }
+}
+class DeuceState extends  State{
+    Score(): string {
+        return "Deuce";
+    }
+    ChangeState(): void {
+        throw new Error("Method not implemented.");
     }
 }
