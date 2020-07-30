@@ -12,9 +12,12 @@ export default class Tennis {
     
     ServerScore() {
         this.ServerPoint++;
+        this.ChangeState();
+    }
+
+    private ChangeState() {
         this.state = new SameState();
-        if(this.ServerPoint != this.ReceiverPoint)
-        {
+        if (this.ServerPoint != this.ReceiverPoint) {
             this.state = new NormalState();
         }
         this.state.SetContext(this);
@@ -22,12 +25,7 @@ export default class Tennis {
 
     ReceiverScore() {
         this.ReceiverPoint++;
-        this.state = new SameState();
-        if(this.ServerPoint != this.ReceiverPoint)
-        {
-            this.state = new NormalState();
-        }
-        this.state.SetContext(this);
+        this.ChangeState();
     }
 
     Score(): string{
