@@ -39,7 +39,7 @@ class AdvState extends  State{
     }
 
     ChangeState(): void {
-        throw new Error("Method not implemented.");
+        this.Context.State = new DeuceState();
     }
         
 }
