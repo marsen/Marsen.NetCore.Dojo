@@ -44,12 +44,21 @@ abstract class State{
 class SameState extends State{
     
     Score(): string{        
+        const scoreLookup: Map<number,string> = new Map([
+            [0,"Love"],
+            [1,"Fifteen"],
+            [2,"Thirty"],
+            [3,"Forty"]
+        ]);
         if(this.Context.ServerPoint == 2){
+            return `${scoreLookup.get(2)} All`;
             return "Forty All";
         }
         if(this.Context.ServerPoint == 1){
+            return `${scoreLookup.get(1)} All`;
             return "Fifteen All";
         }
+        return `${scoreLookup.get(0)} All`;
         return "Love All";
     }
 }

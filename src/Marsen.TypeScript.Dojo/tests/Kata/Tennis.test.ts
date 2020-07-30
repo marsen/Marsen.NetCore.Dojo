@@ -17,10 +17,10 @@ describe('SameSate', function() {
     ScoreShouldBe("Fifteen All")
   });
 
-  it('2-2 Should Be Forty All', ()=>{
+  it('2-2 Should Be Thirty All', ()=>{
     GivenReceiverScore(2)
     GivenServerScore(2);
-    ScoreShouldBe("Forty All")
+    ScoreShouldBe("Thirty All")
   });
 
 });
