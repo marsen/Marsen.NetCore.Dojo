@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import * as TaskList from './components/TaskList';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <App />
+  <TaskList.PureTaskList />
   </React.StrictMode>,
   document.getElementById('root')
 );
