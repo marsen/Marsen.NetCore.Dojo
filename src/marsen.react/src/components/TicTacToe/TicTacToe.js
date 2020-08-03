@@ -32,6 +32,14 @@ export default class TicTacToe extends React.Component {
     }
 
     render() {
+        const winner  = calculateWinner(this.state.squares);
+        let status;
+        if(winner){
+            status = `winner ${winner}`;
+        }else{
+            status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+        }
+
       return (
         <div>
             <div className="game">
@@ -41,7 +49,7 @@ export default class TicTacToe extends React.Component {
                     squares={this.state.squares} />
             </div>
             <div className="game-info">
-                <div>{/* status */}</div>
+                <div>{status}</div>
                 <ol>{/* TODO */}</ol>
             </div>
             </div>
