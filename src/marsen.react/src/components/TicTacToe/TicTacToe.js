@@ -6,10 +6,11 @@ export default class TicTacToe extends React.Component {
         super(props);
         this.state = {
             history:[{
-                squares: Array(9).fill(null)
+                squares: Array(9).fill(null),
+                position:-1
             }],
             stepNumber:0,
-            xIsNext: true,
+            xIsNext: true,            
             isWin:false,
         };
     }
@@ -18,6 +19,7 @@ export default class TicTacToe extends React.Component {
         const history = this.state.history.slice(0,this.state.stepNumber + 1);   
         const current = history[history.length - 1]
         const winner  = calculateWinner(current.squares);
+        
         if(winner){
             alert('game is over');
             return;
@@ -34,9 +36,11 @@ export default class TicTacToe extends React.Component {
             history: history.concat([
                 {
                     squares: squares,
+                    position: '('+ parseInt(i / 3 + 1)+','+  parseInt(i % 3 + 1)+')'
                 }
             ]),
             stepNumber: history.length,
+            
             xIsNext: !this.state.xIsNext
         });
     }
@@ -54,9 +58,9 @@ export default class TicTacToe extends React.Component {
         const winner  = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
-        const desc = move ?
-            'Go to move #' + move :
-            'Go to game start';
+            const desc = move ?
+                'Go to move #' + move + step.position : 
+                'Go to game start';
             return (
                 <li key={move}>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
