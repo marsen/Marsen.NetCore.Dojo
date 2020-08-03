@@ -49,7 +49,7 @@ export default class TicTacToe extends React.Component {
                     squares={this.state.squares} />
             </div>
             <div className="game-info">
-                <div>{status}</div>
+                <div className="status" >{status}</div>
                 <ol>{/* TODO */}</ol>
             </div>
             </div>
