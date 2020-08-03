@@ -41,9 +41,7 @@ export default class Board extends React.Component {
     nextPlayer(){
         return this.state.xIsNext ? 'X' : 'O' ;
     }
-    
-    
-    
+       
     render() {
         const winner  = calculateWinner(this.state.squares);
         let status;
