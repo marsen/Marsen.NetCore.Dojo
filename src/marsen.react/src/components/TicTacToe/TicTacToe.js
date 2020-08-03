@@ -5,19 +5,22 @@ export default class TicTacToe extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            squares: Array(9).fill(null),
+            history:[{
+                squares: Array(9).fill(null)
+            }],
             xIsNext: true,
             isWin:false,
         };
     }
 
     handleClick(i) {
-        const winner  = calculateWinner(this.state.squares);
+        const current = this.state.history[this.state.history.length - 1]
+        const winner  = calculateWinner(current.squares);
         if(winner){
             alert('game is over');
             return;
         }
-        const squares = this.state.squares.slice();
+        const squares = current.squares.slice();
         if(!!squares[i])
         {
             alert('error');   
@@ -26,13 +29,16 @@ export default class TicTacToe extends React.Component {
             squares[i] = this.nextPlayer();
         }
         this.setState({
-            squares: squares,
+            history: this.state.history.concat([{
+                squares: squares,
+            }]),
             xIsNext: !this.state.xIsNext
         });
     }
 
     render() {
-        const winner  = calculateWinner(this.state.squares);
+        const current = this.state.history[this.state.history.length - 1];
+        const winner  = calculateWinner(current.squares);
         let status;
         if(winner){
             status = `Winner ${winner}`;
@@ -46,7 +52,7 @@ export default class TicTacToe extends React.Component {
             <div className="game-board">
                 <Board 
                     onClick={(i)=>this.handleClick(i)} 
-                    squares={this.state.squares} />
+                    squares={current.squares} />
             </div>
             <div className="game-info">
                 <div className="status" >{status}</div>
