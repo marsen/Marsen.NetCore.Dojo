@@ -37,8 +37,21 @@ export default class TicTacToe extends React.Component {
     }
 
     render() {
-        const current = this.state.history[this.state.history.length - 1];
+        const history = this.state.history;                    
+        const current = history[history.length - 1];
         const winner  = calculateWinner(current.squares);
+
+        const moves = history.map((step, move) => {
+        const desc = move ?
+            'Go to move #' + move :
+            'Go to game start';
+        return (
+            <li key={move}>
+                <button onClick={() => this.jumpTo(move)}>{desc}</button>
+            </li>
+        );
+        });
+
         let status;
         if(winner){
             status = `Winner ${winner}`;
@@ -46,22 +59,22 @@ export default class TicTacToe extends React.Component {
             status = `Next player: ${this.nextPlayer()}`;
         }
 
-      return (
-        <div>
-            <div className="game">
-            <div className="game-board">
-                <Board 
-                    onClick={(i)=>this.handleClick(i)} 
-                    squares={current.squares} />
+        return (
+            <div>
+                <div className="game">
+                <div className="game-board">
+                    <Board 
+                        onClick={(i)=>this.handleClick(i)} 
+                        squares={current.squares} />
+                </div>
+                <div className="game-info">
+                    <div className="status" >{status}</div>
+                    <ol>{moves}</ol>
+                </div>
+                </div>
+                <div>Mⓐⓡsen</div>
             </div>
-            <div className="game-info">
-                <div className="status" >{status}</div>
-                <ol>{/* TODO */}</ol>
-            </div>
-            </div>
-            <div>Mⓐⓡsen</div>
-        </div>
-      );
+        );
     }
 
     nextPlayer() {
