@@ -63,7 +63,7 @@ export default class TicTacToe extends React.Component {
                 'Go to game start';
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button class={(move===this.state.stepNumber)?"type-bold":""} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
         });
