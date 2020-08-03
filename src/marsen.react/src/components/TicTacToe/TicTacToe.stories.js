@@ -1,12 +1,12 @@
 import React from 'react';
-import Board from './Board';
+import TicTacToe from './TicTacToe';
 
 export default {
-  component: Board,
+  component: TicTacToe,
   title: 'Game',
   decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
   excludeStories: /.*Data$/,
 };
 
 
-export const Default = () => <Board />;
+export const Default = () => <TicTacToe />;
