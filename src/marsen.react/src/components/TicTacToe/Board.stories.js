@@ -1,5 +1,4 @@
 import React from 'react';
-import Square from './Square';
 import Board from './Board';
 
 export default {
