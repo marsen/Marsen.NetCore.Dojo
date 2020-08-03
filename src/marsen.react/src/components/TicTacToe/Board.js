@@ -13,7 +13,12 @@ export default function Board(props) {
     };
 
     for (let i = 0; i < squareSize; i++) {
-        squareList.push(<div key={i} className="board-row">{renderSquare(i*squareSize)}{renderSquare(i*squareSize+1)}{renderSquare(i*squareSize+2)}</div>)
+        
+        let list = [];
+        for (let j = 0; j < squareSize; j++) {
+            list.push(<React.Fragment key={j}>{renderSquare(i*squareSize+j)}</React.Fragment>);
+        }        
+        squareList.push(<div key={i} className="board-row">{list}</div>)
     }
     
     return (<div>{squareList}</div>);
