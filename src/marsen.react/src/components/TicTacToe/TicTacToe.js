@@ -23,7 +23,7 @@ export default class TicTacToe extends React.Component {
             alert('error');   
             return;
         }else{
-            squares[i] = this.state.xIsNext ? 'X' : 'O' ;
+            squares[i] = this.nextPlayer();
         }
         this.setState({
             squares: squares,
@@ -35,9 +35,9 @@ export default class TicTacToe extends React.Component {
         const winner  = calculateWinner(this.state.squares);
         let status;
         if(winner){
-            status = `winner ${winner}`;
+            status = `Winner ${winner}`;
         }else{
-            status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+            status = `Next player: ${this.nextPlayer()}`;
         }
 
       return (
@@ -57,8 +57,11 @@ export default class TicTacToe extends React.Component {
         </div>
       );
     }
-  }
 
+    nextPlayer() {
+        return this.state.xIsNext ? 'X' : 'O';
+    }
+  }
 
   function calculateWinner(squares) {
     const lines = [
