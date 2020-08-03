@@ -2,29 +2,21 @@ import React from 'react';
 import Square from './Square';
 
 export default function Board(props) {
-
+    const squareSize = 3
+    let squareList = [];
 
     function renderSquare(i) {
         return <Square 
-            value={props.squares[i]} 
-            onClick={() => props.onClick(i)}
+                value={props.squares[i]} 
+                onClick={() => props.onClick(i)}
             />;
     };
-       
+
+    for (let i = 0; i < squareSize; i++) {
+        squareList.push(<div key={i} className="board-row">{renderSquare(i*squareSize)}{renderSquare(i*squareSize+1)}{renderSquare(i*squareSize+2)}</div>)
+    }
     
-    return (
-        <div>                
-            <div className="board-row">
-                {renderSquare(0)}{renderSquare(1)}{renderSquare(2)}
-            </div>
-            <div className="board-row">
-                {renderSquare(3)}{renderSquare(4)}{renderSquare(5)}
-            </div>
-            <div className="board-row">
-                {renderSquare(6)}{renderSquare(7)}{renderSquare(8)}
-            </div>
-        </div>
-    );
+    return (<div>{squareList}</div>);
     
 }
 

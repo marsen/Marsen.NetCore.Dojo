@@ -8,13 +8,15 @@ export default class TicTacToe extends React.Component {
             history:[{
                 squares: Array(9).fill(null)
             }],
+            stepNumber:0,
             xIsNext: true,
             isWin:false,
         };
     }
 
     handleClick(i) {
-        const current = this.state.history[this.state.history.length - 1]
+        const history = this.state.history.slice(0,this.state.stepNumber + 1);   
+        const current = history[history.length - 1]
         const winner  = calculateWinner(current.squares);
         if(winner){
             alert('game is over');
@@ -29,27 +31,37 @@ export default class TicTacToe extends React.Component {
             squares[i] = this.nextPlayer();
         }
         this.setState({
-            history: this.state.history.concat([{
-                squares: squares,
-            }]),
+            history: history.concat([
+                {
+                    squares: squares,
+                }
+            ]),
+            stepNumber: history.length,
             xIsNext: !this.state.xIsNext
         });
     }
 
+    jumpTo(step){        
+        this.setState({
+            stepNumber: step,
+            xIsNext: (step % 2) === 0,
+        });
+    }
+
     render() {
-        const history = this.state.history;                    
-        const current = history[history.length - 1];
+        const history = this.state.history ;                 
+        const current = history[this.state.stepNumber];
         const winner  = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
         const desc = move ?
             'Go to move #' + move :
             'Go to game start';
-        return (
-            <li key={move}>
-                <button onClick={() => this.jumpTo(move)}>{desc}</button>
-            </li>
-        );
+            return (
+                <li key={move}>
+                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                </li>
+            );
         });
 
         let status;
