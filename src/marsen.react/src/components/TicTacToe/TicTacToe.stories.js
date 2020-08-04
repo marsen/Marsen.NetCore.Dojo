@@ -1,5 +1,6 @@
 import React from 'react';
 import TicTacToe from './TicTacToe';
+import Square from './Square';
 
 export default {
   component: TicTacToe,
@@ -10,3 +11,4 @@ export default {
 
 
 export const Default = () => <TicTacToe />;
+export const TheSquare =() => <Square win />;
