@@ -1031,6 +1031,10 @@ ol, ul {
   outline: none;
 }
 
+.square.win{
+  background-color: red;
+}
+
 .kbd-navigation .square:focus {
   background: #ddd;
 }
