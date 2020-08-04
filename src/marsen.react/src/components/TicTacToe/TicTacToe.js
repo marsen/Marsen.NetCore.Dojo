@@ -46,9 +46,10 @@ export default class TicTacToe extends React.Component {
     }
 
     jumpTo(step){        
+        let currentStep = this.state.historyAsc ? step : this.state.history.length - step -1;
         this.setState({
-            stepNumber: step,
-            xIsNext: (step % 2) === 0,
+            stepNumber: currentStep,
+            xIsNext: (currentStep % 2) === 0,
         });
     }
 
@@ -100,10 +101,11 @@ export default class TicTacToe extends React.Component {
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';        
-
+            let currentStep = this.state.historyAsc ? this.state.stepNumber : this.state.history.length - this.state.stepNumber -1;
+            
             return (
                 <li key={move}>
-                    <button className={(move === this.state.stepNumber) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button className={(move === currentStep) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
     }
