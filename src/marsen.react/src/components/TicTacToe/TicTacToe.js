@@ -39,15 +39,10 @@ export default class TicTacToe extends React.Component {
                     squares: squares,
                     position: '('+ parseInt(i / 3 + 1)+','+  parseInt(i % 3 + 1)+')'
                 }
-            ]),
+            ]),            
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext
         });
-        if(squares.indexOf(null)<0)
-        {
-            alert('Draw');
-            return;
-        }
     }
 
     jumpTo(step){
@@ -85,12 +80,13 @@ export default class TicTacToe extends React.Component {
         const history = this.state.history ;                 
         const current = history[this.state.stepNumber];
         const winnerLine  = winLine(current.squares);
+        
         let status;
+        status = `Next player: ${this.nextPlayer()}`;
         if (winnerLine) {
             status = `Winner ${current.squares[winnerLine[0]]}`;
-        }
-        else {
-            status = `Next player: ${this.nextPlayer()}`;
+        }else if(current.squares.indexOf(null)<0){
+            status = 'Draw';
         }
         return status;
     }
