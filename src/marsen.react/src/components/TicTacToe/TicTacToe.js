@@ -25,6 +25,7 @@ export default class TicTacToe extends React.Component {
             return;
         }
         const squares = current.squares.slice();
+
         if(!!squares[i])
         {
             alert('error');   
@@ -42,6 +43,11 @@ export default class TicTacToe extends React.Component {
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext
         });
+        if(squares.indexOf(null)<0)
+        {
+            alert('Draw');
+            return;
+        }
     }
 
     jumpTo(step){
