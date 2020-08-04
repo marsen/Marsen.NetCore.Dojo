@@ -12,16 +12,15 @@ export default class TicTacToe extends React.Component {
             stepNumber:0,
             xIsNext: true,            
             isWin:false,
-            historyAsc: true,
+            historyAsc: true,            
         };
     }
 
     handleClick(i) {
         const history = this.state.history.slice(0,this.state.stepNumber + 1);   
         const current = history[history.length - 1]
-        const winner  = calculateWinner(current.squares);
         
-        if(winner){
+        if(winLine(current.squares)){
             alert('game is over');
             return;
         }
@@ -78,10 +77,10 @@ export default class TicTacToe extends React.Component {
     status() {
         const history = this.state.history ;                 
         const current = history[this.state.stepNumber];
-        const winner  = calculateWinner(current.squares);
+        const winnerLine  = winLine(current.squares);
         let status;
-        if (winner) {
-            status = `Winner ${winner}`;
+        if (winnerLine) {
+            status = `Winner ${current.squares[winnerLine[0]]}`;
         }
         else {
             status = `Next player: ${this.nextPlayer()}`;
@@ -123,7 +122,7 @@ export default class TicTacToe extends React.Component {
     }
   }
 
-  function calculateWinner(squares) {
+  function winLine(squares) {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -136,8 +135,8 @@ export default class TicTacToe extends React.Component {
     ];
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {            
-            return squares[a];
+        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {                        
+            return [a, b, c];
         }
     }
     return null;
