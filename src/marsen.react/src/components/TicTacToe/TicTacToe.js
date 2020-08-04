@@ -90,33 +90,27 @@ export default class TicTacToe extends React.Component {
     }
     
     moves(){
-        const history = this.state.history ;                         
-              
-        const moves = (this.state.historyAsc ? [...history].reverse() : [...history])
+        const history = this.state.history ;                                       
+        const moves = (this.state.historyAsc ? [...history] : [...history].reverse())
                     .map((step,move)=>this.generateMovesList(step,move));
                     return moves;
     }
 
-    generateMovesList(step,move) {
-        
+    generateMovesList(step,move) {        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
-            'Go to game start';
-            
-            const currentStep = this.state.historyAsc ? 
-                this.state.stepNumber : 
-                this.state.history.length - this.state.stepNumber -1 ;
+            'Go to game start';        
 
             return (
                 <li key={move}>
-                    <button className={(move === currentStep) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button className={(move === this.state.stepNumber) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
     }
 
     sortMoves(){
        this.setState({
-           historyAsc: !this.state.historyAsc
+           historyAsc: !this.state.historyAsc,
        });
     }
     
