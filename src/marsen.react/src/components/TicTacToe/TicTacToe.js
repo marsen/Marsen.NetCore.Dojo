@@ -60,6 +60,7 @@ export default class TicTacToe extends React.Component {
                 <div className="game">
                 <div className="game-board">
                     <Board 
+                        winLine={winLine(current.squares)}
                         onClick={(i)=>this.handleClick(i)} 
                         squares={current.squares} />
                 </div>

@@ -7,6 +7,7 @@ export default function Board(props) {
 
     function renderSquare(i) {
         return <Square 
+                isWin={props.winLine&&props.winLine.includes(i)}
                 value={props.squares[i]} 
                 onClick={() => props.onClick(i)}
             />;
