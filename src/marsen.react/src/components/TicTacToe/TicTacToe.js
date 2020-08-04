@@ -55,17 +55,11 @@ export default class TicTacToe extends React.Component {
     render() {
         const history = this.state.history ;                 
         const current = history[this.state.stepNumber];
-        const winner  = calculateWinner(current.squares);
+        
         
         const moves = (this.state.historyAsc ? [...history].reverse() : [...history])
                     .map((step,move)=>this.generateMovesList(step,move));
-        
-        let status;
-        if(winner){
-            status = `Winner ${winner}`;
-        }else{
-            status = `Next player: ${this.nextPlayer()}`;
-        }
+                
 
         return (
             <div>
@@ -76,7 +70,7 @@ export default class TicTacToe extends React.Component {
                         squares={current.squares} />
                 </div>
                 <div className="game-info">
-                    <div className="status" >{status} </div>
+                    <div className="status" >{this.status()} </div>
                     <button onClick={()=> this.sortMoves()}>SORT</button>                    
                     <ol>{moves}</ol>
                 </div>
@@ -86,14 +80,32 @@ export default class TicTacToe extends React.Component {
         );
     }
 
+    status() {
+        const history = this.state.history ;                 
+        const current = history[this.state.stepNumber];
+        const winner  = calculateWinner(current.squares);
+        let status;
+        if (winner) {
+            status = `Winner ${winner}`;
+        }
+        else {
+            status = `Next player: ${this.nextPlayer()}`;
+        }
+        return status;
+    }
+
     generateMovesList(step,move) {
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';
-                
+            
+            const currentStep = this.state.historyAsc ? 
+                this.state.stepNumber : 
+                this.state.history.length - this.state.stepNumber -1 ;
+
             return (
                 <li key={move}>
-                    <button className={(move === this.state.stepNumber) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button className={(move === currentStep) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
     }
