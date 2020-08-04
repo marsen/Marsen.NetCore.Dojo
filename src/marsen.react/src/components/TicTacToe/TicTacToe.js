@@ -40,16 +40,15 @@ export default class TicTacToe extends React.Component {
                     position: '('+ parseInt(i / 3 + 1)+','+  parseInt(i % 3 + 1)+')'
                 }
             ]),
-            stepNumber: history.length,            
+            stepNumber: history.length,
             xIsNext: !this.state.xIsNext
         });
     }
 
-    jumpTo(step){        
-        let currentStep = this.state.historyAsc ? step : this.state.history.length - step -1;
+    jumpTo(step){
         this.setState({
-            stepNumber: currentStep,
-            xIsNext: (currentStep % 2) === 0,
+            stepNumber: this.selectedStep(step),
+            xIsNext: (this.selectedStep(step) % 2) === 0,
         });
     }
 
@@ -100,14 +99,17 @@ export default class TicTacToe extends React.Component {
     generateMovesList(step,move) {        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
-            'Go to game start';        
-            let currentStep = this.state.historyAsc ? this.state.stepNumber : this.state.history.length - this.state.stepNumber -1;
+            'Go to game start';         
             
             return (
                 <li key={move}>
-                    <button className={(move === currentStep) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button className={(move === this.selectedStep(this.state.stepNumber)) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
+    }
+
+    selectedStep(step) {
+        return this.state.historyAsc ? step : this.state.history.length - step - 1;
     }
 
     sortMoves(){
