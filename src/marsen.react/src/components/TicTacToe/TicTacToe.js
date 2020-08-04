@@ -55,12 +55,7 @@ export default class TicTacToe extends React.Component {
     render() {
         const history = this.state.history ;                 
         const current = history[this.state.stepNumber];
-        
-        
-        const moves = (this.state.historyAsc ? [...history].reverse() : [...history])
-                    .map((step,move)=>this.generateMovesList(step,move));
-                
-
+              
         return (
             <div>
                 <div className="game">
@@ -72,7 +67,7 @@ export default class TicTacToe extends React.Component {
                 <div className="game-info">
                     <div className="status" >{this.status()} </div>
                     <button onClick={()=> this.sortMoves()}>SORT</button>                    
-                    <ol>{moves}</ol>
+                    <ol>{this.moves()}</ol>
                 </div>
                 </div>
                 <div>Mⓐⓡsen</div>
@@ -93,8 +88,17 @@ export default class TicTacToe extends React.Component {
         }
         return status;
     }
+    
+    moves(){
+        const history = this.state.history ;                         
+              
+        const moves = (this.state.historyAsc ? [...history].reverse() : [...history])
+                    .map((step,move)=>this.generateMovesList(step,move));
+                    return moves;
+    }
 
     generateMovesList(step,move) {
+        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';
