@@ -6,7 +6,7 @@ using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interceptors;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 
-namespace Marsen.E2E.Tests.Classes.Joey.AOP_and_DI
+namespace Marsen.NetCore.Dojo.E2E.Tests.Classes.Joey.AOP_and_DI
 {
     public static class Startup
     {
@@ -23,11 +23,11 @@ namespace Marsen.E2E.Tests.Classes.Joey.AOP_and_DI
         {
             Console.WriteLine("AOP & DI Start");
             IoCRegisterInterceptors();
-            //IoCRegisterDecorator();
-            //NewInstance();
+            //// IoCRegisterDecorator();
+            //// NewInstance();
 
             _target.Verify("account", "password", "otpError");
-            //_target.Verify("account", "password", "otp");
+            //// _target.Verify("account", "password", "otp");
         }
 
         private static void IoCRegisterInterceptors()

@@ -1,6 +1,6 @@
-﻿using Marsen.E2E.Tests.Classes.Joey.AOP_and_DI;
+﻿using Marsen.NetCore.Dojo.E2E.Tests.Classes.Joey.AOP_and_DI;
 
-namespace Marsen.E2E.Tests
+namespace Marsen.NetCore.Dojo.E2E.Tests
 {
     public class Program
     {
