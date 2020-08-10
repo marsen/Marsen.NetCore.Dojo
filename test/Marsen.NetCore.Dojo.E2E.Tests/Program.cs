@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.E2E.Tests.Classes.Joey.AOP_and_DI;
+﻿using Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests
 {
