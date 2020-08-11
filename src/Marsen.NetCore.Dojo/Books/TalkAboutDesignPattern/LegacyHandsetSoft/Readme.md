@@ -6,4 +6,4 @@
 4. Create HandsetMotorola , Client 組合執行發現相異點 
 5. HandsetGame 修改 HandsetSoft Run 方法簽章
 6. 抽取 Brand 作為可變動的參數
- 
+7. HandsetAddressGame 相同處理

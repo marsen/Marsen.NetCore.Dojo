@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft
     {
         public override void Run(string brand)
         {
-            Console.WriteLine("Run Nokia Address Book"); 
+            Console.WriteLine($"Run {brand} Address Book"); 
         }
     }
 }

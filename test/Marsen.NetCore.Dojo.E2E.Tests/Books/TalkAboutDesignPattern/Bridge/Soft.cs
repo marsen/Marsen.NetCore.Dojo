@@ -22,6 +22,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             addressBook.Run();
             var mGame = new HandsetMotorola(new HandsetGame());
             mGame.Run();
+            var mAddressBook = new HandsetMotorola(new HandsetAddressBook());
+            mAddressBook.Run();
         }
 
         public class HandsetNokia
@@ -41,10 +43,10 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 
         public class HandsetMotorola
         {
-            private readonly HandsetGame _soft;
+            private readonly HandsetSoft _soft;
             private string brand = "Motorola";
 
-            public HandsetMotorola(HandsetGame soft)
+            public HandsetMotorola(HandsetSoft soft)
             {
                 _soft = soft;
             }
