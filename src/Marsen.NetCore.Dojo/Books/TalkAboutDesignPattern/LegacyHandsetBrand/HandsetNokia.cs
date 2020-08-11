@@ -7,40 +7,45 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
     {
         public override void Run()
         {
-            // var app = new HandsetGame("Nokia");
-            var app = new HandsetAddressBook("Nokia");
+            var app = new HandsetGame("Nokia");
+            // var app = new HandsetAddressBook("Nokia");
             app.Run();
         }
     }
 
-    public class HandsetAddressBook
+    public abstract class HandsetApp
     {
-        private readonly string _band;
+        protected string _band;
 
-        public HandsetAddressBook(string band)
+        protected HandsetApp(string band)
         {
             _band = band;
         }
-        public void Run()
+        public abstract void Run();
+    }
+
+    public class HandsetAddressBook : HandsetApp
+    {
+        public override void Run()
         {
             Console.WriteLine($"Run {_band} AddressBook");
+        }
+
+        public HandsetAddressBook(string band) : base(band)
+        {
         }
     }
 
 
-    public class HandsetGame
+    public class HandsetGame : HandsetApp
     {
-        private readonly string _band;
-
-        public HandsetGame(string band)
-        {
-            _band = band;
-        }
-
-        public void Run()
+        public override void Run()
         {
             Console.WriteLine($"Run {_band} Game");
         }
 
+        public HandsetGame(string band) : base(band)
+        {
+        }
     }
 }
