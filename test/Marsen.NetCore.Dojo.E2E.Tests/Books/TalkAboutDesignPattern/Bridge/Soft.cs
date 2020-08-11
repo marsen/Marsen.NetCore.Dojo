@@ -20,21 +20,39 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             game.Run();
             var addressBook = new HandsetNokia(new HandsetAddressBook());
             addressBook.Run();
-        }
-    }
-
-    public class HandsetNokia
-    {
-        private readonly HandsetSoft _soft;
-
-        public HandsetNokia(HandsetSoft soft)
-        {
-            _soft = soft;
+            var mGame = new HandsetMotorola(new HandsetGame());
+            mGame.Run();
         }
 
-        public void Run()
+        public class HandsetNokia
         {
-            this._soft.Run();
+            private readonly HandsetSoft _soft;
+
+            public HandsetNokia(HandsetSoft soft)
+            {
+                _soft = soft;
+            }
+
+            public void Run()
+            {
+                this._soft.Run();
+            }
+        }
+
+
+        public class HandsetMotorola
+        {
+            private readonly HandsetGame _soft;
+
+            public HandsetMotorola(HandsetGame soft)
+            {
+                _soft = soft;
+            }
+
+            public void Run()
+            {
+                this._soft.Run();
+            }
         }
     }
 }
