@@ -15,6 +15,11 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             motorolaGame.Run();
             var motorolaAddressBook = new HandsetMotorolaAddressBook();
             motorolaAddressBook.Run();
+            Console.WriteLine("----");
+            var game = new HandsetGame();
+            game.Run();
+            var addressBook = new HandsetAddressBook();
+            addressBook.Run();
         }
     }
 }
