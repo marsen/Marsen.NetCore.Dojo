@@ -7,3 +7,5 @@
 5. HandsetGame 修改 HandsetSoft Run 方法簽章
 6. 抽取 Brand 作為可變動的參數
 7. HandsetAddressGame 相同處理
+8. 抽取介面
+9. 讓 Brand 在建構子中賦值

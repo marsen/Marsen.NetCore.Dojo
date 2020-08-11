@@ -29,31 +29,38 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
         public class HandsetNokia
         {
             private readonly HandsetSoft _soft;
-            private string brand = "Nokia";
+            private readonly string _brand;
             public HandsetNokia(HandsetSoft soft)
             {
                 _soft = soft;
+                _brand = "Nokia";
             }
 
             public void Run()
             {
-                this._soft.Run(brand);
+                this._soft.Run(_brand);
             }
         }
 
-        public class HandsetMotorola
+        public abstract class IHandsetMotorola
+        {
+            public abstract void Run();
+        }
+
+        public class HandsetMotorola : IHandsetMotorola
         {
             private readonly HandsetSoft _soft;
-            private string brand = "Motorola";
+            private readonly string _brand;
 
             public HandsetMotorola(HandsetSoft soft)
             {
                 _soft = soft;
+                _brand = "Motorola";
             }
 
-            public void Run()
+            public override void Run()
             {
-                this._soft.Run(brand);
+                this._soft.Run(_brand);
             }
         }
     }
