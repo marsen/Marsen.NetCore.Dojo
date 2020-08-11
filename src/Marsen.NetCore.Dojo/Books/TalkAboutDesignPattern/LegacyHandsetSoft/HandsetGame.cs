@@ -4,9 +4,9 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft
 {
     public class HandsetGame : HandsetSoft
     {
-        public override void Run()
+        public override void Run(string brand)
         {
-            Console.WriteLine("Run Nokia Game"); 
+            Console.WriteLine($"Run {brand} Game"); 
         }
     }
 }

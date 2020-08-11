@@ -27,7 +27,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
         public class HandsetNokia
         {
             private readonly HandsetSoft _soft;
-
+            private string brand = "Nokia";
             public HandsetNokia(HandsetSoft soft)
             {
                 _soft = soft;
@@ -35,14 +35,14 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 
             public void Run()
             {
-                this._soft.Run();
+                this._soft.Run(brand);
             }
         }
-
 
         public class HandsetMotorola
         {
             private readonly HandsetGame _soft;
+            private string brand = "Motorola";
 
             public HandsetMotorola(HandsetGame soft)
             {
@@ -51,7 +51,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 
             public void Run()
             {
-                this._soft.Run();
+                this._soft.Run(brand);
             }
         }
     }
