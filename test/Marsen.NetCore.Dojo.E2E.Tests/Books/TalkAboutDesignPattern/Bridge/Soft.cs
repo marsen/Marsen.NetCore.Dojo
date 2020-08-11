@@ -42,12 +42,12 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             }
         }
 
-        public abstract class IHandsetMotorola
+        public abstract class HandsetBrand
         {
             public abstract void Run();
         }
 
-        public class HandsetMotorola : IHandsetMotorola
+        public class HandsetMotorola : HandsetBrand
         {
             private readonly HandsetSoft _soft;
             private readonly string _brand;
