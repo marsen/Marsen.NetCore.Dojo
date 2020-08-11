@@ -18,9 +18,9 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             var handsetMotorolaGame = new HandsetMotorolaGame();
             handsetMotorolaGame.Run();
             Console.WriteLine("-----");
-            var address = new HandsetNokia(new AddressBook());
+            var address = new Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand.HandsetNokia(new AddressBook());
             address.Run();
-            var game = new HandsetNokia(new Game());
+            var game = new Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand.HandsetNokia(new Game());
             game.Run();
             var mAddressBook = new HandsetMotorola(new AddressBook());
             mAddressBook.Run();
