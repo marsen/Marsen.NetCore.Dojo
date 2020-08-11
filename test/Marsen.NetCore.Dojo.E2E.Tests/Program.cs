@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.E2E.Tests.Classes.Joey.AOP_and_DI;
+﻿using Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests
 {
@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
     {
         private static void Main(string[] args)
         {
-            Startup.Start();
+            Soft.Start();
         }
     }
 }
