@@ -26,17 +26,15 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             mAddressBook.Run();
         }
 
-        public class HandsetNokia
+        public class HandsetNokia : HandsetBrand
         {
-            private readonly HandsetSoft _soft;
-            private readonly string _brand;
             public HandsetNokia(HandsetSoft soft)
             {
                 _soft = soft;
                 _brand = "Nokia";
             }
 
-            public void Run()
+            public override void Run()
             {
                 this._soft.Run(_brand);
             }
@@ -44,14 +42,13 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 
         public abstract class HandsetBrand
         {
+            protected HandsetSoft _soft;
+            protected string _brand;
             public abstract void Run();
         }
 
         public class HandsetMotorola : HandsetBrand
         {
-            private readonly HandsetSoft _soft;
-            private readonly string _brand;
-
             public HandsetMotorola(HandsetSoft soft)
             {
                 _soft = soft;
