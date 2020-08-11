@@ -22,6 +22,10 @@
         Console.WriteLine($"Run {_band} Game");
    }
 ```
+
+實作 HandsetGame 與 HandsetAddressBook 後，
+可以發現重複的地方。這個味道可以指引我們抽出抽像類別。
+
 ---
 
 手機軟件(HandsetSoftware)

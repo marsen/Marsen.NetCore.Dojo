@@ -7,8 +7,23 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
     {
         public override void Run()
         {
-            var game = new HandsetGame("Nokia");
-            game.Run();
+            // var app = new HandsetGame("Nokia");
+            var app = new HandsetAddressBook("Nokia");
+            app.Run();
+        }
+    }
+
+    public class HandsetAddressBook
+    {
+        private readonly string _band;
+
+        public HandsetAddressBook(string band)
+        {
+            _band = band;
+        }
+        public void Run()
+        {
+            Console.WriteLine($"Run {_band} AddressBook");
         }
     }
 
