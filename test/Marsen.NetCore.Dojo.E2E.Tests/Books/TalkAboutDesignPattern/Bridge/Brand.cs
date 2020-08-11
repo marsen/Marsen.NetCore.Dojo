@@ -3,9 +3,9 @@ using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Soft;
 
-namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern
+namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 {
-    public static class Startup
+    public static class Brand
     {
         public static void Start()
         {
