@@ -2,9 +2,9 @@
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
 {
-    public class HandsetNokiaAddressBook : HandsetNokia
+    public class HandsetNokiaAddressBook
     {
-        public override void Run()
+        public void Run()
         {
             Console.WriteLine("Run Nokia Address Book");
         }

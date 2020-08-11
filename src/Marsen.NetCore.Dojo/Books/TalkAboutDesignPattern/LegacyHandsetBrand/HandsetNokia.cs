@@ -5,11 +5,15 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
 {
     public class HandsetNokia : HandsetBrand
     {
+        private readonly HandsetApp _app;
+
+        public HandsetNokia(HandsetApp app)
+        {
+            _app = app;
+        }
         public override void Run()
         {
-            var app = new HandsetGame("Nokia");
-            // var app = new HandsetAddressBook("Nokia");
-            app.Run();
+            _app.Run();
         }
     }
 
