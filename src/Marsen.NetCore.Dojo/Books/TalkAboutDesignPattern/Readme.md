@@ -25,6 +25,8 @@
 
 實作 HandsetGame 與 HandsetAddressBook 後，
 可以發現重複的地方。這個味道可以指引我們抽出抽像類別。
+當我們開始使用 abstract class 組合 production code 時可以發現一個壞味道，
+_band 應該屬於 abstract 而不需透過 production 傳入才對。
 
 ---
 

@@ -6,8 +6,12 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
     {
         public override void Run()
         {
-            var handsetGame = new HandsetGame("Motorola");
-            handsetGame.Run();
+            App.Run(Band);
+        }
+
+        public HandsetMotorola(HandsetApp app) : base(app)
+        {
+            Band ="Motorola";
         }
     }
 }

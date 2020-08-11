@@ -3,9 +3,9 @@ using System.Text;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
 {
-    public class HandsetMotorolaGame : HandsetMotorola
+    public class HandsetMotorolaGame
     {
-        public override void Run()
+        public void Run()
         {
             Console.WriteLine("Run Motorola Game");
         }
