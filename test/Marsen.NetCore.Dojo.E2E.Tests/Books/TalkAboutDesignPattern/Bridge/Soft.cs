@@ -1,5 +1,6 @@
 using System;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft.Refactored;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 {
@@ -26,39 +27,5 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             mAddressBook.Run();
         }
 
-        public class HandsetNokia : HandsetBrand
-        {
-            public HandsetNokia(HandsetSoft soft)
-            {
-                _soft = soft;
-                _brand = "Nokia";
-            }
-
-            public override void Run()
-            {
-                this._soft.Run(_brand);
-            }
-        }
-
-        public abstract class HandsetBrand
-        {
-            protected HandsetSoft _soft;
-            protected string _brand;
-            public abstract void Run();
-        }
-
-        public class HandsetMotorola : HandsetBrand
-        {
-            public HandsetMotorola(HandsetSoft soft)
-            {
-                _soft = soft;
-                _brand = "Motorola";
-            }
-
-            public override void Run()
-            {
-                this._soft.Run(_brand);
-            }
-        }
     }
 }
