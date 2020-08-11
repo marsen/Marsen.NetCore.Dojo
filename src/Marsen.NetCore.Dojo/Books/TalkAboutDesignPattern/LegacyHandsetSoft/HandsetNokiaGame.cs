@@ -2,9 +2,9 @@ using System;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft
 {
-    public class HandsetNokiaGame : HandsetGame
+    public class HandsetNokiaGame
     {
-        public override void Run()
+        public void Run()
         {
             Console.WriteLine("Run Nokia Game"); 
         }

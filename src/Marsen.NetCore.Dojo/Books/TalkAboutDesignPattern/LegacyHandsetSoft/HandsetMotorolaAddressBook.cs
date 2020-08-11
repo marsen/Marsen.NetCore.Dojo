@@ -2,9 +2,9 @@ using System;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft
 {
-    public class HandsetMotorolaAddressBook : HandsetAddressBook
+    public class HandsetMotorolaAddressBook 
     {
-        public override void Run()
+        public void Run()
         {
             Console.WriteLine("Run Motorola Address Book"); 
         }
