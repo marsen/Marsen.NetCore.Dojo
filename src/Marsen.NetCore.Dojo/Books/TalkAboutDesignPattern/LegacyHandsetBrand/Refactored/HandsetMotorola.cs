@@ -1,13 +1,13 @@
 ﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored
 {
-    public class HandsetMotorola:HandsetBrand
+    public sealed class HandsetMotorola:HandsetBrand
     {
-        public override void Run()
+        public void Run()
         {
             App.Run(Band);
         }
 
-        public HandsetMotorola(HandsetApp app) : base(app)
+        public HandsetMotorola(Application app) : base(app)
         {
             Band ="Motorola";
         }

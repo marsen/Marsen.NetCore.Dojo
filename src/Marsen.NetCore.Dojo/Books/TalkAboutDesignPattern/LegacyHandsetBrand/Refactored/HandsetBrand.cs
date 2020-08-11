@@ -2,17 +2,12 @@
 {
     public class HandsetBrand
     {
-        protected readonly HandsetApp App;
-        protected string Band = "Nokia";
+        protected readonly Application App;
+        protected string Band;
 
-        protected HandsetBrand(HandsetApp app)
+        protected HandsetBrand(Application app)
         {
             App = app;
-        }
-
-        public virtual void Run()
-        {
-            
         }
     }
 }
