@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             Console.WriteLine("----");
             var game = new HandsetNokia(new HandsetGame());
             game.Run();
-            var addressBook = new HandsetAddressBook();
+            var addressBook = new HandsetNokia(new HandsetAddressBook());
             addressBook.Run();
         }
     }
