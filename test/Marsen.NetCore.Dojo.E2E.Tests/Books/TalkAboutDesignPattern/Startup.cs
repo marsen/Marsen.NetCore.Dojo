@@ -1,5 +1,6 @@
 ﻿using System;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern
 {

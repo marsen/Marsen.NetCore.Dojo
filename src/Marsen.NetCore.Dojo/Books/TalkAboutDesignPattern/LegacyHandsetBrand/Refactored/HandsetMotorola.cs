@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored
 {
     public class HandsetMotorola:HandsetBrand
     {
