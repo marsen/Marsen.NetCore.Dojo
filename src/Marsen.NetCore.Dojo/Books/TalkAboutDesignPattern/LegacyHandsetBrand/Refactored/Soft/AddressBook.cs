@@ -1,8 +1,8 @@
 using System;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Soft
 {
-    public class HandsetAddressBook : Application
+    public class AddressBook : Application
     {
         public override void Run(string band)
         {

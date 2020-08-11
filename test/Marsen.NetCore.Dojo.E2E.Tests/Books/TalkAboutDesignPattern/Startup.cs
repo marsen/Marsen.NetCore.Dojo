@@ -1,6 +1,7 @@
 ﻿using System;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Soft;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern
 {
@@ -17,13 +18,13 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern
             var handsetMotorolaGame = new HandsetMotorolaGame();
             handsetMotorolaGame.Run();
             Console.WriteLine("-----");
-            var address = new HandsetNokia(new HandsetAddressBook());
+            var address = new HandsetNokia(new AddressBook());
             address.Run();
-            var game = new HandsetNokia(new HandsetGame());
+            var game = new HandsetNokia(new Game());
             game.Run();
-            var mAddressBook = new HandsetMotorola(new HandsetAddressBook());
+            var mAddressBook = new HandsetMotorola(new AddressBook());
             mAddressBook.Run();
-            var mGame = new HandsetMotorola(new HandsetGame());
+            var mGame = new HandsetMotorola(new Game());
             mGame.Run();
         }
     }
