@@ -4,12 +4,16 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Re
 {
     public class HandsetBrand
     {
-        protected readonly Application App;
-        protected string Band;
+        private readonly Application _app;
+        protected string Brand;
 
         protected HandsetBrand(Application app)
         {
-            App = app;
+            _app = app;
+        }
+        public void Run()
+        {
+            this._app.Run(Brand);
         }
     }
 }

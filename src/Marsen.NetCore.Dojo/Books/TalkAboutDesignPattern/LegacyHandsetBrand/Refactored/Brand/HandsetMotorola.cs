@@ -4,14 +4,9 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Re
 {
     public sealed class HandsetMotorola:HandsetBrand
     {
-        public void Run()
-        {
-            App.Run(Band);
-        }
-
         public HandsetMotorola(Application app) : base(app)
         {
-            Band ="Motorola";
+            Brand ="Motorola";
         }
     }
 }

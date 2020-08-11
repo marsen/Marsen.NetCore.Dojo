@@ -6,11 +6,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Re
     {
         public HandsetNokia(Application app):base(app)
         {
-            Band = "Nokia";
-        }
-        public void Run()
-        {
-            this.App.Run(Band);
+            Brand = "Nokia";
         }
     }
 }
