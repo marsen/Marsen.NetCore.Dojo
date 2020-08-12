@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Text;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand
 {
     public class HandsetMotorolaGame
     {

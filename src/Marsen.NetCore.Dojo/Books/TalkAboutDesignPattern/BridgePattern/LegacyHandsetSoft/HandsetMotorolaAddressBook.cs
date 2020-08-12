@@ -1,6 +1,6 @@
 using System;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft
 {
     public class HandsetMotorolaAddressBook 
     {

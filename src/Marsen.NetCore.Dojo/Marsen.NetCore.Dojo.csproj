@@ -22,4 +22,8 @@
     <ProjectReference Include="..\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Books\TalkAboutDesignPattern\BridgePattern" />
+  </ItemGroup>
+
 </Project>

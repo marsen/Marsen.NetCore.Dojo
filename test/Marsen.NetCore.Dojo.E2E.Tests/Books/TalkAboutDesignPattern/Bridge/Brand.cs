@@ -1,7 +1,7 @@
 ﻿using System;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Soft;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Soft;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 {
@@ -18,9 +18,9 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             var handsetMotorolaGame = new HandsetMotorolaGame();
             handsetMotorolaGame.Run();
             Console.WriteLine("-----");
-            var address = new Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand.HandsetNokia(new AddressBook());
+            var address = new HandsetNokia(new AddressBook());
             address.Run();
-            var game = new Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand.Refactored.Brand.HandsetNokia(new Game());
+            var game = new HandsetNokia(new Game());
             game.Run();
             var mAddressBook = new HandsetMotorola(new AddressBook());
             mAddressBook.Run();

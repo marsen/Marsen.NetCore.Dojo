@@ -1,6 +1,6 @@
 using System;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetSoft.Refactored;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
 {
