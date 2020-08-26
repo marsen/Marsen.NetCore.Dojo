@@ -6,7 +6,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
     {
         private static void Main(string[] args)
         {
-            Soft.Start();
+            Brand.Start();
+            // Soft.Start();
         }
     }
 }
