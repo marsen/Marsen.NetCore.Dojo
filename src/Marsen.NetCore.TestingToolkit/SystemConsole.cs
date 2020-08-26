@@ -2,9 +2,9 @@
 
 namespace Marsen.NetCore.TestingToolkit
 {
-    public static class SystemConsole
+    public class SystemConsole
     {
-        public static void WriteLine(string message)
+        public void WriteLine(string message)
         {
             Console.WriteLine(message);
         }
