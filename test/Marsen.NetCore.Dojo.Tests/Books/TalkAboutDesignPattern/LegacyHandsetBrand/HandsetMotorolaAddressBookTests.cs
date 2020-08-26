@@ -14,13 +14,21 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
             ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Address Book");
         }
 
+        [Fact]
+        public void HandsetMotorolaGame_Run()
+        {
+            var target = new HandsetMotorolaGame();
+            target.Run();
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Address Book");
+        }
+
 
         [Fact]
         public void HandsetNokiaAddressBook_Run()
         {
             var target = new HandsetNokiaAddressBook();
             target.Run();
-            ConsoleWriteLineShouldBeCall(target.Console,"Run Nokia Address Book");
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Nokia Address Book");
         }
 
         [Fact]
@@ -28,7 +36,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
         {
             var target = new HandsetNokiaGame();
             target.Run();
-            ConsoleWriteLineShouldBeCall(target.Console,"Run Nokia Game");
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Nokia Game");
         }
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
