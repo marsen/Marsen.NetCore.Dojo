@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
         {
             var target = new HandsetMotorolaGame();
             target.Run();
-            ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Address Book");
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Game");
         }
 
 
