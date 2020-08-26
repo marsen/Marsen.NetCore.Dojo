@@ -22,5 +22,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
             Assert.Equal("Run Nokia Address Book", target.Console.Message);
             Assert.Equal(1, target.Console.WriteLineTimes);
         }
+
+        [Fact]
+        public void HandsetNokiaGame_Run()
+        {
+            var target = new HandsetNokiaGame();
+            target.Run();
+            Assert.Equal("Run Nokia Game", target.Console.Message);
+            Assert.Equal(1, target.Console.WriteLineTimes);
+        }
     }
 }
