@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Marsen.NetCore.TestingToolkit;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand
 {
@@ -9,14 +9,6 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
         {
             SystemConsole.WriteLine("Run Motorola Address Book");
             // Console.WriteLine("Run Motorola Address Book");
-        }
-    }
-
-    public static class SystemConsole
-    {
-        public static void WriteLine(string message)
-        {
-            Console.WriteLine(message);
         }
     }
 }
