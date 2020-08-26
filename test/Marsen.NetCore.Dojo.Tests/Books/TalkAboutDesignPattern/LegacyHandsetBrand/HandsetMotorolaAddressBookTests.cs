@@ -11,23 +11,16 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
         {
             var target = new HandsetMotorolaAddressBook();
             target.Run();
-            var console = target.Console;
-            ConsoleWriteLineShouldBeCall(console, "Run Motorola Address Book");
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Address Book");
         }
 
-        private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
-        {
-            Assert.Equal(message, console.Message);
-            Assert.Equal(1, console.WriteLineTimes);
-        }
 
         [Fact]
         public void HandsetNokiaAddressBook_Run()
         {
             var target = new HandsetNokiaAddressBook();
             target.Run();
-            Assert.Equal("Run Nokia Address Book", target.Console.Message);
-            Assert.Equal(1, target.Console.WriteLineTimes);
+            ConsoleWriteLineShouldBeCall(target.Console,"Run Nokia Address Book");
         }
 
         [Fact]
@@ -35,8 +28,13 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
         {
             var target = new HandsetNokiaGame();
             target.Run();
-            Assert.Equal("Run Nokia Game", target.Console.Message);
-            Assert.Equal(1, target.Console.WriteLineTimes);
+            ConsoleWriteLineShouldBeCall(target.Console,"Run Nokia Game");
+        }
+
+        private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
+        {
+            Assert.Equal(message, console.Message);
+            Assert.Equal(1, console.WriteLineTimes);
         }
     }
 }
