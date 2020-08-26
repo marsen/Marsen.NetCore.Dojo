@@ -1,4 +1,5 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand;
+using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBrand
@@ -10,8 +11,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
         {
             var target = new HandsetMotorolaAddressBook();
             target.Run();
-            Assert.Equal("Run Motorola Address Book", target.Console.Message);
-            Assert.Equal(1, target.Console.WriteLineTimes);
+            var console = target.Console;
+            ConsoleWriteLineShouldBeCall(console, "Run Motorola Address Book");
+        }
+
+        private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
+        {
+            Assert.Equal(message, console.Message);
+            Assert.Equal(1, console.WriteLineTimes);
         }
 
         [Fact]
