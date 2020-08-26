@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
         [Fact]
         public void HandsetMotorolaAddressBook_Run()
         {
-            HandsetMotorolaAddressBook target = new HandsetMotorolaAddressBook();
+            var target = new HandsetMotorolaAddressBook();
             target.Run();
             Assert.Equal("Run Motorola Address Book", target.Console.Message);
             Assert.Equal(1, target.Console.WriteLineTimes);
