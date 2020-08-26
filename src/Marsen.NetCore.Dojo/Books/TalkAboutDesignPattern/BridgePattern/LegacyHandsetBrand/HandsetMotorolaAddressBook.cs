@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using Marsen.NetCore.TestingToolkit;
+﻿using Marsen.NetCore.TestingToolkit;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand
 {
     public class HandsetMotorolaAddressBook
     {
+        internal readonly SystemConsole Console = new SystemConsole();
+
         public void Run()
         {
-            var console = new SystemConsole();
-            console.WriteLine("Run Motorola Address Book");
+            Console.WriteLine("Run Motorola Address Book");
         }
     }
 }
