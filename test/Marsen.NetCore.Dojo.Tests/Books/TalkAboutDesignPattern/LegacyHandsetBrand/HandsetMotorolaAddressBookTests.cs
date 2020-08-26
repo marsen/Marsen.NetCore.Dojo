@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
     public class LegacyHandsetBrandTests
     {
         [Fact]
-        public void Run()
+        public void HandsetMotorolaAddressBook_Run()
         {
             HandsetMotorolaAddressBook target = new HandsetMotorolaAddressBook();
             target.Run();
