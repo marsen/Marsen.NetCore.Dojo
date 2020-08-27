@@ -22,6 +22,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Game");
         }
 
+        [Fact]
+        public void HandsetNokiaGame_Run()
+        {
+            var target = new HandsetNokiaGame();
+            target.Run();
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Nokia Game");
+        }
+
+
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
             Assert.Equal(message, console.Message);
