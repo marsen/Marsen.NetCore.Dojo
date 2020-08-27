@@ -1,8 +1,8 @@
 using Marsen.NetCore.TestingToolkit;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored
 {
-    public class HandsetSoft
+    public abstract class HandsetSoft
     {
         public readonly SystemConsole Console = new SystemConsole();
 
