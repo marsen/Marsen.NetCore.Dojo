@@ -55,6 +55,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Game");
         }
 
+        [Fact]
+        public void HandsetMotorola_Run_Game()
+        {
+            var game = new HandsetGame();
+            var target = new HandsetMotorola(game);
+            target.Run();
+            ConsoleWriteLineShouldBeCall(game.Console, "Run Motorola Game");
+        }
+
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
