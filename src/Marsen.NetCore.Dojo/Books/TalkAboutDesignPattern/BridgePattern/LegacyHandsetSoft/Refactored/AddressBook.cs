@@ -1,6 +1,6 @@
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored
 {
-    public class HandsetAddressBook : HandsetSoft
+    public class AddressBook : Application
     {
         public override void Run(string brand)
         {

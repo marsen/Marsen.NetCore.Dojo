@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         [Fact]
         public void HandsetAddressBook_Run()
         {
-            var target = new HandsetAddressBook();
+            var target = new AddressBook();
             target.Run("Mark");
             ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Address Book");
         }
@@ -67,7 +67,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         [Fact]
         public void HandsetMotorola_Run_AddressBook()
         {
-            var app = new HandsetAddressBook();
+            var app = new AddressBook();
             var target = new HandsetMotorola(app);
             target.Run();
             ConsoleWriteLineShouldBeCall(app.Console, "Run Motorola Address Book");

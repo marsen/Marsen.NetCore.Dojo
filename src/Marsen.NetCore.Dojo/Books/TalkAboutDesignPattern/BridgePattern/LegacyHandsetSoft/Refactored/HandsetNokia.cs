@@ -2,7 +2,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
 {
     public class HandsetNokia : HandsetBrand
     {
-        public HandsetNokia(HandsetSoft soft)
+        public HandsetNokia(Application soft)
         {
             Soft = soft;
             Brand = "Nokia";
