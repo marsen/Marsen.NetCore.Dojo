@@ -17,13 +17,13 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Bridge
             var motorolaAddressBook = new HandsetMotorolaAddressBook();
             motorolaAddressBook.Run();
             Console.WriteLine("----");
-            var game = new HandsetNokia(new HandsetGame());
+            var game = new HandsetNokia(new Game());
             game.Run();
-            var addressBook = new HandsetNokia(new HandsetAddressBook());
+            var addressBook = new HandsetNokia(new AddressBook());
             addressBook.Run();
-            var mGame = new HandsetMotorola(new HandsetGame());
+            var mGame = new HandsetMotorola(new Game());
             mGame.Run();
-            var mAddressBook = new HandsetMotorola(new HandsetAddressBook());
+            var mAddressBook = new HandsetMotorola(new AddressBook());
             mAddressBook.Run();
         }
 
