@@ -48,6 +48,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
             ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Address Book");
         }
 
+        [Fact]
+        public void Game_Run()
+        {
+            var target = new Game();
+            target.Run("Mark");
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Game");
+        }
+
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
