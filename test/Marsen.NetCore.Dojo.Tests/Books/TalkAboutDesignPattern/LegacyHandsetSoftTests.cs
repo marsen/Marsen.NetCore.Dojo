@@ -65,12 +65,31 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         }
 
         [Fact]
+        public void HandsetNokia_Run_Game()
+        {
+            var app = new Game();
+            var target = new HandsetMotorola(app);
+            target.Run();
+            ConsoleWriteLineShouldBeCall(app.Console, "Run Nokia Game");
+        }
+
+
+        [Fact]
         public void HandsetMotorola_Run_AddressBook()
         {
             var app = new AddressBook();
             var target = new HandsetMotorola(app);
             target.Run();
             ConsoleWriteLineShouldBeCall(app.Console, "Run Motorola Address Book");
+        }
+
+        [Fact]
+        public void HandsetNokia_Run_AddressBook()
+        {
+            var app = new AddressBook();
+            var target = new HandsetNokia(app);
+            target.Run();
+            ConsoleWriteLineShouldBeCall(app.Console, "Run Nokia Address Book");
         }
 
 
