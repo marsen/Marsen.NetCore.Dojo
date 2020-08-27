@@ -88,6 +88,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
             CallTime++;
         }
 
-        public int CallTime { get; set; }
+        public int CallTime { get; private set; }
     }
 }
