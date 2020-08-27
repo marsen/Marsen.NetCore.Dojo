@@ -63,7 +63,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             var mockApp = new MockApplication();
             var target = new MockBrand(mockApp);
             target.Run();
-            Assert.Equal(1,mockApp.CallTime);
+            Assert.Equal(1, mockApp.CallTime);
         }
 
 
@@ -72,22 +72,22 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             Assert.Equal(message, console.Message);
             Assert.Equal(1, console.WriteLineTimes);
         }
-    }
 
-    internal class MockBrand:HandsetBrand
-    {
-        public MockBrand(Application app) : base(app)
+        private class MockBrand : HandsetBrand
         {
-        }
-    }
-
-    internal class MockApplication : Application
-    {
-        public override void Run(string band)
-        {
-            CallTime++;
+            public MockBrand(Application app) : base(app)
+            {
+            }
         }
 
-        public int CallTime { get; private set; }
+        private class MockApplication : Application
+        {
+            public override void Run(string band)
+            {
+                CallTime++;
+            }
+
+            public int CallTime { get; private set; }
+        }
     }
 }
