@@ -22,7 +22,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Game");
         }
 
-
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
             Assert.Equal(message, console.Message);
