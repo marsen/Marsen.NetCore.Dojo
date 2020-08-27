@@ -46,6 +46,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Address Book");
         }
 
+        [Fact]
+        public void HandsetMotorolaGame_Run()
+        {
+            var target = new HandsetMotorolaGame();
+            target.Run();
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Game");
+        }
+
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
