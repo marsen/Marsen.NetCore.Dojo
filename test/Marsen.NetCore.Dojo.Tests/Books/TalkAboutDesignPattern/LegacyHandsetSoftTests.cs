@@ -1,7 +1,14 @@
-﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft;
+﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored;
 using Marsen.NetCore.TestingToolkit;
 using Xunit;
+using HandsetBrand =
+    Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored.HandsetBrand;
+using HandsetMotorola =
+    Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored.HandsetMotorola;
+using HandsetNokia =
+    Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored.HandsetNokia;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
 {
@@ -55,6 +62,16 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Game");
         }
 
+        [Fact]
+        public void HandsetBrand_Run()
+        {
+            var mockApp = new MockApplication();
+            var target = new MockHandsetBrand(mockApp);
+            target.Run();
+            Assert.Equal(1,mockApp.CallTimes);
+        }
+
+
         [Fact(Skip = "this should be integration tests")]
         public void HandsetMotorola_Run_Game()
         {
@@ -95,6 +112,24 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         {
             Assert.Equal(message, console.Message);
             Assert.Equal(1, console.WriteLineTimes);
+        }
+
+        private class MockHandsetBrand : HandsetBrand
+        {
+            public MockHandsetBrand(Application soft)
+            {
+                Soft = soft;
+            }
+        }
+
+        private class MockApplication : Application
+        {
+            public override void Run(string brand)
+            {
+                CallTimes++;
+            }
+
+            public int CallTimes { get; private set; }
         }
     }
 }
