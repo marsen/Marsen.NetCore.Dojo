@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         [Fact]
         public void HandsetGame_Run()
         {
-            var target = new HandsetGame();
+            var target = new Game();
             target.Run("Mark");
             ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Game");
         }
@@ -58,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         [Fact]
         public void HandsetMotorola_Run_Game()
         {
-            var game = new HandsetGame();
+            var game = new Game();
             var target = new HandsetMotorola(game);
             target.Run();
             ConsoleWriteLineShouldBeCall(game.Console, "Run Motorola Game");
