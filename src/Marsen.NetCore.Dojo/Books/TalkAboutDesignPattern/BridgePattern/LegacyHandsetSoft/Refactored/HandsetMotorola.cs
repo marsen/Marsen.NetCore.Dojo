@@ -7,10 +7,5 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
             Soft = soft;
             Brand = "Motorola";
         }
-
-        public override void Run()
-        {
-            this.Soft.Run(Brand);
-        }
     }
 }

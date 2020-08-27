@@ -8,9 +8,6 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
             Brand = "Nokia";
         }
 
-        public override void Run()
-        {
-            this.Soft.Run(Brand);
-        }
+
     }
 }
