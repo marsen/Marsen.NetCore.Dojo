@@ -4,7 +4,7 @@ using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHands
 using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBrand
+namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
 {
     public class LegacyHandsetBrandTests
     {
