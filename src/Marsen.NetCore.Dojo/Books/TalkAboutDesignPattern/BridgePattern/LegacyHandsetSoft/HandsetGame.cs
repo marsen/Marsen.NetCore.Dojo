@@ -1,4 +1,3 @@
-using System;
 using Marsen.NetCore.TestingToolkit;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft
