@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
+[assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Integration.Tests")]
 
 namespace Marsen.NetCore.TestingToolkit
 {
