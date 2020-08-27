@@ -68,7 +68,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         public void HandsetNokia_Run_Game()
         {
             var app = new Game();
-            var target = new HandsetMotorola(app);
+            var target = new HandsetNokia(app);
             target.Run();
             ConsoleWriteLineShouldBeCall(app.Console, "Run Nokia Game");
         }
