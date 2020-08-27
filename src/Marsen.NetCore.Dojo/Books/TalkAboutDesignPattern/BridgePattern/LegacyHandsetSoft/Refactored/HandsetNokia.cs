@@ -7,7 +7,5 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
             Soft = soft;
             Brand = "Nokia";
         }
-
-
     }
 }
