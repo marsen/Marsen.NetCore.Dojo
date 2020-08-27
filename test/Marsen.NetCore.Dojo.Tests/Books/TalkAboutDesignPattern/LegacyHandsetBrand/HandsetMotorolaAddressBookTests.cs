@@ -1,4 +1,5 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Soft;
 using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
@@ -38,6 +39,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
             target.Run();
             ConsoleWriteLineShouldBeCall(target.Console, "Run Nokia Game");
         }
+
+        [Fact]
+        public void AddressBook_Run()
+        {
+            var target = new AddressBook();
+            target.Run("Mark");
+            ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Address Book");
+        }
+
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
