@@ -55,7 +55,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(target.Console, "Run Motorola Game");
         }
 
-        [Fact]
+        [Fact(Skip = "this should be integration tests")]
         public void HandsetMotorola_Run_Game()
         {
             var app = new Game();
@@ -64,7 +64,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(app.Console, "Run Motorola Game");
         }
 
-        [Fact]
+        [Fact(Skip = "this should be integration tests")]
         public void HandsetNokia_Run_Game()
         {
             var app = new Game();
@@ -73,8 +73,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(app.Console, "Run Nokia Game");
         }
 
-
-        [Fact]
+        [Fact(Skip = "this should be integration tests")]
         public void HandsetMotorola_Run_AddressBook()
         {
             var app = new AddressBook();
@@ -83,7 +82,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             ConsoleWriteLineShouldBeCall(app.Console, "Run Motorola Address Book");
         }
 
-        [Fact]
+        [Fact(Skip = "this should be integration tests")]
         public void HandsetNokia_Run_AddressBook()
         {
             var app = new AddressBook();
@@ -91,7 +90,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             target.Run();
             ConsoleWriteLineShouldBeCall(app.Console, "Run Nokia Address Book");
         }
-
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
