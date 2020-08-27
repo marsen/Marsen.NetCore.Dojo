@@ -6,8 +6,6 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
     {
         public readonly SystemConsole Console = new SystemConsole();
 
-        public virtual void Run(string brand)
-        {
-        }
+        public abstract void Run(string brand);
     }
 }
