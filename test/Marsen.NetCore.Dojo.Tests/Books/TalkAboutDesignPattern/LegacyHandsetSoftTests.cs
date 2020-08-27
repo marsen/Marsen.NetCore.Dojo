@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
     public class LegacyHandsetSoftTests
     {
         [Fact]
-        public void HandsetAddressBook_Run()
+        public void AddressBook_Run()
         {
             var target = new AddressBook();
             target.Run("Mark");
@@ -16,7 +16,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
         }
 
         [Fact]
-        public void HandsetGame_Run()
+        public void Game_Run()
         {
             var target = new Game();
             target.Run("Mark");
