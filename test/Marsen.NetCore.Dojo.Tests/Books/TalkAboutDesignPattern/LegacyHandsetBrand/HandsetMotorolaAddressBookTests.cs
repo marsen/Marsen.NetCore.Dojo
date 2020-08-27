@@ -1,4 +1,5 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Soft;
 using Marsen.NetCore.TestingToolkit;
 using Xunit;
@@ -56,11 +57,37 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.LegacyHandsetBr
             ConsoleWriteLineShouldBeCall(target.Console, "Run Mark Game");
         }
 
+        [Fact]
+        public void HandsetBrand_Run()
+        {
+            var mockApp = new MockApplication();
+            var target = new MockBrand(mockApp);
+            target.Run();
+            Assert.Equal(1,mockApp.CallTime);
+        }
+
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
         {
             Assert.Equal(message, console.Message);
             Assert.Equal(1, console.WriteLineTimes);
         }
+    }
+
+    internal class MockBrand:HandsetBrand
+    {
+        public MockBrand(Application app) : base(app)
+        {
+        }
+    }
+
+    internal class MockApplication : Application
+    {
+        public override void Run(string band)
+        {
+            CallTime++;
+        }
+
+        public int CallTime { get; set; }
     }
 }
