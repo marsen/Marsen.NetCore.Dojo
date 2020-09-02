@@ -21,7 +21,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             Console.WriteLine("女人成功時，背後多半有一個不成功的男人");
             var man2 = new Man();
             man2.Status = "失敗";
-            Console.WriteLine($"男人{man2.Status}時，悶頭喝酒，誰也不用勸");
+            Console.WriteLine($"男人{man2.Status}時，{man2.GetConclusion()}");
+            // Console.WriteLine($"男人{man2.Status}時，悶頭喝酒，誰也不用勸");
             Console.WriteLine("女人失敗時，眼淚汪汪，誰也勸不了");
             var man3 = new Man();
             man3.Status = "戀愛";
