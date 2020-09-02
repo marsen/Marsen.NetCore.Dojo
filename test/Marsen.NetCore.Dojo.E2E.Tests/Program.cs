@@ -19,10 +19,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             man.Status = "成功";
             Console.WriteLine($"男人{man.Status}時，{man.GetConclusion()}");
             Console.WriteLine("女人成功時，背後多半有一個不成功的男人");
-            var man2 = new Man();
-            man2.Status = "失敗";
-            Console.WriteLine($"男人{man2.Status}時，{man2.GetConclusion()}");
-            // Console.WriteLine($"男人{man2.Status}時，");
+            man.Status = "失敗";
+            Console.WriteLine($"男人{man.Status}時，{man.GetConclusion()}");
             Console.WriteLine("女人失敗時，眼淚汪汪，誰也勸不了");
             var man3 = new Man();
             man3.Status = "戀愛";
@@ -33,7 +31,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal class Man
     {
-        Dictionary<string, string> StatusLookup = new Dictionary<string, string>
+        private readonly Dictionary<string, string> _statusLookup = new Dictionary<string, string>
         {
             {"成功", "背後多半有一個偉大的女人"},
             {"失敗", "悶頭喝酒，誰也不用勸"},
@@ -43,7 +41,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
         public string GetConclusion()
         {
-            return StatusLookup[Status];
+            return _statusLookup[Status];
         }
     }
 }
