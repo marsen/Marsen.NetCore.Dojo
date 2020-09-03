@@ -15,19 +15,19 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             Console.WriteLine("女人戀愛時，遇事懂也裝作不懂");
             Console.WriteLine("-----");
             Person man = new Man();
-            man.Status = "成功";
-            Console.WriteLine($"{man.Name}{man.Status}時，{man.GetConclusion()}");
+            man.Action = "成功";
+            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
             Person woman = new Woman();
-            woman.Status = "成功";
-            Console.WriteLine($"{woman.Name}{woman.Status}時，{woman.GetConclusion()}");
-            man.Status = "失敗";
-            woman.Status = "失敗";
-            Console.WriteLine($"{man.Name}{man.Status}時，{man.GetConclusion()}");
-            Console.WriteLine($"{woman.Name}{woman.Status}時，{woman.GetConclusion()}");
-            man.Status = "戀愛";
-            woman.Status = "戀愛";
-            Console.WriteLine($"{man.Name}{man.Status}時，{man.GetConclusion()}");
-            Console.WriteLine($"{woman.Name}{woman.Status}時，{woman.GetConclusion()}");
+            woman.Action = "成功";
+            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+            man.Action = "失敗";
+            woman.Action = "失敗";
+            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
+            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+            man.Action = "戀愛";
+            woman.Action = "戀愛";
+            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
+            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
         }
     }
 
@@ -48,11 +48,11 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
     {
         public abstract string Name { get; }
         protected abstract Dictionary<string, string> StatusLookup { get; }
-        public string Status { get; set; }
+        public string Action { get; set; }
 
         public string GetConclusion()
         {
-            return StatusLookup[Status];
+            return StatusLookup[Action];
         }
     }
 
