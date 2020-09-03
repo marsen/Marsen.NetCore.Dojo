@@ -33,7 +33,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal class Woman : Person
     {
-        public override string Name =>"女人";
+        public override string Name => "女人";
 
         protected override Dictionary<string, string> StatusLookup =>
             new Dictionary<string, string>
