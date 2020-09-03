@@ -16,23 +16,25 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             Console.WriteLine("-----");
             Person man = new Man();
             man.Status = "成功";
-            Console.WriteLine($"男人{man.Status}時，{man.GetConclusion()}");
+            Console.WriteLine($"{man.Name}{man.Status}時，{man.GetConclusion()}");
             Person woman = new Woman();
             woman.Status = "成功";
-            Console.WriteLine($"女人{woman.Status}時，{woman.GetConclusion()}");
+            Console.WriteLine($"{woman.Name}{woman.Status}時，{woman.GetConclusion()}");
             man.Status = "失敗";
             woman.Status = "失敗";
-            Console.WriteLine($"男人{man.Status}時，{man.GetConclusion()}");
-            Console.WriteLine($"女人{woman.Status}時，{woman.GetConclusion()}");
+            Console.WriteLine($"{man.Name}{man.Status}時，{man.GetConclusion()}");
+            Console.WriteLine($"{woman.Name}{woman.Status}時，{woman.GetConclusion()}");
             man.Status = "戀愛";
             woman.Status = "戀愛";
-            Console.WriteLine($"男人{man.Status}時，{man.GetConclusion()}");
-            Console.WriteLine($"女人{woman.Status}時，{woman.GetConclusion()}");
+            Console.WriteLine($"{man.Name}{man.Status}時，{man.GetConclusion()}");
+            Console.WriteLine($"{woman.Name}{woman.Status}時，{woman.GetConclusion()}");
         }
     }
 
     internal class Woman : Person
     {
+        public override string Name =>"女人";
+
         protected override Dictionary<string, string> StatusLookup =>
             new Dictionary<string, string>
             {
@@ -44,6 +46,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal abstract class Person
     {
+        public abstract string Name { get; }
         protected abstract Dictionary<string, string> StatusLookup { get; }
         public string Status { get; set; }
 
@@ -55,6 +58,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal class Man : Person
     {
+        public override string Name => "男人";
+
         protected override Dictionary<string, string> StatusLookup =>
             new Dictionary<string, string>
             {
