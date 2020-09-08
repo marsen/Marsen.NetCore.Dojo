@@ -25,8 +25,4 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interceptors
             invocation.Proceed();
         }
     }
-
-    public class LogAttribute : Attribute
-    {
-    }
 }
