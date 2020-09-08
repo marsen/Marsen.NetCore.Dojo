@@ -16,7 +16,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interceptors
 
         public void Intercept(IInvocation invocation)
         {
-            if (Attribute.GetCustomAttribute(invocation.Method, typeof(LogAttribute)) is LogAttribute logAttribute ==
+            if (Attribute.GetCustomAttribute(invocation.Method, typeof(LogAttribute)) is LogAttribute ==
                 false)
             {
                 invocation.Proceed();
