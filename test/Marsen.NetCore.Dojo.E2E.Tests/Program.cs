@@ -19,8 +19,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             man.Action = "成功";
             woman.Action = "成功";
             man.Accept(new Success());
-            // Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
-            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+            woman.Accept(new Success());
             man.Action = "失敗";
             woman.Action = "失敗";
             Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
