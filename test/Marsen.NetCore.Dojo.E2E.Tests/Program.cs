@@ -31,8 +31,19 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
         }
     }
 
+    abstract class Action
+    {
+        public abstract void GetManConclusion(Man man);
+        public abstract void GetWomanConclusion(Woman woman);
+    }
+
     internal class Woman : Person
     {
+        public override void Accept(Action visitor)
+        {
+           visitor.GetWomanConclusion(this); 
+        }
+
         public override string Name => "女人";
 
         protected override Dictionary<string, string> StatusLookup =>
@@ -50,6 +61,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal abstract class Person
     {
+        public abstract void Accept(Action visitor);
         public abstract string Name { get; }
         protected abstract Dictionary<string, string> StatusLookup { get; }
         public string Action { get; set; }
@@ -59,6 +71,11 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal class Man : Person
     {
+        public override void Accept(Action visitor)
+        {
+            visitor.GetManConclusion(this);
+        }
+
         public override string Name => "男人";
 
         protected override Dictionary<string, string> StatusLookup =>
