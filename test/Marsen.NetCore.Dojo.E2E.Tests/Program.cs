@@ -15,10 +15,10 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             Console.WriteLine("女人戀愛時，遇事懂也裝作不懂");
             Console.WriteLine("-----");
             Person man = new Man();
-            man.Action = "成功";
-            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
             Person woman = new Woman();
+            man.Action = "成功";
             woman.Action = "成功";
+            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
             Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
             man.Action = "失敗";
             woman.Action = "失敗";
