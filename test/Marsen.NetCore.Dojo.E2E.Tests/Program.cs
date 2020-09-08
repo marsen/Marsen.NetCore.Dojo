@@ -36,6 +36,20 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
         public abstract void GetManConclusion(Man man);
         public abstract void GetWomanConclusion(Woman woman);
     }
+    
+    internal class Success:Action
+    {
+        public override void GetManConclusion(Man man)
+        {
+            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
+        }
+
+        public override void GetWomanConclusion(Woman woman)
+        {
+            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+        }
+    }
+    
 
     internal class Woman : Person
     {
