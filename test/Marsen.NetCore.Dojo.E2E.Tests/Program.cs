@@ -41,14 +41,16 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
 
     internal class Failing : Action
     {
+        private string _name="失敗";
+
         public override void GetManConclusion(Man man)
         {
-            Console.WriteLine($"{man.Name}{man.Action}時，悶頭喝酒，誰也不用勸");
+            Console.WriteLine($"{man.Name}{_name}時，悶頭喝酒，誰也不用勸");
         }
 
         public override void GetWomanConclusion(Woman woman)
         {
-            Console.WriteLine($"{woman.Name}{woman.Action}時，眼淚汪汪，誰也勸不了");
+            Console.WriteLine($"{woman.Name}{_name}時，眼淚汪汪，誰也勸不了");
         }
     }
 
@@ -59,14 +61,16 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
     }
     internal class Success:Action
     {
+        private string _name = "成功";
+
         public override void GetManConclusion(Man man)
         {
-            Console.WriteLine($"{man.Name}{man.Action}時，背後多半有一個偉大的女人");
+            Console.WriteLine($"{man.Name}{_name}時，背後多半有一個偉大的女人");
         }
 
         public override void GetWomanConclusion(Woman woman)
         {
-            Console.WriteLine($"{woman.Name}{woman.Action}時，背後多半有一個不成功的男人");
+            Console.WriteLine($"{woman.Name}{_name}時，背後多半有一個不成功的男人");
         }
     }
     
