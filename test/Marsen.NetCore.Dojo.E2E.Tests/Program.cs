@@ -42,6 +42,10 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
                 {"失敗", "眼淚汪汪，誰也勸不了"},
                 {"戀愛", "遇事懂也裝作不懂"},
             };
+        public override string GetConclusion()
+        {
+            return StatusLookup[Action];
+        }
     }
 
     internal abstract class Person
@@ -50,10 +54,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
         protected abstract Dictionary<string, string> StatusLookup { get; }
         public string Action { get; set; }
 
-        public string GetConclusion()
-        {
-            return StatusLookup[Action];
-        }
+        public abstract string GetConclusion();
     }
 
     internal class Man : Person
@@ -67,5 +68,10 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
                 {"失敗", "悶頭喝酒，誰也不用勸"},
                 {"戀愛", "凡事不懂也要裝懂"},
             };
+        
+        public override string GetConclusion()
+        {
+            return StatusLookup[Action];
+        }
     }
 }
