@@ -22,12 +22,26 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             woman.Accept(new Success());
             man.Action = "失敗";
             woman.Action = "失敗";
+            man.Accept(new Failing());
             Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
             Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
             man.Action = "戀愛";
             woman.Action = "戀愛";
             Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
             Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+        }
+    }
+
+    internal class Failing : Action
+    {
+        public override void GetManConclusion(Man man)
+        {
+            Console.WriteLine($"{man.Name}{man.Action}時，悶頭喝酒，誰也不用勸");
+        }
+
+        public override void GetWomanConclusion(Woman woman)
+        {
+            Console.WriteLine($"{woman.Name}{woman.Action}時，眼淚汪汪，誰也勸不了");
         }
     }
 
