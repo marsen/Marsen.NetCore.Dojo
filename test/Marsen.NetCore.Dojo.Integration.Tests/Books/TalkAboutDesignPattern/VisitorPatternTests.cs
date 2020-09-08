@@ -1,5 +1,4 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern;
-using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Integration.Tests.Books.TalkAboutDesignPattern
