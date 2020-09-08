@@ -1,21 +1,20 @@
-﻿using System;
-using Marsen.NetCore.TestingToolkit;
+﻿using Marsen.NetCore.TestingToolkit;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
     public class FallInLove : Action
     {
-        private string _name = "戀愛";
+        private const string Name = "戀愛";
         public readonly SystemConsole Console = new SystemConsole();
 
         public override void GetManConclusion(Man man)
         {
-            Console.WriteLine($"{man.Name}{_name}時，凡事不懂也要裝懂");
+            Console.WriteLine($"{man.Name}{Name}時，凡事不懂也要裝懂");
         }
 
         public override void GetWomanConclusion(Woman woman)
         {
-            Console.WriteLine($"{woman.Name}{_name}時，遇事懂也裝作不懂");
+            Console.WriteLine($"{woman.Name}{Name}時，遇事懂也裝作不懂");
         }
     }
 }
