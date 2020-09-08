@@ -16,8 +16,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             Console.WriteLine("-----");
             Person man = new Man();
             Person woman = new Woman();
-            man.Action = "成功";
-            woman.Action = "成功";
+            // man.Action = "成功";
+            // woman.Action = "成功";
             man.Accept(new Success());
             woman.Accept(new Success());
             man.Action = "失敗";
@@ -36,17 +36,16 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
         public abstract void GetManConclusion(Man man);
         public abstract void GetWomanConclusion(Woman woman);
     }
-    
     internal class Success:Action
     {
         public override void GetManConclusion(Man man)
         {
-            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
+            Console.WriteLine($"{man.Name}{man.Action}時，背後多半有一個偉大的女人");
         }
 
         public override void GetWomanConclusion(Woman woman)
         {
-            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+            Console.WriteLine($"{woman.Name}{woman.Action}時，背後多半有一個不成功的男人");
         }
     }
     
