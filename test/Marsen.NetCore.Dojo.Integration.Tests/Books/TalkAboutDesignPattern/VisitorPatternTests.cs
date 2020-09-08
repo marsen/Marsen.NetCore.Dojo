@@ -29,5 +29,13 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Books.TalkAboutDesignPattern
             target.GetWomanConclusion(new Woman());
             Assert.Equal(1, target.Console.WriteLineTimes);
         }
+
+        [Fact]
+        public void Failing_GetManConclusion_Man()
+        {
+            var target = new Failing();
+            target.GetManConclusion(new Man());
+            Assert.Equal(1, target.Console.WriteLineTimes);
+        }
     }
 }
