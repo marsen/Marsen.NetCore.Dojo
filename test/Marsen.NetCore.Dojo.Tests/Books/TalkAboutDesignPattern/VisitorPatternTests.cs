@@ -1,7 +1,7 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Integration.Tests.Books.TalkAboutDesignPattern
+namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
 {
     public class VisitorPatternTests
     {
