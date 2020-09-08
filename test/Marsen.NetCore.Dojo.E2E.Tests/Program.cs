@@ -16,20 +16,26 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
             Console.WriteLine("-----");
             Person man = new Man();
             Person woman = new Woman();
-            // man.Action = "成功";
-            // woman.Action = "成功";
             man.Accept(new Success());
             woman.Accept(new Success());
-            // man.Action = "失敗";
-            woman.Action = "失敗";
             man.Accept(new Failing());
             woman.Accept(new Failing());
-            // Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
-            // Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
-            man.Action = "戀愛";
-            woman.Action = "戀愛";
-            Console.WriteLine($"{man.Name}{man.Action}時，{man.GetConclusion()}");
-            Console.WriteLine($"{woman.Name}{woman.Action}時，{woman.GetConclusion()}");
+            man.Accept(new Amativeness());
+            woman.Accept(new Amativeness());
+        }
+    }
+
+    internal class Amativeness : Action
+    {
+        private string _name ="戀愛";
+        public override void GetManConclusion(Man man)
+        {
+            Console.WriteLine($"{man.Name}{_name}時，凡事不懂也要裝懂");
+        }
+
+        public override void GetWomanConclusion(Woman woman)
+        {
+            Console.WriteLine($"{woman.Name}{_name}時，遇事懂也裝作不懂");
         }
     }
 
