@@ -4,6 +4,5 @@
     {
         public abstract void Accept(Action visitor);
         public abstract string Name { get; }
-        public string Action { get; set; }
     }
 }

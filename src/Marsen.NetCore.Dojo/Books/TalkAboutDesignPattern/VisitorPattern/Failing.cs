@@ -1,11 +1,8 @@
-﻿using Marsen.NetCore.TestingToolkit;
-
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
     public class Failing : Action
     {
         private const string Name = "失敗";
-        public readonly SystemConsole Console = new SystemConsole();
 
         public override void GetManConclusion(Man man)
         {

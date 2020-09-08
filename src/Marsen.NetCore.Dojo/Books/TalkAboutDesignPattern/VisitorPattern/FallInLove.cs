@@ -1,11 +1,8 @@
-﻿using Marsen.NetCore.TestingToolkit;
-
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
     public class FallInLove : Action
     {
         private const string Name = "戀愛";
-        public readonly SystemConsole Console = new SystemConsole();
 
         public override void GetManConclusion(Man man)
         {
