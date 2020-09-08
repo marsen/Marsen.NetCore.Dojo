@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Marsen.NetCore.Dojo.E2E.Tests
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
-    internal class Success:Action
+    public class Success : Action
     {
         private string _name = "成功";
 

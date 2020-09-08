@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.E2E.Tests
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
-    internal class Man : Person
+    public class Man : Person
     {
         public override void Accept(Action visitor)
         {

@@ -1,6 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.E2E.Tests
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
-    internal abstract class Action
+    public abstract class Action
     {
         public abstract void GetManConclusion(Man man);
         public abstract void GetWomanConclusion(Woman woman);

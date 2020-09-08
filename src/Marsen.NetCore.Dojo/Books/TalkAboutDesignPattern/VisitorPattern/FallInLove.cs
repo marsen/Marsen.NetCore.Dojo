@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Marsen.NetCore.Dojo.E2E.Tests
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
-    internal class FallInLove : Action
+    public class FallInLove : Action
     {
         private string _name ="戀愛";
         public override void GetManConclusion(Man man)

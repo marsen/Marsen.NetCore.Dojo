@@ -1,4 +1,5 @@
 ﻿using System;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests
 {

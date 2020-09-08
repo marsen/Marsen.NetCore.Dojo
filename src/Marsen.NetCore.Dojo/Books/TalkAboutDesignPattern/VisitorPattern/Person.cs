@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.E2E.Tests
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
-    internal abstract class Person
+    public abstract class Person
     {
         public abstract void Accept(Action visitor);
         public abstract string Name { get; }

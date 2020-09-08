@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.E2E.Tests
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
-    internal class Woman : Person
+    public class Woman : Person
     {
         public override void Accept(Action visitor)
         {
-            visitor.GetWomanConclusion(this); 
+            visitor.GetWomanConclusion(this);
         }
 
         public override string Name => "女人";
@@ -18,6 +18,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
                 {"失敗", "眼淚汪汪，誰也勸不了"},
                 {"戀愛", "遇事懂也裝作不懂"},
             };
+
         public override string GetConclusion()
         {
             return StatusLookup[Action];
