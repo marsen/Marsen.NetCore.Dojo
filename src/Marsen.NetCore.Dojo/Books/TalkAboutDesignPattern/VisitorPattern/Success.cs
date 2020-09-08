@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Marsen.NetCore.TestingToolkit;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
 {
     public class Success : Action
     {
         private string _name = "成功";
+        public readonly SystemConsole Console = new SystemConsole();
 
         public override void GetManConclusion(Man man)
         {
