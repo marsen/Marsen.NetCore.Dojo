@@ -1,6 +1,7 @@
-﻿using Marsen.NetCore.TestingToolkit;
+﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons;
+using Marsen.NetCore.TestingToolkit;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions
 {
     public abstract class Action
     {

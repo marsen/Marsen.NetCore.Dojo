@@ -1,5 +1,6 @@
 ﻿using System;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Visitor
 {

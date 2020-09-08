@@ -1,4 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern
+﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons;
+
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions
 {
     public class FallInLove : Action
     {

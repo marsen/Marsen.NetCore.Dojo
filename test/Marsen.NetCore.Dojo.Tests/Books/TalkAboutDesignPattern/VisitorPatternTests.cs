@@ -1,4 +1,6 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
