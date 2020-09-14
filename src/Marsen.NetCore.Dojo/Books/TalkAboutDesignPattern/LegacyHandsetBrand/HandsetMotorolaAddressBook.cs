@@ -3,11 +3,12 @@ using System.Text;
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.LegacyHandsetBrand
 {
-    public class HandsetMotorolaAddressBook : HandsetMotorola
+    public class HandsetMotorolaAddressBook 
     {
-        public override void Run()
+        public void Run()
         {
-            Console.WriteLine("Run Motorola AddressBook");
+            Console.WriteLine("Run Motorola Address Book");
         }
+
     }
 }
