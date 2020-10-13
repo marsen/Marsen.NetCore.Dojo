@@ -32,8 +32,8 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       </div>
     );
   }
-
-  if (tasks.length === 0) {
+  
+  if (tasks === undefined || tasks.length === 0) {
     return (
         <div className="list-items">
             <div className="wrapper-message">
