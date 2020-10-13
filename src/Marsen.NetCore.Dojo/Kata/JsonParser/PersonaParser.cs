@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
             return new PersonaEntity
             {
                 Age = age,
-                Name = originEntity.FirstName + " " + originEntity.LastName
+                Name = $"{originEntity.FirstName} {originEntity.LastName}"
             };
         }
     }
