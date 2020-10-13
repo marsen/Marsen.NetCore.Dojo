@@ -24,6 +24,18 @@ Setting Storybook
 npx -p @storybook/cli sb init
 ```
 
+initial storybook
+
+```shell
+npx sb init
+```
+
+npm 執行 storybook
+
+```shell
+npm run storybook
+```
+
 (以下為原始生成文件)
 
 ----
