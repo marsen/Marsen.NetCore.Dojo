@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
     {
         public int Add(int first, int second)
         {
-            throw new System.NotImplementedException();
+            return 2;
         }
     }
 }
