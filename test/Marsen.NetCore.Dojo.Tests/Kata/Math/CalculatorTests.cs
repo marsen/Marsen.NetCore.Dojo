@@ -17,6 +17,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
             var target = new Calculator();
             Assert.Equal(3, target.Add(2, 1));
         }
+
+        [Fact]
+        public void Subtract_2_1_is_3()
+        {
+            var target = new Calculator();
+            Assert.Equal(1, target.Subtract(2, 1));
+        }
     }
 
     public class Calculator
@@ -24,6 +31,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         public int Add(int first, int second)
         {
             return first + second;
+        }
+
+        public int Subtract(int first, int second)
+        {
+            return first - second;
         }
     }
 }
