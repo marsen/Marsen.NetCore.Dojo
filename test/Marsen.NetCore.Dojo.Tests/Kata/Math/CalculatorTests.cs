@@ -23,7 +23,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
     {
         public int Add(int first, int second)
         {
-            return 2;
+            return first + second;
         }
     }
 }
