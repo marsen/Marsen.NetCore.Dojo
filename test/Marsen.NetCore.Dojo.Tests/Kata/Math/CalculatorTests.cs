@@ -42,6 +42,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         {
             _target.Multiply(2, 2).Should().Be(4);
         }
+
+        [Fact]
+        public void Divide_4_2_is_2()
+        {
+            _target.Divide(4, 2).Should().Be(2);
+        }
+
+        [Fact]
+        public void Divide_5_2_is_2()
+        {
+            _target.Divide(5, 2).Should().Be(2);
+        }
     }
 
     public class Calculator
@@ -59,6 +71,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         public int Multiply(int first, int second)
         {
             return first * second;
+        }
+
+        public int Divide(int first, int second)
+        {
+            return first / second;
         }
     }
 }
