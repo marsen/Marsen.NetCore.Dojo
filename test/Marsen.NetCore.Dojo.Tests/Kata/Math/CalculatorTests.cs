@@ -54,6 +54,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         {
             _target.Divide(5, 2).Should().Be(2);
         }
+
+        [Fact]
+        public void Divide_7_2_is_3()
+        {
+            _target.Divide(7, 2).Should().Be(3);
+        }
     }
 
     public class Calculator
