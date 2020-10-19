@@ -30,6 +30,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         {
             _target.Subtract(1, 2).Should().Be(-1);
         }
+
+        [Fact]
+        public void Multiply_1_2_is_2()
+        {
+            _target.Multiply(1, 2).Should().Be(2);
+        }
+
+        [Fact]
+        public void Multiply_2_2_is_4()
+        {
+            _target.Multiply(2, 2).Should().Be(4);
+        }
     }
 
     public class Calculator
@@ -42,6 +54,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         public int Subtract(int first, int second)
         {
             return first - second;
+        }
+
+        public int Multiply(int first, int second)
+        {
+            return first * second;
         }
     }
 }
