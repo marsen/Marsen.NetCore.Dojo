@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
+using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.Math
@@ -59,6 +61,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         public void Divide_7_2_is_3()
         {
             _target.Divide(7, 2).Should().Be(3);
+        }
+
+        [Fact]
+        public void Divide_7_0_is_Exception()
+        {
+            Func<int> act = () => _target.Divide(7, 0);
+            act.Should().Throw<DivideByZeroException>();
         }
     }
 
