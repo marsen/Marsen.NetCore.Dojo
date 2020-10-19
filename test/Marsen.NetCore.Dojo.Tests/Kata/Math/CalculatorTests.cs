@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.Math
 {
@@ -9,25 +10,25 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         [Fact]
         public void Add_1_1_is_2()
         {
-            Assert.Equal(2, _target.Add(1, 1));
+            _target.Add(1, 1).Should().Be(2);
         }
 
         [Fact]
         public void Add_2_1_is_3()
         {
-            Assert.Equal(3, _target.Add(2, 1));
+            _target.Add(2, 1).Should().Be(3);
         }
 
         [Fact]
-        public void Subtract_2_1_is_3()
+        public void Subtract_2_1_is_1()
         {
-            Assert.Equal(1, _target.Subtract(2, 1));
+            _target.Subtract(2, 1).Should().Be(1);
         }
 
         [Fact]
         public void Subtract_1_2_is_minus_1()
         {
-            Assert.Equal(-1, _target.Subtract(1, 2));
+            _target.Subtract(1, 2).Should().Be(-1);
         }
     }
 
