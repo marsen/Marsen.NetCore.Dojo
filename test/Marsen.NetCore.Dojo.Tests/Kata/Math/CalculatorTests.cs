@@ -23,6 +23,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         {
             Assert.Equal(1, _target.Subtract(2, 1));
         }
+
+        [Fact]
+        public void Subtract_1_2_is_minus_1()
+        {
+            Assert.Equal(-1, _target.Subtract(1, 2));
+        }
     }
 
     public class Calculator
