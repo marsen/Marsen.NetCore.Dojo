@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentAssertions;
-using NSubstitute.ExceptionExtensions;
+using Marsen.NetCore.Dojo.Kata.Math;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.Math
@@ -68,29 +68,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
         {
             Func<int> act = () => _target.Divide(7, 0);
             act.Should().Throw<DivideByZeroException>();
-        }
-    }
-
-    public class Calculator
-    {
-        public int Add(int first, int second)
-        {
-            return first + second;
-        }
-
-        public int Subtract(int first, int second)
-        {
-            return first - second;
-        }
-
-        public int Multiply(int first, int second)
-        {
-            return first * second;
-        }
-
-        public int Divide(int first, int second)
-        {
-            return first / second;
         }
     }
 }
