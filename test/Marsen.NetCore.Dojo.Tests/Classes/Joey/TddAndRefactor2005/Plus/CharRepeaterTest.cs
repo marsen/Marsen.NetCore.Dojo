@@ -1,4 +1,5 @@
 using System;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus;
 using Xunit;
 
@@ -49,16 +50,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
             AfterRepeat("a1").ShouldBe("A-11");
         }
 
-        [Fact(Skip = "空字串應拋錯誤")]
-        public void The_string_Empty_Should_Be_Empty()
-        {
-            AfterRepeat(string.Empty).ShouldBe("");
-        }
-
         [Fact]
-        public void The_string_Empty_Should_Throw_Exception()
+        public void The_string_Empty_Should_Throw_Exception_2()
         {
-            Assert.Throws<Exception>(() => AfterRepeat(string.Empty));
+            Action act = () => this._charRepeater.Repeat(string.Empty);
+            act.Should().Throw<Exception>();
         }
 
         [Fact]
