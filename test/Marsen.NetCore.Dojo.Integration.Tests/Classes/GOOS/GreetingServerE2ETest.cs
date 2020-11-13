@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -7,13 +6,8 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
-    public class GreetingServerE2ETest
+    public class GreetingServerE2ETest : InitializationTest
     {
-        public GreetingServerE2ETest()
-        {
-            GreetingServer.main();
-        }
-        
         [Fact]
         public void Should_Greet_With_Hello_World()
         {
@@ -23,16 +17,41 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
             var result = response.Content.ReadAsStringAsync().Result;
             Assert.Equal("Hello World", result);
         }
+
+        [Fact]
+        public void Should_Greet_With_Hello_Mark()
+        {
+            var httpClient = new HttpClient {BaseAddress = new Uri("http://localhost:8080/")};
+            var response = httpClient.GetAsync("greeting").Result;
+            response.EnsureSuccessStatusCode();
+            var result = response.Content.ReadAsStringAsync().Result;
+            Assert.Equal("Hello Mark", result);
+        }
     }
+
+    public class InitializationTest : IDisposable
+    {
+        protected InitializationTest()
+        {
+            GreetingServer.main();
+        }
+        public void Dispose()
+        {
+            GreetingServer.stop();
+        }
+    }
+
 
     public static class GreetingServer
     {
+        private static HttpListener _httpListener;
+
         public static void main(params string[] args)
         {
-            HttpListener httpListener = new HttpListener();
-            httpListener.Prefixes.Add($"http://+:8080/");
-            httpListener.Start();
-            httpListener.BeginGetContext(GetContext, httpListener);
+            _httpListener = new HttpListener();
+            _httpListener.Prefixes.Add($"http://+:8080/");
+            _httpListener.Start();
+            _httpListener.BeginGetContext(GetContext, _httpListener);
         }
 
         private static void GetContext(IAsyncResult ar)
@@ -47,6 +66,11 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
                 var response = "Hello World";
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
+        }
+
+        public static void stop()
+        {
+            _httpListener.Stop();
         }
     }
 }
