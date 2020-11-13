@@ -9,17 +9,20 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
     public class GreetingServerE2ETest
     {
+        public GreetingServerE2ETest()
+        {
+            GreetingServer.main();
+        }
+        
         [Fact]
         public void Should_Greet_With_Hello_World()
         {
-            GreetingServer.main();
             var httpClient = new HttpClient {BaseAddress = new Uri("http://localhost:8080/")};
-            var response = httpClient.GetAsync("posts").Result;
+            var response = httpClient.GetAsync("greeting").Result;
             response.EnsureSuccessStatusCode();
             var result = response.Content.ReadAsStringAsync().Result;
-            Assert.Equal("Hello World",result);
+            Assert.Equal("Hello World", result);
         }
-        
     }
 
     public static class GreetingServer
