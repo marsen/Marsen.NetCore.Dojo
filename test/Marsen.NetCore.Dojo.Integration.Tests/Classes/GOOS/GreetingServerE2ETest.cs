@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
@@ -23,6 +26,24 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
     {
         public static void main(params string[] args)
         {
+            HttpListener httpListener = new HttpListener();
+            httpListener.Prefixes.Add($"http://+:8080/");
+            httpListener.Start();
+            httpListener.BeginGetContext(GetContext, httpListener);
+        }
+
+        private static void GetContext(IAsyncResult ar)
+        {
+            if (ar.AsyncState is HttpListener httpListener)
+            {
+                HttpListenerContext context = httpListener.EndGetContext(ar); //接收到的請求context（一個環境封裝體）
+                context.Response.ContentType = "html";
+                context.Response.ContentEncoding = Encoding.UTF8;
+
+                using var output = context.Response.OutputStream;
+                var response = "Hello World";
+                output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
+            }
         }
     }
 }
