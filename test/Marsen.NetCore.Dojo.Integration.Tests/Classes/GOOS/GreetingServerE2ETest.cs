@@ -64,13 +64,20 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 
                 using var output = context.Response.OutputStream;
                 var queryString = context.Request.QueryString["Name"];
-                var response = "Hello World";
-                if (string.IsNullOrEmpty(queryString)==false)
-                {
-                    response = "Hello Mark";
-                }
+                var response = Greeter(queryString);
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
+        }
+
+        private static string Greeter(string queryString)
+        {
+            var response = "Hello World";
+            if (string.IsNullOrEmpty(queryString) == false)
+            {
+                response = "Hello Mark";
+            }
+
+            return response;
         }
 
         public static void stop()
