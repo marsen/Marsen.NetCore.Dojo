@@ -35,6 +35,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         {
             GreetingServer.main();
         }
+
         public void Dispose()
         {
             GreetingServer.stop();
@@ -61,28 +62,37 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
                 HttpListenerContext context = httpListener.EndGetContext(ar); //接收到的請求context（一個環境封裝體）
                 context.Response.ContentType = "html";
                 context.Response.ContentEncoding = Encoding.UTF8;
-
                 using var output = context.Response.OutputStream;
                 var queryString = context.Request.QueryString["Name"];
-                var response = Greeter(queryString);
+                var response = new Greeter(queryString).Invoke();
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
-        }
-
-        private static string Greeter(string queryString)
-        {
-            var response = "Hello World";
-            if (string.IsNullOrEmpty(queryString) == false)
-            {
-                response = "Hello Mark";
-            }
-
-            return response;
         }
 
         public static void stop()
         {
             _httpListener.Stop();
+        }
+    }
+
+    internal class Greeter
+    {
+        private readonly string _queryString;
+
+        public Greeter(string queryString)
+        {
+            _queryString = queryString;
+        }
+
+        public string Invoke()
+        {
+            var response = "Hello World";
+            if (string.IsNullOrEmpty(this._queryString) == false)
+            {
+                response = "Hello Mark";
+            }
+
+            return response;
         }
     }
 }
