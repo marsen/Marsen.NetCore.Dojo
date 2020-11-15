@@ -19,10 +19,10 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         }
 
         [Fact]
-        public void Should_Greet_With_Hello_Mark()
+        public void Should_Greet_By_Name()
         {
             var httpClient = new HttpClient {BaseAddress = new Uri("http://localhost:8080/")};
-            var response = httpClient.GetAsync("greeting").Result;
+            var response = httpClient.GetAsync("greeting?Name=Mark").Result;
             response.EnsureSuccessStatusCode();
             var result = response.Content.ReadAsStringAsync().Result;
             Assert.Equal("Hello Mark", result);
