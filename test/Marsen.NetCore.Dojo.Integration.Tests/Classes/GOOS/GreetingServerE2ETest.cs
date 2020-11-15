@@ -64,6 +64,10 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 
                 using var output = context.Response.OutputStream;
                 var response = "Hello World";
+                if (string.IsNullOrEmpty(context.Request.QueryString["Name"])==false)
+                {
+                    response = "Hello Mark";
+                }
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
         }
