@@ -63,8 +63,9 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
                 context.Response.ContentEncoding = Encoding.UTF8;
 
                 using var output = context.Response.OutputStream;
+                var queryString = context.Request.QueryString["Name"];
                 var response = "Hello World";
-                if (string.IsNullOrEmpty(context.Request.QueryString["Name"])==false)
+                if (string.IsNullOrEmpty(queryString)==false)
                 {
                     response = "Hello Mark";
                 }
