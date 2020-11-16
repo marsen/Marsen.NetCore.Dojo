@@ -78,7 +78,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         }
     }
 
-    internal class Greeter
+    public class Greeter
     {
         private readonly string _queryString;
 
