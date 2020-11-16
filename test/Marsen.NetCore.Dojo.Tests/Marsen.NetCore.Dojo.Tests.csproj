@@ -36,11 +36,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Marsen.NetCore.Dojo\Marsen.NetCore.Dojo.csproj" />
+    <ProjectReference Include="..\Marsen.NetCore.Dojo.Integration.Tests\Marsen.NetCore.Dojo.Integration.Tests.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Classes\GOOS" />
     <Folder Include="Kata\PickupService" />
   </ItemGroup>
 

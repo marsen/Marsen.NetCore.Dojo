@@ -66,8 +66,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
                 context.Response.ContentType = "html";
                 context.Response.ContentEncoding = Encoding.UTF8;
                 using var output = context.Response.OutputStream;
-                var queryString = context.Request.QueryString["Name"];
-                var response = new Greeter(queryString).Invoke();
+                var response = new Greeter().Invoke(context.Request.QueryString["Name"]);
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
         }
@@ -80,17 +79,10 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 
     public class Greeter
     {
-        private readonly string _queryString;
-
-        public Greeter(string queryString)
-        {
-            _queryString = queryString;
-        }
-
-        public string Invoke()
+        public string Invoke(string queryString)
         {
             var response = "Hello World";
-            if (string.IsNullOrEmpty(this._queryString) == false)
+            if (string.IsNullOrEmpty(queryString) == false)
             {
                 response = "Hello Mark";
             }
