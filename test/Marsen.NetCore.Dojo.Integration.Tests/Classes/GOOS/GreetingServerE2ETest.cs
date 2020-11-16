@@ -93,7 +93,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
             var response = "Hello World";
             if (string.IsNullOrEmpty(name) == false)
             {
-                response = "Hello Mark";
+                response = $"Hello {name}";
             }
 
             return response;
