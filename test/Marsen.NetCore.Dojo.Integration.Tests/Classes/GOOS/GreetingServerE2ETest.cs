@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -66,7 +67,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
                 context.Response.ContentType = "html";
                 context.Response.ContentEncoding = Encoding.UTF8;
                 using var output = context.Response.OutputStream;
-                var response = new Greeter().Invoke(context.Request.QueryString["Name"]);
+                var response = new Greeter().Invoke(context.Request.QueryString);
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
         }
@@ -79,10 +80,10 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 
     public class Greeter
     {
-        public string Invoke(string queryString)
+        public string Invoke(NameValueCollection queryString)
         {
             var response = "Hello World";
-            if (string.IsNullOrEmpty(queryString) == false)
+            if (string.IsNullOrEmpty(queryString["Name"]) == false)
             {
                 response = "Hello Mark";
             }
