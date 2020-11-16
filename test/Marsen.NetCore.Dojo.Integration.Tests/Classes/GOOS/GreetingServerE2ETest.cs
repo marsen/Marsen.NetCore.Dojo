@@ -8,24 +8,27 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
     public class GreetingServerE2ETest : InitializationTest
     {
+        private static readonly HttpClient GreetingServer = new HttpClient
+            {BaseAddress = new Uri("http://localhost:8080/")};
+
         [Fact]
         public void Should_Greet_With_Hello_World()
         {
-            var httpClient = new HttpClient {BaseAddress = new Uri("http://localhost:8080/")};
-            var response = httpClient.GetAsync("greeting").Result;
-            response.EnsureSuccessStatusCode();
-            var result = response.Content.ReadAsStringAsync().Result;
-            Assert.Equal("Hello World", result);
+            Assert.Equal("Hello World", GetGreetingServerResult("greeting"));
         }
 
         [Fact]
         public void Should_Greet_By_Name()
         {
-            var httpClient = new HttpClient {BaseAddress = new Uri("http://localhost:8080/")};
-            var response = httpClient.GetAsync("greeting?Name=Mark").Result;
+            Assert.Equal("Hello Mark", GetGreetingServerResult("greeting?Name=Mark"));
+        }
+
+        private static string GetGreetingServerResult(string requestUri)
+        {
+            var response = GreetingServer.GetAsync(requestUri).Result;
             response.EnsureSuccessStatusCode();
             var result = response.Content.ReadAsStringAsync().Result;
-            Assert.Equal("Hello Mark", result);
+            return result;
         }
     }
 
