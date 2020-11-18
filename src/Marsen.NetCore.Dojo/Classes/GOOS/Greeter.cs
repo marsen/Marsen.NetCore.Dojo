@@ -4,6 +4,10 @@
     {
         public string Invoke(string name, string hourOfDay)
         {
+            if (hourOfDay=="14")
+            {
+                return "Zzz";
+            }
             var response = "Hello World";
             if (string.IsNullOrEmpty(name) == false)
             {
