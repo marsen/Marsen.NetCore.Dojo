@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Net;
 using System.Net.Http;
-using System.Text;
-using Marsen.NetCore.TestingToolkit;
+using Marsen.NetCore.Dojo.Classes.GOOS;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
     public class GreetingServerE2ETest : InitializationTest
     {
-        private static string assumedHourOfDay = "9";
+        private static string _assumedHourOfDay = "9";
         private static readonly HttpClient GreetingServer = new HttpClient
             {BaseAddress = new Uri("http://localhost:8080/")};
 
@@ -28,7 +26,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         [Fact]
         public void Should_Sleep_At_14()
         {
-            assumedHourOfDay ="14";
+            _assumedHourOfDay ="14";
             Assert.Equal("Zzz", GetGreetingServerResult("greeting?Name=Mark"));
         }
 
@@ -52,62 +50,6 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         public void Dispose()
         {
             GreetingServer.stop();
-        }
-    }
-
-
-    public static class GreetingServer
-    {
-        private static HttpListener _httpListener;
-
-        public static void main(params string[] args)
-        {
-            _httpListener = new HttpListener();
-            _httpListener.Prefixes.Add($"http://+:8080/");
-            _httpListener.Start();
-            _httpListener.BeginGetContext(GetContext, _httpListener);
-        }
-
-        private static void GetContext(IAsyncResult ar)
-        {
-            if (ar.AsyncState is HttpListener httpListener)
-            {
-                HttpListenerContext context = httpListener.EndGetContext(ar); //接收到的請求context（一個環境封裝體）
-                context.Response.ContentType = "html";
-                context.Response.ContentEncoding = Encoding.UTF8;
-                using var output = context.Response.OutputStream;
-                var hourOfDay = SystemDateTime.Now.Hour.ToString();
-                var response = new Greeter().Invoke(context.Request.QueryString["Name"],hourOfDay);
-                output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
-            }
-        }
-
-        public static void stop()
-        {
-            _httpListener.Stop();
-        }
-    }
-
-    public class GreeterTest
-    {
-        [Fact]
-        public void GreetByName()
-        {
-            Assert.Equal("Hello Jones", new Greeter().Invoke("Jones","9"));
-        }
-    }
-
-    public class Greeter
-    {
-        public string Invoke(string name, string hourOfDay)
-        {
-            var response = "Hello World";
-            if (string.IsNullOrEmpty(name) == false)
-            {
-                response = $"Hello {name}";
-            }
-
-            return response;
         }
     }
 }
