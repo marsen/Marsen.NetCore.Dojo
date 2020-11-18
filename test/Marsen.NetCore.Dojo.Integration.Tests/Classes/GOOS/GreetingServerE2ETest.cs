@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using Marsen.NetCore.Dojo.Classes.GOOS;
+using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
@@ -26,7 +27,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         [Fact]
         public void Should_Sleep_At_14()
         {
-            _assumedHourOfDay ="14";
+            SystemDateTime.Now = new DateTime(2020,11,18,14,0,0);
             Assert.Equal("Zzz", GetGreetingServerResult("greeting?Name=Mark"));
         }
 
@@ -50,6 +51,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         public void Dispose()
         {
             GreetingServer.stop();
+            SystemDateTime.Reset();
         }
     }
 }
