@@ -9,6 +9,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
     public class GreetingServerE2ETest : InitializationTest
     {
+        private static string assumedHourOfDay = "9";
         private static readonly HttpClient GreetingServer = new HttpClient
             {BaseAddress = new Uri("http://localhost:8080/")};
 
@@ -23,6 +24,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         {
             Assert.Equal("Hello Mark", GetGreetingServerResult("greeting?Name=Mark"));
         }
+
+        [Fact]
+        public void Should_Sleep_At_14()
+        {
+            assumedHourOfDay ="14";
+            Assert.Equal("Zzz", GetGreetingServerResult("greeting?Name=Mark"));
+        }
+
 
         private static string GetGreetingServerResult(string requestUri)
         {
@@ -83,9 +92,10 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         [Fact]
         public void GreetByName()
         {
-            Assert.Equal("Hello Jones",new Greeter().Invoke("Jones"));
+            Assert.Equal("Hello Jones", new Greeter().Invoke("Jones"));
         }
     }
+
     public class Greeter
     {
         public string Invoke(string name)
