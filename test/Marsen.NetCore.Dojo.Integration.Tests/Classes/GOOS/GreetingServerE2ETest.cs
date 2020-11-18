@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using Marsen.NetCore.TestingToolkit;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
@@ -76,7 +76,8 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
                 context.Response.ContentType = "html";
                 context.Response.ContentEncoding = Encoding.UTF8;
                 using var output = context.Response.OutputStream;
-                var response = new Greeter().Invoke(context.Request.QueryString["Name"]);
+                var hourOfDay = SystemDateTime.Now.Hour.ToString();
+                var response = new Greeter().Invoke(context.Request.QueryString["Name"],hourOfDay);
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
         }
@@ -92,13 +93,13 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         [Fact]
         public void GreetByName()
         {
-            Assert.Equal("Hello Jones", new Greeter().Invoke("Jones"));
+            Assert.Equal("Hello Jones", new Greeter().Invoke("Jones","9"));
         }
     }
 
     public class Greeter
     {
-        public string Invoke(string name)
+        public string Invoke(string name, string hourOfDay)
         {
             var response = "Hello World";
             if (string.IsNullOrEmpty(name) == false)
