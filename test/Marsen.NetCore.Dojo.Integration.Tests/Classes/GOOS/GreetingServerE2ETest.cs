@@ -8,7 +8,6 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
     public class GreetingServerE2ETest : InitializationTest
     {
-        private static string _assumedHourOfDay = "9";
         private static readonly HttpClient GreetingServer = new HttpClient
             {BaseAddress = new Uri("http://localhost:8080/")};
 
@@ -40,6 +39,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
             return result;
         }
     }
+
 
     public class InitializationTest : IDisposable
     {
