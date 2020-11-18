@@ -14,7 +14,7 @@ jobs:
     - name: npm link TypeScript
       run: npm link typescript          
     - name: Setup Sonarqube
-      uses: warchant/setup-sonar-scanner@v1      
+      uses: warchant/setup-sonar-scanner@v3      
     - name: Run Sonarqube
       run:  sonar-scanner
           -Dsonar.organization=marsen-github 
