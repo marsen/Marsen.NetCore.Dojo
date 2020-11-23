@@ -13,7 +13,7 @@
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "sb": "^6.0.26",
-    "storybook": "^6.0.26"
+    "storybook": "^6.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
