@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import * as TaskList from './components/TaskList';
+import HelloWorld from './components/HelloWorld';
+import * as TaskList from './components/Task/TaskList';
 
 ReactDOM.render(
   <React.StrictMode>
-  <App />
+  <HelloWorld name="白金之星" />
+  <br />
   <TaskList.PureTaskList />
+  <br />
+  <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
