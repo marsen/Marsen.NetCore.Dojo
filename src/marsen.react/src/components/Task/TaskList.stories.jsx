@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { PureTaskList } from './TaskList';
-import { taskData, actionsData } from './Task.stories';
+import * as TaskStories from './Task.stories';
 
 export default {
   component: PureTaskList,
@@ -12,24 +12,42 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-export const defaultTasksData = [
-  { ...taskData, id: '1', title: 'Task 1' },
-  { ...taskData, id: '2', title: 'Task 2' },
-  { ...taskData, id: '3', title: 'Task 3' },
-  { ...taskData, id: '4', title: 'Task 4' },
-  { ...taskData, id: '5', title: 'Task 5' },
-  { ...taskData, id: '6', title: 'Task 6' },
-];
+const Template = args => <PureTaskList {...args} />;
+export const Default = Template.bind({});
 
-export const withPinnedTasksData = [
-  ...defaultTasksData.slice(0, 5),
-  { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
-];
+Default.args = {
+  // Shaping the stories through args composition.
+  // The data was inherited the Default story in task.stories.js.
+  tasks: [
+    { ...TaskStories.Default.args.task, id: '1', title: 'Task 1' },
+    { ...TaskStories.Default.args.task, id: '2', title: 'Task 2' },
+    { ...TaskStories.Default.args.task, id: '3', title: 'Task 3' },
+    { ...TaskStories.Default.args.task, id: '4', title: 'Task 4' },
+    { ...TaskStories.Default.args.task, id: '5', title: 'Task 5' },
+    { ...TaskStories.Default.args.task, id: '6', title: 'Task 6' },
+  ],
+};
 
-export const Default = () => <PureTaskList tasks={defaultTasksData} {...actionsData} />;
+export const WithPinnedTasks = Template.bind({});
+WithPinnedTasks.args = {
+  // Shaping the stories through args composition.
+  // Inherited data coming from the Default story.
+  tasks: [
+    ...Default.args.tasks.slice(0, 5),
+    { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
+  ],
+};
 
-export const WithPinnedTasks = () => <PureTaskList tasks={withPinnedTasksData} {...actionsData} />;
+export const Loading = Template.bind({});
+Loading.args = {
+  tasks: [],
+  loading: true,
+};
 
-export const Loading = () => <PureTaskList loading tasks={[]} {...actionsData} />;
-
-export const Empty = () => <PureTaskList tasks={[]} {...actionsData} />;
+export const Empty = Template.bind({});
+Empty.args = {
+  // Shaping the stories through args composition.
+  // Inherited data coming from the Loading story.
+  ...Loading.args,
+  loading: false,
+};
