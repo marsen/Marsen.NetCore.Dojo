@@ -17,6 +17,7 @@ jobs:
           path: src/marsen.react
       - run: |
           cd ./src/marsen.react
+          ls
           yarn chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       #- name: Publish Storybook Chromatic
         #uses: chromaui/action@v1        
