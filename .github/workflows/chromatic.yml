@@ -12,7 +12,8 @@ jobs:
     # the list of steps that the action will go through
     steps:
       - uses: actions/checkout@v1
-      - run: cd ./src/marsen.react     
+      - run: cd ./src/marsen.react
+        working-directory: ./src/marsen.react
       - uses: chromaui/action@v1
         # options required to the GitHub chromatic action        
         with:          
