@@ -17,7 +17,7 @@ jobs:
           path: src/marsen.react
       - run: |
           shopt -s dotglob
-          cp -r monorepo/mysubdir/* .
+          cp -r src/marsen.react/* .
       - run: yarn          
         #- run: cd ./src/marsen.react        
       - name: Publish Storybook Chromatic
