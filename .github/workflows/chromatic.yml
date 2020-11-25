@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          
-      - run: yarn chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --cwd "src/marsen.react"
+          path: src/marsen.react
+      - run: yarn chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       #- name: Publish Storybook Chromatic
         #uses: chromaui/action@v1        
         # options required to the GitHub chromatic action        
