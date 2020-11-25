@@ -11,13 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     # the list of steps that the action will go through
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: cd ./src/marsen.react
-        working-directory: ./src/marsen.react
-      - uses: chromaui/action@v1
+        
+      - uses: yigityuce/chromatic-cli@v1
         # options required to the GitHub chromatic action        
         with:          
           # our project token, to see how to obtain it
           # refer to https://www.learnstorybook.com/intro-to-storybook/react/en/deploy/
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          working-directory: ./src/marsen.react
+          exitZeroOnChanges: true
+          
