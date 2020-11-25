@@ -10,9 +10,12 @@ jobs:
     # the operating system it will run on
     runs-on: ubuntu-latest
     # the list of steps that the action will go through
-    steps:
+    steps:      
       - uses: actions/checkout@v1
-      - run: yarn
+      - name: cd to marsen.react
+      - run: cd src/marsen.react
+      - name: Yarn
+      - run: yarn        
       - uses: chromaui/action@v1
         # options required to the GitHub chromatic action
         with:
