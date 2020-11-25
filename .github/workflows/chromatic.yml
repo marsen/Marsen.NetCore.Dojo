@@ -12,4 +12,4 @@ jobs:
     # the list of steps that the action will go through
     steps:
       - uses: actions/checkout@v2
-      - run: cd ./src/marsen.react && yarn && yarn build && yarn build-storybook && yarn chromatic ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - run: cd ./src/marsen.react && yarn && yarn build && yarn build-storybook && yarn chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
