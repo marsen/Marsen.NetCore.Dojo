@@ -11,12 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     # the list of steps that the action will go through
     steps:
-      - uses: actions/checkout@v1
-      - run: yarn        
-      - uses: chromaui/action@v1                
+      - uses: actions/checkout@v2
+      - run: yarn && yarn build && yarn build-storybook
+      - uses: src/marsen.react
         # options required to the GitHub chromatic action
-        with:
-          working-directory: src\marsen.react  
+        with:          
           # our project token, to see how to obtain it
           # refer to https://www.learnstorybook.com/intro-to-storybook/react/en/deploy/
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
