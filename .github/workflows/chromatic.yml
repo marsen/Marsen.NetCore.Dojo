@@ -15,10 +15,7 @@ jobs:
         with:
           fetch-depth: 0
           path: src/marsen.react
-      - run: |
-          cd src/marsen.react &&
-          ls src/marsen.react &&
-          yarn chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - run: cd src/marsen.react && yarn chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} && ls
       #- name: Publish Storybook Chromatic
         #uses: chromaui/action@v1        
         # options required to the GitHub chromatic action        
