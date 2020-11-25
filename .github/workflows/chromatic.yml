@@ -12,7 +12,7 @@ jobs:
     # the list of steps that the action will go through
     steps:
       - uses: actions/checkout@v2
-      - run: yarn && yarn build && yarn build-storybook
+      - run: cd ./src/marsen.react && yarn && yarn build && yarn build-storybook
       - uses: ./src/marsen.react
         # options required to the GitHub chromatic action
         with:          
