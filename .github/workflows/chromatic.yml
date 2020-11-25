@@ -15,6 +15,10 @@ jobs:
         with:
           fetch-depth: 0
           path: src/marsen.react
+      - run: |
+          shopt -s dotglob
+          cp -r monorepo/mysubdir/* .
+      - run: yarn          
         #- run: cd ./src/marsen.react        
       - name: Publish Storybook Chromatic
         uses: chromaui/action@v1        
