@@ -14,15 +14,15 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          path: src/marsen.react
         #- run: cd ./src/marsen.react        
       - name: Publish Storybook Chromatic
-        uses: yigityuce/chromatic-cli@v1
+        uses: chromaui/action@v1        
         # options required to the GitHub chromatic action        
         with:          
           # our project token, to see how to obtain it
           # refer to https://www.learnstorybook.com/intro-to-storybook/react/en/deploy/
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          working-directory: ./src/marsen.react
           exitZeroOnChanges: true
           
