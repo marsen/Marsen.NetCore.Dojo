@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd src/marsen.react && yarn && yarn build && yarn build-storybook
-      - uses: ./src/marsen.react
+      - uses: marsen/chromatic-cli@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
