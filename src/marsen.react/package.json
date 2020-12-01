@@ -7,10 +7,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-redux": "^7.2.2",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^3.4.4",
     "redux": "^4.0.5",
     "sb": "^6.1.9",
     "storybook": "^6.1.9"
@@ -47,6 +47,6 @@
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/react": "^6.1.9",
     "chromatic": "^5.4.0",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.14.0"
   }
 }
