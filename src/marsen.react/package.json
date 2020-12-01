@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@storybook/cli": "^6.1.2",
+    "@storybook/cli": "^6.1.9",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -12,8 +12,8 @@
     "react-redux": "^7.2.2",
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
-    "sb": "^6.1.2",
-    "storybook": "^6.1.2"
+    "sb": "^6.1.9",
+    "storybook": "^6.1.9"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,12 +40,12 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.1.2",
-    "@storybook/addon-links": "^6.1.2",
-    "@storybook/addon-storyshots": "^6.1.2",
-    "@storybook/addons": "^6.1.2",
+    "@storybook/addon-actions": "^6.1.9",
+    "@storybook/addon-links": "^6.1.9",
+    "@storybook/addon-storyshots": "^6.1.9",
+    "@storybook/addons": "^6.1.9",
     "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.2",
+    "@storybook/react": "^6.1.9",
     "chromatic": "^5.4.0",
     "react-test-renderer": "^16.13.1"
   }
