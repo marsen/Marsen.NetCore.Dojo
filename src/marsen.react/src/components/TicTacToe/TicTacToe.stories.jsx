@@ -11,5 +11,5 @@ export default {
 
 
 export const Default = () => <TicTacToe />;
-export const TheSquare =() => <Square />;
-export const TheWinSquare =() => <Square isWin />;
+export const TheSquare = () => <Square />;
+export const TheWinSquare = () => <Square isWin />;
