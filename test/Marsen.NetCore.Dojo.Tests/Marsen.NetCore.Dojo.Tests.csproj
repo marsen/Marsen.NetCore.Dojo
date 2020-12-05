@@ -44,5 +44,4 @@
   <ItemGroup>
     <Folder Include="Kata\PickupService" />
   </ItemGroup>
-
 </Project>

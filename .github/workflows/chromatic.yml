@@ -2,8 +2,12 @@
 # name of our action
 name: 'Chromatic Deployment'
 # the event that will trigger the action
-on: push
-
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
 # what the action will do
 jobs:
   test:

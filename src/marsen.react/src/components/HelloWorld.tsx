@@ -1,8 +1,13 @@
 import React from 'react';
 
 
-class HelloWorld extends React.Component {
-    render() {
+type HelloWorldProps = {
+  name?: string
+}
+
+class HelloWorld extends React.Component<HelloWorldProps> {
+    
+  render() {
       return (
         <div>
           Hello { this.props.name ? this.props.name : "World"}
