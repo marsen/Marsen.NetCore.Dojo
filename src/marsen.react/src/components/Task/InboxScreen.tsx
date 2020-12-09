@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import TaskList from './TaskList';
 
 export function PureInboxScreen({ error }) {
@@ -23,7 +22,7 @@ export function PureInboxScreen({ error }) {
     <div className="page lists-show">
       <nav>
         <h1 className="title-page">
-          <span className="title-wrapper">Taskbox</span>
+          <span className="title-wrapper">TaskBox</span>
         </h1>
       </nav>
       <TaskList />
