@@ -1,9 +1,7 @@
-// src/components/Task.js
-
+// src/components/Task.tsx
 import React from 'react';
 
-
-function Task(props:Props) {
+function Task(props:TaskProps) {
   return (
     <div className={`list-item ${props.task.state}`}>
       <label className="checkbox">
@@ -31,18 +29,15 @@ function Task(props:Props) {
   );
 }
 
-interface Props {
+export interface TaskProps {
   task:{
-    id: string,
-    title: string,
-    state: string
+    id?: string,
+    title?: string,
+    state: string,
+    updatedAt?: Date,
   },
   onArchiveTask: (id:string)=>void,
   onPinTask: (id:string)=>void
-}
-
-enum TaskState {
-  Archived = "TASK_ARCHIVED"
 }
 
 export default Task;

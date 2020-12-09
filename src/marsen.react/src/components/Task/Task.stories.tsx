@@ -1,14 +1,15 @@
 // src/components/Task.stories.tsx
 
 import React from 'react';
-import Task from './Task';
+import Task, { TaskProps } from './Task';
+import { Story } from '@storybook/react/types-6-0';
 
 export default {
   component: Task,
   title: 'Task',
 };
 
-const Template = args => <Task {...args} />;
+const Template:Story<TaskProps> = args => <Task {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
