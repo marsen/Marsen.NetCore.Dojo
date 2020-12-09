@@ -13,7 +13,7 @@ const Template:Story<TaskProps> = args => <Task {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
+  item: {
     id: '1',
     title: 'Test Task',
     state: 'TASK_INBOX',
@@ -23,16 +23,16 @@ Default.args = {
 
 export const Pinned = Template.bind({});
 Pinned.args = {
-  task: {
-    ...Default.args.task,
+  item: {
+    ...Default.args.item,
     state: 'TASK_PINNED',
   },
 };
 
 export const Archived = Template.bind({});
 Archived.args = {
-  task: {
-    ...Default.args.task,
+  item: {
+    ...Default.args.item,
     state: 'TASK_ARCHIVED',
   },
 };
