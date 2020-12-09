@@ -1,28 +1,28 @@
 // src/components/Task.js
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
-function Task({ task: { id, title, state }, onArchiveTask, onPinTask }) {
+
+function Task(props:Props) {
   return (
-    <div className={`list-item ${state}`}>
+    <div className={`list-item ${props.task.state}`}>
       <label className="checkbox">
         <input
           type="checkbox"
-          defaultChecked={state === 'TASK_ARCHIVED'}
+          defaultChecked={props.task.state === 'TASK_ARCHIVED'}
           disabled={true}
           name="checked"
         />
-        <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
+        <span className="checkbox-custom" onClick={(id) => props.onArchiveTask(props.task.id)} />
       </label>
       <div className="title">
-        <input type="text" value={title} readOnly={true} placeholder="Input title" />
+        <input type="text" value={props.task.title} readOnly={true} placeholder="Input title" />
       </div>
 
       <div className="actions" onClick={event => event.stopPropagation()}>
-        {state !== 'TASK_ARCHIVED' && (
+        {props.task.state !== 'TASK_ARCHIVED' && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a onClick={() => onPinTask(id)}>
+          <a onClick={() => props.onPinTask(props.task.id)}>
             <span className={`icon-star`} />
           </a>
         )}
@@ -31,14 +31,14 @@ function Task({ task: { id, title, state }, onArchiveTask, onPinTask }) {
   );
 }
 
-Task.propTypes = {
-  task: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
-  }),
-  onArchiveTask: PropTypes.func,
-  onPinTask: PropTypes.func,
-};
+interface Props {
+  task:{
+    id: string,
+    title: string,
+    state: string
+  },
+  onArchiveTask: (id:string)=>void,
+  onPinTask: (id:string)=>void
+}
 
 export default Task;
