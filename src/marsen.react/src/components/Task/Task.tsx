@@ -13,7 +13,7 @@ function Task(props:Props) {
           disabled={true}
           name="checked"
         />
-        <span className="checkbox-custom" onClick={(id) => props.onArchiveTask(props.task.id)} />
+        <span className="checkbox-custom" onClick={() => props.onArchiveTask(props.task.id)} />
       </label>
       <div className="title">
         <input type="text" value={props.task.title} readOnly={true} placeholder="Input title" />
