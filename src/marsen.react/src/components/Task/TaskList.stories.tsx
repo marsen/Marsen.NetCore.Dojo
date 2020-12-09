@@ -8,7 +8,7 @@ import * as TaskStories from './Task.stories';
 export default {
   component: PureTaskList,
   title: 'TaskList',
-  decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
+  decorators: [(story: () => React.ReactNode) => <div style={{ padding: '3rem' }}>{story()}</div>],
   excludeStories: /.*Data$/,
 };
 
