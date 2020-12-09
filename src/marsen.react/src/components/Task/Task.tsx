@@ -41,4 +41,8 @@ interface Props {
   onPinTask: (id:string)=>void
 }
 
+enum TaskState {
+  Archived = "TASK_ARCHIVED"
+}
+
 export default Task;

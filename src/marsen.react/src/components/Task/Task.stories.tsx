@@ -1,7 +1,6 @@
-// src/components/Task.stories.js
+// src/components/Task.stories.tsx
 
 import React from 'react';
-
 import Task from './Task';
 
 export default {
