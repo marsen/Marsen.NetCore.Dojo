@@ -36,9 +36,9 @@ export interface TaskProps {
 }
 
 export class TaskItem{
-  id?: string
+  id?: string 
   title?: string
-  state!: string;
+  state!: string
   updatedAt?: Date
 }
 
