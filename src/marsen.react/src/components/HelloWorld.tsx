@@ -1,12 +1,11 @@
 import React from 'react';
 
 
-type HelloWorldProps = {
+type User = {
   name?: string
 }
 
-class HelloWorld extends React.Component<HelloWorldProps> {
-    
+export default class HelloWorld extends React.Component<User> {    
   render() {
       return (
         <div>
@@ -16,4 +15,4 @@ class HelloWorld extends React.Component<HelloWorldProps> {
     }
   }
 
-export default HelloWorld;
+//export default HelloWorld;
