@@ -5,14 +5,12 @@ type User = {
   name?: string
 }
 
-export default class HelloWorld extends React.Component<User> {    
-  render() {
+export default function HelloWorld(args:User) {    
       return (
         <div>
-          Hello { this.props.name ? this.props.name : "World"}
+          Hello { args.name ? args.name : "World"}
         </div>
       );
-    }
-  }
+}
 
 //export default HelloWorld;

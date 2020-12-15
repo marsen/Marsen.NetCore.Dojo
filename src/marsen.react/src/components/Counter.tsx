@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 
 
-function Counter() {
-    // State: a counter value
-    const [counter, setCounter] = useState(0);
-  
-    // Action: code that causes an update to the state when something happens
+export default function Counter() {
 
-    const increment = () => {
-        
+    // State: a counter value
+    const [counter, setCounter] = useState<number>(0);
+    // Action: code that causes an update to the state when something happens
+    const increment = () => {        
       setCounter(prevCounter => { 
           return prevCounter + 1; 
         })
@@ -16,10 +14,10 @@ function Counter() {
   
     // View: the UI definition
     return (
-      <div>
-        Value: {counter} <button onClick={increment}>Increment</button>
-      </div>
+        <div>
+          Value: {counter} <button onClick={increment}>Increment</button>
+        </div>
     )
   }
 
-export default Counter;  
+//// export default Counter;  
