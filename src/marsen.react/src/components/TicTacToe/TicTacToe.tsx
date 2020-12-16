@@ -2,7 +2,16 @@ import React from 'react';
 import Board from './Board';
 
 export default class TicTacToe extends React.Component<{},{}> {
-    
+    readonly state = {
+        history:[{
+            squares: Array(9).fill(null),
+            position:-1
+        }],
+        stepNumber:0,
+        xIsNext: true,            
+        isWin:false,
+        historyAsc: true,            
+    };
     constructor(props:{}){
         super(props);
         this.state = {
