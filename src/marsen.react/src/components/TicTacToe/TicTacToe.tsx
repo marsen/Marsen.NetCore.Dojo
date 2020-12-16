@@ -1,8 +1,9 @@
 import React from 'react';
 import Board from './Board';
 
-export default class TicTacToe extends React.Component {
-    constructor(props){
+export default class TicTacToe extends React.Component<{},{}> {
+    
+    constructor(props:{}){
         super(props);
         this.state = {
             history:[{
@@ -37,7 +38,7 @@ export default class TicTacToe extends React.Component {
             history: history.concat([
                 {
                     squares: squares,
-                    position: '('+ parseInt(i / 3 + 1)+','+  parseInt(i % 3 + 1)+')'
+                    position: '('+ Math.floor(i / 3 + 1)+','+ (i % 3 + 1)+')'
                 }
             ]),            
             stepNumber: history.length,
