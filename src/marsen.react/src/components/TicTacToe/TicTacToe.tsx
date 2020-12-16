@@ -17,7 +17,7 @@ export default class TicTacToe extends React.Component<{},{}> {
         };
     }
 
-    handleClick(i) {
+    handleClick(i:number) {
         const history = this.state.history.slice(0,this.state.stepNumber + 1);   
         const current = history[history.length - 1]
         
@@ -46,7 +46,7 @@ export default class TicTacToe extends React.Component<{},{}> {
         });
     }
 
-    jumpTo(step){
+    jumpTo(step:number){
         this.setState({
             stepNumber: this.selectedStep(step),
             xIsNext: (this.selectedStep(step) % 2) === 0,
@@ -62,7 +62,7 @@ export default class TicTacToe extends React.Component<{},{}> {
                 <div className="game">
                 <div className="game-board">
                     <Board 
-                        winLine={winLine(current.squares)}
+                        winLine={winLine(current.squares) as number[]}
                         onClick={(i)=>this.handleClick(i)} 
                         squares={current.squares} />
                 </div>
@@ -99,19 +99,22 @@ export default class TicTacToe extends React.Component<{},{}> {
                     return moves;
     }
 
-    generateMovesList(step,move) {        
+    generateMovesList(step:number,move:number) {        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';         
             
             return (
                 <li key={move}>
-                    <button className={(move === this.selectedStep(this.state.stepNumber)) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button 
+                        className={(move === this.selectedStep(this.state.stepNumber)) ? "type-bold" : ""} 
+                        onClick={() => this.jumpTo(move)}>{desc}
+                    </button>
                 </li>
             );
     }
 
-    selectedStep(step) {
+    selectedStep(step:number) {
         return this.state.historyAsc ? step : this.state.history.length - step - 1;
     }
 
