@@ -125,7 +125,7 @@ export default class TicTacToe extends React.Component {
     }
   }
 
-  function winLine(squares) {
+  function winLine(squares:string[]) {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
