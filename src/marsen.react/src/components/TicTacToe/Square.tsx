@@ -1,9 +1,9 @@
 import React from 'react';
 
-type SquareProps = {
-  isWin: boolean,
-  value: string,
-  onClick:(event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void 
+type SquareProps={
+  isWin?: boolean | undefined,
+  value?: string | undefined ,
+  onClick?:(event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void | undefined
 }
 
 export default function Square(props: SquareProps) {
