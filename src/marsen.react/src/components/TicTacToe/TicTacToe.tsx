@@ -1,6 +1,10 @@
 import React from 'react';
 import Board from './Board';
 
+type History={
+    square:number[],
+    position:number|string
+}
 export default class TicTacToe extends React.Component<{},{}> {
     readonly state = {
         history:[{
@@ -103,12 +107,14 @@ export default class TicTacToe extends React.Component<{},{}> {
     
     moves(){
         const history = this.state.history ;                                       
-        const moves = (this.state.historyAsc ? [...history] : [...history].reverse())
+        const moves = (this.state.historyAsc ? 
+                    [...history] : 
+                    [...history].reverse())
                     .map((step,move)=>this.generateMovesList(step,move));
                     return moves;
     }
 
-    generateMovesList(step:number,move:number) {        
+    generateMovesList(step,move:number) {        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';         
