@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Task from './Task';
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
-export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
-  const events = {
+type TaskListProps = {
+  loading:boolean,
+  tasks: any[],
+  onPinTask: (event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void | undefined
+  onArchiveTask:(event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void | undefined
+}
+
+export function PureTaskList(props:TaskListProps) {
+  /*const events = {
     onPinTask,
     onArchiveTask,
-  };
+  };*/
 
   const LoadingRow = (
     <div className="loading-item">
@@ -20,7 +26,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     </div>
   );
 
-  if (loading) {    
+  if (props.loading) {    
     return (
       <div className="list-items">
         {LoadingRow}
@@ -33,7 +39,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     );
   }
   
-  if (tasks === undefined || tasks.length === 0) {
+  if (props.tasks === undefined || props.tasks.length === 0) {
     return (
         <div className="list-items">
             <div className="wrapper-message">
@@ -47,8 +53,8 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
   return (
     <div className="list-items">
-      {tasks.map(task => (
-        <Task key={task.id} task={task} {...events} />
+      {props.tasks.map(item => (
+        <Task key={item.id} item={item} />
       ))}
     </div>
   );
