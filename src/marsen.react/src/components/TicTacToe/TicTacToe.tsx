@@ -1,21 +1,18 @@
 import React from 'react';
 import Board from './Board';
 
-type History={
-    square:number[],
-    position:number|string
-}
-export default class TicTacToe extends React.Component<{},{}> {
-    readonly state = {
-        history:[{
-            squares: Array(9).fill(null),
-            position:-1
-        }],
-        stepNumber:0,
-        xIsNext: true,            
-        isWin:false,
-        historyAsc: true,            
-    };
+type History = 
+    | { squares:(string|null)[]; position:number|string }
+
+type TicTacToeProps =
+    {
+        history: History[],
+        stepNumber: number,
+        xIsNext: boolean,            
+        isWin: boolean,
+        historyAsc: boolean,   
+    }
+export default class TicTacToe extends React.Component<{},TicTacToeProps> {
     constructor(props:{}){
         super(props);
         this.state = {
@@ -114,7 +111,7 @@ export default class TicTacToe extends React.Component<{},{}> {
                     return moves;
     }
 
-    generateMovesList(step,move:number) {        
+    generateMovesList(step:History,move:number) {        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';         
@@ -144,7 +141,7 @@ export default class TicTacToe extends React.Component<{},{}> {
     }
   }
 
-  function winLine(squares:string[]) {
+  function winLine(squares:(string|null)[]) {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],

@@ -4,7 +4,7 @@ import Square from './Square';
 
 type BoardProps={ 
     winLine: number[],
-    squares: string[], 
+    squares: (string|null)[], 
     onClick: (value: number) => void
 }
 export default function Board(props:BoardProps) {

@@ -1,8 +1,8 @@
 import React from 'react';
 
-type SquareProps={
+type SquareProps = {
   isWin?: boolean | undefined,
-  value?: string | undefined ,
+  value?: string | null ,
   onClick?:(event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void | undefined
 }
 
