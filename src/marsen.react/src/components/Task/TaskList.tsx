@@ -3,7 +3,7 @@ import Task from './Task';
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
-type TaskListProps = {
+export type TaskListProps = {
   loading:boolean,
   tasks: any[],
   onPinTask: (id:string)=>void,

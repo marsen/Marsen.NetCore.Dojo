@@ -1,9 +1,9 @@
 // src/components/TaskList.stories.js
 
 import React from 'react';
-
-import { PureTaskList } from './TaskList';
-import * as TaskStories from './Task.stories';
+import { PureTaskList, TaskListProps } from './TaskList';
+import { TaskItem } from './Task';
+import { Story } from '@storybook/react/types-6-0';
 
 export default {
   component: PureTaskList,
@@ -12,28 +12,31 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-const Template = args => <PureTaskList {...args} />;
-export const Default = Template.bind({});
+const Template:Story<TaskListProps> = args => <PureTaskList {...args} />
 
-Default.args = {
-  // Shaping the stories through args composition.
-  // The data was inherited the Default story in task.stories.js.
+var defaultItem:TaskItem = { 
+  id:'1',
+  title:'Test Task',
+  state:'TASK_INBOX',
+  updatedAt: new Date(2018, 0, 1, 9, 0)
+};
+
+export const Default = Template.bind({});
+Default.args = { 
   tasks: [
-    { ...TaskStories.Default.args.item, id: '1', title: 'Task 1' },
-    { ...TaskStories.Default.args.item, id: '2', title: 'Task 2' },
-    { ...TaskStories.Default.args.item, id: '3', title: 'Task 3' },
-    { ...TaskStories.Default.args.item, id: '4', title: 'Task 4' },
-    { ...TaskStories.Default.args.item, id: '5', title: 'Task 5' },
-    { ...TaskStories.Default.args.item, id: '6', title: 'Task 6' },
+    { defaultItem, id: '1', title: 'Task 1' },
+    { defaultItem, id: '2', title: 'Task 2' },
+    { defaultItem, id: '3', title: 'Task 3' },
+    { defaultItem, id: '4', title: 'Task 4' },
+    { defaultItem, id: '5', title: 'Task 5' },
+    { defaultItem, id: '6', title: 'Task 6' },
   ],
 };
 
 export const WithPinnedTasks = Template.bind({});
-WithPinnedTasks.args = {
-  // Shaping the stories through args composition.
-  // Inherited data coming from the Default story.
+WithPinnedTasks.args = {  
   tasks: [
-    ...Default.args.tasks.slice(0, 5),
+    ...Default.args.tasks!.slice(0,5),
     { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
   ],
 };
@@ -45,9 +48,7 @@ Loading.args = {
 };
 
 export const Empty = Template.bind({});
-Empty.args = {
-  // Shaping the stories through args composition.
-  // Inherited data coming from the Loading story.
+Empty.args = {  
   ...Loading.args,
   loading: false,
 };

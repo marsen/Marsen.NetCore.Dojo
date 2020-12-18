@@ -36,8 +36,8 @@ export interface TaskProps {
 }
 
 export class TaskItem{
-  id: string = ""
-  title: string = ""
-  state: string = ""
+  id: string = ''
+  title: string = ''
+  state: string = 'TASK_INBOX'
   updatedAt?: Date
 }
