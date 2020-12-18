@@ -31,8 +31,8 @@ export default function Task(props:TaskProps) {
 
 export interface TaskProps {
   item:TaskItem,
-  onArchiveTask: (id?:string)=>void,
-  onPinTask: (id?:string)=>void
+  onArchiveTask: (id:string)=>void,
+  onPinTask: (id:string)=>void
 }
 
 export class TaskItem{

@@ -6,15 +6,11 @@ import { archiveTask, pinTask } from '../../lib/redux';
 type TaskListProps = {
   loading:boolean,
   tasks: any[],
-  onPinTask: (event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void | undefined
-  onArchiveTask:(event: React.MouseEvent<HTMLButtonElement,MouseEvent>)=>void | undefined
+  onPinTask: (id:string)=>void,
+  onArchiveTask:(id:string)=>void
 }
 
 export function PureTaskList(props:TaskListProps) {
-  /*const events = {
-    onPinTask,
-    onArchiveTask,
-  };*/
 
   const LoadingRow = (
     <div className="loading-item">
@@ -53,7 +49,7 @@ export function PureTaskList(props:TaskListProps) {
   return (
     <div className="list-items">
       {props.tasks.map(item => (
-        <Task key={item.id} item={item} />
+        <Task key={item.id} item={item} onPinTask={props.onPinTask} onArchiveTask={props.onArchiveTask}/>
       ))}
     </div>
   );
