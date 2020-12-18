@@ -4,11 +4,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TaskList from './TaskList';
 
-type Props = {
-  error:boolean
+export class InboxScreenProps {
+  error:string | undefined 
 }
 
-export function PureInboxScreen(props:Props) {
+export function PureInboxScreen(props:InboxScreenProps) {
   if (props.error) {
     return (
       <div className="page lists-show">
@@ -33,4 +33,4 @@ export function PureInboxScreen(props:Props) {
   );
 }
 
-export default connect((props:Props) => (props))(PureInboxScreen);
+export default connect((props:InboxScreenProps) => (props))(PureInboxScreen);
