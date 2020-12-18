@@ -1,5 +1,7 @@
 # App Log
 
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://www.chromatic.com/builds?appId=5fc5f5bbdbd8490021a5d394e)
+
 Install yarn
 
 ```shell
