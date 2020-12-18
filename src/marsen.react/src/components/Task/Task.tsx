@@ -1,7 +1,7 @@
 // src/components/Task.tsx
 import React from 'react';
 
-function Task(props:TaskProps) {
+export default function Task(props:TaskProps) {
   return (
     <div className={`list-item ${props.item.state}`}>
       <label className="checkbox">
@@ -41,5 +41,3 @@ export class TaskItem{
   state!: string
   updatedAt?: Date
 }
-
-export default Task;
