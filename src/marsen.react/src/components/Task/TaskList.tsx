@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
 export type TaskListProps = {
-  loading:boolean,
+  loading?:boolean,
   tasks: any[],
   onPinTask: (id:string)=>void,
   onArchiveTask:(id:string)=>void
