@@ -55,13 +55,9 @@ export function PureTaskList(props:TaskListProps) {
   );
 }
 
-PureTaskList.defaultProps = {
-  loading: false,
-};
-
 export default connect(
-  ({ tasks }) => ({
-    tasks: tasks.filter((t: { state: string; }) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
+  (props:TaskListProps) => ({
+    tasks: props.tasks.filter((t: { state: string; }) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
   }),
   dispatch => ({
     onArchiveTask: (id: any) => dispatch(archiveTask(id)),
