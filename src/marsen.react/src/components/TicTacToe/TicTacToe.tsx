@@ -1,8 +1,19 @@
 import React from 'react';
 import Board from './Board';
 
-export default class TicTacToe extends React.Component {
-    constructor(props){
+type History = 
+    | { squares:(string|null)[]; position:number|string }
+
+type TicTacToeProps =
+    {
+        history: History[],
+        stepNumber: number,
+        xIsNext: boolean,            
+        isWin: boolean,
+        historyAsc: boolean,   
+    }
+export default class TicTacToe extends React.Component<{},TicTacToeProps> {
+    constructor(props:{}){
         super(props);
         this.state = {
             history:[{
@@ -16,7 +27,7 @@ export default class TicTacToe extends React.Component {
         };
     }
 
-    handleClick(i) {
+    handleClick(i:number) {
         const history = this.state.history.slice(0,this.state.stepNumber + 1);   
         const current = history[history.length - 1]
         
@@ -37,7 +48,7 @@ export default class TicTacToe extends React.Component {
             history: history.concat([
                 {
                     squares: squares,
-                    position: '('+ parseInt(i / 3 + 1)+','+  parseInt(i % 3 + 1)+')'
+                    position: '('+ Math.floor(i / 3 + 1)+','+ (i % 3 + 1)+')'
                 }
             ]),            
             stepNumber: history.length,
@@ -45,7 +56,7 @@ export default class TicTacToe extends React.Component {
         });
     }
 
-    jumpTo(step){
+    jumpTo(step:number){
         this.setState({
             stepNumber: this.selectedStep(step),
             xIsNext: (this.selectedStep(step) % 2) === 0,
@@ -61,7 +72,7 @@ export default class TicTacToe extends React.Component {
                 <div className="game">
                 <div className="game-board">
                     <Board 
-                        winLine={winLine(current.squares)}
+                        winLine={winLine(current.squares) as number[]}
                         onClick={(i)=>this.handleClick(i)} 
                         squares={current.squares} />
                 </div>
@@ -93,24 +104,29 @@ export default class TicTacToe extends React.Component {
     
     moves(){
         const history = this.state.history ;                                       
-        const moves = (this.state.historyAsc ? [...history] : [...history].reverse())
+        const moves = (this.state.historyAsc ? 
+                    [...history] : 
+                    [...history].reverse())
                     .map((step,move)=>this.generateMovesList(step,move));
                     return moves;
     }
 
-    generateMovesList(step,move) {        
+    generateMovesList(step:History,move:number) {        
             const desc = step.position !== -1 ?
             'Go to move #' + move + step.position :
             'Go to game start';         
             
             return (
                 <li key={move}>
-                    <button className={(move === this.selectedStep(this.state.stepNumber)) ? "type-bold" : ""} onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button 
+                        className={(move === this.selectedStep(this.state.stepNumber)) ? "type-bold" : ""} 
+                        onClick={() => this.jumpTo(move)}>{desc}
+                    </button>
                 </li>
             );
     }
 
-    selectedStep(step) {
+    selectedStep(step:number) {
         return this.state.historyAsc ? step : this.state.history.length - step - 1;
     }
 
@@ -125,7 +141,7 @@ export default class TicTacToe extends React.Component {
     }
   }
 
-  function winLine(squares) {
+  function winLine(squares:(string|null)[]) {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],

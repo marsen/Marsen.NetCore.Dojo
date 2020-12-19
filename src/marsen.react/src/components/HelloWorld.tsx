@@ -1,19 +1,16 @@
 import React from 'react';
 
 
-type HelloWorldProps = {
+type User = {
   name?: string
 }
 
-class HelloWorld extends React.Component<HelloWorldProps> {
-    
-  render() {
+export default function HelloWorld(args:User) {    
       return (
         <div>
-          Hello { this.props.name ? this.props.name : "World"}
+          Hello { args.name ? args.name : "World"}
         </div>
       );
-    }
-  }
+}
 
-export default HelloWorld;
+//export default HelloWorld;

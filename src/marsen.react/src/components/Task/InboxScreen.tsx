@@ -1,13 +1,15 @@
 //src/components/InboxScreen.js
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import TaskList from './TaskList';
 
-export function PureInboxScreen({ error }) {
-  if (error) {
+type Props = {
+  error:boolean
+}
+
+export function PureInboxScreen(props:Props) {
+  if (props.error) {
     return (
       <div className="page lists-show">
         <div className="wrapper-message">
@@ -23,7 +25,7 @@ export function PureInboxScreen({ error }) {
     <div className="page lists-show">
       <nav>
         <h1 className="title-page">
-          <span className="title-wrapper">Taskbox</span>
+          <span className="title-wrapper">TaskBox</span>
         </h1>
       </nav>
       <TaskList />
@@ -31,13 +33,4 @@ export function PureInboxScreen({ error }) {
   );
 }
 
-PureInboxScreen.propTypes = {
-  /** The error message */
-  error: PropTypes.string,
-};
-
-PureInboxScreen.defaultProps = {
-  error: null,
-};
-
-export default connect(({ error }) => ({ error }))(PureInboxScreen);
+export default connect((props:Props) => (props))(PureInboxScreen);

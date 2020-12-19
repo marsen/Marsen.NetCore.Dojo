@@ -1,8 +1,8 @@
 module.exports = {
   stories: [
-    '../src/components/*.stories.jsx',
-    '../src/components/Task/*.stories.jsx',
-    '../src/components/TicTacToe/*.stories.jsx'],
+    '../src/components/Task/*.stories.tsx',
+    '../src/components/TicTacToe/*.stories.tsx',
+    '../src/components/*.stories.tsx'],
   addons: [    
     '@storybook/preset-create-react-app',
     '@storybook/addon-essentials/',

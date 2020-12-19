@@ -5,7 +5,7 @@ import Square from './Square';
 export default {
   component: TicTacToe,
   title: 'Game',
-  decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
+  decorators: [(story: () => React.ReactNode) => <div style={{ padding: '3rem' }}>{story()}</div>],
   excludeStories: /.*Data$/,
 };
 

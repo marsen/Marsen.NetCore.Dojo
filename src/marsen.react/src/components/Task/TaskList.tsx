@@ -1,15 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import Task from './Task';
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
-export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
-  const events = {
-    onPinTask,
-    onArchiveTask,
-  };
+export type TaskListProps = {
+  loading:boolean,
+  tasks: any[],
+  onPinTask: (id:string)=>void,
+  onArchiveTask:(id:string)=>void
+}
+
+export function PureTaskList(props:TaskListProps) {
 
   const LoadingRow = (
     <div className="loading-item">
@@ -20,7 +21,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     </div>
   );
 
-  if (loading) {    
+  if (props.loading) {    
     return (
       <div className="list-items">
         {LoadingRow}
@@ -33,7 +34,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     );
   }
   
-  if (tasks === undefined || tasks.length === 0) {
+  if (props.tasks === undefined || props.tasks.length === 0) {
     return (
         <div className="list-items">
             <div className="wrapper-message">
@@ -47,34 +48,19 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
   return (
     <div className="list-items">
-      {tasks.map(task => (
-        <Task key={task.id} task={task} {...events} />
+      {props.tasks.map(item => (
+        <Task key={item.id} item={item} onPinTask={props.onPinTask} onArchiveTask={props.onArchiveTask}/>
       ))}
     </div>
   );
 }
 
-PureTaskList.propTypes = {
-  /** Checks if it's in loading state */
-  loading: PropTypes.bool,
-  /** The list of tasks */
-  tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
-  /** Event to change the task to pinned */
-  onPinTask: PropTypes.func.isRequired,
-  /** Event to change the task to archived */
-  onArchiveTask: PropTypes.func.isRequired,
-};
-
-PureTaskList.defaultProps = {
-  loading: false,
-};
-
 export default connect(
-  ({ tasks }) => ({
-    tasks: tasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
+  (props:TaskListProps) => ({
+    tasks: props.tasks.filter((t: { state: string; }) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
   }),
   dispatch => ({
-    onArchiveTask: id => dispatch(archiveTask(id)),
-    onPinTask: id => dispatch(pinTask(id)),
+    onArchiveTask: (id: any) => dispatch(archiveTask(id)),
+    onPinTask: (id: any) => dispatch(pinTask(id)),
   })
 )(PureTaskList);

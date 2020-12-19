@@ -4,7 +4,7 @@ import Counter from './Counter'
 export default {
   component: Counter,
   title: 'Counter',
-  decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
+  decorators: [(story: () => React.ReactNode) => <div style={{ padding: '3rem' }}>{story()}</div>],
   // Our exports that end in "Data" are not stories.
   excludeStories: /.*Data$/,
 };
