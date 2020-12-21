@@ -27,7 +27,7 @@ function taskStateReducer(taskState: string) {
 }
 
 // The reducer describes how the contents of the store change for each action
-export const reducer = (state: any, action: { type: any; }) => {
+export const reducer = (state: any, action: { id:string; type: any; }) => {
   switch (action.type) {
     case actions.ARCHIVE_TASK:
       return taskStateReducer('TASK_ARCHIVED')(state, action);
