@@ -1,11 +1,11 @@
 import React from 'react';
-import Task from './Task';
+import Task, { TaskItem } from './Task';
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
 export type TaskListProps = {
   loading?:boolean,
-  tasks: any[],
+  tasks: TaskItem[],
   onPinTask: (id:string)=>void,
   onArchiveTask:(id:string)=>void
 }
