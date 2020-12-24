@@ -1,5 +1,5 @@
 import React from 'react';
-import Task, { TaskItem } from './Task';
+import Task, { TaskItem, TaskState } from './Task';
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
@@ -57,7 +57,7 @@ export function PureTaskList(props:TaskListProps) {
 
 export default connect(
   (props:TaskListProps) => ({
-    tasks: props.tasks.filter((t: { state: string; }) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
+    tasks: props.tasks.filter((t: { state: TaskState; }) => t.state === TaskState.Inbox || t.state === TaskState.Pinned ),
   }),
   dispatch => ({
     onArchiveTask: (id: any) => dispatch(archiveTask(id)),

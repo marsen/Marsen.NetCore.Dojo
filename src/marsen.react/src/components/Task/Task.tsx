@@ -1,13 +1,19 @@
 // src/components/Task.tsx
 import React from 'react';
 
+export enum TaskState{
+  Inbox = 'TASK_INBOX',
+  Pinned = 'TASK_PINNED',
+  Archived = 'TASK_ARCHIVED'
+}
+
 export default function Task(props:TaskProps) {
   return (
     <div className={`list-item ${props.item.state}`}>
       <label className="checkbox">
         <input
           type="checkbox"
-          defaultChecked={props.item.state === 'TASK_ARCHIVED'}
+          defaultChecked={props.item.state === TaskState.Archived}
           disabled={true}
           name="checked"
         />
@@ -18,7 +24,7 @@ export default function Task(props:TaskProps) {
       </div>
 
       <div className="actions" onClick={event => event.stopPropagation()}>
-        {props.item.state !== 'TASK_ARCHIVED' && (
+        {props.item.state !== TaskState.Archived && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a onClick={() => props.onPinTask(props.item.id)}>
             <span className={`icon-star`} />
@@ -38,6 +44,6 @@ export interface TaskProps {
 export class TaskItem{
   id: string = ''
   title: string = ''
-  state: string = 'TASK_INBOX'
+  state: TaskState = TaskState.Inbox
   updatedAt?: Date
 }
