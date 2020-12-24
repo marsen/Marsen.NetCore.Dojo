@@ -17,7 +17,7 @@ export const pinTask = (id: string) => ({ type: actions.PIN_TASK, id });
 
 // All our reducers simply change the state of a single task.
 function taskStateReducer(taskState: string) {
-  return (state: { tasks: TaskItem[]; }, action: { id: any; }) => {
+  return (state: { tasks: TaskItem[]; }, action: { id: string; }) => {
     return {
       ...state,
       tasks: state.tasks.map(task =>
