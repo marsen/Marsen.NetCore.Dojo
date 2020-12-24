@@ -3,6 +3,7 @@
 // A simple redux store/actions/reducer implementation.
 // A true app would be more complex and separated into different files.
 import { createStore } from 'redux';
+import { TaskState } from '../components/Task/Task';
 
 // The actions are the "names" of the changes that can happen to the store
 export const actions = {
@@ -40,11 +41,11 @@ export const reducer = (state: any, action: { id:string; type: any; }) => {
 
 // The initial state of our store when the app loads.
 // Usually you would fetch this from a server
-const defaultTasks = [
-  { id: '1', title: 'Something', state: 'TASK_INBOX' },
-  { id: '2', title: 'Something more', state: 'TASK_INBOX' },
-  { id: '3', title: 'Something else', state: 'TASK_INBOX' },
-  { id: '4', title: 'Something again', state: 'TASK_INBOX' },
+const defaultTasks = [  
+  { id: '1', title: 'Something', state: TaskState.Inbox },
+  { id: '2', title: 'Something more', state: TaskState.Inbox },
+  { id: '3', title: 'Something else', state: TaskState.Inbox },
+  { id: '4', title: 'Something again', state: TaskState.Inbox },
 ];
 
 // We export the constructed redux store
