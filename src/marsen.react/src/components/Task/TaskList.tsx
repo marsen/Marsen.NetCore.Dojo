@@ -60,7 +60,7 @@ export default connect(
     tasks: props.tasks.filter((t: { state: TaskState; }) => t.state === TaskState.Inbox || t.state === TaskState.Pinned ),
   }),
   dispatch => ({
-    onArchiveTask: (id: any) => dispatch(archiveTask(id)),
-    onPinTask: (id: any) => dispatch(pinTask(id)),
+    onArchiveTask: (id: string) => dispatch(archiveTask(id)),
+    onPinTask: (id: string) => dispatch(pinTask(id)),
   })
 )(PureTaskList);
