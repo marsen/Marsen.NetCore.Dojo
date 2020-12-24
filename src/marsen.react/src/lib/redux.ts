@@ -11,8 +11,8 @@ export const actions = {
 };
 
 // The action creators bundle actions with the data required to execute them
-export const archiveTask = (id: any) => ({ type: actions.ARCHIVE_TASK, id });
-export const pinTask = (id: any) => ({ type: actions.PIN_TASK, id });
+export const archiveTask = (id: string) => ({ type: actions.ARCHIVE_TASK, id });
+export const pinTask = (id: string) => ({ type: actions.PIN_TASK, id });
 
 // All our reducers simply change the state of a single task.
 function taskStateReducer(taskState: string) {
