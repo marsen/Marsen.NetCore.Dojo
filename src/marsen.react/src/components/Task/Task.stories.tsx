@@ -1,7 +1,7 @@
 // src/components/Task.stories.tsx
 
 import React from 'react';
-import Task, { TaskItem, TaskProps } from './Task';
+import Task, { TaskItem, TaskProps, TaskState } from './Task';
 import { Story } from '@storybook/react/types-6-0';
 
 export default {
@@ -14,7 +14,7 @@ const Template:Story<TaskProps> = args => <Task {...args} />;
 var defaultItem:TaskItem = { 
   id:'1',
   title:'Test Task',
-  state:'TASK_INBOX',
+  state:TaskState.Inbox,
   updatedAt: new Date(2018, 0, 1, 9, 0)
 };
 
