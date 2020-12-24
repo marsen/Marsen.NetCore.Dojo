@@ -7,6 +7,19 @@ export enum TaskState{
   Archived = 'TASK_ARCHIVED'
 }
 
+export interface TaskProps {
+  item:TaskItem,
+  onArchiveTask: (id:string) => void,
+  onPinTask: (id:string) => void
+}
+
+export class TaskItem{
+  id: string = ''
+  title: string = ''
+  state: TaskState = TaskState.Inbox
+  updatedAt?: Date
+}
+
 export default function Task(props:TaskProps) {
   return (
     <div className={`list-item ${props.item.state}`}>
@@ -33,17 +46,4 @@ export default function Task(props:TaskProps) {
       </div>
     </div>
   );
-}
-
-export interface TaskProps {
-  item:TaskItem,
-  onArchiveTask: (id:string) => void,
-  onPinTask: (id:string) => void
-}
-
-export class TaskItem{
-  id: string = ''
-  title: string = ''
-  state: TaskState = TaskState.Inbox
-  updatedAt?: Date
 }
