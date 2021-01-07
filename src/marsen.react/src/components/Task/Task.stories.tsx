@@ -23,12 +23,12 @@ Default.args = { item: defaultItem };
 
 export const Pinned = Template.bind({});
 var pinnedItem = Copy(defaultItem);
-pinnedItem.state='TASK_PINNED'
+pinnedItem.state=TaskState.Pinned
 Pinned.args = { item: pinnedItem };
 
 export const Archived = Template.bind({});
 var archivedItem = Copy(defaultItem);
-archivedItem.state='TASK_ARCHIVED';
+archivedItem.state=TaskState.Archived;
 Archived.args = {item: archivedItem};
 
 function Copy(obj:any) {  
