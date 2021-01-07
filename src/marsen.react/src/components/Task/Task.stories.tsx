@@ -15,11 +15,11 @@ var defaultItem:TaskItem = {
   id:'1',
   title:'Test Task',
   state:TaskState.Inbox,
-  updatedAt: new Date(2018, 0, 1, 9, 0)
+  updatedAt: new Date(2018, 0, 1, 9, 0),
 };
 
 export const Default = Template.bind({});
-Default.args = { item: defaultItem };
+Default.args = { item: defaultItem, };
 
 export const Pinned = Template.bind({});
 var pinnedItem = Copy(defaultItem);
