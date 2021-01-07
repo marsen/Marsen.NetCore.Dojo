@@ -30,7 +30,7 @@ export default function Task(props:TaskProps) {
           disabled={true}
           name="checked"
         />
-        <span className="checkbox-custom" onClick={() => props.onArchiveTask(props.item.id)} />
+        <span className="checkbox-custom" onClick={()=>props.onArchiveTask(props.item.id)} />
       </label>
       <div className="title">
         <input type="text" value={props.item.title} readOnly={true} placeholder="Input title" />
@@ -39,7 +39,7 @@ export default function Task(props:TaskProps) {
       <div className="actions" onClick={event => event.stopPropagation()}>
         {props.item.state !== TaskState.Archived && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a onClick={() => props.onPinTask(props.item.id)}>
+          <a onClick={()=>props.onPinTask(props.item.id)}>
             <span className={`icon-star`} />
           </a>
         )}
