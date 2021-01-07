@@ -1,4 +1,4 @@
-// src/components/TaskList.stories.js
+// src/components/TaskList.stories.tsx
 
 import React from 'react';
 import { PureTaskList, TaskListProps } from './TaskList';
