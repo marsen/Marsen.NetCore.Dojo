@@ -3,11 +3,11 @@ import Task, { TaskItem, TaskState } from './Task';
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
-export type TaskListProps = {
-  loading?:boolean,
+export interface TaskListProps {
+  loading:boolean,
   tasks: TaskItem[],
+  onArchiveTask: (id:string)=>void,
   onPinTask: (id:string)=>void,
-  onArchiveTask:(id:string)=>void
 }
 
 export function PureTaskList(props:TaskListProps) {
@@ -49,7 +49,7 @@ export function PureTaskList(props:TaskListProps) {
   return (
     <div className="list-items">
       {props.tasks.map(item => (
-        <Task key={item.id} item={item} onPinTask={props.onPinTask} onArchiveTask={props.onArchiveTask}/>
+        <Task key={item.id} item={item} onPinTask={pinTask} onArchiveTask={archiveTask}/>
       ))}
     </div>
   );
