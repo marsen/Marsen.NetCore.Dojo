@@ -49,9 +49,14 @@ export function PureTaskList(props:TaskListProps) {
     );
   }
 
+   const tasksInOrder = [
+    ...props.tasks.filter(t => t.state === 'TASK_PINNED'), //< ==== 固定頂部
+    ...props.tasks.filter(t => t.state !== 'TASK_PINNED'),
+  ];
+
   return (
     <div className="list-items">
-      {props.tasks.map(item => (
+      {tasksInOrder.map(item => (
         <Task key={item.id} item={item} {...props.events}/>
       ))}
     </div>
