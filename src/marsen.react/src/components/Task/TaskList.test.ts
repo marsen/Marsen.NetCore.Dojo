@@ -6,7 +6,7 @@ import { WithPinnedTasks } from './TaskList.stories';
 
 it('renders pinned tasks at the start of the list', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<WithPinnedTasks />, div);
+  ReactDOM.render(React.createElement(WithPinnedTasks), div);
 
   // We expect the task titled "Task 6 (pinned)" to be rendered first, not at the end
   const lastTaskInput = div.querySelector('.list-item:nth-child(6) input[value="Task 6 (pinned)"]');  
