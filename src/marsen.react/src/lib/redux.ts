@@ -35,6 +35,7 @@ const defaultTasks:Array<TaskItem> = [
   { id: '4', title: 'Something again', state: TaskState.Inbox },
 ];
 
+
 // We export the constructed redux store
 export default createStore(reducer, { tasks: defaultTasks });
 

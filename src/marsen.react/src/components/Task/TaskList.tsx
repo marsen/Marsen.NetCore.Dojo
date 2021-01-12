@@ -7,8 +7,10 @@ import { archiveTask, pinTask } from '../../lib/redux';
 export interface TaskListProps {
   loading:boolean,
   tasks: TaskItem[],
-  onArchiveTask: (id:string)=>void,
-  onPinTask: (id:string)=>void,
+  events:{ 
+    onArchiveTask: (id:string)=>void,
+    onPinTask: (id:string)=>void,
+  }
 }
 
 export function PureTaskList(props:TaskListProps) {
@@ -50,7 +52,7 @@ export function PureTaskList(props:TaskListProps) {
   return (
     <div className="list-items">
       {props.tasks.map(item => (
-        <Task key={item.id} item={item} onPinTask={pinTask} onArchiveTask={archiveTask}/>
+        <Task key={item.id} item={item} {...props.events}/>
       ))}
     </div>
   );
