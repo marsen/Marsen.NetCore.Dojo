@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './lib/jsRedux';
-import InboxScreen from './components/jsTask/InboxScreen';
+import store from './lib/redux';
+import InboxScreen from './components/Task/InboxScreen';
 import './index.css';
 
 function App() {

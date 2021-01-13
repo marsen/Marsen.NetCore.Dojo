@@ -64,8 +64,8 @@ export function PureTaskList(props:TaskListProps) {
 }
 
 export default connect(
-  (tasks:TaskItem[]) => ({
-    tasks: tasks.filter(t => t.state === TaskState.Inbox || t.state === TaskState.Pinned ),
+  (props:TaskListProps) => ({
+    tasks: props.tasks.filter(t => t.state === TaskState.Inbox || t.state === TaskState.Pinned ),
   }),
   dispatch => ({
     onArchiveTask: (id: string) => dispatch(archiveTask(id)),
