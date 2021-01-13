@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../../lib/redux';
 
 export interface TaskListProps {
-  loading:boolean,
-  tasks: TaskItem[],
-  onArchiveTask: (id:string)=>void,
-  onPinTask: (id:string)=>void,  
+  loading?:boolean;
+  tasks: TaskItem[];
+  onArchiveTask: (id:string)=>void;
+  onPinTask: (id:string)=>void;  
 }
 
 export function PureTaskList(props:TaskListProps) {     
