@@ -1,5 +1,198 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Counter Default 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <div>
+    Value: 
+    0
+     
+    <button
+      onClick={[Function]}
+    >
+      Increment
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Game Default 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <div>
+    <div
+      className="game"
+    >
+      <div
+        className="game-board"
+      >
+        <div>
+          <div
+            className="board-row"
+          >
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+          </div>
+          <div
+            className="board-row"
+          >
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+          </div>
+          <div
+            className="board-row"
+          >
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+            <button
+              className="square"
+              onClick={[Function]}
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="game-info"
+      >
+        <div
+          className="status"
+        >
+          Next player: X
+           
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          SORT
+        </button>
+        <ol>
+          <li>
+            <button
+              className="type-bold"
+              onClick={[Function]}
+            >
+              Go to game start
+            </button>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div>
+      Mⓐⓡsen
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Game The Square 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <button
+    className="square"
+  />
+</div>
+`;
+
+exports[`Storyshots Game The Win Square 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <button
+    className="square win"
+  />
+</div>
+`;
+
+exports[`Storyshots HelloWord Default 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <div>
+    Hello 
+    World
+  </div>
+</div>
+`;
+
+exports[`Storyshots HelloWord Hello Mark 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <div>
+    Hello 
+    Mark
+  </div>
+</div>
+`;
+
+exports[`Storyshots HelloWord Hello Taylor 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+>
+  <div>
+    Hello 
+    Taylor
+  </div>
+</div>
+`;
+
 exports[`Storyshots Task Archived 1`] = `
 <div
   className="list-item TASK_ARCHIVED"
@@ -567,6 +760,46 @@ exports[`Storyshots TaskList With Pinned Tasks 1`] = `
     className="list-items"
   >
     <div
+      className="list-item TASK_PINNED"
+    >
+      <label
+        className="checkbox"
+      >
+        <input
+          defaultChecked={false}
+          disabled={true}
+          name="checked"
+          type="checkbox"
+        />
+        <span
+          className="checkbox-custom"
+          onClick={[Function]}
+        />
+      </label>
+      <div
+        className="title"
+      >
+        <input
+          placeholder="Input title"
+          readOnly={true}
+          type="text"
+          value="Task 6 (pinned)"
+        />
+      </div>
+      <div
+        className="actions"
+        onClick={[Function]}
+      >
+        <a
+          onClick={[Function]}
+        >
+          <span
+            className="icon-star"
+          />
+        </a>
+      </div>
+    </div>
+    <div
       className="list-item TASK_INBOX"
     >
       <label
@@ -751,46 +984,6 @@ exports[`Storyshots TaskList With Pinned Tasks 1`] = `
           readOnly={true}
           type="text"
           value="Task 5"
-        />
-      </div>
-      <div
-        className="actions"
-        onClick={[Function]}
-      >
-        <a
-          onClick={[Function]}
-        >
-          <span
-            className="icon-star"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      className="list-item TASK_PINNED"
-    >
-      <label
-        className="checkbox"
-      >
-        <input
-          defaultChecked={false}
-          disabled={true}
-          name="checked"
-          type="checkbox"
-        />
-        <span
-          className="checkbox-custom"
-          onClick={[Function]}
-        />
-      </label>
-      <div
-        className="title"
-      >
-        <input
-          placeholder="Input title"
-          readOnly={true}
-          type="text"
-          value="Task 6 (pinned)"
         />
       </div>
       <div
