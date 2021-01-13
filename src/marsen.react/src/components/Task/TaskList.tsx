@@ -7,14 +7,16 @@ import { archiveTask, pinTask } from '../../lib/redux';
 export interface TaskListProps {
   loading:boolean,
   tasks: TaskItem[],
-  events:{ 
-    onArchiveTask: (id:string)=>void,
-    onPinTask: (id:string)=>void,
-  }
+  onArchiveTask: (id:string)=>void,
+  onPinTask: (id:string)=>void,  
 }
 
-export function PureTaskList(props:TaskListProps) {
-
+export function PureTaskList(props:TaskListProps) {     
+  const events = { 
+    onArchiveTask:props.onArchiveTask,
+    onPinTask:props.onPinTask,
+   };
+  
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
@@ -49,7 +51,7 @@ export function PureTaskList(props:TaskListProps) {
     );
   }
 
-   const tasksInOrder = [
+  const tasksInOrder = [
     ...props.tasks.filter(t => t.state === 'TASK_PINNED'), //< ==== 固定頂部
     ...props.tasks.filter(t => t.state !== 'TASK_PINNED'),
   ];
@@ -57,7 +59,7 @@ export function PureTaskList(props:TaskListProps) {
   return (
     <div className="list-items">
       {tasksInOrder.map(item => (
-        <Task key={item.id} item={item} {...props.events}/>
+        <Task key={item.id} item={item} {...events}/>
       ))}
     </div>
   );
