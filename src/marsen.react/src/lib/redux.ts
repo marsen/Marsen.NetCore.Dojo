@@ -29,12 +29,11 @@ export const reducer = (state: any, action: { id:string; type: TaskState; }) => 
 // The initial state of our store when the app loads.
 // Usually you would fetch this from a server
 const defaultTasks:Array<TaskItem> = [  
-  { id: '1', title: 'Something', state: TaskState.Inbox },
+  { id: '1', title: 'First thing', state: TaskState.Inbox },
   { id: '2', title: 'Something more', state: TaskState.Inbox },
   { id: '3', title: 'Something else', state: TaskState.Inbox },
   { id: '4', title: 'Something again', state: TaskState.Inbox },
 ];
-
 
 // We export the constructed redux store
 export default createStore(reducer, { tasks: defaultTasks });
