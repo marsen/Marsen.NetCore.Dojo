@@ -17,9 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd src/marsen.react && yarn && yarn build && yarn build-storybook
-      - uses: chromaui/action@v1
+      - uses: marsen/chromatic-cli@v1
         with:
-          workingDir: src/marsen.react
+          workingDir: ./src/marsen.react
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}          
           storybookBuildDir: storybook-static
