@@ -26,7 +26,7 @@ namespace Marsen.NetCore.Dojo.Classes.GOOS
                 context.Response.ContentEncoding = Encoding.UTF8;
                 using var output = context.Response.OutputStream;
                 var hourOfDay = SystemDateTime.Now.Hour.ToString();
-                var response = new Greeter().Invoke(context.Request.QueryString["Name"],hourOfDay);
+                var response = new Greeter().Invoke(context.Request.QueryString["Name"], hourOfDay);
                 output.Write(Encoding.UTF8.GetBytes(response), 0, Encoding.UTF8.GetBytes(response).Length);
             }
         }

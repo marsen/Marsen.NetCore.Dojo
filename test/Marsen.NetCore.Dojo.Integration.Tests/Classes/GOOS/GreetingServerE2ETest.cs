@@ -14,12 +14,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
         [Fact]
         public void Should_Greet_With_Hello_World()
         {
+            SystemDateTime.Now = new DateTime(2020,11,18,15,0,0);
             Assert.Equal("Hello World", GetGreetingServerResult("greeting"));
         }
 
         [Fact]
         public void Should_Greet_By_Name()
         {
+            SystemDateTime.Now = new DateTime(2020,11,18,15,0,0);
             Assert.Equal("Hello Mark", GetGreetingServerResult("greeting?Name=Mark"));
         }
 
