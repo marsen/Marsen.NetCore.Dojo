@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
+namespace Marsen.NetCore.Dojo.Kata.Shape
 {
     public class ShapeValidator
     {
