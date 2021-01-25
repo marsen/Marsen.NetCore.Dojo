@@ -8,30 +8,33 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
 {
     public class GreetingServerE2ETest : InitializationTest
     {
-        private static readonly HttpClient GreetingServer = new HttpClient
-            {BaseAddress = new Uri("http://localhost:8080/")};
+        private static readonly HttpClient GreetingServer = new() {BaseAddress = new Uri("http://localhost:8080/")};
 
         [Fact]
         public void Should_Greet_With_Hello_World()
         {
-            SystemDateTime.Now = new DateTime(2020,11,18,15,0,0);
+            GiveNowHourIs(15);
             Assert.Equal("Hello World", GetGreetingServerResult("greeting"));
         }
 
         [Fact]
         public void Should_Greet_By_Name()
         {
-            SystemDateTime.Now = new DateTime(2020,11,18,15,0,0);
+            GiveNowHourIs(15);
             Assert.Equal("Hello Mark", GetGreetingServerResult("greeting?Name=Mark"));
         }
 
         [Fact]
         public void Should_Sleep_At_14()
         {
-            SystemDateTime.Now = new DateTime(2020,11,18,14,0,0);
+            GiveNowHourIs(14);
             Assert.Equal("Zzz", GetGreetingServerResult("greeting?Name=Mark"));
         }
 
+        private static void GiveNowHourIs(int hours)
+        {
+            SystemDateTime.Now = new DateTime(2020, 11, 18, hours, 0, 0);
+        }
 
         private static string GetGreetingServerResult(string requestUri)
         {
