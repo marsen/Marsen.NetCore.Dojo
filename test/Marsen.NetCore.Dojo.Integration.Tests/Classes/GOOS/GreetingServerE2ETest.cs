@@ -9,29 +9,43 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
     public class GreetingServerE2ETest : InitializationTest
     {
         private static readonly HttpClient GreetingServer = new() {BaseAddress = new Uri("http://localhost:8080/")};
+        private string _queryString;
 
         [Fact]
         public void Should_Greet_With_Hello_World()
         {
-            GiveNowHourIs(15);
-            Assert.Equal("Hello World", GetGreetingServerResult("greeting"));
+            GivenNowHourIs(15);
+            GivenQueryStringAs("greeting");
+            ResponseShouldBe("Hello World");
         }
 
         [Fact]
         public void Should_Greet_By_Name()
         {
-            GiveNowHourIs(15);
-            Assert.Equal("Hello Mark", GetGreetingServerResult("greeting?Name=Mark"));
+            GivenNowHourIs(15);
+            GivenQueryStringAs("greeting?Name=Mark");
+            ResponseShouldBe("Hello Mark");
         }
 
         [Fact]
         public void Should_Sleep_At_14()
         {
-            GiveNowHourIs(14);
-            Assert.Equal("Zzz", GetGreetingServerResult("greeting?Name=Mark"));
+            GivenNowHourIs(14);
+            GivenQueryStringAs("greeting?Name=Mark");
+            ResponseShouldBe("Zzz");
         }
 
-        private static void GiveNowHourIs(int hours)
+        private void ResponseShouldBe(string response)
+        {
+            Assert.Equal(response, GetGreetingServerResult(_queryString));
+        }
+
+        private void GivenQueryStringAs(string queryString)
+        {
+            _queryString = queryString;
+        }
+
+        private static void GivenNowHourIs(int hours)
         {
             SystemDateTime.Now = new DateTime(2020, 11, 18, hours, 0, 0);
         }
