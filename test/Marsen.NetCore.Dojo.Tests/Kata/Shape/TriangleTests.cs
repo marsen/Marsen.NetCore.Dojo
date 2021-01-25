@@ -11,6 +11,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
             Triangle triangle = new Triangle();
             Assert.True(triangle.IsTriangle(3, 3, 3));
         }
+
+        [Fact]
+        public void The_6_3_3_Can_NOT_be_Triangle()
+        {
+            Triangle triangle = new Triangle();
+            Assert.False(triangle.IsTriangle(6, 3, 3));
+        }
     }
 
     public class Triangle
