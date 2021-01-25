@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
@@ -30,17 +28,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
         private void CanBeTriangle(int edge1, int edge2, int edge3)
         {
             Assert.True(_validator.IsTriangle(edge1, edge2, edge3));
-        }
-    }
-
-    public class ShapeValidator
-    {
-        public bool IsTriangle(int edge1, int edge2, int edge3)
-        {
-            var edges = new List<int> {edge1, edge2, edge3};
-            var max = edges.Max();
-            var sumOfOther2Edges = edges.Sum() - max;
-            return sumOfOther2Edges > max;
         }
     }
 }
