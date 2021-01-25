@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
     {
         public bool IsTriangle(int line1, int line2, int line3)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
