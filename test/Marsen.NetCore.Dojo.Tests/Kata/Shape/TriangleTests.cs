@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
     {
         public bool IsTriangle(int line1, int line2, int line3)
         {
-            return true;
+            return line1>line2+line3;
         }
     }
 }
