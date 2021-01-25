@@ -31,6 +31,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
             CanBeTriangle(5, 12, 13);
         }
 
+        [Fact]
+        public void The_0_13_13_Can_NOT_be_Triangle()
+        {
+            CanBeNotTriangle(0, 13, 13);
+        }
+
 
         private void CanBeNotTriangle(int edge1, int edge2, int edge3)
         {
