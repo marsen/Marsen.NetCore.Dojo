@@ -37,7 +37,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Shape
             CanBeNotTriangle(0, 13, 13);
         }
 
-
         private void CanBeNotTriangle(int edge1, int edge2, int edge3)
         {
             Assert.False(_validator.IsTriangle(edge1, edge2, edge3));
