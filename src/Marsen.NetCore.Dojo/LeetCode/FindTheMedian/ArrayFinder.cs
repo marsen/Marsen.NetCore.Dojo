@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.LeetCode.FindTheMedian
     {
         public int Median(int[] array)
         {
-            return array.OrderBy(x => x)
+            return array.OrderByDescending(x => x)
                 .ElementAt(array.Length / 2);
         }
     }
