@@ -23,6 +23,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             _cartService.Add(new Product("A", 10, 1));
             _cartService.TotalPrice.Should().Be(10);
         }
+
+        [Fact]
+        public void There_is_one_Product_B_in_cart_TOTAL_PRICE_should_be_7()
+        {
+            _cartService.Add(new Product("B", 7, 1));
+            _cartService.TotalPrice.Should().Be(7);
+        }
     }
 
     public class CartService
