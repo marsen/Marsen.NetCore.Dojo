@@ -10,6 +10,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     public class CartServiceTests
     {
         private readonly CartService _cartService = new();
+        private readonly Product _10PriceProduct = new("A", 10, 1);
+        private readonly Product _7PriceProduct = new("B", 7, 1);
 
         [Fact]
         public void No_product_cart_TOTAL_PRICE_should_be_0()
@@ -20,14 +22,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         [Fact]
         public void There_is_one_Product_A_in_cart_TOTAL_PRICE_should_be_10()
         {
-            _cartService.Add(new Product("A", 10, 1));
+            _cartService.Add(_10PriceProduct);
             _cartService.TotalPrice.Should().Be(10);
         }
 
         [Fact]
         public void There_is_one_Product_B_in_cart_TOTAL_PRICE_should_be_7()
         {
-            _cartService.Add(new Product("B", 7, 1));
+            _cartService.Add(_7PriceProduct);
             _cartService.TotalPrice.Should().Be(7);
         }
     }
