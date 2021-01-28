@@ -17,7 +17,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     {
         public Product(string s, int i, int i1)
         {
-            throw new NotImplementedException();
         }
 
         public int SubTotal { get; set; }
