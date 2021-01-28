@@ -1,5 +1,5 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
+using Marsen.NetCore.Dojo.Kata.ShopMall;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
@@ -41,19 +41,5 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         {
             _product = new Product("A", price, qty);
         }
-    }
-
-    public class Product
-    {
-        private readonly int _price;
-        private readonly int _qty;
-
-        public Product(string name, int price, int qty)
-        {
-            _price = price;
-            _qty = qty;
-        }
-
-        public int SubTotal => _price * _qty;
     }
 }
