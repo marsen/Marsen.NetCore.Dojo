@@ -22,6 +22,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             _product.SubTotal.Should().Be(10);
         }
 
+        [Fact]
+        public void When_Product_A_Price_is_10_Qty_is_2_SubTotal_Should_Be_20()
+        {
+            GivePriceAndQty(10, 2);
+            _product.SubTotal.Should().Be(20);
+        }
+
 
         private void GivePriceAndQty(int price, int qty)
         {
