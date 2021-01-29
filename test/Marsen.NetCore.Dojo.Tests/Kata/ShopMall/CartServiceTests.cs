@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.ShopMall;
 using Xunit;
 
@@ -53,17 +51,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         private void GivenProductB(int qty)
         {
             _cart.Add(new("B", 7, qty));
-        }
-    }
-
-    public class CartService
-    {
-        private readonly List<Product> _products = new();
-        public int TotalPrice => _products.Sum(x => x.SubTotal);
-
-        public void Add(Product product)
-        {
-            _products.Add(product);
         }
     }
 }
