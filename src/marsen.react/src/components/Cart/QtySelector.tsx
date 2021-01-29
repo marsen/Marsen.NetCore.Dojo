@@ -4,10 +4,10 @@ import { Box, Button, Input } from '@material-ui/core';
 
 export default function QtySelector() {    
       return (        
-          <Box>              
+          <Box width={48}>
             <Button><ArrowDropUp/></Button>
                 <Input value="1" />
-            <Button><ArrowDropDown/></Button>                    
+            <Button><ArrowDropDown/></Button>
           </Box>
       );
 }
