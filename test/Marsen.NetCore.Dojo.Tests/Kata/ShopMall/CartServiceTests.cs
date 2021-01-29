@@ -42,7 +42,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             GivenProductB(2);
             _cart.TotalPrice.Should().Be(14);
         }
-        
+
+        [Fact]
+        public void There_is_One_Product_A_and_2_Product_B_in_cart_TOTAL_PRICE_should_be_44()
+        {
+            GivenProductA(3);
+            GivenProductB(2);
+            _cart.TotalPrice.Should().Be(44);
+        }
+
+
         private void GivenProductA(int qty)
         {
             _cart.Add(new("A", 10, qty));
