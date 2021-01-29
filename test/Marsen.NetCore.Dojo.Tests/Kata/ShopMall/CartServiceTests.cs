@@ -8,6 +8,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     {
         private readonly CartService _cart = new();
 
+        #region TotalPrice Test Cases
+
         [Fact]
         public void No_product_cart_TOTAL_PRICE_should_be_0()
         {
@@ -51,6 +53,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             _cart.TotalPrice.Should().Be(44);
         }
 
+        #endregion
 
         private void GivenProductA(int qty)
         {
