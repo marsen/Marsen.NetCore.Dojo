@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.ShopMall;
 using Xunit;
 
@@ -55,6 +56,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
 
         #endregion
 
+        [Fact]
+        public void Buy_Nothing_Cart_ProductList_Count_Should_Be_0()
+        {
+            throw new NotImplementedException();
+        }
+        
         private void GivenProductA(int qty)
         {
             _cart.Add(new("A", 10, qty));
