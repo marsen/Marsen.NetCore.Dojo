@@ -67,7 +67,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         {
             Product product = new("A", 10, 1);
             _cart.Add(product);
-            Assert.True(_cart.ProductList.Contains(product));
+            assert.Contains(product, _cart.ProductList);
         }
 
 
