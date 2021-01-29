@@ -32,16 +32,24 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             _cartService.Add(_7PriceProduct);
             _cartService.TotalPrice.Should().Be(7);
         }
+
+        [Fact]
+        public void There_is_one_Product_A_and_Product_B_in_cart_TOTAL_PRICE_should_be_17()
+        {
+            _cartService.Add(_10PriceProduct);
+            _cartService.Add(_7PriceProduct);
+            _cartService.TotalPrice.Should().Be(17);
+        }
     }
 
     public class CartService
     {
-        private List<Product> _products = new();
+        private readonly List<Product> _products = new();
         public int TotalPrice => _products.Sum(x => x.SubTotal);
 
         public void Add(Product product)
         {
-            _products = new List<Product> {product};
+            _products.Add(product);
         }
     }
 }
