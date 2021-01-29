@@ -7,6 +7,7 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall
     {
         private readonly List<Product> _products = new();
         public int TotalPrice => _products.Sum(x => x.SubTotal);
+        public List<Product> ProductList => _products;
 
         public void Add(Product product)
         {

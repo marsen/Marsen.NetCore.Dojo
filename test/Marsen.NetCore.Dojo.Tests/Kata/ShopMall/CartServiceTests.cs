@@ -59,9 +59,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         [Fact]
         public void Buy_Nothing_Cart_ProductList_Count_Should_Be_0()
         {
-            throw new NotImplementedException();
+            _cart.ProductList.Count.Should().Be(0);
         }
-        
+
         private void GivenProductA(int qty)
         {
             _cart.Add(new("A", 10, qty));
