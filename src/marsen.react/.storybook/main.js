@@ -1,6 +1,7 @@
 module.exports = {
   stories: [
     '../src/components/Task/*.stories.tsx',
+    '../src/components/MaterialUI/*.stories.tsx',
     '../src/components/TicTacToe/*.stories.tsx',
     '../src/components/*.stories.tsx'],
   addons: [    
