@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
 {
     public abstract class State
     {
-        protected readonly Dictionary<int, string> ScoreLookup = new Dictionary<int, string>
+        protected readonly Dictionary<int, string> ScoreLookup = new()
         {
             {0, "Love"},
             {1, "Fifteen"},
