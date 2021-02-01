@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class GameContextTests
     {
-        readonly GameContext _context = new GameContext("Sam", "Ben");
+        readonly GameContext _context = new("Sam", "Ben");
 
         [Fact]
         public void LoveAll()
@@ -162,7 +162,6 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
             GivenDeuce(100);
             ScoreShouldBe("Deuce");
         }
-
 
         private void GivenDeuce(int times)
         {

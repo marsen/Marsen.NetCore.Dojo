@@ -4,12 +4,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
     {
         public override string Score()
         {
-            if (Context.ServerPoint < 4 && Context.ReceiverPoint < 4)
-            {
-                return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
-            }
-
-            return "";
+            return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
         }
 
         protected override void ChangeState()
