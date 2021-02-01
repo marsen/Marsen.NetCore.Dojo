@@ -4,17 +4,17 @@
     {
         public string Invoke(string name, string hourOfDay)
         {
-            if (hourOfDay=="14")
-            {
-                return "Zzz";
-            }
-            var response = "Hello World";
-            if (string.IsNullOrEmpty(name) == false)
-            {
-                response = $"Hello {name}";
-            }
+            return Is14OClock(hourOfDay) ? "Zzz" : $"Hello {(HaveName(name) ? name : "World")}";
+        }
 
-            return response;
+        private static bool HaveName(string name)
+        {
+            return string.IsNullOrEmpty(name) == false;
+        }
+
+        private static bool Is14OClock(string hourOfDay)
+        {
+            return hourOfDay == "14";
         }
     }
 }
