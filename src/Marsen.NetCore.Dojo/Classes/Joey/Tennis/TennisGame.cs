@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 
         private int _secondPlayerScore;
 
-        private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>()
+        private readonly Dictionary<int, string> _scoreLookup = new()
         {
             {0, "Love"},
             {1, "Fifteen"},
