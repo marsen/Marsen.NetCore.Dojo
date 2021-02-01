@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
     {
         protected GameContext Context;
 
-        protected readonly Dictionary<int, string> ScoreLookup = new Dictionary<int, string>
+        protected readonly Dictionary<int, string> ScoreLookup = new()
         {
             {0, "Love"},
             {1, "Fifteen"},
@@ -37,7 +37,9 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
 
         protected string Winner()
         {
-            return Context.ReceiverPoint < Context.ServerPoint ? $"{Context.ServerName}" : $"{Context.ReceiverName}";
+            return Context.ServerPoint > Context.ReceiverPoint
+                ? Context.ServerName
+                : Context.ReceiverName;
         }
 
         protected bool IsSame()
