@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 //import { ArrowDropUp, ArrowDropDown } from '@material-ui/icons';
-import QtySelector from './QtySelector'
+import NumberSelector from './NumberSelector'
 
 
 export default {
@@ -19,4 +19,4 @@ export const Exit = () => <Button>✖</Button>
 export const Up = () => <Button><ArrowDropUp  /></Button>
 export const Down = () => <Button><ArrowDropDown /></Button>
 */
-export const Qty = () => <QtySelector />
+export const Number_Selector = () => <NumberSelector />
