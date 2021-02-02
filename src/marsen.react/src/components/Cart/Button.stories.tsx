@@ -2,7 +2,7 @@ import React from 'react';
 import SubTotal, { SubTotalProps } from './SubTotal';
 import NumberSelector from './NumberSelector';
 //import Product from './Product';
-import CartProduct from './CartProduct';
+import CartProduct, { CartProductProps } from './CartProduct';
 import Button from '@material-ui/core/Button';
 import { Story } from '@storybook/react/types-6-0'
 
@@ -16,7 +16,10 @@ export default {
 
 export const Number_Selector = () => <NumberSelector />
 //export const Cart_Product = () => <Product />
-export const Cart_Product = () => <CartProduct />
+
+const CartProductTemplate:Story<CartProductProps> = args => <CartProduct {...args} />;
+export const Cart_Product = CartProductTemplate.bind({});
+Cart_Product.args = { Qty:3, price:7, Name:'It is Love', Detail:"Something you should know before buy it" }
 
 const SubtotalTemplate:Story<SubTotalProps> = args => <SubTotal {...args} />;
 export const Subtotal_Default = SubtotalTemplate.bind({});

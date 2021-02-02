@@ -8,12 +8,12 @@ const style : CSSProperties =  {
   float: 'left'
 };
 
-export default function NumberSelector(prop:any) {    
+export default function NumberSelector(props:any) {    
       return (        
           <div style={{width:24,float:"left"}}>
-            <ArrowDropUp onClick={()=>{ prop.add() }}/>            
-            <Input id="prop.selectorId" value="1" inputProps={{min:0,style:style}} />
-            <ArrowDropDown onClick={()=>{ prop.minus() }} />
+            <ArrowDropUp onClick={()=>{ props.add() }}/>            
+            <Input id="prop.selectorId" value={props.Qty} inputProps={{min:0,style:style}} />
+            <ArrowDropDown onClick={()=>{ props.minus() }} />
           </div>          
       );
 }
