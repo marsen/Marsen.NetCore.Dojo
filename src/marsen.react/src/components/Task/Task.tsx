@@ -1,4 +1,4 @@
-// src/components/Task.tsx
+// src/components/Task/Task.tsx
 import React from 'react';
 
 export enum TaskState{
