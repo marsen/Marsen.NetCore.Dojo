@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import NumberSelector from './NumberSelector';
-import SubTotal from './CartProduct';
+import SubTotal from './SubTotal';
 
 
 export default {
@@ -12,12 +12,5 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-/*
-export const CheckOut = () => <Button variant="contained" color="primary">Check Out</Button>
-export const Back = () => <Button variant="contained">Back</Button>
-export const Exit = () => <Button>✖</Button>
-export const Up = () => <Button><ArrowDropUp  /></Button>
-export const Down = () => <Button><ArrowDropDown /></Button>
-*/
 export const Number_Selector = () => <NumberSelector />
 export const Sub_Total = () => <SubTotal />
