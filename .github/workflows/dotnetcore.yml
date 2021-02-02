@@ -17,8 +17,10 @@ jobs:
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
     - uses: actions/checkout@master                    
-    - name: SonarScanner Begin    
-      run: dotnet sonarscanner begin /k:"marsen_Marsen.NetCore.Dojo" /o:"marsen-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login="$SONAR_LOGIN
+    - uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Build with dotnet
       run: dotnet build ".\Marsen.NetCore.Dojo.Integration.Test.sln"   
     - name: UnitTest Result
@@ -27,8 +29,6 @@ jobs:
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --collect:"XPlat Code Coverage" --settings .coverlet       
     - name: Integration Test with dotnet
       run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx 
-    - name: SonarScanner End
-      run: dotnet sonarscanner end /d:"sonar.login="$SONAR_LOGIN 
     - name: Dotnet Stryker      
       run: dotnet stryker --solution-path "Marsen.NetCore.Dojo.sln" -tp "['./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj','./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj']" -p="./src/Marsen.NetCore.Dojo.csproj" -dk=$STRYKER_DASHBOARD_API_KEY
     env:
