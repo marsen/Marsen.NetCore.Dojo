@@ -1,7 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import NumberSelector from './NumberSelector';
+import ProductSubTotal from './ProductSubTotal';
 import SubTotal from './SubTotal';
+import Product from './Product';
 
 
 export default {
@@ -14,3 +16,5 @@ export default {
 
 export const Number_Selector = () => <NumberSelector />
 export const Sub_Total = () => <SubTotal />
+export const Cart_Product = () => <Product />
+export const Product_Sub_Total = () => <ProductSubTotal />
