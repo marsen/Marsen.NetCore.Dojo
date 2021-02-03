@@ -16,6 +16,7 @@ export interface CartProductProps {
   Detail: string,
 }
 
+/*
 const temp = {
       "Id": "Product-cc59829e-d2d9-463f-b503-248f98934584",
       "Picture": "yyy.jpg",
@@ -23,6 +24,7 @@ const temp = {
       "Qty": "2",
       "Price": "10"
     }
+*/    
 
 export default function CartProduct(props:CartProductProps) {    
       return (
