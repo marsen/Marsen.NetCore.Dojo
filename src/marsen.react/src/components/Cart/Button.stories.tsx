@@ -25,6 +25,6 @@ const SubtotalTemplate:Story<SubTotalProps> = args => <SubTotal {...args} />;
 export const Subtotal_Default = SubtotalTemplate.bind({});
 Subtotal_Default.args = {};
 export const Subtotal_EU = SubtotalTemplate.bind({});
-Subtotal_EU.args = { fontSize:100, subtotal:20, symbol:'Э' };
+Subtotal_EU.args = { fontSize:100, subtotal:20, symbol:'€' };
 export const Subtotal_NTD = SubtotalTemplate.bind({});
 Subtotal_NTD.args = { fontSize:10, subtotal:99, symbol:'NTD' };
