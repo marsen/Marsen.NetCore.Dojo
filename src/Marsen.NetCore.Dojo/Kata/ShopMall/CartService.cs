@@ -5,13 +5,12 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall
 {
     public class CartService
     {
-        private readonly List<Product> _products = new();
+        private readonly List<CartProduct> _products = new();
         public int TotalPrice => _products.Sum(x => x.SubTotal);
-        public List<Product> ProductList => _products;
-
-        public void Add(Product product)
+        public List<CartProduct> ProductList => _products;
+        public void Add(CartProduct cartProduct)
         {
-            _products.Add(product);
+            _products.Add(cartProduct);
         }
     }
 }

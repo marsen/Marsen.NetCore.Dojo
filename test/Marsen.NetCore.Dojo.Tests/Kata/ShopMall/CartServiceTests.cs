@@ -8,6 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     public class CartServiceTests
     {
         private readonly CartService _cart = new();
+        private CartProduct MILK_10_dollar;
 
         #region TotalPrice Test Cases
 
@@ -63,17 +64,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         }
 
         [Fact]
-        public void Buy_Product_A_Cart_ProductList_Should_Contain_Product_A()
+        public void Add_Product_A_Cart_ProductList_Should_Contain_Product_A()
         {
-            Product product = new("A", 10, 1);
-            _cart.Add(product);
-            Assert.Contains(product, _cart.ProductList);
+            CartProduct cartProduct = new("A", 10, 1);
+            _cart.Add(cartProduct);
+            Assert.Contains(cartProduct, _cart.ProductList);
         }
 
 
         private void GivenProductA(int qty)
         {
-            _cart.Add(new("A", 10, qty));
+            MILK_10_dollar = new("A", 10, qty);
+            _cart.Add(MILK_10_dollar);
         }
 
         private void GivenProductB(int qty)
