@@ -67,7 +67,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         public void Add_Product_A_Cart_ProductList_Should_Contain_Product_A()
         {
             CartProduct cartProduct = new("A", 10, 1);
-            _cart.Add(cartProduct);
+            _cart.ProductList.Add(cartProduct);
             Assert.Contains(cartProduct, _cart.ProductList);
         }
 
@@ -75,12 +75,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         private void GivenProductA(int qty)
         {
             MILK_10_dollar = new("A", 10, qty);
-            _cart.Add(MILK_10_dollar);
+            _cart.ProductList.Add(MILK_10_dollar);
         }
 
         private void GivenProductB(int qty)
         {
-            _cart.Add(new("B", 7, qty));
+            _cart.ProductList.Add(new("B", 7, qty));
         }
     }
 }
