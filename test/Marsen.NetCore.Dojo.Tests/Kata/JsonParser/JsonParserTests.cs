@@ -13,7 +13,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
                                   ""BirthDate"": ""1989/06/04""
                                   }";
 
-        private readonly PersonaParser _target = new PersonaParser();
+        private readonly PersonaParser _target = new();
 
         [Fact]
         public void parse_name()
