@@ -8,7 +8,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
 {
     public class JsonParserTests : IDisposable
     {
-        private readonly string _defaultTestJson = @"{ ""FirstName"": ""Tian"",
+        private readonly string _defaultTestJson = @"{ 
+                                  ""FirstName"": ""Tian"",
                                   ""LastName"": ""Tank"",
                                   ""BirthDate"": ""1989/06/04""
                                   }";
