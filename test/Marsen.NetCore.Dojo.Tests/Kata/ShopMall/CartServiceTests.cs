@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.ShopMall;
+using NSubstitute;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
@@ -68,7 +70,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         {
             CartProduct cartProduct = new("A", 10, 1);
             _cart.ProductList.Add(cartProduct);
-            Assert.Contains(cartProduct, _cart.ProductList);
+            Assert.Contains(cartProduct, _cart.ProductList.Where(x=>x.Name =="A"));
         }
 
 
