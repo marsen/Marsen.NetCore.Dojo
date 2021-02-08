@@ -20,37 +20,37 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         [Fact]
         public void There_is_one_Product_A_in_cart_TOTAL_PRICE_should_be_10()
         {
-            GivenAddMilk(1);
+            GivenAdd10DollarMilk(1);
             _cart.TotalPrice.Should().Be(10);
         }
 
         [Fact]
         public void There_is_one_Product_B_in_cart_TOTAL_PRICE_should_be_7()
         {
-            GivenAddOil(1);
+            GivenAdd7DollarOil(1);
             _cart.TotalPrice.Should().Be(7);
         }
 
         [Fact]
         public void There_is_one_Product_A_and_Product_B_in_cart_TOTAL_PRICE_should_be_17()
         {
-            GivenAddMilk(1);
-            GivenAddOil(1);
+            GivenAdd10DollarMilk(1);
+            GivenAdd7DollarOil(1);
             _cart.TotalPrice.Should().Be(17);
         }
 
         [Fact]
         public void There_is_2_Product_B_in_cart_TOTAL_PRICE_should_be_14()
         {
-            GivenAddOil(2);
+            GivenAdd7DollarOil(2);
             _cart.TotalPrice.Should().Be(14);
         }
 
         [Fact]
         public void There_is_One_Product_A_and_2_Product_B_in_cart_TOTAL_PRICE_should_be_44()
         {
-            GivenAddMilk(3);
-            GivenAddOil(2);
+            GivenAdd10DollarMilk(3);
+            GivenAdd7DollarOil(2);
             _cart.TotalPrice.Should().Be(44);
         }
 
@@ -71,12 +71,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         }
 
 
-        private void GivenAddMilk(int qty)
+        private void GivenAdd10DollarMilk(int qty)
         {
             _cart.ProductList.Add(new("A", 10, qty));
         }
 
-        private void GivenAddOil(int qty)
+        private void GivenAdd7DollarOil(int qty)
         {
             _cart.ProductList.Add(new("B", 7, qty));
         }
