@@ -17,13 +17,6 @@
             _qty = qty;
         }
 
-        public CartProduct(string name, int price, int qty)
-        {
-            Name = name;
-            Price = price;
-            _qty = qty;
-        }
-
         public int SubTotal => Price * _qty;
     }
 }
