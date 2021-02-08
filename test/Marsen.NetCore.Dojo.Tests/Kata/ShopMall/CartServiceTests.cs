@@ -8,8 +8,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     public class CartServiceTests
     {
         private readonly CartService _cart = new();
-        private readonly string _milk = "milk";
-        private readonly string _oil = "oil";
+        private const string Milk = "milk";
+        private const string Oil = "oil";
 
         #region TotalPrice Test Cases
 
@@ -67,20 +67,20 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         [Fact]
         public void Add_Product_A_Cart_ProductList_Should_Contain_Product_A()
         {
-            CartProduct cartProduct = new(_milk, 10, 1);
+            CartProduct cartProduct = new(Milk, 10, 1);
             _cart.ProductList.Add(cartProduct);
-            Assert.Contains(cartProduct, _cart.ProductList.Where(x => x.Name == _milk));
+            Assert.Contains(cartProduct, _cart.ProductList.Where(x => x.Name == Milk));
         }
 
 
         private void GivenAdd10DollarMilk(int qty)
         {
-            _cart.ProductList.Add(new(_milk, 10, qty));
+            _cart.ProductList.Add(new(Milk, 10, qty));
         }
 
         private void GivenAdd7DollarOil(int qty)
         {
-            _cart.ProductList.Add(new(_oil, 7, qty));
+            _cart.ProductList.Add(new(Oil, 7, qty));
         }
     }
 }
