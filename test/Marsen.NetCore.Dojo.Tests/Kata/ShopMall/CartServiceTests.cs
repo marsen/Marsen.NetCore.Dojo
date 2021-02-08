@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.ShopMall;
-using NSubstitute;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
@@ -10,7 +8,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     public class CartServiceTests
     {
         private readonly CartService _cart = new();
-        private CartProduct MILK_10_dollar;
 
         #region TotalPrice Test Cases
 
@@ -76,8 +73,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
 
         private void GivenProductA(int qty)
         {
-            MILK_10_dollar = new("A", 10, qty);
-            _cart.ProductList.Add(MILK_10_dollar);
+            _cart.ProductList.Add(new("A", 10, qty));
         }
 
         private void GivenProductB(int qty)
