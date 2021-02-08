@@ -15,6 +15,7 @@
             Name = product.Name;
             Price = product.Price;
         }
+
         public CartProduct(string name, int price, int qty)
         {
             Name = name;
