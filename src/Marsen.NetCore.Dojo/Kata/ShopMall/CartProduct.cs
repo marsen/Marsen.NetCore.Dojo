@@ -1,18 +1,22 @@
 ﻿namespace Marsen.NetCore.Dojo.Kata.ShopMall
 {
-    public class CartProduct
+    public class Product
     {
-        private readonly int _price;
+        protected int Price;
+        public string Name;
+    }
+
+    public class CartProduct : Product
+    {
         private readonly int _qty;
-        public readonly string Name;
 
         public CartProduct(string name, int price, int qty)
         {
             Name = name;
-            _price = price;
+            Price = price;
             _qty = qty;
         }
 
-        public int SubTotal => _price * _qty;
+        public int SubTotal => Price * _qty;
     }
 }
