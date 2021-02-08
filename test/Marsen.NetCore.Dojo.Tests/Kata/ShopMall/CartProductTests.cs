@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
 {
-    public class ProductTests
+    public class CartProductTests
     {
         private CartProduct _cartProduct;
 
