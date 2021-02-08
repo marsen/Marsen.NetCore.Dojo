@@ -36,10 +36,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             _cartProduct.SubTotal.Should().Be(14);
         }
 
-
         private void GivePriceAndQty(int price, int qty)
         {
-            _cartProduct = new CartProduct(new Product {Name = "A", Price = price}, qty);
+            _cartProduct = new CartProduct( "A",  price, qty);
         }
     }
 }
