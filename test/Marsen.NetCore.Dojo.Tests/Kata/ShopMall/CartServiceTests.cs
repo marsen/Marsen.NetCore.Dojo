@@ -75,12 +75,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
 
         private void GivenAdd10DollarMilk(int qty)
         {
-            _cart.ProductList.Add(new(Milk, 10, qty));
+            _cart.ProductList.Add(new(new Product {Name = Milk, Price = 10}, qty));
         }
 
         private void GivenAdd7DollarOil(int qty)
         {
-            _cart.ProductList.Add(new(Oil, 7, qty));
+            _cart.ProductList.Add(new(new Product {Name = Oil, Price = 7}, qty));
         }
     }
 }

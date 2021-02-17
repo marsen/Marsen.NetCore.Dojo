@@ -12,12 +12,6 @@
             _qty = qty;
         }
 
-        public CartProduct(string name, int price, int qty)
-        {
-            Product = new Product {Price = price, Name = name};
-            _qty = qty;
-        }
-
         public int SubTotal => Product.Price * _qty;
     }
 
