@@ -3,7 +3,6 @@
     public class CartProduct
     {
         public readonly Product Product;
-        public readonly string Name;
         private readonly int _price;
         private readonly int _qty;
 
@@ -15,7 +14,6 @@
 
         public CartProduct(string name, int price, int qty)
         {
-            Name = name;
             Product = new Product {Price = price, Name = name};
             _qty = qty;
         }
