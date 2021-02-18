@@ -72,7 +72,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
             Assert.Contains(milk, _cart.ProductList.Where(x => x.Product.Name == Milk));
         }
 
-
         private void GivenAdd10DollarMilk(int qty)
         {
             _cart.ProductList.Add(new(new Product {Name = Milk, Price = 10}, qty));
