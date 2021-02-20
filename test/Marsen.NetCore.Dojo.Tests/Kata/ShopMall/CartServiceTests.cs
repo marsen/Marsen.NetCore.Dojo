@@ -59,7 +59,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         #endregion
 
         [Fact]
-        public void Buy_Nothing_Cart_ProductList_Count_Should_Be_0()
+        public void Buy_Nothing_Then_Cart_ProductList_Count_Should_Be_0()
         {
             _cart.ProductList.ToList().Count.Should().Be(0);
         }
