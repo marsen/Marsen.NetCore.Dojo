@@ -61,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         [Fact]
         public void Buy_Nothing_Cart_ProductList_Count_Should_Be_0()
         {
-            _cart.ProductList.Count.Should().Be(0);
+            _cart.ProductList.ToList().Count.Should().Be(0);
         }
 
         [Fact]

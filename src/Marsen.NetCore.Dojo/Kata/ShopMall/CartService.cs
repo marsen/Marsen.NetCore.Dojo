@@ -7,7 +7,7 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall
     {
         private readonly List<CartProduct> _products = new();
         public int TotalPrice => _products.Sum(x => x.SubTotal);
-        public List<CartProduct> ProductList => _products;
+        public IEnumerable<CartProduct> ProductList => _products;
 
         public void Add(CartProduct product)
         {
