@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     {
         private readonly CartService _cart = new();
         private readonly Product _milk = new() {Name = "milk", Price = 10};
-        private const string Oil = "oil";
+        private readonly Product _oil = new() {Name = "oil", Price = 7};
 
         #region TotalPrice Test Cases
 
@@ -79,7 +79,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
 
         private void GivenAdd7DollarOil(int qty)
         {
-            _cart.Add(new(new Product {Name = Oil, Price = 7}, qty));
+            _cart.Add(new(_oil, qty));
         }
     }
 }
