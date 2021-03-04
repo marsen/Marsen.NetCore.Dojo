@@ -27,7 +27,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         public void TestCartSubtotal()
         {
             CartProduct cartProduct = new CartProduct(milk, 1);
-            Assert.Equal(cartProduct.SubTotal, 10);
+            Assert.Equal(10, cartProduct.SubTotal);
         }
     }
 }
