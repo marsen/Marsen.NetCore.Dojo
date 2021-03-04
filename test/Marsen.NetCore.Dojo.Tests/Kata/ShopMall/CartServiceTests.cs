@@ -9,6 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     {
         readonly CartService _cartService = new();
         private Cart _cart = new();
+
         /// <summary>
         /// Test Data
         /// </summary>
@@ -18,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         [Fact]
         public void TestCartTotal()
         {
-            _cart = _cartService.PutIn(new CartProduct(milk, 1),_cart);
+            _cart = _cartService.PutIn(new CartProduct(milk, 1), _cart);
             _cart.TotalPrice.Should().Be(10);
         }
 
