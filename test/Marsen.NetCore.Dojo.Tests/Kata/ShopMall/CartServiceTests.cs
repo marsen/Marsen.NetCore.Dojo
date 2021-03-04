@@ -8,17 +8,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     public class CartServiceTests
     {
         readonly CartService _cartService = new();
+        private Cart _cart = new();
         /// <summary>
         /// Test Data
         /// </summary>
-        private Product milk = new Product {Name = "Milk", Price = 10};
+        private Product milk = new() {Name = "Milk", Price = 10};
+
 
         [Fact]
         public void TestCartTotal()
         {
-            Cart cart = new Cart();
-            cart = _cartService.PutIn(new CartProduct(milk, 1),cart);
-            cart.TotalPrice.Should().Be(10);
+            _cart = _cartService.PutIn(new CartProduct(milk, 1),_cart);
+            _cart.TotalPrice.Should().Be(10);
         }
 
         [Fact]
