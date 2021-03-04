@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
     {
         public Cart PutIn(CartProduct product, Cart cart)
         {
-            cart.Add(product);
+            cart.PutIn(product);
             return cart;
         }
     }

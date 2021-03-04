@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Model
         public int TotalPrice => _products.Sum(x => x.SubTotal);
         public IEnumerable<CartProduct> ProductList => _products;
 
-        public void Add(CartProduct product)
+        public void PutIn(CartProduct product)
         {
             _products.Add(product);
         }
