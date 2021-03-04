@@ -1,4 +1,4 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.ShopMall
+﻿namespace Marsen.NetCore.Dojo.Kata.ShopMall.Model
 {
     public class CartProduct
     {
@@ -12,11 +12,5 @@
         }
 
         public int SubTotal => Product.Price * _qty;
-    }
-
-    public class Product
-    {
-        public int Price;
-        public string Name;
     }
 }

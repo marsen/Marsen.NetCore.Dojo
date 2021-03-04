@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.ShopMall;
+using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall

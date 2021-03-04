@@ -1,17 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata.ShopMall
+namespace Marsen.NetCore.Dojo.Kata.ShopMall.Model
 {
-    public class CartService
-    {
-        public Cart Add(CartProduct product, Cart cart)
-        {
-            cart.Add(product);
-            return cart;
-        }
-    }
-
     public class Cart
     {
         private readonly List<CartProduct> _products = new();
