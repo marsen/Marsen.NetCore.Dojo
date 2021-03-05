@@ -1,4 +1,5 @@
 ﻿using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
+using Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel;
 
 namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
 {

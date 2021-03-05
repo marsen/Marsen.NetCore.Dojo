@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
 
-namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
+namespace Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel
 {
     public class CartView
     {
-        public IEnumerable<CartProduct> ProductList { get; set; }
-        public int TotalPrice { get; set; }
+        public IEnumerable<CartProduct> ProductList { get; init; }
+        public int TotalPrice { get; init; }
     }
 }
