@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
+﻿using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
 
 namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
 {
@@ -16,11 +15,5 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
             _cart.PutIn(product);
             return new CartView{ ProductList=_cart.ProductList ,TotalPrice = _cart.TotalPrice};
         }
-    }
-
-    public class CartView
-    {
-        public IEnumerable<CartProduct> ProductList { get; set; }
-        public int TotalPrice { get; set; }
     }
 }
