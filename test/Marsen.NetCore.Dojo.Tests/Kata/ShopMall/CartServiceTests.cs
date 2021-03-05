@@ -21,6 +21,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         public void TestCartTotal()
         {
             _cart = _cartService.PutIn(new CartProduct(milk, 1));
+            _cart = _cartService.GetCart();
             _cart.TotalPrice.Should().Be(10);
         }
 

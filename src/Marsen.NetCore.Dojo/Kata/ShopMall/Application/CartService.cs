@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
             return GetCart();
         }
 
-        private Cart GetCart()
+        public Cart GetCart()
         {
             return new() {ProductList = _cart.ProductList, TotalPrice = _cart.TotalPrice};
         }
