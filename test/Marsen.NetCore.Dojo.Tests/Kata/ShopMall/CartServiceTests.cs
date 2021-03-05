@@ -3,19 +3,19 @@ using Marsen.NetCore.Dojo.Kata.ShopMall.Application;
 using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
 using Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel;
 using Xunit;
+using Cart = Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel.Cart;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
 {
     public class CartServiceTests
     {
         readonly CartService _cartService = new();
-        private CartView _cart = new();
+        private Cart _cart = new();
 
         /// <summary>
         /// Test Data
         /// </summary>
         private Product milk = new() {Name = "Milk", Price = 10};
-
 
         [Fact]
         public void TestCartTotal()

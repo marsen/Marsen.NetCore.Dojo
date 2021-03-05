@@ -1,20 +1,21 @@
 ﻿using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
-using Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel;
+using Cart = Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel.Cart;
 
 namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
 {
     public class CartService
     {
-        private Cart _cart;
+        private readonly Model.Cart _cart;
 
         public CartService()
         {
-            _cart = new Cart();
+            _cart = new Model.Cart();
         }
-        public CartView PutIn(CartProduct product)
+
+        public Cart PutIn(CartProduct product)
         {
             _cart.PutIn(product);
-            return new CartView{ ProductList=_cart.ProductList ,TotalPrice = _cart.TotalPrice};
+            return new Cart {ProductList = _cart.ProductList, TotalPrice = _cart.TotalPrice};
         }
     }
 }
