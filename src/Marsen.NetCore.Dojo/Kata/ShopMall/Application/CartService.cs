@@ -12,10 +12,9 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
             _cart = new Model.Cart();
         }
 
-        public Cart PutIn(CartProduct product)
+        public void PutIn(CartProduct product)
         {
             _cart.PutIn(product);
-            return GetCart();
         }
 
         public Cart GetCart()
