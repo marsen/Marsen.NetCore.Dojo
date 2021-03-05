@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
         {
             _cart = new Cart();
         }
-        public CartView PutIn(CartProduct product, Cart cart)
+        public CartView PutIn(CartProduct product)
         {
             _cart.PutIn(product);
             return new CartView{ ProductList=_cart.ProductList ,TotalPrice = _cart.TotalPrice};
