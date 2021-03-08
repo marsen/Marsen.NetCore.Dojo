@@ -1,5 +1,8 @@
-﻿using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
 using Cart = Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel.Cart;
+using Product = Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel.Product;
 
 namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
 {
@@ -19,7 +22,17 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
 
         public Cart GetCart()
         {
-            return new() {ProductList = _cart.ProductList, TotalPrice = _cart.TotalPrice};
+            return new()
+            {
+                ProductList = _cart
+                    .ProductList
+                    .Select(p => new Product
+                    {
+                        Name = p.Product.Name,
+                        Price = p.Product.Price.ToString()
+                    }),
+                TotalPrice = _cart.TotalPrice
+            };
         }
     }
 }

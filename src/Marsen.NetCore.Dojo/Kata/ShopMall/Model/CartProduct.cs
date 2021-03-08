@@ -2,15 +2,15 @@
 {
     public class CartProduct
     {
-        private readonly Product _product;
+        public readonly Product Product;
         private readonly int _qty;
 
         public CartProduct(Product product, int qty)
         {
-            _product = product;
+            Product = product;
             _qty = qty;
         }
 
-        public int SubTotal => _product.Price * _qty;
+        public int SubTotal => Product.Price * _qty;
     }
 }
