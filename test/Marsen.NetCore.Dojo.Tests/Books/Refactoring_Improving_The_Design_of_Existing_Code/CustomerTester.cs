@@ -53,7 +53,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Refactoring_Improving_The_Design_of_Ex
         }
 
         [Fact]
-        public void rent_1_childrens_one_day()
+        public void rent_1_children_one_day()
         {
             _customer.AddRental(new Rental(new Movie("A", MoveType.Children), 1));
             var actual = _customer.Statement();
@@ -64,7 +64,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Refactoring_Improving_The_Design_of_Ex
 
 
         [Fact]
-        public void rent_1_childrens_4_days()
+        public void rent_1_children_4_days()
         {
             _customer.AddRental(new Rental(new Movie("A", MoveType.Children), 4));
             var actual = _customer.Statement();
@@ -74,7 +74,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Refactoring_Improving_The_Design_of_Ex
         }
 
         [Fact]
-        public void rent_1_childrens_3_days()
+        public void rent_1_children_3_days()
         {
             _customer.AddRental(new Rental(new Movie("A", MoveType.Children), 3));
             var actual = _customer.Statement();
