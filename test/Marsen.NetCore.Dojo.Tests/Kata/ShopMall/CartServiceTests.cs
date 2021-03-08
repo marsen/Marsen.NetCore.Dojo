@@ -12,7 +12,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         /// <summary>
         /// Test Data
         /// </summary>
-        private Product milk = new() {Name = "Milk", Price = 10};
+        private Product milk = new() {Name = "Milk", Price = new Money{ number  = 10, symbol = "NTD"} };
 
         [Fact]
         public void TestCartTotal()

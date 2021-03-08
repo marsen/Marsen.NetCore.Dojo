@@ -11,6 +11,6 @@
             _qty = qty;
         }
 
-        public int SubTotal => Product.Price * _qty;
+        public int SubTotal => Product.Price.number * _qty;
     }
 }

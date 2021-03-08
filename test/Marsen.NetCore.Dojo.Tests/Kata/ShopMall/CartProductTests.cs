@@ -8,8 +8,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     public class CartProductTests
     {
         private CartProduct _cartProduct;
-        private readonly Product _10dollar = new() {Name = "A", Price = 10};
-        private readonly Product _7dollar = new() {Name = "B", Price = 7};
+        private readonly Product _10dollar = new() {Name = "A", Price = new Money {number = 10, symbol = "NTD"}};
+        private readonly Product _7dollar = new() {Name = "B", Price = new Money{number = 7, symbol = "NTD"}};
 
         [Fact]
         public void When_Product_A_Price_is_10_Qty_is_0_SubTotal_Should_Be_0()
