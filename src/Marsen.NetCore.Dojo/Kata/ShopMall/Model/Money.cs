@@ -2,8 +2,8 @@
 {
     public struct Money
     {
-        public int number { get; init; }
-        public string symbol { get; init; }
-        public override string ToString() => $"{number} {symbol}";
+        public int Value { get; init; }
+        public string Symbol { get; init; }
+        public override string ToString() => $"{Value} {Symbol}";
     }
 }
