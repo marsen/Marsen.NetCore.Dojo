@@ -1,4 +1,6 @@
-﻿using Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Visitor;
+﻿using System;
+using Marsen.NetCore.Dojo.E2E.Tests.Kata.ShopMall;
+using Newtonsoft.Json;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests
 {
@@ -6,7 +8,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
     {
         private static void Main(string[] args)
         {
-            GenderExpert.Run();
+            var result = JsonConvert.SerializeObject(new CartController().Get());
+            Console.WriteLine(result);
         }
     }
 }

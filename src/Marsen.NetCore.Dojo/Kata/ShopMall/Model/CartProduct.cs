@@ -3,14 +3,14 @@
     public class CartProduct
     {
         public readonly Product Product;
-        private readonly int _qty;
+        public readonly int Qty;
 
         public CartProduct(Product product, int qty)
         {
             Product = product;
-            _qty = qty;
+            Qty = qty;
         }
 
-        public int SubTotal => Product.Price.Value * _qty;
+        public Money SubTotal => new() {Value = Product.Price.Value * Qty, Symbol = "NTD"};
     }
 }

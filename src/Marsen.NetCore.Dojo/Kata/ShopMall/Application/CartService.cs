@@ -29,7 +29,9 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
                     .Select(p => new Product
                     {
                         Name = p.Product.Name,
-                        Price = p.Product.Price.ToString()
+                        Price = p.Product.Price.ToString(),
+                        SubTotal = p.SubTotal.ToString(),
+                        Qty = p.Qty
                     }),
                 TotalPrice = _cart.TotalPrice
             };

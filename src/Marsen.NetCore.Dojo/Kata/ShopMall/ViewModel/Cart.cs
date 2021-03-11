@@ -6,6 +6,6 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel
     public class Cart
     {
         public IEnumerable<Product> ProductList { get; init; }
-        public int TotalPrice { get; init; }
+        public Money TotalPrice { get; init; }
     }
 }

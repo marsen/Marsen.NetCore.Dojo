@@ -19,14 +19,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         {
             _cartService.PutIn(new CartProduct(milk, 1));
             var cart = _cartService.GetCart();
-            cart.TotalPrice.Should().Be(10);
+            cart.TotalPrice.Value.Should().Be(10);
         }
 
         [Fact]
         public void TestCartSubtotal()
         {
             CartProduct cartProduct = new CartProduct(milk, 1);
-            Assert.Equal(10, cartProduct.SubTotal);
+            Assert.Equal(10, cartProduct.SubTotal.Value);
         }
     }
 }

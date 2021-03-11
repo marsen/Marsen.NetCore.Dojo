@@ -1,4 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.ShopMall.Model
+﻿using System.Collections;
+
+namespace Marsen.NetCore.Dojo.Kata.ShopMall.Model
 {
     public struct Money
     {
