@@ -11,6 +11,6 @@
             Qty = qty;
         }
 
-        public Money SubTotal => new() {Value = Product.Price.Value * Qty, Symbol = "NTD"};
+        public int SubTotal => Product.Price * Qty;
     }
 }

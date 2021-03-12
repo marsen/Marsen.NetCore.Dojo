@@ -24,17 +24,23 @@ namespace Marsen.NetCore.Dojo.Kata.ShopMall.Application
         {
             return new()
             {
+                //// TODO:Replace with mapper
                 ProductList = _cart
                     .ProductList
                     .Select(p => new Product
                     {
                         Name = p.Product.Name,
-                        Price = p.Product.Price.ToString(),
-                        SubTotal = p.SubTotal.ToString(),
+                        Price = TotalPrice(p.Product.Price),
+                        SubTotal = TotalPrice(p.SubTotal),
                         Qty = p.Qty
                     }),
-                TotalPrice = _cart.TotalPrice
+                TotalPrice = TotalPrice(_cart.TotalPrice)
             };
+        }
+
+        private string TotalPrice(int price)
+        {
+            return $"{price} NTD";
         }
     }
 }

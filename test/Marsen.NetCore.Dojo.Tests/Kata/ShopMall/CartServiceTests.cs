@@ -12,21 +12,21 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         /// <summary>
         /// Test Data
         /// </summary>
-        private Product milk = new() {Name = "Milk", Price = new Money{ Value  = 10, Symbol = "NTD"} };
+        private Product milk = new() {Name = "Milk", Price = 10};
 
         [Fact]
         public void TestCartTotal()
         {
             _cartService.PutIn(new CartProduct(milk, 1));
             var cart = _cartService.GetCart();
-            cart.TotalPrice.Value.Should().Be(10);
+            cart.TotalPrice.Should().Be("10 NTD");
         }
 
         [Fact]
         public void TestCartSubtotal()
         {
             CartProduct cartProduct = new CartProduct(milk, 1);
-            Assert.Equal(10, cartProduct.SubTotal.Value);
+            Assert.Equal(10, cartProduct.SubTotal);
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Product
     {
-        public Money Price;
+        public int Price;
         public string Name;
     }
 }

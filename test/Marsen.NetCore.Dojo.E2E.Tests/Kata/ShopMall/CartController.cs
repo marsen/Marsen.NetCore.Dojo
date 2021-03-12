@@ -9,9 +9,9 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Kata.ShopMall
         public Cart Get()
         {
             var service = new CartService();
-            service.PutIn(new CartProduct(new Product {Name = "Milk", Price = new Money{Value = 10, Symbol = "NTD"}}, 1));
-            service.PutIn(new CartProduct(new Product {Name = "Oil", Price = new Money{Value = 7, Symbol = "NTD"}}, 2));
-            service.PutIn(new CartProduct(new Product {Name = "Bun", Price = new Money{Value = 6, Symbol = "NTD"}}, 3));
+            service.PutIn(new CartProduct(new Product {Name = "Milk", Price = 10}, 1));
+            service.PutIn(new CartProduct(new Product {Name = "Oil", Price = 7}, 2));
+            service.PutIn(new CartProduct(new Product {Name = "Bun", Price = 6}, 3));
             return service.GetCart();
         }
     }
