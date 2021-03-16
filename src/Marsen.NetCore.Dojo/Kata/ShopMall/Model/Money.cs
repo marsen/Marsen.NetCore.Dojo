@@ -2,28 +2,28 @@
 {
     public readonly struct Money
     {
-        private int Value { get; init; }
+        private int Price { get; init; }
         private string Symbol { get; init; }
-        public override string ToString() => $"{Value} {Symbol}";
+        public override string ToString() => $"{Price.ToString()} {Symbol}";
 
         public static Money operator +(Money a, Money b)
         {
-            return new() {Value = a.Value + b.Value, Symbol = a.Symbol};
+            return new() {Price = a.Price + b.Price, Symbol = a.Symbol};
         }
 
         public static Money operator ++(Money a)
         {
-            return new() {Value = a.Value + 1, Symbol = a.Symbol};
+            return new() {Price = a.Price + 1, Symbol = a.Symbol};
         }
 
         public static Money operator *(int d, Money a)
         {
-            return new() {Value = d * a.Value, Symbol = a.Symbol};
+            return new() {Price = d * a.Price, Symbol = a.Symbol};
         }
 
         public static Money operator *(Money a, int d)
         {
-            return new() {Value = d * a.Value, Symbol = a.Symbol};
+            return new() {Price = d * a.Price, Symbol = a.Symbol};
         }
     }
 }
