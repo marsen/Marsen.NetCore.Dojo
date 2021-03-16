@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Marsen.NetCore.Dojo.Kata.ShopMall.Model;
 using Cart = Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel.Cart;
 using Product = Marsen.NetCore.Dojo.Kata.ShopMall.ViewModel.Product;
