@@ -13,13 +13,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         private const string Password = "password";
         private const string Otp = "OTP";
 
-        private readonly IAuthentication authService = Substitute.For<IAuthentication>();
+        private readonly IAuthentication _authService = Substitute.For<IAuthentication>();
         private readonly IAccountService _accountService = Substitute.For<IAccountService>();
 
         [Fact]
         public void TestVerifyIsTrue()
         {
-            authService.Verify(Account, Password, Otp)
+            _authService.Verify(Account, Password, Otp)
                 .Returns(true);
             _accountService.IsLocked(Account)
                 .Returns(false);
@@ -30,7 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         [Fact]
         public void TestVerifyIsFalse()
         {
-            authService.Verify(Account, Password, Otp)
+            _authService.Verify(Account, Password, Otp)
                 .Returns(false);
             _accountService.IsLocked(Account)
                 .Returns(false);
@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 
         private AccountServiceDecorator GetDecorator()
         {
-            return new(authService, _accountService);
+            return new(_authService, _accountService);
         }
     }
 }
