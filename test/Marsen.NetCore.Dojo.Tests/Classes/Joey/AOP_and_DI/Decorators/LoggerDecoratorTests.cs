@@ -20,6 +20,16 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
             _logger.DidNotReceiveWithAnyArgs().Log(Arg.Any<string>());
         }
 
+        [Fact]
+        public void TestVerifyFalseShouldLog()
+        {
+            GivenVerifyResultIs(false);
+            var target = new LoggerDecorator(_authentication, _logger, _account);
+            target.Verify("account", "password", "OTP");
+            _logger.ReceivedWithAnyArgs(1).Log(Arg.Any<string>());
+        }
+
+
         private void GivenVerifyResultIs(bool result)
         {
             _authentication.Verify("account", "password", "OTP").Returns(result);
