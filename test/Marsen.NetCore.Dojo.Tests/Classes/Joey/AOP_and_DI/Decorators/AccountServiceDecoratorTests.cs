@@ -19,22 +19,36 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         [Fact]
         public void TestVerifyIsTrue()
         {
-            _authService.Verify(Account, Password, Otp)
-                .Returns(true);
-            _accountService.IsLocked(Account)
-                .Returns(false);
-            GetDecorator().Verify(Account, Password, Otp).Should().Be(true);
-            
+            GivenVerifyResultIs(true);
+            GivenAccountUnLocked();
+            VerifyShouldBe(true);
         }
+
 
         [Fact]
         public void TestVerifyIsFalse()
         {
-            _authService.Verify(Account, Password, Otp)
-                .Returns(false);
+            GivenVerifyResultIs(false);
+            GivenAccountUnLocked();
+            VerifyShouldBe(false);
+        }
+
+        private void VerifyShouldBe(bool expected)
+        {
+            ((AccountServiceDecorator) new(_authService, _accountService)).Verify(Account, Password, Otp).Should()
+                .Be(expected);
+        }
+
+        private void GivenAccountUnLocked()
+        {
             _accountService.IsLocked(Account)
                 .Returns(false);
-            GetDecorator().Verify(Account, Password, Otp).Should().Be(false);
+        }
+
+        private void GivenVerifyResultIs(bool result)
+        {
+            _authService.Verify(Account, Password, Otp)
+                .Returns(result);
         }
 
         private AccountServiceDecorator GetDecorator()
