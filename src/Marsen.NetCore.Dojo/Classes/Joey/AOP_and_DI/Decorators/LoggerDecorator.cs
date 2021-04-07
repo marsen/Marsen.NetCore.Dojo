@@ -16,20 +16,15 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators
             _accountService = accountService;
         }
 
-        private void Log(string accountId)
+        private bool VerifyFailedLog(string accountId)
         {
             _logger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
+            return false;
         }
 
         public bool Verify(string accountId, string password, string otp)
         {
-            if (_authenticationService.Verify(accountId, password, otp))
-            {
-                return true;
-            }
-
-            this.Log(accountId);
-            return false;
+            return _authenticationService.Verify(accountId, password, otp) || this.VerifyFailedLog(accountId);
         }
     }
 }
