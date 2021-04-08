@@ -23,24 +23,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
             }
         }
 
-        private int Fibonacci(int input)
-        {
-            if (input == 0)
+        private int Fibonacci(int input) =>
+            input switch
             {
-                return 0;
-            }
-
-            if (input == 1)
-            {
-                return 1;
-            }
-
-            if (input >= 2)
-            {
-                return Fibonacci(input - 2) + Fibonacci(input - 1);
-            }
-
-            return 1;
-        }
+                0 => 0,
+                1 => 1,
+                _ => Fibonacci(input - 2) + Fibonacci(input - 1)
+            };
     }
 }
