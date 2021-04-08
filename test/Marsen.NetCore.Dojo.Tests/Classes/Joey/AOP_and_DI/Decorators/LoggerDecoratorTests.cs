@@ -8,20 +8,27 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 {
     public class LoggerDecoratorTests
     {
-        readonly IAuthentication _authentication = Substitute.For<IAuthentication>();
-        readonly ILogger _logger = Substitute.For<ILogger>();
-        readonly IAccountService _accountService = Substitute.For<IAccountService>();
-        private string _account = "account";
-        private string _password = "password";
-        private string _otp = "OTP";
+        private readonly IAuthentication _authentication;
+        private readonly ILogger _logger;
+        private readonly IAccountService _accountService;
+        private const string Account = "account";
+        private const string Password = "password";
+        private const string Otp = "OTP";
         private LoggerDecorator _decorator;
+
+        public LoggerDecoratorTests()
+        {
+            _authentication = Substitute.For<IAuthentication>();
+            _logger = Substitute.For<ILogger>();
+            _accountService = Substitute.For<IAccountService>();
+        }
 
         [Fact]
         public void TestVerifyTrueDidNotLog()
         {
             GivenVerifyResultIs(true);
             GivenDecorator();
-            _decorator.Verify(_account, _password, _otp).Should().BeTrue();
+            _decorator.Verify(Account, Password, Otp).Should().BeTrue();
             _logger.DidNotReceiveWithAnyArgs().Log(Arg.Any<string>());
         }
 
@@ -30,8 +37,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         {
             GivenVerifyResultIs(false);
             GivenDecorator();
-            _decorator.Verify(_account, _password, _otp).Should().BeFalse();
-            _logger.Received().Log(Arg.Is<string>(s => s.StartsWith($@"accountId:{_account}")));
+            _decorator.Verify(Account, Password, Otp).Should().BeFalse();
+            _logger.Received().Log(Arg.Is<string>(s => s.StartsWith($@"accountId:{Account}")));
         }
 
         private void GivenDecorator()
@@ -41,7 +48,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 
         private void GivenVerifyResultIs(bool result)
         {
-            _authentication.Verify(_account, _password, _otp).Returns(result);
+            _authentication.Verify(Account, Password, Otp).Returns(result);
         }
     }
 }
