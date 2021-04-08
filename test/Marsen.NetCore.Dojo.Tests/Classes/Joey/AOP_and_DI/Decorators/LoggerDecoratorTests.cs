@@ -21,7 +21,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         {
             GivenVerifyResultIs(true);
             GivenDecorator();
-            _decorator.Verify(_account, _password, _otp);
+            _decorator.Verify(_account, _password, _otp).Should().BeTrue();
             _logger.DidNotReceiveWithAnyArgs().Log(Arg.Any<string>());
         }
 
@@ -30,7 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         {
             GivenVerifyResultIs(false);
             GivenDecorator();
-            _decorator.Verify(_account, _password, _otp).Should().Be(false);
+            _decorator.Verify(_account, _password, _otp).Should().BeFalse();
             _logger.Received().Log(Arg.Is<string>(s => s.StartsWith($@"accountId:{_account}")));
         }
 
