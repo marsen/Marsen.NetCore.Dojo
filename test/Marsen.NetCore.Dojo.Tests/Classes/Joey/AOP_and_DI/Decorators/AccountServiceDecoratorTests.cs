@@ -13,9 +13,15 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         private const string Password = "password";
         private const string Otp = "OTP";
 
-        private readonly IAuthentication _authService = Substitute.For<IAuthentication>();
-        private readonly IAccountService _accountService = Substitute.For<IAccountService>();
+        private readonly IAuthentication _authService;
+        private readonly IAccountService _accountService;
 
+        public AccountServiceDecoratorTests()
+        {
+            _authService = Substitute.For<IAuthentication>();
+            _accountService = Substitute.For<IAccountService>();
+        }
+        
         [Fact]
         public void TestVerifyIsTrue()
         {
