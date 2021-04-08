@@ -15,13 +15,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 
         private readonly IAuthentication _authService;
         private readonly IAccountService _accountService;
+        private AccountServiceDecorator _decorator;
 
         public AccountServiceDecoratorTests()
         {
             _authService = Substitute.For<IAuthentication>();
             _accountService = Substitute.For<IAccountService>();
         }
-        
+
         [Fact]
         public void TestVerifyIsTrue()
         {
@@ -41,8 +42,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 
         private void VerifyShouldBe(bool expected)
         {
-            ((AccountServiceDecorator) new(_authService, _accountService)).Verify(Account, Password, Otp).Should()
-                .Be(expected);
+            _decorator = new(_authService, _accountService);
+            _decorator.Verify(Account, Password, Otp)
+                .Should().Be(expected);
         }
 
         private void GivenAccountUnLocked()
