@@ -10,7 +10,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
         {
             {0, 0},
             {1, 1},
-            {2, 1}
+            {2, 1},
+            {3, 2},
         };
 
         [Fact]
