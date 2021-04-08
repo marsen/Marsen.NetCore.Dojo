@@ -14,7 +14,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
         private int Fibonacci(int j)
         {
             return 0;
-            throw new NotImplementedException();
         }
     }
 }
