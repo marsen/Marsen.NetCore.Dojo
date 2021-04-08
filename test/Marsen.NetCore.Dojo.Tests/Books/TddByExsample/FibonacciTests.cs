@@ -14,6 +14,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
 
         private int Fibonacci(int j)
         {
+            if (j==1)
+            {
+                return 1;
+            }
+
             return 0;
         }
     }
