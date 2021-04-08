@@ -1,4 +1,5 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
+﻿using FluentAssertions;
+using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 using NSubstitute;
 using Xunit;
@@ -9,13 +10,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
     {
         readonly IAuthentication _authentication = Substitute.For<IAuthentication>();
         readonly ILogger _logger = Substitute.For<ILogger>();
-        readonly IAccountService _account = Substitute.For<IAccountService>();
+        readonly IAccountService _accountService = Substitute.For<IAccountService>();
 
         [Fact]
         public void TestVerifyTrueDidNotLog()
         {
             GivenVerifyResultIs(true);
-            var target = new LoggerDecorator(_authentication, _logger, _account);
+            var target = new LoggerDecorator(_authentication, _logger, _accountService);
             target.Verify("account", "password", "OTP");
             _logger.DidNotReceiveWithAnyArgs().Log(Arg.Any<string>());
         }
@@ -24,8 +25,8 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         public void TestVerifyFalseShouldLog()
         {
             GivenVerifyResultIs(false);
-            var target = new LoggerDecorator(_authentication, _logger, _account);
-            target.Verify("account", "password", "OTP");
+            var target = new LoggerDecorator(_authentication, _logger, _accountService);
+            target.Verify("account", "password", "OTP").Should().Be(false);
             _logger.ReceivedWithAnyArgs(1).Log(Arg.Any<string>());
         }
 
