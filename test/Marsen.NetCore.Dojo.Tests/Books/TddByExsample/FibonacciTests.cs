@@ -8,6 +8,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
         [Fact]
         public void TestFibonacci()
         {
+            Assert.Equal(0, Fibonacci(0));
+        }
+
+        private int Fibonacci(int j)
+        {
             throw new NotImplementedException();
         }
     }
