@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
 
         private int Fibonacci(int input)
         {
-            if (input == 1)
+            if (input >= 1)
             {
                 return 1;
             }
