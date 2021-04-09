@@ -11,9 +11,9 @@ namespace Marsen.NetCore.TestingToolkit
     {
         private readonly string _response;
         private readonly HttpStatusCode _statusCode;
-        private readonly Dictionary<string, int> pathLookup = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> pathLookup = new();
 
-        public string Input { get; private set; }
+        private string Input { get; set; }
         public int NumberOfCalls { get; private set; }
 
         public MockHttpMessageHandler(string response, HttpStatusCode statusCode)
@@ -29,7 +29,7 @@ namespace Marsen.NetCore.TestingToolkit
 
             if (request.Content != null) // Could be a GET-request without a body
             {
-                Input = await request.Content.ReadAsStringAsync();
+                Input = await request.Content.ReadAsStringAsync(cancellationToken);
             }
 
             return new HttpResponseMessage
