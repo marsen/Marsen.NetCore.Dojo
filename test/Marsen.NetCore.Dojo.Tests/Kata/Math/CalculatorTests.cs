@@ -7,7 +7,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Math
 {
     public class CalculatorTests
     {
-        private readonly Calculator _target = new Calculator();
+        private readonly Calculator _target = new();
 
         [Fact]
         public void Add_1_1_is_2()

@@ -11,8 +11,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Api_Pay
     public class PaymentServiceTests
     {
         private readonly IConfigure _configure;
-        private readonly string _testRequestId = "Test_Request_Id";
-        private readonly string _testingApiUrl = "https://testing.url/api/v1/";
+        private const string _testRequestId = "Test_Request_Id";
+        private const string _testingApiUrl = "https://testing.url/api/v1/";
         private MockHttpMessageHandler _mockHttpMessageHandler;
 
         /// <summary>
