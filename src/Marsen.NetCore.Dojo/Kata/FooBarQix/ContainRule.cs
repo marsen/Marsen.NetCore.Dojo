@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Kata.FooBarQix
     {
         private readonly int _i;
 
-        private readonly Dictionary<char, string> _charLookup = new Dictionary<char, string>()
+        private readonly Dictionary<char, string> _charLookup = new()
         {
             {'3', "Foo"},
             {'5', "Bar"},

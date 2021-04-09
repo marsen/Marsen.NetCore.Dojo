@@ -2,7 +2,7 @@
 
 namespace Marsen.NetCore.Dojo.Kata.JsonParser
 {
-    public class PersonaOriginEntity
+    public class PersonalOriginEntity
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }

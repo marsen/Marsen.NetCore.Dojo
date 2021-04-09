@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
     public class Customer
     {
         private readonly string _name;
-        private readonly List<Rental> _rentals = new List<Rental>();
+        private readonly List<Rental> _rentals = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Customer" /> class.

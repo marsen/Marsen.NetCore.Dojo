@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Kata.FooBarQix
 {
     public class FooBarQix
     {
-        private readonly List<int> _ruleNumbers = new List<int> {3, 5, 7};
+        private readonly List<int> _ruleNumbers = new() {3, 5, 7};
 
         public string Get(int input)
         {

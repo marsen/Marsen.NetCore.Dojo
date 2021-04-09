@@ -1,6 +1,6 @@
 ﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
-    public class BuzzRule:IRule
+    public class BuzzRule : IRule
     {
         public string Apply(int input, string result)
         {
