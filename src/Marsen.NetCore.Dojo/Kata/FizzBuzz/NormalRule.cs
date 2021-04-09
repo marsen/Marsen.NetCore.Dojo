@@ -4,12 +4,7 @@
     {
         public string Apply(int input, string result)
         {
-            if (string.IsNullOrEmpty(result))
-            {
-                result = input.ToString();
-            }
-
-            return result;
+            return string.IsNullOrEmpty(result) ? input.ToString() : result;
         }
     }
 }
