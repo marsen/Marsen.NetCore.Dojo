@@ -5,7 +5,12 @@ namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
     public class FizzBuzz
     {
-        private readonly List<IRule> _rules = new() {new FizzRule(), new BuzzRule(), new NormalRule()};
+        private readonly List<IRule> _rules = new()
+        {
+            new FizzRule(),
+            new BuzzRule(),
+            new NormalRule()
+        };
 
         public string Get(int input)
         {
