@@ -4,12 +4,12 @@
     {
         public string Apply(int input, string result)
         {
-            if (input % 5 == 0)
-            {
-                result += "Buzz";
-            }
+            return result + (isDivide(input) ? "Buzz" : string.Empty);
+        }
 
-            return result;
+        private bool isDivide(int input)
+        {
+            return input % 5 == 0;
         }
     }
 }
