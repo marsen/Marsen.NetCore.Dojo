@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
 {
     public class AlphabetTests
     {
-        private readonly AlphabetGame _alphabet = new AlphabetGame();
+        private readonly AlphabetGame _alphabet = new();
 
         [Fact]
         public void The_A_GetA()
