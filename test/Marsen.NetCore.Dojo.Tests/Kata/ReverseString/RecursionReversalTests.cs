@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ReverseString
 {
     public class RecursionReversalTests
     {
-        readonly IStringReversal _reversal = new RecursionReversal();
+        private readonly IStringReversal _reversal = new RecursionReversal();
 
         [Fact]
         public void A_is_A()
