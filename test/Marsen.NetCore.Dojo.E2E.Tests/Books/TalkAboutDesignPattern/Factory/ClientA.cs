@@ -6,26 +6,16 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public static void Run()
         {
-            ///INotification notify = new Email {Detail = "Email Detail"};
-            INotification notify = (new SimpleFactory()).Create();
+            var notify = new SimpleFactory().Create("Email");
             notify.Send("warning client A");
         }
     }
-
-    public class SimpleFactory
-    {
-        public INotification Create()
-        {
-            return new Email {Detail = "Email Detail"};
-        }
-    }
-
 
     public static class ClientB
     {
         public static void Run()
         {
-            INotification notify = new SNSNotify {Information = "SNS Information"};
+            var notify = new SimpleFactory().Create("SNS");
             notify.Send("warning client B");
         }
     }
@@ -34,8 +24,22 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public static void Run()
         {
-            INotification notify = new VoiceCallNotify {Conditional = "Voice Conditional"};
+            var notify = new SimpleFactory().Create("VoiceCall");
             notify.Send("warning client C");
+        }
+    }
+
+    public class SimpleFactory
+    {
+        public INotification Create(string type)
+        {
+            return type switch
+            {
+                "Email" => new Email {Detail = "Email Detail"},
+                "SNS" => new SNSNotify {Information = "SNS Information"},
+                "VoiceCall" => new VoiceCallNotify {Conditional = "Voice Conditional"},
+                _ => throw new NotImplementedException()
+            };
         }
     }
 
