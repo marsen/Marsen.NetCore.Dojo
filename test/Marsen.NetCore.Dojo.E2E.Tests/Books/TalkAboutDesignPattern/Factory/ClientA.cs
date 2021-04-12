@@ -6,10 +6,20 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public static void Run()
         {
-            INotification notify = new Email {Detail = "Email Detail"};
+            ///INotification notify = new Email {Detail = "Email Detail"};
+            INotification notify = (new SimpleFactory()).Create();
             notify.Send("warning client A");
         }
     }
+
+    public class SimpleFactory
+    {
+        public INotification Create()
+        {
+            return new Email {Detail = "Email Detail"};
+        }
+    }
+
 
     public static class ClientB
     {
