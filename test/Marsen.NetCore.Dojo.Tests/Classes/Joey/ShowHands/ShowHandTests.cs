@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
 {
     public class ShowHandTests
     {
-        private readonly ShowHand _showHand = new ShowHand("Tom", "Lee");
+        private readonly ShowHand _showHand = new("Tom", "Lee");
 
         [Fact(DisplayName = "四條 vs 三條")]
         public void FourOfAKind_ThreeOfAKind()

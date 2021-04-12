@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.FooBarQix
 {
     public class FooBarQixTests
     {
-        readonly Dojo.Kata.FooBarQix.FooBarQix _fooBarQix = new();
+        private readonly Dojo.Kata.FooBarQix.FooBarQix _fooBarQix = new();
 
         [Fact]
         public void one_is_1()

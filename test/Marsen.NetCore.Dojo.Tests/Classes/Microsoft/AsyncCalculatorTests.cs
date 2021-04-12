@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Microsoft
 {
     public class AsyncCalculatorTests
     {
-        private readonly AsyncCalculator _target = new AsyncCalculator();
+        private readonly AsyncCalculator _target = new();
 
         [Fact]
         public async Task Add()

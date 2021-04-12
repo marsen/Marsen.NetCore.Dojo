@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LonelyInteger
 {
     public class FinderTests
     {
-        private readonly Finder _finder = new Finder();
+        private readonly Finder _finder = new();
         private int[] _array;
 
         [Fact]

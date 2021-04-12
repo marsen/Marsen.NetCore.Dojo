@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 {
     public class TennisGameTests
     {
-        private readonly TennisGame _tennisGame = new TennisGame("Joey", "Tom");
+        private readonly TennisGame _tennisGame = new("Joey", "Tom");
 
         private void FirstPlayerScoreTimes(int times)
         {
