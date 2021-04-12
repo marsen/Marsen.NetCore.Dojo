@@ -2,7 +2,7 @@
 {
     public class EmailFactory
     {
-        public INotification Create(string email)
+        public INotification Create()
         {
             return new EmailNotify {Detail = "Email Detail"};
         }

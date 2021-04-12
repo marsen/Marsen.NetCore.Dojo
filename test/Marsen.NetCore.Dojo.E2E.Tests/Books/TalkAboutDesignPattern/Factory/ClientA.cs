@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public static void Run()
         {
-            var notify = new EmailFactory().Create("Email");
+            var notify = new EmailFactory().Create();
             notify.Send("warning client A");
         }
     }
