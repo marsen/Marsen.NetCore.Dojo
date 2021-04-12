@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern.SimpleFactories
 {
     public class PigeonNotify : INotification
     {

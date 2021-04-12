@@ -1,4 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
+﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern.SimpleFactories;
+
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern.FactoryMethod
 {
     public class EmailFactory : INotifyFactory
     {
