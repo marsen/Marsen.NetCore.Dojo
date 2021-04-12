@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
         public void Send(string message)
         {
             var slackClient = new SlackClient("my api token");
-            slackClient.PostMessage(messageResponse => { }, "my channel", message, "my bot name");
+            slackClient.PostMessage(_ => { }, "my channel", message, "my bot name");
         }
     }
 }
