@@ -1,4 +1,4 @@
-﻿using Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Visitor;
+﻿using Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory;
 
 namespace Marsen.NetCore.Dojo.E2E.Tests
 {
@@ -6,7 +6,9 @@ namespace Marsen.NetCore.Dojo.E2E.Tests
     {
         private static void Main(string[] args)
         {
-            GenderExpert.Run();
+            ClientA.Run();
+            ClientB.Run();
+            ClientC.Run();
         }
     }
 }
