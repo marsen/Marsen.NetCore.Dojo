@@ -6,16 +6,8 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public static void Run()
         {
-            var notify = new SNSFactory().Create();
+            var notify = new SnsFactory().Create();
             notify.Send("warning client B");
-        }
-    }
-
-    public class SNSFactory
-    {
-        public INotification Create()
-        {
-            return new SNSNotify {Information = "SNS Information"};
         }
     }
 }

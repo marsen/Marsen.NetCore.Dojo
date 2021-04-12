@@ -10,12 +10,4 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
             notify.Send("warning client A");
         }
     }
-
-    public class EmailFactory
-    {
-        public INotification Create(string email)
-        {
-            return new EmailNotify {Detail = "Email Detail"};
-        }
-    }
 }

@@ -10,12 +10,4 @@ namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
             notify.Send("warning client C");
         }
     }
-
-    public class VoiceCallFactory
-    {
-        public INotification Create()
-        {
-            return new VoiceCallNotify {Conditional = "Voice Conditional"};
-        }
-    }
 }
