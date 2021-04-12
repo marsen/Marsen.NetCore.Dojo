@@ -2,12 +2,12 @@
 
 namespace Marsen.NetCore.Dojo.E2E.Tests.Books.TalkAboutDesignPattern.Factory
 {
-    public static class ClientA
+    public static class ClientB
     {
         public static void Run()
         {
-            var notify = new SimpleFactory().Create("Email");
-            notify.Send("warning client A");
+            var notify = new SimpleFactory().Create("SNS");
+            notify.Send("warning client B");
         }
     }
 }
