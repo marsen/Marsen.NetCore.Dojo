@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
         {
             return type switch
             {
-                "Email" => new Email {Detail = "Email Detail"},
+                "Email" => new EmailNotify {Detail = "Email Detail"},
                 "SNS" => new SNSNotify {Information = "SNS Information"},
                 "VoiceCall" => new VoiceCallNotify {Conditional = "Voice Conditional"},
                 "Pigeon" => new PigeonNotify(),

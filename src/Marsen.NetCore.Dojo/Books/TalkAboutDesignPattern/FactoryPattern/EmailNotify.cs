@@ -2,7 +2,7 @@
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
-    public class Email : INotification
+    public class EmailNotify : INotification
     {
         public void Send(string msg)
         {
