@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
 {
     public class CardParserTests
     {
-        private readonly CardParser _cardParser = new CardParser();
+        private readonly CardParser _cardParser = new();
 
         private ExpectedObject Parser(string input)
         {
