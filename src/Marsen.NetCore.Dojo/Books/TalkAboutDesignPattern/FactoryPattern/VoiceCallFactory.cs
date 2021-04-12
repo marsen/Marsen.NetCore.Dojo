@@ -1,6 +1,6 @@
 ﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
-    public class VoiceCallFactory
+    public class VoiceCallFactory : INotifyFactory
     {
         public INotification Create()
         {

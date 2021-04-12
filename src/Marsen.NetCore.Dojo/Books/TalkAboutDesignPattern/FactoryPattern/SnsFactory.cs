@@ -2,7 +2,7 @@
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
-    public class SnsFactory
+    public class SnsFactory : INotifyFactory
     {
         public INotification Create()
         {

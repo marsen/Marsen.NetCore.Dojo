@@ -1,6 +1,6 @@
 ﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
-    public class EmailFactory
+    public class EmailFactory : INotifyFactory
     {
         public INotification Create()
         {
