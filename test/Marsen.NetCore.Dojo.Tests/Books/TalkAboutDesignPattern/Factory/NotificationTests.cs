@@ -19,7 +19,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         [Fact]
         public void TestCreateSNSNotify()
         {
-            _notify = new NotifyFactory().Create("SNS");
+            _notify = new SnsFactory().Create();
+            //_notify = new NotifyFactory().Create("SNS");
             _notify.Should().BeOfType<SnsNotify>("Because we send notify via SNS");
         }
 
@@ -28,6 +29,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         {
             Action act = () => new NotifyFactory().Create();
             act.Should().Throw<InvalidOperationException>();
+        }
+    }
+
+    public class SnsFactory
+    {
+        public INotification Create()
+        {
+            throw new NotImplementedException();
         }
     }
 
