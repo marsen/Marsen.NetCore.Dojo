@@ -27,6 +27,16 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
                 .BeOfType<SnsNotify>("Because we send notify via SNS");
         }
 
+        [Fact]
+        public void TestCreateMockNotify()
+        {
+            _factory = new MockFactory();
+            _factory.Create()
+                .Should()
+                .BeOfType<SnsNotify>("Because we send notify via Mock");
+        }
+
+
         [Fact(Skip = "Stop Use SimpleFactory Pattern")]
         public void TestCreateNotifyException()
         {
@@ -34,6 +44,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
             Action act = () => new NotifyFactory().Create();
             act.Should().Throw<InvalidOperationException>();
             */
+        }
+    }
+
+    public class MockFactory : INotificationFactory
+    {
+        public INotification Create()
+        {
+            throw new NotImplementedException();
         }
     }
 }
