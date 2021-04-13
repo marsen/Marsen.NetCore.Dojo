@@ -11,9 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         [Fact]
         public void TestCreateEmailNotify()
         {
-            var factory = new NotifyFactory();
-            _notify = factory.Create();
-            //// _notify = new EmailNotify();
+            _notify = new NotifyFactory().Create();
             _notify.Should().BeOfType<EmailNotify>("Because we send notify via Email");
         }
 
