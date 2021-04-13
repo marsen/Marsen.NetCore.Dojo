@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
@@ -17,20 +18,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         [Fact]
         public void TestCreateSNSNotify()
         {
-            _notify = new SNSNotify();
-            _notify.Should().BeOfType<SNSNotify>("Because we send notify via SNS");
+            _notify = new SnsNotify();
+            _notify.Should().BeOfType<SnsNotify>("Because we send notify via SNS");
         }
-    }
-
-    public interface INotification
-    {
-    }
-
-    public class SNSNotify : INotification
-    {
-    }
-
-    public class EmailNotify : INotification
-    {
     }
 }
