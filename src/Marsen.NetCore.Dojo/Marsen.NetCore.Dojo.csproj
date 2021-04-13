@@ -7,6 +7,7 @@
   <ItemGroup>
     <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Practice01\Trip\TripService_Origin.cs" />
     <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Ch6\NewFunction\TransactionGate.Legacy.cs" />
+    <Compile Remove="Books\TalkAboutDesignPattern\FactoryPattern\NotifyFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>
