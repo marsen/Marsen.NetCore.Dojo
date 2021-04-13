@@ -31,7 +31,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         }
     }
 
-    public class SnsFactory
+    public interface INotificationFactory
+    {
+        INotification Create();
+    }
+
+    public class SnsFactory : INotificationFactory
     {
         public INotification Create()
         {
@@ -39,7 +44,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         }
     }
 
-    public class EmailFactory
+    public class EmailFactory : INotificationFactory
     {
         public INotification Create()
         {
