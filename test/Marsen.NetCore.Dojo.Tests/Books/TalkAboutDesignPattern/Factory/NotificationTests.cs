@@ -29,7 +29,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public INotification Create()
         {
-            throw new System.NotImplementedException();
+            return new EmailNotify();
         }
     }
 }
