@@ -2,6 +2,7 @@
 
 namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
+    [Obsolete("Stop Using Simple Factory")]
     public class NotifyFactory
     {
         public INotification Create(string message = null)
