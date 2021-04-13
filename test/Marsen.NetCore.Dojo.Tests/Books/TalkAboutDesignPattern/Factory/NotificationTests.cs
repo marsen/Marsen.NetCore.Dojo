@@ -34,25 +34,4 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
             act.Should().Throw<InvalidOperationException>();
         }
     }
-
-    public interface INotificationFactory
-    {
-        INotification Create();
-    }
-
-    public class SnsFactory : INotificationFactory
-    {
-        public INotification Create()
-        {
-            return new SnsNotify();
-        }
-    }
-
-    public class EmailFactory : INotificationFactory
-    {
-        public INotification Create()
-        {
-            return new EmailNotify();
-        }
-    }
 }
