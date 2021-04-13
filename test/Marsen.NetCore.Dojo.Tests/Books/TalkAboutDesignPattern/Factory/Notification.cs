@@ -15,12 +15,16 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         [Fact]
         public void TestCreateSNSNotify()
         {
-            var notify = new SNSNotify();
+            INotification notify = new SNSNotify();
             notify.Should().BeOfType<SNSNotify>("Because we send notify via SNS");
         }
     }
 
-    public class SNSNotify
+    public interface INotification
+    {
+    }
+
+    public class SNSNotify : INotification
     {
     }
 
