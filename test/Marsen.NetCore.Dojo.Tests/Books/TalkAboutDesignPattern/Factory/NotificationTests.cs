@@ -27,11 +27,13 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
                 .BeOfType<SnsNotify>("Because we send notify via SNS");
         }
 
-        [Fact]
+        [Fact(Skip = "Stop Use SimpleFactory Pattern")]
         public void TestCreateNotifyException()
         {
+            /*
             Action act = () => new NotifyFactory().Create();
             act.Should().Throw<InvalidOperationException>();
+            */
         }
     }
 }
