@@ -12,7 +12,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         [Fact]
         public void TestCreateEmailNotify()
         {
-            _notify = new NotifyFactory().Create("Email");
+            //_notify = new NotifyFactory().Create("Email");
+            _notify = new EmailFactory().Create();
             _notify.Should().BeOfType<EmailNotify>("Because we send notify via Email");
         }
 
@@ -28,6 +29,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
         {
             Action act = () => new NotifyFactory().Create();
             act.Should().Throw<InvalidOperationException>();
+        }
+    }
+
+    public class EmailFactory
+    {
+        public INotification Create()
+        {
+            return new EmailNotify();
         }
     }
 }
