@@ -1,7 +1,6 @@
 ﻿using System;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
 
-namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
     public class NotifyFactory
     {
