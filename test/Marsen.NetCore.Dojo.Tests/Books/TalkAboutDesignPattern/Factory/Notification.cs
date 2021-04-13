@@ -5,18 +5,20 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
 {
     public class NotificationTests
     {
+        private INotification _notify;
+
         [Fact]
         public void TestCreateEmailNotify()
         {
-            var notify = new EmailNotify();
-            notify.Should().BeOfType<EmailNotify>("Because we send notify via Email");
+            _notify = new EmailNotify();
+            _notify.Should().BeOfType<EmailNotify>("Because we send notify via Email");
         }
 
         [Fact]
         public void TestCreateSNSNotify()
         {
-            INotification notify = new SNSNotify();
-            notify.Should().BeOfType<SNSNotify>("Because we send notify via SNS");
+            _notify = new SNSNotify();
+            _notify.Should().BeOfType<SNSNotify>("Because we send notify via SNS");
         }
     }
 
@@ -28,7 +30,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
     {
     }
 
-    public class EmailNotify
+    public class EmailNotify : INotification
     {
     }
 }
