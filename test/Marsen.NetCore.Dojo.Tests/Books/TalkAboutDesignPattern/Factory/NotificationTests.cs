@@ -35,17 +35,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
     {
         public INotification Create(string message = null)
         {
-            if (message == "Email")
+            return message switch
             {
-                return new EmailNotify();
-            }
-
-            if (message == "SNS")
-            {
-                return new SnsNotify();
-            }
-
-            throw new InvalidOperationException();
+                "Email" => new EmailNotify(),
+                "SNS" => new SnsNotify(),
+                _ => throw new InvalidOperationException()
+            };
         }
     }
 }
