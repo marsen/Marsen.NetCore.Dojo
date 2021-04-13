@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
 using Xunit;
 
@@ -21,18 +22,30 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
             _notify = new NotifyFactory().Create("SNS");
             _notify.Should().BeOfType<SnsNotify>("Because we send notify via SNS");
         }
+
+        [Fact]
+        public void TestCreateNotifyException()
+        {
+            Action act = () => new NotifyFactory().Create();
+            act.Should().Throw<InvalidOperationException>();
+        }
     }
 
     public class NotifyFactory
     {
-        public INotification Create(string sns)
+        public INotification Create(string message = null)
         {
-            if (sns=="Email")
+            if (message == "Email")
             {
                 return new EmailNotify();
             }
 
-            return new SnsNotify();
+            if (message == "SNS")
+            {
+                return new SnsNotify();
+            }
+
+            throw new InvalidOperationException();
         }
     }
 }
