@@ -30,29 +30,26 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var target = new DIService();
             target.Register<MockService>();
             target.Register<FakeService>();
-            var A = target.Resolve<MockService>();
-            var B = target.Resolve<FakeService>();
-            A.Should().BeOfType<MockService>();
-            B.Should().BeOfType<FakeService>();
+            var objA = target.Resolve<MockService>();
+            var objB = target.Resolve<FakeService>();
+            objA.Should().BeOfType<MockService>();
+            objB.Should().BeOfType<FakeService>();
         }
     }
 
 
     public class DIService
     {
-        private object _instance;
-        readonly Dictionary<Type, object> instanceLookup = new Dictionary<Type, object>();
+        readonly Dictionary<Type, object> instanceLookup = new();
 
         public void Register<T>()
         {
             instanceLookup.Add(typeof(T), Activator.CreateInstance(typeof(T)));
-            //_instance = Activator.CreateInstance(typeof(T));
         }
 
         public object Resolve<T>()
         {
             return (T) instanceLookup.First(x => x.Key == typeof(T)).Value;
-            return _instance;
         }
     }
 
