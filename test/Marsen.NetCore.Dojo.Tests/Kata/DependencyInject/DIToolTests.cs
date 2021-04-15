@@ -25,14 +25,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
 
     public class DIService
     {
+        private object _instance;
+
         public void Register<T>()
         {
-            throw new NotImplementedException();
+            _instance = Activator.CreateInstance(typeof(T));
         }
 
         public object Resolve<T>()
         {
-            throw new NotImplementedException();
+            return _instance;
         }
     }
 
