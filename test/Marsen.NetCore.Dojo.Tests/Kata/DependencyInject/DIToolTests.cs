@@ -1,4 +1,5 @@
 ﻿using System;
+using FluentAssertions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
@@ -8,7 +9,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         [Fact]
         public void CreateObjectViaNew()
         {
-            throw new NotImplementedException();
+            var service = new MockService();
+            service.Should().BeOfType<MockService>();
         }
+    }
+
+    public class MockService
+    {
     }
 }
