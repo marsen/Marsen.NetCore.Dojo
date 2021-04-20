@@ -21,7 +21,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         public void Register<S, T>()
         {
             //// instanceLookup.Add(typeof(S), Activator.CreateInstance(typeof(T)));
-            instanceFuncLookup.Add(typeof(S), () => Activator.CreateInstance(typeof(T)));
+            if (instanceFuncLookup.ContainsKey(typeof(S)) == false)
+            {
+                instanceFuncLookup.Add(typeof(S), () => Activator.CreateInstance(typeof(T)));
+            }
         }
 
         public T Resolve<T>()

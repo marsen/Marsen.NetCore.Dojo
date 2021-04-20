@@ -41,6 +41,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var objB = target.Resolve<MockService>();
             objA.Should().NotBe(objB);
         }
+
+        [Fact]
+        public void CreateObjectByInterfaceEveryTime()
+        {
+            var target = new DIService();
+            target.Register<IMockService,MockService>();
+            var objA = target.Resolve<IMockService>();
+            target.Register<IMockService,MockService>();
+            var objB = target.Resolve<IMockService>();
+            objA.Should().NotBe(objB);
+        }
     }
 
     public interface IMockService
