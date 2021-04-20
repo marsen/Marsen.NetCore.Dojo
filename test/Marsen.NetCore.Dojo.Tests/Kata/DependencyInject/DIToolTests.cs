@@ -25,6 +25,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         }
 
         [Fact]
+        public void CreateObjectViaRegisterByInterfaceAndResolve()
+        {
+            var target = new DIService();
+            target.Register<IMockService,MockService>();
+            var service = target.Resolve<MockService>();
+            service.Should().BeOfType<MockService>();
+        }
+
+
+        [Fact]
         public void CreateMultipleObjectViaRegisterAndResolve()
         {
             var target = new DIService();
