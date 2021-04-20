@@ -389,6 +389,7 @@ input:-webkit-autofill {
   top: 50%;
   width: 1em;
 }
+
 @font-face {
   font-family: "percolate";
   src: url("/icon/percolate.eot?-5w3um4");
@@ -396,6 +397,7 @@ input:-webkit-autofill {
   font-weight: normal;
   font-style: normal;
 }
+
 [class^="icon-"],
 [class*=" icon-"] {
   font-family: "percolate";
