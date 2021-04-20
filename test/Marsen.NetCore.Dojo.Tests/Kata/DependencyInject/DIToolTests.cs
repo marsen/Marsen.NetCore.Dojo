@@ -25,41 +25,57 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         }
 
         [Fact]
-        public void CreateObjectViaRegisterByInterfaceAndResolve()
+        public void CreateObjectViaRegisterAndResolveWithInterface()
         {
             var target = new DIService();
-            target.Register<IMockService,MockService>();
-            var service = target.Resolve<MockService>();
+            target.Register<IMockService, MockService>();
+            var service = target.Resolve<IMockService>();
             service.Should().BeOfType<MockService>();
         }
 
 
         [Fact]
-        public void CreateMultipleObjectViaRegisterAndResolve()
+        public void CreateObjectEveryTime()
         {
             var target = new DIService();
             target.Register<MockService>();
-            target.Register<FakeService>();
             var objA = target.Resolve<MockService>();
-            var objB = target.Resolve<FakeService>();
-            objA.Should().BeOfType<MockService>();
-            objB.Should().BeOfType<FakeService>();
+            target.Register<MockService>();
+            var objB = target.Resolve<MockService>();
+            objA.Should().NotBe(objB);
         }
+    }
+
+    public interface IMockService
+    {
     }
 
 
     public class DIService
     {
         readonly Dictionary<Type, object> instanceLookup = new();
+        readonly Dictionary<Type, Func<object>> instanceFuncLookup = new();
 
         public void Register<T>()
         {
-            instanceLookup.Add(typeof(T), Activator.CreateInstance(typeof(T)));
+            //// instanceLookup.Add(typeof(T), Activator.CreateInstance(typeof(T)));
+            if (instanceFuncLookup.ContainsKey(typeof(T)) == false)
+            {
+                instanceFuncLookup.Add(typeof(T), () => Activator.CreateInstance(typeof(T)));
+            }
         }
 
-        public object Resolve<T>()
+        public void Register<S, T>()
         {
-            return (T) instanceLookup.First(x => x.Key == typeof(T)).Value;
+            //// instanceLookup.Add(typeof(S), Activator.CreateInstance(typeof(T)));
+            instanceFuncLookup.Add(typeof(S), () => Activator.CreateInstance(typeof(T)));
+        }
+
+        public T Resolve<T>()
+        {
+            var func = instanceFuncLookup.SingleOrDefault(x => x.Key == typeof(T)).Value;
+            return (T) func.Invoke();
+            ////  return (T) instanceLookup.SingleOrDefault(x => x.Key == typeof(T)).Value;
         }
     }
 
@@ -67,7 +83,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
     {
     }
 
-    public class MockService
+    public class MockService : IMockService
     {
     }
 }
