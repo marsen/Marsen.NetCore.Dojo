@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
             _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
         }
 
-        public void Register<TInterface, TService>()
+        public void Register<TInterface, TService>() where TService : TInterface
         {
             if (_instanceFuncLookup.ContainsKey(typeof(TInterface))) return;
             _instanceFuncLookup.Add(typeof(TInterface), () => Activator.CreateInstance(typeof(TService)));
