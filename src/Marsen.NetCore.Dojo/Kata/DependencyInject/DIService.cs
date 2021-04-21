@@ -15,13 +15,15 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
                 throw new Exception("Register abstract classes or interfaces, should use Register<Interface,Class>");
             }
 
-            if (_instanceFuncLookup.ContainsKey(typeof(TService))) return;
+            if (_instanceFuncLookup.ContainsKey(typeof(TService)))
+                throw new Exception("We not support Register duplicate Type now");
             _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
         }
 
         public void Register<TInterface, TService>() where TService : TInterface
         {
-            if (_instanceFuncLookup.ContainsKey(typeof(TInterface))) return;
+            if (_instanceFuncLookup.ContainsKey(typeof(TInterface)))
+                throw new Exception("We not support Register duplicate Type now");
             _instanceFuncLookup.Add(typeof(TInterface), () => Activator.CreateInstance(typeof(TService)));
         }
 

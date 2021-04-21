@@ -92,6 +92,20 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
                 .WithMessage("Register abstract classes or interfaces, should use Register<Interface,Class>");
         }
 
+        [Fact]
+        public void ThrowExceptionWhenRegisterRepeatType()
+        {
+            var target = new DIService();
+            target.Register<MockService>();
+            target.Register<IMockService,MockService>();
+            Action act1 = () => target.Register<MockService>();
+            Action act2 = () => target.Register<IMockService,MockService>();
+            act1.Should().Throw<Exception>()
+                .WithMessage("We not support Register duplicate Type now");
+            act2.Should().Throw<Exception>()
+                .WithMessage("We not support Register duplicate Type now");
+        }
+
 
         [Fact(Skip = "Not yet")]
         public void CreateObjectWithParameter()
