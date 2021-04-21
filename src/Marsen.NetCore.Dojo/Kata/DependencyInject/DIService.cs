@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
 
         public void Register<TService>()
         {
-            if (typeof(TService).IsInterface)
+            if (typeof(TService).IsInterface || typeof(TService).IsAbstract)
             {
                 throw new Exception("Register abstract classes or interfaces, should use Register<Interface,Class>");
             }
