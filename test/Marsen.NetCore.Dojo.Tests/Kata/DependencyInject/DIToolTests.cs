@@ -67,10 +67,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
     {
     }
 
-    public class FakeService
-    {
-    }
-
     internal class MockService : IMockService
     {
     }
