@@ -37,7 +37,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var target = new DIService();
             target.Register<MockService>();
             var objA = target.Resolve<MockService>();
-            target.Register<MockService>();
             var objB = target.Resolve<MockService>();
             objA.Should().NotBe(objB);
         }
@@ -48,20 +47,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var target = new DIService();
             target.Register<IMockService, MockService>();
             var objA = target.Resolve<IMockService>();
-            target.Register<IMockService, MockService>();
             var objB = target.Resolve<IMockService>();
             objA.Should().NotBe(objB);
-        }
-
-        [Fact]
-        public void CreateSingletonObject()
-        {
-            var target = new DIService();
-            target.Register<MockService>();
-            var objA = target.Resolve<IMockService>();
-            target.Register<MockService>();
-            var objB = target.Resolve<IMockService>();
-            objA.Should().Be(objB);
         }
     }
 
