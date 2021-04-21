@@ -8,7 +8,7 @@
 2. Create Object With Parameter
 3. Singleton and Transient
 4. Interface and Abstract Class
-5.
+5. Auto Resolve Constructor with Parameter
 
 ## Test Case
 
