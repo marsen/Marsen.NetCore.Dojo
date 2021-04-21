@@ -61,9 +61,32 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var objB = target.Resolve<IMockService>();
             objA.Should().NotBe(objB);
         }
+
+        [Fact]
+        public void CreateObjectWithParameter()
+        {
+            var target = new DIService();
+            target.Register<IFakeService, FakeService>();
+            var service = target.Resolve<FakeService>();
+            service.Should().BeOfType<FakeService>();
+        }
     }
 
-    internal interface IMockService
+    public interface IFakeService
+    {
+    }
+
+    public class FakeService:IFakeService
+    {
+        private readonly IMockService _mockService;
+
+        public FakeService(IMockService mockService)
+        {
+            _mockService = mockService;
+        }
+    }
+
+    public interface IMockService
     {
     }
 
