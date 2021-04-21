@@ -46,12 +46,5 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
 
             return (TService) func.Invoke();
         }
-
-        public void RegisterSingleton<TService>()
-        {
-            if (_instanceFuncLookup.ContainsKey(typeof(TService))) return;
-            var singletonInstance = Activator.CreateInstance(typeof(TService));
-            _instanceFuncLookup.Add(typeof(TService), () => singletonInstance);
-        }
     }
 }
