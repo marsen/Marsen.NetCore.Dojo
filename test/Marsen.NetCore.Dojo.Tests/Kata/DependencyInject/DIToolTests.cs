@@ -73,6 +73,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
                             e.Message.Contains("MockService"));
         }
 
+        [Fact]
+        public void ThrowExceptionWhenNotRegisterInterface()
+        {
+            var target = new DIService();
+            Action act = () => target.Register<IMockService>();
+            act.Should().Throw<Exception>().WithMessage("Register abstract classes or interfaces, should use Register<Interface,class>");
+        }
+
 
         [Fact(Skip = "Not yet")]
         public void CreateObjectWithParameter()

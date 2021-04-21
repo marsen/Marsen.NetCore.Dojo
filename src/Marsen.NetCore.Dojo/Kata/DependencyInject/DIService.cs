@@ -11,6 +11,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
 
         public void Register<TService>()
         {
+            if (typeof(TService).IsInterface)
+            {
+                throw new Exception("Register abstract classes or interfaces, should use Register<Interface,class>");
+            }
             if (_instanceFuncLookup.ContainsKey(typeof(TService))) return;
             _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
         }
