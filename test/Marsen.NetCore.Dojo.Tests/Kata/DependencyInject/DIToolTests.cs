@@ -68,7 +68,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         {
             var target = new DIService();
             Action act = () => target.Resolve<MockService>();
-            act.Should().Throw<Exception>().WithMessage("Not Register MockService");
+            act.Should().Throw<Exception>()
+                .Where(e => e.Message.StartsWith("Not Register") &&
+                            e.Message.Contains("MockService"));
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
 {
@@ -23,6 +24,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         public TService Resolve<TService>()
         {
             var func = _instanceFuncLookup.SingleOrDefault(x => x.Key == typeof(TService)).Value;
+            if (func == null)
+            {
+                throw new Exception($"Not Register {typeof(TService)}");
+            }
+
             return (TService) func.Invoke();
         }
 
