@@ -36,7 +36,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
 
         public void RegisterSingleton<T>()
         {
-            throw new NotImplementedException();
+            if (_instanceFuncLookup.ContainsKey(typeof(T)) == false)
+            {
+                var instance = Activator.CreateInstance(typeof(T));
+                _instanceFuncLookup.Add(typeof(T), () => instance);
+            }
         }
     }
 }
