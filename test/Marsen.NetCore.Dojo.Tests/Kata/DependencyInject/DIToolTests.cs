@@ -78,7 +78,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         {
             var target = new DIService();
             Action act = () => target.Register<IMockService>();
-            act.Should().Throw<Exception>().WithMessage("Register abstract classes or interfaces, should use Register<Interface,class>");
+            act.Should().Throw<Exception>()
+                .WithMessage("Register abstract classes or interfaces, should use Register<Interface,Class>");
         }
 
 
