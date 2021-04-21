@@ -42,6 +42,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         }
 
         [Fact]
+        public void CreateSingletonObject()
+        {
+            var target = new DIService();
+            target.RegisterSingleton<MockService>();
+            var objA = target.Resolve<MockService>();
+            var objB = target.Resolve<MockService>();
+            objA.Should().Be(objB);
+        }
+
+
+        [Fact]
         public void CreateObjectByInterfaceEveryTime()
         {
             var target = new DIService();

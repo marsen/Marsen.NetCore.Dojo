@@ -33,5 +33,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             return (T) func.Invoke();
             ////  return (T) instanceLookup.SingleOrDefault(x => x.Key == typeof(T)).Value;
         }
+
+        public void RegisterSingleton<T>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
