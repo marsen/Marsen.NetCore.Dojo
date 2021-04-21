@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
@@ -63,9 +64,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         }
 
         [Fact]
+        public void ThrowExceptionWhenNotRegister()
+        {
+            var target = new DIService();
+            Action act = () => target.Resolve<MockService>();
+            act.Should().Throw<Exception>().WithMessage("Not Register MockService");
+        }
+
+
+        [Fact(Skip = "Not yet")]
         public void CreateObjectWithParameter()
         {
             var target = new DIService();
+            target.Register<IMockService, MockService>();
             target.Register<IFakeService, FakeService>();
             var service = target.Resolve<FakeService>();
             service.Should().BeOfType<FakeService>();
@@ -76,7 +87,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
     {
     }
 
-    public class FakeService:IFakeService
+    public class FakeService : IFakeService
     {
         private readonly IMockService _mockService;
 
