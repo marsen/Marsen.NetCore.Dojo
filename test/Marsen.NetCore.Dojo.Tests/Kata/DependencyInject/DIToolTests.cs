@@ -63,7 +63,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         }
     }
 
-    public interface IMockService
+    internal interface IMockService
     {
     }
 
@@ -71,7 +71,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
     {
     }
 
-    public class MockService : IMockService
+    internal class MockService : IMockService
     {
     }
 }
