@@ -82,6 +82,15 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
                 .WithMessage("Register abstract classes or interfaces, should use Register<Interface,Class>");
         }
 
+        [Fact]
+        public void ThrowExceptionWhenNotRegisterAbstractClass()
+        {
+            var target = new DIService();
+            Action act = () => target.Register<AbstractService>();
+            act.Should().Throw<Exception>()
+                .WithMessage("Register abstract classes or interfaces, should use Register<Interface,Class>");
+        }
+
 
         [Fact(Skip = "Not yet")]
         public void CreateObjectWithParameter()
@@ -92,6 +101,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var service = target.Resolve<FakeService>();
             service.Should().BeOfType<FakeService>();
         }
+    }
+
+    public abstract class AbstractService
+    {
     }
 
     public interface IFakeService
