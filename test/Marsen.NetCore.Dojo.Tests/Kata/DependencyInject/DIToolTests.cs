@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentAssertions;
+using FluentAssertions.Common;
 using Marsen.NetCore.Dojo.Kata.DependencyInject;
 using Xunit;
 
@@ -47,7 +48,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         public void CreateSingletonObject()
         {
             var target = new DIService();
-            target.RegisterSingleton<MockService>();
+            target.Register<MockService>(ServiceLifetime.Singleton);
             var objA = target.Resolve<MockService>();
             var objB = target.Resolve<MockService>();
             objA.Should().Be(objB);
@@ -58,7 +59,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         public void CreateObjectByInterfaceEveryTime()
         {
             var target = new DIService();
-            target.Register<IMockService, MockService>();
+            target.Register<IMockService, MockService>(ServiceLifetime.Transient);
             var objA = target.Resolve<IMockService>();
             var objB = target.Resolve<IMockService>();
             objA.Should().NotBe(objB);

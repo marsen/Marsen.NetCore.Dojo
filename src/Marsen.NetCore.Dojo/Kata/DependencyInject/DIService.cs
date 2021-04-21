@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
     {
         private readonly Dictionary<Type, Func<object>> _instanceFuncLookup = new();
 
-        public void Register<TService>()
+        public void Register<TService>(ServiceLifetime lifetime = ServiceLifetime.Transient)
         {
             if (typeof(TService).IsInterface || typeof(TService).IsAbstract)
             {
@@ -17,10 +17,19 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
 
             if (_instanceFuncLookup.ContainsKey(typeof(TService)))
                 throw new Exception("We not support Register duplicate Type now");
-            _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
+            if (lifetime == ServiceLifetime.Singleton)
+            {
+                var singletonInstance = Activator.CreateInstance(typeof(TService));
+                _instanceFuncLookup.Add(typeof(TService), () => singletonInstance);
+            }
+            else
+            {
+                _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
+            }
         }
 
-        public void Register<TInterface, TService>() where TService : TInterface
+        public void Register<TInterface, TService>(ServiceLifetime lifetime = ServiceLifetime.Transient)
+            where TService : TInterface
         {
             if (_instanceFuncLookup.ContainsKey(typeof(TInterface)))
                 throw new Exception("We not support Register duplicate Type now");
