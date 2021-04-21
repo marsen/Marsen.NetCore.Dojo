@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentAssertions;
+using Marsen.NetCore.Dojo.Kata.DependencyInject;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject

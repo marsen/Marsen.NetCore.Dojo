@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
+namespace Marsen.NetCore.Dojo.Kata.DependencyInject
 {
     public class DIService
     {
