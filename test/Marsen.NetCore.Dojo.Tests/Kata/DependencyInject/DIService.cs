@@ -6,41 +6,31 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
 {
     public class DIService
     {
-        readonly Dictionary<Type, object> instanceLookup = new();
-        readonly Dictionary<Type, Func<object>> instanceFuncLookup = new();
+        private readonly Dictionary<Type, Func<object>> _instanceFuncLookup = new();
 
-        public void Register<T>()
+        public void Register<TService>()
         {
-            //// instanceLookup.Add(typeof(T), Activator.CreateInstance(typeof(T)));
-            if (instanceFuncLookup.ContainsKey(typeof(T)) == false)
-            {
-                instanceFuncLookup.Add(typeof(T), () => Activator.CreateInstance(typeof(T)));
-            }
+            if (_instanceFuncLookup.ContainsKey(typeof(TService))) return;
+            _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
         }
 
-        public void Register<S, T>()
+        public void Register<TInterface, TService>()
         {
-            //// instanceLookup.Add(typeof(S), Activator.CreateInstance(typeof(T)));
-            if (instanceFuncLookup.ContainsKey(typeof(S)) == false)
-            {
-                instanceFuncLookup.Add(typeof(S), () => Activator.CreateInstance(typeof(T)));
-            }
+            if (_instanceFuncLookup.ContainsKey(typeof(TInterface))) return;
+            _instanceFuncLookup.Add(typeof(TInterface), () => Activator.CreateInstance(typeof(TService)));
         }
 
-        public T Resolve<T>()
+        public TService Resolve<TService>()
         {
-            var func = instanceFuncLookup.SingleOrDefault(x => x.Key == typeof(T)).Value;
-            return (T) func.Invoke();
-            ////  return (T) instanceLookup.SingleOrDefault(x => x.Key == typeof(T)).Value;
+            var func = _instanceFuncLookup.SingleOrDefault(x => x.Key == typeof(TService)).Value;
+            return (TService) func.Invoke();
         }
 
-        public void RegisterSingleton<T>()
+        public void RegisterSingleton<TService>()
         {
-            if (_instanceFuncLookup.ContainsKey(typeof(T)) == false)
-            {
-                var instance = Activator.CreateInstance(typeof(T));
-                _instanceFuncLookup.Add(typeof(T), () => instance);
-            }
+            if (_instanceFuncLookup.ContainsKey(typeof(TService))) return;
+            var singletonInstance = Activator.CreateInstance(typeof(TService));
+            _instanceFuncLookup.Add(typeof(TService), () => singletonInstance);
         }
     }
 }
