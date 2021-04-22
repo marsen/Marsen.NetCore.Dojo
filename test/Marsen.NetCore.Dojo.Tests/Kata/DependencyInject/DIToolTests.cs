@@ -32,7 +32,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             service.Should().BeOfType<MockService>();
         }
 
-
         [Fact]
         public void CreateObjectEveryTime()
         {
@@ -107,7 +106,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         }
 
 
-        [Fact(Skip = "Not yet")]
+        [Fact]
         public void CreateObjectWithParameter()
         {
             var target = new DIService();
