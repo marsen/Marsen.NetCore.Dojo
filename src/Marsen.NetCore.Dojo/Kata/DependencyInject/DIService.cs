@@ -26,15 +26,9 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
                 throw new Exception("We not support Register duplicate Type now");
             if (interfaceType != null)
             {
-                // if (_instanceFuncLookup.ContainsKey(interfaceType))
-                    // throw new Exception("We not support Register duplicate Type now");
-
                 _instanceFuncLookup.Add(interfaceType, () => Activator.CreateInstance(instanceType));
                 return;
             }
-
-            // if (_instanceFuncLookup.ContainsKey(instanceType))
-            // throw new Exception("We not support Register duplicate Type now");
 
             if (lifetime == ServiceLifetime.Singleton)
             {
