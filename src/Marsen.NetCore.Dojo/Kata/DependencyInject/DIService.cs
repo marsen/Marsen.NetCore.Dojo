@@ -28,7 +28,7 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
             if (lifetime == ServiceLifetime.Singleton)
             {
                 var singletonInstance = Activator.CreateInstance(instanceType);
-                _instanceFuncLookup.Add(instanceType, () => singletonInstance);
+                _instanceFuncLookup.Add(type, () => singletonInstance);
             }
             else
             {
