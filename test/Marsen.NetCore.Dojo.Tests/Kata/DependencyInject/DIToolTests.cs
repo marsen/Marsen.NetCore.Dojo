@@ -112,7 +112,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
             var target = new DIService();
             target.Register<IMockService, MockService>();
             target.Register<IFakeService, FakeService>();
-            var service = target.Resolve<FakeService>();
+            var service = target.Resolve<IFakeService>();
             service.Should().BeOfType<FakeService>();
         }
     }
