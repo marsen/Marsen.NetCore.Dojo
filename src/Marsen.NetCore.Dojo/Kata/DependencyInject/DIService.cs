@@ -37,20 +37,16 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
                 throw new Exception("Register abstract classes or interfaces, should use Register<Interface,Class>");
             }
 
-            var type = interfaceType ?? instanceType;
-
-            if (_instanceFuncLookup.ContainsKey(type))
+            if (_instanceFuncLookup.ContainsKey(interfaceType ?? instanceType))
                 throw new Exception("We not support Register duplicate Type now");
 
+            Func<object> func = () => Activator.CreateInstance(instanceType);
             if (lifetime == ServiceLifetime.Singleton)
             {
                 var singletonInstance = Activator.CreateInstance(instanceType);
-                _instanceFuncLookup.Add(type, () => singletonInstance);
+                func = () => singletonInstance;
             }
-            else
-            {
-                _instanceFuncLookup.Add(type, () => Activator.CreateInstance(instanceType));
-            }
+            _instanceFuncLookup.Add(interfaceType ?? instanceType, func);
         }
     }
 }
