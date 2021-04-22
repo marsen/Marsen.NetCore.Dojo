@@ -13,6 +13,23 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
             Register(typeof(TService), lifetime);
         }
 
+        public void Register<TInterface, TService>(ServiceLifetime lifetime = ServiceLifetime.Transient)
+            where TService : TInterface
+        {
+            Register(typeof(TService), lifetime, typeof(TInterface));
+        }
+
+        public T Resolve<T>()
+        {
+            return (T) Resolve(typeof(T));
+        }
+
+        private object Resolve(Type type)
+        {
+            var func = _instanceFuncLookup.SingleOrDefault(x => x.Key == type).Value;
+            return func == null ? throw new Exception($"Not Register {type}") : func.Invoke();
+        }
+
         private void Register(Type instanceType, ServiceLifetime lifetime, Type interfaceType = null)
         {
             if (instanceType.IsInterface || instanceType.IsAbstract)
@@ -34,23 +51,6 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
             {
                 _instanceFuncLookup.Add(type, () => Activator.CreateInstance(instanceType));
             }
-        }
-
-        public void Register<TInterface, TService>(ServiceLifetime lifetime = ServiceLifetime.Transient)
-            where TService : TInterface
-        {
-            Register(typeof(TService), lifetime, typeof(TInterface));
-        }
-
-        public T Resolve<T>()
-        {
-            return (T) Resolve(typeof(T));
-        }
-
-        private object Resolve(Type type)
-        {
-            var func = _instanceFuncLookup.SingleOrDefault(x => x.Key == type).Value;
-            return func == null ? throw new Exception($"Not Register {type}") : func.Invoke();
         }
     }
 }
