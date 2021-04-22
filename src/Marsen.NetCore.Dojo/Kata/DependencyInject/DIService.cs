@@ -10,27 +10,34 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
 
         public void Register<TService>(ServiceLifetime lifetime = ServiceLifetime.Transient)
         {
-            if (typeof(TService).IsInterface || typeof(TService).IsAbstract)
+            Register(typeof(TService), lifetime);
+        }
+
+        private void Register(Type instanceType, ServiceLifetime lifetime, Type type = null)
+        {
+            if (instanceType.IsInterface || instanceType.IsAbstract)
             {
                 throw new Exception("Register abstract classes or interfaces, should use Register<Interface,Class>");
             }
 
-            if (_instanceFuncLookup.ContainsKey(typeof(TService)))
+
+            if (_instanceFuncLookup.ContainsKey(instanceType))
                 throw new Exception("We not support Register duplicate Type now");
             if (lifetime == ServiceLifetime.Singleton)
             {
-                var singletonInstance = Activator.CreateInstance(typeof(TService));
-                _instanceFuncLookup.Add(typeof(TService), () => singletonInstance);
+                var singletonInstance = Activator.CreateInstance(instanceType);
+                _instanceFuncLookup.Add(instanceType, () => singletonInstance);
             }
             else
             {
-                _instanceFuncLookup.Add(typeof(TService), () => Activator.CreateInstance(typeof(TService)));
+                _instanceFuncLookup.Add(instanceType, () => Activator.CreateInstance(instanceType));
             }
         }
 
         public void Register<TInterface, TService>(ServiceLifetime lifetime = ServiceLifetime.Transient)
             where TService : TInterface
         {
+            //Register(typeof(TService), lifetime, typeof(TInterface));
             if (_instanceFuncLookup.ContainsKey(typeof(TInterface)))
                 throw new Exception("We not support Register duplicate Type now");
             _instanceFuncLookup.Add(typeof(TInterface), () => Activator.CreateInstance(typeof(TService)));

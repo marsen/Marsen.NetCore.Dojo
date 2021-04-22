@@ -1,6 +1,5 @@
 ﻿using System;
 using FluentAssertions;
-using FluentAssertions.Common;
 using Marsen.NetCore.Dojo.Kata.DependencyInject;
 using Xunit;
 
@@ -59,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         public void CreateObjectByInterfaceEveryTime()
         {
             var target = new DIService();
-            target.Register<IMockService, MockService>(ServiceLifetime.Transient);
+            target.Register<IMockService, MockService>();
             var objA = target.Resolve<IMockService>();
             var objB = target.Resolve<IMockService>();
             objA.Should().NotBe(objB);
@@ -98,9 +97,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.DependencyInject
         {
             var target = new DIService();
             target.Register<MockService>();
-            target.Register<IMockService,MockService>();
+            target.Register<IMockService, MockService>();
             Action act1 = () => target.Register<MockService>();
-            Action act2 = () => target.Register<IMockService,MockService>();
+            Action act2 = () => target.Register<IMockService, MockService>();
             act1.Should().Throw<Exception>()
                 .WithMessage("We not support Register duplicate Type now");
             act2.Should().Throw<Exception>()
