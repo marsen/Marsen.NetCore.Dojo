@@ -42,15 +42,15 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
             Register(typeof(TService), lifetime, typeof(TInterface));
         }
 
-        public TService Resolve<TService>()
+        public T Resolve<T>()
         {
-            var func = _instanceFuncLookup.SingleOrDefault(x => x.Key == typeof(TService)).Value;
-            if (func == null)
-            {
-                throw new Exception($"Not Register {typeof(TService)}");
-            }
+            return (T) Resolve(typeof(T));
+        }
 
-            return (TService) func.Invoke();
+        private object Resolve(Type type)
+        {
+            var func = _instanceFuncLookup.SingleOrDefault(x => x.Key == type).Value;
+            return func == null ? throw new Exception($"Not Register {type}") : func.Invoke();
         }
     }
 }
