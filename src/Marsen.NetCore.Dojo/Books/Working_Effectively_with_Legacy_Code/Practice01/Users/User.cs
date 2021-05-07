@@ -4,8 +4,8 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
 {
     public class User
     {
-        private readonly List<Trip.Trip> _trips = new List<Trip.Trip>();
-        private readonly List<User> _friends = new List<User>();
+        private readonly List<Trip.Trip> _trips = new();
+        private readonly List<User> _friends = new();
 
         public virtual List<User> GetFriends()
         {

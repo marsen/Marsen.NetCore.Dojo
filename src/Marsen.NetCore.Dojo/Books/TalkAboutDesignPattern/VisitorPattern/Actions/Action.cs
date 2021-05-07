@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Action
 {
     public abstract class Action
     {
-        public readonly SystemConsole Console = new SystemConsole();
+        public readonly SystemConsole Console = new();
         public abstract void GetManConclusion(Man man);
         public abstract void GetWomanConclusion(Woman woman);
     }

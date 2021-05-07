@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
 {
     public class HandsetNokiaAddressBook
     {
-        internal readonly SystemConsole Console = new SystemConsole();
+        internal readonly SystemConsole Console = new();
 
         public void Run()
         {

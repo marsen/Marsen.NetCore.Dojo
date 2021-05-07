@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
 {
     public abstract class Application
     {
-        public readonly SystemConsole Console = new SystemConsole();
+        public readonly SystemConsole Console = new();
 
         public abstract void Run(string brand);
     }
