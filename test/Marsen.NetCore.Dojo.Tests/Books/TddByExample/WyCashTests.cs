@@ -9,10 +9,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public void testMultiplication()
         {
             Dollar five = new Dollar(5);
-            five.times(2);
-            Assert.Equal(10,five.amount);
-            five.times(3);
-            Assert.Equal(15,five.amount);
+            Dollar product = five.times(2);
+            Assert.Equal(10,product.amount);
+            product = five.times(3);
+            Assert.Equal(15,product.amount);
         }
       
     }
@@ -26,9 +26,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             this.amount = amount ;
         }
 
-        public void times(int multiplier)
+        public Dollar times(int multiplier)
         {
             amount *= multiplier;
+            return null;
         }
     }
 }
