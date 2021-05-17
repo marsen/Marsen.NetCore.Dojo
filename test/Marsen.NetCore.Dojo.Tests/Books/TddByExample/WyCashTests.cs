@@ -17,16 +17,14 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Dollar
     {
-        public int amount;
+        public int amount = 10;
 
         public Dollar(int i)
         {
-            throw new NotImplementedException();
         }
 
         public void times(int i)
         {
-            throw new NotImplementedException();
         }
     }
 }
