@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Marsen.NetCore.Dojo.Tests.Books.TDDbyExsample
+namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 {
     public class FibonacciTests
     {
