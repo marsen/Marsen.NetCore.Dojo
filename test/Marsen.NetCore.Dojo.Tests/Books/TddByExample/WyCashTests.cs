@@ -21,7 +21,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Dollar(int i)
         {
-            amount = 5 * 2;
+            amount = i * 2;
         }
 
         public void times(int i)
