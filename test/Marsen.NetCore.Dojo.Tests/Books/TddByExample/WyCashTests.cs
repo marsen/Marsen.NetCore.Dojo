@@ -21,11 +21,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Dollar(int amount)
         {
-            this.amount = amount * 2;
+            this.amount = amount ;
         }
 
         public void times(int i)
         {
+            this.amount = amount * 2;
         }
     }
 }
