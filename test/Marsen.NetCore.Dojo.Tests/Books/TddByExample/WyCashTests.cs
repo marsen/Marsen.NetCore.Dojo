@@ -16,7 +16,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testFrancMultiplication()
         {
-            Money five = new Franc(5);
+            Money five = Money.franc(5);
             Assert.Equal(new Franc(10), five.times(2));
             Assert.Equal(new Franc(15), five.times(3));
         }
@@ -70,6 +70,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public static Dollar dollar(int amount)
         {
             return new Dollar(amount);
+        }
+
+        public static Franc franc(int amount)
+        {
+            return new Franc(amount);
         }
 
         public abstract Money times(int p0);
