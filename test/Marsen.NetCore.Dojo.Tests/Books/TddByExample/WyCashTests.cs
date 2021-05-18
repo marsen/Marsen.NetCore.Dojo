@@ -17,8 +17,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public void testFrancMultiplication()
         {
             Money five = Money.franc(5);
-            Assert.Equal(new Franc(10), five.times(2));
-            Assert.Equal(new Franc(15), five.times(3));
+            Assert.Equal(Money.franc(10), five.times(2));
+            Assert.Equal(Money.franc(15), five.times(3));
         }
 
         [Fact]
