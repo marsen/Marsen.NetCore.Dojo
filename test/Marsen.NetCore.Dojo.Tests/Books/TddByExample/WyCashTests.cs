@@ -29,7 +29,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
-    public class Franc
+    public class Franc : Money
     {
         private int amount;
 
@@ -37,6 +37,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             this.amount = amount;
         }
+
         public Franc times(int multiplier)
         {
             return new(amount * multiplier);
