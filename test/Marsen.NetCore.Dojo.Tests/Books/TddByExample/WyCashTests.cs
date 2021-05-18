@@ -28,6 +28,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Assert.False(new Dollar(5).Equals(new Dollar(6)));
             Assert.True(new Franc(5).Equals(new Franc(5)));
             Assert.False(new Franc(5).Equals(new Franc(6)));
+            Assert.False(new Franc(5).Equals(new Dollar(5)));
         }
     }
 
@@ -63,7 +64,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public override bool Equals(object? money)
         {
-            return amount == ((Money) money).amount;
+            return amount == ((Money) money).amount && this.GetType() == money.GetType();
         }
     }
 }
