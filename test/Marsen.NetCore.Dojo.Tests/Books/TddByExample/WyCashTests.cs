@@ -9,8 +9,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public void testMultiplication()
         {
             Money five = Money.dollar(5);
-            Assert.Equal(new Dollar(10), five.times(2));
-            Assert.Equal(new Dollar(15), five.times(3));
+            Assert.Equal(Money.dollar(10), five.times(2));
+            Assert.Equal(Money.dollar(15), five.times(3));
         }
 
         [Fact]
