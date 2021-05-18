@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public override bool Equals(object? obj)
         {
-            return true;
+            return amount == ((Dollar) obj).amount;
         }
     }
 }
