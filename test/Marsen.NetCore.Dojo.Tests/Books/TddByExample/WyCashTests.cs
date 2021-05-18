@@ -59,9 +59,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     {
         protected int amount;
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object? money)
         {
-            return amount == ((Money) obj).amount;
+            return amount == ((Money) money).amount;
         }
     }
 }
