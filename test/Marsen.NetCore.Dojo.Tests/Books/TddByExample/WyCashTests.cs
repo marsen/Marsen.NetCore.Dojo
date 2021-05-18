@@ -14,6 +14,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             product = five.times(3);
             Assert.Equal(15,product.amount);
         }
+
+        [Fact]
+        public void testEquality()
+        {
+            Assert.Equal(new Dollar(5),new Dollar(5));
+        }
       
     }
 
