@@ -31,8 +31,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Franc : Money
     {
-        private int amount;
-
         public Franc(int amount)
         {
             this.amount = amount;
@@ -51,8 +49,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Dollar : Money
     {
-        private int amount;
-
         public Dollar(int amount)
         {
             this.amount = amount;
@@ -71,5 +67,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Money
     {
+        protected int amount;
     }
 }
