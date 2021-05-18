@@ -48,7 +48,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
-    public class Dollar
+    public class Dollar : Money
     {
         private int amount;
 
@@ -66,5 +66,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return amount == ((Dollar) obj).amount;
         }
+    }
+
+    public class Money
+    {
     }
 }
