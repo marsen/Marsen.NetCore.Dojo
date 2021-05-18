@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMultiplication()
         {
-            Dollar five = new Dollar(5);
+            Money five = Money.dollar(5);
             Assert.Equal(new Dollar(10), five.times(2));
             Assert.Equal(new Dollar(15), five.times(3));
         }
@@ -39,7 +39,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             this.amount = amount;
         }
 
-        public Money times(int multiplier)
+        public override Money times(int multiplier)
         {
             return new Franc(amount * multiplier);
         }
@@ -52,13 +52,13 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             this.amount = amount;
         }
 
-        public Money times(int multiplier)
+        public override Money times(int multiplier)
         {
             return new Dollar(amount * multiplier);
         }
     }
 
-    public class Money
+    public abstract class Money
     {
         protected int amount;
 
@@ -66,5 +66,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return amount == ((Money) money).amount && this.GetType() == money.GetType();
         }
+
+        public static Dollar dollar(int amount)
+        {
+            return new Dollar(amount);
+        }
+
+        public abstract Money times(int p0);
     }
 }
