@@ -39,9 +39,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             this.amount = amount;
         }
 
-        public Franc times(int multiplier)
+        public Money times(int multiplier)
         {
-            return new(amount * multiplier);
+            return new Franc(amount * multiplier);
         }
     }
 
@@ -52,9 +52,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             this.amount = amount;
         }
 
-        public Dollar times(int multiplier)
+        public Money times(int multiplier)
         {
-            return new(amount * multiplier);
+            return new Dollar(amount * multiplier);
         }
     }
 
