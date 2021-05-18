@@ -28,8 +28,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Dollar times(int multiplier)
         {
-            amount *= multiplier;
-            return null;
+            //amount = amount * multiplier;
+            return new Dollar(amount * multiplier);
         }
     }
 }
