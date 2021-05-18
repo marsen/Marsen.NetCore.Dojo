@@ -53,11 +53,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return new(amount * multiplier);
         }
-
-        public override bool Equals(object? obj)
-        {
-            return amount == ((Dollar) obj).amount;
-        }
     }
 
     public class Money
