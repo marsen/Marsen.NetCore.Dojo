@@ -18,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testEquality()
         {
-            Assert.Equal(new Dollar(5),new Dollar(5));
+            Assert.True(new Dollar(5).Equals(new Dollar(5)));
         }
       
     }
