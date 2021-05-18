@@ -29,6 +29,25 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
+    public class Franc
+    {
+        private int amount;
+
+        public Franc(int amount)
+        {
+            this.amount = amount;
+        }
+        public Franc times(int multiplier)
+        {
+            return new(amount * multiplier);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return amount == ((Franc) obj).amount;
+        }
+    }
+
     public class Dollar
     {
         private int amount;
