@@ -40,11 +40,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return new(amount * multiplier);
         }
-
-        public override bool Equals(object? obj)
-        {
-            return amount == ((Franc) obj).amount;
-        }
     }
 
     public class Dollar : Money
@@ -68,5 +63,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     public class Money
     {
         protected int amount;
+
+        public override bool Equals(object? obj)
+        {
+            return amount == ((Money) obj).amount;
+        }
     }
 }
