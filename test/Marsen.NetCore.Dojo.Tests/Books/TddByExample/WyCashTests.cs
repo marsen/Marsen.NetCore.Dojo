@@ -24,11 +24,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testEquality()
         {
-            Assert.True(new Dollar(5).Equals(new Dollar(5)));
-            Assert.False(new Dollar(5).Equals(new Dollar(6)));
-            Assert.True(new Franc(5).Equals(new Franc(5)));
-            Assert.False(new Franc(5).Equals(new Franc(6)));
-            Assert.False(new Franc(5).Equals(new Dollar(5)));
+            Assert.True(Money.dollar(5).Equals(Money.dollar(5)));
+            Assert.False(Money.dollar(5).Equals(Money.dollar(6)));
+            Assert.True(Money.franc(5).Equals(Money.franc(5)));
+            Assert.False(Money.franc(5).Equals(Money.franc(6)));
+            Assert.False(Money.franc(5).Equals(Money.dollar(5)));
         }
     }
 
