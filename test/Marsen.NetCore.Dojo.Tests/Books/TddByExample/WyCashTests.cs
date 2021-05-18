@@ -36,5 +36,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return new(amount * multiplier);
         }
+
+        public override bool Equals(object? obj)
+        {
+            return true;
+        }
     }
 }
