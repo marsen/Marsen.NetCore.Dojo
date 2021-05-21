@@ -42,10 +42,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Franc : Money
     {
-        public Franc(int amount, string currency)
+        public Franc(int amount, string currency):base(amount,currency)
         {
-            this.amount = amount;
-            _currency = currency;
         }
 
         public override Money times(int multiplier)
@@ -56,10 +54,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Dollar : Money
     {
-        public Dollar(int amount, string currency)
+        public Dollar(int amount, string currency):base(amount,currency)
         {
-            this.amount = amount;
-            _currency = currency;
         }
 
         public override Money times(int multiplier)
@@ -72,6 +68,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     {
         protected int amount;
         protected string _currency;
+
+        protected Money(int amount, string currency)
+        {
+            this.amount = amount;
+            _currency = currency;
+        }
 
         public override bool Equals(object? money)
         {
