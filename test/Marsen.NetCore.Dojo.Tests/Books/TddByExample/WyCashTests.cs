@@ -52,11 +52,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return new Franc(amount * multiplier);
         }
-
-        public override string currency()
-        {
-            return _currency;
-        }
     }
 
     public class Dollar : Money
@@ -70,11 +65,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public override Money times(int multiplier)
         {
             return new Dollar(amount * multiplier);
-        }
-
-        public override string currency()
-        {
-            return _currency;
         }
     }
 
@@ -99,6 +89,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
 
         public abstract Money times(int multiplier);
-        public abstract string currency();
+
+        public virtual string currency()
+        {
+            return _currency;
+        }
     }
 }
