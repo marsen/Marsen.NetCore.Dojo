@@ -86,7 +86,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money plus(Money money)
         {
-            return new(this._amount + money._amount, _currency);
+            return new(_amount + money._amount, _currency);
         }
     }
 }
