@@ -71,7 +71,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return _amount == money._amount && _currency == money._currency;
         }
 
-        public static Dollar dollar(int amount)
+        public static Money dollar(int amount)
         {
             return new(amount, "USD");
         }
