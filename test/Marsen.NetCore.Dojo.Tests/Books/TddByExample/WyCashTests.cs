@@ -40,20 +40,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
-    public class Franc : Money
-    {
-        public Franc(int amount, string currency) : base(amount, currency)
-        {
-        }
-    }
-
-    public class Dollar : Money
-    {
-        public Dollar(int amount, string currency) : base(amount, currency)
-        {
-        }
-    }
-
     public class Money
     {
         private readonly int _amount;
