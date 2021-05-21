@@ -61,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         protected Money(int amount, string currency)
         {
-            this._amount = amount;
+            _amount = amount;
             _currency = currency;
         }
 
