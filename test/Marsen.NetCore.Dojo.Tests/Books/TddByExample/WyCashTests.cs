@@ -38,6 +38,13 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Assert.Equal("USD", Money.dollar(1).currency());
             Assert.Equal("CHF", Money.franc(1).currency());
         }
+
+        [Fact]
+        public void testSimpleAddition()
+        {
+            Money sum = Money.dollar(5).plus(Money.dollar(5));
+            Assert.Equal(Money.dollar(10),sum);
+        }
     }
 
     public class Money
