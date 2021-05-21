@@ -52,11 +52,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public Dollar(int amount, string currency) : base(amount, currency)
         {
         }
-
-        public Money times(int multiplier)
-        {
-            return new Money(amount * multiplier, _currency);
-        }
     }
 
     public class Money
