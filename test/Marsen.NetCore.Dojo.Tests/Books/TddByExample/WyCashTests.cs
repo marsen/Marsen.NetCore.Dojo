@@ -64,7 +64,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
-    public abstract class Money
+    public class Money
     {
         protected int amount;
         protected string _currency;
