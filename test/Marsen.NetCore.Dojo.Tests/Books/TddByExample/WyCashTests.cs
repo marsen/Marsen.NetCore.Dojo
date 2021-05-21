@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public override string currency()
         {
-            throw new NotImplementedException();
+            return "CHF";
         }
     }
 
@@ -72,7 +72,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public override string currency()
         {
-            throw new NotImplementedException();
+            return "USD";
         }
     }
 
