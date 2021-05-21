@@ -56,10 +56,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Money
     {
-        protected int amount;
-        protected string _currency;
+        private int amount;
+        private string _currency;
 
-        public Money(int amount, string currency)
+        protected Money(int amount, string currency)
         {
             this.amount = amount;
             _currency = currency;
@@ -72,17 +72,17 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public static Dollar dollar(int amount)
         {
-            return new Dollar(amount, "USD");
+            return new(amount, "USD");
         }
 
         public static Franc franc(int amount)
         {
-            return new Franc(amount, "CHF");
+            return new(amount, "CHF");
         }
 
         public Money times(int multiplier)
         {
-            return new Money(amount * multiplier, _currency);
+            return new(amount * multiplier, _currency);
         }
 
         public string currency()
