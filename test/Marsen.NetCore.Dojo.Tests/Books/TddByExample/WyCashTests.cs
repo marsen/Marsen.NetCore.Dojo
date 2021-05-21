@@ -60,7 +60,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money times(int multiplier)
         {
-            return new Dollar(amount * multiplier, _currency);
+            return new Money(amount * multiplier, _currency);
         }
     }
 
@@ -77,7 +77,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public override bool Equals(object? money)
         {
-            return amount == ((Money) money).amount && this.GetType() == money.GetType();
+            return amount == ((Money) money).amount && this._currency == ((Money) money)._currency;
         }
 
         public static Dollar dollar(int amount)
