@@ -60,7 +60,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money times(int multiplier)
         {
-            return new Money(amount * multiplier, _currency);
+            return new Dollar(amount * multiplier, _currency);
         }
     }
 
