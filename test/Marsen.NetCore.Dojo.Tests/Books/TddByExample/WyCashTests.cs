@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
@@ -30,6 +31,13 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Assert.False(Money.franc(5).Equals(Money.franc(6)));
             Assert.False(Money.franc(5).Equals(Money.dollar(5)));
         }
+
+        [Fact]
+        public void testCurrency()
+        {
+            Assert.Equal("USD",Money.dollar(1).currency());
+            Assert.Equal("CHF",Money.franc(1).currency());
+        }
     }
 
     public class Franc : Money
@@ -45,7 +53,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
-    public class Dollar : Money
+    public abstract class Dollar : Money
     {
         public Dollar(int amount)
         {
