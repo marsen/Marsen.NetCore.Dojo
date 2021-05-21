@@ -42,29 +42,29 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Franc : Money
     {
-        public Franc(int amount)
+        public Franc(int amount, string currency)
         {
             this.amount = amount;
-            _currency = "CHF";
+            _currency = currency;
         }
 
         public override Money times(int multiplier)
         {
-            return new Franc(amount * multiplier);
+            return new Franc(amount * multiplier, "CHF");
         }
     }
 
     public class Dollar : Money
     {
-        public Dollar(int amount)
+        public Dollar(int amount, string currency)
         {
             this.amount = amount;
-            _currency = "USD";
+            _currency = currency;
         }
 
         public override Money times(int multiplier)
         {
-            return new Dollar(amount * multiplier);
+            return new Dollar(amount * multiplier, "USD");
         }
     }
 
@@ -80,12 +80,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public static Dollar dollar(int amount)
         {
-            return new Dollar(amount);
+            return new Dollar(amount, "USD");
         }
 
         public static Franc franc(int amount)
         {
-            return new Franc(amount);
+            return new Franc(amount, "CHF");
         }
 
         public abstract Money times(int multiplier);
