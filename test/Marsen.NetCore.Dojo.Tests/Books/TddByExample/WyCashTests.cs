@@ -56,18 +56,19 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Money
     {
-        private int amount;
-        private string _currency;
+        private readonly int _amount;
+        private readonly string _currency;
 
         protected Money(int amount, string currency)
         {
-            this.amount = amount;
+            this._amount = amount;
             _currency = currency;
         }
 
-        public override bool Equals(object? money)
+        public override bool Equals(object? obj)
         {
-            return amount == ((Money) money).amount && this._currency == ((Money) money)._currency;
+            var money = (Money) obj;
+            return _amount == money._amount && _currency == money._currency;
         }
 
         public static Dollar dollar(int amount)
@@ -82,7 +83,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money times(int multiplier)
         {
-            return new(amount * multiplier, _currency);
+            return new(_amount * multiplier, _currency);
         }
 
         public string currency()
