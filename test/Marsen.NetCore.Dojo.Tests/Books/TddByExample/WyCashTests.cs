@@ -42,25 +42,25 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Franc : Money
     {
-        public Franc(int amount, string currency):base(amount,currency)
+        public Franc(int amount, string currency) : base(amount, currency)
         {
         }
 
         public override Money times(int multiplier)
         {
-            return new Franc(amount * multiplier, "CHF");
+            return new Franc(amount * multiplier, _currency);
         }
     }
 
     public class Dollar : Money
     {
-        public Dollar(int amount, string currency):base(amount,currency)
+        public Dollar(int amount, string currency) : base(amount, currency)
         {
         }
 
         public override Money times(int multiplier)
         {
-            return new Dollar(amount * multiplier, "USD");
+            return new Dollar(amount * multiplier, _currency);
         }
     }
 
@@ -92,7 +92,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public abstract Money times(int multiplier);
 
-        public virtual string currency()
+        public string currency()
         {
             return _currency;
         }
