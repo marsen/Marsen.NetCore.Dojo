@@ -83,5 +83,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             return _currency;
         }
+
+        public Money plus(Money money)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
