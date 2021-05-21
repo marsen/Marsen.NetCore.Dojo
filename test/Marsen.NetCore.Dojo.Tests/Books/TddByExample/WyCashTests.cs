@@ -45,7 +45,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         private readonly int _amount;
         private readonly string _currency;
 
-        protected Money(int amount, string currency)
+        private Money(int amount, string currency)
         {
             _amount = amount;
             _currency = currency;
