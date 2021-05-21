@@ -42,6 +42,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Franc : Money
     {
+        private string _currency;
+
         public Franc(int amount)
         {
             this.amount = amount;
@@ -54,7 +56,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public override string currency()
         {
-            return "CHF";
+            _currency = "CHF";
+            return _currency;
         }
     }
 
