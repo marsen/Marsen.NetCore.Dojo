@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMultiplication()
         {
-            Money five = Money.dollar(5);
+            Dollar five = Money.dollar(5);
             Assert.Equal(Money.dollar(10), five.times(2));
             Assert.Equal(Money.dollar(15), five.times(3));
         }
@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testFrancMultiplication()
         {
-            Money five = Money.franc(5);
+            Franc five = Money.franc(5);
             Assert.Equal(Money.franc(10), five.times(2));
             Assert.Equal(Money.franc(15), five.times(3));
         }
@@ -46,7 +46,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
         }
 
-        public override Money times(int multiplier)
+        public Money times(int multiplier)
         {
             return new Money(amount * multiplier, _currency);
         }
@@ -58,7 +58,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
         }
 
-        public override Money times(int multiplier)
+        public Money times(int multiplier)
         {
             return new Money(amount * multiplier, _currency);
         }
@@ -69,7 +69,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         protected int amount;
         protected string _currency;
 
-        protected Money(int amount, string currency)
+        public Money(int amount, string currency)
         {
             this.amount = amount;
             _currency = currency;
@@ -90,7 +90,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return new Franc(amount, "CHF");
         }
 
-        public abstract Money times(int multiplier);
+        public Money times(int multiplier)
+        {
+            return null;
+            return new Money(amount * multiplier, _currency);
+        }
 
         public string currency()
         {
