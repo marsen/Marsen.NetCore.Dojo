@@ -44,8 +44,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             Money five = Money.dollar(5);
             Money sum = five.plus(five);
-            //bank.reduce(sum,"USD");
-            Assert.Equal(Money.dollar(10),sum);
+            // Reduce sum Expression
+            Money reduce = Money.dollar(0);
+            Assert.Equal(Money.dollar(10), reduce);
         }
     }
 
