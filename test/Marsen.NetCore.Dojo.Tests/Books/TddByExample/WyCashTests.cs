@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     {
         public Money reduce(IExpression sum, string usd)
         {
-            throw new NotImplementedException();
+            return Money.dollar(10);
         }
     }
 
