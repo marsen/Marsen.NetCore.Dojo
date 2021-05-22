@@ -44,13 +44,25 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             Money five = Money.dollar(5);
             Money sum = five.plus(five);
-            // Reduce sum Expression
-            Money reduce = Money.dollar(0);
+            Bank bank = new Bank();
+            Money reduce = bank.reduce(sum,"USD");
             Assert.Equal(Money.dollar(10), reduce);
         }
     }
 
-    public class Money
+    public class Bank
+    {
+        public Money reduce(IExpression sum, string usd)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public interface IExpression
+    {
+    }
+
+    public class Money : IExpression
     {
         private readonly int _amount;
         private readonly string _currency;
