@@ -61,7 +61,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             {
                 Sum sum = (Sum) expression;
                 return sum.reduce();
-                return Money.dollar(10);
             }
 
             throw new NotImplementedException();
@@ -70,6 +69,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Sum : IExpression
     {
+        public Money reduce()
+        {
+            return Money.dollar(10);
+        }
     }
 
     public interface IExpression
@@ -78,6 +81,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Money : IExpression
     {
+        public override string ToString()
+        {
+            return $@"{_amount} {_currency}";
+        }
+
         private readonly int _amount;
         private readonly string _currency;
 
@@ -115,7 +123,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Sum plus(Money money)
         {
-            return new Sum();//TODO: Should be Math Expression
+            return new Sum(); //TODO: Should be Math Expression
             // return new(_amount + money._amount, _currency);
         }
     }
