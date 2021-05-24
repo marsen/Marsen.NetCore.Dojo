@@ -45,7 +45,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Money five = Money.dollar(5);
             IExpression sum = five.plus(five);
             Bank bank = new Bank();
-            Money reduce = bank.reduce(sum,"USD");
+            Money reduce = bank.reduce(sum, "USD");
             Assert.Equal(Money.dollar(10), reduce);
         }
     }
@@ -54,7 +54,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     {
         public Money reduce(IExpression expression, string currency)
         {
-            return Money.dollar(10);
+            if (expression.GetType() == typeof(Sum))
+            {
+                return Money.dollar(10);
+            }
+
+            throw new NotImplementedException();
         }
     }
 
