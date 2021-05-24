@@ -6,6 +6,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 {
     public class WyCashTests
     {
+        private Bank _bank = new Bank();
+
         [Fact]
         public void testMultiplication()
         {
@@ -45,8 +47,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Money five = Money.dollar(5);
             IExpression result = five.plus(five);
             Sum sum = (Sum) result;
-            Bank bank = new Bank();
-            Money reduce = bank.reduce(sum, "USD");
+            Money reduce = _bank.reduce(sum, "USD");
             Assert.Equal(Money.dollar(10), reduce);
         }
     }
