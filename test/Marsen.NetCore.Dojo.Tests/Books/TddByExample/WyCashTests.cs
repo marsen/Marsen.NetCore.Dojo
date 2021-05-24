@@ -69,9 +69,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Sum : IExpression
     {
+        private int augend;
+        private int addend;
+
         public Money reduce()
         {
-            return Money.dollar(10);
+            return Money.dollar(this.augend + this.addend);
         }
     }
 
