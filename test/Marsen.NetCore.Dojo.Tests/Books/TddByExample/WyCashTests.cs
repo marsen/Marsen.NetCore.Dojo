@@ -132,7 +132,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Sum plus(Money money)
         {
-            return new Sum(this, money); //TODO: Should be Math Expression
+            return new(this, money);
         }
     }
 }
