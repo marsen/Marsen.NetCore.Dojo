@@ -109,9 +109,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return _currency;
         }
 
-        public Money plus(Money money)
+        public Sum plus(Money money)
         {
-            return new(_amount + money._amount, _currency);
+            return new Sum(this, money);
+            // return new(_amount + money._amount, _currency);
         }
     }
 }
