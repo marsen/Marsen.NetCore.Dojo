@@ -72,6 +72,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         private int augend;
         private int addend;
 
+        public Sum(Money augend, Money addend)
+        {
+            this.augend = augend.Amount;
+            this.addend = addend.Amount;
+        }
+
         public Money reduce()
         {
             return Money.dollar(this.augend + this.addend);
@@ -86,22 +92,22 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     {
         public override string ToString()
         {
-            return $@"{_amount} {_currency}";
+            return $@"{Amount} {_currency}";
         }
 
-        private readonly int _amount;
+        public readonly int Amount;
         private readonly string _currency;
 
         private Money(int amount, string currency)
         {
-            _amount = amount;
+            Amount = amount;
             _currency = currency;
         }
 
         public override bool Equals(object? obj)
         {
             var money = (Money) obj;
-            return _amount == money._amount && _currency == money._currency;
+            return Amount == money.Amount && _currency == money._currency;
         }
 
         public static Money dollar(int amount)
@@ -116,7 +122,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money times(int multiplier)
         {
-            return new(_amount * multiplier, _currency);
+            return new(Amount * multiplier, _currency);
         }
 
         public string currency()
