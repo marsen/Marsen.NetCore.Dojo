@@ -59,6 +59,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             if (expression.GetType() == typeof(Sum))
             {
+                Sum sum = (Sum) expression;
+                return sum.reduce();
                 return Money.dollar(10);
             }
 
