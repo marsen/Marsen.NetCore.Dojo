@@ -52,7 +52,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Bank
     {
-        public Money reduce(IExpression sum, string usd)
+        public Money reduce(IExpression expression, string currency)
         {
             return Money.dollar(10);
         }
