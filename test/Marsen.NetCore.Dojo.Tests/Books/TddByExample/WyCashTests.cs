@@ -63,6 +63,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
     }
 
+    public class Sum
+    {
+    }
+
     public interface IExpression
     {
     }
