@@ -51,6 +51,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Assert.Equal(Money.dollar(10), _bank.reduce(fivePlusFive, "USD"));
             Assert.Equal(Money.dollar(9), _bank.reduce(fivePlusFour, "USD"));
         }
+
+        [Fact]
+        public void testPlusReturnsSum()
+        {
+            Money five = Money.dollar(5);
+            IExpression result = five.plus(five);
+            Sum sum = (Sum) result;
+            Assert.Equal(five,sum.addend);
+        }
     }
 
     public class Bank
@@ -70,17 +79,17 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     public class Sum : IExpression
     {
         private int augend;
-        private int addend;
+        public Money addend;
 
         public Sum(Money augend, Money addend)
         {
             this.augend = augend.Amount;
-            this.addend = addend.Amount;
+            this.addend = addend;
         }
 
         public Money reduce()
         {
-            return Money.dollar(this.augend + this.addend);
+            return Money.dollar(this.augend + this.addend.Amount);
         }
     }
 
