@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
     {
         public override string ToString()
         {
-            return $@"{Amount} {Currency}";
+            return $"{Amount.ToString()} {Currency}";
         }
 
 
