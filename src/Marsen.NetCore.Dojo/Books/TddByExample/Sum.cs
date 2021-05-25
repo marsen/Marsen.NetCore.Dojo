@@ -2,18 +2,18 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public class Sum : IExpression
     {
-        public IExpression augend;
-        public IExpression addend;
+        public readonly IExpression Addend;
+        public readonly IExpression Augend;
 
         public Sum(IExpression augend, IExpression addend)
         {
-            this.augend = augend;
-            this.addend = addend;
+            Augend = augend;
+            Addend = addend;
         }
 
         public Money reduce(string to, Bank bank)
         {
-            var result = augend.reduce(to, bank).Amount + addend.reduce(to, bank).Amount;
+            var result = Augend.reduce(to, bank).Amount + Addend.reduce(to, bank).Amount;
             return Money.dollar(result);
         }
     }

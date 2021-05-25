@@ -70,8 +70,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Money five = Money.dollar(5);
             IExpression result = five.plus(five);
             Sum sum = (Sum) result;
-            Assert.Equal(five, sum.addend);
-            Assert.Equal(five, sum.augend);
+            Assert.Equal(five, sum.Addend);
+            Assert.Equal(five, sum.Augend);
         }
 
         [Fact]
