@@ -44,10 +44,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSimpleAddition()
         {
-            Money five = Money.dollar(5);
-            Money four = Money.dollar(4);
-            Sum fivePlusFive = five.plus(five);
-            Sum fivePlusFour = five.plus(four);
+            var five = Money.dollar(5);
+            var four = Money.dollar(4);
+            var fivePlusFive = five.plus(five);
+            var fivePlusFour = five.plus(four);
             Assert.Equal(Money.dollar(10), _bank.reduce(fivePlusFive, "USD"));
             Assert.Equal(Money.dollar(9), _bank.reduce(fivePlusFour, "USD"));
         }

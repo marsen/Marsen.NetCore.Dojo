@@ -45,9 +45,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return new(amount, "CHF");
         }
 
-        public Money times(int multiplier)
+        public IExpression times(int multiplier)
         {
-            return new(Amount * multiplier, _currency);
+            return new Money(Amount * multiplier, _currency);
         }
 
         public string currency()
@@ -55,9 +55,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return _currency;
         }
 
-        public Sum plus(Money money)
+        public IExpression plus(Money money)
         {
-            return new(this, money);
+            return new Sum(this, money);
         }
     }
 }
