@@ -63,7 +63,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
 
         [Fact]
-        public void testsReduceMoneyDifferentCurrency()
+        public void testReduceMoneyDifferentCurrency()
         {
             Bank bank = new Bank();
             bank.addRate("CHF","USD",2);
