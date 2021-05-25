@@ -1,3 +1,6 @@
+using System.Linq;
+using Xunit.Sdk;
+
 namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 {
     public class Money : IExpression
@@ -7,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return $@"{Amount} {_currency}";
         }
 
-        public Money reduce()
+        public Money reduce(string to)
         {
             return Money.dollar(1);
         }
