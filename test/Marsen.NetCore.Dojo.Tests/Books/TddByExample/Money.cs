@@ -14,7 +14,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             if (to == "USD")
             {
-                return new Money(Amount / 2, to);
+                return new Money(Amount / bank.rate(this._currency,to), to);
             }
 
             throw new NotEmptyException();

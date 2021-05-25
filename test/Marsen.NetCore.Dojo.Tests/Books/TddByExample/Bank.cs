@@ -22,5 +22,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             _rateLookup.Add($"{chf}{usd}", i);
         }
+
+        public int rate(string from, string to)
+        {
+            return 2;
+        }
     }
 }
