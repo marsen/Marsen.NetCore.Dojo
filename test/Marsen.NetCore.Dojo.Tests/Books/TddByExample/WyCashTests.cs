@@ -67,8 +67,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             Bank bank = new Bank();
             bank.addRate("CHF","USD",2);
-            Money result = bank.reduce(Money.franc(2), "USD");
-            Assert.Equal(Money.dollar(1),result);
+            Assert.Equal(Money.dollar(1),bank.reduce(Money.franc(2), "USD"));
+            Assert.Equal(Money.dollar(3),bank.reduce(Money.franc(6), "USD"));
+            
         }
     }
 }
