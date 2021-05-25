@@ -1,27 +1,12 @@
-using System.Linq;
-using Xunit.Sdk;
+using System;
 
-namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
+namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
-    public class Money : IExpression
+    public partial class Money : IExpression
     {
-        public override string ToString()
-        {
-            return $@"{Amount} {_currency}";
-        }
-
-        public Money reduce(string to, Bank bank)
-        {
-            if (to == "USD")
-            {
-                return new Money(Amount / bank.rate(this._currency,to), to);
-            }
-
-            throw new NotEmptyException();
-        }
+        private readonly string _currency;
 
         public readonly int Amount;
-        private readonly string _currency;
 
         private Money(int amount, string currency)
         {
@@ -29,10 +14,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             _currency = currency;
         }
 
-        public override bool Equals(object? obj)
+        public Money reduce(string to, Bank bank)
         {
-            var money = (Money) obj;
-            return Amount == money.Amount && _currency == money._currency;
+            if (to == "USD") return new Money(Amount / bank.rate(_currency, to), to);
+
+            throw new NotImplementedException();
         }
 
         public static Money dollar(int amount)
@@ -58,6 +44,20 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public IExpression plus(Money money)
         {
             return new Sum(this, money);
+        }
+    }
+
+    public partial class Money
+    {
+        public override string ToString()
+        {
+            return $@"{Amount} {_currency}";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            var money = (Money) obj;
+            return Amount == money.Amount && _currency == money._currency;
         }
     }
 }

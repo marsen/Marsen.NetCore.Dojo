@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Marsen.NetCore.Dojo.Books.TddByExample;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample

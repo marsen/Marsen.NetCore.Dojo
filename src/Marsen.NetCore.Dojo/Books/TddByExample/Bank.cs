@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
+namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public class Bank
     {

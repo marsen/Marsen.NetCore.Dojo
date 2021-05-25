@@ -1,4 +1,4 @@
-namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
+namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public class Sum : IExpression
     {
