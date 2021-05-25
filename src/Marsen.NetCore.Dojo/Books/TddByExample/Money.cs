@@ -4,9 +4,8 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public partial class Money : IExpression
     {
-        public readonly string Currency;
-
         public readonly int Amount;
+        public readonly string Currency;
 
         private Money(int amount, string currency)
         {
@@ -34,11 +33,6 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
         public IExpression times(int multiplier)
         {
             return new Money(Amount * multiplier, Currency);
-        }
-
-        public string currency()
-        {
-            return Currency;
         }
 
         public IExpression plus(Money money)

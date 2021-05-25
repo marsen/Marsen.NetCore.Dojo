@@ -7,6 +7,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             return $@"{Amount} {Currency}";
         }
 
+
         public override bool Equals(object? obj)
         {
             var money = (Money) obj;
