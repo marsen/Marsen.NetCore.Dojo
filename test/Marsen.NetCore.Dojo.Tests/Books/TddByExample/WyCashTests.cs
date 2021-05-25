@@ -53,24 +53,33 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         }
 
         [Fact]
+        public void testMixedAddition()
+        {
+            Money _5Dollars = Money.dollar(5);
+            Money _10Francs = Money.franc(10);
+            Sum result = _5Dollars.plus(_10Francs);
+            Assert.Equal(Money.dollar(10), _bank.reduce(result, "USD"));
+        }
+
+
+        [Fact]
         public void testPlusReturnsSum()
         {
             Money five = Money.dollar(5);
             IExpression result = five.plus(five);
             Sum sum = (Sum) result;
-            Assert.Equal(five,sum.addend);
-            Assert.Equal(five,sum.augend);
+            Assert.Equal(five, sum.addend);
+            Assert.Equal(five, sum.augend);
         }
 
         [Fact]
         public void testReduceMoneyExchangeCurrency()
         {
             Bank bank = new Bank();
-            bank.addRate("CHF","USD",2);
-            Assert.Equal(Money.dollar(1),bank.reduce(Money.franc(2), "USD"));
-            Assert.Equal(Money.dollar(3),bank.reduce(Money.franc(6), "USD"));
-            Assert.Equal(Money.dollar(3),bank.reduce(Money.dollar(3), "USD"));
-            
+            bank.addRate("CHF", "USD", 2);
+            Assert.Equal(Money.dollar(1), bank.reduce(Money.franc(2), "USD"));
+            Assert.Equal(Money.dollar(3), bank.reduce(Money.franc(6), "USD"));
+            Assert.Equal(Money.dollar(3), bank.reduce(Money.dollar(3), "USD"));
         }
     }
 }
