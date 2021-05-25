@@ -61,6 +61,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Assert.Equal(five,sum.addend);
             Assert.Equal(five,sum.augend);
         }
+
+        [Fact]
+        public void testsReduceMoneyDifferentCurrency()
+        {
+            Bank bank = new Bank();
+            bank.addRate("CHF","USD",2);
+            Money result = bank.reduce(Money.franc(2), "USD");
+            Assert.Equal(Money.dollar(1),result);
+        }
     }
 
     public class Bank
