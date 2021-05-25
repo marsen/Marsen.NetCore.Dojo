@@ -24,9 +24,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public int rate(string from, string to)
         {
-            if (from == to) return 1;
-
-            return _rateLookup[$"{from}{to}"];
+            return from == to ? 1 : _rateLookup[$"{from}{to}"];
         }
     }
 }
