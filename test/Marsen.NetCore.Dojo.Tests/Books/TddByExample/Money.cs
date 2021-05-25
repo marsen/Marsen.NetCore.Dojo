@@ -12,7 +12,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money reduce(string to)
         {
-            return Money.dollar(1);
+            if (to == "USD")
+            {
+                return new Money(Amount / 2, to);
+            }
+
+            throw new NotEmptyException();
         }
 
         public readonly int Amount;
