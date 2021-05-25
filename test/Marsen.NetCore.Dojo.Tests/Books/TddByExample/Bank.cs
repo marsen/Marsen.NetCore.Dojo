@@ -7,10 +7,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             if (expression.GetType() == typeof(Sum))
             {
                 Sum sum = (Sum) expression;
-                return sum.reduce();
+                return sum.reduce(currency);
             }
 
-            return expression.reduce();
+            return expression.reduce(currency);
         }
 
         public void addRate(string chf, string usd, int i)
