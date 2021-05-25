@@ -82,7 +82,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
                 return sum.reduce();
             }
 
-            throw new NotImplementedException();
+            return expression.reduce();
         }
 
         public void addRate(string chf, string usd, int i)
@@ -111,6 +111,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public interface IExpression
     {
+        Money reduce();
     }
 
     public class Money : IExpression
@@ -118,6 +119,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         public override string ToString()
         {
             return $@"{Amount} {_currency}";
+        }
+
+        public Money reduce()
+        {
+            return Money.dollar(1);
         }
 
         public readonly int Amount;
