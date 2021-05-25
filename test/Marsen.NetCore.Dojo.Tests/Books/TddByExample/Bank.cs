@@ -25,6 +25,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public int rate(string from, string to)
         {
+            if (from == to)
+            {
+                return 1;
+            }
+
             return _rateLookup[$"{from}{to}"];
         }
     }
