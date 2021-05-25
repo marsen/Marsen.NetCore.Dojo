@@ -57,6 +57,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             Money _5Dollars = Money.dollar(5);
             Money _10Francs = Money.franc(10);
+            _bank.addRate("CHF","USD",2);
             Sum result = _5Dollars.plus(_10Francs);
             Assert.Equal(Money.dollar(10), _bank.reduce(result, "USD"));
         }

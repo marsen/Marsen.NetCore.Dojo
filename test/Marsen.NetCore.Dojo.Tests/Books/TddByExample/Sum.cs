@@ -13,7 +13,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
         public Money reduce(string to, Bank bank)
         {
-            return Money.dollar(this.augend.Amount + this.addend.Amount);
+            var result = augend.Amount + addend.reduce(to,bank).Amount;
+            return Money.dollar(result);
         }
     }
 }
