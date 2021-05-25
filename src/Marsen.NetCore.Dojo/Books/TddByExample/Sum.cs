@@ -16,5 +16,15 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             var result = Augend.reduce(to, bank).Amount + Addend.reduce(to, bank).Amount;
             return Money.dollar(result);
         }
+
+        public IExpression times(int multiplier)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IExpression plus(IExpression money)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

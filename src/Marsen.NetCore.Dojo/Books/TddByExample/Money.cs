@@ -25,7 +25,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             return new Money(Amount * multiplier, Currency);
         }
 
-        public IExpression plus(Money money)
+        public IExpression plus(IExpression money)
         {
             return new Sum(this, money);
         }
