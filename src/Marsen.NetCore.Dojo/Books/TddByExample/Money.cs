@@ -20,16 +20,6 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             throw new NotImplementedException();
         }
 
-        public static Money dollar(int amount)
-        {
-            return new(amount, "USD");
-        }
-
-        public static Money franc(int amount)
-        {
-            return new(amount, "CHF");
-        }
-
         public IExpression times(int multiplier)
         {
             return new Money(Amount * multiplier, Currency);
