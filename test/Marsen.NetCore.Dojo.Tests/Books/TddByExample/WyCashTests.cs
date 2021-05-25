@@ -59,6 +59,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             IExpression result = five.plus(five);
             Sum sum = (Sum) result;
             Assert.Equal(five,sum.addend);
+            Assert.Equal(five,sum.augend);
         }
     }
 
@@ -78,18 +79,18 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
     public class Sum : IExpression
     {
-        private int augend;
+        public Money augend;
         public Money addend;
 
         public Sum(Money augend, Money addend)
         {
-            this.augend = augend.Amount;
+            this.augend = augend;
             this.addend = addend;
         }
 
         public Money reduce()
         {
-            return Money.dollar(this.augend + this.addend.Amount);
+            return Money.dollar(this.augend.Amount + this.addend.Amount);
         }
     }
 
