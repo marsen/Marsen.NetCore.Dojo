@@ -11,7 +11,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             this.addend = addend;
         }
 
-        public Money reduce(string to)
+        public Money reduce(string to, Bank bank)
         {
             return Money.dollar(this.augend.Amount + this.addend.Amount);
         }

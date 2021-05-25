@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             return $@"{Amount} {_currency}";
         }
 
-        public Money reduce(string to)
+        public Money reduce(string to, Bank bank)
         {
             if (to == "USD")
             {
