@@ -84,6 +84,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 
             throw new NotImplementedException();
         }
+
+        public void addRate(string chf, string usd, int i)
+        {
+            //TODO:
+            //throw new NotImplementedException();
+        }
     }
 
     public class Sum : IExpression
