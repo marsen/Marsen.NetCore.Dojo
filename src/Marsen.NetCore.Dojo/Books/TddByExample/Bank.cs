@@ -4,13 +4,13 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public class Bank
     {
-        private Dictionary<string, int> _rateLookup = new();
+        private readonly Dictionary<string, int> _rateLookup = new();
 
         public Money reduce(IExpression expression, string currency)
         {
             if (expression.GetType() == typeof(Sum))
             {
-                Sum sum = (Sum) expression;
+                var sum = (Sum) expression;
                 return sum.reduce(currency, this);
             }
 
@@ -24,10 +24,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public int rate(string from, string to)
         {
-            if (from == to)
-            {
-                return 1;
-            }
+            if (from == to) return 1;
 
             return _rateLookup[$"{from}{to}"];
         }
