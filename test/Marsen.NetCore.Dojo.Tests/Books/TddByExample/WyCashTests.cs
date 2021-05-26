@@ -7,6 +7,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     {
         private readonly Bank _bank = new();
         private readonly Money _fiveBulks = Money.dollar(5);
+        private readonly Money _fiveFrancs = Money.franc(5);
 
         [Fact]
         public void testMultiplication()
@@ -18,9 +19,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testFrancMultiplication()
         {
-            var five = Money.franc(5);
-            Assert.Equal(Money.franc(10), five.times(2));
-            Assert.Equal(Money.franc(15), five.times(3));
+            Assert.Equal(Money.franc(10), _fiveFrancs.times(2));
+            Assert.Equal(Money.franc(15), _fiveFrancs.times(3));
         }
 
         [Fact]
@@ -43,10 +43,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSimpleAddition()
         {
-            var five = Money.dollar(5);
             var four = Money.dollar(4);
-            var fivePlusFive = five.plus(five);
-            var fivePlusFour = five.plus(four);
+            var fivePlusFive = _fiveBulks.plus(_fiveBulks);
+            var fivePlusFour = _fiveBulks.plus(four);
             Assert.Equal(Money.dollar(10), _bank.reduce(fivePlusFive, "USD"));
             Assert.Equal(Money.dollar(9), _bank.reduce(fivePlusFour, "USD"));
         }
