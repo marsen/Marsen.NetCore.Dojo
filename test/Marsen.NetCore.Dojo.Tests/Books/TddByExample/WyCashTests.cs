@@ -6,13 +6,13 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     public class WyCashTests
     {
         private readonly Bank _bank = new();
+        private readonly Money _fiveBulks = Money.dollar(5);
 
         [Fact]
         public void testMultiplication()
         {
-            var five = Money.dollar(5);
-            Assert.Equal(Money.dollar(10), five.times(2));
-            Assert.Equal(Money.dollar(15), five.times(3));
+            Assert.Equal(Money.dollar(10), _fiveBulks.times(2));
+            Assert.Equal(Money.dollar(15), _fiveBulks.times(3));
         }
 
         [Fact]
@@ -65,11 +65,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testPlusReturnsSum()
         {
-            var five = Money.dollar(5);
-            var result = five.plus(five);
+            var result = _fiveBulks.plus(_fiveBulks);
             var sum = (Sum) result;
-            Assert.Equal(five, sum.Addend);
-            Assert.Equal(five, sum.Augend);
+            Assert.Equal(_fiveBulks, sum.Addend);
+            Assert.Equal(_fiveBulks, sum.Augend);
         }
 
         [Fact]
