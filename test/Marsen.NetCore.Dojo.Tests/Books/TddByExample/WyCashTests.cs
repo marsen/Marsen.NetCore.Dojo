@@ -91,5 +91,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             var sum = new Sum(_5Dollars, _10Francs).plus(_5Dollars);
             Assert.Equal(Money.dollar(15), sum.reduce("USD", _bank));
         }
+
+        [Fact]
+        public void testSumTimes()
+        {
+             var _5Dollars = Money.dollar(5);
+             var _10Francs = Money.franc(10);
+             _bank.addRate("CHF", "USD", 2);
+             var sum = new Sum(_5Dollars, _10Francs).times(2);
+             Assert.Equal(Money.dollar(20), sum.reduce("USD", _bank));
+        }
     }
 }
