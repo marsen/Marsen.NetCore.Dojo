@@ -19,7 +19,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public IExpression times(int multiplier)
         {
-            throw new System.NotImplementedException();
+            return new Sum(Augend.times(multiplier), Addend.times(multiplier));
         }
 
         public IExpression plus(IExpression addend)
