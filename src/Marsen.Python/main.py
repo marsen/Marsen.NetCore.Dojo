@@ -9,7 +9,7 @@ class WasRun:
         self.wasRun = None
 
     def testmethod(self):
-        pass
+        self.wasRun = 1
 
 
 if __name__ == '__main__':
