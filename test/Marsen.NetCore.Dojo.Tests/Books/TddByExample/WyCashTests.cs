@@ -18,15 +18,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMultiplication()
         {
-            Assert.Equal(Money.dollar(10), _fiveBulks.times(2));
-            Assert.Equal(Money.dollar(15), _fiveBulks.times(3));
+            Assert.Equal(Money.dollar(10), _fiveBulks.Times(2));
+            Assert.Equal(Money.dollar(15), _fiveBulks.Times(3));
         }
 
         [Fact]
         public void testFrancMultiplication()
         {
-            Assert.Equal(Money.franc(10), _fiveFrancs.times(2));
-            Assert.Equal(Money.franc(15), _fiveFrancs.times(3));
+            Assert.Equal(Money.franc(10), _fiveFrancs.Times(2));
+            Assert.Equal(Money.franc(15), _fiveFrancs.Times(3));
         }
 
         [Fact]
@@ -49,22 +49,22 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSimpleAddition()
         {
-            Assert.Equal(Money.dollar(10), _bank.reduce(_fiveBulks.plus(_fiveBulks), "USD"));
-            Assert.Equal(Money.dollar(9), _bank.reduce(_fiveBulks.plus(_fourBulks), "USD"));
+            Assert.Equal(Money.dollar(10), _bank.reduce(_fiveBulks.Plus(_fiveBulks), "USD"));
+            Assert.Equal(Money.dollar(9), _bank.reduce(_fiveBulks.Plus(_fourBulks), "USD"));
         }
 
         [Fact]
         public void testMixedAddition()
         {
-            Assert.Equal(Money.dollar(10), _bank.reduce(_fiveBulks.plus(_10Francs), "USD"));
-            Assert.Equal(Money.dollar(10), _bank.reduce(_10Francs.plus(_fiveBulks), "USD"));
+            Assert.Equal(Money.dollar(10), _bank.reduce(_fiveBulks.Plus(_10Francs), "USD"));
+            Assert.Equal(Money.dollar(10), _bank.reduce(_10Francs.Plus(_fiveBulks), "USD"));
         }
 
 
         [Fact]
         public void testPlusReturnsSum()
         {
-            Sum sum = (Sum) _fiveBulks.plus(_fiveBulks);
+            Sum sum = (Sum) _fiveBulks.Plus(_fiveBulks);
             Assert.Equal(_fiveBulks, sum.Addend);
             Assert.Equal(_fiveBulks, sum.Augend);
         }
@@ -80,15 +80,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSumPlusMoney()
         {
-            var sum = new Sum(_fiveBulks, _10Francs).plus(_fiveBulks);
-            Assert.Equal(Money.dollar(15), sum.reduce(_bank, "USD"));
+            var sum = new Sum(_fiveBulks, _10Francs).Plus(_fiveBulks);
+            Assert.Equal(Money.dollar(15), sum.Reduce(_bank, "USD"));
         }
 
         [Fact]
         public void testSumTimes()
         {
-            var sum = new Sum(_fiveBulks, _10Francs).times(2);
-            Assert.Equal(Money.dollar(20), sum.reduce(_bank, "USD"));
+            var sum = new Sum(_fiveBulks, _10Francs).Times(2);
+            Assert.Equal(Money.dollar(20), sum.Reduce(_bank, "USD"));
         }
     }
 }

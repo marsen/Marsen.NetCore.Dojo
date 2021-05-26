@@ -11,18 +11,18 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             Addend = addend;
         }
 
-        public Money reduce(Bank bank, string to)
+        public Money Reduce(Bank bank, string to)
         {
-            var result = Augend.reduce(bank, to).Amount + Addend.reduce(bank, to).Amount;
+            var result = Augend.Reduce(bank, to).Amount + Addend.Reduce(bank, to).Amount;
             return Money.dollar(result);
         }
 
-        public IExpression times(int multiplier)
+        public IExpression Times(int multiplier)
         {
-            return new Sum(Augend.times(multiplier), Addend.times(multiplier));
+            return new Sum(Augend.Times(multiplier), Addend.Times(multiplier));
         }
 
-        public IExpression plus(IExpression addend)
+        public IExpression Plus(IExpression addend)
         {
             return new Sum(this, addend);
         }

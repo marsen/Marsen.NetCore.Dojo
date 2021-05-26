@@ -11,10 +11,10 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             if (expression.GetType() == typeof(Sum))
             {
                 var sum = (Sum) expression;
-                return sum.reduce(this, currency);
+                return sum.Reduce(this, currency);
             }
 
-            return expression.reduce(this, currency);
+            return expression.Reduce(this, currency);
         }
 
         public void addRate(string chf, string usd, int i)

@@ -13,19 +13,19 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             Currency = currency;
         }
 
-        public Money reduce(Bank bank, string to)
+        public Money Reduce(Bank bank, string to)
         {
             if (to == "USD") return new Money(Amount / bank.rate(Currency, to), to);
 
             throw new NotImplementedException();
         }
 
-        public IExpression times(int multiplier)
+        public IExpression Times(int multiplier)
         {
             return new Money(Amount * multiplier, Currency);
         }
 
-        public IExpression plus(IExpression addend)
+        public IExpression Plus(IExpression addend)
         {
             return new Sum(this, addend);
         }
