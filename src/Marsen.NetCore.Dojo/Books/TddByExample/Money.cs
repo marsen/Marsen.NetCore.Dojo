@@ -13,7 +13,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             Currency = currency;
         }
 
-        public Money reduce(string to, Bank bank)
+        public Money reduce(Bank bank, string to)
         {
             if (to == "USD") return new Money(Amount / bank.rate(Currency, to), to);
 

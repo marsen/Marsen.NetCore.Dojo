@@ -11,9 +11,9 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             Addend = addend;
         }
 
-        public Money reduce(string to, Bank bank)
+        public Money reduce(Bank bank, string to)
         {
-            var result = Augend.reduce(to, bank).Amount + Addend.reduce(to, bank).Amount;
+            var result = Augend.reduce(bank, to).Amount + Addend.reduce(bank, to).Amount;
             return Money.dollar(result);
         }
 
