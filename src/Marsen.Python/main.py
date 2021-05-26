@@ -4,15 +4,18 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    test = WasRun('PyCharm')
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-
 class WasRun:
     def __init__(self, name):
         self.wasRun = None
 
     def testmethod(self):
         pass
+
+
+if __name__ == '__main__':
+    test = WasRun('PyCharm')
+    print(test.wasRun)
+    test.testmethod()
+    print(test.wasRun)
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
