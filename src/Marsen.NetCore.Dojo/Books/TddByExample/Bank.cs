@@ -10,8 +10,8 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
         {
             if (expression.GetType() == typeof(Sum))
             {
-                var sum = (Sum) expression;
-                return sum.Reduce(this, currency);
+                 expression = (Sum) expression;
+                //return sum.Reduce(this, currency);
             }
 
             return expression.Reduce(this, currency);
