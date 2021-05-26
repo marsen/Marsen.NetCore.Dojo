@@ -6,9 +6,10 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
     public class WyCashTests
     {
         private readonly Bank _bank = new();
+        private readonly Money _fourBulks = Money.dollar(4);
         private readonly Money _fiveBulks = Money.dollar(5);
         private readonly Money _fiveFrancs = Money.franc(5);
-        private Money _fourBulks = Money.dollar(4);
+        private readonly Money _10Francs = Money.franc(10);
 
         [Fact]
         public void testMultiplication()
@@ -51,7 +52,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMixedAddition()
         {
-            var _10Francs = Money.franc(10);
             _bank.addRate("CHF", "USD", 2);
             Assert.Equal(Money.dollar(10), _bank.reduce(_fiveBulks.plus(_10Francs), "USD"));
             Assert.Equal(Money.dollar(10), _bank.reduce(_10Francs.plus(_fiveBulks), "USD"));
@@ -61,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testPlusReturnsSum()
         {
-            var sum = (Sum) _fiveBulks.plus(_fiveBulks);
+            Sum sum = (Sum) _fiveBulks.plus(_fiveBulks);
             Assert.Equal(_fiveBulks, sum.Addend);
             Assert.Equal(_fiveBulks, sum.Augend);
         }
@@ -78,7 +78,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSumPlusMoney()
         {
-            var _10Francs = Money.franc(10);
             _bank.addRate("CHF", "USD", 2);
             var sum = new Sum(_fiveBulks, _10Francs).plus(_fiveBulks);
             Assert.Equal(Money.dollar(15), sum.reduce("USD", _bank));
@@ -87,7 +86,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSumTimes()
         {
-            var _10Francs = Money.franc(10);
             _bank.addRate("CHF", "USD", 2);
             var sum = new Sum(_fiveBulks, _10Francs).times(2);
             Assert.Equal(Money.dollar(20), sum.reduce("USD", _bank));
