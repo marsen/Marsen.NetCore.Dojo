@@ -22,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             throw new System.NotImplementedException();
         }
 
-        public IExpression plus(IExpression money)
+        public IExpression plus(IExpression addend)
         {
             throw new System.NotImplementedException();
         }

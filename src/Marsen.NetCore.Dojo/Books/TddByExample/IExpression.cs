@@ -4,6 +4,6 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
     {
         Money reduce(string to, Bank bank);
         IExpression times(int multiplier);
-        IExpression plus(IExpression money);
+        IExpression plus(IExpression addend);
     }
 }
