@@ -15,6 +15,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             _bank.addRate("CHF", "USD", 2);
         }
+
         [Fact]
         public void testMultiplication()
         {
@@ -89,6 +90,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         {
             var sum = new Sum(_fiveBulks, _10Francs).Times(2);
             Assert.Equal(Money.dollar(20), sum.Reduce(_bank, "USD"));
+        }
+
+        [Fact]
+        public void testMoneyTimes()
+        {
+            Money dollar = (Money) _fiveBulks.Times(2);
+            Money francs = (Money) _10Francs.Times(2);
+            Assert.Equal(Money.dollar(10), dollar.Reduce(_bank, "USD"));
+            Assert.Equal(Money.franc(20), francs.Reduce(_bank, "CHF"));
         }
     }
 }
