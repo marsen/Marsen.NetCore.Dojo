@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public IExpression plus(IExpression addend)
         {
-            throw new System.NotImplementedException();
+            return new Sum(this, addend);
         }
     }
 }
