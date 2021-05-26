@@ -56,7 +56,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMixedAddition()
         {
-            //_bank.addRate("CHF", "USD", 2);
             Assert.Equal(Money.dollar(10), _bank.reduce(_fiveBulks.plus(_10Francs), "USD"));
             Assert.Equal(Money.dollar(10), _bank.reduce(_10Francs.plus(_fiveBulks), "USD"));
         }
