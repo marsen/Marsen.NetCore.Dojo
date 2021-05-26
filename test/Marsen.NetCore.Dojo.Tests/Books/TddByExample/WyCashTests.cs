@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Marsen.NetCore.Dojo.Books.TddByExample;
 using Xunit;
 
@@ -7,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
 {
     public class WyCashTests
     {
-        private Bank _bank = new Bank();
+        private readonly Bank _bank = new();
 
         [Fact]
         public void testMultiplication()
@@ -56,9 +54,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMixedAddition()
         {
-            Money _5Dollars = Money.dollar(5);
-            Money _10Francs = Money.franc(10);
-            _bank.addRate("CHF","USD",2);
+            var _5Dollars = Money.dollar(5);
+            var _10Francs = Money.franc(10);
+            _bank.addRate("CHF", "USD", 2);
             Assert.Equal(Money.dollar(10), _bank.reduce(_5Dollars.plus(_10Francs), "USD"));
             Assert.Equal(Money.dollar(10), _bank.reduce(_10Francs.plus(_5Dollars), "USD"));
         }
@@ -67,9 +65,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testPlusReturnsSum()
         {
-            Money five = Money.dollar(5);
-            IExpression result = five.plus(five);
-            Sum sum = (Sum) result;
+            var five = Money.dollar(5);
+            var result = five.plus(five);
+            var sum = (Sum) result;
             Assert.Equal(five, sum.Addend);
             Assert.Equal(five, sum.Augend);
         }
@@ -77,7 +75,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testReduceMoneyExchangeCurrency()
         {
-            Bank bank = new Bank();
+            var bank = new Bank();
             bank.addRate("CHF", "USD", 2);
             Assert.Equal(Money.dollar(1), bank.reduce(Money.franc(2), "USD"));
             Assert.Equal(Money.dollar(3), bank.reduce(Money.franc(6), "USD"));
@@ -87,11 +85,11 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testSumPlusMoney()
         {
-            Money _5Dollars = Money.dollar(5);
-            Money _10Francs = Money.franc(10);
+            var _5Dollars = Money.dollar(5);
+            var _10Francs = Money.franc(10);
             _bank.addRate("CHF", "USD", 2);
-            IExpression sum = new Sum(_5Dollars,_10Francs).plus(_5Dollars);
-            Assert.Equal(Money.dollar(15),sum.reduce("USD",_bank));
+            var sum = new Sum(_5Dollars, _10Francs).plus(_5Dollars);
+            Assert.Equal(Money.dollar(15), sum.reduce("USD", _bank));
         }
     }
 }
