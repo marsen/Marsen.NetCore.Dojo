@@ -1,5 +1,6 @@
 module.exports = {
   stories: [
+    '../src/components/Hex/*.stories.tsx',
     '../src/components/Covid/*.stories.tsx',
     //'../src/components/Cart/*.stories.tsx',
     //'../src/components/Task/*.stories.tsx',
