@@ -1,5 +1,6 @@
 import React from 'react';
 import HexCart from './HexCart';
+import PropDemo from "./Prop";
 
 export default {
   component: HexCart,
@@ -10,4 +11,5 @@ export default {
 };
 
 export const Default = () => <HexCart />
+export const ThePropDemo = () => <PropDemo />
 
