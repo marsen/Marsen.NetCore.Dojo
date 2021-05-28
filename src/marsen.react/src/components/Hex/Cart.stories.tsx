@@ -3,8 +3,7 @@ import HexCart from './HexCart';
 import PropDemo from "./Prop";
 import ProductCard from "./ProductCard"
 import data from "./data/food.json"
-import ProductCarousel from './ProductCarousel';
-import Product from './Product';
+import Product,{ProductCarousel} from './Product';
 
 export default {
   component: HexCart,
