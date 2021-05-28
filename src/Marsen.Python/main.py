@@ -13,7 +13,7 @@ class WasRun:
 
 
 if __name__ == '__main__':
-    test = WasRun('PyCharm')
+    test = WasRun('testMethod')
     print(test.wasRun)
     test.testmethod()
     print(test.wasRun)
