@@ -17,6 +17,10 @@ class WasRun:
         method()
 
 
+class TestCase:
+    pass
+
+
 if __name__ == '__main__':
     test = WasRun("testmethod")
     print(test.wasRun)
