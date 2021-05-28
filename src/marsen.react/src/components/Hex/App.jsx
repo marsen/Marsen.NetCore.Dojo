@@ -18,12 +18,12 @@ const AppWrapper = styled.div`
 
 function Welcome() {
   return (
-    <Fragment>
+    <>
       <Jumbotron>
         <h1>歡迎 Marsen Learning 商城</h1>
       </Jumbotron>
       <p>此商城為教學用途，請勿正式購買。</p>
-    </Fragment>
+    </>
   );
 }
 
