@@ -1,9 +1,8 @@
 import React from 'react';
 import HexCart from './HexCart';
 import PropDemo from "./Prop";
-import ProductCard from "./ProductCard"
 import data from "./data/food.json"
-import Product,{ProductCarousel} from './Product';
+import Product,{ProductCarousel, ProductCard} from './Product';
 
 export default {
   component: HexCart,
