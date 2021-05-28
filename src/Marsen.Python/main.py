@@ -11,11 +11,14 @@ class WasRun:
     def testmethod(self):
         self.wasRun = 1
 
+    def run(self):
+        self.testmethod()
+
 
 if __name__ == '__main__':
     test = WasRun('testMethod')
     print(test.wasRun)
-    test.testmethod()
+    test.run()
     print(test.wasRun)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
