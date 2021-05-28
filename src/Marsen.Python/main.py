@@ -16,7 +16,7 @@ class WasRun:
 
 
 if __name__ == '__main__':
-    test = WasRun('testMethod')
+    test = WasRun("testmethod")
     print(test.wasRun)
     test.run()
     print(test.wasRun)
