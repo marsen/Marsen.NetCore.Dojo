@@ -17,6 +17,7 @@ class WasRun(TestCase):
         # tracking the setUp has been called
         self.wasRun = None
         self.wasSetUp = 1
+        self.log = "setUp"
 
     def testMethod(self):
         # tracking the method has been called
@@ -33,7 +34,7 @@ class TestCaseTest(TestCase):
 
     def testSetUp(self):
         self.test.run()
-        assert self.test.wasSetUp
+        assert self.test.log == "setUp"
 
 
 if __name__ == '__main__':
