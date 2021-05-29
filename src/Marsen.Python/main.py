@@ -19,6 +19,7 @@ class WasRun(TestCase):
         TestCase.__init__(self, name)
 
     def testmethod(self):
+        self.wasSetUp = 1
         self.wasRun = 1
 
 
