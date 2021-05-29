@@ -29,8 +29,14 @@ class TestCaseTest(TestCase):
         test.run()
         assert test.wasRun
 
+    def testSetUp(self):
+        test = WasRun("testmethod")
+        test.run()
+        assert test.wasSetUp
+
 
 if __name__ == '__main__':
     TestCaseTest("testRunning").run()
+    TestCaseTest("testSetUp").run()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
