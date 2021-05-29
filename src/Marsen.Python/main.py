@@ -25,9 +25,9 @@ class WasRun(TestCase):
 class TestCaseTest(TestCase):
     def testRunning(self):
         test = WasRun("testmethod")
-        print(test.wasRun)
+        assert (not test.wasRun)
         test.run()
-        print(test.wasRun)
+        assert test.wasRun
 
 
 if __name__ == '__main__':
