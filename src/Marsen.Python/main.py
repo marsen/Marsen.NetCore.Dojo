@@ -24,8 +24,11 @@ class WasRun(TestCase):
         self.wasRun = None
         TestCase.__init__(self, name)
 
-    def testMethod(self):
+    def setUp(self):
+        # tracking the setUp has been called
         self.wasSetUp = 1
+
+    def testMethod(self):
         # tracking the method has been called
         self.wasRun = 1
 
