@@ -19,10 +19,6 @@ class TestCase:
 
 
 class WasRun(TestCase):
-    def __init__(self, name):
-        self.wasSetUp = None
-        self.wasRun = None
-        TestCase.__init__(self, name)
 
     def setUp(self):
         # tracking the setUp has been called
