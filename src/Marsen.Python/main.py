@@ -13,6 +13,7 @@ class TestCase:
 
     def run(self):
         self.setUp()
+        # dynamic run the test case
         method = getattr(self, self.name)
         method()
 
