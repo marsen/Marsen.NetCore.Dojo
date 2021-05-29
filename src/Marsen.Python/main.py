@@ -26,6 +26,7 @@ class WasRun(TestCase):
 
     def setUp(self):
         # tracking the setUp has been called
+        self.wasRun = None
         self.wasSetUp = 1
 
     def testMethod(self):
