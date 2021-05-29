@@ -22,10 +22,15 @@ class WasRun(TestCase):
         self.wasRun = 1
 
 
+class TestCaseTest(TestCase):
+    def testRunning(self):
+        test = WasRun("testmethod")
+        print(test.wasRun)
+        test.run()
+        print(test.wasRun)
+
+
 if __name__ == '__main__':
-    test = WasRun("testmethod")
-    print(test.wasRun)
-    test.run()
-    print(test.wasRun)
+    TestCaseTest("testRunning").run()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
