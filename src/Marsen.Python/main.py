@@ -4,7 +4,11 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 # Press the green button in the gutter to run the script.
-class WasRun:
+class TestCase:
+    pass
+
+
+class WasRun(TestCase):
     def __init__(self, name):
         self.wasRun = None
         self.name = name
@@ -15,10 +19,6 @@ class WasRun:
     def run(self):
         method = getattr(self, self.name)
         method()
-
-
-class TestCase:
-    pass
 
 
 if __name__ == '__main__':
