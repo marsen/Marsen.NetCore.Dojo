@@ -35,7 +35,6 @@ class TestCaseTest(TestCase):
         self.test = WasRun("testMethod")
 
     def testRunning(self):
-        assert (not self.test.wasRun)
         self.test.run()
         assert self.test.wasRun
 
