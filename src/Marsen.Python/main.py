@@ -33,6 +33,9 @@ class WasRun(TestCase):
         self.wasRun = 1
         self.log = self.log + "testMethod "
 
+    def testBrokenMethod(self):
+        raise Exception
+
 
 class TestResult:
     def __init__(self):
@@ -57,7 +60,7 @@ class TestCaseTest(TestCase):
         assert ("1 run, 0 failed" == result.summary())
 
     def testFailedResult(self):
-        self.test = WasRun("testMethod")
+        self.test = WasRun("testBrokenMethod")
         result = self.test.run()
         assert ("1 run, 1 failed" == result.summary())
 
@@ -65,3 +68,4 @@ class TestCaseTest(TestCase):
 if __name__ == '__main__':
     TestCaseTest("testTemplateMethod").run()
     TestCaseTest("testResult").run()
+    TestCaseTest("testFailedResult").run()
