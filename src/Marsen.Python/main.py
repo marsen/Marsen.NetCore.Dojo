@@ -47,6 +47,9 @@ class TestResult:
     def testStarted(self):
         self.runCounter = self.runCounter + 1
 
+    def testFailed(self):
+        pass
+
 
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
