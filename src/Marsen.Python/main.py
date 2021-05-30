@@ -42,5 +42,7 @@ class TestCaseTest(TestCase):
         result = self.test.run()
         assert ("1 run, 0 failed" == result.summary())
 
-    if __name__ == '__main__':
-        TestCaseTest("testTemplateMethod").run()
+
+if __name__ == '__main__':
+    TestCaseTest("testTemplateMethod").run()
+    TestCaseTest("testResult").run()
