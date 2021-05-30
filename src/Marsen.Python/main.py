@@ -10,7 +10,7 @@ class TestCase:
 
     def run(self):
         result = TestResult()
-        result.runCounter = result.runCounter + 1
+        result.testStarted()
         self.setUp()
         # dynamic run the test case
         method = getattr(self, self.name)
@@ -40,6 +40,9 @@ class TestResult:
 
     def summary(self):
         return "%d run, 0 failed" % self.runCounter
+
+    def testStarted(self):
+        self.runCounter = self.runCounter + 1
 
 
 class TestCaseTest(TestCase):
