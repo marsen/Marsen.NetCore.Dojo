@@ -5,11 +5,15 @@ class TestCase:
     def setUp(self):
         pass
 
+    def tearDown(self):
+        pass
+
     def run(self):
         self.setUp()
         # dynamic run the test case
         method = getattr(self, self.name)
         method()
+        self.tearDown()
 
 
 class WasRun(TestCase):
@@ -17,6 +21,9 @@ class WasRun(TestCase):
         # tracking the setUp has been called
         self.wasRun = None
         self.log = "setUp "
+
+    def tearDown(self):
+        self.log = self.log + "tearDown "
 
     def testMethod(self):
         # tracking the method has been called
