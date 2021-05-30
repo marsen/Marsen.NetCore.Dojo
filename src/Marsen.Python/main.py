@@ -14,6 +14,7 @@ class TestCase:
         method = getattr(self, self.name)
         method()
         self.tearDown()
+        return TestResult()
 
 
 class WasRun(TestCase):
@@ -30,6 +31,9 @@ class WasRun(TestCase):
         self.wasRun = 1
         self.log = self.log + "testMethod "
 
+class TestResult:
+    def summary(self):
+        return "1 run, 0 failed"
 
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
