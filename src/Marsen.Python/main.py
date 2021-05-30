@@ -57,6 +57,10 @@ class TestResult:
         self.errorCounter = self.errorCounter + 1
 
 
+class TestSuite:
+    pass
+
+
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
         self.test = WasRun("testMethod")
