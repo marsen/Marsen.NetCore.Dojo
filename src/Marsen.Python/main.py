@@ -11,7 +11,7 @@ class TestCase:
     def run(self):
         result = TestResult()
         result.testStarted()
-        #todo when setUp raise exception
+        # todo when setUp raise exception
         self.setUp()
         # dynamic run the test case
         try:
