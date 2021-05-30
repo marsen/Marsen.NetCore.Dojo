@@ -9,12 +9,14 @@ class TestCase:
         pass
 
     def run(self):
+        result = TestResult()
+        result.runCounter = result.runCounter + 1
         self.setUp()
         # dynamic run the test case
         method = getattr(self, self.name)
         method()
         self.tearDown()
-        return TestResult()
+        return result
 
 
 class WasRun(TestCase):
@@ -34,7 +36,7 @@ class WasRun(TestCase):
 
 class TestResult:
     def __init__(self):
-        self.runCounter = 1
+        self.runCounter = 0
 
     def summary(self):
         return "%d run, 0 failed" % self.runCounter
