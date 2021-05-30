@@ -28,10 +28,10 @@ class TestCaseTest(TestCase):
     def setUp(self):
         self.test = WasRun("testMethod")
 
-    def testRunning(self):
+    def testTemplateMethod(self):
         self.test.run()
         assert self.test.log == "setUp testMethod "
 
 
 if __name__ == '__main__':
-    TestCaseTest("testRunning").run()
+    TestCaseTest("testTemplateMethod").run()
