@@ -32,11 +32,6 @@ class TestCaseTest(TestCase):
         self.test.run()
         assert self.test.log == "setUp testMethod "
 
-    def testSetUp(self):
-        self.test.run()
-        assert self.test.log == "setUp testMethod "
-
 
 if __name__ == '__main__':
     TestCaseTest("testRunning").run()
-    TestCaseTest("testSetUp").run()
