@@ -64,8 +64,15 @@ class TestCaseTest(TestCase):
         result = self.test.run()
         assert ("1 run, 1 failed" == result.summary())
 
+    def testFailedResultFormatting(self):
+        result = TestResult()
+        result.testStarted()
+        result.testFailed()
+        assert ("1 run, 1 failed" == result.summary())
+
 
 if __name__ == '__main__':
     TestCaseTest("testTemplateMethod").run()
     TestCaseTest("testResult").run()
     #TestCaseTest("testFailedResult").run()
+    TestCaseTest("testFailedResultFormatting").run()
