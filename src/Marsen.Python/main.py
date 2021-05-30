@@ -31,9 +31,14 @@ class WasRun(TestCase):
         self.wasRun = 1
         self.log = self.log + "testMethod "
 
+
 class TestResult:
+    def __init__(self):
+        self.runCounter = 1
+
     def summary(self):
-        return "1 run, 0 failed"
+        return "%d run, 0 failed" % self.runCounter
+
 
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
