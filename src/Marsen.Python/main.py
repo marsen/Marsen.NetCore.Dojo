@@ -102,14 +102,13 @@ class TestCaseTest(TestCase):
 
     def testFailedResult(self):
         self.test = WasRun("testBrokenMethod")
-        result = self.test.run()
-        assert ("1 run, 1 failed" == result.summary())
+        self.test.run2(self.result)
+        assert ("1 run, 1 failed" == self.result.summary())
 
     def testFailedResultFormatting(self):
-        result = TestResult()
-        result.testStarted()
-        result.testFailed()
-        assert ("1 run, 1 failed" == result.summary())
+        self.result.testStarted()
+        self.result.testFailed()
+        assert ("1 run, 1 failed" == self.result.summary())
 
     def testSuite(self):
         suite = TestSuite()
