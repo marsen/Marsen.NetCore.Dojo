@@ -8,7 +8,7 @@ class TestCase:
     def tearDown(self):
         pass
 
-    def run2(self, result):
+    def run(self, result):
         result.testStarted()
         # todo when setUp raise exception
         self.setUp()
@@ -65,7 +65,7 @@ class TestSuite:
 
     def run(self, result):
         for test in self.tests:
-            test.run2(result)
+            test.run(result)
         # print(">>>" + result.summary())
         return result
 
@@ -76,17 +76,17 @@ class TestCaseTest(TestCase):
 
     def testTemplateMethod(self):
         self.test = WasRun("testMethod")
-        self.test.run2(self.result)
+        self.test.run(self.result)
         assert self.test.log == "setUp testMethod tearDown "
 
     def testResult(self):
         self.test = WasRun("testMethod")
-        self.test.run2(self.result)
+        self.test.run(self.result)
         assert ("1 run, 0 failed" == self.result.summary())
 
     def testFailedResult(self):
         self.test = WasRun("testBrokenMethod")
-        self.test.run2(self.result)
+        self.test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
     def testFailedResultFormatting(self):
