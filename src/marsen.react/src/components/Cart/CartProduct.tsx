@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import SubTotal from './SubTotal';
 import Product from './Product';
-import { Box } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import NumberSelector from './NumberSelector';
 
@@ -28,7 +28,7 @@ const temp = {
 
 export default function CartProduct(props:CartProductProps) {    
       return (
-          <Box style={style} >
+          <Box sx={style} >
               <img alt="mock" src="https://i.imgur.com/iVCU50y.jpg" style={style} width={80} />
               <Product Name={props.Name} Detail={props.Detail} />
               <NumberSelector Qty={props.Qty} />

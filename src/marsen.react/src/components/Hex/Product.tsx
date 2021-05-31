@@ -10,7 +10,7 @@ export function ProductCard({
   price,
   cartItem,
   setCartItem
-}) {
+}:any) {
   return (
     <Card key={name} style={{ width: "18rem" }}>
       <Card.Img variant="top" src={picture} />
@@ -82,7 +82,7 @@ export function ProductCarousel() {
   );
 }
 
-export default function Product({ cartItem, setCartItem }) {
+export default function Product({ cartItem, setCartItem }:any) {
     return (
       <Fragment>
         <ProductCarousel />

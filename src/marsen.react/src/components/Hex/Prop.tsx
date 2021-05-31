@@ -10,16 +10,11 @@ const data = [
     description: "Im barrrr......"
   }
 ];
-const Card = ({ cardData }) => {
-  // return cardData.map(data => (
-  //   <div key={data.name}>
-  //     <div>Name: {data.name}</div>
-  //     <div>Description: {data.description}</div>
-  //   </div>
-  // ));
+
+const Card = ({ cardData }:any) => {
   return (
     <div>
-      {cardData.map(data => (
+      {cardData.map((data:any) => (
         <CardItem
           key={data.name}
           name={data.name}
@@ -29,7 +24,7 @@ const Card = ({ cardData }) => {
     </div>
   );
 };
-const CardItem = ({ name, description }) => {
+const CardItem = ({ name, description } :any) => {
   return (
     <div>
       <div>Name: {name}</div>
@@ -37,10 +32,5 @@ const CardItem = ({ name, description }) => {
     </div>
   );
 };
-export default () => <Card cardData={data} />;
 
-// function an() {
-//   return Card({
-//     cardData: data
-//   })
-// }
+export default () => <Card cardData={data} />;
