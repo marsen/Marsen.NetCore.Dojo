@@ -82,14 +82,15 @@ class TestSuite:
         result = TestResult()
         for test in self.tests:
             test.run2(result)
-        print(">>>"+result.summary())
+        #print(">>>" + result.summary())
         return result
 
 
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
         self.test = WasRun("testMethod")
-        self.test.run()
+        result = TestResult()
+        self.test.run2(result)
         assert self.test.log == "setUp testMethod tearDown "
 
     def testResult(self):
