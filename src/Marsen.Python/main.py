@@ -23,6 +23,20 @@ class TestCase:
         self.tearDown()
         return result
 
+    def run2(self, result):
+        result.testStarted()
+        # todo when setUp raise exception
+        self.setUp()
+        # dynamic run the test case
+        try:
+            method = getattr(self, self.name)
+            method()
+        except:
+            result.testFailed()
+
+        self.tearDown()
+        return result
+
 
 class WasRun(TestCase):
     def setUp(self):
