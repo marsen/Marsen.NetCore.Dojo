@@ -65,7 +65,10 @@ class TestSuite:
         self.tests.append(test)
 
     def run(self):
-        pass
+        result = TestResult()
+        for test in self.tests:
+            test.run2(result)
+            print(result.summary())
 
 
 class TestCaseTest(TestCase):
