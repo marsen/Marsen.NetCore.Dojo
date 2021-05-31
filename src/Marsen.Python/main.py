@@ -82,7 +82,7 @@ class TestSuite:
         result = TestResult()
         for test in self.tests:
             test.run2(result)
-            print(result.summary())
+        print(">>>"+result.summary())
 
 
 class TestCaseTest(TestCase):
