@@ -97,8 +97,8 @@ class TestCaseTest(TestCase):
 
     def testResult(self):
         self.test = WasRun("testMethod")
-        result = self.test.run()
-        assert ("1 run, 0 failed" == result.summary())
+        self.test.run2(self.result)
+        assert ("1 run, 0 failed" == self.result.summary())
 
     def testFailedResult(self):
         self.test = WasRun("testBrokenMethod")
