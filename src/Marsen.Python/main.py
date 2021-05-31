@@ -78,8 +78,7 @@ class TestSuite:
     def add(self, test):
         self.tests.append(test)
 
-    def run(self):
-        result = TestResult()
+    def run(self,result):
         for test in self.tests:
             test.run2(result)
         # print(">>>" + result.summary())
@@ -114,8 +113,8 @@ class TestCaseTest(TestCase):
         suite = TestSuite()
         suite.add(WasRun("testMethod"))
         suite.add(WasRun("testBrokenMethod"))
-        result = suite.run()
-        assert ("2 run, 1 failed" == result.summary())
+        suite.run(self.result)
+        assert ("2 run, 1 failed" == self.result.summary())
 
 
 if __name__ == '__main__':
