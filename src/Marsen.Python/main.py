@@ -78,7 +78,7 @@ class TestSuite:
     def add(self, test):
         self.tests.append(test)
 
-    def run(self,result):
+    def run(self, result):
         for test in self.tests:
             test.run2(result)
         # print(">>>" + result.summary())
@@ -118,8 +118,12 @@ class TestCaseTest(TestCase):
 
 
 if __name__ == '__main__':
-    print(TestCaseTest("testTemplateMethod").run().summary())
-    print(TestCaseTest("testResult").run().summary())
-    print(TestCaseTest("testFailedResult").run().summary())
-    print(TestCaseTest("testFailedResultFormatting").run().summary())
-    print(TestCaseTest("testSuite").run().summary())
+    suite = TestSuite()
+    suite.add(TestCaseTest("testTemplateMethod"))
+    suite.add(TestCaseTest("testResult"))
+    suite.add(TestCaseTest("testFailedResult"))
+    suite.add(TestCaseTest("testFailedResultFormatting"))
+    suite.add(TestCaseTest("testSuite"))
+    result = TestResult()
+    suite.run(result)
+    print(result.summary())
