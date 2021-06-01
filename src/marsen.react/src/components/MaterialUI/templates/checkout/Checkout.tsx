@@ -29,7 +29,8 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const useStyles = makeStyles((theme:Theme) => (
+  {
   appBar: {
     position: 'relative',
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -58,7 +59,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
   },
-}));
+}),{defaultTheme:createTheme()});
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 

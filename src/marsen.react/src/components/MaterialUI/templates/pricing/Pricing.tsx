@@ -28,7 +28,7 @@ function Copyright(props: any) {
   );
 }
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const useStyles = makeStyles((theme:Theme) => ({
   '@global': {
     ul: {
       margin: 0,
@@ -73,7 +73,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
       paddingBottom: theme.spacing(6),
     },
   },
-}));
+}),{defaultTheme:createTheme()});
 
 const tiers = [
   {
