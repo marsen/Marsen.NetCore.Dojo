@@ -5,7 +5,7 @@ import { ThemeProvider } from '@material-ui/core';
 import App from './Copyright';
 import theme from './theme';
 import Album from './templates/album/Album';
-//import Blog from './templates/blog/Blog';
+import Blog from './templates/blog/Blog';
 import Checkout from './templates/checkout/Checkout';
 import Dashboard from './templates/dashboard/Dashboard';
 import Pricing from './templates/pricing/Pricing';
@@ -33,7 +33,7 @@ export const Copyright = () =><ThemeProvider theme={theme}>
 
 
 export const TheAlbum = () => <Album />;
-//export const TheBlog = () => <Blog />;
+export const TheBlog = () => <Blog />;
 export const TheCheckout = () => <Checkout />;
 export const TheDashboard = () => <Dashboard />;
 export const ThePricing = () => <Pricing />;

@@ -1,4 +1,4 @@
-import React, { Fragment, createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import Product from './Product'
 import {
   Container,
