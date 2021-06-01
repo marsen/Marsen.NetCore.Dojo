@@ -1,13 +1,8 @@
 import * as React from 'react';
+import Box from '@material-ui/core/Box'
 import SubTotal from './SubTotal';
 import Product from './Product';
-import Box from '@material-ui/core/Box';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import NumberSelector from './NumberSelector';
-
-const style : CSSProperties =  { 
-  float:'left',  
-};
 
 export interface CartProductProps {  
   price:number,  
@@ -16,20 +11,10 @@ export interface CartProductProps {
   Detail: string,
 }
 
-/*
-const temp = {
-      "Id": "Product-cc59829e-d2d9-463f-b503-248f98934584",
-      "Picture": "yyy.jpg",
-      "SubTotal": "14",
-      "Qty": "2",
-      "Price": "10"
-    }
-*/    
-
 export default function CartProduct(props:CartProductProps) {    
       return (
-          <Box sx={style} >
-              <img alt="mock" src="https://i.imgur.com/iVCU50y.jpg" style={style} width={80} />
+          <Box sx={{float:'left'}}>
+              <img alt="mock" src="https://i.imgur.com/iVCU50y.jpg" style={{float:'left'}} width={80} />
               <Product Name={props.Name} Detail={props.Detail} />
               <NumberSelector Qty={props.Qty} />
               <SubTotal subtotal={props.Qty*props.price} symbol={'$$'} fontSize={20} />
