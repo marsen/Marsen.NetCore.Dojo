@@ -1,12 +1,21 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 
-function MainFeaturedPost(props) {
+interface MainFeaturedPostProps {
+  post: {
+    description: string;
+    image: string;
+    imageText: string;
+    linkText: string;
+    title: string;
+  };
+}
+
+export default function MainFeaturedPost(props: MainFeaturedPostProps) {
   const { post } = props;
 
   return (
@@ -58,15 +67,3 @@ function MainFeaturedPost(props) {
     </Paper>
   );
 }
-
-MainFeaturedPost.propTypes = {
-  post: PropTypes.shape({
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    imageText: PropTypes.string.isRequired,
-    linkText: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-export default MainFeaturedPost;

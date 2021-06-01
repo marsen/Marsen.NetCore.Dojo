@@ -12,10 +12,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/styles';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, Theme, createTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function Copyright(props) {
+function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -28,7 +28,7 @@ function Copyright(props) {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles<Theme>((theme) => ({
   '@global': {
     ul: {
       margin: 0,
@@ -114,7 +114,6 @@ const tiers = [
     buttonVariant: 'outlined',
   },
 ];
-
 const footers = [
   {
     title: 'Company',
@@ -257,7 +256,10 @@ function PricingContent() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant}>
+                  <Button
+                    fullWidth
+                    variant={tier.buttonVariant as 'outlined' | 'contained'}
+                  >
                     {tier.buttonText}
                   </Button>
                 </CardActions>

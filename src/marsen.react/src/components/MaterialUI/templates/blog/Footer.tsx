@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -18,7 +17,12 @@ function Copyright() {
   );
 }
 
-function Footer(props) {
+interface FooterProps {
+  description: string;
+  title: string;
+}
+
+export default function Footer(props: FooterProps) {
   const { description, title } = props;
 
   return (
@@ -40,10 +44,3 @@ function Footer(props) {
     </Box>
   );
 }
-
-Footer.propTypes = {
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-export default Footer;

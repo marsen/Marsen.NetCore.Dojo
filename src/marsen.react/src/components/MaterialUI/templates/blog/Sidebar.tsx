@@ -1,12 +1,24 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Stack from '@material-ui/core/Stack';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-function Sidebar(props) {
+interface SidebarProps {
+  archives: ReadonlyArray<{
+    url: string;
+    title: string;
+  }>;
+  description: string;
+  social: ReadonlyArray<{
+    icon: React.ElementType;
+    name: string;
+  }>;
+  title: string;
+}
+
+export default function Sidebar(props: SidebarProps) {
   const { archives, description, social, title } = props;
 
   return (
@@ -25,7 +37,6 @@ function Sidebar(props) {
           {archive.title}
         </Link>
       ))}
-
       <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
       </Typography>
@@ -46,22 +57,3 @@ function Sidebar(props) {
     </Grid>
   );
 }
-
-Sidebar.propTypes = {
-  archives: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  description: PropTypes.string.isRequired,
-  social: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.elementType.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-export default Sidebar;

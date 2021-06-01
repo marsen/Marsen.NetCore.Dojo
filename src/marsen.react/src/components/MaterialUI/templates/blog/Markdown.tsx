@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 
-function MarkdownListItem(props) {
+function MarkdownListItem(props: any) {
   return <Box component="li" sx={{ mt: 1, typography: 'body1' }} {...props} />;
 }
 
@@ -45,6 +45,6 @@ const options = {
   },
 };
 
-export default function Markdown(props) {
+export default function Markdown(props: any) {
   return <ReactMarkdown options={options} {...props} />;
 }

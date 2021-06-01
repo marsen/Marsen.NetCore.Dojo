@@ -3,7 +3,7 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Title from './Title';
 
-function preventDefault(event) {
+function preventDefault(event: React.MouseEvent) {
   event.preventDefault();
 }
 

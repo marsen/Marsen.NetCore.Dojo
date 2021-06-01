@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -7,7 +6,17 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
-function FeaturedPost(props) {
+interface FeaturedPostProps {
+  post: {
+    date: string;
+    description: string;
+    image: string;
+    imageText: string;
+    title: string;
+  };
+}
+
+export default function FeaturedPost(props: FeaturedPostProps) {
   const { post } = props;
 
   return (
@@ -38,15 +47,3 @@ function FeaturedPost(props) {
     </Grid>
   );
 }
-
-FeaturedPost.propTypes = {
-  post: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    imageText: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-export default FeaturedPost;

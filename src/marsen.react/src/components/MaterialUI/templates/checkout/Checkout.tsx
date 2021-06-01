@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, Theme, createTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
@@ -29,7 +29,7 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles<Theme>((theme) => ({
   appBar: {
     position: 'relative',
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
+function getStepContent(step: number) {
   switch (step) {
     case 0:
       return <AddressForm />;
@@ -137,7 +137,6 @@ function CheckoutContent() {
                       Back
                     </Button>
                   )}
-
                   <Button
                     variant="contained"
                     onClick={handleNext}
