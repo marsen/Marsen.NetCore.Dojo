@@ -39,7 +39,7 @@ function Copyright(props: any) {
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const useStyles = makeStyles((theme:Theme) => ({
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
   },
@@ -93,7 +93,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
     },
   },
   appBarSpacer: theme.mixins.toolbar,
-}));
+}),{defaultTheme:createTheme()});
 
 const defaultTheme = createTheme();
 
