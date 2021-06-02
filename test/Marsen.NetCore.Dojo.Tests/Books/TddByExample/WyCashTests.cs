@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Marsen.NetCore.Dojo.Books.TddByExample;
 using Xunit;
 
@@ -65,7 +66,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testPlusReturnsSum()
         {
-            Sum sum = (Sum) fiveBulks.Plus(fiveBulks);
+            Sum sum = (Sum)fiveBulks.Plus(fiveBulks);
             Assert.Equal(fiveBulks, sum.Addend);
             Assert.Equal(fiveBulks, sum.Augend);
         }
@@ -95,10 +96,19 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void testMoneyTimes()
         {
-            Money dollar = (Money) fiveBulks.Times(2);
-            Money francs = (Money) temFrancs.Times(2);
+            Money dollar = (Money)fiveBulks.Times(2);
+            Money francs = (Money)temFrancs.Times(2);
             Assert.Equal(Money.dollar(10), dollar.Reduce(bank, "USD"));
             Assert.Equal(Money.franc(20), francs.Reduce(bank, "CHF"));
+        }
+
+        [Fact]
+        public void testMoneyToString()
+        {
+            Money dollar = Money.dollar(10);
+            Money francs = Money.franc(10);
+            Assert.Equal("10 USD", dollar.ToString());
+            Assert.Equal("10 CHF", francs.ToString());
         }
     }
 }
