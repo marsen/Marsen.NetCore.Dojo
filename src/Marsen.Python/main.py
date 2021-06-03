@@ -1,6 +1,9 @@
 class TestCase:
     def __init__(self, name):
+        # tracking the setUp has been called
+        self.wasRun = None
         self.name = name
+        self.log = ""
 
     def setup(
             self):
@@ -26,8 +29,6 @@ class TestCase:
 
 class WasRun(TestCase):
     def setup(self):
-        # tracking the setUp has been called
-        self.wasRun = None
         self.log = "setUp "
 
     def tear_down(self):
