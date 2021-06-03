@@ -10,7 +10,7 @@ class TestCase:
         pass
 
     def run(self, result):
-        result.testStarted()
+        result.test_started()
         # todo when setUp raise exception
         self.setup()
         # dynamic run the test case
@@ -18,7 +18,7 @@ class TestCase:
             method = getattr(self, self.name)
             method()
         except:
-            result.testFailed()
+            result.test_failed()
 
         self.tear_down()
         return result
@@ -50,10 +50,10 @@ class TestResult:
     def summary(self):
         return "%d run, %d failed" % (self.runCounter, self.errorCounter)
 
-    def testStarted(self):
+    def test_started(self):
         self.runCounter = self.runCounter + 1
 
-    def testFailed(self):
+    def test_failed(self):
         self.errorCounter = self.errorCounter + 1
 
 
@@ -91,8 +91,8 @@ class TestCaseTest(TestCase):
         assert ("1 run, 1 failed" == self.result.summary())
 
     def test_failed_result_formatting(self):
-        self.result.testStarted()
-        self.result.testFailed()
+        self.result.test_started()
+        self.result.test_failed()
         assert ("1 run, 1 failed" == self.result.summary())
 
     def test_suite(self):
