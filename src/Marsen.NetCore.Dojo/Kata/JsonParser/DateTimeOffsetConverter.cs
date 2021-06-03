@@ -12,10 +12,9 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
             Type typeToConvert,
             JsonSerializerOptions options)
         {
-            var dateTimeString = reader.GetString();
-            if (DateTime.TryParse(dateTimeString, out var result))
+            if (DateTime.TryParse(reader.GetString(), out var dateTime))
             {
-                return result;
+                return dateTime;
             }
 
             throw new InvalidOperationException();
