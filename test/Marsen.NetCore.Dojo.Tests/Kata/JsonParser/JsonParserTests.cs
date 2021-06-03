@@ -13,37 +13,34 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
         [Fact]
         public void parse_name()
         {
-            ParseJson().Name.Should().Be("Tian Tank");
+            Tian_Tank_1989_06_04().Name.Should().Be("Tian Tank");
         }
 
         [Fact]
         public void parse_age_today_is_2019()
         {
-            GiveTodayIs("2019/12/28").Age.Should().Be(30);
+            ////Arrange
+            SystemDateTime.Now = Convert.ToDateTime("2019/12/28");
+            ////Act
+            Tian_Tank_1989_06_04().Age.Should().Be(30);
         }
 
         [Fact]
         public void parse_age_today_is_2030()
         {
-            GiveTodayIs("2030/05/06").Age.Should().Be(41);
-        }
-
-        private PersonaEntity ParseJson()
-        {
-            var replace = @"{
-                                  'FirstName': 'Tian',
-                                  'LastName': 'Tank',
-                                  'BirthDate': '1989/06/04'
-                                  }".Replace(@"'",@"""");
-            return _target.Parse(replace);
-        }
-
-        private PersonaEntity GiveTodayIs(string date)
-        {
             ////Arrange
-            SystemDateTime.Now = Convert.ToDateTime(date);
+            SystemDateTime.Now = Convert.ToDateTime("2030/05/06");
             ////Act
-            return ParseJson();
+            Tian_Tank_1989_06_04().Age.Should().Be(41);
+        }
+
+        private PersonaEntity Tian_Tank_1989_06_04()
+        {
+            return _target.Parse(@"{
+                    'FirstName': 'Tian',
+                    'LastName': 'Tank',
+                    'BirthDate': '1989/06/04'
+                }".Replace(@"'", @""""));
         }
 
         public void Dispose()
