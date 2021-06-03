@@ -21,8 +21,8 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
         }
 
         public override void Write(
-            Utf8JsonWriter writer, 
-            DateTime value, 
+            Utf8JsonWriter writer,
+            DateTime value,
             JsonSerializerOptions options) =>
             throw new NotImplementedException();
     }

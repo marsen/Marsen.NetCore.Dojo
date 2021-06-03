@@ -37,14 +37,31 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
         [Fact]
         public void testPersonWithoutBHD()
         {
-            Action act = () => { _target.Parse(@"{
+            Action act = () =>
+            {
+                _target.Parse(@"{
                     'FirstName': 'Tian',
                     'LastName': 'Tank',
                     'BirthDate': ''
-                }".Replace(@"'", @""""));};
+                }".Replace(@"'", @""""));
+            };
             act.Should().Throw<InvalidOperationException>();
-
         }
+
+        [Fact]
+        public void testPersonWithWrongBHD()
+        {
+            Action act = () =>
+            {
+                _target.Parse(@"{
+                            'FirstName': 'Tian',
+                            'LastName': 'Tank',
+                            'BirthDate': 'Wrong'
+                        }".Replace(@"'", @""""));
+            };
+            act.Should().Throw<InvalidOperationException>();
+        }
+
 
         private PersonaEntity Tian_Tank_1989_06_04()
         {
