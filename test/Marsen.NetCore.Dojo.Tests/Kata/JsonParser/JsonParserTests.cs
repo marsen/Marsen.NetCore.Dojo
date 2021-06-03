@@ -8,18 +8,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
 {
     public class JsonParserTests : IDisposable
     {
-        private const string _defaultTestJson = @"{ 
-                                  ""FirstName"": ""Tian"",
-                                  ""LastName"": ""Tank"",
-                                  ""BirthDate"": ""1989/06/04""
-                                  }";
-
         private readonly PersonaParser _target = new();
 
         [Fact]
         public void parse_name()
         {
-            AfterParseJson().Name.Should().Be("Tian Tank");
+            ParseJson().Name.Should().Be("Tian Tank");
         }
 
         [Fact]
@@ -34,9 +28,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
             GiveTodayIs("2030/05/06").Age.Should().Be(41);
         }
 
-        private PersonaEntity AfterParseJson()
+        private PersonaEntity ParseJson()
         {
-            return _target.Parse(_defaultTestJson);
+            var replace = @"{
+                                  'FirstName': 'Tian',
+                                  'LastName': 'Tank',
+                                  'BirthDate': '1989/06/04'
+                                  }".Replace(@"'",@"""");
+            return _target.Parse(replace);
         }
 
         private PersonaEntity GiveTodayIs(string date)
@@ -44,7 +43,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
             ////Arrange
             SystemDateTime.Now = Convert.ToDateTime(date);
             ////Act
-            return AfterParseJson();
+            return ParseJson();
         }
 
         public void Dispose()
