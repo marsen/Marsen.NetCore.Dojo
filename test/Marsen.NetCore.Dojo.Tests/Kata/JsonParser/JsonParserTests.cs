@@ -34,6 +34,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
             Tian_Tank_1989_06_04().Age.Should().Be(41);
         }
 
+        [Fact]
+        public void testPersonWithoutBHD()
+        {
+            Action act = () => { _target.Parse(@"{
+                    'FirstName': 'Tian',
+                    'LastName': 'Tank',
+                    'BirthDate': ''
+                }".Replace(@"'", @""""));};
+            act.Should().Throw<InvalidOperationException>();
+
+        }
+
         private PersonaEntity Tian_Tank_1989_06_04()
         {
             return _target.Parse(@"{
