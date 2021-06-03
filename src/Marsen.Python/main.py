@@ -2,16 +2,17 @@ class TestCase:
     def __init__(self, name):
         self.name = name
 
-    def setUp(self):
+    def setup(
+            self):
         pass
 
-    def tearDown(self):
+    def tear_down(self):
         pass
 
     def run(self, result):
         result.testStarted()
         # todo when setUp raise exception
-        self.setUp()
+        self.setup()
         # dynamic run the test case
         try:
             method = getattr(self, self.name)
@@ -19,25 +20,25 @@ class TestCase:
         except:
             result.testFailed()
 
-        self.tearDown()
+        self.tear_down()
         return result
 
 
 class WasRun(TestCase):
-    def setUp(self):
+    def setup(self):
         # tracking the setUp has been called
         self.wasRun = None
         self.log = "setUp "
 
-    def tearDown(self):
+    def tear_down(self):
         self.log = self.log + "tearDown "
 
-    def testMethod(self):
+    def test_method(self):
         # tracking the method has been called
         self.wasRun = 1
         self.log = self.log + "testMethod "
 
-    def testBrokenMethod(self):
+    def test_broken_method(self):
         raise Exception
 
 
@@ -71,21 +72,21 @@ class TestSuite:
 
 
 class TestCaseTest(TestCase):
-    def setUp(self):
+    def setup(self):
         self.result = TestResult()
 
     def testTemplateMethod(self):
-        self.test = WasRun("testMethod")
+        self.test = WasRun("test_method")
         self.test.run(self.result)
         assert self.test.log == "setUp testMethod tearDown "
 
     def testResult(self):
-        self.test = WasRun("testMethod")
+        self.test = WasRun("test_method")
         self.test.run(self.result)
         assert ("1 run, 0 failed" == self.result.summary())
 
     def testFailedResult(self):
-        self.test = WasRun("testBrokenMethod")
+        self.test = WasRun("test_broken_method")
         self.test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
@@ -96,8 +97,8 @@ class TestCaseTest(TestCase):
 
     def testSuite(self):
         suite = TestSuite()
-        suite.add(WasRun("testMethod"))
-        suite.add(WasRun("testBrokenMethod"))
+        suite.add(WasRun("test_method"))
+        suite.add(WasRun("test_broken_method"))
         suite.run(self.result)
         assert ("2 run, 1 failed" == self.result.summary())
 
