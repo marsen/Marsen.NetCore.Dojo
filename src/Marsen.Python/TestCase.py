@@ -19,7 +19,7 @@ class TestCase:
         try:
             method = getattr(self, self.name)
             method()
-        except:
+        except Exception:
             result.test_failed()
 
         self.tear_down()
