@@ -35,7 +35,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
         }
 
         [Fact]
-        public void testPersonWithoutBHD()
+        public void person_without_birthday()
         {
             Action act = () => _target.Parse(@"{
                     'FirstName': 'Tian',
@@ -46,7 +46,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
         }
 
         [Fact]
-        public void testPersonWithWrongBHD()
+        public void person_wrong_birthday()
         {
             Action act = () => _target.Parse(@"{
                             'FirstName': 'Tian',
