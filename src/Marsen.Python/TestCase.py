@@ -16,6 +16,7 @@ class TestCase:
         # todo when setUp raise exception
         self.setup()
         # dynamic run the test case
+        # noinspection PyBroadException
         try:
             method = getattr(self, self.name)
             method()
