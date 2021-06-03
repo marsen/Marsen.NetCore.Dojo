@@ -13,14 +13,12 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
             JsonSerializerOptions options)
         {
             var dateTimeString = reader.GetString();
-            DateTime result;
-            if (DateTime.TryParse(dateTimeString, out result))
+            if (DateTime.TryParse(dateTimeString, out var result))
             {
                 return result;
             }
 
             throw new InvalidOperationException();
-            //return DateTime.ParseExact(dateTimeString ?? string.Empty, "yyyy/MM/dd", CultureInfo.InvariantCulture);
         }
 
         public override void Write(
