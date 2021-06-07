@@ -22,7 +22,7 @@ interface ProductCardProperty
   description: string,
   price: number,
   cartItem: CartItemProperty[],
-  setCartItem: any
+  setCartItem: () => void
 }
 
 export function ProductCard(prop:ProductCardProperty) {
@@ -99,7 +99,13 @@ export function ProductCarousel() {
   );
 }
 
-export default function Product({ cartItem, setCartItem }:any) {
+interface ProductProp
+{
+  cartItem:CartItemProperty[];
+  setCartItem:() => void;
+}
+
+export default function Product(prop:ProductProp) {
     return (
       <Fragment>
         <ProductCarousel />
@@ -109,8 +115,8 @@ export default function Product({ cartItem, setCartItem }:any) {
               <ProductCard
                 key={product.name}
                 {...product}
-                cartItem={cartItem}
-                setCartItem={setCartItem}
+                cartItem={prop.cartItem}
+                setCartItem={prop.setCartItem}
               />
             ))}
           </CardGroup>
