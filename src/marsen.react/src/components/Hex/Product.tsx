@@ -123,4 +123,4 @@ export default function Product(prop:ProductProp) {
         </div>
       </Fragment>
     );
-  }
+}
