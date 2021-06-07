@@ -25,6 +25,12 @@ interface ProductCardProperty
   setCartItem: () => void
 }
 
+interface ProductProp
+{
+  cartItem:CartItemProperty[];
+  setCartItem:() => void;
+}
+
 export function ProductCard(prop:ProductCardProperty) {
   return (
     <Card key={prop.name} style={{ width: "18rem" }}>
@@ -99,11 +105,7 @@ export function ProductCarousel() {
   );
 }
 
-interface ProductProp
-{
-  cartItem:CartItemProperty[];
-  setCartItem:() => void;
-}
+
 
 export default function Product(prop:ProductProp) {
     return (
