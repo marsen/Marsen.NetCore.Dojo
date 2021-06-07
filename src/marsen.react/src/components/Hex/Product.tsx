@@ -45,12 +45,6 @@ export function ProductCard(prop:ProductCardProperty) {
           onClick={() =>
             prop.setCartItem(
               prop.cartItem.concat(new CartItemProperty(prop.name,prop.description,prop.price))
-              /*
-              prop.cartItem.concat({
-                name,
-                description,
-                price
-              })*/
             )
           }
         >
