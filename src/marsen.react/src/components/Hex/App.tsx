@@ -112,4 +112,4 @@ export default function App() {
         </AppWrapper>
       </CartContext.Provider>
     );
-  }
+}
