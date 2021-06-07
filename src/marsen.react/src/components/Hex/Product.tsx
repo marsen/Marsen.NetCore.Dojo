@@ -22,13 +22,13 @@ interface ProductCardProperty
   description: string,
   price: number,
   cartItem: CartItemProperty[],
-  setCartItem: () => void
+  setCartItem:(cartItem:CartItemProperty[]) => void
 }
 
 interface ProductProp
 {
   cartItem:CartItemProperty[];
-  setCartItem:() => void;
+  setCartItem:(cartItem:CartItemProperty[]) => void;
 }
 
 export function ProductCard(prop:ProductCardProperty) {
