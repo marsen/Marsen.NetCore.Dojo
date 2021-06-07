@@ -3,31 +3,48 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CardGroup, Carousel,Card,Button } from "react-bootstrap";
 import productData from "./data/food.json";
 
-export function ProductCard({
-  name,
-  picture,
-  description,
-  price,
-  cartItem,
-  setCartItem
-}:any) {
+class CartItemProperty
+{
+  constructor(name:string,description:string,price:number) {
+    this.name = name;
+    this.description = description; 
+    this.price =price;
+  }
+  name:string;
+  description: string;
+  price: number;
+}
+
+interface ProductCardProperty
+{
+  name:string,
+  picture: string,
+  description: string,
+  price: number,
+  cartItem: CartItemProperty[],
+  setCartItem: any
+}
+
+export function ProductCard(prop:ProductCardProperty) {
   return (
-    <Card key={name} style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={picture} />
+    <Card key={prop.name} style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={prop.picture} />
       <Card.Body>
         <Card.Title>
-          {name} ${price}NT
+          {prop.name} ${prop.price}NT
         </Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text>{prop.description}</Card.Text>
         <Button
           variant="primary"
           onClick={() =>
-            setCartItem(
-              cartItem.concat({
+            prop.setCartItem(
+              prop.cartItem.concat(new CartItemProperty(prop.name,prop.description,prop.price))
+              /*
+              prop.cartItem.concat({
                 name,
                 description,
                 price
-              })
+              })*/
             )
           }
         >
