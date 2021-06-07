@@ -105,8 +105,6 @@ export function ProductCarousel() {
   );
 }
 
-
-
 export default function Product(prop:ProductProp) {
     return (
       <Fragment>
