@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, SetStateAction } from "react";
+import React from "react";
 import { Button, Card, CardGroup, Carousel } from "react-bootstrap";
 
 import productData from "./data/food.json";
@@ -22,12 +22,12 @@ interface ProductCardProperty {
   description: string;
   price: number;
   cartItem: CartItemProperty[];
-  setCartItem: Dispatch<SetStateAction<never[]>>;
+  setCartItem: any;
 }
 
 interface ProductProp {
   cartItem: CartItemProperty[];
-  setCartItem: Dispatch<SetStateAction<never[]>>;
+  setCartItem: any;
 }
 
 export function ProductCard(prop: ProductCardProperty) {
@@ -102,7 +102,7 @@ export function ProductCarousel() {
 
 export default function Product(prop: ProductProp) {
   return (
-    <Fragment>
+    <React.Fragment>
       <ProductCarousel />
       <div style={{ marginTop: 20 }}>
         <CardGroup>
@@ -116,6 +116,6 @@ export default function Product(prop: ProductProp) {
           ))}
         </CardGroup>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 }
