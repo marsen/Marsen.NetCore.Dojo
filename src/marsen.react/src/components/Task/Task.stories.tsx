@@ -1,10 +1,10 @@
 // src/components/Task.stories.tsx
-import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
+import React from 'react';
 import Task, { TaskItem, TaskProps, TaskState } from './Task';
 
-export default {
-  component: Task,
+
+export default {  component: Task,
   title: 'Task',
 };
 
@@ -18,7 +18,7 @@ var defaultItem:TaskItem = {
 };
 
 export const Default = Template.bind({});
-Default.args = { item: defaultItem, };
+Default.args = { item: defaultItem, }
 
 export const Pinned = Template.bind({});
 var pinnedItem = Copy(defaultItem);
