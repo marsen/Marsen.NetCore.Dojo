@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Card, CardGroup, Carousel } from "react-bootstrap";
-
 import productData from "./data/food.json";
 
 import "bootstrap/dist/css/bootstrap.min.css";

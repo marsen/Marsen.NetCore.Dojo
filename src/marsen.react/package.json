@@ -67,6 +67,21 @@
     "@types/react-redux": "^7.1.15",
     "babel-loader": "^8.1.0",
     "chromatic": "^5.6.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "organize-imports-cli": "^0.8.0",
+    "prettier": "^2.3.1",
     "react-test-renderer": "^16.14.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts*": [
+      "prettier --write",
+      "organize-imports-cli",
+    ]
   }
 }

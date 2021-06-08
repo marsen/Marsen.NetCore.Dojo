@@ -1,7 +1,8 @@
 import React from 'react';
-import PropDemo from "./Prop";
-import Product,{ProductCarousel, ProductCard} from './Product';
+
 import App from './App';
+import Product, { ProductCard, ProductCarousel } from './Product';
+import PropDemo from "./Prop";
 
 export default {
   component: App,

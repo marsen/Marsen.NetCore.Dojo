@@ -1,8 +1,7 @@
 // src/components/Task.stories.tsx
-
 import React from 'react';
-import Task, { TaskItem, TaskProps, TaskState } from './Task';
 import { Story } from '@storybook/react/types-6-0';
+import Task, { TaskItem, TaskProps, TaskState } from './Task';
 
 export default {
   component: Task,
