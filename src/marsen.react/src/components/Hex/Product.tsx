@@ -1,37 +1,36 @@
-import React,{ Fragment } from "react"
-import "bootstrap/dist/css/bootstrap.min.css";
-import { CardGroup, Carousel,Card,Button } from "react-bootstrap";
+import React, { Fragment } from "react";
+import { Button, Card, CardGroup, Carousel } from "react-bootstrap";
+
 import productData from "./data/food.json";
 
-class CartItemProperty
-{
-  constructor(name:string,description:string,price:number) {
+import "bootstrap/dist/css/bootstrap.min.css";
+
+class CartItemProperty {
+  constructor(name: string, description: string, price: number) {
     this.name = name;
-    this.description = description; 
-    this.price =price;
+    this.description = description;
+    this.price = price;
   }
-  name:string;
+  name: string;
   description: string;
   price: number;
 }
 
-interface ProductCardProperty
-{
-  name:string,
-  picture: string,
-  description: string,
-  price: number,
-  cartItem: CartItemProperty[],
-  setCartItem:(cartItem:CartItemProperty[]) => void
+interface ProductCardProperty {
+  name: string;
+  picture: string;
+  description: string;
+  price: number;
+  cartItem: CartItemProperty[];
+  setCartItem: (cartItem: CartItemProperty[]) => void;
 }
 
-interface ProductProp
-{
-  cartItem:CartItemProperty[];
-  setCartItem:(cartItem:CartItemProperty[]) => void;
+interface ProductProp {
+  cartItem: CartItemProperty[];
+  setCartItem: (cartItem: CartItemProperty[]) => void;
 }
 
-export function ProductCard(prop:ProductCardProperty) {
+export function ProductCard(prop: ProductCardProperty) {
   return (
     <Card key={prop.name} style={{ width: "18rem" }}>
       <Card.Img variant="top" src={prop.picture} />
@@ -44,7 +43,9 @@ export function ProductCard(prop:ProductCardProperty) {
           variant="primary"
           onClick={() =>
             prop.setCartItem(
-              prop.cartItem.concat(new CartItemProperty(prop.name,prop.description,prop.price))
+              prop.cartItem.concat(
+                new CartItemProperty(prop.name, prop.description, prop.price)
+              )
             )
           }
         >
@@ -99,22 +100,22 @@ export function ProductCarousel() {
   );
 }
 
-export default function Product(prop:ProductProp) {
-    return (
-      <Fragment>
-        <ProductCarousel />
-        <div style={{ marginTop: 20 }}>
-          <CardGroup>
-            {productData.map((product) => (
-              <ProductCard
-                key={product.name}
-                {...product}
-                cartItem={prop.cartItem}
-                setCartItem={prop.setCartItem}
-              />
-            ))}
-          </CardGroup>
-        </div>
-      </Fragment>
-    );
+export default function Product(prop: ProductProp) {
+  return (
+    <Fragment>
+      <ProductCarousel />
+      <div style={{ marginTop: 20 }}>
+        <CardGroup>
+          {productData.map((product) => (
+            <ProductCard
+              key={product.name}
+              {...product}
+              cartItem={prop.cartItem}
+              setCartItem={prop.setCartItem}
+            />
+          ))}
+        </CardGroup>
+      </div>
+    </Fragment>
+  );
 }
