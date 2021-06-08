@@ -1,13 +1,9 @@
 import React, { createContext, useContext } from "react";
-import Product from './Product'
-import {
-  Container,
-  Jumbotron,
-  Table,
-  Row,
-  Col
-} from "react-bootstrap";
+import { Col, Container, Jumbotron, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
+
+import Product from "./Product";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const CartContext = createContext([]);
@@ -60,56 +56,56 @@ function Cart() {
 }
 
 export default function App() {
-    // location pushState API
-    const [pathname, setPathname] = React.useState("/");
-    const [cartItem, setCartItem] = React.useState([]);
-    return (
-      <CartContext.Provider value={cartItem}>
-        <AppWrapper color="black">
-          <Container fluid>
-            <Row>
-              <Col>
-                <Row>
-                  <Col>
-                    <div
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setPathname("/")}
-                    >
-                      首頁
-                    </div>
-                  </Col>
-                  <Col>
-                    <div
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setPathname("/product")}
-                    >
-                      產品頁
-                    </div>
-                  </Col>
-                  <Col>
-                    <div
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setPathname("/cart")}
-                    >
-                      購物車 ({cartItem.length})
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-              <Col className="d-flex justify-content-end">
-                <div onClick={() => setPathname("/logout")}>登出</div>
-              </Col>
-            </Row>
-            <div style={{ marginTop: 20 }}>
-              {pathname === "/" ? <Welcome /> : null}
-              {pathname === "/product" ? (
-                <Product cartItem={cartItem} setCartItem={setCartItem} />
-              ) : null}
-              {pathname === "/cart" ? <Cart /> : null}
-              {pathname === "/logout" ? <SeeYou /> : null}
-            </div>
-          </Container>
-        </AppWrapper>
-      </CartContext.Provider>
-    );
+  // location pushState API
+  const [pathname, setPathname] = React.useState("/");
+  const [cartItem, setCartItem] = React.useState([]);
+  return (
+    <CartContext.Provider value={cartItem}>
+      <AppWrapper color="black">
+        <Container fluid>
+          <Row>
+            <Col>
+              <Row>
+                <Col>
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setPathname("/")}
+                  >
+                    首頁
+                  </div>
+                </Col>
+                <Col>
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setPathname("/product")}
+                  >
+                    產品頁
+                  </div>
+                </Col>
+                <Col>
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setPathname("/cart")}
+                  >
+                    購物車 ({cartItem.length})
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+            <Col className="d-flex justify-content-end">
+              <div onClick={() => setPathname("/logout")}>登出</div>
+            </Col>
+          </Row>
+          <div style={{ marginTop: 20 }}>
+            {pathname === "/" ? <Welcome /> : null}
+            {pathname === "/product" ? (
+              <Product cartItem={cartItem} setCartItem={setCartItem} />
+            ) : null}
+            {pathname === "/cart" ? <Cart /> : null}
+            {pathname === "/logout" ? <SeeYou /> : null}
+          </div>
+        </Container>
+      </AppWrapper>
+    </CartContext.Provider>
+  );
 }

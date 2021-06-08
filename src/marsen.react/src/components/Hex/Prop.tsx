@@ -3,18 +3,18 @@ import React from "react";
 const data = [
   {
     name: "foo",
-    description: "Im foooooooo..."
+    description: "Im foooooooo...",
   },
   {
     name: "bar",
-    description: "Im barrrr......"
-  }
+    description: "Im barrrr......",
+  },
 ];
 
-const Card = ({ cardData }:any) => {
+const Card = ({ cardData }: any) => {
   return (
     <div>
-      {cardData.map((data:any) => (
+      {cardData.map((data: any) => (
         <CardItem
           key={data.name}
           name={data.name}
@@ -24,7 +24,7 @@ const Card = ({ cardData }:any) => {
     </div>
   );
 };
-const CardItem = ({ name, description } :any) => {
+const CardItem = ({ name, description }: any) => {
   return (
     <div>
       <div>Name: {name}</div>
