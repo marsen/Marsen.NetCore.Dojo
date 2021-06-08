@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Dispatch, Fragment, SetStateAction } from "react";
 import { Button, Card, CardGroup, Carousel } from "react-bootstrap";
 
 import productData from "./data/food.json";
@@ -22,12 +22,12 @@ interface ProductCardProperty {
   description: string;
   price: number;
   cartItem: CartItemProperty[];
-  setCartItem: (cartItem: CartItemProperty[]) => void;
+  setCartItem: Dispatch<SetStateAction<never[]>>;
 }
 
 interface ProductProp {
   cartItem: CartItemProperty[];
-  setCartItem: (cartItem: CartItemProperty[]) => void;
+  setCartItem: Dispatch<SetStateAction<never[]>>;
 }
 
 export function ProductCard(prop: ProductCardProperty) {
