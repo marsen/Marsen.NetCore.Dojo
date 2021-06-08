@@ -80,8 +80,8 @@
   },
   "lint-staged": {
     "*.ts*": [
-      "prettier --write",
       "organize-imports-cli",
+      "prettier --write"
     ]
   }
 }
