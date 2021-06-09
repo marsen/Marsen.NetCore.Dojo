@@ -38,6 +38,7 @@
   - [ ] 第一次就全倒就是一個 Frame
     - [ ] FirstTry
   - [ ] 打兩次就是一個 Frame
+  - [ ] Strike Frame 的分數是 null
 
 ## Logs
 
