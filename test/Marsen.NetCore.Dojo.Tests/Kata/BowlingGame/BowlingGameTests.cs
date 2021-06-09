@@ -33,6 +33,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Equal(null, _line.Calculate(new List<int> { 0, 10 }));
             Assert.Equal(11, _line.Calculate(new List<int> { 0, 10, 1 }));
         }
+
+        [Fact]
+        public void testFirstStrike()
+        {
+            Assert.Equal(null, _line.Calculate(new List<int> { 10 }));
+        }
     }
 
 
