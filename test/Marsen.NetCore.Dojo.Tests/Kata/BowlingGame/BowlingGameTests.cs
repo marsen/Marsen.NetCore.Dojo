@@ -48,9 +48,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     {
         public int? Calculate(List<int> fellPins)
         {
-            for (int i = 0; i < fellPins.Count; i++)
+            var firstTry = 0;
+            for (var i = 0; i < fellPins.Count; i++)
             {
-                if (fellPins[0] == 10)
+                if (fellPins[firstTry] == 10)
                 {
                     continue;
                 }

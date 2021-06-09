@@ -36,6 +36,7 @@
 - [ ] Frame 回合的概念
   - [ ] 消除重複的 null
   - [ ] 第一次就全倒就是一個 Frame
+    - [ ] FirstTry
   - [ ] 打兩次就是一個 Frame
 
 ## Logs
