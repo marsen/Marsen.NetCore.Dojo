@@ -48,22 +48,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     {
         public int? Calculate(List<int> fellPins)
         {
-            if (fellPins.Any())
+            for (int i = 0; i < fellPins.Count; i++)
             {
                 if (fellPins[0] == 10)
                 {
-                    return null;
+                    continue;
                 }
 
-                if (fellPins.Count == 2 )
+                if (fellPins.Count == 2 && fellPins.Sum() == 10)
                 {
-                    if (fellPins.Sum() == 10)
-                    {
-                        return null;
-                    }
+                    continue;
                 }
 
-                if (fellPins.Count == 2 || fellPins.Count > 2)
+                if (fellPins.Count > 1)
                 {
                     return fellPins.Sum();
                 }
