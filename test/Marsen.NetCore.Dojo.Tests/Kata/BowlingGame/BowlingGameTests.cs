@@ -7,12 +7,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 {
     public class BowlingGameTests
     {
+        private readonly BowlingLine _line = new();
+
         [Fact]
         public void testInitialNewLine()
         {
             var hitBalls = new List<int>();
-            var line = new BowlingLine();
-            var result = line.Calculate(hitBalls);
+            var result = _line.Calculate(hitBalls);
             Assert.Equal(null, result);
         }
 
@@ -20,10 +21,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public void testFirstHit()
         {
             var firstPlayerHitBalls = new List<int> { 0 };
+            var firstPlayerScore = _line.Calculate(firstPlayerHitBalls);
             var secondPlayerHitBalls = new List<int> { 1 };
-            var line = new BowlingLine();
-            var firstPlayerScore = line.Calculate(firstPlayerHitBalls);
-            var secondPlayerScore = line.Calculate(secondPlayerHitBalls);
+            var secondPlayerScore = _line.Calculate(secondPlayerHitBalls);
             Assert.Equal(0, firstPlayerScore);
             Assert.Equal(1, secondPlayerScore);
         }
