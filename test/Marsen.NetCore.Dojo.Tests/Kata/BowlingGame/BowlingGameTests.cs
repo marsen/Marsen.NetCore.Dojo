@@ -45,8 +45,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         [Fact]
         public void testFrameScore()
         {
-            Frame hit_4_and_3 = new Frame(4, 3);
-            Assert.Equal(7, hit_4_and_3.Score);
+            Assert.Equal(7, new Frame(4, 3).Score);
         }
     }
 
