@@ -39,6 +39,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         {
             if (hitBalls.Any())
             {
+                if (hitBalls.Sum()==10)
+                {
+                    return null;
+                }
+
                 return hitBalls.Sum();
             }
 
