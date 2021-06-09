@@ -20,7 +20,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     {
         public int? Calculate(List<int> hitBalls)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }
