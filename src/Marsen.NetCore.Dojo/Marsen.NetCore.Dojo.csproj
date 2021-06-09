@@ -14,7 +14,7 @@
     <PackageReference Include="Castle.Core" Version="4.4.1" />
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="NLog" Version="4.7.0" />
+    <PackageReference Include="NLog" Version="4.7.10" />
     <PackageReference Include="SlackAPI" Version="1.1.12" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
