@@ -63,8 +63,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
                     return fellPins.Sum();
                 }
-
-                return null;
             }
 
             return null;
