@@ -28,6 +28,17 @@
   - 額外的擊球只是為了計算第 10 回合的分數
 - 整場遊戲的分數是所有回合的加總
 
+## TODO List
+- [ ] 計算總分
+- [ ] 計算回合分數
+- [ ] 一回合兩次擊球，沒有全倒
+- [ ] Spare，加上額外一擊的分數
+- [ ] Strike，加上額外二擊的分數
+- [ ] API，給定一個數列，回傳一個分數
+  - [ ] 0 分不等於沒有分
+  - [ ] 初始分數是沒有分
+
+
 ## 參考
 - https://www.bowlinggenius.com/
 - https://kata-log.rocks/bowling-game-kata
