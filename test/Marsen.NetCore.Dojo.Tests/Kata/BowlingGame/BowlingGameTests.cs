@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
@@ -29,6 +30,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     {
         public int? Calculate(List<int> hitBalls)
         {
+            if (hitBalls.Any())
+            {
+                return 0;
+            }
+
             return null;
         }
     }
