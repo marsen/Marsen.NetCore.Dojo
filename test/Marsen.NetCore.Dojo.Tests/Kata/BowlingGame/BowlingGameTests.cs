@@ -20,8 +20,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         [Fact]
         public void testFirstFrame()
         {
-            Assert.Equal(0, _line.Calculate(new List<int> { 0 }));
-            Assert.Equal(1, _line.Calculate(new List<int> { 1 }));
+            Assert.Equal(0, _line.Calculate(new List<int> { 0, 0 }));
+            Assert.Equal(1, _line.Calculate(new List<int> { 1, 0 }));
             Assert.Equal(4, _line.Calculate(new List<int> { 1, 3 }));
         }
 
