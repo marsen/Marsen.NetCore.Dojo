@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
@@ -54,7 +55,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                     return null;
                 }
 
-                if (fellPins.Count >= 2)
+                if (fellPins.Count == 2 || fellPins.Count > 2)
                 {
                     if (fellPins.Sum() == 10)
                     {
