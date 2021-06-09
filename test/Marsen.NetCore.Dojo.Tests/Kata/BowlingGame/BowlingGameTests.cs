@@ -55,7 +55,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     {
         public Frame(int firstTry, int secondTry)
         {
-
+            Score = firstTry+secondTry;
         }
 
         public int? Score { get; }
