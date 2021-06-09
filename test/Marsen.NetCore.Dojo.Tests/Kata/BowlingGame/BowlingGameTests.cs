@@ -35,16 +35,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
     public class BowlingLine
     {
-        public int? Calculate(List<int> hitBalls)
+        public int? Calculate(List<int> fellPins)
         {
-            if (hitBalls.Any())
+            if (fellPins.Any())
             {
-                if (hitBalls.Sum()==10)
+                if (fellPins.Sum()==10)
                 {
                     return null;
                 }
 
-                return hitBalls.Sum();
+                return fellPins.Sum();
             }
 
             return null;
