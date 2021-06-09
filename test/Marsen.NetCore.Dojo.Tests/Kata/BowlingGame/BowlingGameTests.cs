@@ -22,9 +22,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         {
             Assert.Equal(0, _line.Calculate(new List<int> { 0 }));
             Assert.Equal(1, _line.Calculate(new List<int> { 1 }));
+            Assert.Equal(4, _line.Calculate(new List<int> { 1, 3 }));
         }
     }
-    
+
 
     public class BowlingLine
     {
