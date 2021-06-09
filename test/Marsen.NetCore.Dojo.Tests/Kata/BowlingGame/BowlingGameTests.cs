@@ -7,11 +7,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     public class BowlingGameTests
     {
         [Fact]
-        public void testInterface()
+        public void testInitialNewLine()
         {
-            List<int> hitBalls = new List<int>();
-            BowlingLine game = new BowlingLine();
-            int? result = game.Calculate(hitBalls);
+            var hitBalls = new List<int>();
+            var line = new BowlingLine();
+            var result = line.Calculate(hitBalls);
             Assert.Equal(null,result);
         }
     }
