@@ -29,6 +29,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public void testFirstSpare()
         {
             Assert.Equal(null, _line.Calculate(new List<int> { 0, 10 }));
+            Assert.Equal(11, _line.Calculate(new List<int> { 0, 10, 1 }));
         }
     }
 
@@ -39,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         {
             if (fellPins.Any())
             {
-                if (fellPins.Sum()==10)
+                if (fellPins.Sum() == 10)
                 {
                     return null;
                 }
