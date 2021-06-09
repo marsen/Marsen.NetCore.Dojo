@@ -19,10 +19,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         [Fact]
         public void testFirstHit()
         {
-            var hitBalls = new List<int> { 0 };
+            var firstPlayerHitBalls = new List<int> { 0 };
+            var secondPlayerHitBalls = new List<int> { 1 };
             var line = new BowlingLine();
-            var result = line.Calculate(hitBalls);
-            Assert.Equal(0, result);
+            var firstPlayerScore = line.Calculate(firstPlayerHitBalls);
+            var secondPlayerScore = line.Calculate(secondPlayerHitBalls);
+            Assert.Equal(0, firstPlayerScore);
+            Assert.Equal(1, secondPlayerScore);
         }
     }
 
