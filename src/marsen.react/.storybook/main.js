@@ -5,7 +5,7 @@ module.exports = {
     '../src/components/MaterialUI/*.stories.tsx',
     '../src/components/Cart/*.stories.tsx',
     //'../src/components/Task/*.stories.tsx',
-    //'../src/components/TicTacToe/*.stories.tsx',
+    '../src/components/TicTacToe/*.stories.tsx',
     //'../src/components/*.stories.tsx'
   ],
   addons: [    

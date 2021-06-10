@@ -1,6 +1,8 @@
 import React from 'react';
-import TicTacToe from './TicTacToe';
+
 import Square from './Square';
+import TicTacToe from './TicTacToe';
+import '../../dist/tictactoe.css'
 
 export default {
   component: TicTacToe,
