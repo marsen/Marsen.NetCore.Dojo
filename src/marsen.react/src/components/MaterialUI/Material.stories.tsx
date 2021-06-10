@@ -1,7 +1,8 @@
-import React from 'react';
+import { ThemeProvider } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core';
+import React from 'react';
+
 import App from './Copyright';
 import theme from './theme';
 
