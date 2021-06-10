@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Board from './Board';
 
 type History = 
-    | { squares:(string|null)[]; position:number|string }
+    { squares:(string|null)[]; position:number|string }
 
 type TicTacToeProps =
     {
@@ -12,7 +12,72 @@ type TicTacToeProps =
         isWin: boolean,
         historyAsc: boolean,   
     }
-export default class TicTacToe extends React.Component<{},TicTacToeProps> {
+
+
+export default function TicTacToe(){
+    const [history, setHistory] = useState([{squares:Array(9).fill(null)}]);
+    const [stepNumber, setStepNumber] = useState(0);
+    const [xIsNext, setXIsNext] = useState(false);
+    const current = history[stepNumber];
+    return (
+        <div>
+            <div className="game">
+            <div className="game-board">
+                <Board 
+                    winLine={winLine(current.squares) as number[]}
+                    onClick={(i)=>handleClick(i)} 
+                    squares={current.squares} />
+            </div>
+            <div className="game-info">
+                <div className="status" >{/*this.status()*/} </div>
+                <button onClick={()=>{alert('Q')}/*()=> this.sortMoves()*/}>SORT</button>                    
+                <ol>{moves()}</ol>
+            </div>
+            </div>
+            <div>Mⓐⓡsen</div>
+        </div>
+    );
+
+
+    function handleClick(i:number) {
+        const current = history[stepNumber];
+        //alert(current.squares);
+        setStepNumber(stepNumber+1)
+        current.squares[i]=nextPlayer();
+        history.push(current);
+        setHistory(history);
+        setXIsNext('X' !== nextPlayer());
+    }
+
+    function nextPlayer() {
+        return xIsNext ? 'X' : 'O';
+    }
+
+    function moves(){
+                                         
+        const moves = (true ? 
+                    [...history] : 
+                    [...history].reverse())
+                    .map((step,move)=>generateMovesList(step,move));
+        return moves;
+    }
+
+    function generateMovesList(step:History,move:number) {        
+        const desc = step.position !== -1 ?
+        'Go to move #' + move + step.position :
+        'Go to game start';         
+        
+        return (
+            <li key={move}>
+                <button 
+                    //className={/*(move === this.selectedStep(this.state.stepNumber)) ? "type-bold" : ""*/} 
+                    onClick={() => alert('history click') /*this.jumpTo(move)*/}>{desc}
+                </button>
+            </li>
+        );
+}
+}
+export class TicTacToeOld extends React.Component<{},TicTacToeProps> {
     constructor(props:{}){
         super(props);
         this.state = {
