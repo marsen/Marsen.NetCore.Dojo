@@ -16,6 +16,10 @@ export default {
   decorators: [(story: () => React.ReactNode) => <div>{story()}</div>],
   // Our exports that end in "Data" are not stories.
   excludeStories: /.*Data$/,
+  // Sets the layout parameter component wide. 
+  parameters:{
+      layout:'fullscreen',
+  },
 };
 
 export const TheAlbum = () => <Album />;
