@@ -39,10 +39,20 @@
     - [ ] FirstTry
   - [ ] 打兩次就是一個 Frame
   - [ ] Strike Frame 的分數是 null
+  - [ ] 我來試試打中文
+
+
+### 重塑認知
+
+1. 總分是Frame 的分數的加總
+2. Frame 的分數由兩次 try 與 bonus 作計算
+3. 兩次 try 的加總等於 10 才有 bonus
+4. 有 bonus 的話必須計算完 bonus 才有分數
 
 ## Logs
 
 ### 先定義完成
+
 我想像中的 BowlingGame 會提供一個計算方法，
 透過傳入一組整數列，回傳目前的分數，過程中如果有目前 Todo List 沒考慮到的東西會逐步加上
 
