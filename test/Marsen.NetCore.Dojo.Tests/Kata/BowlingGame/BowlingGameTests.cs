@@ -45,6 +45,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         [Fact]
         public void testFrameScore()
         {
+            Assert.Equal(null, new Frame().Score);
             Assert.Equal(7, new Frame(4, 3).Score);
             //Spare
             Assert.Equal(null, new Frame(4, 6).Score);
@@ -61,6 +62,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             {
                 Score = firstTry + secondTry;
             }
+        }
+
+        public Frame()
+        {
         }
 
         public int? Score { get; }
