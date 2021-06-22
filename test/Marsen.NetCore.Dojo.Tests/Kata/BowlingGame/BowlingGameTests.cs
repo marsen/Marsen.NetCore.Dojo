@@ -97,11 +97,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                     continue;
                 }
 
-                if (fellPins.Count == 2 && fellPins.Sum() == 10)
-                {
-                    continue;
-                }
-
                 if (fellPins.Count > 1)
                 {
                     return fellPins.Sum();
