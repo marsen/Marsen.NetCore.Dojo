@@ -119,7 +119,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             return null;
         }
 
-        private static int? NullableSum(List<Frame> frames)
+        private int? NullableSum(List<Frame> frames)
         {
             int? result = null;
             foreach (var f in frames)
