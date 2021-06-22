@@ -80,10 +80,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             if (fellPins.Count == 2)
             {
                 var frames = new List<Frame>();
-                if (fellPins.Count == 0)
-                {
-                }
-
                 if (fellPins.Count == 1)
                 {
                     frames.Add(new Frame(fellPins[0]));
