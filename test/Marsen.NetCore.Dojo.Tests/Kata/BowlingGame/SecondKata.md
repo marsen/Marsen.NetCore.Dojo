@@ -11,9 +11,9 @@
 
 - [ ] Frame 的分數是 2 次 try 的加總加上 bonus
   - [x] 一個 Frame 未 try 過 2 次的是 null
-  - [ ] Try 的分數計算方式是加法
+  - [x] Try 的分數計算方式是加法
   - [ ] Bonus 的計算方式
-  - [ ] 有 Bonus 但是還未計算的分數為 null
+  - [x] 有 Bonus 但是還未計算的分數為 null
 - [ ] Game 的總分是 Frame 的分數的加總
 
 (fin)
