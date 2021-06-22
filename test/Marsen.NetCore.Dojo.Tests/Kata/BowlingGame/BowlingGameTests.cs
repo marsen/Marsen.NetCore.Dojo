@@ -65,6 +65,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             }
         }
 
+        public Frame(int firstTry)
+        {
+        }
+
         public Frame()
         {
         }
