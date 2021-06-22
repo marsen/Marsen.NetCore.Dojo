@@ -82,35 +82,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 var frames = new List<Frame>();
                 if (fellPins.Count == 0)
                 {
-                    return null;
+                    return NullableSum(frames);
                 }
 
                 if (fellPins.Count == 1)
                 {
-                    var frame = new Frame(fellPins[0]);
-                    frames.Add(frame);
+                    frames.Add(new Frame(fellPins[0]));
                     return NullableSum(frames);
-                    return frame.Score;
                 }
 
                 if (fellPins.Count == 2 && fellPins[0] != 10)
                 {
-                    var frame = new Frame(fellPins[0], fellPins[1]);
-                    frames.Add(frame);
+                    frames.Add(new Frame(fellPins[0], fellPins[1]));
                     return NullableSum(frames);
-                    int? result = null;
-                    foreach (var f in frames)
-                    {
-                        if (f.Score != null)
-                        {
-                            result ??= 0;
-
-                            result += f.Score;
-                        }
-                    }
-
-                    return result;
-                    return frame.Score;
                 }
             }
 
