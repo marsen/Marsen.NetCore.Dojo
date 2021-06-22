@@ -52,6 +52,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Equal(7, new Frame(4, 3).Score);
             //Spare
             Assert.Equal(null, new Frame(4, 6).Score);
+            Assert.Equal(null, new Frame(0, 10).Score);
             //Strike
             Assert.Equal(null, new Frame(10, 0).Score);
         }
@@ -86,12 +87,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
                 if (fellPins.Count == 1)
                 {
-                    return new Frame(fellPins[0]).Score;
+                    var frame = new Frame(fellPins[0]);
+                    frames.Add(frame);
+                    return frames.Sum(x=>x.Score);
+                    return frame.Score;
                 }
 
                 if (fellPins.Count == 2 && fellPins[0] != 10)
                 {
-                    return new Frame(fellPins[0], fellPins[1]).Score;
+                    var frame = new Frame(fellPins[0], fellPins[1]);
+                    frames.Add(frame);
+                    return frames.Sum(x=>x.Score);
+                    return frame.Score;
                 }
             }
 
