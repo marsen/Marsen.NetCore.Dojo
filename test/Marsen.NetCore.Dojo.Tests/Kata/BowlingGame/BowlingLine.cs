@@ -5,9 +5,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 {
     public class BowlingLine
     {
+        private List<Frame> _frames = new();
+
         public int? Calculate(List<int> fellPins)
         {
-            var frames = new List<Frame>();
+            _frames = new();
             var hasBonus = false;
             for (int i = 0; i < fellPins.Count; i++)
             {
@@ -16,13 +18,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
                 if (hasBonus)
                 {
-                    frames.Last().SetBonus(firstTry);
+                    _frames.Last().SetBonus(firstTry);
                     hasBonus = false;
                 }
 
                 if (firstTry != 10)
                 {
-                    frames.Add(new Frame(firstTry, secondTry));
+                    _frames.Add(new Frame(firstTry, secondTry));
                     if (firstTry + secondTry == 10)
                     {
                         hasBonus = true;
@@ -31,7 +33,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 }
             }
 
-            return NullableSum(frames);
+            return NullableSum(_frames);
         }
 
         private int? NullableSum(List<Frame> frames)
@@ -49,5 +51,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
             return result;
         }
+
+        public List<Frame> FrameList { get; set; }
     }
 }
