@@ -103,16 +103,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
             for (var i = 0; i < fellPins.Count; i++)
             {
-                if (fellPins[0] == 10)
-                {
-                    continue;
-                }
-
-                if (fellPins.Count == 2 && fellPins.Sum() == 10)
-                {
-                    continue;
-                }
-
                 if (fellPins.Count > 1)
                 {
                     return fellPins.Sum();
