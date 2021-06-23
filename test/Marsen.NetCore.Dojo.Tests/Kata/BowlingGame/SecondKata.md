@@ -15,6 +15,7 @@
   - [ ] Bonus 的計算方式
     - [x] Spare 的計算方式
     - [ ] Strike 的計算方式
+  - [ ] 正確的 Frame 數量
   - [x] 有 Bonus 但是還未計算的分數為 null
 - [ ] Game 的總分是 Frame 的分數的加總
 
