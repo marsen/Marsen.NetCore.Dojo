@@ -85,15 +85,15 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public int? Calculate(List<int> fellPins)
         {
             var frames = new List<Frame>();
+            if (fellPins.Count == 1)
+            {
+                frames.Add(new Frame(fellPins[0]));
+            }
+
             //todo remove this condition after pass single frame test
             if (fellPins.Count == 2)
             {
-                if (fellPins.Count == 1)
-                {
-                    frames.Add(new Frame(fellPins[0]));
-                }
-
-                if (fellPins.Count == 2 && fellPins[0] != 10)
+                if (fellPins[0] != 10)
                 {
                     frames.Add(new Frame(fellPins[0], fellPins[1]));
                 }
