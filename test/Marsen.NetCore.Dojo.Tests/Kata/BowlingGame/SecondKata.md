@@ -13,6 +13,8 @@
   - [x] 一個 Frame 未 try 過 2 次的是 null
   - [x] Try 的分數計算方式是加法
   - [ ] Bonus 的計算方式
+    - [x] Spare 的計算方式
+    - [ ] Strike 的計算方式
   - [x] 有 Bonus 但是還未計算的分數為 null
 - [ ] Game 的總分是 Frame 的分數的加總
 
