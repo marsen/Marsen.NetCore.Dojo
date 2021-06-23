@@ -25,10 +25,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 if (firstTry != 10)
                 {
                     _frames.Add(new Frame(firstTry, secondTry));
+                    i++;
                     if (firstTry + secondTry == 10)
                     {
                         hasBonus = true;
-                        i++;
                     }
                 }
             }
