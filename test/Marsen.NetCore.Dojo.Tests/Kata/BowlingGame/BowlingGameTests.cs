@@ -87,15 +87,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public int? Calculate(List<int> fellPins)
         {
             var frames = new List<Frame>();
-
-            //if (fellPins.Count == 3 && fellPins[0] + fellPins[1] == 10)
-            if (false)
-            {
-                var frame = new Frame(fellPins[0], fellPins[1]);
-                frame.SetBonus(fellPins[2]);
-                frames.Add(frame);
-            }
-
             var hasBonus = false;
             for (int i = 0; i < fellPins.Count; i++)
             {
