@@ -77,7 +77,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public int? Score { get; }
     }
 
-
     public class BowlingLine
     {
         public int? Calculate(List<int> fellPins)
@@ -99,12 +98,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 return NullableSum(frames);
             }
 
-            for (var i = 0; i < fellPins.Count; i++)
+            if (fellPins.Count == 3 && (fellPins[0] + fellPins[1]) == 10)
             {
-                if (fellPins.Count > 1)
-                {
-                    return fellPins.Sum();
-                }
+                return fellPins.Sum();
             }
 
             return null;
