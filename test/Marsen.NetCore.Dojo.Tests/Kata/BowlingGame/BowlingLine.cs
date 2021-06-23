@@ -52,6 +52,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             return result;
         }
 
-        public List<Frame> FrameList { get; set; }
+        public List<Frame> FrameList => _frames;
     }
 }

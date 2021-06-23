@@ -35,6 +35,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         }
 
         [Fact]
+        public void TestFrameNumber()
+        {
+            _line.Calculate(new List<int> { 3, 7, 2, 1 });
+            Assert.Equal(2, _line.FrameList.Count);
+        }
+
+        [Fact]
         public void TestFirstStrike()
         {
             Assert.Null(_line.Calculate(new List<int> { 10 }));
