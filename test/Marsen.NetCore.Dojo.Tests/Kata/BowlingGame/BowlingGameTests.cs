@@ -31,6 +31,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         {
             Assert.Equal(null, _line.Calculate(new List<int> { 0, 10 }));
             Assert.Equal(11, _line.Calculate(new List<int> { 0, 10, 1 }));
+            Assert.Equal(12, _line.Calculate(new List<int> { 3, 7, 2 }));
         }
 
         [Fact]
@@ -97,6 +98,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 {
                     frames.Last().SetBonus(firstTry);
                 }
+
                 if (firstTry != 10)
                 {
                     frames.Add(new Frame(firstTry, secondTry));
