@@ -56,6 +56,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             //Strike
             Assert.Equal(null, new Frame(10, 0).Score);
         }
+
+        [Fact(Skip = "Bonus")]
+        public void testFrameBonus()
+        {
+            Assert.Equal(12, _line.Calculate(new List<int> { 0, 10, 2 }));
+            Assert.Equal(13, _line.Calculate(new List<int> { 0, 10, 2, 1 }));
+            Assert.Equal(16, _line.Calculate(new List<int> { 10, 2, 1 }));
+        }
     }
 
     public class Frame
@@ -76,10 +84,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     {
         public int? Calculate(List<int> fellPins)
         {
+            var frames = new List<Frame>();
             //todo remove this condition after pass single frame test
             if (fellPins.Count == 2)
             {
-                var frames = new List<Frame>();
                 if (fellPins.Count == 1)
                 {
                     frames.Add(new Frame(fellPins[0]));
