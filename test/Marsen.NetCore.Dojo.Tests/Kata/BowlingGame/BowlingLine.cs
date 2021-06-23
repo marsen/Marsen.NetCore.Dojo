@@ -22,7 +22,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                     bonusCount--;
                 }
 
-                if (firstTry != 10)
+                if (firstTry == 10)
+                {
+                    _frames.Add(new Frame(firstTry));
+                }
+                else
                 {
                     _frames.Add(new Frame(firstTry, secondTry));
                     i++;
@@ -30,10 +34,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                     {
                         bonusCount = 1;
                     }
-                }
-                else
-                {
-                    _frames.Add(new Frame(firstTry));
                 }
             }
 
