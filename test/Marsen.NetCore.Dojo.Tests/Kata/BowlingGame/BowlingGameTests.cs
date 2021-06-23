@@ -95,8 +95,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 {
                     frames.Add(new Frame(fellPins[0], fellPins[1]));
                 }
-
-                return NullableSum(frames);
             }
 
             if (fellPins.Count == 3 && fellPins[0] + fellPins[1] == 10)
@@ -104,7 +102,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 var frame = new Frame(fellPins[0], fellPins[1]);
                 frame.SetBonus(fellPins[2]);
                 frames.Add(frame);
-                return NullableSum(frames);
             }
 
             for (int i = 0; i < fellPins.Count; i++)
