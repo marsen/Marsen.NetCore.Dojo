@@ -88,11 +88,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         {
             var frames = new List<Frame>();
 
-            if (fellPins.Count == 1)
-            {
-                frames.Add(new Frame(fellPins[0]));
-            }
-
             //todo remove this condition after pass single frame test
             if (fellPins.Count == 2)
             {
@@ -110,6 +105,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 frame.SetBonus(fellPins[2]);
                 frames.Add(frame);
                 return NullableSum(frames);
+            }
+
+            for (int i = 0; i < fellPins.Count; i++)
+            {
+                frames.Add(new Frame(fellPins[0]));
             }
 
             return NullableSum(frames);
