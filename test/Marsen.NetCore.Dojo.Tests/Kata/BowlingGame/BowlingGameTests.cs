@@ -99,10 +99,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             {
                 if (i < fellPins.Count - 1)
                 {
-                    if (fellPins[0] != 10)
-                    {
-                        frames.Add(new Frame(fellPins[0], fellPins[1]));
-                    }
+                    if (fellPins[i] == 10) continue;
+                    frames.Add(new Frame(fellPins[i], fellPins[i + 1]));
                 }
                 else
                 {
