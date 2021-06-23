@@ -87,6 +87,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public int? Calculate(List<int> fellPins)
         {
             var frames = new List<Frame>();
+
             if (fellPins.Count == 1)
             {
                 frames.Add(new Frame(fellPins[0]));
@@ -111,7 +112,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 return NullableSum(frames);
             }
 
-            return null;
+            return NullableSum(frames);
         }
 
         private int? NullableSum(List<Frame> frames)
