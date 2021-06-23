@@ -74,7 +74,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             }
         }
 
-        public int? Score { get; }
+        public int? Score { get; private set; }
+
+        public void SetBonus(int bonus)
+        {
+            Score = 10 + bonus;
+        }
     }
 
     public class BowlingLine
@@ -98,9 +103,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 return NullableSum(frames);
             }
 
-            if (fellPins.Count == 3 && (fellPins[0] + fellPins[1]) == 10)
+            if (fellPins.Count == 3 && fellPins[0] + fellPins[1] == 10)
             {
-                return fellPins.Sum();
+                var frame = new Frame(fellPins[0], fellPins[1]);
+                frame.SetBonus(fellPins[2]);
+                frames.Add(frame);
+                return NullableSum(frames);
             }
 
             return null;
