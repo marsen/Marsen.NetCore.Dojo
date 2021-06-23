@@ -9,55 +9,55 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         private readonly BowlingLine _line = new();
 
         [Fact]
-        public void testInitialNewLine()
+        public void TestInitialNewLine()
         {
             var hitBalls = new List<int>();
             var result = _line.Calculate(hitBalls);
-            Assert.Equal(null, result);
+            Assert.Null(result);
         }
 
         [Fact]
-        public void testFirstFrame()
+        public void TestFirstFrame()
         {
-            Assert.Equal(null, _line.Calculate(new List<int> { 0 }));
-            Assert.Equal(null, _line.Calculate(new List<int> { 1 }));
+            Assert.Null(_line.Calculate(new List<int> { 0 }));
+            Assert.Null(_line.Calculate(new List<int> { 1 }));
             Assert.Equal(0, _line.Calculate(new List<int> { 0, 0 }));
             Assert.Equal(1, _line.Calculate(new List<int> { 1, 0 }));
             Assert.Equal(4, _line.Calculate(new List<int> { 1, 3 }));
         }
 
         [Fact]
-        public void testFirstSpare()
+        public void TestFirstSpare()
         {
-            Assert.Equal(null, _line.Calculate(new List<int> { 0, 10 }));
+            Assert.Null(_line.Calculate(new List<int> { 0, 10 }));
             Assert.Equal(11, _line.Calculate(new List<int> { 0, 10, 1 }));
             Assert.Equal(12, _line.Calculate(new List<int> { 3, 7, 2 }));
         }
 
         [Fact]
-        public void testFirstStrike()
+        public void TestFirstStrike()
         {
-            Assert.Equal(null, _line.Calculate(new List<int> { 10 }));
-            Assert.Equal(null, _line.Calculate(new List<int> { 10, 2 }));
+            Assert.Null(_line.Calculate(new List<int> { 10 }));
+            Assert.Null(_line.Calculate(new List<int> { 10, 2 }));
         }
 
         [Fact]
-        public void testFrameScore()
+        public void TestFrameScore()
         {
             //Frame Playing
-            Assert.Equal(null, new Frame().Score);
-            Assert.Equal(null, new Frame(1).Score);
+            Assert.Null(new Frame().Score);
+            Assert.Null(new Frame(1).Score);
             //Normal Frame
             Assert.Equal(7, new Frame(4, 3).Score);
             //Spare
-            Assert.Equal(null, new Frame(4, 6).Score);
-            Assert.Equal(null, new Frame(0, 10).Score);
+            Assert.Null(new Frame(4, 6).Score);
+            Assert.Null(new Frame(0, 10).Score);
             //Strike
-            Assert.Equal(null, new Frame(10, 0).Score);
+            Assert.Null(new Frame(10, 0).Score);
         }
 
         [Fact(Skip = "Bonus")]
-        public void testFrameBonus()
+        public void TestFrameBonus()
         {
             Assert.Equal(12, _line.Calculate(new List<int> { 0, 10, 2 }));
             Assert.Equal(13, _line.Calculate(new List<int> { 0, 10, 2, 1 }));
