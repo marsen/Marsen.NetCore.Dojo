@@ -31,6 +31,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Null(_line.Calculate(new List<int> { 0, 10 }));
             Assert.Equal(11, _line.Calculate(new List<int> { 0, 10, 1 }));
             Assert.Equal(12, _line.Calculate(new List<int> { 3, 7, 2 }));
+            Assert.Equal(13, _line.Calculate(new List<int> { 0, 10, 1, 1 }));
             Assert.Equal(15, _line.Calculate(new List<int> { 3, 7, 2, 1 }));
         }
 
@@ -49,8 +50,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Null(_line.Calculate(new List<int> { 10 }));
             Assert.Null(_line.Calculate(new List<int> { 10, 2 }));
             Assert.Equal(16, _line.Calculate(new List<int> { 10, 1, 2 }));
-            
-            Assert.Equal(16, _line.Calculate(new List<int> { 10, 1, 2 }));
+            Assert.Equal(30, _line.Calculate(new List<int> { 10, 10, 10 }));
         }
 
         [Fact]
@@ -66,14 +66,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Null(new Frame(0, 10).Score);
             //Strike
             Assert.Null(new Frame(10, 0).Score);
-        }
-
-        [Fact(Skip = "Bonus")]
-        public void TestFrameBonus()
-        {
-            Assert.Equal(12, _line.Calculate(new List<int> { 0, 10, 2 }));
-            Assert.Equal(13, _line.Calculate(new List<int> { 0, 10, 2, 1 }));
-            Assert.Equal(16, _line.Calculate(new List<int> { 10, 2, 1 }));
         }
     }
 }
