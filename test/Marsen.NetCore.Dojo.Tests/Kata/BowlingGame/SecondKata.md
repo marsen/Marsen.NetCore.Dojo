@@ -18,7 +18,7 @@
     - [x] Bonus 職責移到 Frames 之中
   - [ ] 正確的 Frame 數量
   - [x] 有 Bonus 但是還未計算的分數為 null
-  - [ ] 連續 3 次 Strike
+  - [x] 連續 3 次 Strike
 - [ ] Game 的總分是 Frame 的分數的加總
 
 (fin)
