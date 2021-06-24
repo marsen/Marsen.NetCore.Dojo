@@ -12,10 +12,10 @@
 - [ ] Frame 的分數是 2 次 try 的加總加上 bonus
   - [x] 一個 Frame 未 try 過 2 次的是 null
   - [x] Try 的分數計算方式是加法
-  - [ ] Bonus 的計算方式
+  - [x] Bonus 的計算方式
     - [x] Spare 的計算方式
-    - [ ] Strike 的計算方式
-    - [ ] Bonus 職責移到 Frames 之中
+    - [x] Strike 的計算方式
+    - [x] Bonus 職責移到 Frames 之中
   - [ ] 正確的 Frame 數量
   - [x] 有 Bonus 但是還未計算的分數為 null
   - [ ] 連續 3 次 Strike

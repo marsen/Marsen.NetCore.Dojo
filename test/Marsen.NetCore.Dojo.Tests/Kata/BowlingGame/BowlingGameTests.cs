@@ -49,6 +49,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Null(_line.Calculate(new List<int> { 10 }));
             Assert.Null(_line.Calculate(new List<int> { 10, 2 }));
             Assert.Equal(16, _line.Calculate(new List<int> { 10, 1, 2 }));
+            
+            Assert.Equal(16, _line.Calculate(new List<int> { 10, 1, 2 }));
         }
 
         [Fact]
