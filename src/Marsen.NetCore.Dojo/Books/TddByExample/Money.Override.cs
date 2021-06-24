@@ -12,6 +12,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
             var money = (Money)obj;
             return Amount == money.Amount && Currency == money.Currency;
         }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();

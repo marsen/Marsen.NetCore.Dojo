@@ -5,9 +5,8 @@ namespace Marsen.NetCore.Dojo.Kata.BowlingGame
 {
     public class BowlingLine
     {
-        public List<Frame> FrameList { get; private set; } = new();
-
         private List<int> _fellPins = new();
+        public List<Frame> FrameList { get; private set; } = new();
 
         public int? Calculate(List<int> fellPins)
         {

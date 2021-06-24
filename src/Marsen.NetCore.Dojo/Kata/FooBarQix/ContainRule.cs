@@ -4,14 +4,14 @@ namespace Marsen.NetCore.Dojo.Kata.FooBarQix
 {
     public class ContainRule
     {
-        private readonly int _i;
-
         private readonly Dictionary<char, string> _charLookup = new()
         {
-            {'3', "Foo"},
-            {'5', "Bar"},
-            {'7', "Qix"},
+            { '3', "Foo" },
+            { '5', "Bar" },
+            { '7', "Qix" }
         };
+
+        private readonly int _i;
 
         public ContainRule(int i)
         {
@@ -20,10 +20,7 @@ namespace Marsen.NetCore.Dojo.Kata.FooBarQix
 
         public string Apply(char c, string result)
         {
-            if (c == _i)
-            {
-                result += _charLookup[c];
-            }
+            if (c == _i) result += _charLookup[c];
 
             return result;
         }

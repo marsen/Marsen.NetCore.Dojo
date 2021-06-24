@@ -19,9 +19,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
         [Fact]
         public void April_OneDay()
         {
-            _fakeRepo.SetBudgets(new List<Budget>()
+            _fakeRepo.SetBudgets(new List<Budget>
             {
-                new Budget()
+                new()
                 {
                     YearMonth = "202004",
                     Amount = 30000
@@ -34,9 +34,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
         [Fact]
         public void April_MultiDay()
         {
-            _fakeRepo.SetBudgets(new List<Budget>()
+            _fakeRepo.SetBudgets(new List<Budget>
             {
-                new Budget()
+                new()
                 {
                     YearMonth = "202004",
                     Amount = 30000
@@ -48,9 +48,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
         [Fact]
         public void April_OneMonth()
         {
-            _fakeRepo.SetBudgets(new List<Budget>()
+            _fakeRepo.SetBudgets(new List<Budget>
             {
-                new Budget()
+                new()
                 {
                     YearMonth = "202004",
                     Amount = 60000
@@ -62,14 +62,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
         [Fact]
         public void April_MultiMonth()
         {
-            _fakeRepo.SetBudgets(new List<Budget>()
+            _fakeRepo.SetBudgets(new List<Budget>
             {
-                new Budget()
+                new()
                 {
                     YearMonth = "202002",
                     Amount = 2900
                 },
-                new Budget()
+                new()
                 {
                     YearMonth = "202003",
                     Amount = 310
@@ -81,14 +81,14 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005
         [Fact]
         public void Reverse_Date()
         {
-            _fakeRepo.SetBudgets(new List<Budget>()
+            _fakeRepo.SetBudgets(new List<Budget>
             {
-                new Budget()
+                new()
                 {
                     YearMonth = "202002",
                     Amount = 2900
                 },
-                new Budget()
+                new()
                 {
                     YearMonth = "202003",
                     Amount = 310

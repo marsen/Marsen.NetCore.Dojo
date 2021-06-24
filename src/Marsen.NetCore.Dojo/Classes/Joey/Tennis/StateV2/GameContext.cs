@@ -2,6 +2,9 @@
 {
     public class GameContext
     {
+        public readonly string ReceiverName;
+
+        public readonly string ServerName;
         private State _state;
 
         public GameContext(string serverName, string receiverName)
@@ -12,7 +15,13 @@
             _state.SetContext(this);
         }
 
-        public string Score() => _state.Score();
+        internal int ReceiverPoint { get; set; }
+        internal int ServerPoint { get; set; }
+
+        public string Score()
+        {
+            return _state.Score();
+        }
 
         internal void ChangeState(State state)
         {
@@ -20,13 +29,14 @@
             _state.SetContext(this);
         }
 
-        public void ReceiverScore() => _state.ReceiverScore();
-        internal int ReceiverPoint { get; set; }
-        public void ServerScore() => _state.ServerScore();
-        internal int ServerPoint { get; set; }
+        public void ReceiverScore()
+        {
+            _state.ReceiverScore();
+        }
 
-        public readonly string ServerName;
-
-        public readonly string ReceiverName;
+        public void ServerScore()
+        {
+            _state.ServerScore();
+        }
     }
 }

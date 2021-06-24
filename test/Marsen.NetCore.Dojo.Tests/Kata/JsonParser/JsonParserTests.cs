@@ -10,6 +10,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
     {
         private readonly PersonaParser _target = new();
 
+        public void Dispose()
+        {
+            SystemDateTime.Reset();
+        }
+
         [Fact]
         public void parse_name()
         {
@@ -64,11 +69,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
                     'LastName': 'Tank',
                     'BirthDate': '1989/06/04'
                 }".Replace(@"'", @""""));
-        }
-
-        public void Dispose()
-        {
-            SystemDateTime.Reset();
         }
     }
 }

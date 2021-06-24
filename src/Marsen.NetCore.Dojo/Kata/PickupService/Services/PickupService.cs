@@ -13,25 +13,26 @@ using Microsoft.Extensions.Logging;
 using Status = Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService.Status;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
+
 namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
 {
     public class PickupService : IQueryStatus
     {
-        private readonly IConfigService _configService;
-        private readonly IStoreSettingService _storeSettingService;
-        private readonly ILogger _logger;
         private const string DeliveryOrder = "DeliveryOrder";
+        private readonly IConfigService _configService;
+        private readonly ILogger _logger;
+        private readonly IStoreSettingService _storeSettingService;
         internal HttpClient HttpClient;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PickupService" /> class.
+        ///     Initializes a new instance of the <see cref="PickupService" /> class.
         /// </summary>
         public PickupService(IConfigService configService, IStoreSettingService storeSettingService, ILogger logger)
         {
-            this._configService = configService;
-            this._storeSettingService = storeSettingService;
-            this._logger = logger;
-            this.HttpClient ??= new HttpClient();
+            _configService = configService;
+            _storeSettingService = storeSettingService;
+            _logger = logger;
+            HttpClient ??= new HttpClient();
         }
 
         public List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo)
@@ -40,33 +41,27 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
             {
                 var result = new List<ShippingOrderUpdateEntity>();
 
-                var loginId = this._storeSettingService.GetValue(storeId, "pickup.service", "loginId");
-                if (loginId.IsNullOrEmpty())
-                {
-                    throw new Exception("error login Id");
-                }
-                
-                this.HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
+                var loginId = _storeSettingService.GetValue(storeId, "pickup.service", "loginId");
+                if (loginId.IsNullOrEmpty()) throw new Exception("error login Id");
 
-                var auth = this._storeSettingService.GetValue(storeId, "pickup.service", "auth");
-                this.HttpClient.DefaultRequestHeaders.Add("authorization", auth);
+                HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
+
+                var auth = _storeSettingService.GetValue(storeId, "pickup.service", "auth");
+                HttpClient.DefaultRequestHeaders.Add("authorization", auth);
                 var httpContent = new StringContent(
-                    JsonSerializer.Serialize(new {Type = DeliveryOrder, waybillNo}),
+                    JsonSerializer.Serialize(new { Type = DeliveryOrder, waybillNo }),
                     Encoding.UTF8, "application/json");
-                var url = this._configService.GetAppSetting("pickup.service.url");
+                var url = _configService.GetAppSetting("pickup.service.url");
                 var responseMessage = HttpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
                 var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
-                if (obj.Result == "error")
-                {                    
-                    throw new Exception($"response is:{obj}");
-                }
+                if (obj.Result == "error") throw new Exception($"response is:{obj}");
 
                 foreach (var c in obj.Content.Where(c => string.IsNullOrEmpty(c.ErrorCode)))
                 {
                     var shippingOrderUpdateEntity = new ShippingOrderUpdateEntity
                     {
                         OuterCode = c.WaybillNo,
-                        AcceptTime = this.GetAcceptTime(c.LastStatusDate, c.LastStatusTime)
+                        AcceptTime = GetAcceptTime(c.LastStatusDate, c.LastStatusTime)
                     };
                     switch (c.Status)
                     {
@@ -95,7 +90,7 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
             }
             catch (Exception e)
             {
-                this._logger.LogError(e, "發生未預期的錯誤");
+                _logger.LogError(e, "發生未預期的錯誤");
                 throw;
             }
         }

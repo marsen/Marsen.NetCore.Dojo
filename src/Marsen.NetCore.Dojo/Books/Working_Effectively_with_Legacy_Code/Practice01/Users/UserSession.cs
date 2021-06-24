@@ -6,7 +6,9 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
     {
         private static readonly UserSession userSession = new();
 
-        private UserSession() { }
+        private UserSession()
+        {
+        }
 
         public static UserSession GetInstance()
         {

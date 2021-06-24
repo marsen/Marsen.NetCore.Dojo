@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 using NSubstitute;
@@ -12,9 +11,9 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
         private const string Account = "account";
         private const string Password = "password";
         private const string Otp = "OTP";
+        private readonly IAccountService _accountService;
 
         private readonly IAuthentication _authService;
-        private readonly IAccountService _accountService;
         private AccountServiceDecorator _decorator;
 
         public AccountServiceDecoratorTests()
@@ -42,7 +41,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 
         private void VerifyShouldBe(bool expected)
         {
-            _decorator = new(_authService, _accountService);
+            _decorator = new AccountServiceDecorator(_authService, _accountService);
             _decorator.Verify(Account, Password, Otp)
                 .Should().Be(expected);
         }
@@ -61,7 +60,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 
         private AccountServiceDecorator GetDecorator()
         {
-            return new(_authService, _accountService);
+            return new AccountServiceDecorator(_authService, _accountService);
         }
     }
 }

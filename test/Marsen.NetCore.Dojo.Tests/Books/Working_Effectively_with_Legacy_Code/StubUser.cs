@@ -14,7 +14,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
 
         public void SetFriends(List<User> friends)
         {
-            this._mockFriendsList = friends;
+            _mockFriendsList = friends;
         }
     }
 }

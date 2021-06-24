@@ -1,30 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Practice01\Trip\TripService_Origin.cs" />
-    <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Ch6\NewFunction\TransactionGate.Legacy.cs" />
-    <Compile Remove="Books\TalkAboutDesignPattern\FactoryPattern\NotifyFactory.cs" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Practice01\Trip\TripService_Origin.cs"/>
+        <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Ch6\NewFunction\TransactionGate.Legacy.cs"/>
+        <Compile Remove="Books\TalkAboutDesignPattern\FactoryPattern\NotifyFactory.cs"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Castle.Core" Version="4.4.1" />
-    <PackageReference Include="Dapper" Version="2.0.90" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="NLog" Version="4.7.10" />
-    <PackageReference Include="SlackAPI" Version="1.1.12" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Castle.Core" Version="4.4.1"/>
+        <PackageReference Include="Dapper" Version="2.0.90"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0"/>
+        <PackageReference Include="NLog" Version="4.7.10"/>
+        <PackageReference Include="SlackAPI" Version="1.1.12"/>
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.2"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Marsen.NetCore.TestingToolkit\Marsen.NetCore.TestingToolkit.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Books\TalkAboutDesignPattern\BridgePattern" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Books\TalkAboutDesignPattern\BridgePattern"/>
+    </ItemGroup>
 
 </Project>

@@ -10,21 +10,21 @@ namespace Marsen.NetCore.Dojo.Kata.Api_Pay
 
         public PaymentService(IConfigure configure)
         {
-            this._configure = configure;
+            _configure = configure;
             httpClient = new HttpClient();
         }
-        
+
         public HttpClient httpClient { get; set; }
 
         public void Pay(PayEntity payEntity)
         {
-            var apiUrl = this._configure.Setting("PayService.Url");
-            var requestId = this.httpClient.GetAsync($"{apiUrl}requestId").Result.Content
+            var apiUrl = _configure.Setting("PayService.Url");
+            var requestId = httpClient.GetAsync($"{apiUrl}requestId").Result.Content
                 .ReadAsStringAsync().Result;
             payEntity.RequestId = requestId;
             HttpContent content = new StringContent(
                 JsonSerializer.Serialize(payEntity));
-            this.httpClient.PostAsync($"{apiUrl}pay/CreditCard", content);
+            httpClient.PostAsync($"{apiUrl}pay/CreditCard", content);
         }
     }
 }

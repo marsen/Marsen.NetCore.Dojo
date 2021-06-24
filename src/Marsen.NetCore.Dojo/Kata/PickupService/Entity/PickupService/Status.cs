@@ -6,6 +6,6 @@
         Shipping,
         FAIL,
         Expiry,
-        Arrived,
+        Arrived
     }
 }

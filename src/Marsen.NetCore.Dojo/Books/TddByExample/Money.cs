@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public Money Reduce(Bank bank, string to)
         {
-            if (to is "USD" or "CHF") 
+            if (to is "USD" or "CHF")
                 return new Money(Amount / bank.rate(Currency, to), to);
 
             throw new NotImplementedException();

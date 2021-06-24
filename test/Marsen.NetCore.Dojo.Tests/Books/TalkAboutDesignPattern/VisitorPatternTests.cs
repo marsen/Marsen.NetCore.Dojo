@@ -1,5 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern;
-using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions;
+﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons;
 using Xunit;
 
@@ -81,6 +80,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
 
         private class MockAction : Action
         {
+            public int ManActionCallTimes { get; private set; }
+            public int WomanActionCallTimes { get; private set; }
+
             public override void GetManConclusion(Man man)
             {
                 ManActionCallTimes++;
@@ -90,9 +92,6 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             {
                 WomanActionCallTimes++;
             }
-
-            public int ManActionCallTimes { get; private set; }
-            public int WomanActionCallTimes { get; private set; }
         }
     }
 }

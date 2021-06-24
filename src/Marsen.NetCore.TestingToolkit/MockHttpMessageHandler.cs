@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Marsen.NetCore.TestingToolkit
 {
@@ -13,8 +13,7 @@ namespace Marsen.NetCore.TestingToolkit
         private readonly HttpStatusCode _statusCode;
         private readonly Dictionary<string, int> pathLookup = new();
 
-        private string Input { get; set; }
-        public int NumberOfCalls { get; private set; }
+        private int _times = 1;
 
         public MockHttpMessageHandler(string response, HttpStatusCode statusCode)
         {
@@ -22,15 +21,16 @@ namespace Marsen.NetCore.TestingToolkit
             _statusCode = statusCode;
         }
 
+        private string Input { get; set; }
+        public int NumberOfCalls { get; private set; }
+
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
             CountRequest(request);
 
             if (request.Content != null) // Could be a GET-request without a body
-            {
                 Input = await request.Content.ReadAsStringAsync(cancellationToken);
-            }
 
             return new HttpResponseMessage
             {
@@ -42,16 +42,10 @@ namespace Marsen.NetCore.TestingToolkit
         private void CountRequest(HttpRequestMessage request)
         {
             if (pathLookup.ContainsKey($"{request.Method}:{request.RequestUri.AbsoluteUri}"))
-            {
                 pathLookup[$"{request.Method}:{request.RequestUri.AbsoluteUri}"]++;
-            }
             else
-            {
                 pathLookup.Add($"{request.Method}:{request.RequestUri.AbsoluteUri}", 1);
-            }
         }
-
-        private int _times = 1;
 
         public MockHttpMessageHandler CallTimes(int i)
         {

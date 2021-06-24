@@ -1,9 +1,9 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Collections.Generic;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Exception;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Trip;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Users;
-using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
@@ -12,8 +12,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
     {
         private readonly StubTripService _target;
         private readonly User _userAmy = new StubUser();
-        private readonly User _userBob = new User();
-        private readonly User _userCarter = new User();
+        private readonly User _userBob = new();
+        private readonly User _userCarter = new();
 
         public TripServiceTests()
         {
@@ -40,7 +40,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
         [Fact]
         public void UserFriendsNotIncludedLoggedUser()
         {
-            GiveUserFriends(new List<User> {_userCarter});
+            GiveUserFriends(new List<User> { _userCarter });
             GiveLoggedUser(_userBob);
             var actual = _target.GetTripsByUser(_userAmy);
             actual.Should().BeNullOrEmpty();
@@ -49,9 +49,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
         [Fact]
         public void UserFriendsIncludedLoggedUser()
         {
-            GiveUserFriends(new List<User> {_userBob, _userCarter});
+            GiveUserFriends(new List<User> { _userBob, _userCarter });
             GiveLoggedUser(_userBob);
-            var expected = new List<Trip> {new Trip()};
+            var expected = new List<Trip> { new() };
             GiveTripsList(expected);
             var actual = _target.GetTripsByUser(_userAmy);
             actual.Should().BeEquivalentTo(expected);
@@ -69,7 +69,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
 
         private void GiveUserFriends(List<User> friends)
         {
-            ((StubUser) _userAmy).SetFriends(friends);
+            ((StubUser)_userAmy).SetFriends(friends);
         }
     }
 }

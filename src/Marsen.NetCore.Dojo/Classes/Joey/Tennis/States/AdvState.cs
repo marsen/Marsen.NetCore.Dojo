@@ -9,9 +9,9 @@
 
         protected override void ChangeState()
         {
-            State state = IsSamePoint() ? (State) new DeuceState() : new WinState();
-            state.SetContext(this.Context);
-            this.Context.ChangeState(state);
+            State state = IsSamePoint() ? new DeuceState() : new WinState();
+            state.SetContext(Context);
+            Context.ChangeState(state);
         }
     }
 }

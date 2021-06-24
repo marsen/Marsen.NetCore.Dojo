@@ -8,10 +8,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public Money reduce(IExpression expression, string currency)
         {
-            if (expression.GetType() == typeof(Sum))
-            {
-                expression = (Sum) expression;
-            }
+            if (expression.GetType() == typeof(Sum)) expression = (Sum)expression;
 
             return expression.Reduce(this, currency);
         }

@@ -10,18 +10,12 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
         protected override void ChangeState()
         {
             State state = new NormalState();
-            if (IsSamePoint())
-            {
-                state = Context.ServerPoint >= 3 ? (State) new DeuceState() : new SameState();
-            }
+            if (IsSamePoint()) state = Context.ServerPoint >= 3 ? new DeuceState() : new SameState();
 
-            if (Context.ServerPoint >= 4 || Context.ReceiverPoint >= 4)
-            {
-                state = new WinState();
-            }
+            if (Context.ServerPoint >= 4 || Context.ReceiverPoint >= 4) state = new WinState();
 
-            state.SetContext(this.Context);
-            this.Context.ChangeState(state);
+            state.SetContext(Context);
+            Context.ChangeState(state);
         }
     }
 }

@@ -2,8 +2,8 @@
 {
     public class Rental
     {
-        private readonly Movie _movie;
         private readonly int _daysRented;
+        private readonly Movie _movie;
 
         public Rental(Movie movie, int daysRented)
         {

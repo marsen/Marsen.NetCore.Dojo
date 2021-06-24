@@ -6,21 +6,22 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
     public class TennisGame
     {
         private readonly string _firstPlayerName;
+
+        private readonly Dictionary<int, string> _scoreLookup = new()
+        {
+            { 0, "Love" },
+            { 1, "Fifteen" },
+            { 2, "Thirty" },
+            { 3, "Forty" }
+        };
+
         private readonly string _secondPlayerName;
         private int _firstPlayerScore;
 
         private int _secondPlayerScore;
 
-        private readonly Dictionary<int, string> _scoreLookup = new()
-        {
-            {0, "Love"},
-            {1, "Fifteen"},
-            {2, "Thirty"},
-            {3, "Forty"},
-        };
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="TennisGame" /> class.
+        ///     Initializes a new instance of the <see cref="TennisGame" /> class.
         /// </summary>
         public TennisGame(string firstPlayerName, string secondPlayerName)
         {

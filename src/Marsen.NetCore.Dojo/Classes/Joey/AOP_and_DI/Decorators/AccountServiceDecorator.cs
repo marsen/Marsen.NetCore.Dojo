@@ -5,18 +5,13 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators
 {
     public class AccountServiceDecorator : IAuthentication
     {
-        private readonly IAuthentication _authenticationService;
         private readonly IAccountService _accountService;
+        private readonly IAuthentication _authenticationService;
 
         public AccountServiceDecorator(IAuthentication authenticationService, IAccountService accountService)
         {
             _authenticationService = authenticationService;
             _accountService = accountService;
-        }
-
-        private void AddFailedCounter(string accountId)
-        {
-            _accountService.AddFailedCounter(accountId);
         }
 
         public bool Verify(string accountId, string password, string otp)
@@ -28,8 +23,13 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators
                 return true;
             }
 
-            this.AddFailedCounter(accountId);
+            AddFailedCounter(accountId);
             return false;
+        }
+
+        private void AddFailedCounter(string accountId)
+        {
+            _accountService.AddFailedCounter(accountId);
         }
 
         private void ResetFailedCounter(string accountId)
@@ -39,10 +39,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators
 
         private void IsLocked(string accountId)
         {
-            if (_accountService.IsLocked(accountId))
-            {
-                throw new FailedTooManyTimesException() {AccountId = accountId};
-            }
+            if (_accountService.IsLocked(accountId)) throw new FailedTooManyTimesException { AccountId = accountId };
         }
     }
 }

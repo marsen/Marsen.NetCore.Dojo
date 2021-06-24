@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -12,10 +11,7 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
             Type typeToConvert,
             JsonSerializerOptions options)
         {
-            if (DateTime.TryParse(reader.GetString(), out var dateTime))
-            {
-                return dateTime;
-            }
+            if (DateTime.TryParse(reader.GetString(), out var dateTime)) return dateTime;
 
             throw new InvalidOperationException();
         }
@@ -23,7 +19,9 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
         public override void Write(
             Utf8JsonWriter writer,
             DateTime value,
-            JsonSerializerOptions options) =>
+            JsonSerializerOptions options)
+        {
             throw new NotImplementedException();
+        }
     }
 }

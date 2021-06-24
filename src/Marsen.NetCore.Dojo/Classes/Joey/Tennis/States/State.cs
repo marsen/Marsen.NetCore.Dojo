@@ -6,10 +6,10 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
     {
         protected readonly Dictionary<int, string> ScoreLookup = new()
         {
-            {0, "Love"},
-            {1, "Fifteen"},
-            {2, "Thirty"},
-            {3, "Forty"},
+            { 0, "Love" },
+            { 1, "Fifteen" },
+            { 2, "Thirty" },
+            { 3, "Forty" }
         };
 
         protected TennisGameContext Context;
@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
 
         public void SetContext(TennisGameContext context)
         {
-            this.Context = context;
+            Context = context;
         }
 
         protected bool IsSamePoint()
@@ -35,13 +35,13 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
         public void ServerScore()
         {
             Context.ServerPoint++;
-            this.ChangeState();
+            ChangeState();
         }
 
         public void ReceiverScore()
         {
             Context.ReceiverPoint++;
-            this.ChangeState();
+            ChangeState();
         }
 
         protected abstract void ChangeState();

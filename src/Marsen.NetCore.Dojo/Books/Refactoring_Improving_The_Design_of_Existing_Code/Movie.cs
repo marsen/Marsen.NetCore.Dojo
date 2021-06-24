@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
         private Price _price;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Movie" /> class.
+        ///     Initializes a new instance of the <see cref="Movie" /> class.
         /// </summary>
         public Movie(string title, MoveType moveType)
         {

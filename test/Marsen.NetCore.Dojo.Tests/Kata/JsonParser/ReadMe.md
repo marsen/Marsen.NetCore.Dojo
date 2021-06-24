@@ -10,13 +10,13 @@
 }
 ```
 
-我想轉換成 C# Entity ，
-這個 Entity 裡面包含兩個商業邏輯
- 
-  1. 提供全名
-  2. 提供年紀
+我想轉換成 C# Entity ， 這個 Entity 裡面包含兩個商業邏輯
+
+1. 提供全名
+2. 提供年紀
 
 ex:
+
 ```
 Name = Tank Tian
 Age = 35
@@ -24,8 +24,10 @@ Age = 35
 
 如何透過 TDD 的工序達到這個目標 ?
 
-### Arrange 
+### Arrange
+
 傳入的字串如下
+
 ```json
 {
   "FirstName": "Tian",
@@ -33,12 +35,15 @@ Age = 35
   "BirthDate": "1989/06/04"
 }
 ```
+
 ### Act
+
 執行 Parse 方法之後
 
 ### Assert
 
 回傳一個 PersonEntity ，裡面的資料應該要是
+
 ```csharp
 new PersonEntity {
     Name = "Tian Tank"
@@ -49,9 +54,8 @@ new PersonEntity {
 ### 工序
 
 #### Step1.
- 
-第一個案例，我會只驗証 Name 的組合邏輯  
 
+第一個案例，我會只驗証 Name 的組合邏輯
 
 ```csharp
 [Fact]
@@ -225,14 +229,12 @@ public PersonaEntity Parse(string json)
 }
 ```
 
-
 #### Step2.
 
-
-第二個案例，我會驗証 Age 的計算邏輯  
+第二個案例，我會驗証 Age 的計算邏輯
 
 #### Case 2. Age 是現在時間減去生日的年份差
-   
+
 首先，要如何處理 **現在時間**  ??  
 一般的 Production Code 會用 `DateTime.Now`  
 這是一個 struct 的 static 方法。
@@ -276,7 +278,6 @@ public PersonaEntity Parse(string json)
 }
 ```
 
-
 #### Step2.2
 
 實作計算 Age
@@ -294,9 +295,7 @@ public PersonaEntity Parse(string json)
 }
 ```
 
-這個測試案例會在 2019 年為綠燈，而在 2020 年變為紅燈
-這不是一個好的測試，好的測試應該符合可重複性(Repeatable)，
-所以我們要試著 Mock 掉 DateTime.Now
+這個測試案例會在 2019 年為綠燈，而在 2020 年變為紅燈 這不是一個好的測試，好的測試應該符合可重複性(Repeatable)， 所以我們要試著 Mock 掉 DateTime.Now
 
 ```csharp
 public struct SystemDateTime
@@ -350,7 +349,7 @@ public void CovertAgeTodayIs2020()
         }
 ```
 
-#### Step2.5 
+#### Step2.5
 
 改用 Given When Then，  
 測試案例如下，這樣會比較**好讀**嗎?:
@@ -377,7 +376,7 @@ public void parse_age_today_is_2030()
 
 ### 後續
 
-- 如果未來有多新的欄位再逐步加上測試。  
+- 如果未來有多新的欄位再逐步加上測試。
 - 但在實務上我極有可能會同時驗証大量的欄位 ，比如說欄位是一對一的 Mapping
 - 想省略 PersonaOriginEntity ，有可能用 Dynamic 嗎 ?
 

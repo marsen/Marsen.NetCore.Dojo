@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Refactoring_Improving_The_Design_of_Ex
 {
     public class CustomerTester
     {
-        readonly Customer _customer = new Customer("Marsen");
+        private readonly Customer _customer = new("Marsen");
 
         [Fact]
         public void no_items()

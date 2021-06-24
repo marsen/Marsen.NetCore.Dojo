@@ -4,11 +4,11 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Person
 {
     public class Woman : Person
     {
+        public override string Name => "女人";
+
         public override void Accept(Action visitor)
         {
             visitor.GetWomanConclusion(this);
         }
-
-        public override string Name => "女人";
     }
 }

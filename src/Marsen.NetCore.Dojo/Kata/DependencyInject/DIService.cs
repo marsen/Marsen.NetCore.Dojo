@@ -21,7 +21,7 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
 
         public T Resolve<T>()
         {
-            return (T) Resolve(typeof(T));
+            return (T)Resolve(typeof(T));
         }
 
         private object Resolve(Type type)
@@ -33,18 +33,14 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
         private void Register(Type instanceType, ServiceLifetime lifetime, Type interfaceType = null)
         {
             if (instanceType.IsInterface || instanceType.IsAbstract)
-            {
                 throw new Exception("Register abstract classes or interfaces, should use Register<Interface,Class>");
-            }
 
             if (_instanceFuncLookup.ContainsKey(interfaceType ?? instanceType))
                 throw new Exception("We not support Register duplicate Type now");
 
             var parameters = Array.Empty<object>();
             foreach (var constructor in instanceType.GetConstructors())
-            {
                 parameters = constructor.GetParameters().Select(x => Resolve(x.ParameterType)).ToArray();
-            }
 
             Func<object> func = () => Activator.CreateInstance(instanceType, parameters);
             if (lifetime == ServiceLifetime.Singleton)

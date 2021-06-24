@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var input = "S3,C3,D3,H3,H7";
             var actual = _cardParser.Parse(input);
-            var expected = this.Parser(input);
+            var expected = Parser(input);
             expected.ShouldEqual(actual);
         }
 
@@ -34,7 +34,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.ShowHands
         {
             var input = "S3,C3,D3,H7,H8";
             var actual = _cardParser.Parse(input);
-            var expected = this.Parser(input);
+            var expected = Parser(input);
             expected.ShouldEqual(actual);
         }
     }

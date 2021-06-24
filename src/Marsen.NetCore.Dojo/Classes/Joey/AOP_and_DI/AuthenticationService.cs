@@ -4,9 +4,9 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
 {
     public class AuthenticationService : IAuthentication
     {
-        private readonly IUserDao _userDao;
         private readonly IHashAdapter _hashAdapter;
         private readonly IOtpServer _otpServer;
+        private readonly IUserDao _userDao;
 
         public AuthenticationService(IUserDao userDao, IHashAdapter hashAdapter, IOtpServer otpServer)
         {

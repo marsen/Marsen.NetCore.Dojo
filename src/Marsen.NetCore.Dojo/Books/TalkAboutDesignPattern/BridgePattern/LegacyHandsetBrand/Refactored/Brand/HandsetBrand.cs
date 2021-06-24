@@ -14,7 +14,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
 
         public void Run()
         {
-            this._app.Run(Brand);
+            _app.Run(Brand);
         }
     }
 }

@@ -82,12 +82,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
 
         private class MockApplication : Application
         {
+            public int CallTime { get; private set; }
+
             public override void Run(string band)
             {
                 CallTime++;
             }
-
-            public int CallTime { get; private set; }
         }
     }
 }

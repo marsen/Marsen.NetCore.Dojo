@@ -1,5 +1,4 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis;
-using Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
+﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
@@ -174,18 +173,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         private void GiveServerScore(int times)
         {
-            for (var i = 0; i < times; i++)
-            {
-                _context.ServerScore();
-            }
+            for (var i = 0; i < times; i++) _context.ServerScore();
         }
 
         private void GiveReceiverScore(int times)
         {
-            for (var i = 0; i < times; i++)
-            {
-                _context.ReceiverScore();
-            }
+            for (var i = 0; i < times; i++) _context.ReceiverScore();
         }
 
         private void ScoreShouldBe(string expected)

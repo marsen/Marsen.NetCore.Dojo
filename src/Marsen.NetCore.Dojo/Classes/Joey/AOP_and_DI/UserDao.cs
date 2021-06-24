@@ -13,7 +13,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
             //// get the password from database
             using var connection = new SqlConnection("my connection string");
             var passwordFromDb = connection
-                .Query<string>("spGetUserPassword", new {Id = accountId},
+                .Query<string>("spGetUserPassword", new { Id = accountId },
                     commandType: CommandType.StoredProcedure).SingleOrDefault();
 
             return passwordFromDb;

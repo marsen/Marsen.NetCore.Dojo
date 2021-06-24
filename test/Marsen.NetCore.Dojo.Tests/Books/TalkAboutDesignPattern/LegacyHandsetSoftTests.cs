@@ -61,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
             var mockApp = new MockApplication();
             var target = new MockHandsetBrand(mockApp);
             target.Run();
-            Assert.Equal(1,mockApp.CallTimes);
+            Assert.Equal(1, mockApp.CallTimes);
         }
 
         private void ConsoleWriteLineShouldBeCall(SystemConsole console, string message)
@@ -80,12 +80,12 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern
 
         private class MockApplication : Application
         {
+            public int CallTimes { get; private set; }
+
             public override void Run(string brand)
             {
                 CallTimes++;
             }
-
-            public int CallTimes { get; private set; }
         }
     }
 }

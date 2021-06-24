@@ -248,19 +248,13 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis
 
         private void GivenServerPoint(int times)
         {
-            for (int i = 0; i < times; i++)
-            {
-                _tennisGameContext.State.ServerScore();
-            }
+            for (var i = 0; i < times; i++) _tennisGameContext.State.ServerScore();
         }
 
 
         private void GivenReceiverPoint(int times)
         {
-            for (int i = 0; i < times; i++)
-            {
-                _tennisGameContext.State.ReceiverScore();
-            }
+            for (var i = 0; i < times; i++) _tennisGameContext.State.ReceiverScore();
         }
 
 

@@ -8,12 +8,12 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
 {
     public class LoggerDecoratorTests
     {
-        private readonly IAuthentication _authentication;
-        private readonly ILogger _logger;
-        private readonly IAccountService _accountService;
         private const string Account = "account";
         private const string Password = "password";
         private const string Otp = "OTP";
+        private readonly IAccountService _accountService;
+        private readonly IAuthentication _authentication;
+        private readonly ILogger _logger;
         private LoggerDecorator _decorator;
 
         public LoggerDecoratorTests()

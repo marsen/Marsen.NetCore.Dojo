@@ -8,13 +8,13 @@ namespace Marsen.NetCore.Dojo.Kata.FooBarQix
 
         private readonly Dictionary<int, string> _lookup = new()
         {
-            {3, "Foo"},
-            {5, "Bar"},
-            {7, "Qix"},
+            { 3, "Foo" },
+            { 5, "Bar" },
+            { 7, "Qix" }
         };
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DivisibleRule" /> class.
+        ///     Initializes a new instance of the <see cref="DivisibleRule" /> class.
         /// </summary>
         public DivisibleRule(int divisor)
         {
@@ -23,10 +23,7 @@ namespace Marsen.NetCore.Dojo.Kata.FooBarQix
 
         public string Apply(int input, string result)
         {
-            if (IsDivisibleBy(this._divisor, input))
-            {
-                result += _lookup[_divisor];
-            }
+            if (IsDivisibleBy(_divisor, input)) result += _lookup[_divisor];
 
             return result;
         }

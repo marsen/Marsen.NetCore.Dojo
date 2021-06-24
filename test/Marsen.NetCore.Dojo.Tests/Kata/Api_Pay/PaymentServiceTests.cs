@@ -10,18 +10,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Api_Pay
 {
     public class PaymentServiceTests
     {
-        private readonly IConfigure _configure;
         private const string _testRequestId = "Test_Request_Id";
         private const string _testingApiUrl = "https://testing.url/api/v1/";
+        private readonly IConfigure _configure;
         private MockHttpMessageHandler _mockHttpMessageHandler;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentServiceTests" /> class.
+        ///     Initializes a new instance of the <see cref="PaymentServiceTests" /> class.
         /// </summary>
         public PaymentServiceTests()
         {
-            this._configure = Substitute.For<IConfigure>();
-            this._configure.Setting("PayService.Url").Returns(_testingApiUrl);
+            _configure = Substitute.For<IConfigure>();
+            _configure.Setting("PayService.Url").Returns(_testingApiUrl);
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Api_Pay
         private void WhenPay()
         {
             _mockHttpMessageHandler = new MockHttpMessageHandler(_testRequestId, HttpStatusCode.OK);
-            var target = new PaymentService(this._configure)
+            var target = new PaymentService(_configure)
             {
                 httpClient = new HttpClient(_mockHttpMessageHandler)
             };
@@ -61,12 +61,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.Api_Pay
 
         private void ShouldGetRequestId()
         {
-            this._mockHttpMessageHandler.CallTimes(1).AssertGet($"{_testingApiUrl}requestId");
+            _mockHttpMessageHandler.CallTimes(1).AssertGet($"{_testingApiUrl}requestId");
         }
 
         private void ShouldPayByCreditCard()
         {
-            this._mockHttpMessageHandler.CallTimes(1).AssertPost($"{_testingApiUrl}pay/CreditCard");
+            _mockHttpMessageHandler.CallTimes(1).AssertPost($"{_testingApiUrl}pay/CreditCard");
         }
     }
 }

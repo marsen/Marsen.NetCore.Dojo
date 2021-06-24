@@ -10,8 +10,8 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
         protected override void ChangeState()
         {
             State state = new NormalState();
-            state.SetContext(this.Context);
-            this.Context.ChangeState(state);
+            state.SetContext(Context);
+            Context.ChangeState(state);
         }
     }
 }

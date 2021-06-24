@@ -4,21 +4,21 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
 {
     public abstract class State
     {
-        protected GameContext Context;
-
         protected readonly Dictionary<int, string> ScoreLookup = new()
         {
-            {0, "Love"},
-            {1, "Fifteen"},
-            {2, "Thirty"},
-            {3, "Forty"},
+            { 0, "Love" },
+            { 1, "Fifteen" },
+            { 2, "Thirty" },
+            { 3, "Forty" }
         };
+
+        protected GameContext Context;
 
         public abstract string Score();
 
         public void SetContext(GameContext context)
         {
-            this.Context = context;
+            Context = context;
         }
 
         public void ServerScore()

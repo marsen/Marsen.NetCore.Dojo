@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
         private readonly List<Rental> _rentals = new();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Customer" /> class.
+        ///     Initializes a new instance of the <see cref="Customer" /> class.
         /// </summary>
         public Customer(string name)
         {
@@ -32,7 +32,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
             var result = $"Rental Record for {GetName()}\n";
             while (rentals.MoveNext())
             {
-                var each = (Rental) rentals.Current;
+                var each = (Rental)rentals.Current;
 
                 //show figures for this rental
                 result += $"\t{each.GetMovie().GetTitle()}\t{each.GetCharge()}\n";
@@ -50,7 +50,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
             IEnumerator rentals = _rentals.GetEnumerator();
             while (rentals.MoveNext())
             {
-                var each = (Rental) rentals.Current;
+                var each = (Rental)rentals.Current;
                 result += each.GetCharge();
             }
 
@@ -64,7 +64,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
             IEnumerator rentals = _rentals.GetEnumerator();
             while (rentals.MoveNext())
             {
-                var each = (Rental) rentals.Current;
+                var each = (Rental)rentals.Current;
                 result += each.GetFrequentRenterPoints();
             }
 

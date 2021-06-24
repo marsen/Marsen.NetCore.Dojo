@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 using NSubstitute;
@@ -11,10 +10,10 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.AOP_and_DI.Decorators
     {
         private readonly IAuthentication _authentication;
         private readonly INotification _notification;
+        private readonly string _account = "account";
         private NotificationDecorator _decorator;
-        private string _account = "account";
-        private string _password = "password";
-        private string _otp = "otp";
+        private readonly string _otp = "otp";
+        private readonly string _password = "password";
 
         public NotificationDecoratorTests()
         {

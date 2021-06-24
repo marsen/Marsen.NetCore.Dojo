@@ -6,6 +6,14 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
     public class CardParser
     {
+        private readonly Dictionary<string, int> _rankLookup = new()
+        {
+            { "A", 14 },
+            { "K", 13 },
+            { "Q", 12 },
+            { "J", 11 }
+        };
+
         public List<Card> Parse(string cards)
         {
             return cards.Split(',').Select(x => new Card
@@ -14,14 +22,6 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 Suit = Enum.Parse<Suit>(x.Substring(0, 1))
             }).ToList();
         }
-
-        private readonly Dictionary<string, int> _rankLookup = new Dictionary<string, int>
-        {
-            {"A", 14},
-            {"K", 13},
-            {"Q", 12},
-            {"J", 11},
-        };
 
         private int ParseRank(string x)
         {

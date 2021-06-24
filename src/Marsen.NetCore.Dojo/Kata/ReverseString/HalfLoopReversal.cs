@@ -4,10 +4,7 @@
     {
         public string Do(string input)
         {
-            if (input is null)
-            {
-                return null;
-            }
+            if (input is null) return null;
 
             var cArray = input.ToCharArray();
             for (var i = 0; i < cArray.Length / 2; i++)

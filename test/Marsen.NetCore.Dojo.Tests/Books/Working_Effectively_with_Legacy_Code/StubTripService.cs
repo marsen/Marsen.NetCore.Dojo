@@ -6,8 +6,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.Working_Effectively_with_Legacy_Code
 {
     internal class StubTripService : TripService
     {
-        private User _mockLoggedUser = new User();
-        private List<Trip> _mockTripsList = new List<Trip>();
+        private User _mockLoggedUser = new();
+        private List<Trip> _mockTripsList = new();
 
         public void SetLoggedUser(User user)
         {

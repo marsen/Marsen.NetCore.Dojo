@@ -9,12 +9,9 @@
 
         protected override void ChangeState()
         {
-            State state = IsReadyToWin() ? (State) new WinState() : new NormalState();
+            State state = IsReadyToWin() ? new WinState() : new NormalState();
 
-            if (IsSame())
-            {
-                state = Context.ServerPoint >= 3 ? (State) new DeuceState() : new SameState();
-            }
+            if (IsSame()) state = Context.ServerPoint >= 3 ? new DeuceState() : new SameState();
 
             Context.ChangeState(state);
         }

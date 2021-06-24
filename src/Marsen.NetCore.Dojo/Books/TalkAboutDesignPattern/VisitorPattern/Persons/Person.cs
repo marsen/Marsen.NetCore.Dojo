@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Person
 {
     public abstract class Person
     {
-        public abstract void Accept(Action visitor);
         public abstract string Name { get; }
+        public abstract void Accept(Action visitor);
     }
 }

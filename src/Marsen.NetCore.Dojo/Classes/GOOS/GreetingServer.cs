@@ -12,7 +12,7 @@ namespace Marsen.NetCore.Dojo.Classes.GOOS
         public static void main(params string[] args)
         {
             _httpListener = new HttpListener();
-            _httpListener.Prefixes.Add($"http://+:8080/");
+            _httpListener.Prefixes.Add("http://+:8080/");
             _httpListener.Start();
             _httpListener.BeginGetContext(GetContext, _httpListener);
         }
@@ -21,7 +21,7 @@ namespace Marsen.NetCore.Dojo.Classes.GOOS
         {
             if (ar.AsyncState is HttpListener httpListener)
             {
-                HttpListenerContext context = httpListener.EndGetContext(ar); //接收到的請求context（一個環境封裝體）
+                var context = httpListener.EndGetContext(ar); //接收到的請求context（一個環境封裝體）
                 context.Response.ContentType = "html";
                 context.Response.ContentEncoding = Encoding.UTF8;
                 using var output = context.Response.OutputStream;

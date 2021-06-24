@@ -6,13 +6,18 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
     public class HandCardComparer : IComparer<HandCard>
     {
-        private readonly Dictionary<Suit, string> _suitLookup = new Dictionary<Suit, string>
+        private readonly Dictionary<Suit, string> _suitLookup = new()
         {
-            {ShowHands.Suit.C, "Club"},
-            {ShowHands.Suit.S, "Spades"},
-            {ShowHands.Suit.D, "Diamond"},
-            {ShowHands.Suit.H, "Heart"},
+            { ShowHands.Suit.C, "Club" },
+            { ShowHands.Suit.S, "Spades" },
+            { ShowHands.Suit.D, "Diamond" },
+            { ShowHands.Suit.H, "Heart" }
         };
+
+        public string Suit { get; set; }
+
+        public int KeyCard { get; set; }
+        public Category Category { get; set; }
 
         public int Compare(HandCard x, HandCard y)
         {
@@ -51,13 +56,9 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
             {
                 if (x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
                     y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit > 0)
-                {
                     Suit = x.GetSuit();
-                }
                 else
-                {
                     Suit = y.GetSuit();
-                }
 
                 return x.GetKeyCard().OrderBy(c => c.Rank).Last().Suit -
                        y.GetKeyCard().OrderBy(c => c.Rank).Last().Suit;
@@ -70,15 +71,9 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
         {
             if (KeyCardRankCompare(x, y) == 0)
             {
-                if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0)
-                {
-                    Suit = x.GetSuit();
-                }
+                if (x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit > 0) Suit = x.GetSuit();
 
-                if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0)
-                {
-                    Suit = y.GetSuit();
-                }
+                if (y.GetKeyCard().First().Suit - x.GetKeyCard().First().Suit > 0) Suit = y.GetSuit();
 
                 return x.GetKeyCard().First().Suit - y.GetKeyCard().First().Suit;
             }
@@ -93,12 +88,12 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
                 (c, d) =>
                 {
                     if (c.Rank == d.Rank && c.Suit == d.Suit)
-                        return Tuple.Create<int, Card>(0, c);
+                        return Tuple.Create(0, c);
                     if (c.Rank == d.Rank && c.Suit > d.Suit)
-                        return Tuple.Create<int, Card>(c.Suit - d.Suit, c);
+                        return Tuple.Create(c.Suit - d.Suit, c);
                     if (c.Rank == d.Rank && d.Suit > c.Suit)
-                        return Tuple.Create<int, Card>(c.Suit - d.Suit, d);
-                    return Tuple.Create<int, Card>(c.Rank - d.Rank, c);
+                        return Tuple.Create(c.Suit - d.Suit, d);
+                    return Tuple.Create(c.Rank - d.Rank, c);
                 }).First(k => k.Item1 != 0);
             if (first != null)
             {
@@ -109,22 +104,17 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
             return 0;
         }
 
-        public string Suit { get; set; }
-
         private int KeyCardRankCompare(HandCard firstPlayerHandCard, HandCard secondPlayerHandCard)
         {
             var result = firstPlayerHandCard.GetKeyCard()
                 .Zip(secondPlayerHandCard.GetKeyCard(),
                     (x, y) =>
-                        Tuple.Create<int, int, int>(x.Rank - y.Rank, x.Rank, y.Rank)
+                        Tuple.Create(x.Rank - y.Rank, x.Rank, y.Rank)
                 ).FirstOrDefault(x => x.Item1 != 0);
 
             if (result == null) return 0;
             KeyCard = Math.Max(result.Item2, result.Item3);
             return result.Item1;
         }
-
-        public int KeyCard { get; set; }
-        public Category Category { get; set; }
     }
 }

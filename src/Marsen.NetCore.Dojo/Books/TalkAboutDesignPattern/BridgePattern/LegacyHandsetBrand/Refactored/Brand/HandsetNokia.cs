@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyH
 {
     public sealed class HandsetNokia : HandsetBrand
     {
-        public HandsetNokia(Application app):base(app)
+        public HandsetNokia(Application app) : base(app)
         {
             Brand = "Nokia";
         }

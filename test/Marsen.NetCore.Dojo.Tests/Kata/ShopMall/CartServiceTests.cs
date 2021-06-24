@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.ShopMall;
 using Xunit;
 
@@ -9,6 +8,32 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
     {
         private readonly CartService _cart = new();
         private CartProduct MILK_10_dollar;
+
+        [Fact]
+        public void Buy_Nothing_Cart_ProductList_Count_Should_Be_0()
+        {
+            _cart.ProductList.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public void Add_Product_A_Cart_ProductList_Should_Contain_Product_A()
+        {
+            CartProduct cartProduct = new("A", 10, 1);
+            _cart.ProductList.Add(cartProduct);
+            Assert.Contains(cartProduct, _cart.ProductList);
+        }
+
+
+        private void GivenProductA(int qty)
+        {
+            MILK_10_dollar = new CartProduct("A", 10, qty);
+            _cart.ProductList.Add(MILK_10_dollar);
+        }
+
+        private void GivenProductB(int qty)
+        {
+            _cart.ProductList.Add(new CartProduct("B", 7, qty));
+        }
 
         #region TotalPrice Test Cases
 
@@ -56,31 +81,5 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.ShopMall
         }
 
         #endregion
-
-        [Fact]
-        public void Buy_Nothing_Cart_ProductList_Count_Should_Be_0()
-        {
-            _cart.ProductList.Count.Should().Be(0);
-        }
-
-        [Fact]
-        public void Add_Product_A_Cart_ProductList_Should_Contain_Product_A()
-        {
-            CartProduct cartProduct = new("A", 10, 1);
-            _cart.ProductList.Add(cartProduct);
-            Assert.Contains(cartProduct, _cart.ProductList);
-        }
-
-
-        private void GivenProductA(int qty)
-        {
-            MILK_10_dollar = new("A", 10, qty);
-            _cart.ProductList.Add(MILK_10_dollar);
-        }
-
-        private void GivenProductB(int qty)
-        {
-            _cart.ProductList.Add(new("B", 7, qty));
-        }
     }
 }

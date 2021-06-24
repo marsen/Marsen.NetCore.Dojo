@@ -1,12 +1,13 @@
-﻿# 
-## 需求說明 
+﻿#  
+
+## 需求說明
 
 金流系統透過打 API 與第三方介接來進行付款，  
 為了追蹤金流，在打 API 的過程中，業務單位要求要帶著 RequestId 。  
-再進行付款。
-而 RequestId 由另一個專門負責提供 RequestId 的 API 來提供。
+再進行付款。 而 RequestId 由另一個專門負責提供 RequestId 的 API 來提供。
 
 整體流程如下:
+
 1. 打 API 取得 RequestId
 
 ```bash
@@ -25,7 +26,6 @@ POST {{url}}/api/{{version}}/pay/CreditCard/{{transationId}}
 問題，我需要驗証 HttpClient 呼叫的 `url`與`次數`。
 
 一開始會寫成這樣，
-
 
 ```csharp
  [Fact]
@@ -49,9 +49,8 @@ POST {{url}}/api/{{version}}/pay/CreditCard/{{transationId}}
 ```
 
 接著馬上建立類別 `HttpClientProxy` 實作 `IHttpClient`,   
-這個時候我會知道我會使用 GetAsync 的方法， 
-所以我會讓 `IHttpClient` 長出這個同名方法，
-實作很單純，就是呼叫  HttpClient().GetAsync 方法。
+這個時候我會知道我會使用 GetAsync 的方法， 所以我會讓 `IHttpClient` 長出這個同名方法， 實作很單純，就是呼叫 HttpClient().GetAsync 方法。
+
 ```text
 幾個想法，
 這樣算是 Proxy Pattern 嗎 ? 我覺得算是:P
@@ -76,7 +75,6 @@ POST {{url}}/api/{{version}}/pay/CreditCard/{{transationId}}
 
 完成這階段的修改後，我才可以透過 Framework 來 Mock IHttpClient，  
 寫好的測試如下，順利拿到第一個紅燈:
-
 
 ```csharp
  [Fact]
@@ -185,8 +183,7 @@ public void pay_should_Get_RequestId_Before_Post_Pay_CreditCard()
 
 想法，有了第三個案例，我還需要前面兩個案例嗎 ?
 
-下一步，調整 ShouldPayByCreditCard 的 Assert 邏輯，
-原因是實務上我必須將 RequestId 帶入 Post Pay 時的 HttpContent 裡面。
+下一步，調整 ShouldPayByCreditCard 的 Assert 邏輯， 原因是實務上我必須將 RequestId 帶入 Post Pay 時的 HttpContent 裡面。
 
 ```csharp
 private void ShouldPayByCreditCard()
@@ -227,7 +224,6 @@ public class PayEntity
 唯一的組合邏輯就只剩 RequestId。  
 至於外部的 PayEntity 組合邏輯如何用 TDD 長出 Production Code 可以參考[這篇](https://blog.marsen.me/2020/01/17/2020/tdd_with_parse_json/)。
 
-
 ```csharp
 private void WhenPay()
 {
@@ -236,6 +232,7 @@ private void WhenPay()
 }
 
 ```
+
 ```csharp
 public void Pay(PayEntity payEntity)
 {

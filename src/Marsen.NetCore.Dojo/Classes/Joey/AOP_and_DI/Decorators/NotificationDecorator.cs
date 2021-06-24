@@ -13,16 +13,16 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators
             _notification = notification;
         }
 
-        private void Send(string accountId)
-        {
-            _notification.Send($"account:{accountId} try to login failed");
-        }
-
         public bool Verify(string accountId, string password, string otp)
         {
             if (_authenticationService.Verify(accountId, password, otp)) return true;
-            this.Send(accountId);
+            Send(accountId);
             return false;
+        }
+
+        private void Send(string accountId)
+        {
+            _notification.Send($"account:{accountId} try to login failed");
         }
     }
 }

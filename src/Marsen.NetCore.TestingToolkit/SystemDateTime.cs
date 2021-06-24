@@ -2,23 +2,24 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
+
 namespace Marsen.NetCore.TestingToolkit
 {
     /// <summary>
-    /// SystemDateTime 
+    ///     SystemDateTime
     /// </summary>
     public struct SystemDateTime
     {
         /// <summary>
-        /// The mock date time
+        ///     The mock date time
         /// </summary>
-        private static DateTime? _mockDateTime = null;
+        private static DateTime? _mockDateTime;
 
         /// <summary>
-        /// Gets the now.
+        ///     Gets the now.
         /// </summary>
         /// <value>
-        /// The now.
+        ///     The now.
         /// </value>
         public static DateTime Now
         {
@@ -27,7 +28,7 @@ namespace Marsen.NetCore.TestingToolkit
         }
 
         /// <summary>
-        /// Resets this instance.
+        ///     Resets this instance.
         /// </summary>
         internal static void Reset()
         {

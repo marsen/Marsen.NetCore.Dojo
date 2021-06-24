@@ -10,13 +10,9 @@
         protected override void ChangeState()
         {
             if (IsSame())
-            {
                 Context.ChangeState(new DeuceState());
-            }
             else
-            {
                 Context.ChangeState(new WinState());
-            }
         }
     }
 }

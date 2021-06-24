@@ -1,4 +1,5 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
+﻿using NLog;
+using ILogger = Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface.ILogger;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
 {
@@ -6,7 +7,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
     {
         public void Log(string message)
         {
-            var logger = NLog.LogManager.GetCurrentClassLogger();
+            var logger = LogManager.GetCurrentClassLogger();
             logger.Info(message);
         }
     }

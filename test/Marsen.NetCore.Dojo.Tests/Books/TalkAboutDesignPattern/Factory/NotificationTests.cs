@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
 using Xunit;
 
@@ -59,9 +58,5 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TalkAboutDesignPattern.Factory
 
     public class MockNotify : INotification
     {
-        public MockNotify()
-        {
-            //// Step 3 Make Create Object Detail in constructor
-        }
     }
 }

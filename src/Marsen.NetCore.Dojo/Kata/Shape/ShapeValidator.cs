@@ -7,8 +7,8 @@ namespace Marsen.NetCore.Dojo.Kata.Shape
     {
         public bool IsTriangle(int edge1, int edge2, int edge3)
         {
-            var edges = new List<int> {edge1, edge2, edge3};
-            return edges.Sum() - edges.Max() > edges.Max() ;
+            var edges = new List<int> { edge1, edge2, edge3 };
+            return edges.Sum() - edges.Max() > edges.Max();
         }
     }
 }

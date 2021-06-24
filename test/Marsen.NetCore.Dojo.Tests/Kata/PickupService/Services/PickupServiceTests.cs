@@ -21,7 +21,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService.Services
 
         public PickupServiceTests()
         {
-            _target = this.GetPickupService();
+            _target = GetPickupService();
         }
 
         [Fact]
@@ -77,48 +77,48 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService.Services
         {
             _target.HttpClient = new HttpClient(
                 new MockHttpMessageHandler(
-                    $"{{\"result\":\"error\"}}", HttpStatusCode.OK));
-            _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+                    "{\"result\":\"error\"}", HttpStatusCode.OK));
+            _target.GetUpdateStatus(2, new List<string> { "TestWayBillNo" });
         }
 
         private void UnKnowResponse(string unKnowStatus)
         {
-            _target.HttpClient = new HttpClient(new MockHttpMessageHandler($"{{\"result\":null," +
-                                                                           $"\"content\":" +
-                                                                           $"[{{\"merchantId\":null," +
-                                                                           $"\"merchantRef\":null," +
-                                                                           $"\"waybillNo\":null," +
-                                                                           $"\"locationId\":null," +
-                                                                           $"\"pudoRef\":null," +
-                                                                           $"\"pudoVerifyCode\":null," +
-                                                                           $"\"senderId\":null," +
-                                                                           $"\"consigneeId\":null," +
-                                                                           $"\"customerName\":null," +
-                                                                           $"\"customerAddress1\":null," +
-                                                                           $"\"customerAddress2\":null," +
-                                                                           $"\"customerAddress3\":null," +
-                                                                           $"\"customerAddress4\":null," +
-                                                                           $"\"feedbackURL\":null," +
-                                                                           $"\"eta\":null," +
-                                                                           $"\"codAmt\":null," +
-                                                                           $"\"sizeCode\":null," +
-                                                                           $"\"item\":null," +
+            _target.HttpClient = new HttpClient(new MockHttpMessageHandler("{\"result\":null," +
+                                                                           "\"content\":" +
+                                                                           "[{\"merchantId\":null," +
+                                                                           "\"merchantRef\":null," +
+                                                                           "\"waybillNo\":null," +
+                                                                           "\"locationId\":null," +
+                                                                           "\"pudoRef\":null," +
+                                                                           "\"pudoVerifyCode\":null," +
+                                                                           "\"senderId\":null," +
+                                                                           "\"consigneeId\":null," +
+                                                                           "\"customerName\":null," +
+                                                                           "\"customerAddress1\":null," +
+                                                                           "\"customerAddress2\":null," +
+                                                                           "\"customerAddress3\":null," +
+                                                                           "\"customerAddress4\":null," +
+                                                                           "\"feedbackURL\":null," +
+                                                                           "\"eta\":null," +
+                                                                           "\"codAmt\":null," +
+                                                                           "\"sizeCode\":null," +
+                                                                           "\"item\":null," +
                                                                            $"\"lastStatusId\":\"{{{unKnowStatus}}}\"," +
-                                                                           $"\"lastStatusDescription\":null," +
-                                                                           $"\"lastStatusDate\":null," +
-                                                                           $"\"lastStatusTime\":null," +
-                                                                           $"\"customerMobile\":null," +
-                                                                           $"\"customerEmail\":null," +
-                                                                           $"\"errorCode\":\"\"}}]}}",
+                                                                           "\"lastStatusDescription\":null," +
+                                                                           "\"lastStatusDate\":null," +
+                                                                           "\"lastStatusTime\":null," +
+                                                                           "\"customerMobile\":null," +
+                                                                           "\"customerEmail\":null," +
+                                                                           "\"errorCode\":\"\"}]}",
                 HttpStatusCode.OK));
-            _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+            _target.GetUpdateStatus(2, new List<string> { "TestWayBillNo" });
         }
 
         private static List<ShippingOrderUpdateEntity> SingleEntity(Status status)
         {
             return new List<ShippingOrderUpdateEntity>
             {
-                new ShippingOrderUpdateEntity
+                new()
                 {
                     AcceptTime = new DateTime(2020, 03, 03, 17, 51, 20),
                     OuterCode = "TestWayBillNo",
@@ -137,10 +137,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService.Services
                                 Result = "",
                                 Content = new List<Content>
                                 {
-                                    new Content
+                                    new()
                                     {
                                         ErrorCode = string.Empty,
-                                        Status = (Dojo.Kata.PickupService.Entity.PickupService.Status) Enum.Parse(typeof(Dojo.Kata.PickupService.Entity.PickupService.Status), status),
+                                        Status = (Dojo.Kata.PickupService.Entity.PickupService.Status)Enum.Parse(
+                                            typeof(Dojo.Kata.PickupService.Entity.PickupService.Status), status),
                                         LastStatusDate = "2020-03-03",
                                         LastStatusTime = "17:51:20",
                                         WaybillNo = "TestWayBillNo"
@@ -148,17 +149,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.PickupService.Services
                                 }
                             }),
                         HttpStatusCode.OK));
-            var actual = _target.GetUpdateStatus(2, new List<string> {"TestWayBillNo"});
+            var actual = _target.GetUpdateStatus(2, new List<string> { "TestWayBillNo" });
             return actual;
         }
 
         private Dojo.Kata.PickupService.Services.PickupService GetPickupService()
         {
-            ILogger logger = Substitute.For<ILogger>();
-            IStoreSettingService storeSettingService = Substitute.For<IStoreSettingService>();
-            storeSettingService.GetValue(Arg.Any<long>(), Arg.Is("pickup.service"), Arg.Is("loginId")).Returns("FakeLoginId");
+            var logger = Substitute.For<ILogger>();
+            var storeSettingService = Substitute.For<IStoreSettingService>();
+            storeSettingService.GetValue(Arg.Any<long>(), Arg.Is("pickup.service"), Arg.Is("loginId"))
+                .Returns("FakeLoginId");
             storeSettingService.GetValue(Arg.Any<long>(), Arg.Is("pickup.service"), Arg.Is("auth")).Returns("FakeAuth");
-            IConfigService configService = Substitute.For<IConfigService>();
+            var configService = Substitute.For<IConfigService>();
             configService.GetAppSetting("pickup.service.url").Returns("https://test.com/");
 
             var target = new Dojo.Kata.PickupService.Services.PickupService(configService, storeSettingService, logger);

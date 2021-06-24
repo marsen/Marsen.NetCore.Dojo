@@ -53,7 +53,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
         [Fact]
         public void The_string_Empty_Should_Throw_Exception_2()
         {
-            Action act = () => this._charRepeater.Repeat(string.Empty);
+            Action act = () => _charRepeater.Repeat(string.Empty);
             act.Should().Throw<Exception>();
         }
 
@@ -77,7 +77,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
 
         private string AfterRepeat(string input)
         {
-            return this._charRepeater.Repeat(input);
+            return _charRepeater.Repeat(input);
         }
     }
 
