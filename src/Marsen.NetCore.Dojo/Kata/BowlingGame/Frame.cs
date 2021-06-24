@@ -27,12 +27,15 @@ namespace Marsen.NetCore.Dojo.Kata.BowlingGame
 
         public void SetBonus(int spareBonus, int? strikeBonus)
         {
-            Score = _bonusType switch
+            switch (_bonusType)
             {
-                Spare => _firstTry + _secondTry + spareBonus,
-                Strike => 10 + spareBonus + strikeBonus,
-                _ => Score
-            };
+                case Spare:
+                    Score = _firstTry + _secondTry + spareBonus;
+                    break;
+                case Strike:
+                    Score = 10 + spareBonus + strikeBonus;
+                    break;
+            }
         }
     }
 }
