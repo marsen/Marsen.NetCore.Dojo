@@ -13,15 +13,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             for (var i = 0; i < fellPins.Count; i++)
             {
                 var firstTry = fellPins[i];
-                int? secondTry =
-                    i < fellPins.Count - 1 ? fellPins[i + 1] : null;
-
+                int? secondTry = i < fellPins.Count - 1 ? fellPins[i + 1] : null;
                 if (FrameList.Any()) FrameList.Last().SetBonus(firstTry, secondTry);
-                if (firstTry != 10)
-                {
-                    i++;
-                }
-
+                if (firstTry != 10) i++;
                 FrameList.Add(new Frame(firstTry, secondTry));
             }
 
@@ -35,7 +29,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 if (f.Score != null)
                 {
                     result ??= 0;
-
                     result += f.Score;
                 }
 
