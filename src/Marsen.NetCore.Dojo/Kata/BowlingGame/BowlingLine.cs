@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
+namespace Marsen.NetCore.Dojo.Kata.BowlingGame
 {
     public class BowlingLine
     {

@@ -1,4 +1,4 @@
-namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
+namespace Marsen.NetCore.Dojo.Kata.BowlingGame
 {
     public class Frame
     {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Marsen.NetCore.Dojo.Kata.BowlingGame;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
