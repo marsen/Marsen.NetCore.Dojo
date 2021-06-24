@@ -10,7 +10,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public int? Calculate(List<int> fellPins)
         {
             _frames = new();
-            var bonusCount = 0;
             for (int i = 0; i < fellPins.Count; i++)
             {
                 var firstTry = fellPins[i];
@@ -19,7 +18,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 if (_frames.Any() && _frames.Last().BonusCount > 0)
                 {
                     _frames.Last().SetBonus(firstTry);
-                    //bonusCount--;
                 }
 
                 if (firstTry == 10)
@@ -32,7 +30,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                     if (firstTry + secondTry == 10)
                     {
                         frame.Spare();
-                        //bonusCount = 1;
                     }
 
                     _frames.Add(frame);
