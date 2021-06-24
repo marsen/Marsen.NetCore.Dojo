@@ -26,7 +26,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 }
                 else
                 {
-                    if (firstTry + secondTry == 10) frame.Spare();
                     i++;
                 }
 

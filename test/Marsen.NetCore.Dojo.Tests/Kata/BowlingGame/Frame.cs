@@ -31,11 +31,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             };
         }
 
-        public void Spare()
-        {
-            //BonusType = "Spare";
-        }
-
         public void Strike()
         {
             BonusType = "Strike";
