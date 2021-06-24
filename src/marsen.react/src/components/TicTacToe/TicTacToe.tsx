@@ -15,7 +15,7 @@ type TicTacToeProps =
 
 
 export default function TicTacToe(){
-    const [history, setHistory] = useState([{squares:Array(9).fill(null)}]);
+    const [history, setHistory] = useState([{squares:Array(9).fill(null),position:0}]);
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXIsNext] = useState(false);
     const current = history[stepNumber];
@@ -59,6 +59,7 @@ export default function TicTacToe(){
                     [...history] : 
                     [...history].reverse())
                     .map((step,move)=>generateMovesList(step,move));
+                    
         return moves;
     }
 
