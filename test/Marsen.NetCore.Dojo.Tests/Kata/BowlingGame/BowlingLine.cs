@@ -23,6 +23,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 if (firstTry == 10)
                 {
                     var frame = new Frame(firstTry);
+                    frame.Strike();
                     _frames.Add(frame);
                 }
                 else
