@@ -21,10 +21,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             get { return _score; }
         }
 
-        public void SetBonus(int bonus)
+        public void SetBonus(int bonus, int? secondTry)
         {
             _score = _firstTry + _secondTry + bonus;
-            BonusCount = 0;
+            BonusCount--;
         }
 
         public void Spare()
@@ -33,5 +33,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         }
 
         public int BonusCount { get; private set; }
+
     }
 }

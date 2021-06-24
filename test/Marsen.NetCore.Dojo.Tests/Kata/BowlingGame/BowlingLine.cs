@@ -17,12 +17,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
                 if (_frames.Any() && _frames.Last().BonusCount > 0)
                 {
-                    _frames.Last().SetBonus(firstTry);
+                    _frames.Last().SetBonus(firstTry,secondTry);
                 }
 
                 if (firstTry == 10)
                 {
-                    _frames.Add(new Frame(firstTry));
+                    var frame = new Frame(firstTry);
+                    _frames.Add(frame);
                 }
                 else
                 {
