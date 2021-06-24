@@ -17,15 +17,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                     i < fellPins.Count - 1 ? fellPins[i + 1] : null;
 
                 if (FrameList.Any()) FrameList.Last().SetBonus(firstTry, secondTry);
-
-                secondTry = firstTry == 10 ? null : secondTry;
-                var frame = new Frame(firstTry, secondTry);
                 if (firstTry != 10)
                 {
                     i++;
                 }
 
-                FrameList.Add(frame);
+                FrameList.Add(new Frame(firstTry, secondTry));
             }
 
             return NullableSum(FrameList);
