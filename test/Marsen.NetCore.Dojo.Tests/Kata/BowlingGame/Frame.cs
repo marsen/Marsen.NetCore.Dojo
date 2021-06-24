@@ -24,6 +24,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         public void SetBonus(int bonus)
         {
             _score = _firstTry + _secondTry + bonus;
+            BonusCount = 0;
         }
+
+        public void Spare()
+        {
+            BonusCount = 1;
+        }
+
+        public int BonusCount { get; private set; }
     }
 }
