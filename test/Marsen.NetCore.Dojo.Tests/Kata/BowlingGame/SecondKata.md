@@ -20,5 +20,8 @@
   - [x] 有 Bonus 但是還未計算的分數為 null
   - [x] 連續 3 次 Strike
 - [ ] Game 的總分是 Frame 的分數的加總
+- [ ] Refactor
+  - [ ] 消除重複
+  - [ ] 使用 Enum 處理 BonusType
 
 (fin)
