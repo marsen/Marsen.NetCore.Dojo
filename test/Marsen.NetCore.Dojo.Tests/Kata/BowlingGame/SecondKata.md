@@ -23,7 +23,7 @@
 - [ ] Refactor
   - [ ] 消除重複
   - [ ] 使用 Enum 處理 BonusType
-  - [ ] Spare 邏輯歸 Frame
-  - [ ] Strike 邏輯歸 Frame
+  - [x] Spare 邏輯歸 Frame
+  - [x] Strike 邏輯歸 Frame
 
 (fin)

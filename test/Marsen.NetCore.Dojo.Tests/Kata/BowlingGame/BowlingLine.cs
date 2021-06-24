@@ -20,11 +20,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
                 secondTry = firstTry == 10 ? null : secondTry;
                 var frame = new Frame(firstTry, secondTry);
-                if (firstTry == 10)
-                {
-                    frame.Strike();
-                }
-                else
+                if (firstTry != 10)
                 {
                     i++;
                 }
