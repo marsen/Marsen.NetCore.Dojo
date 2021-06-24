@@ -6,14 +6,15 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
     public class BowlingLine
     {
         public List<Frame> FrameList { get; private set; } = new();
-
+        private List<int> FellPins = new();
         public int? Calculate(List<int> fellPins)
         {
             FrameList = new List<Frame>();
-            for (var i = 0; i < fellPins.Count; i++)
+            FellPins = fellPins; 
+            for (var i = 0; i < FellPins.Count; i++)
             {
-                var firstTry = fellPins[i];
-                int? secondTry = i < fellPins.Count - 1 ? fellPins[i + 1] : null;
+                var firstTry = FellPins[i];
+                int? secondTry = i < FellPins.Count - 1 ? FellPins[i + 1] : null;
                 if (FrameList.Any()) FrameList.Last().SetBonus(firstTry, secondTry);
                 if (firstTry != 10) i++;
                 FrameList.Add(new Frame(firstTry, secondTry));
