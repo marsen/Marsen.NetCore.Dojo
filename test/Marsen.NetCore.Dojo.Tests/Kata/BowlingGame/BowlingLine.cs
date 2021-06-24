@@ -15,9 +15,9 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
                 var firstTry = fellPins[i];
                 int? secondTry = i < fellPins.Count - 1 ? fellPins[i + 1] : null;
 
-                if (_frames.Any() && _frames.Last().BonusCount > 0)
+                if (_frames.Any())
                 {
-                    _frames.Last().SetBonus(firstTry,secondTry);
+                    _frames.Last().SetBonus(firstTry, secondTry);
                 }
 
                 if (firstTry == 10)
