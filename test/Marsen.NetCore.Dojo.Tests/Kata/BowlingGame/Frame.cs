@@ -9,7 +9,12 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
         {
             _firstTry = firstTry;
             _secondTry = secondTry;
-            if (_firstTry + _secondTry != 10) Score = _firstTry + _secondTry;
+            if (_firstTry + _secondTry == 10)
+            {
+                BonusType = "Spare";
+            }
+            else
+                Score = _firstTry + _secondTry;
         }
 
         public int? Score { get; private set; }
@@ -28,7 +33,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
 
         public void Spare()
         {
-            BonusType = "Spare";
+            //BonusType = "Spare";
         }
 
         public void Strike()
