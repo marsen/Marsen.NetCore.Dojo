@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Kata.BowlingGame;
 using Xunit;
 
@@ -67,6 +69,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.BowlingGame
             Assert.Null(new Frame(0, 10).Score);
             //Strike
             Assert.Null(new Frame(10, 0).Score);
+        }
+
+        [Fact]
+        public void TestException()
+        {
+            var tooMuchFrame = new List<int>
+            {
+                10, 10, 10, 10, 10,
+                10, 10, 10, 10, 10,
+                10
+            };
+            Action act = () => _line.Calculate(tooMuchFrame);
+            act.Should().Throw<Exception>();
         }
     }
 }
