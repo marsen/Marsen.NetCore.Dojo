@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +19,10 @@ namespace Marsen.NetCore.Dojo.Kata.BowlingGame
                 if (IsStrike(i)) i++;
             }
 
+            if (FrameList.Count>10)
+            {
+                throw new Exception();
+            }
             return NullableSum(FrameList);
         }
 
