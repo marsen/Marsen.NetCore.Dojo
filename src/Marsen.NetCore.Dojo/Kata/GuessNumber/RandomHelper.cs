@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
         {
             return new string("1234567890"
                 .OrderBy(x => new Random().Next())
-                .Take(length)
+                .Take(4)
                 .ToArray());
         }
     }
