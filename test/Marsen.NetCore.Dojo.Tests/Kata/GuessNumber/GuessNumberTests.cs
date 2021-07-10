@@ -43,7 +43,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
         private string RandomAnswer()
         {
-            return "1111";
+            return "1234";
         }
     }
 
