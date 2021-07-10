@@ -10,8 +10,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         public string Guess(string number)
         {
             SetAnswer();
-            //TODO Hard Code Return
-            return _answer == number ? "4A0B" : "3A0B";
+            int aCounter = 0;
+            for (var i = 0; i < _answer.Length; i++)
+            {
+                if (_answer[i] == number[i])
+                {
+                    aCounter++;
+                }
+            }
+
+            return $"{aCounter}A0B";
+
         }
 
         private void SetAnswer()
