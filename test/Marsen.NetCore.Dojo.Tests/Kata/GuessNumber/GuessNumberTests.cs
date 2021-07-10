@@ -20,6 +20,15 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             Assert.Equal(4, answer.Length);
         }
 
+        [Fact]
+        public void TestRandomAnswerShouldAllBeNumber()
+        {
+            string allNumber = "0123456789";
+            var answer = RandomAnswer();
+            var firstNumber = answer.Substring(0, 1);
+            Assert.True(allNumber.Contains(firstNumber));
+        }
+
         private string RandomAnswer()
         {
             return "AAAA";
