@@ -34,7 +34,7 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 
         private void SetAnswer()
         {
-            _answer = _randomInt.Get(4);
+            _answer = _randomInt.GetNonRepeatInt(4);
         }
     }
 }

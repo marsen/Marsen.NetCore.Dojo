@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         public GuessNumberTests()
         {
             _randomInt = Substitute.For<IRandomInt>();
-            _randomInt.Get(4).Returns("1234");
+            _randomInt.GetNonRepeatInt(4).Returns("1234");
             game = new(_randomInt);
         }
 

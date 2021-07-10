@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 {
-    public class RandomNumber : IRandomInt
+    public class RandomHelper : IRandomInt
     {
-        public string Get(int length)
+        public string GetNonRepeatInt(int length)
         {
             return new string("1234567890"
                 .OrderBy(x => new Random().Next())
