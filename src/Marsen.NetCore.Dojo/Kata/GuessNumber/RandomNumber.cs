@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
+namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 {
     public class RandomNumber : IRandomInt
     {

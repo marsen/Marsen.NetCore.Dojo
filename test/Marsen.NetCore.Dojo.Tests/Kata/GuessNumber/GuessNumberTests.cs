@@ -1,3 +1,4 @@
+using Marsen.NetCore.Dojo.Kata.GuessNumber;
 using NSubstitute;
 using Xunit;
 

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Marsen.NetCore.Dojo.Kata.GuessNumber;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber

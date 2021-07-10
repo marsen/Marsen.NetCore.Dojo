@@ -1,4 +1,4 @@
-namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
+namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 {
     public class Game
     {
