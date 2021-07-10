@@ -12,6 +12,18 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         {
             Assert.Equal("4A0B", game.Guess("1234"));
         }
+
+        [Fact]
+        public void TestRandomAnswerLengthShouldBe4()
+        {
+            var answer = RandomAnswer();
+            Assert.Equal(4, answer.Length);
+        }
+
+        private string RandomAnswer()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Game
