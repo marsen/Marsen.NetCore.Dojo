@@ -22,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
         private string RandomAnswer()
         {
-            throw new NotImplementedException();
+            return "AAAA";
         }
     }
 
