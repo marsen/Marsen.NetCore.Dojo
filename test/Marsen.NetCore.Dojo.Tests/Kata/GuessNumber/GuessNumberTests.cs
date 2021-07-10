@@ -17,7 +17,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         [Fact]
         public void TestRandomAnswerLengthShouldBe4()
         {
-            var answer = RandomAnswer();
+            var answer = game.RandomAnswer();
             Assert.Equal(4, answer.Length);
         }
 
@@ -25,7 +25,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         public void TestRandomAnswerShouldAllBeNumber()
         {
             string allNumber = "0123456789";
-            var answer = RandomAnswer();
+            var answer = game.RandomAnswer();
             Assert.Contains(answer.Substring(0, 1), allNumber);
             Assert.Contains(answer.Substring(1, 1), allNumber);
             Assert.Contains(answer.Substring(2, 1), allNumber);
@@ -35,19 +35,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         [Fact]
         public void TestRandomAnswerShouldUnique()
         {
-            var answer = RandomAnswer();
+            var answer = game.RandomAnswer();
             var originCount = answer.Length;
             var afterDistinct = answer.Distinct().Count();
             Assert.Equal(originCount, afterDistinct);
         }
-
-        private string RandomAnswer()
-        {
-            string allNumber = "1234567890";
-            return new string(allNumber.ToList().Take(4).ToArray());
-        }
     }
-
+    
     public class Game
     {
         private string _answer;
@@ -64,6 +58,14 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             //TODO Random Answer
             //TODO Hard Code Answer 1234
             _answer = "1234";
+        }
+
+        public string RandomAnswer()
+        {
+            return new string("1234567890"
+                .OrderBy(x => new Random().Next())
+                .Take(4)
+                .ToArray());
         }
     }
 }
