@@ -13,12 +13,16 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         [Fact]
         public void TestRandomNumberShouldAllBeNumber()
         {
-            Assert.Matches(new Regex("^\\d{4}$"), _randomHelper.GetNonRepeatInt(4));
+            //TODO Rename Test Case
+
+            var length = 4;
+            Assert.Matches(new Regex($"^\\d{{{length}}}$"), _randomHelper.GetNonRepeatInt(length));
         }
 
         [Fact]
         public void TestRandomNumberShouldUnique()
         {
+            //TODO Combine the test Case
             var answer = _randomHelper.GetNonRepeatInt(4);
             var originCount = answer.Length;
             var afterDistinct = answer.Distinct().Count();
