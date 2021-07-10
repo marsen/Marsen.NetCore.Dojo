@@ -11,16 +11,22 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         {
             SetAnswer();
             int aCounter = 0;
+            int bCounter = 0;
             for (var i = 0; i < _answer.Length; i++)
             {
                 if (_answer[i] == number[i])
                 {
                     aCounter++;
+                    continue;
+                }
+
+                if (_answer.Contains(number[i]))
+                {
+                    bCounter++;
                 }
             }
 
-            return $"{aCounter}A0B";
-
+            return $"{aCounter}A{bCounter}B";
         }
 
         private void SetAnswer()
