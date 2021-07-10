@@ -5,13 +5,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 {
     public class Game
     {
+        private readonly IHelper _helper;
         private string _answer;
+
+        public Game(IHelper helper)
+        {
+            _helper = helper;
+        }
 
         public string Guess(string number)
         {
             SetAnswer();
-            int aCounter = 0;
-            int bCounter = 0;
+            var aCounter = 0;
+            var bCounter = 0;
             for (var i = 0; i < _answer.Length; i++)
             {
                 if (_answer[i] == number[i])
@@ -31,17 +37,35 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
         private void SetAnswer()
         {
-            //TODO Random Answer
-            //TODO Hard Code Answer 1234
-            _answer = "1234";
+            _answer = _helper.GetRandomNumber(4);
         }
 
         //TODO Control Random Answer
-        public string RandomAnswer()
+        public string GetRandomNumber(int count)
+        {
+            var helper = new Helper();
+            return helper.GetRandomNumber(count);
+            return new string("1234567890"
+                .OrderBy(x => new Random().Next())
+                .Take(count)
+                .ToArray());
+        }
+    }
+
+    public interface IHelper
+    {
+        //TODO rename
+        string GetRandomNumber(int count);
+    }
+
+    public class Helper : IHelper
+    {
+        //TODO rename
+        public string GetRandomNumber(int count)
         {
             return new string("1234567890"
                 .OrderBy(x => new Random().Next())
-                .Take(4)
+                .Take(count)
                 .ToArray());
         }
     }

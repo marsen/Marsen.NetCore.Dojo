@@ -1,12 +1,22 @@
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using NSubstitute;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 {
     public class GuessNumberTests
     {
-        Game game = new();
+        public GuessNumberTests()
+        {
+            _helper = Substitute.For<IHelper>();
+            _helper.GetRandomNumber(4).Returns("1234");
+            game = new(_helper);
+        }
+
+        private Game game;
+        private IHelper _helper;
 
         [Fact]
         public void TestGuessNumber()
@@ -24,19 +34,19 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         public void TestRandomAnswerLengthShouldBe4()
         {
             //TODO Combine Two case 
-            Assert.Equal(4, game.RandomAnswer().Length);
+            Assert.Equal(4, game.GetRandomNumber(4).Length);
         }
 
         [Fact]
         public void TestRandomAnswerShouldAllBeNumber()
         {
-            Assert.Matches(new Regex("\\d+"),game.RandomAnswer());
+            Assert.Matches(new Regex("\\d+"), game.GetRandomNumber(4));
         }
 
         [Fact]
         public void TestRandomAnswerShouldUnique()
         {
-            var answer = game.RandomAnswer();
+            var answer = game.GetRandomNumber(4);
             var originCount = answer.Length;
             var afterDistinct = answer.Distinct().Count();
             Assert.Equal(originCount, afterDistinct);
