@@ -38,11 +38,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             var answer = RandomAnswer();
             var originCount = answer.Length;
             var afterDistinct = answer.Distinct().Count();
-            Assert.Equal(originCount,afterDistinct);
+            Assert.Equal(originCount, afterDistinct);
         }
 
         private string RandomAnswer()
         {
+            string allNumber = "0123456789";
+            // TODO Remove Hard Code
             return "1234";
         }
     }
