@@ -27,11 +27,17 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             var answer = RandomAnswer();
             var firstNumber = answer.Substring(0, 1);
             Assert.True(allNumber.Contains(firstNumber));
+            var secondNumber = answer.Substring(1, 1);
+            Assert.True(allNumber.Contains(secondNumber));
+            var thirdNumber = answer.Substring(2, 1);
+            Assert.True(allNumber.Contains(thirdNumber));
+            var fourthNumber = answer.Substring(3, 1);
+            Assert.True(allNumber.Contains(fourthNumber));
         }
 
         private string RandomAnswer()
         {
-            return "AAAA";
+            return "1111";
         }
     }
 
