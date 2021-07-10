@@ -37,26 +37,20 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
         private void SetAnswer()
         {
-            _answer = _helper.GetRandomNumber(4);
-        }
-
-        public string GetRandomNumber(int count)
-        {
-            var helper = new Helper();
-            return helper.GetRandomNumber(count);
+            _answer = _helper.Get(4);
         }
     }
 
     public interface IHelper
     {
         //TODO rename
-        string GetRandomNumber(int count);
+        string Get(int count);
     }
 
-    public class Helper : IHelper
+    public class RandomNumber : IHelper
     {
         //TODO rename
-        public string GetRandomNumber(int count)
+        public string Get(int count)
         {
             return new string("1234567890"
                 .OrderBy(x => new Random().Next())
