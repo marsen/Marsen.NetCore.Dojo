@@ -14,6 +14,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             Assert.Equal("3A0B", game.Guess("1235"));
             Assert.Equal("2A0B", game.Guess("1265"));
             Assert.Equal("1A0B", game.Guess("1765"));
+            Assert.Equal("1A1B", game.Guess("1365"));
         }
 
         [Fact]
