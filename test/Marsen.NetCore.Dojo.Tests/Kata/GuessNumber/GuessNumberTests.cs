@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Text.RegularExpressions;
 using NSubstitute;
 using Xunit;
 
@@ -27,32 +25,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             Assert.Equal("1A1B", game.Guess("1365"));
             Assert.Equal("0A4B", game.Guess("4321"));
             Assert.Equal("0A0B", game.Guess("5678"));
-        }
-    }
-
-    public class HelperTests
-    {
-        private Helper game = new();
-        [Fact]
-        public void TestRandomNumberLengthShouldBe4()
-        {
-            //TODO Combine Two case 
-            Assert.Equal(4, game.GetRandomNumber(4).Length);
-        }
-
-        [Fact]
-        public void TestRandomNumberShouldAllBeNumber()
-        {
-            Assert.Matches(new Regex("\\d+"), game.GetRandomNumber(4));
-        }
-
-        [Fact]
-        public void TestRandomNumberShouldUnique()
-        {
-            var answer = game.GetRandomNumber(4);
-            var originCount = answer.Length;
-            var afterDistinct = answer.Distinct().Count();
-            Assert.Equal(originCount, afterDistinct);
         }
     }
 }
