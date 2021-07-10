@@ -25,14 +25,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         {
             string allNumber = "0123456789";
             var answer = RandomAnswer();
-            var firstNumber = answer.Substring(0, 1);
-            Assert.True(allNumber.Contains(firstNumber));
-            var secondNumber = answer.Substring(1, 1);
-            Assert.True(allNumber.Contains(secondNumber));
-            var thirdNumber = answer.Substring(2, 1);
-            Assert.True(allNumber.Contains(thirdNumber));
-            var fourthNumber = answer.Substring(3, 1);
-            Assert.True(allNumber.Contains(fourthNumber));
+            Assert.Contains(answer.Substring(0, 1), allNumber);
+            Assert.Contains(answer.Substring(1, 1), allNumber);
+            Assert.Contains(answer.Substring(2, 1), allNumber);
+            Assert.Contains(answer.Substring(3, 1), allNumber);
         }
 
         private string RandomAnswer()
