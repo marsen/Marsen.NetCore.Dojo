@@ -40,15 +40,10 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             _answer = _helper.GetRandomNumber(4);
         }
 
-        //TODO Control Random Answer
         public string GetRandomNumber(int count)
         {
             var helper = new Helper();
             return helper.GetRandomNumber(count);
-            return new string("1234567890"
-                .OrderBy(x => new Random().Next())
-                .Take(count)
-                .ToArray());
         }
     }
 
