@@ -43,9 +43,8 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
         private string RandomAnswer()
         {
-            string allNumber = "0123456789";
-            // TODO Remove Hard Code
-            return "1234";
+            string allNumber = "1234567890";
+            return new string(allNumber.ToList().Take(4).ToArray());
         }
     }
 
