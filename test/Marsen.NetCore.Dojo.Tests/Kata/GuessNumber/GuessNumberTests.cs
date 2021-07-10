@@ -7,13 +7,13 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
     {
         public GuessNumberTests()
         {
-            _helper = Substitute.For<IHelper>();
-            _helper.Get(4).Returns("1234");
-            game = new(_helper);
+            _randomInt = Substitute.For<IRandomInt>();
+            _randomInt.Get(4).Returns("1234");
+            game = new(_randomInt);
         }
 
         private Game game;
-        private IHelper _helper;
+        private IRandomInt _randomInt;
 
         [Fact]
         public void TestGuessNumber()

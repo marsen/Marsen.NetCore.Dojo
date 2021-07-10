@@ -1,16 +1,13 @@
-using System;
-using System.Linq;
-
 namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 {
     public class Game
     {
-        private readonly IHelper _helper;
+        private readonly IRandomInt _randomInt;
         private string _answer;
 
-        public Game(IHelper helper)
+        public Game(IRandomInt randomInt)
         {
-            _helper = helper;
+            _randomInt = randomInt;
         }
 
         public string Guess(string number)
@@ -37,25 +34,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
         private void SetAnswer()
         {
-            _answer = _helper.Get(4);
-        }
-    }
-
-    public interface IHelper
-    {
-        //TODO rename
-        string Get(int count);
-    }
-
-    public class RandomNumber : IHelper
-    {
-        //TODO rename
-        public string Get(int count)
-        {
-            return new string("1234567890"
-                .OrderBy(x => new Random().Next())
-                .Take(count)
-                .ToArray());
+            _answer = _randomInt.Get(4);
         }
     }
 }
