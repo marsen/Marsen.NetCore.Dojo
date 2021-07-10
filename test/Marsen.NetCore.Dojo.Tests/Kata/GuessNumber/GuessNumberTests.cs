@@ -16,8 +16,11 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 
     public class Game
     {
-        public string Guess(string s)
+        //TODO rename parameters
+        public string Guess(string r)
         {
+            //TODO Set Random Answer
+            //TODO Hard Code Return
             return "4A0B";
         }
     }
