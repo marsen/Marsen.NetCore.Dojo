@@ -12,7 +12,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             SetAnswer();
             //TODO Hard Code Return
             return _answer == number ? "4A0B" : "3A0B";
-            return "4A0B";
         }
 
         private void SetAnswer()
