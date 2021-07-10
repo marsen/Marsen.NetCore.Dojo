@@ -5,7 +5,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 {
     public class GuessNumberTests
     {
-        Game game = new Game();
+        Game game = new();
 
         [Fact]
         public void TestItShouldGet4A0B()
