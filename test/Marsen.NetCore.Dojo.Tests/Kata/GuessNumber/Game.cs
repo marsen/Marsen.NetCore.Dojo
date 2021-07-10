@@ -3,7 +3,6 @@ using System.Linq;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
 {
-    // TODO move to the product name space
     public class Game
     {
         private string _answer;
