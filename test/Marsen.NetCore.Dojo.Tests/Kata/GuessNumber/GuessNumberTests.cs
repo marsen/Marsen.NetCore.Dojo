@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
@@ -29,6 +30,15 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
             Assert.Contains(answer.Substring(1, 1), allNumber);
             Assert.Contains(answer.Substring(2, 1), allNumber);
             Assert.Contains(answer.Substring(3, 1), allNumber);
+        }
+
+        [Fact]
+        public void TestRandomAnswerShouldUnique()
+        {
+            var answer = RandomAnswer();
+            var originCount = answer.Length;
+            var afterDistinct = answer.Distinct().Count();
+            Assert.Equal(originCount,afterDistinct);
         }
 
         private string RandomAnswer()
