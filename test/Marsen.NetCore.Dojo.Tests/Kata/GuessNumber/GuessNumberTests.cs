@@ -18,8 +18,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
     {
         private string _answer;
 
-        //TODO rename parameters
-        public string Guess(string r)
+        public string Guess(string number)
         {
             SetAnswer();
             //TODO Hard Code Return
