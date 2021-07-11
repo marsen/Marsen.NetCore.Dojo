@@ -24,9 +24,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         {
             //TODO Combine the test Case
             var answer = _randomHelper.GetNonRepeatInt(4);
-            var originCount = answer.Length;
-            var afterDistinct = answer.Distinct().Count();
-            Assert.Equal(originCount, afterDistinct);
+            Assert.Equal(answer.Length, answer.Distinct().Count());
         }
     }
 }
