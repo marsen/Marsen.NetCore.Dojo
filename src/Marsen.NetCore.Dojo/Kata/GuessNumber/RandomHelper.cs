@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
         public string GetNonRepeatInt(int length)
         {
             return new string("1234567890"
-                .OrderBy(x => new Random().Next())
+                .OrderBy(_ => new Random().Next())
                 .Take(4)
                 .ToArray());
         }

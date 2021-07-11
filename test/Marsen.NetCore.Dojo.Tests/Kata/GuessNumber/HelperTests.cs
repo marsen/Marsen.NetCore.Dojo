@@ -14,7 +14,6 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.GuessNumber
         public void TestRandomNumberShouldAllBeNumber()
         {
             //TODO Rename Test Case
-
             var length = 4;
             Assert.Matches(new Regex($"^\\d{{{length}}}$"), _randomHelper.GetNonRepeatInt(length));
         }

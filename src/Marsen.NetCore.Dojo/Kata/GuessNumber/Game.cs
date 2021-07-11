@@ -21,10 +21,7 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
                     continue;
                 }
 
-                if (_answer.Contains(number[i]))
-                {
-                    bCounter++;
-                }
+                if (_answer.Contains(number[i])) bCounter++;
             }
 
             return $"{aCounter}A{bCounter}B";
