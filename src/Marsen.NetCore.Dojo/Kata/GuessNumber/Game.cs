@@ -2,17 +2,15 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 {
     public class Game
     {
-        private readonly IRandomInt _randomInt;
-        private string _answer;
+        private readonly string _answer;
 
         public Game(IRandomInt randomInt)
         {
-            _randomInt = randomInt;
+            _answer = randomInt.GetNonRepeatInt(4);
         }
 
         public string Guess(string number)
         {
-            SetAnswer();
             var aCounter = 0;
             var bCounter = 0;
             for (var i = 0; i < _answer.Length; i++)
@@ -30,11 +28,6 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
             }
 
             return $"{aCounter}A{bCounter}B";
-        }
-
-        private void SetAnswer()
-        {
-            _answer = _randomInt.GetNonRepeatInt(4);
         }
     }
 }
