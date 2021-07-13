@@ -1,5 +1,5 @@
-using System;
 using System.Linq;
+using Marsen.NetCore.Dojo.Extend;
 
 namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 {
@@ -8,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Kata.GuessNumber
         public string GetNonRepeatInt(int length)
         {
             return new string("1234567890"
-                .OrderBy(_ => new Random().Next())
+                .Shuffle()
                 .Take(4)
                 .ToArray());
         }
