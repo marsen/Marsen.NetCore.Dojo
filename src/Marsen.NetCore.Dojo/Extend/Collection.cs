@@ -8,10 +8,16 @@ namespace Marsen.NetCore.Dojo.Extend
     {
         private static readonly Random Rng = new();
 
-        //Todo Fisher–Yates shuffle
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source)
         {
-            return list.OrderBy(_ => Rng.Next());
+            //This is Fisher–Yates shuffle
+            var buffer = source.ToList();
+            for (var i = 0; i < buffer.Count; i++)
+            {
+                var j = Rng.Next(i, buffer.Count);
+                yield return buffer[j];
+                buffer[j] = buffer[i];
+            }
         }
     }
 }
