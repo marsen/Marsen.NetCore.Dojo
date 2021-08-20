@@ -19,7 +19,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             ShouldBe(0, 1);
         }
 
-
         [Fact]
         public void Array_1_2_3_Target_4_Should_0_2()
         {
@@ -29,12 +28,12 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
         }
 
 
-        [Fact(Skip = "Update Case")]
+        [Fact]
         public void Array_1_2_3_Target_5_Should_1_2()
         {
-            int[] nums = { 1, 2, 3 };
-            int target = 5;
-            Assert.Equal(new[] { 1, 2 }, _solution.TwoSum(nums, target));
+            GivenArrayIs(1, 2, 3);
+            GivenTargetIs(5);
+            ShouldBe(1, 2);
         }
 
         private void GivenTargetIs(int target)
