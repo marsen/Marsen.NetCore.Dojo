@@ -64,17 +64,22 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             for (var i = 0; i < nums.Length; i++)
             {
                 var firstIndex = i;
-                var secondIndex = FindSecondIndex(nums, target, i);
+                var secondIndex = FindSecondIndex(nums, target - nums[i]);
                 if (secondIndex != -1) return new[] { firstIndex, secondIndex };
             }
 
             throw new NotImplementedException();
         }
 
-        private static int FindSecondIndex(int[] nums, int target, int i)
+        private static int FindSecondIndex(int[] nums, int addon)
         {
-            var secondIndex = nums.ToList().IndexOf(target - nums[i]);
-            return secondIndex;
+            if (nums.Count(x => x == addon) == 0)
+                return -1;
+
+            if (nums.Count(x => x == addon) == 1)
+                return nums.ToList().IndexOf(addon);
+
+            return 1;
         }
     }
 }
