@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
 {
-    public class TwoSumTests
+    public partial class TwoSumTests
     {
         private readonly Solution _solution = new();
         private static int[] _nums;
@@ -36,19 +36,12 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             ShouldBe(1, 2);
         }
 
-        private void GivenTargetIs(int target)
+        [Fact]
+        public void Array_2_7_11_15_Target_9_Should_0_1()
         {
-            _target = target;
-        }
-
-        private void ShouldBe(params int[] args)
-        {
-            Assert.Equal(args, _solution.TwoSum(_nums, _target));
-        }
-
-        private static void GivenArrayIs(params int[] args)
-        {
-            _nums = args;
+            GivenArrayIs(2, 7, 11, 15);
+            GivenTargetIs(9);
+            ShouldBe(0, 1);
         }
     }
 
