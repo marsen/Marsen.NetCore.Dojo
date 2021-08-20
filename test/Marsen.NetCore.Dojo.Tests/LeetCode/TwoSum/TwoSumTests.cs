@@ -6,15 +6,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
 {
     public class TwoSumTests
     {
+        private readonly Solution _solution = new();
+
         [Fact]
         public void Array_1_3_Target_4_Should_0_1()
         {
-            var solution = new Solution();
-            int target = 4;
             int[] nums = { 1, 3 };
-            var actual = solution.TwoSum(nums, target);
-            int[] expected = { 0, 1 };
-            Assert.Equal(expected, actual);
+            int target = 4;
+            Assert.Equal(new[] { 0, 1 }, _solution.TwoSum(nums, target));
         }
     }
 
