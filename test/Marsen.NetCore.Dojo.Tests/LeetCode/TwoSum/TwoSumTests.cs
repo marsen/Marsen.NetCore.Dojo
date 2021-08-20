@@ -56,9 +56,17 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
     {
         public int[] TwoSum(int[] nums, int target)
         {
-            var a = nums[0];
-            var index = nums.ToList().FindIndex(b => a + b == target);
-            return new[] { 0, index };
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var index = nums.ToList().FindIndex(b => nums[i] + b == target);
+                if (index==-1)
+                {
+                   continue; 
+                }
+                return new[] { i, index };
+            }
+
+            throw new NotImplementedException();
         }
     }
 }
