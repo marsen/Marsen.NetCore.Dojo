@@ -37,11 +37,23 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
         }
 
         [Fact]
-        public void Array_2_7_11_15_Target_9_Should_0_1()
+        public void Array_3_3_Target_6_Should_0_1()
+        {
+            GivenArrayIs(3, 3);
+            GivenTargetIs(6);
+            ShouldBe(0, 1);
+        }
+
+
+        [Fact(Skip = "LeetCodeCase")]
+        public void LeetCodeCases()
         {
             GivenArrayIs(2, 7, 11, 15);
             GivenTargetIs(9);
             ShouldBe(0, 1);
+            GivenArrayIs(3, 2, 4);
+            GivenTargetIs(6);
+            ShouldBe(1, 2);
         }
     }
 
