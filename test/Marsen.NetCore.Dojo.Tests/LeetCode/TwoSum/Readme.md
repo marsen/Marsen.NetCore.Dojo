@@ -43,3 +43,6 @@ https://leetcode.com/submissions/detail/541849020/
 ## 2nd Solution
 
 https://leetcode.com/submissions/detail/541881425/
+
+## Nth Solution
+https://leetcode.com/submissions/detail/542004039/

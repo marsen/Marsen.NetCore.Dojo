@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using Marsen.NetCore.Dojo.LeetCode.TwoSum;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
@@ -91,31 +88,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             GivenArrayIs(0, 0, 4, 1, 3);
             GivenTargetIs(4);
             ShouldBe(0, 2);
-        }
-    }
-
-    public class Solution
-    {
-        public int[] TwoSum(int[] nums, int target)
-        {
-            var result = new int[2];
-            var lookup = new Dictionary<int, int>();
-            for (var i = 0; i < nums.Length; i++)
-            {
-                if (lookup.ContainsKey(target - nums[i]))
-                {
-                    result[0] = lookup[target - nums[i]];
-                    result[1] = i;
-                    break;
-                }
-
-                if (!lookup.ContainsKey(nums[i]))
-                {
-                    lookup.Add(nums[i], i);
-                }
-            }
-
-            return result;
         }
     }
 }
