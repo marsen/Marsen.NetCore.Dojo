@@ -98,7 +98,10 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
                     return new[] { lookup[target - nums[i]], i };
                 }
 
-                lookup.Add(nums[i], i);
+                if (!lookup.ContainsKey(nums[i]))
+                {
+                    lookup.Add(nums[i], i);
+                }
             }
 
             throw new NotImplementedException();
