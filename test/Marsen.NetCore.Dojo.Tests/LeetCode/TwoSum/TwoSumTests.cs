@@ -44,6 +44,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             ShouldBe(0, 1);
         }
 
+        [Fact]
+        public void Array_1_3_3_Target_6_Should_1_2()
+        {
+            GivenArrayIs(1, 3, 3);
+            GivenTargetIs(6);
+            ShouldBe(1, 2);
+        }
+
 
         [Fact(Skip = "LeetCodeCase")]
         public void LeetCodeCases()
@@ -79,7 +87,10 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             if (nums.Count(x => x == addon) == 1)
                 return nums.ToList().IndexOf(addon);
 
-            return 1;
+            var duplicates = nums
+                .Select((t,i) => new { Index = i,No = t })
+                .Where(x=>x.No==addon);
+            return duplicates.ElementAt(1).Index;
         }
     }
 }
