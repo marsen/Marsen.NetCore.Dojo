@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -81,9 +82,10 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
     {
         public int[] TwoSum(int[] nums, int target)
         {
+            var firstIndex = -1;
             for (var i = 0; i < nums.Length; i++)
             {
-                var firstIndex = i;
+                firstIndex = i;
                 var addon = target - nums[i];
                 if (nums.Count(x => x == addon) == 0)
                     continue;
@@ -105,18 +107,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             }
 
             throw new NotImplementedException();
-        }
-
-        private static int FindSecondIndex(int[] nums, int target, int addend)
-        {
-            var addon = target - addend;
-            if (nums.Count(x => x == addon) == 0)
-                return -1;
-            if (addend != addon) return nums.ToList().IndexOf(addon);
-            var duplicates = nums
-                .Select((t, i) => new { Index = i, No = t })
-                .Where(x => x.No == addon);
-            return duplicates.ElementAt(1).Index;
         }
     }
 }
