@@ -41,11 +41,11 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
 
     public class Solution
     {
-        public long Reverse(long x)
+        public int Reverse(int x)
         {
-            long symbol = x < 0 ? -1 : 1;
+            int symbol = x < 0 ? -1 : 1;
             var result = new string((symbol * x).ToString().Reverse().ToArray());
-            return symbol * long.Parse(result);
+            return symbol * int.Parse(result);
             
         }
     }
