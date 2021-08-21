@@ -60,13 +60,9 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             ShouldBe(0, 1);
         }
 
-
-        [Fact(Skip = "LeetCodeCase")]
-        public void LeetCodeCases()
+        [Fact]
+        public void Array_3_2_4_Target_6_Should_1_2()
         {
-            GivenArrayIs(2, 7, 11, 15);
-            GivenTargetIs(9);
-            ShouldBe(0, 1);
             GivenArrayIs(3, 2, 4);
             GivenTargetIs(6);
             ShouldBe(1, 2);
@@ -80,24 +76,23 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             for (var i = 0; i < nums.Length; i++)
             {
                 var firstIndex = i;
-                int addend = nums[i];
-                int ret;
-                var addon = target - addend;
+                var addon = target - nums[i];
                 if (nums.Count(x => x == addon) == 0)
-                    ret = -1;
+                    continue;
+                int secondIndex = -1;
+                if (nums[i] != addon)
+                    secondIndex = nums.ToList().IndexOf(addon);
                 else
                 {
-                    if (addend != addon) ret = nums.ToList().IndexOf(addon);
-                    else
-                    {
-                        var duplicates = nums
-                            .Select((t, i1) => new { Index = i1, No = t })
-                            .Where(x => x.No == addon);
-                        ret = duplicates.ElementAt(1).Index;
-                    }
+                    var duplicates = nums
+                        .Select((t, idx) => new { Index = idx, No = t })
+                        .Where(x => x.No == addon);
+
+                    if (nums.Count(x => x == addon) == 1)
+                        continue;
+                    secondIndex = duplicates.ElementAt(1).Index;
                 }
 
-                var secondIndex = ret;
                 if (secondIndex != -1) return new[] { firstIndex, secondIndex };
             }
 
@@ -114,7 +109,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
                 .Select((t, i) => new { Index = i, No = t })
                 .Where(x => x.No == addon);
             return duplicates.ElementAt(1).Index;
-
         }
     }
 }
