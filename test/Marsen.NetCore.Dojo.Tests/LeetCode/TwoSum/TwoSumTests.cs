@@ -67,6 +67,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             GivenTargetIs(6);
             ShouldBe(1, 2);
         }
+
+        [Fact]
+        public void Array_2_7_11_15_Target_9_Should_0_1()
+        {
+            GivenArrayIs(2, 7, 11, 15);
+            GivenTargetIs(9);
+            ShouldBe(0, 1);
+        }
     }
 
     public class Solution
