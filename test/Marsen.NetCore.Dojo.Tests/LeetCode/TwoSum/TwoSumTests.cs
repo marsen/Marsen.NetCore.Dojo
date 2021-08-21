@@ -84,6 +84,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
         {
             for (var i = 0; i < nums.Length; i++)
             {
+                for (int j = i + 1; j < nums.Length; j++)
+                {
+                    if (target - nums[i] == nums[j])
+                    {
+                        return new[] { i, j };
+                    }
+                }
+continue;
                 var addon = target - nums[i];
                 if (nums.Count(x => x == addon) == 0)
                     continue;
