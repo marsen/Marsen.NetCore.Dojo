@@ -10,13 +10,15 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
         {
             var solution = new Solution();
             var actual = solution.Reverse(1);
-            Assert.Equal(1,actual);
+            Assert.Equal(1, actual);
         }
     }
-    
-    public class Solution {
-        public int Reverse(int x) {
-        
+
+    public class Solution
+    {
+        public int Reverse(int x)
+        {
+            return 1;
         }
     }
 }
