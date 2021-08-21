@@ -14,6 +14,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
             var actual = _solution.Reverse(1);
             Assert.Equal(1, actual);
         }
+
+        [Fact]
+        public void The_12_Reverse_21()
+        {
+            var actual = _solution.Reverse(12);
+            Assert.Equal(21, actual);
+        }
     }
 
     public class Solution
