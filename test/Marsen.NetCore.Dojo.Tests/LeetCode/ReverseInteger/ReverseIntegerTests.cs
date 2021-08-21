@@ -23,15 +23,30 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
             var actual = _solution.Reverse(12);
             Assert.Equal(21, actual);
         }
+
+        [Fact]
+        public void The_Negative_12_Reverse_Negative_21()
+        {
+            var actual = _solution.Reverse(-12);
+            Assert.Equal(-21, actual);
+        }
+
+        [Fact]
+        public void The_1534236469_Reverse_9646324351()
+        {
+            var actual = _solution.Reverse(1534236469);
+            Assert.Equal(9646324351, actual);
+        }
     }
 
     public class Solution
     {
-        public int Reverse(int x)
+        public long Reverse(long x)
         {
-            var reversal = new Reversal();
-            var result = reversal.Do(x.ToString());
-            return int.Parse(result);
+            long symbol = x < 0 ? -1 : 1;
+            var result = new string((symbol * x).ToString().Reverse().ToArray());
+            return symbol * long.Parse(result);
+            
         }
     }
 }
