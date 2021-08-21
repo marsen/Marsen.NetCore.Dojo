@@ -84,32 +84,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
         {
             for (var i = 0; i < nums.Length; i++)
             {
-                for (int j = i + 1; j < nums.Length; j++)
+                for (var j = i + 1; j < nums.Length; j++)
                 {
                     if (target - nums[i] == nums[j])
                     {
                         return new[] { i, j };
                     }
                 }
-continue;
-                var addon = target - nums[i];
-                if (nums.Count(x => x == addon) == 0)
-                    continue;
-                int secondIndex = -1;
-                if (nums[i] != addon)
-                    secondIndex = nums.ToList().IndexOf(addon);
-                else
-                {
-                    var duplicates = nums
-                        .Select((t, idx) => new { Index = idx, No = t })
-                        .Where(x => x.No == addon);
-
-                    if (nums.Count(x => x == addon) == 1)
-                        continue;
-                    secondIndex = duplicates.ElementAt(1).Index;
-                }
-
-                if (secondIndex != -1) return new[] { i, secondIndex };
             }
 
             throw new NotImplementedException();
