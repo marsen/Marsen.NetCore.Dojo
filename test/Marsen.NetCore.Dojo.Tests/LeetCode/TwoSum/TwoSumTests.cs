@@ -80,7 +80,24 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             for (var i = 0; i < nums.Length; i++)
             {
                 var firstIndex = i;
-                var secondIndex = FindSecondIndex(nums, target, nums[i]);
+                int addend = nums[i];
+                int ret;
+                var addon = target - addend;
+                if (nums.Count(x => x == addon) == 0)
+                    ret = -1;
+                else
+                {
+                    if (addend != addon) ret = nums.ToList().IndexOf(addon);
+                    else
+                    {
+                        var duplicates = nums
+                            .Select((t, i1) => new { Index = i1, No = t })
+                            .Where(x => x.No == addon);
+                        ret = duplicates.ElementAt(1).Index;
+                    }
+                }
+
+                var secondIndex = ret;
                 if (secondIndex != -1) return new[] { firstIndex, secondIndex };
             }
 
@@ -92,17 +109,12 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             var addon = target - addend;
             if (nums.Count(x => x == addon) == 0)
                 return -1;
+            if (addend != addon) return nums.ToList().IndexOf(addon);
+            var duplicates = nums
+                .Select((t, i) => new { Index = i, No = t })
+                .Where(x => x.No == addon);
+            return duplicates.ElementAt(1).Index;
 
-
-            if (addend == addon)
-            {
-                var duplicates = nums
-                    .Select((t, i) => new { Index = i, No = t })
-                    .Where(x => x.No == addon);
-                return duplicates.ElementAt(1).Index;
-            }
-
-            return nums.ToList().IndexOf(addon);
         }
     }
 }
