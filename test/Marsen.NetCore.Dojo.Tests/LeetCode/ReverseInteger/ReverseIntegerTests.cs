@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
+using Marsen.NetCore.Dojo.Kata.ReverseString;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
@@ -27,7 +29,9 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
     {
         public int Reverse(int x)
         {
-            return 1;
+            var reversal = new Reversal();
+            var result = reversal.Do(x.ToString());
+            return int.Parse(result);
         }
     }
 }
