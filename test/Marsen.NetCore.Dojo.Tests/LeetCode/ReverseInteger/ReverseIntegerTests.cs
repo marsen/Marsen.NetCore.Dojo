@@ -1,15 +1,17 @@
 using System;
+using System.Runtime.InteropServices;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
 {
     public class ReverseIntegerTests
     {
+        private readonly Solution _solution = new();
+
         [Fact]
         public void The_1_Reverse_1()
         {
-            var solution = new Solution();
-            var actual = solution.Reverse(1);
+            var actual = _solution.Reverse(1);
             Assert.Equal(1, actual);
         }
     }
