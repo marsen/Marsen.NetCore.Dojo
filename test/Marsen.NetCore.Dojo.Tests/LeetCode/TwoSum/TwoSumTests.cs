@@ -82,6 +82,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
     {
         public int[] TwoSum(int[] nums, int target)
         {
+            var lookup = new Dictionary<int,int>();
             for (var i = 0; i < nums.Length; i++)
             {
                 for (var j = i + 1; j < nums.Length; j++)
