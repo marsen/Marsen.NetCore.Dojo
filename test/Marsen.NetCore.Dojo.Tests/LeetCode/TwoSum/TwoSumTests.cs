@@ -93,8 +93,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             if (nums.Count(x => x == addon) == 0)
                 return -1;
 
-            if (nums.Count(x => x == addon) == 1)
-                return nums.ToList().IndexOf(addon);
 
             if (addend == addon)
             {
