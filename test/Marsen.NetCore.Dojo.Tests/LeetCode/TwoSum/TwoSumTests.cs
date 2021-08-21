@@ -85,6 +85,12 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             var lookup = new Dictionary<int,int>();
             for (var i = 0; i < nums.Length; i++)
             {
+                if (lookup.ContainsKey(target-nums[i]))
+                {
+                   return new []{lookup[target-nums[i]],i};
+                }
+                lookup.Add(nums[i],i);
+                continue;
                 for (var j = i + 1; j < nums.Length; j++)
                 {
                     if (target - nums[i] == nums[j])
