@@ -76,28 +76,29 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             GivenTargetIs(9);
             ShouldBe(0, 1);
         }
+
+        [Fact]
+        public void Array_0_0_1_3_Target_4_Should_2_3()
+        {
+            GivenArrayIs(0, 0, 1, 3);
+            GivenTargetIs(4);
+            ShouldBe(2, 3);
+        }
     }
 
     public class Solution
     {
         public int[] TwoSum(int[] nums, int target)
         {
-            var lookup = new Dictionary<int,int>();
+            var lookup = new Dictionary<int, int>();
             for (var i = 0; i < nums.Length; i++)
             {
-                if (lookup.ContainsKey(target-nums[i]))
+                if (lookup.ContainsKey(target - nums[i]))
                 {
-                   return new []{lookup[target-nums[i]],i};
+                    return new[] { lookup[target - nums[i]], i };
                 }
-                lookup.Add(nums[i],i);
-                continue;
-                for (var j = i + 1; j < nums.Length; j++)
-                {
-                    if (target - nums[i] == nums[j])
-                    {
-                        return new[] { i, j };
-                    }
-                }
+
+                lookup.Add(nums[i], i);
             }
 
             throw new NotImplementedException();
