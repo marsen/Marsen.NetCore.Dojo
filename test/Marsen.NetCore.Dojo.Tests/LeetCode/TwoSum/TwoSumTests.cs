@@ -52,6 +52,14 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             ShouldBe(1, 2);
         }
 
+        [Fact]
+        public void Array_1_3_3_Target_4_Should_0_1()
+        {
+            GivenArrayIs(1, 3, 3);
+            GivenTargetIs(4);
+            ShouldBe(0, 1);
+        }
+
 
         [Fact(Skip = "LeetCodeCase")]
         public void LeetCodeCases()
@@ -72,25 +80,31 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             for (var i = 0; i < nums.Length; i++)
             {
                 var firstIndex = i;
-                var secondIndex = FindSecondIndex(nums, target - nums[i]);
+                var secondIndex = FindSecondIndex(nums, target, nums[i]);
                 if (secondIndex != -1) return new[] { firstIndex, secondIndex };
             }
 
             throw new NotImplementedException();
         }
 
-        private static int FindSecondIndex(int[] nums, int addon)
+        private static int FindSecondIndex(int[] nums, int target, int addend)
         {
+            var addon = target - addend;
             if (nums.Count(x => x == addon) == 0)
                 return -1;
 
             if (nums.Count(x => x == addon) == 1)
                 return nums.ToList().IndexOf(addon);
 
-            var duplicates = nums
-                .Select((t,i) => new { Index = i,No = t })
-                .Where(x=>x.No==addon);
-            return duplicates.ElementAt(1).Index;
+            if (addend == addon)
+            {
+                var duplicates = nums
+                    .Select((t, i) => new { Index = i, No = t })
+                    .Where(x => x.No == addon);
+                return duplicates.ElementAt(1).Index;
+            }
+
+            return nums.ToList().IndexOf(addon);
         }
     }
 }
