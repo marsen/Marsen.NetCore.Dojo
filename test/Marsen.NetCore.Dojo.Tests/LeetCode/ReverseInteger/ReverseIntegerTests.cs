@@ -32,10 +32,17 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
         }
 
         [Fact]
-        public void The_1534236469_Reverse_9646324351()
+        public void The_1534236469_Reverse_0()
         {
             var actual = _solution.Reverse(1534236469);
-            Assert.Equal(9646324351, actual);
+            Assert.Equal(0, actual);
+        }
+
+        [Fact]
+        public void The_120_Reverse_21()
+        {
+            var actual = _solution.Reverse(120);
+            Assert.Equal(21, actual);
         }
     }
 
@@ -44,9 +51,8 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
         public int Reverse(int x)
         {
             int symbol = x < 0 ? -1 : 1;
-            var result = new string((symbol * x).ToString().Reverse().ToArray());
-            return symbol * int.Parse(result);
-            
+            int.TryParse(new string((symbol * x).ToString().Reverse().ToArray()), out var result);
+            return symbol * result;
         }
     }
 }
