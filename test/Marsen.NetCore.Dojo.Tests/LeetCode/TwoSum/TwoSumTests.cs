@@ -82,10 +82,8 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
     {
         public int[] TwoSum(int[] nums, int target)
         {
-            var firstIndex = -1;
             for (var i = 0; i < nums.Length; i++)
             {
-                firstIndex = i;
                 var addon = target - nums[i];
                 if (nums.Count(x => x == addon) == 0)
                     continue;
@@ -103,7 +101,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
                     secondIndex = duplicates.ElementAt(1).Index;
                 }
 
-                if (secondIndex != -1) return new[] { firstIndex, secondIndex };
+                if (secondIndex != -1) return new[] { i, secondIndex };
             }
 
             throw new NotImplementedException();
