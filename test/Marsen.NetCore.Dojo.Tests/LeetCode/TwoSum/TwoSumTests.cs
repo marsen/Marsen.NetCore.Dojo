@@ -84,18 +84,29 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             GivenTargetIs(4);
             ShouldBe(2, 3);
         }
+
+        [Fact]
+        public void Array_0_0_4_1_3_Target_4_Should_0_2()
+        {
+            GivenArrayIs(0, 0, 4, 1, 3);
+            GivenTargetIs(4);
+            ShouldBe(0, 2);
+        }
     }
 
     public class Solution
     {
         public int[] TwoSum(int[] nums, int target)
         {
+            var result = new int[2];
             var lookup = new Dictionary<int, int>();
             for (var i = 0; i < nums.Length; i++)
             {
                 if (lookup.ContainsKey(target - nums[i]))
                 {
-                    return new[] { lookup[target - nums[i]], i };
+                    result[0] = lookup[target - nums[i]];
+                    result[1] = i;
+                    break;
                 }
 
                 if (!lookup.ContainsKey(nums[i]))
@@ -104,7 +115,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
                 }
             }
 
-            throw new NotImplementedException();
+            return result;
         }
     }
 }
