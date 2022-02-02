@@ -15,7 +15,7 @@ jobs:
     - name: Install Dotnet Stryker Global
       run: dotnet tool install --global dotnet-stryker
     - name: Install Dotnet Stryker
-      run: dotnet tool install -d dotnet-stryker
+      run: ls
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
     - uses: actions/checkout@master                    
