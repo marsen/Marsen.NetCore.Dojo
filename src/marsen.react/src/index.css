@@ -187,7 +187,6 @@ textarea {
 }
 .force-wrap {
   word-wrap: break-word;
-  word-break: break-all;
   -ms-word-break: break-all;
   word-break: break-word;
   hyphens: auto;
@@ -287,7 +286,6 @@ input[type="email"],
 input[type="password"],
 textarea {
   font-size: 14px;
-  line-height: 20px;
   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: 400;
   padding: .75rem 0;
@@ -340,11 +338,10 @@ input:-webkit-autofill {
 }
 .checkbox input[type="checkbox"]:checked + span:before {
   font-size: 16px;
-  line-height: 24px;
   box-shadow: none;
   color: #2cc5d2;
   margin-top: -1px;
-  font-family: 'percolate';
+  font-family: 'percolate, sans-serif';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -400,7 +397,7 @@ input:-webkit-autofill {
 
 [class^="icon-"],
 [class*=" icon-"] {
-  font-family: "percolate";
+  font-family: 'percolate, sans-serif';
   speak: none;
   font-style: normal;
   font-weight: normal;
