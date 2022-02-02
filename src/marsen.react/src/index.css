@@ -984,7 +984,7 @@ a:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 800;
   color: #1c3f53;
   display: inline-block;
