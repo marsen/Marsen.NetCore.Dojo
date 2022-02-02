@@ -9,9 +9,9 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
         public string Hash(string password)
         {
             //// hash the password
-            var crypt = new SHA256Managed();
+            var sha256 = SHA256.Create();
             var hash = new StringBuilder();
-            var crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password));
+            var crypto = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
             foreach (var theByte in crypto) hash.Append(theByte.ToString("x2"));
 
             return hash.ToString();
