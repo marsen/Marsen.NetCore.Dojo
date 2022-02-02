@@ -12,12 +12,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Install Dotnet Stryker
+    - name: Install Dotnet Stryker Global
       run: dotnet tool install --global dotnet-stryker
+    - name: Install Dotnet Stryker
+      run: dotnet tool install dotnet-stryker
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
-    - name: Dotnet Tool Restore
-      run: dotnet tool restore --configfile .config/dotnet-tools.json
     - uses: actions/checkout@master                    
     - uses: sonarsource/sonarcloud-github-action@master
       env:
