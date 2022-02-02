@@ -1,10 +1,17 @@
 {
   "stryker-config": {
-    "dashboard-project": "github.com/marsen/Marsen.NetCore.Dojo",
-    "dashboard-version": "master",
+    "project": "Marsen.NetCore.Dojo.csproj",
+    "test-projects": [
+      "./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj",
+      "./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj"
+    ],
     "reporters": [
-	    "json",
+      "progress",
+      "json",
       "dashboard"
-    ]
+    ],
+    "project-info": { 
+      "name":"github.com/marsen/Marsen.NetCore.Dojo", 
+      "version": "main" }
   }
 }
