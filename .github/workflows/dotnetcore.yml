@@ -14,10 +14,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Install Dotnet Stryker
       run: dotnet tool install --global dotnet-stryker
-    - name: Dotnet Tool Restore
-      run: dotnet tool restore
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner  
+    - name: Dotnet Tool Restore
+      run: dotnet tool restore
     - uses: actions/checkout@master                    
     - uses: sonarsource/sonarcloud-github-action@master
       env:
