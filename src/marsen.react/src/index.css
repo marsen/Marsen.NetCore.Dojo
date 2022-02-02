@@ -192,15 +192,15 @@ textarea {
   hyphens: auto;
 }
 .type-light {
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
 .type-bold {
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
 .type-italic {
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: italic;
 }
@@ -219,7 +219,7 @@ select {
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-style: 400;
   color: #333;
   font-size: 16px;
@@ -231,7 +231,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-style: 400;
   margin: 0;
   padding: 0;
@@ -286,7 +286,7 @@ input[type="email"],
 input[type="password"],
 textarea {
   font-size: 14px;
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-style: 400;
   padding: .75rem 0;
   line-height: 1.5rem !important;
@@ -814,7 +814,7 @@ a:focus {
   letter-spacing: .3em;
   text-indent: .3em;
   text-transform: uppercase;
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 11px;
   padding-left: 15px;
@@ -950,7 +950,7 @@ a:focus {
 .wrapper-message .title-message {
   font-size: 16px;
   line-height: 24px;
-  font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Nunito Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 800;
   color: #555;
 }
