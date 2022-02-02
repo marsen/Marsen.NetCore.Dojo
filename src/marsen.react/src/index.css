@@ -341,7 +341,7 @@ input:-webkit-autofill {
   box-shadow: none;
   color: #2cc5d2;
   margin-top: -1px;
-  font-family: 'percolate, sans-serif';
+  font-family: percolate, sans-serif;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -397,7 +397,7 @@ input:-webkit-autofill {
 
 [class^="icon-"],
 [class*=" icon-"] {
-  font-family: 'percolate, sans-serif';
+  font-family: percolate sans-serif;
   speak: none;
   font-style: normal;
   font-weight: normal;
