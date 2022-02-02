@@ -41,7 +41,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Microsoft
         public void DivideWithZero()
         {
             Func<Task> act = async () => await _target.Divide(7, 0);
-            act.Should().Throw<DivideByZeroException>();
+            act.Should().ThrowAsync<DivideByZeroException>();
         }
     }
 }
