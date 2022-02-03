@@ -1,0 +1,27 @@
+name: Stryker .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  stryker:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Restore tool
+      run: dotnet tool restore      
+    - name: Dotnet Stryker      
+      run: dotnet stryker --dashboard-api-key=$STRYKER_DASHBOARD_API_KEY
+    env:
+      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}  
