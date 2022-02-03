@@ -14,7 +14,6 @@ jobs:
         dotnet-version: 6.0.x
     - uses: actions/checkout@master            
     - name: Install Dotnet Stryker Global
-      #run: dotnet tool install --global dotnet-stryker 
       run: dotnet tool restore
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner                  
