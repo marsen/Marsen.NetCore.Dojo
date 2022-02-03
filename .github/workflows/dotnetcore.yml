@@ -12,9 +12,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - uses: actions/checkout@master            
-    - name: Install Dotnet Stryker Global
-      run: dotnet tool restore
+    - uses: actions/checkout@main            
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner                  
     - uses: sonarsource/sonarcloud-github-action@master
@@ -29,9 +27,6 @@ jobs:
       run: dotnet test ./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj --collect:"XPlat Code Coverage" --settings .coverlet       
     - name: Integration Test with dotnet
       run: dotnet test ./test/Marsen.NetCore.Dojo.Integration.Tests/Marsen.NetCore.Dojo.Integration.Tests.csproj --logger:trx;LogFileName=result.trx 
-    - name: Dotnet Stryker      
-      run: dotnet stryker --dashboard-api-key=$STRYKER_DASHBOARD_API_KEY --reporter "dashboard"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
-      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}      
+      SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}  
