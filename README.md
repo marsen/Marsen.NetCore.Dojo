@@ -26,7 +26,7 @@ For KATA
   - ReSharper
 - Typing
 - Pair
-  - Learn from others  
+  - Learn from others
 - CI/CD Tools
   - Github Action `PROCESSING`
   - Travis CI `PENDING`
@@ -36,3 +36,13 @@ For KATA
     - [x] TS Unit Test
     - [x] TS Coverage
   - [x] Mutation Stryker.Net
+
+## Update Logs
+
+### 20220203
+
+- Update .Net Core 6.0
+- Update Stryker
+- Fix CI problem
+
+(fin)
