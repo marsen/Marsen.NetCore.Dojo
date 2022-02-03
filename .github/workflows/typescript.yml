@@ -10,9 +10,7 @@ jobs:
     - name: Npm install
       run: npm i --prefix src/Marsen.TypeScript.Dojo
     - name: Run Cover
-      run: npm run cover --prefix src/Marsen.TypeScript.Dojo
-    - name: npm link TypeScript
-      run: npm link typescript          
+      run: npm run cover --prefix src/Marsen.TypeScript.Dojo        
     - name: Setup Sonarqube
       uses: warchant/setup-sonar-scanner@v3      
     - name: Run Sonarqube
