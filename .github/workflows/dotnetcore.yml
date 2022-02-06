@@ -20,7 +20,7 @@ jobs:
         projectBaseDir: .
         args: >          
           -Dsonar.organization=marsen-github 
-          -Dsonar.projectKey=Marsen.NetCore.Dojo
+          -Dsonar.projectKey=marsen_Marsen.NetCore.Dojo
           -Dsonar.sources=./src/Marsen.NetCore.Dojo 
           -Dsonar.host.url=https://sonarcloud.io 
           -Dsonar.test.exclusions=tests/**
