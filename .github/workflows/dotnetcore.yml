@@ -16,15 +16,6 @@ jobs:
     - name: Install Dotnet Sonarscanner	
       run: dotnet tool install --global dotnet-sonarscanner                  
     - uses: sonarsource/sonarcloud-github-action@master
-      with:
-        projectBaseDir: .
-        args: >          
-          -Dsonar.organization=marsen-github 
-          -Dsonar.projectKey=marsen_Marsen.NetCore.Dojo
-          -Dsonar.sources=./src/Marsen.NetCore.Dojo 
-          -Dsonar.host.url=https://sonarcloud.io 
-          -Dsonar.tests=./test/Marsen.NetCore.Dojo.Tests
-
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
