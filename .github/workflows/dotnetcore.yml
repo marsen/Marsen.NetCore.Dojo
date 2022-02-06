@@ -23,7 +23,7 @@ jobs:
           -Dsonar.projectKey=marsen_Marsen.NetCore.Dojo
           -Dsonar.sources=./src/Marsen.NetCore.Dojo 
           -Dsonar.host.url=https://sonarcloud.io 
-          -Dsonar.test.exclusions=tests/**
+
           -Dsonar.tests=./test/Marsen.NetCore.Dojo.Tests
           -Dsonar.verbose=true
       env:
