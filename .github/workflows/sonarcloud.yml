@@ -25,8 +25,8 @@ jobs:
         sonarOrganization: marsen-github
         # Optional. Set to 1 or true to not run 'dotnet test' command
         # dotnetDisableTests: true
-        dotnetTestArguments: Marsen.NetCore.Dojo.Integration.Tests.sln
-        dotnetBuildArguments: Marsen.NetCore.Dojo.Integration.Test.sln
+        dotnetTestArguments: Marsen.NetCore.Dojo.sln
+        dotnetBuildArguments: Marsen.NetCore.Dojo.sln
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
