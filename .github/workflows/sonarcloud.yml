@@ -24,7 +24,7 @@ jobs:
         # The name of the SonarQube Organization
         sonarOrganization: marsen-github
         # Optional extra command arguments the the SonarScanner 'begin' command
-        # sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="*/TestResults/*/coverage.*.xml"
+        sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="*/TestResults/*/coverage.*.xml"
         # Optional. Set to 1 or true to not run 'dotnet test' command
         # dotnetDisableTests: true
         dotnetTestArguments: Marsen.NetCore.Dojo.sln
