@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return this.GetHashCode();
         }
     }
 }
