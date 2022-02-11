@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public override bool Equals(object obj)
         {
-            var money = (Money)obj;
+            var money = (Money)obj!;
             return Amount == money.Amount && Currency == money.Currency;
         }
 
