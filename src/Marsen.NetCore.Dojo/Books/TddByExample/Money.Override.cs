@@ -1,7 +1,10 @@
+using System;
+
 namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public partial class Money
     {
+        private readonly int _hashCode;
         public override string ToString()
         {
             return $"{Amount.ToString()} {Currency}";
@@ -15,7 +18,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 
         public override int GetHashCode()
         {
-            return this.GetHashCode();
+            return _hashCode.GetHashCode();
         }
     }
 }
