@@ -27,7 +27,7 @@ jobs:
         sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="*/TestResults/*/coverage.*.xml"
         # Optional. Set to 1 or true to not run 'dotnet test' command
         # dotnetDisableTests: true
-        dotnetTestArguments: Marsen.NetCore.Dojo.sln
+        dotnetTestArguments: Marsen.NetCore.Dojo.sln --collect:"XPlat Code Coverage"
         dotnetBuildArguments: Marsen.NetCore.Dojo.sln
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
