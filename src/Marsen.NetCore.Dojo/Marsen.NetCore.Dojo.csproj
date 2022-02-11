@@ -3,7 +3,10 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
-
+    <PropertyGroup>
+        <!-- Mark the project as being a test project -->
+        <SonarQubeTestProject>false</SonarQubeTestProject>
+    </PropertyGroup>
     <ItemGroup>
         <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Practice01\Trip\TripService_Origin.cs" />
         <Compile Remove="Books\Working_Effectively_with_Legacy_Code\Ch6\NewFunction\TransactionGate.Legacy.cs" />
