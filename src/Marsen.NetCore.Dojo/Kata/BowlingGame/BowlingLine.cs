@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Marsen.NetCore.Dojo.Common;
 
 namespace Marsen.NetCore.Dojo.Kata.BowlingGame
 {
@@ -21,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Kata.BowlingGame
 
             if (FrameList.Count>10)
             {
-                throw new Exception();
+                throw new DojoException();
             }
             return NullableSum(FrameList);
         }

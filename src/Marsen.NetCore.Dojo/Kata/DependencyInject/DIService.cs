@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Marsen.NetCore.Dojo.Common;
 
 namespace Marsen.NetCore.Dojo.Kata.DependencyInject
 {
@@ -33,7 +34,7 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
         private void Register(Type instanceType, ServiceLifetime lifetime, Type interfaceType = null)
         {
             if (instanceType.IsInterface || instanceType.IsAbstract)
-                throw new Exception("Register abstract classes or interfaces, should use Register<Interface,Class>");
+                throw new DojoException("Register abstract classes or interfaces, should use Register<Interface,Class>");
 
             if (_instanceFuncLookup.ContainsKey(interfaceType ?? instanceType))
                 throw new Exception("We not support Register duplicate Type now");
