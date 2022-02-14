@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Kata.JsonParser
             var serializeOptions = new JsonSerializerOptions();
             serializeOptions.Converters.Add(new DateTimeOffsetConverter());
             // https://docs.microsoft.com/zh-tw/dotnet/api/system.text.json.jsonserializeroptions.writeindented?view=net-5.0
-            // here was serializeOptionsWriteIndented is true;
+            // here was serialize options write indented is true;
             var originEntity = JsonSerializer.Deserialize<PersonaOriginEntity>(json, serializeOptions);
             var age = SystemDateTime.Now.Year - originEntity.BirthDate.Year;
             return new PersonaEntity
