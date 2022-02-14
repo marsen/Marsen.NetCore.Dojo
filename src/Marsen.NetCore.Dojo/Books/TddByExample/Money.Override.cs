@@ -4,7 +4,7 @@ namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
     public partial class Money
     {
-        private readonly int _hashCode;
+        private readonly int _hashCode = 0;
         public override string ToString()
         {
             return $"{Amount.ToString()} {Currency}";

@@ -4,7 +4,12 @@
     {
         public string Invoke(string name, string hourOfDay)
         {
-            return Is14OClock(hourOfDay) ? "Zzz" : $"Hello {(HaveName(name) ? name : "World")}";
+            return Is14OClock(hourOfDay) ? "Zzz" : SayHi(name);
+        }
+
+        private static string SayHi(string name)
+        {
+            return $"Hello {(HaveName(name) ? name : "World")}";
         }
 
         private static bool HaveName(string name)
