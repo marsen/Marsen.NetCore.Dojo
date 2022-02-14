@@ -42,7 +42,7 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
                 var result = new List<ShippingOrderUpdateEntity>();
 
                 var loginId = _storeSettingService.GetValue(storeId, "pickup.service", "loginId");
-                if (loginId.IsNullOrEmpty()) throw new Exception("error login Id");
+                if (loginId.IsNullOrEmpty()) throw new PickupServiceException("error login Id");
 
                 HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
 
@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
                 var url = _configService.GetAppSetting("pickup.service.url");
                 var responseMessage = HttpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
                 var obj = JsonSerializer.Deserialize<ResponseEntity>(responseMessage);
-                if (obj.Result == "error") throw new Exception($"response is:{obj}");
+                if (obj.Result == "error") throw new PickupServiceException($"response is:{obj}");
 
                 foreach (var c in obj.Content.Where(c => string.IsNullOrEmpty(c.ErrorCode)))
                 {
@@ -98,6 +98,14 @@ namespace Marsen.NetCore.Dojo.Kata.PickupService.Services
         private DateTime GetAcceptTime(string date, string time)
         {
             return DateTime.Parse($"{date} {time}");
+        }
+    }
+
+    public class PickupServiceException : Exception
+    {
+        public PickupServiceException(string errorLoginId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
