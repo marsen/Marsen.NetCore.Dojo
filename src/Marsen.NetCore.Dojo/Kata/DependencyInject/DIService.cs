@@ -37,7 +37,7 @@ namespace Marsen.NetCore.Dojo.Kata.DependencyInject
                 throw new DojoException("Register abstract classes or interfaces, should use Register<Interface,Class>");
 
             if (_instanceFuncLookup.ContainsKey(interfaceType ?? instanceType))
-                throw new Exception("We not support Register duplicate Type now");
+                throw new DojoException("We not support Register duplicate Type now");
 
             var parameters = Array.Empty<object>();
             foreach (var constructor in instanceType.GetConstructors())

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Marsen.NetCore.Dojo.Common;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
 {
@@ -7,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
     {
         public string Repeat(string input)
         {
-            if (string.IsNullOrEmpty(input)) throw new Exception("input should not be null or empty");
+            if (string.IsNullOrEmpty(input)) throw new DojoException("input should not be null or empty");
 
             var list = input.Select((c, index) => c.ToString().ToUpper() + Repeat(c.ToString(), index).ToLower());
             return string.Join('-', list);

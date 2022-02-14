@@ -1,6 +1,7 @@
 using System;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus;
+using Marsen.NetCore.Dojo.Common;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
@@ -60,7 +61,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.TddAndRefactor2005.Plus
         [Fact]
         public void The_null_Should_Throw_Exception()
         {
-            Assert.Throws<Exception>(() => AfterRepeat(null));
+            Assert.Throws<DojoException>(() => AfterRepeat(null));
         }
 
         [Theory]
