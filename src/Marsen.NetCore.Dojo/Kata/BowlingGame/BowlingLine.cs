@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Marsen.NetCore.Dojo.Common;
@@ -61,13 +60,11 @@ namespace Marsen.NetCore.Dojo.Kata.BowlingGame
         private int? NullableSum(List<Frame> frames)
         {
             int? result = null;
-            foreach (var f in frames)
-                if (f.Score != null)
-                {
-                    result ??= 0;
-                    result += f.Score;
-                }
-
+            foreach (var f in frames.Where(f => f.Score != null))
+            {
+                result ??= 0;
+                result += f.Score;
+            }
             return result;
         }
     }

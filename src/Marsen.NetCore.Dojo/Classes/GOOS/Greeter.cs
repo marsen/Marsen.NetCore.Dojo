@@ -14,7 +14,7 @@
 
         private static bool HaveName(string name)
         {
-            return string.IsNullOrEmpty(name) == false;
+            return !string.IsNullOrEmpty(name);
         }
 
         private static bool Is14OClock(string hourOfDay)

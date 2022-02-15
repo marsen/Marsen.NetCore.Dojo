@@ -9,10 +9,10 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 
         private readonly Dictionary<int, string> _scoreLookup = new()
         {
-            { 0, "Love" },
-            { 1, "Fifteen" },
-            { 2, "Thirty" },
-            { 3, "Forty" }
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"}
         };
 
         private readonly string _secondPlayerName;
@@ -43,7 +43,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 
         private string DrawScore()
         {
-            return IsOverForty() ? DeuceScore() : SameScore();
+            return IsOverForty() ? Deuce : SameScore();
         }
 
         private bool IsOverForty()
@@ -51,10 +51,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
             return _firstPlayerScore >= 3;
         }
 
-        private static string DeuceScore()
-        {
-            return "Deuce";
-        }
+        private const string Deuce = "Deuce";
 
         private string NormalScore()
         {
