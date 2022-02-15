@@ -15,7 +15,7 @@ namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practic
             return userSession;
         }
 
-        public bool IsUserLoggedIn(User user)
+        public static bool IsUserLoggedIn(User user)
         {
             throw new DependentClassCallDuringUnitTestException(
                 "UserSession.IsUserLoggedIn() should not be called in an unit test");
