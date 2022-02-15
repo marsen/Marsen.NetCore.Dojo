@@ -27,8 +27,11 @@ jobs:
         sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="./test/*/TestResults/*/coverage.opencover.xml"
         # Optional. Set to 1 or true to not run 'dotnet test' command
         # dotnetDisableTests: true
-        dotnetTestArguments: Marsen.NetCore.Dojo.Integration.Test.sln --logger trx -p:CoverletOutputFormat="json%2copencover" --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         dotnetBuildArguments: Marsen.NetCore.Dojo.sln
+        dotnetTestArguments: Marsen.NetCore.Dojo.Integration.Test.sln \
+          --logger trx -p:CoverletOutputFormat="opencover" \
+          --collect:"XPlat Code Coverage" \
+          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
