@@ -15,13 +15,6 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
             _otpServer = otpServer;
         }
 
-        public AuthenticationService()
-        {
-            _userDao = new UserDao();
-            _hashAdapter = new Sha256Adapter();
-            _otpServer = new OtpServer();
-        }
-
         public bool Verify(string accountId, string password, string otp)
         {
             return IsSamePassword(accountId, password) && IsOtpCorrect(accountId, otp);
