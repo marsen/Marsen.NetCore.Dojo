@@ -1,4 +1,7 @@
+using System;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.Books.TddByExample;
+using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
@@ -33,9 +36,9 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void TestEquality()
         {
-            Assert.Equal(Money.dollar(5),Money.dollar(5));
+            Assert.Equal(Money.dollar(5), Money.dollar(5));
             Assert.False(Money.dollar(5).Equals(Money.dollar(6)));
-            Assert.Equal(Money.franc(5),Money.franc(5));
+            Assert.Equal(Money.franc(5), Money.franc(5));
             Assert.False(Money.franc(5).Equals(Money.franc(6)));
             Assert.False(Money.franc(5).Equals(Money.dollar(5)));
         }
@@ -46,6 +49,15 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
             Assert.Equal("USD", Money.dollar(1).Currency);
             Assert.Equal("CHF", Money.franc(1).Currency);
         }
+
+        [Fact]
+        public void TestUnImplementCurrency()
+        {
+            var dollar = Money.dollar(5);
+            Action act = () => dollar.Reduce(_bank, "un_know");
+            act.Should().Throw<NotImplementedException>();
+        }
+
 
         [Fact]
         public void TestSimpleAddition()
@@ -65,7 +77,7 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void TestPlusReturnsSum()
         {
-            var sum = (Sum)_fiveBulks.Plus(_fiveBulks);
+            var sum = (Sum) _fiveBulks.Plus(_fiveBulks);
             Assert.Equal(_fiveBulks, sum.Addend);
             Assert.Equal(_fiveBulks, sum.Augend);
         }
@@ -95,8 +107,8 @@ namespace Marsen.NetCore.Dojo.Tests.Books.TddByExample
         [Fact]
         public void TestMoneyTimes()
         {
-            var dollar = (Money)_fiveBulks.Times(2);
-            var francs = (Money)_temFrancs.Times(2);
+            var dollar = (Money) _fiveBulks.Times(2);
+            var francs = (Money) _temFrancs.Times(2);
             Assert.Equal(Money.dollar(10), dollar.Reduce(_bank, "USD"));
             Assert.Equal(Money.franc(20), francs.Reduce(_bank, "CHF"));
         }
