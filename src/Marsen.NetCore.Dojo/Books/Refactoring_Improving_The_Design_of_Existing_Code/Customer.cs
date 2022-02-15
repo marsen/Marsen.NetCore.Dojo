@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code
 {
@@ -9,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
         private readonly List<Rental> _rentals = new();
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Customer" /> class.
+        /// Initializes a new instance of the <see cref="Customer" /> class.
         /// </summary>
         public Customer(string name)
         {
@@ -21,7 +22,7 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
             _rentals.Add(arg);
         }
 
-        public string GetName()
+        private string GetName()
         {
             return _name;
         }
@@ -29,19 +30,19 @@ namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing
         public string Statement()
         {
             IEnumerator rentals = _rentals.GetEnumerator();
-            var result = $"Rental Record for {GetName()}\n";
+            var stringBuilder = new StringBuilder($"Rental Record for {GetName()}\n");
             while (rentals.MoveNext())
             {
                 var each = (Rental)rentals.Current;
 
                 //show figures for this rental
-                result += $"\t{each.GetMovie().GetTitle()}\t{each.GetCharge()}\n";
+                stringBuilder.Append($"\t{each.GetMovie().GetTitle()}\t{each.GetCharge()}\n");
             }
 
             //add footer lines
-            result += $"Amount owed is {GetTotalAmount()}\n";
-            result += $"You earned {GetFrequentRenterPoints()} frequent renter points";
-            return result;
+            stringBuilder.Append($"Amount owed is {GetTotalAmount()}\n");
+            stringBuilder.Append($"You earned {GetFrequentRenterPoints()} frequent renter points");
+            return stringBuilder.ToString();
         }
 
         private double GetTotalAmount()

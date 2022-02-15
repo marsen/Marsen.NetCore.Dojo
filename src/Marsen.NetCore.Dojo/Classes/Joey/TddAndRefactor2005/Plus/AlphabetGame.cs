@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
 {
@@ -15,15 +16,15 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
                 }
                 else
                 {
-                    var substring = string.Empty;
+                    var sb = new StringBuilder();
                     for (var j = 0; j < i; j++)
                     {
-                        if (j == 0) substring += input.Substring(i, 1).ToUpper();
+                        if (j == 0) sb.Append(input.Substring(i, 1).ToUpper());
 
-                        substring += input.Substring(i, 1).ToLower();
+                        sb.Append(input.Substring(i, 1).ToLower());
                     }
 
-                    temp.Add(substring);
+                    temp.Add(sb.ToString());
                 }
 
             return string.Join('-', temp);

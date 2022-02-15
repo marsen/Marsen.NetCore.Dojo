@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using System.Text;
 using Marsen.NetCore.Dojo.Common;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
@@ -16,10 +16,10 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
 
         private string Repeat(string substring, int times)
         {
-            var result = string.Empty;
-            for (var i = 0; i < times; i++) result += substring;
+            var stringBuilder = new StringBuilder();
+            for (var i = 0; i < times; i++) stringBuilder.Append(substring);
 
-            return result;
+            return stringBuilder.ToString();
         }
     }
 }
