@@ -12,10 +12,12 @@ namespace Marsen.NetCore.Dojo.Classes.GOOS
         public static void main(params string[] args)
         {
             _httpListener = new HttpListener();
-            _httpListener.Prefixes.Add("http://+:8080/");
+            _httpListener.Prefixes.Add(SampleUri);
             _httpListener.Start();
             _httpListener.BeginGetContext(GetContext, _httpListener);
         }
+
+        private static string SampleUri => "http://+:8080/";
 
         private static void GetContext(IAsyncResult ar)
         {
