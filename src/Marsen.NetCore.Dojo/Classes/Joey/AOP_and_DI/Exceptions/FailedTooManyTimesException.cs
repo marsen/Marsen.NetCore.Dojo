@@ -6,13 +6,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Exceptions;
 [Serializable]
 public class FailedTooManyTimesException : Exception
 {
-    private readonly string _accountId;
-
-    public string AccountId
-    {
-        get => _accountId;
-        init => _accountId = value;
-    }
+    public string AccountId { get; init; }
 
     public FailedTooManyTimesException()
     {
