@@ -9,7 +9,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
     {
         public string CurrentOtp(string accountId)
         {
-            var httpClient = new HttpClient { BaseAddress = new Uri("https://joey.com/") };
+            var httpClient = new HttpClient { BaseAddress = new Uri(SampleUri) };
             //// get the otp (One Time Password)
             var response = httpClient.PostAsync("api/otps", new StringContent(accountId)).Result;
             if (!response.IsSuccessStatusCode) throw new DojoException($"web api error, accountId:{accountId}");
@@ -17,5 +17,7 @@ namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
             var currentOtp = response.Content.ReadAsStringAsync().Result;
             return currentOtp;
         }
+
+        private static string SampleUri => "https://joey.com/";
     }
 }
