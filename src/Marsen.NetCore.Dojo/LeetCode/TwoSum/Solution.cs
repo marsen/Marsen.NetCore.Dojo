@@ -9,23 +9,19 @@ namespace Marsen.NetCore.Dojo.LeetCode.TwoSum
         {
             var result = new int[2];
             var lookup = new Dictionary<int, int>();
-            int i = 0;
-            foreach (var n in nums)
+            foreach (var n in nums.Select((num, index) => new {num, index}))
             {
-                if (lookup.ContainsKey(target - n))
+                if (lookup.ContainsKey(target - n.num))
                 {
-                    result[0] = lookup[target - n];
-                    result[1] = i;
+                    result[0] = lookup[target - n.num];
+                    result[1] = n.index;
                     return result;
                 }
 
-                if (!lookup.ContainsKey(nums[i]))
+                if (!lookup.ContainsKey(n.num))
                 {
-                    lookup.Add(nums[i], i);
+                    lookup.Add(n.num, n.index);
                 }
-
-                i++;
-
             }
 
             return result;
