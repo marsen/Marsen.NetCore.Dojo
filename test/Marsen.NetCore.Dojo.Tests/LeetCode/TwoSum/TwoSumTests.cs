@@ -24,7 +24,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
         public void Array_1_3_Target_2_Should_Throw_Exception()
         {
             Action act = () => _solution.TwoSum(new []{1,3}, 2);
-            act.Should().Throw<Exception>();
+            act.Should().Throw<TowSumException>();
         }
 
         [Fact]
