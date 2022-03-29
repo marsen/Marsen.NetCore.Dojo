@@ -14,6 +14,8 @@ namespace Marsen.NetCore.TestingToolkit
         ///     The mock date time
         /// </summary>
         private static DateTime? _mockDateTime;
+        
+        private static DateTime? _mockUtcDateTime;
 
         /// <summary>
         ///     Gets the now.
@@ -26,6 +28,12 @@ namespace Marsen.NetCore.TestingToolkit
             get => _mockDateTime ?? DateTime.Now;
             internal set => _mockDateTime = value;
         }
+        
+        public static DateTime UtcNow
+        {
+            get => _mockUtcDateTime ?? DateTime.UtcNow;
+            internal set => _mockUtcDateTime = value;
+        }
 
         /// <summary>
         ///     Resets this instance.
@@ -33,6 +41,7 @@ namespace Marsen.NetCore.TestingToolkit
         internal static void Reset()
         {
             _mockDateTime = null;
+            _mockUtcDateTime = null;
         }
     }
 }
