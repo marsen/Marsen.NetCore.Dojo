@@ -1,3 +1,4 @@
+using Marsen.NetCore.Dojo.LeetCode.TwoSum;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
@@ -11,7 +12,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
 
         private void ShouldBe(params int[] args)
         {
-            Assert.Equal(args, _solution.TwoSum(_nums, _target));
+            Assert.Equal(args, Solution.TwoSum(_nums, _target));
         }
 
         private static void GivenArrayIs(params int[] args)
