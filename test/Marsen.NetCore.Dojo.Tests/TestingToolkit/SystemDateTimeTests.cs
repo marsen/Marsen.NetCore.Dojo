@@ -10,8 +10,8 @@ public class SystemDateTimeTests
     public void MockUtcNow()
     {
         //arrange
-        var forgottenDay = new DateTime(1989, 6, 4 , 0,0,0,DateTimeKind.Utc);
-        SystemDateTime.UtcNow = forgottenDay;
+        var forgottenDay = new DateTime(1989, 6, 4 , 0,0,0);
+        SystemDateTime.Now = forgottenDay;
         //act
         var timestamp = new DateTimeOffset(SystemDateTime.UtcNow).ToUnixTimeSeconds();
         //assert

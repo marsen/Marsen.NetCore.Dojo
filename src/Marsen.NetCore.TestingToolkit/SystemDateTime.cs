@@ -26,13 +26,27 @@ namespace Marsen.NetCore.TestingToolkit
         public static DateTime Now
         {
             get => _mockDateTime ?? DateTime.Now;
-            internal set => _mockDateTime = value;
+            internal set
+            {
+                _mockDateTime = value;
+                _mockUtcDateTime = new DateTime(value.Ticks, DateTimeKind.Utc);
+            }
         }
-        
+
+        /// <summary>
+        ///  Get the Utc now
+        /// </summary>
+        /// <value>
+        ///    The Utc now 
+        /// </value>
         public static DateTime UtcNow
         {
             get => _mockUtcDateTime ?? DateTime.UtcNow;
-            internal set => _mockUtcDateTime = value;
+            internal set
+            {
+                _mockDateTime = new DateTime(value.Ticks, DateTimeKind.Local);
+                _mockUtcDateTime = value;
+            }
         }
 
         /// <summary>
