@@ -11,7 +11,7 @@ namespace Marsen.NetCore.TestingToolkit
     {
         private readonly string _response;
         private readonly HttpStatusCode _statusCode;
-        private readonly Dictionary<string, int> pathLookup = new();
+        private readonly Dictionary<string, int> _pathLookup = new();
 
         private int _times = 1;
 
@@ -41,10 +41,10 @@ namespace Marsen.NetCore.TestingToolkit
 
         private void CountRequest(HttpRequestMessage request)
         {
-            if (pathLookup.ContainsKey($"{request.Method}:{request.RequestUri.AbsoluteUri}"))
-                pathLookup[$"{request.Method}:{request.RequestUri.AbsoluteUri}"]++;
+            if (_pathLookup.ContainsKey($"{request.Method}:{request.RequestUri!.AbsoluteUri}"))
+                _pathLookup[$"{request.Method}:{request.RequestUri.AbsoluteUri}"]++;
             else
-                pathLookup.Add($"{request.Method}:{request.RequestUri.AbsoluteUri}", 1);
+                _pathLookup.Add($"{request.Method}:{request.RequestUri!.AbsoluteUri}", 1);
         }
 
         public MockHttpMessageHandler CallTimes(int i)
@@ -65,7 +65,7 @@ namespace Marsen.NetCore.TestingToolkit
 
         private void AssertRequest(string method, string path)
         {
-            Assert.AreEqual(pathLookup[$"{method}:{path}"], _times);
+            Assert.AreEqual(_pathLookup[$"{method}:{path}"], _times);
         }
     }
 }
