@@ -30,7 +30,7 @@ namespace Marsen.NetCore.Dojo.LeetCode.TwoSum
         }
     }
 
-    public class TowSumException : Exception
+    public class TowSumException : DojoException
     {
     }
 }
