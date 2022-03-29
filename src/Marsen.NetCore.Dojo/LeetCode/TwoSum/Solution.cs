@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,7 +25,7 @@ namespace Marsen.NetCore.Dojo.LeetCode.TwoSum
                 }
             }
 
-            return result;
+            throw new Exception();
         }
     }
 }

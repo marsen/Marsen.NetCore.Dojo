@@ -1,4 +1,7 @@
+using System;
+using FluentAssertions;
 using Marsen.NetCore.Dojo.LeetCode.TwoSum;
+using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
@@ -15,6 +18,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
             GivenArrayIs(1, 3);
             GivenTargetIs(4);
             ShouldBe(0, 1);
+        }
+        
+        [Fact]
+        public void Array_1_3_Target_2_Should_Throw_Exception()
+        {
+            Action act = () => _solution.TwoSum(new []{1,3}, 2);
+            act.Should().Throw<Exception>();
         }
 
         [Fact]
