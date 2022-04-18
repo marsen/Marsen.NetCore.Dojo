@@ -1,10 +1,9 @@
-﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
+
+public class EmailFactory : INotificationFactory
 {
-    public class EmailFactory : INotificationFactory
+    public INotification Create()
     {
-        public INotification Create()
-        {
-            return new EmailNotify();
-        }
+        return new EmailNotify();
     }
 }

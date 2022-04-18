@@ -1,9 +1,8 @@
-namespace Marsen.NetCore.Dojo.Books.TddByExample
+namespace Marsen.NetCore.Dojo.Books.TddByExample;
+
+public interface IExpression
 {
-    public interface IExpression
-    {
-        Money Reduce(Bank bank, string to);
-        IExpression Times(int multiplier);
-        IExpression Plus(IExpression addend);
-    }
+    Money Reduce(Bank bank, string to);
+    IExpression Times(int multiplier);
+    IExpression Plus(IExpression addend);
 }

@@ -1,7 +1,6 @@
-namespace Marsen.NetCore.Dojo.Kata.GuessNumber
+namespace Marsen.NetCore.Dojo.Kata.GuessNumber;
+
+public interface IRandomInt
 {
-    public interface IRandomInt
-    {
-        string GetNonRepeatInt(int length);
-    }
+    string GetNonRepeatInt(int length);
 }

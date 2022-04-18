@@ -1,7 +1,6 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
+
+public interface IHashAdapter
 {
-    public interface IHashAdapter
-    {
-        string Hash(string password);
-    }
+    string Hash(string password);
 }

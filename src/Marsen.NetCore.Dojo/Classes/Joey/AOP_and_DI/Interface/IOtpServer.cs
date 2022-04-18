@@ -1,7 +1,6 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
+
+public interface IOtpServer
 {
-    public interface IOtpServer
-    {
-        string CurrentOtp(string accountId);
-    }
+    string CurrentOtp(string accountId);
 }
