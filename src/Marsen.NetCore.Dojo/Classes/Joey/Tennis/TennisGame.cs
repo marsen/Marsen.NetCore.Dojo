@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis;
 
+/// <summary>
+/// TennisGame
+/// 無狀態機的版本
+/// </summary>
 public class TennisGame
 {
     private readonly string _firstPlayerName;

@@ -1,5 +1,9 @@
 ﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
 
+/// <summary>
+/// Tennis Game Context
+/// 狀態機版本v2
+/// </summary>
 public class GameContext
 {
     public readonly string ReceiverName;

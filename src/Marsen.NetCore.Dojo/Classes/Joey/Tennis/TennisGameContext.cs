@@ -2,6 +2,10 @@
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis;
 
+/// <summary>
+/// TennisGame with Context
+/// 狀態機版本 v1
+/// </summary>
 public class TennisGameContext
 {
     public readonly string ReceiverName;
