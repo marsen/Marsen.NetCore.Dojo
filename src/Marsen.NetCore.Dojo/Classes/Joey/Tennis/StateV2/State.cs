@@ -37,7 +37,7 @@ public abstract class State
 
     protected string Winner()
     {
-        return Game.ServerPoint > Game.ReceiverPoint
+        return Game.ServerPoint >= Game.ReceiverPoint
             ? Game.ServerName
             : Game.ReceiverName;
     }
