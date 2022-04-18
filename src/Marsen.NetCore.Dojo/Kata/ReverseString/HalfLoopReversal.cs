@@ -1,20 +1,21 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.ReverseString;
-
-public class HalfLoopReversal : IStringReversal
+﻿namespace Marsen.NetCore.Dojo.Kata.ReverseString
 {
-    public string Do(string input)
+    public class HalfLoopReversal : IStringReversal
     {
-        if (input is null) return null;
-
-        var cArray = input.ToCharArray();
-        for (var i = 0; i < cArray.Length / 2; i++)
+        public string Do(string input)
         {
-            var temp = cArray[i];
-            var l = cArray.Length - 1 - i;
-            cArray[i] = cArray[l];
-            cArray[l] = temp;
-        }
+            if (input is null) return null;
 
-        return new string(cArray);
+            var cArray = input.ToCharArray();
+            for (var i = 0; i < cArray.Length / 2; i++)
+            {
+                var temp = cArray[i];
+                var l = cArray.Length - 1 - i;
+                cArray[i] = cArray[l];
+                cArray[l] = temp;
+            }
+
+            return new string(cArray);
+        }
     }
 }

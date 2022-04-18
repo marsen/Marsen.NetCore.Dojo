@@ -1,41 +1,42 @@
-﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
-
-public class GameContext
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
 {
-    public readonly string ReceiverName;
-
-    public readonly string ServerName;
-    private State _state;
-
-    public GameContext(string serverName, string receiverName)
+    public class GameContext
     {
-        ServerName = serverName;
-        ReceiverName = receiverName;
-        _state = new SameState();
-        _state.SetContext(this);
-    }
+        public readonly string ReceiverName;
 
-    internal int ReceiverPoint { get; set; }
-    internal int ServerPoint { get; set; }
+        public readonly string ServerName;
+        private State _state;
 
-    public string Score()
-    {
-        return _state.Score();
-    }
+        public GameContext(string serverName, string receiverName)
+        {
+            ServerName = serverName;
+            ReceiverName = receiverName;
+            _state = new SameState();
+            _state.SetContext(this);
+        }
 
-    internal void ChangeState(State state)
-    {
-        _state = state;
-        _state.SetContext(this);
-    }
+        internal int ReceiverPoint { get; set; }
+        internal int ServerPoint { get; set; }
 
-    public void ReceiverScore()
-    {
-        _state.ReceiverScore();
-    }
+        public string Score()
+        {
+            return _state.Score();
+        }
 
-    public void ServerScore()
-    {
-        _state.ServerScore();
+        internal void ChangeState(State state)
+        {
+            _state = state;
+            _state.SetContext(this);
+        }
+
+        public void ReceiverScore()
+        {
+            _state.ReceiverScore();
+        }
+
+        public void ServerScore()
+        {
+            _state.ServerScore();
+        }
     }
 }

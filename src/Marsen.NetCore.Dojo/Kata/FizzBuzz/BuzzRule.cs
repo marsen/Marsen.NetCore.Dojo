@@ -1,14 +1,15 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz;
-
-public class BuzzRule : IRule
+﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
-    public string Apply(int input, string result)
+    public class BuzzRule : IRule
     {
-        return result + (isDivide(input) ? "Buzz" : string.Empty);
-    }
+        public string Apply(int input, string result)
+        {
+            return result + (isDivide(input) ? "Buzz" : string.Empty);
+        }
 
-    private bool isDivide(int input)
-    {
-        return input % 5 == 0;
+        private bool isDivide(int input)
+        {
+            return input % 5 == 0;
+        }
     }
 }

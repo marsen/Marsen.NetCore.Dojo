@@ -1,32 +1,33 @@
 ﻿using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI;
-
-public class AuthenticationService : IAuthentication
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
 {
-    private readonly IHashAdapter _hashAdapter;
-    private readonly IOtpServer _otpServer;
-    private readonly IUserDao _userDao;
-
-    public AuthenticationService(IUserDao userDao, IHashAdapter hashAdapter, IOtpServer otpServer)
+    public class AuthenticationService : IAuthentication
     {
-        _userDao = userDao;
-        _hashAdapter = hashAdapter;
-        _otpServer = otpServer;
-    }
+        private readonly IHashAdapter _hashAdapter;
+        private readonly IOtpServer _otpServer;
+        private readonly IUserDao _userDao;
 
-    public bool Verify(string accountId, string password, string otp)
-    {
-        return IsSamePassword(accountId, password) && IsOtpCorrect(accountId, otp);
-    }
+        public AuthenticationService(IUserDao userDao, IHashAdapter hashAdapter, IOtpServer otpServer)
+        {
+            _userDao = userDao;
+            _hashAdapter = hashAdapter;
+            _otpServer = otpServer;
+        }
 
-    private bool IsOtpCorrect(string accountId, string otp)
-    {
-        return _otpServer.CurrentOtp(accountId) == otp;
-    }
+        public bool Verify(string accountId, string password, string otp)
+        {
+            return IsSamePassword(accountId, password) && IsOtpCorrect(accountId, otp);
+        }
 
-    private bool IsSamePassword(string accountId, string password)
-    {
-        return _userDao.PasswordFromDb(accountId) == _hashAdapter.Hash(password);
+        private bool IsOtpCorrect(string accountId, string otp)
+        {
+            return _otpServer.CurrentOtp(accountId) == otp;
+        }
+
+        private bool IsSamePassword(string accountId, string password)
+        {
+            return _userDao.PasswordFromDb(accountId) == _hashAdapter.Hash(password);
+        }
     }
 }

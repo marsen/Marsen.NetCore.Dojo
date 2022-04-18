@@ -1,100 +1,101 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis;
-
-public class TennisGame
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 {
-    private readonly string _firstPlayerName;
-
-    private readonly Dictionary<int, string> _scoreLookup = new()
+    public class TennisGame
     {
-        {0, "Love"},
-        {1, "Fifteen"},
-        {2, "Thirty"},
-        {3, "Forty"}
-    };
+        private readonly string _firstPlayerName;
 
-    private readonly string _secondPlayerName;
-    private int _firstPlayerScore;
+        private readonly Dictionary<int, string> _scoreLookup = new()
+        {
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"}
+        };
 
-    private int _secondPlayerScore;
+        private readonly string _secondPlayerName;
+        private int _firstPlayerScore;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="TennisGame" /> class.
-    /// </summary>
-    public TennisGame(string firstPlayerName, string secondPlayerName)
-    {
-        _firstPlayerName = firstPlayerName;
-        _secondPlayerName = secondPlayerName;
-    }
+        private int _secondPlayerScore;
 
-    public string Score()
-    {
-        return IsSameScore()
-            ? DrawScore()
-            : SeesawScore();
-    }
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="TennisGame" /> class.
+        /// </summary>
+        public TennisGame(string firstPlayerName, string secondPlayerName)
+        {
+            _firstPlayerName = firstPlayerName;
+            _secondPlayerName = secondPlayerName;
+        }
 
-    private string SeesawScore()
-    {
-        return IsReadyForWin() ? AdvScore() : NormalScore();
-    }
+        public string Score()
+        {
+            return IsSameScore()
+                ? DrawScore()
+                : SeesawScore();
+        }
 
-    private string DrawScore()
-    {
-        return IsOverForty() ? Deuce : SameScore();
-    }
+        private string SeesawScore()
+        {
+            return IsReadyForWin() ? AdvScore() : NormalScore();
+        }
 
-    private bool IsOverForty()
-    {
-        return _firstPlayerScore >= 3;
-    }
+        private string DrawScore()
+        {
+            return IsOverForty() ? Deuce : SameScore();
+        }
 
-    private const string Deuce = "Deuce";
+        private bool IsOverForty()
+        {
+            return _firstPlayerScore >= 3;
+        }
 
-    private string NormalScore()
-    {
-        return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
-    }
+        private const string Deuce = "Deuce";
 
-    private string SameScore()
-    {
-        return $"{_scoreLookup[_firstPlayerScore]} All";
-    }
+        private string NormalScore()
+        {
+            return $"{_scoreLookup[_firstPlayerScore]} {_scoreLookup[_secondPlayerScore]}";
+        }
 
-    private string AdvScore()
-    {
-        return $"{GetWinnerName()} " + (IsLeading() ? "Win" : "Adv");
-    }
+        private string SameScore()
+        {
+            return $"{_scoreLookup[_firstPlayerScore]} All";
+        }
 
-    private bool IsLeading()
-    {
-        return Math.Abs(_firstPlayerScore - _secondPlayerScore) > 1;
-    }
+        private string AdvScore()
+        {
+            return $"{GetWinnerName()} " + (IsLeading() ? "Win" : "Adv");
+        }
 
-    private string GetWinnerName()
-    {
-        return _firstPlayerScore > _secondPlayerScore ? _firstPlayerName : _secondPlayerName;
-    }
+        private bool IsLeading()
+        {
+            return Math.Abs(_firstPlayerScore - _secondPlayerScore) > 1;
+        }
 
-    private bool IsReadyForWin()
-    {
-        return _firstPlayerScore > 3 || _secondPlayerScore > 3;
-    }
+        private string GetWinnerName()
+        {
+            return _firstPlayerScore > _secondPlayerScore ? _firstPlayerName : _secondPlayerName;
+        }
 
-    private bool IsSameScore()
-    {
-        return _firstPlayerScore == _secondPlayerScore;
-    }
+        private bool IsReadyForWin()
+        {
+            return _firstPlayerScore > 3 || _secondPlayerScore > 3;
+        }
 
-    public void FirstPlayerScore()
-    {
-        _firstPlayerScore++;
-    }
+        private bool IsSameScore()
+        {
+            return _firstPlayerScore == _secondPlayerScore;
+        }
 
-    public void SecondPlayerScore()
-    {
-        _secondPlayerScore++;
+        public void FirstPlayerScore()
+        {
+            _firstPlayerScore++;
+        }
+
+        public void SecondPlayerScore()
+        {
+            _secondPlayerScore++;
+        }
     }
 }

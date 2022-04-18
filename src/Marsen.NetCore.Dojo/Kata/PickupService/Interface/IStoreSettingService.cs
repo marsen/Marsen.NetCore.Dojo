@@ -1,6 +1,7 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface;
-
-public interface IStoreSettingService
+﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface
 {
-    string GetValue(long storeId, string groupTypeDef, string key);
+    public interface IStoreSettingService
+    {
+        string GetValue(long storeId, string groupTypeDef, string key);
+    }
 }

@@ -1,7 +1,8 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.JsonParser;
-
-public class PersonaEntity
+﻿namespace Marsen.NetCore.Dojo.Kata.JsonParser
 {
-    public string Name { get; init; }
-    public int Age { get; init; }
+    public class PersonaEntity
+    {
+        public string Name { get; init; }
+        public int Age { get; init; }
+    }
 }

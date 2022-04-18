@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
-
-public class Flush : ICategoryRule
+namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
 {
-    public bool Apply(List<Card> cardList)
+    public class Flush : ICategoryRule
     {
-        return cardList.GroupBy(x => x.Suit).Count() == 1;
-    }
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList.GroupBy(x => x.Suit).Count() == 1;
+        }
 
-    public Category Category => Category.Flush;
+        public Category Category => Category.Flush;
+    }
 }

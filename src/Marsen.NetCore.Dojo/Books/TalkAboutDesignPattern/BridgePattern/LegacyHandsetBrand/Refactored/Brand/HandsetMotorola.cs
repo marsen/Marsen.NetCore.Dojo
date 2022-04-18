@@ -1,11 +1,12 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Soft;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand;
-
-public sealed class HandsetMotorola : HandsetBrand
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand
 {
-    public HandsetMotorola(Application app) : base(app)
+    public sealed class HandsetMotorola : HandsetBrand
     {
-        Brand = "Motorola";
+        public HandsetMotorola(Application app) : base(app)
+        {
+            Brand = "Motorola";
+        }
     }
 }

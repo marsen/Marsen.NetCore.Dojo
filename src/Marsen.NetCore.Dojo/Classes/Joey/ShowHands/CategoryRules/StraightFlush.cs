@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
-
-public class StraightFlush : ICategoryRule
+namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
 {
-    public bool Apply(List<Card> cardList)
+    public class StraightFlush : ICategoryRule
     {
-        return new Straight().Apply(cardList) && new Flush().Apply(cardList);
-    }
+        public bool Apply(List<Card> cardList)
+        {
+            return new Straight().Apply(cardList) && new Flush().Apply(cardList);
+        }
 
-    public Category Category => Category.StraightFlush;
+        public Category Category => Category.StraightFlush;
+    }
 }

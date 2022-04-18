@@ -1,29 +1,30 @@
-namespace Marsen.NetCore.Dojo.Books.TddByExample;
-
-public class Sum : IExpression
+namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
-    public readonly IExpression Addend;
-    public readonly IExpression Augend;
-
-    public Sum(IExpression augend, IExpression addend)
+    public class Sum : IExpression
     {
-        Augend = augend;
-        Addend = addend;
-    }
+        public readonly IExpression Addend;
+        public readonly IExpression Augend;
 
-    public Money Reduce(Bank bank, string to)
-    {
-        var result = Augend.Reduce(bank, to).Amount + Addend.Reduce(bank, to).Amount;
-        return Money.Dollar(result);
-    }
+        public Sum(IExpression augend, IExpression addend)
+        {
+            Augend = augend;
+            Addend = addend;
+        }
 
-    public IExpression Times(int multiplier)
-    {
-        return new Sum(Augend.Times(multiplier), Addend.Times(multiplier));
-    }
+        public Money Reduce(Bank bank, string to)
+        {
+            var result = Augend.Reduce(bank, to).Amount + Addend.Reduce(bank, to).Amount;
+            return Money.Dollar(result);
+        }
 
-    public IExpression Plus(IExpression addend)
-    {
-        return new Sum(this, addend);
+        public IExpression Times(int multiplier)
+        {
+            return new Sum(Augend.Times(multiplier), Addend.Times(multiplier));
+        }
+
+        public IExpression Plus(IExpression addend)
+        {
+            return new Sum(this, addend);
+        }
     }
 }

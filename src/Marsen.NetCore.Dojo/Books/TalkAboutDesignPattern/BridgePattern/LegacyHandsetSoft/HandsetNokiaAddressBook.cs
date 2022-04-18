@@ -1,13 +1,14 @@
 using Marsen.NetCore.TestingToolkit;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft;
-
-public class HandsetNokiaAddressBook
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft
 {
-    public readonly SystemConsole Console = new();
-
-    public void Run()
+    public class HandsetNokiaAddressBook
     {
-        Console.WriteLine("Run Nokia Address Book");
+        public readonly SystemConsole Console = new();
+
+        public void Run()
+        {
+            Console.WriteLine("Run Nokia Address Book");
+        }
     }
 }

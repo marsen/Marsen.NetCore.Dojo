@@ -1,12 +1,13 @@
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.LeetCode.FindTheMedian;
-
-public class ArrayFinder
+namespace Marsen.NetCore.Dojo.LeetCode.FindTheMedian
 {
-    public int Median(int[] array)
+    public class ArrayFinder
     {
-        return array.OrderByDescending(x => x)
-            .ElementAt(array.Length / 2);
+        public int Median(int[] array)
+        {
+            return array.OrderByDescending(x => x)
+                .ElementAt(array.Length / 2);
+        }
     }
 }

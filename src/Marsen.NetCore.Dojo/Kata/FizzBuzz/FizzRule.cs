@@ -1,11 +1,12 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz;
-
-public class FizzRule : IRule
+﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
-    public string Apply(int input, string result)
+    public class FizzRule : IRule
     {
-        if (input % 3 == 0) result += "Fizz";
+        public string Apply(int input, string result)
+        {
+            if (input % 3 == 0) result += "Fizz";
 
-        return result;
+            return result;
+        }
     }
 }

@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata.FizzBuzz;
-
-public class FizzBuzz
+namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
-    private readonly List<IRule> _rules = new()
+    public class FizzBuzz
     {
-        new FizzRule(),
-        new BuzzRule(),
-        new NormalRule()
-    };
+        private readonly List<IRule> _rules = new()
+        {
+            new FizzRule(),
+            new BuzzRule(),
+            new NormalRule()
+        };
 
-    public string Get(int input)
-    {
-        return _rules.Aggregate(string.Empty, (s, r) => r.Apply(input, s));
+        public string Get(int input)
+        {
+            return _rules.Aggregate(string.Empty, (s, r) => r.Apply(input, s));
+        }
     }
 }

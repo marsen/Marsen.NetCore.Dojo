@@ -1,15 +1,16 @@
 using System.Linq;
 using Marsen.NetCore.Dojo.Extend;
 
-namespace Marsen.NetCore.Dojo.Kata.GuessNumber;
-
-public class RandomHelper : IRandomInt
+namespace Marsen.NetCore.Dojo.Kata.GuessNumber
 {
-    public string GetNonRepeatInt(int length)
+    public class RandomHelper : IRandomInt
     {
-        return new string("1234567890"
-            .Shuffle()
-            .Take(4)
-            .ToArray());
+        public string GetNonRepeatInt(int length)
+        {
+            return new string("1234567890"
+                .Shuffle()
+                .Take(4)
+                .ToArray());
+        }
     }
 }

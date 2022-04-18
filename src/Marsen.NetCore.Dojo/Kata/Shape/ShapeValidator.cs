@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata.Shape;
-
-public class ShapeValidator
+namespace Marsen.NetCore.Dojo.Kata.Shape
 {
-    public bool IsTriangle(int edge1, int edge2, int edge3)
+    public class ShapeValidator
     {
-        var edges = new List<int> { edge1, edge2, edge3 };
-        return edges.Sum() - edges.Max() > edges.Max();
+        public bool IsTriangle(int edge1, int edge2, int edge3)
+        {
+            var edges = new List<int> { edge1, edge2, edge3 };
+            return edges.Sum() - edges.Max() > edges.Max();
+        }
     }
 }

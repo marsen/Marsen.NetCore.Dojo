@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
-
-public interface ICategoryRule
+namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
 {
-    Category Category { get; }
-    bool Apply(List<Card> cardList);
+    public interface ICategoryRule
+    {
+        Category Category { get; }
+        bool Apply(List<Card> cardList);
+    }
 }

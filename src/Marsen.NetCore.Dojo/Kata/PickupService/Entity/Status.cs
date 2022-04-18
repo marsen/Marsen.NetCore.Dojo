@@ -1,9 +1,10 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity;
-
-public enum Status
+﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity
 {
-    Finish,
-    Processing,
-    Arrived,
-    Abnormal
+    public enum Status
+    {
+        Finish,
+        Processing,
+        Arrived,
+        Abnormal
+    }
 }

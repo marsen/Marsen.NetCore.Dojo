@@ -1,6 +1,7 @@
-﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
-
-public interface INotificationFactory
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
-    INotification Create();
+    public interface INotificationFactory
+    {
+        INotification Create();
+    }
 }

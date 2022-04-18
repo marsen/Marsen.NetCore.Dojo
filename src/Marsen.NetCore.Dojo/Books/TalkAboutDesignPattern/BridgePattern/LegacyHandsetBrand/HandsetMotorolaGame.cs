@@ -1,13 +1,14 @@
 ﻿using Marsen.NetCore.TestingToolkit;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand;
-
-public class HandsetMotorolaGame
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand
 {
-    internal readonly SystemConsole Console = new();
-
-    public void Run()
+    public class HandsetMotorolaGame
     {
-        Console.WriteLine("Run Motorola Game");
+        internal readonly SystemConsole Console = new();
+
+        public void Run()
+        {
+            Console.WriteLine("Run Motorola Game");
+        }
     }
 }

@@ -1,12 +1,13 @@
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored;
-
-public abstract class HandsetBrand
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored
 {
-    protected string Brand;
-    protected Application Soft;
-
-    public void Run()
+    public abstract class HandsetBrand
     {
-        Soft.Run(Brand);
+        protected string Brand;
+        protected Application Soft;
+
+        public void Run()
+        {
+            Soft.Run(Brand);
+        }
     }
 }

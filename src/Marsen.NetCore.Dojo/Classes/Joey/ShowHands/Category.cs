@@ -1,14 +1,15 @@
-﻿namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands;
-
-public enum Category
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
-    HighCard,
-    OnePair,
-    TwoPair,
-    ThreeOfAKind,
-    Straight,
-    Flush,
-    FullHouse,
-    FourOfAKind,
-    StraightFlush
+    public enum Category
+    {
+        HighCard,
+        OnePair,
+        TwoPair,
+        ThreeOfAKind,
+        Straight,
+        Flush,
+        FullHouse,
+        FourOfAKind,
+        StraightFlush
+    }
 }

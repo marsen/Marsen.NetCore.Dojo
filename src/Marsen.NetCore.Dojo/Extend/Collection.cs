@@ -2,21 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Extend;
-
-public static class Collection
+namespace Marsen.NetCore.Dojo.Extend
 {
-    private static readonly Random Rng = new();
-
-    public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source)
+    public static class Collection
     {
-        //This is Fisher–Yates shuffle
-        var buffer = source.ToList();
-        for (var i = 0; i < buffer.Count; i++)
+        private static readonly Random Rng = new();
+
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source)
         {
-            var j = Rng.Next(i, buffer.Count);
-            yield return buffer[j];
-            buffer[j] = buffer[i];
+            //This is Fisher–Yates shuffle
+            var buffer = source.ToList();
+            for (var i = 0; i < buffer.Count; i++)
+            {
+                var j = Rng.Next(i, buffer.Count);
+                yield return buffer[j];
+                buffer[j] = buffer[i];
+            }
         }
     }
 }

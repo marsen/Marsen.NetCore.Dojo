@@ -1,11 +1,12 @@
-﻿namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code.PriceState;
-
-public abstract class Price
+﻿namespace Marsen.NetCore.Dojo.Books.Refactoring_Improving_The_Design_of_Existing_Code.PriceState
 {
-    public abstract double GetCharge(int daysRented);
-
-    public virtual int GetFrequentRenterPoints(int daysRented)
+    public abstract class Price
     {
-        return 1;
+        public abstract double GetCharge(int daysRented);
+
+        public virtual int GetFrequentRenterPoints(int daysRented)
+        {
+            return 1;
+        }
     }
 }

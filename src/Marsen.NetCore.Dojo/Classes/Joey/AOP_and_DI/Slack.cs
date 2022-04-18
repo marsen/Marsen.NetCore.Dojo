@@ -1,13 +1,14 @@
 ﻿using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 using SlackAPI;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI;
-
-public class Slack : INotification
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
 {
-    public void Send(string message)
+    public class Slack : INotification
     {
-        var slackClient = new SlackClient("my api token");
-        slackClient.PostMessage(_ => { }, "my channel", message, "my bot name");
+        public void Send(string message)
+        {
+            var slackClient = new SlackClient("my api token");
+            slackClient.PostMessage(_ => { }, "my channel", message, "my bot name");
+        }
     }
 }

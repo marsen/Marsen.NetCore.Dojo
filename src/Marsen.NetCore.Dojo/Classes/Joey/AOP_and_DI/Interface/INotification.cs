@@ -1,6 +1,7 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
-
-public interface INotification
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface
 {
-    void Send(string message);
+    public interface INotification
+    {
+        void Send(string message);
+    }
 }

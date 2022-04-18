@@ -1,9 +1,10 @@
-﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern;
-
-public class SnsFactory : INotificationFactory
+﻿namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.FactoryPattern
 {
-    public INotification Create()
+    public class SnsFactory : INotificationFactory
     {
-        return new SnsNotify();
+        public INotification Create()
+        {
+            return new SnsNotify();
+        }
     }
 }

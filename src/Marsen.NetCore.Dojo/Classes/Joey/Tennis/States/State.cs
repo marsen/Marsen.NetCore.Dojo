@@ -1,48 +1,49 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
-
-public abstract class State
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
 {
-    protected readonly Dictionary<int, string> ScoreLookup = new()
+    public abstract class State
     {
-        { 0, "Love" },
-        { 1, "Fifteen" },
-        { 2, "Thirty" },
-        { 3, "Forty" }
-    };
+        protected readonly Dictionary<int, string> ScoreLookup = new()
+        {
+            { 0, "Love" },
+            { 1, "Fifteen" },
+            { 2, "Thirty" },
+            { 3, "Forty" }
+        };
 
-    protected TennisGameContext Context;
-    public abstract string Score();
+        protected TennisGameContext Context;
+        public abstract string Score();
 
-    public void SetContext(TennisGameContext context)
-    {
-        Context = context;
+        public void SetContext(TennisGameContext context)
+        {
+            Context = context;
+        }
+
+        protected bool IsSamePoint()
+        {
+            return Context.ServerPoint == Context.ReceiverPoint;
+        }
+
+        protected string Winner()
+        {
+            return Context.ServerPoint > Context.ReceiverPoint
+                ? Context.ServerName
+                : Context.ReceiverName;
+        }
+
+        public void ServerScore()
+        {
+            Context.ServerPoint++;
+            ChangeState();
+        }
+
+        public void ReceiverScore()
+        {
+            Context.ReceiverPoint++;
+            ChangeState();
+        }
+
+        protected abstract void ChangeState();
     }
-
-    protected bool IsSamePoint()
-    {
-        return Context.ServerPoint == Context.ReceiverPoint;
-    }
-
-    protected string Winner()
-    {
-        return Context.ServerPoint > Context.ReceiverPoint
-            ? Context.ServerName
-            : Context.ReceiverName;
-    }
-
-    public void ServerScore()
-    {
-        Context.ServerPoint++;
-        ChangeState();
-    }
-
-    public void ReceiverScore()
-    {
-        Context.ReceiverPoint++;
-        ChangeState();
-    }
-
-    protected abstract void ChangeState();
 }

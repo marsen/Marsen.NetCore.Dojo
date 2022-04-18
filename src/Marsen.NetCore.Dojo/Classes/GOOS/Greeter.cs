@@ -1,24 +1,25 @@
-﻿namespace Marsen.NetCore.Dojo.Classes.GOOS;
-
-public class Greeter
+﻿namespace Marsen.NetCore.Dojo.Classes.GOOS
 {
-    public string Invoke(string name, string hourOfDay)
+    public class Greeter
     {
-        return Is14OClock(hourOfDay) ? "Zzz" : SayHi(name);
-    }
+        public string Invoke(string name, string hourOfDay)
+        {
+            return Is14OClock(hourOfDay) ? "Zzz" : SayHi(name);
+        }
 
-    private static string SayHi(string name)
-    {
-        return $"Hello {(HaveName(name) ? name : "World")}";
-    }
+        private static string SayHi(string name)
+        {
+            return $"Hello {(HaveName(name) ? name : "World")}";
+        }
 
-    private static bool HaveName(string name)
-    {
-        return !string.IsNullOrEmpty(name);
-    }
+        private static bool HaveName(string name)
+        {
+            return !string.IsNullOrEmpty(name);
+        }
 
-    private static bool Is14OClock(string hourOfDay)
-    {
-        return hourOfDay == "14";
+        private static bool Is14OClock(string hourOfDay)
+        {
+            return hourOfDay == "14";
+        }
     }
 }

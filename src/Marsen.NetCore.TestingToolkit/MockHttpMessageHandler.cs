@@ -5,66 +5,67 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Marsen.NetCore.TestingToolkit;
-
-public class MockHttpMessageHandler : HttpMessageHandler
+namespace Marsen.NetCore.TestingToolkit
 {
-    private readonly string _response;
-    private readonly HttpStatusCode _statusCode;
-    private readonly Dictionary<string, int> _pathLookup = new();
-
-    private int _times = 1;
-
-    public MockHttpMessageHandler(string response, HttpStatusCode statusCode)
+    public class MockHttpMessageHandler : HttpMessageHandler
     {
-        _response = response;
-        _statusCode = statusCode;
-    }
+        private readonly string _response;
+        private readonly HttpStatusCode _statusCode;
+        private readonly Dictionary<string, int> _pathLookup = new();
 
-    private string Input { get; set; }
-    public int NumberOfCalls { get; private set; }
+        private int _times = 1;
 
-    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
-        CancellationToken cancellationToken)
-    {
-        CountRequest(request);
-
-        if (request.Content != null) // Could be a GET-request without a body
-            Input = await request.Content.ReadAsStringAsync(cancellationToken);
-
-        return new HttpResponseMessage
+        public MockHttpMessageHandler(string response, HttpStatusCode statusCode)
         {
-            StatusCode = _statusCode,
-            Content = new StringContent(_response)
-        };
-    }
+            _response = response;
+            _statusCode = statusCode;
+        }
 
-    private void CountRequest(HttpRequestMessage request)
-    {
-        if (_pathLookup.ContainsKey($"{request.Method}:{request.RequestUri!.AbsoluteUri}"))
-            _pathLookup[$"{request.Method}:{request.RequestUri.AbsoluteUri}"]++;
-        else
-            _pathLookup.Add($"{request.Method}:{request.RequestUri!.AbsoluteUri}", 1);
-    }
+        private string Input { get; set; }
+        public int NumberOfCalls { get; private set; }
 
-    public MockHttpMessageHandler CallTimes(int i)
-    {
-        _times = i;
-        return this;
-    }
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+            CancellationToken cancellationToken)
+        {
+            CountRequest(request);
 
-    public void AssertGet(string path)
-    {
-        AssertRequest("GET", path);
-    }
+            if (request.Content != null) // Could be a GET-request without a body
+                Input = await request.Content.ReadAsStringAsync(cancellationToken);
 
-    public void AssertPost(string path)
-    {
-        AssertRequest("POST", path);
-    }
+            return new HttpResponseMessage
+            {
+                StatusCode = _statusCode,
+                Content = new StringContent(_response)
+            };
+        }
 
-    private void AssertRequest(string method, string path)
-    {
-        Assert.AreEqual(_pathLookup[$"{method}:{path}"], _times);
+        private void CountRequest(HttpRequestMessage request)
+        {
+            if (_pathLookup.ContainsKey($"{request.Method}:{request.RequestUri!.AbsoluteUri}"))
+                _pathLookup[$"{request.Method}:{request.RequestUri.AbsoluteUri}"]++;
+            else
+                _pathLookup.Add($"{request.Method}:{request.RequestUri!.AbsoluteUri}", 1);
+        }
+
+        public MockHttpMessageHandler CallTimes(int i)
+        {
+            _times = i;
+            return this;
+        }
+
+        public void AssertGet(string path)
+        {
+            AssertRequest("GET", path);
+        }
+
+        public void AssertPost(string path)
+        {
+            AssertRequest("POST", path);
+        }
+
+        private void AssertRequest(string method, string path)
+        {
+            Assert.AreEqual(_pathLookup[$"{method}:{path}"], _times);
+        }
     }
 }

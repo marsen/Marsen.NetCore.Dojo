@@ -1,13 +1,14 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Actions;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons;
-
-public class Woman : Person
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.VisitorPattern.Persons
 {
-    public override string Name => "女人";
-
-    public override void Accept(Action visitor)
+    public class Woman : Person
     {
-        visitor.GetWomanConclusion(this);
+        public override string Name => "女人";
+
+        public override void Accept(Action visitor)
+        {
+            visitor.GetWomanConclusion(this);
+        }
     }
 }

@@ -3,23 +3,24 @@ using System.Linq;
 using Castle.DynamicProxy;
 using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interceptors;
-
-public class LoggerInterceptor : IInterceptor
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interceptors
 {
-    private readonly ILogger _logger;
-
-    public LoggerInterceptor(ILogger logger)
+    public class LoggerInterceptor : IInterceptor
     {
-        _logger = logger;
-    }
+        private readonly ILogger _logger;
 
-    public void Intercept(IInvocation invocation)
-    {
-        if (Attribute.GetCustomAttribute(invocation.Method, typeof(LogAttribute)) is LogAttribute)
-            _logger.Log($"log by interceptor:{invocation.TargetType.FullName}.{invocation.Method.Name}():" +
-                        $"{string.Join("-", invocation.Arguments.Select(x => (x ?? "").ToString()))}");
+        public LoggerInterceptor(ILogger logger)
+        {
+            _logger = logger;
+        }
 
-        invocation.Proceed();
+        public void Intercept(IInvocation invocation)
+        {
+            if (Attribute.GetCustomAttribute(invocation.Method, typeof(LogAttribute)) is LogAttribute)
+                _logger.Log($"log by interceptor:{invocation.TargetType.FullName}.{invocation.Method.Name}():" +
+                            $"{string.Join("-", invocation.Arguments.Select(x => (x ?? "").ToString()))}");
+
+            invocation.Proceed();
+        }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Kata.ReverseString;
-
-public class LoopReversal : IStringReversal
+namespace Marsen.NetCore.Dojo.Kata.ReverseString
 {
-    public string Do(string input)
+    public class LoopReversal : IStringReversal
     {
-        return input?.ToCharArray().Aggregate(string.Empty, (current, c) => c + current);
+        public string Do(string input)
+        {
+            return input?.ToCharArray().Aggregate(string.Empty, (current, c) => c + current);
+        }
     }
 }

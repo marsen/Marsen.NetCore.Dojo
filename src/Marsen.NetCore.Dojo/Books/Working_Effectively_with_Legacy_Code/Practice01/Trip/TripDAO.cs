@@ -2,13 +2,14 @@
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Exception;
 using Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Users;
 
-namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Trip;
-
-public static class TripDao
+namespace Marsen.NetCore.Dojo.Books.Working_Effectively_with_Legacy_Code.Practice01.Trip
 {
-    public static List<Trip> FindTripsByUser(User user)
+    public static class TripDao
     {
-        throw new DependentClassCallDuringUnitTestException(
-            "TripDAO should not be invoked on an unit test.");
+        public static List<Trip> FindTripsByUser(User user)
+        {
+            throw new DependentClassCallDuringUnitTestException(
+                "TripDAO should not be invoked on an unit test.");
+        }
     }
 }

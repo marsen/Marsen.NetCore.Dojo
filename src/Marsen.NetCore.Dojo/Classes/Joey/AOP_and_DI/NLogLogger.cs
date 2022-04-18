@@ -1,13 +1,14 @@
 ﻿using NLog;
 using ILogger = Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface.ILogger;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI;
-
-public class NLogLogger : ILogger
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI
 {
-    public void Log(string message)
+    public class NLogLogger : ILogger
     {
-        var logger = LogManager.GetCurrentClassLogger();
-        logger.Info(message);
+        public void Log(string message)
+        {
+            var logger = LogManager.GetCurrentClassLogger();
+            logger.Info(message);
+        }
     }
 }

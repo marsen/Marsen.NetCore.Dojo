@@ -1,9 +1,10 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz;
-
-public class NormalRule : IRule
+﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
 {
-    public string Apply(int input, string result)
+    public class NormalRule : IRule
     {
-        return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        public string Apply(int input, string result)
+        {
+            return string.IsNullOrEmpty(result) ? input.ToString() : result;
+        }
     }
 }

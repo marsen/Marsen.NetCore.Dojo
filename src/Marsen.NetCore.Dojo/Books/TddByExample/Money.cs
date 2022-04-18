@@ -1,33 +1,34 @@
 using System;
 
-namespace Marsen.NetCore.Dojo.Books.TddByExample;
-
-public partial class Money : IExpression
+namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
-    public readonly int Amount;
-    public readonly string Currency;
-
-    private Money(int amount, string currency)
+    public partial class Money : IExpression
     {
-        Amount = amount;
-        Currency = currency;
-    }
+        public readonly int Amount;
+        public readonly string Currency;
 
-    public Money Reduce(Bank bank, string to)
-    {
-        if (to is "USD" or "CHF")
-            return new Money(Amount / bank.rate(Currency, to), to);
+        private Money(int amount, string currency)
+        {
+            Amount = amount;
+            Currency = currency;
+        }
 
-        throw new NotImplementedException();
-    }
+        public Money Reduce(Bank bank, string to)
+        {
+            if (to is "USD" or "CHF")
+                return new Money(Amount / bank.rate(Currency, to), to);
 
-    public IExpression Times(int multiplier)
-    {
-        return new Money(Amount * multiplier, Currency);
-    }
+            throw new NotImplementedException();
+        }
 
-    public IExpression Plus(IExpression addend)
-    {
-        return new Sum(this, addend);
+        public IExpression Times(int multiplier)
+        {
+            return new Money(Amount * multiplier, Currency);
+        }
+
+        public IExpression Plus(IExpression addend)
+        {
+            return new Sum(this, addend);
+        }
     }
 }

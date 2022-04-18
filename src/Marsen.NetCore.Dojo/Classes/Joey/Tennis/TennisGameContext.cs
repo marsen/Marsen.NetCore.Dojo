@@ -1,33 +1,34 @@
 ﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis;
-
-public class TennisGameContext
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis
 {
-    public readonly string ReceiverName;
-    public readonly string ServerName;
-
-    public TennisGameContext(string serverName, string receiverName)
+    public class TennisGameContext
     {
-        ReceiverName = receiverName;
-        ServerName = serverName;
-        State state = new SameState();
-        state.SetContext(this);
-        ChangeState(state);
-    }
+        public readonly string ReceiverName;
+        public readonly string ServerName;
 
-    public State State { get; private set; }
-    public int ServerPoint { get; set; }
-    public int ReceiverPoint { get; set; }
+        public TennisGameContext(string serverName, string receiverName)
+        {
+            ReceiverName = receiverName;
+            ServerName = serverName;
+            State state = new SameState();
+            state.SetContext(this);
+            ChangeState(state);
+        }
 
-    public string Score()
-    {
-        return State.Score();
-    }
+        public State State { get; private set; }
+        public int ServerPoint { get; set; }
+        public int ReceiverPoint { get; set; }
+
+        public string Score()
+        {
+            return State.Score();
+        }
 
 
-    public void ChangeState(State state)
-    {
-        State = state;
+        public void ChangeState(State state)
+        {
+            State = state;
+        }
     }
 }

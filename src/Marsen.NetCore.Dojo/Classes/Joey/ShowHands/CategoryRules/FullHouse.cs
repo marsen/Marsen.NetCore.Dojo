@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
-
-public class FullHouse : ICategoryRule
+namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
 {
-    public bool Apply(List<Card> cardList)
+    public class FullHouse : ICategoryRule
     {
-        return cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 3) &&
-               cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 2);
-    }
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 3) &&
+                   cardList.GroupBy(x => x.Rank).Any(x => x.Count() == 2);
+        }
 
-    public Category Category => Category.FullHouse;
+        public Category Category => Category.FullHouse;
+    }
 }

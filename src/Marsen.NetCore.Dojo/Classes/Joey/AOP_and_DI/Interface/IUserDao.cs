@@ -1,6 +1,7 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
-
-public interface IUserDao
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface
 {
-    string PasswordFromDb(string accountId);
+    public interface IUserDao
+    {
+        string PasswordFromDb(string accountId);
+    }
 }

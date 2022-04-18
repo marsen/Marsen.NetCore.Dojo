@@ -3,58 +3,59 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Marsen.NetCore.Dojo.Tests")]
 
-namespace Marsen.NetCore.TestingToolkit;
-
-/// <summary>
-///     SystemDateTime
-/// </summary>
-public struct SystemDateTime
+namespace Marsen.NetCore.TestingToolkit
 {
     /// <summary>
-    ///     The mock date time
+    ///     SystemDateTime
     /// </summary>
-    private static DateTime? _mockDateTime;
-
-    private static DateTime? _mockUtcDateTime;
-
-    /// <summary>
-    ///     Gets the now.
-    /// </summary>
-    /// <value>
-    ///     The now.
-    /// </value>
-    public static DateTime Now
+    public struct SystemDateTime
     {
-        get => _mockDateTime ?? DateTime.Now;
-        internal set
+        /// <summary>
+        ///     The mock date time
+        /// </summary>
+        private static DateTime? _mockDateTime;
+        
+        private static DateTime? _mockUtcDateTime;
+
+        /// <summary>
+        ///     Gets the now.
+        /// </summary>
+        /// <value>
+        ///     The now.
+        /// </value>
+        public static DateTime Now
         {
-            _mockDateTime = value;
-            _mockUtcDateTime = new DateTime(value.Ticks, DateTimeKind.Utc);
+            get => _mockDateTime ?? DateTime.Now;
+            internal set
+            {
+                _mockDateTime = value;
+                _mockUtcDateTime = new DateTime(value.Ticks, DateTimeKind.Utc);
+            }
         }
-    }
 
-    /// <summary>
-    ///  Get the Utc now
-    /// </summary>
-    /// <value>
-    ///    The Utc now 
-    /// </value>
-    public static DateTime UtcNow
-    {
-        get => _mockUtcDateTime ?? DateTime.UtcNow;
-        internal set
+        /// <summary>
+        ///  Get the Utc now
+        /// </summary>
+        /// <value>
+        ///    The Utc now 
+        /// </value>
+        public static DateTime UtcNow
         {
-            _mockDateTime = new DateTime(value.Ticks, DateTimeKind.Local);
-            _mockUtcDateTime = value;
+            get => _mockUtcDateTime ?? DateTime.UtcNow;
+            internal set
+            {
+                _mockDateTime = new DateTime(value.Ticks, DateTimeKind.Local);
+                _mockUtcDateTime = value;
+            }
         }
-    }
 
-    /// <summary>
-    ///     Resets this instance.
-    /// </summary>
-    internal static void Reset()
-    {
-        _mockDateTime = null;
-        _mockUtcDateTime = null;
+        /// <summary>
+        ///     Resets this instance.
+        /// </summary>
+        internal static void Reset()
+        {
+            _mockDateTime = null;
+            _mockUtcDateTime = null;
+        }
     }
 }

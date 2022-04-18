@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.TDD;
-
-public interface IBudgetRepo
+namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.TDD
 {
-    List<Budget> GetAll();
+    public interface IBudgetRepo
+    {
+        List<Budget> GetAll();
+    }
 }

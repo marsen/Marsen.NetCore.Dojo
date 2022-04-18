@@ -1,9 +1,10 @@
-﻿namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands;
-
-public enum Suit
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands
 {
-    C,
-    D,
-    H,
-    S
+    public enum Suit
+    {
+        C,
+        D,
+        H,
+        S
+    }
 }

@@ -1,9 +1,10 @@
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored;
-
-public class Game : Application
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored
 {
-    public override void Run(string brand)
+    public class Game : Application
     {
-        Console.WriteLine($"Run {brand} Game");
+        public override void Run(string brand)
+        {
+            Console.WriteLine($"Run {brand} Game");
+        }
     }
 }

@@ -2,23 +2,24 @@
 using System.Text;
 using Marsen.NetCore.Dojo.Common;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus;
-
-public class CharRepeater
+namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005.Plus
 {
-    public string Repeat(string input)
+    public class CharRepeater
     {
-        if (string.IsNullOrEmpty(input)) throw new DojoException("input should not be null or empty");
+        public string Repeat(string input)
+        {
+            if (string.IsNullOrEmpty(input)) throw new DojoException("input should not be null or empty");
 
-        var list = input.Select((c, index) => c.ToString().ToUpper() + Repeat(c.ToString(), index).ToLower());
-        return string.Join('-', list);
-    }
+            var list = input.Select((c, index) => c.ToString().ToUpper() + Repeat(c.ToString(), index).ToLower());
+            return string.Join('-', list);
+        }
 
-    private string Repeat(string substring, int times)
-    {
-        var stringBuilder = new StringBuilder();
-        for (var i = 0; i < times; i++) stringBuilder.Append(substring);
+        private string Repeat(string substring, int times)
+        {
+            var stringBuilder = new StringBuilder();
+            for (var i = 0; i < times; i++) stringBuilder.Append(substring);
 
-        return stringBuilder.ToString();
+            return stringBuilder.ToString();
+        }
     }
 }

@@ -1,14 +1,15 @@
-namespace Marsen.NetCore.Dojo.Books.TddByExample;
-
-public partial class Money
+namespace Marsen.NetCore.Dojo.Books.TddByExample
 {
-    public static Money Dollar(int amount)
+    public partial class Money
     {
-        return new Money(amount, "USD");
-    }
+        public static Money Dollar(int amount)
+        {
+            return new Money(amount, "USD");
+        }
 
-    public static Money Franc(int amount)
-    {
-        return new Money(amount, "CHF");
+        public static Money Franc(int amount)
+        {
+            return new Money(amount, "CHF");
+        }
     }
 }

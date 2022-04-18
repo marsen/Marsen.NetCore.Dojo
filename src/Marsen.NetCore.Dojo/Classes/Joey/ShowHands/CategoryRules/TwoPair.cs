@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
-
-public class TwoPair : ICategoryRule
+namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
 {
-    public bool Apply(List<Card> cardList)
+    public class TwoPair : ICategoryRule
     {
-        return cardList
-            .GroupBy(x => x.Rank)
-            .Select(g => new { Count = g.Count(), Rank = g.Key }).Count(x => x.Count == 2) == 2;
-    }
+        public bool Apply(List<Card> cardList)
+        {
+            return cardList
+                .GroupBy(x => x.Rank)
+                .Select(g => new { Count = g.Count(), Rank = g.Key }).Count(x => x.Count == 2) == 2;
+        }
 
-    public Category Category => Category.TwoPair;
+        public Category Category => Category.TwoPair;
+    }
 }

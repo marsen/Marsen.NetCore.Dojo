@@ -1,35 +1,36 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Kata.FooBarQix;
-
-public class DivisibleRule
+namespace Marsen.NetCore.Dojo.Kata.FooBarQix
 {
-    private readonly int _divisor;
-
-    private readonly Dictionary<int, string> _lookup = new()
+    public class DivisibleRule
     {
-        { 3, "Foo" },
-        { 5, "Bar" },
-        { 7, "Qix" }
-    };
+        private readonly int _divisor;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="DivisibleRule" /> class.
-    /// </summary>
-    public DivisibleRule(int divisor)
-    {
-        _divisor = divisor;
-    }
+        private readonly Dictionary<int, string> _lookup = new()
+        {
+            { 3, "Foo" },
+            { 5, "Bar" },
+            { 7, "Qix" }
+        };
 
-    public string Apply(int input, string result)
-    {
-        if (IsDivisibleBy(_divisor, input)) result += _lookup[_divisor];
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="DivisibleRule" /> class.
+        /// </summary>
+        public DivisibleRule(int divisor)
+        {
+            _divisor = divisor;
+        }
 
-        return result;
-    }
+        public string Apply(int input, string result)
+        {
+            if (IsDivisibleBy(_divisor, input)) result += _lookup[_divisor];
 
-    private bool IsDivisibleBy(int i, int input)
-    {
-        return input % i == 0;
+            return result;
+        }
+
+        private bool IsDivisibleBy(int i, int input)
+        {
+            return input % i == 0;
+        }
     }
 }

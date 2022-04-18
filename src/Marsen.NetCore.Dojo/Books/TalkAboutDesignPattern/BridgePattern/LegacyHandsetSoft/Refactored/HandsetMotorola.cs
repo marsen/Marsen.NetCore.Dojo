@@ -1,10 +1,11 @@
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored;
-
-public class HandsetMotorola : HandsetBrand
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetSoft.Refactored
 {
-    public HandsetMotorola(Application soft)
+    public class HandsetMotorola : HandsetBrand
     {
-        Soft = soft;
-        Brand = "Motorola";
+        public HandsetMotorola(Application soft)
+        {
+            Soft = soft;
+            Brand = "Motorola";
+        }
     }
 }

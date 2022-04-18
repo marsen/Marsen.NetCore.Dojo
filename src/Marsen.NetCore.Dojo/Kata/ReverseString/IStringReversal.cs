@@ -1,6 +1,7 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.ReverseString;
-
-public interface IStringReversal
+﻿namespace Marsen.NetCore.Dojo.Kata.ReverseString
 {
-    string Do(string input);
+    public interface IStringReversal
+    {
+        string Do(string input);
+    }
 }

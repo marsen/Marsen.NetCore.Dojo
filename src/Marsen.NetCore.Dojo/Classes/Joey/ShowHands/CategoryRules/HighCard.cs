@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules;
-
-public class HighCard : ICategoryRule
+namespace Marsen.NetCore.Dojo.Classes.Joey.ShowHands.CategoryRules
 {
-    public bool Apply(List<Card> cardList)
+    public class HighCard : ICategoryRule
     {
-        return true;
-    }
+        public bool Apply(List<Card> cardList)
+        {
+            return true;
+        }
 
-    public Category Category => Category.HighCard;
+        public Category Category => Category.HighCard;
+    }
 }

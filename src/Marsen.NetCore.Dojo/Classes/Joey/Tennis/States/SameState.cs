@@ -1,16 +1,17 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
-
-public class SameState : State
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
 {
-    public override string Score()
+    public class SameState : State
     {
-        return $"{ScoreLookup[Context.ServerPoint]} All";
-    }
+        public override string Score()
+        {
+            return $"{ScoreLookup[Context.ServerPoint]} All";
+        }
 
-    protected override void ChangeState()
-    {
-        State state = new NormalState();
-        state.SetContext(Context);
-        Context.ChangeState(state);
+        protected override void ChangeState()
+        {
+            State state = new NormalState();
+            state.SetContext(Context);
+            Context.ChangeState(state);
+        }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
-
-public class ResponseEntity
+namespace Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService
 {
-    [JsonPropertyName("result")] public string Result { get; set; }
+    public class ResponseEntity
+    {
+        [JsonPropertyName("result")] public string Result { get; set; }
 
-    [JsonPropertyName("content")] public List<Content> Content { get; set; }
+        [JsonPropertyName("content")] public List<Content> Content { get; set; }
+    }
 }

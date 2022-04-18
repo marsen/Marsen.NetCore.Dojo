@@ -1,17 +1,18 @@
-﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
-
-public class AdvState : State
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2
 {
-    public override string Score()
+    public class AdvState : State
     {
-        return $"{Winner()} Adv";
-    }
+        public override string Score()
+        {
+            return $"{Winner()} Adv";
+        }
 
-    protected override void ChangeState()
-    {
-        if (IsSame())
-            Context.ChangeState(new DeuceState());
-        else
-            Context.ChangeState(new WinState());
+        protected override void ChangeState()
+        {
+            if (IsSame())
+                Context.ChangeState(new DeuceState());
+            else
+                Context.ChangeState(new WinState());
+        }
     }
 }
