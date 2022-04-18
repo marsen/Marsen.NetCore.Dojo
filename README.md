@@ -8,8 +8,8 @@
 
 - ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/.NET%20Core/badge.svg)
 - ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/CodeQL/badge.svg)
-- ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/Sonar%20Cloud/badge.svg)
-- ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/Stryker%20.NET/badge.svg)
+- ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/Sonar%20Cloud/badge.svg) [ more...](https://sonarcloud.io/summary/new_code?id=Marsen.NetCore.Dojo)
+- ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/Stryker%20.NET/badge.svg)[ more...](https://dashboard.stryker-mutator.io/reports/github.com/marsen/Marsen.NetCore.Dojo/main)
 - ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/TypeScript/badge.svg)
 
 ---
