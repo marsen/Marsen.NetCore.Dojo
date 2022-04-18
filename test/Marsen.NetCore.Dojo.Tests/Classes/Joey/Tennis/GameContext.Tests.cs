@@ -1,8 +1,14 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
+﻿using System;
+using FluentAssertions;
+using Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis;
 
+/// <summary>
+/// Tennis Game Context
+/// 狀態機版本v2 的 test case
+/// </summary>
 public class GameContextTests
 {
     private readonly GameContext _context = new("Sam", "Ben");
@@ -88,6 +94,27 @@ public class GameContextTests
         ScoreShouldBe("Sam Win");
     }
 
+    [Fact]
+    public void After_Receiver_Win_Score_Should_Throw_Exception()
+    {
+        // Arrange
+        GiveReceiverScore(4);
+        // Act
+        var act = () => GiveReceiverScore(1);
+        // Assert
+        act.Should().Throw<GameIsOverException>().WithMessage("Winner is Ben");
+    }
+
+    [Fact]
+    public void After_Server_Win_Score_Should_Throw_Exception()
+    {
+        // Arrange
+        GiveServerScore(4);
+        // Act
+        var act = () => GiveServerScore(1);
+        // Assert
+        act.Should().Throw<GameIsOverException>().WithMessage("Winner is Sam");
+    }
 
     [Fact]
     public void FifteenAll()
