@@ -13,17 +13,17 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
     public class PickupServiceTests
     {
         private readonly IConfigService _configService;
-        private Dojo.Kata.PickupService.Services.PickupService target;
-        private readonly long _testStoreId = 1;
-        private readonly List<string> _testWaybillNo = new List<string> {"TEST2002181800010"};
-        private string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
-        private string UrlMockShipping = "http://www.mocky.io/v2/5e5284962d0000f622357b3f";
-        private string UrlMockFAIL = "http://www.mocky.io/v2/5e5290812d0000261d357b5c";
-        private string UrlMockExpiry = "http://www.mocky.io/v2/5e5292462d00004c00357b5e";
-        private string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
-        private string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
-        private string UrlMockContentError = "http://www.mocky.io/v2/5e5c83cd3200006d0043c197";
-        private string UrlMockException = "https://www.mocky.io/v2/5e5cad1b320000530043c260";
+        private Dojo.Kata.PickupService.Services.PickupService _target;
+        private const long TestStoreId = 1;
+        private readonly List<string> _testWaybillNo = new() {"TEST2002181800010"};
+        private const string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
+        private const string UrlMockShipping = "http://www.mocky.io/v2/5e5284962d0000f622357b3f";
+        private const string UrlMockFail = "http://www.mocky.io/v2/5e5290812d0000261d357b5c";
+        private const string UrlMockExpiry = "http://www.mocky.io/v2/5e5292462d00004c00357b5e";
+        private const string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
+        private const string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
+        private const string UrlMockContentError = "http://www.mocky.io/v2/5e5c83cd3200006d0043c197";
+        private const string UrlMockException = "https://www.mocky.io/v2/5e5cad1b320000530043c260";
         private readonly IStoreSettingService _storeSettingService;
         private readonly ILogger _logger;
 
@@ -55,7 +55,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         [Fact]
         public void Case3_Query_FAIL_waybillNo()
         {
-            var actual = QueryWaybillNoWith(UrlMockFAIL);
+            var actual = QueryWaybillNoWith(UrlMockFail);
             actual.Should().Be(Status.Abnormal);
         }
 
@@ -79,7 +79,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         public void Case6_Query_Error_Result()
         {
             GetPickupServiceWith(UrlMockResultError);
-            Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            Action act = () => _target.GetUpdateStatus(TestStoreId, _testWaybillNo);
             act.Should().Throw<Exception>();
             _logger.ReceivedWithAnyArgs().LogError(default(string));
         }
@@ -89,7 +89,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         public void Case7_Query_Error_Content()
         {
             GetPickupServiceWith(UrlMockContentError);
-            var actual = target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            var actual = _target.GetUpdateStatus(TestStoreId, _testWaybillNo);
             actual.Should().BeEmpty();
         }
 
@@ -97,7 +97,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         public void Case8_Query_Exception()
         {
             GetPickupServiceWith(UrlMockException);
-            Action act = () => target.GetUpdateStatus(_testStoreId, _testWaybillNo);
+            Action act = () => _target.GetUpdateStatus(TestStoreId, _testWaybillNo);
             act.Should().Throw<Exception>();
             _logger.ReceivedWithAnyArgs().LogError(default(string));
         }
@@ -106,16 +106,16 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         {
             _configService.GetAppSetting("pickup.service.url")
                 .Returns(url);
-            _storeSettingService.GetValue(_testStoreId, "pickup.service", "loginId").Returns("testId");
-            _storeSettingService.GetValue(_testStoreId, "pickup.service", "auth").Returns("testAuth");
-            target = new Dojo.Kata.PickupService.Services.PickupService(_configService, _storeSettingService, _logger);
+            _storeSettingService.GetValue(TestStoreId, "pickup.service", "loginId").Returns("testId");
+            _storeSettingService.GetValue(TestStoreId, "pickup.service", "auth").Returns("testAuth");
+            _target = new Dojo.Kata.PickupService.Services.PickupService(_configService, _storeSettingService, _logger);
         }
 
 
         private Status? QueryWaybillNoWith(string url)
         {
             GetPickupServiceWith(url);
-            return target.GetUpdateStatus(_testStoreId, _testWaybillNo).FirstOrDefault().Status;
+            return _target.GetUpdateStatus(TestStoreId, _testWaybillNo).FirstOrDefault().Status;
         }
     }
 }
