@@ -21,7 +21,7 @@ public class TennisGame
     private int _secondPlayerScore;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="TennisGame" /> class.
+    /// Initializes a new instance of the <see cref="TennisGame" /> class.
     /// </summary>
     public TennisGame(string firstPlayerName, string secondPlayerName)
     {
@@ -65,7 +65,7 @@ public class TennisGame
 
     private string AdvScore()
     {
-        return $"{GetWinnerName()} " + (IsLeading() ? "Win" : "Adv");
+        return $"{GetWinnerName()} {(IsLeading() ? "Win" : "Adv")}";
     }
 
     private bool IsLeading()
