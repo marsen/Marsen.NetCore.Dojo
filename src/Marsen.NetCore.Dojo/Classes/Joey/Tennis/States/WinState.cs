@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
 
 public class WinState : State
 {
@@ -11,6 +9,6 @@ public class WinState : State
 
     protected override void ChangeState()
     {
-        throw new NotImplementedException();
+        throw new GameIsOverException($"Winner is {Winner()}");
     }
 }

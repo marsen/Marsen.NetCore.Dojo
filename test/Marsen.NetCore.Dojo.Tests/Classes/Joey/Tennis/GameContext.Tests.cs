@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.Tennis.StateV2;
 using Xunit;
 

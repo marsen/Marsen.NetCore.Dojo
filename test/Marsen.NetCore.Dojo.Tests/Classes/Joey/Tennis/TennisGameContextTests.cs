@@ -1,8 +1,15 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis;
+﻿using System;
+using FluentAssertions;
+using Marsen.NetCore.Dojo.Classes.Joey.Tennis;
+using Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis;
 
+/// <summary>
+/// TennisGame with Context Test Cases
+/// 狀態機版本 v1 測試案例
+/// </summary>
 public class TennisGameContextTests
 {
     private readonly TennisGameContext _tennisGameContext;
@@ -228,6 +235,14 @@ public class TennisGameContextTests
     {
         GivenServerPoint(4);
         ScoreShouldBe("Mark Win");
+    }
+
+    [Fact]
+    public void After_Server_Win_Score_Should_Throw_Exception()
+    {
+        GivenServerPoint(4);
+        var act = () => GivenServerPoint(1);
+        act.Should().Throw<GameIsOverException>();
     }
 
     [Fact]
