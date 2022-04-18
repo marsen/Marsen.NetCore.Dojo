@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Marsen.NetCore.TestingToolkit;
 
@@ -65,6 +65,6 @@ public class MockHttpMessageHandler : HttpMessageHandler
 
     private void AssertRequest(string method, string path)
     {
-        Assert.AreEqual(_pathLookup[$"{method}:{path}"], _times);
+        Assert.Equal(_pathLookup[$"{method}:{path}"], _times);
     }
 }
