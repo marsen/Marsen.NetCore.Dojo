@@ -1,7 +1,6 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface
+namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
+
+public interface ILogger
 {
-    public interface ILogger
-    {
-        void Log(string message);
-    }
+    void Log(string message);
 }

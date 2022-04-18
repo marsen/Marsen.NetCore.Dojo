@@ -1,7 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz
+﻿namespace Marsen.NetCore.Dojo.Kata.FizzBuzz;
+
+public interface IRule
 {
-    public interface IRule
-    {
-        string Apply(int input, string result);
-    }
+    string Apply(int input, string result);
 }

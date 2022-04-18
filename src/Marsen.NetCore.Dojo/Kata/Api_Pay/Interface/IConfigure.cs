@@ -1,7 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.Api_Pay.Interface
+﻿namespace Marsen.NetCore.Dojo.Kata.Api_Pay.Interface;
+
+public interface IConfigure
 {
-    public interface IConfigure
-    {
-        string Setting(string key);
-    }
+    string Setting(string key);
 }

@@ -1,17 +1,16 @@
 ﻿using System;
 
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
-{
-    public class WinState : State
-    {
-        public override string Score()
-        {
-            return $"{Winner()} Win";
-        }
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
 
-        protected override void ChangeState()
-        {
-            throw new NotImplementedException();
-        }
+public class WinState : State
+{
+    public override string Score()
+    {
+        return $"{Winner()} Win";
+    }
+
+    protected override void ChangeState()
+    {
+        throw new NotImplementedException();
     }
 }

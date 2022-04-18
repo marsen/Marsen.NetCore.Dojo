@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
 
-namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface
+namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface;
+
+internal interface IQueryStatus
 {
-    internal interface IQueryStatus
-    {
-        List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo);
-    }
+    List<ShippingOrderUpdateEntity> GetUpdateStatus(long storeId, List<string> waybillNo);
 }

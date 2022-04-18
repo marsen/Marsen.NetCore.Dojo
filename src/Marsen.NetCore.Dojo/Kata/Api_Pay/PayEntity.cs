@@ -1,7 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.Api_Pay
+﻿namespace Marsen.NetCore.Dojo.Kata.Api_Pay;
+
+public class PayEntity
 {
-    public class PayEntity
-    {
-        public string RequestId { get; set; }
-    }
+    public string RequestId { get; set; }
 }

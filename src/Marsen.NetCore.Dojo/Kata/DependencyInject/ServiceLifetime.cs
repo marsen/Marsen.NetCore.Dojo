@@ -1,8 +1,7 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.DependencyInject
+﻿namespace Marsen.NetCore.Dojo.Kata.DependencyInject;
+
+public enum ServiceLifetime
 {
-    public enum ServiceLifetime
-    {
-        Singleton,
-        Transient
-    }
+    Singleton,
+    Transient
 }

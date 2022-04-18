@@ -1,20 +1,19 @@
 ﻿using Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Soft;
 
-namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand
+namespace Marsen.NetCore.Dojo.Books.TalkAboutDesignPattern.BridgePattern.LegacyHandsetBrand.Refactored.Brand;
+
+public class HandsetBrand
 {
-    public class HandsetBrand
+    private readonly Application _app;
+    protected string Brand;
+
+    protected HandsetBrand(Application app)
     {
-        private readonly Application _app;
-        protected string Brand;
+        _app = app;
+    }
 
-        protected HandsetBrand(Application app)
-        {
-            _app = app;
-        }
-
-        public void Run()
-        {
-            _app.Run(Brand);
-        }
+    public void Run()
+    {
+        _app.Run(Brand);
     }
 }

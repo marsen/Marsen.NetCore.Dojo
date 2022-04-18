@@ -1,21 +1,20 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States
+namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
+
+public class NormalState : State
 {
-    public class NormalState : State
+    public override string Score()
     {
-        public override string Score()
-        {
-            return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
-        }
+        return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
+    }
 
-        protected override void ChangeState()
-        {
-            State state = new NormalState();
-            if (IsSamePoint()) state = Context.ServerPoint >= 3 ? new DeuceState() : new SameState();
+    protected override void ChangeState()
+    {
+        State state = new NormalState();
+        if (IsSamePoint()) state = Context.ServerPoint >= 3 ? new DeuceState() : new SameState();
 
-            if (Context.ServerPoint >= 4 || Context.ReceiverPoint >= 4) state = new WinState();
+        if (Context.ServerPoint >= 4 || Context.ReceiverPoint >= 4) state = new WinState();
 
-            state.SetContext(Context);
-            Context.ChangeState(state);
-        }
+        state.SetContext(Context);
+        Context.ChangeState(state);
     }
 }

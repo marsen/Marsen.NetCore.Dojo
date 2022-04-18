@@ -1,9 +1,8 @@
-namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005
-{
-    public class Budget
-    {
-        public string YearMonth { get; set; }
+namespace Marsen.NetCore.Dojo.Classes.Joey.TddAndRefactor2005;
 
-        public int Amount { get; set; }
-    }
+public class Budget
+{
+    public string YearMonth { get; set; }
+
+    public int Amount { get; set; }
 }

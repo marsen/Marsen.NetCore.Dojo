@@ -1,7 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface
+﻿namespace Marsen.NetCore.Dojo.Kata.PickupService.Interface;
+
+public interface IConfigService
 {
-    public interface IConfigService
-    {
-        string GetAppSetting(string key, string defaultValue = "", bool usePrefix = false);
-    }
+    string GetAppSetting(string key, string defaultValue = "", bool usePrefix = false);
 }
