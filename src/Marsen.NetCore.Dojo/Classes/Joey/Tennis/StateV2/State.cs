@@ -12,24 +12,24 @@ public abstract class State
         { 3, "Forty" }
     };
 
-    protected GameContext Context;
+    protected TennisGame Game;
 
     public abstract string Score();
 
-    public void SetContext(GameContext context)
+    public void SetContext(TennisGame tennisGame)
     {
-        Context = context;
+        Game = tennisGame;
     }
 
     public void ServerScore()
     {
-        Context.ServerPoint++;
+        Game.ServerPoint++;
         ChangeState();
     }
 
     public void ReceiverScore()
     {
-        Context.ReceiverPoint++;
+        Game.ReceiverPoint++;
         ChangeState();
     }
 
@@ -37,13 +37,13 @@ public abstract class State
 
     protected string Winner()
     {
-        return Context.ServerPoint > Context.ReceiverPoint
-            ? Context.ServerName
-            : Context.ReceiverName;
+        return Game.ServerPoint > Game.ReceiverPoint
+            ? Game.ServerName
+            : Game.ReceiverName;
     }
 
     protected bool IsSame()
     {
-        return Context.ServerPoint == Context.ReceiverPoint;
+        return Game.ServerPoint == Game.ReceiverPoint;
     }
 }

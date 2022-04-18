@@ -10,7 +10,7 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis;
 /// </summary>
 public class GameContextTests
 {
-    private readonly GameContext _context = new("Sam", "Ben");
+    private readonly TennisGame _context = new("Sam", "Ben");
 
     [Fact]
     public void LoveAll()

@@ -1,17 +1,15 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
-
-namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis;
+﻿namespace Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
 
 /// <summary>
 /// TennisGame with Context
 /// 狀態機版本 v1
 /// </summary>
-public class TennisGameContext
+public class TennisGame
 {
     public readonly string ReceiverName;
     public readonly string ServerName;
 
-    public TennisGameContext(string serverName, string receiverName)
+    public TennisGame(string serverName, string receiverName)
     {
         ReceiverName = receiverName;
         ServerName = serverName;

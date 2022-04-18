@@ -4,17 +4,17 @@ public class NormalState : State
 {
     public override string Score()
     {
-        return $"{ScoreLookup[Context.ServerPoint]} {ScoreLookup[Context.ReceiverPoint]}";
+        return $"{ScoreLookup[Game.ServerPoint]} {ScoreLookup[Game.ReceiverPoint]}";
     }
 
     protected override void ChangeState()
     {
         State state = new NormalState();
-        if (IsSamePoint()) state = Context.ServerPoint >= 3 ? new DeuceState() : new SameState();
+        if (IsSamePoint()) state = Game.ServerPoint >= 3 ? new DeuceState() : new SameState();
 
-        if (Context.ServerPoint >= 4 || Context.ReceiverPoint >= 4) state = new WinState();
+        if (Game.ServerPoint >= 4 || Game.ReceiverPoint >= 4) state = new WinState();
 
-        state.SetContext(Context);
-        Context.ChangeState(state);
+        state.SetContext(Game);
+        Game.ChangeState(state);
     }
 }

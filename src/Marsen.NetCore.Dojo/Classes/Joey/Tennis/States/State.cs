@@ -12,35 +12,35 @@ public abstract class State
         { 3, "Forty" }
     };
 
-    protected TennisGameContext Context;
+    protected TennisGame Game;
     public abstract string Score();
 
-    public void SetContext(TennisGameContext context)
+    public void SetContext(TennisGame tennisGame)
     {
-        Context = context;
+        Game = tennisGame;
     }
 
     protected bool IsSamePoint()
     {
-        return Context.ServerPoint == Context.ReceiverPoint;
+        return Game.ServerPoint == Game.ReceiverPoint;
     }
 
     protected string Winner()
     {
-        return Context.ServerPoint > Context.ReceiverPoint
-            ? Context.ServerName
-            : Context.ReceiverName;
+        return Game.ServerPoint > Game.ReceiverPoint
+            ? Game.ServerName
+            : Game.ReceiverName;
     }
 
     public void ServerScore()
     {
-        Context.ServerPoint++;
+        Game.ServerPoint++;
         ChangeState();
     }
 
     public void ReceiverScore()
     {
-        Context.ReceiverPoint++;
+        Game.ReceiverPoint++;
         ChangeState();
     }
 

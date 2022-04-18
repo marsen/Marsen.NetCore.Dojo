@@ -4,14 +4,14 @@
 /// Tennis Game Context
 /// 狀態機版本v2
 /// </summary>
-public class GameContext
+public class TennisGame
 {
     public readonly string ReceiverName;
 
     public readonly string ServerName;
     private State _state;
 
-    public GameContext(string serverName, string receiverName)
+    public TennisGame(string serverName, string receiverName)
     {
         ServerName = serverName;
         ReceiverName = receiverName;

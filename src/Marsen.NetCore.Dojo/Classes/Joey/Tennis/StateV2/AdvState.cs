@@ -10,8 +10,8 @@ public class AdvState : State
     protected override void ChangeState()
     {
         if (IsSame())
-            Context.ChangeState(new DeuceState());
+            Game.ChangeState(new DeuceState());
         else
-            Context.ChangeState(new WinState());
+            Game.ChangeState(new WinState());
     }
 }

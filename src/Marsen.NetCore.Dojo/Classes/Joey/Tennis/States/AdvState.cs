@@ -10,7 +10,7 @@ public class AdvState : State
     protected override void ChangeState()
     {
         State state = IsSamePoint() ? new DeuceState() : new WinState();
-        state.SetContext(Context);
-        Context.ChangeState(state);
+        state.SetContext(Game);
+        Game.ChangeState(state);
     }
 }

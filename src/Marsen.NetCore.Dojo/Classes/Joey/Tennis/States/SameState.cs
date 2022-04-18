@@ -4,13 +4,13 @@ public class SameState : State
 {
     public override string Score()
     {
-        return $"{ScoreLookup[Context.ServerPoint]} All";
+        return $"{ScoreLookup[Game.ServerPoint]} All";
     }
 
     protected override void ChangeState()
     {
         State state = new NormalState();
-        state.SetContext(Context);
-        Context.ChangeState(state);
+        state.SetContext(Game);
+        Game.ChangeState(state);
     }
 }

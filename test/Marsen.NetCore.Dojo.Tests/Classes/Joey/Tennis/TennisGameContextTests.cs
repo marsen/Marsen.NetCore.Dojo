@@ -3,6 +3,7 @@ using FluentAssertions;
 using Marsen.NetCore.Dojo.Classes.Joey.Tennis;
 using Marsen.NetCore.Dojo.Classes.Joey.Tennis.States;
 using Xunit;
+using TennisGame = Marsen.NetCore.Dojo.Classes.Joey.Tennis.States.TennisGame;
 
 namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis;
 
@@ -12,11 +13,11 @@ namespace Marsen.NetCore.Dojo.Tests.Classes.Joey.Tennis;
 /// </summary>
 public class TennisGameContextTests
 {
-    private readonly TennisGameContext _tennisGameContext;
+    private readonly TennisGame _tennisGame;
 
     public TennisGameContextTests()
     {
-        _tennisGameContext = new TennisGameContext("Mark", "Iris");
+        _tennisGame = new TennisGame("Mark", "Iris");
     }
 
     [Fact]
@@ -263,18 +264,18 @@ public class TennisGameContextTests
 
     private void GivenServerPoint(int times)
     {
-        for (var i = 0; i < times; i++) _tennisGameContext.State.ServerScore();
+        for (var i = 0; i < times; i++) _tennisGame.State.ServerScore();
     }
 
 
     private void GivenReceiverPoint(int times)
     {
-        for (var i = 0; i < times; i++) _tennisGameContext.State.ReceiverScore();
+        for (var i = 0; i < times; i++) _tennisGame.State.ReceiverScore();
     }
 
 
     private void ScoreShouldBe(string expected)
     {
-        Assert.Equal(expected, _tennisGameContext.Score());
+        Assert.Equal(expected, _tennisGame.Score());
     }
 }

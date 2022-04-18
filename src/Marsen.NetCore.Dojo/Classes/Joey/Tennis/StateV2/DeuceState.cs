@@ -9,6 +9,6 @@ public class DeuceState : State
 
     protected override void ChangeState()
     {
-        Context.ChangeState(new AdvState());
+        Game.ChangeState(new AdvState());
     }
 }
