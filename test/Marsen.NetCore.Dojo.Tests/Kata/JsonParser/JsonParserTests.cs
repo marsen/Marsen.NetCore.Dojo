@@ -54,7 +54,7 @@ namespace Marsen.NetCore.Dojo.Tests.Kata.JsonParser
         public void person_wrong_birthday()
         {
             Action act = () => _target.Parse(@"{
-                            'FirstName': 'Tian',
+                            'FirstName': 'Tina',
                             'LastName': 'Tank',
                             'BirthDate': 'Wrong'
                         }".Replace(@"'", @""""));
