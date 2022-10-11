@@ -4,6 +4,6 @@ public class Solution
 {
     public int Search(int[] array, int target)
     {
-        throw new System.NotImplementedException();
+        return -1;
     }
 }
