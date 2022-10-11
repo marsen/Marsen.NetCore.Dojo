@@ -1,3 +1,4 @@
+using Marsen.NetCore.Dojo.LeetCode.BinarySearch;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.BinarySearch;
