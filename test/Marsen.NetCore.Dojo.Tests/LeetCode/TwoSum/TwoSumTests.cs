@@ -1,14 +1,12 @@
 using System;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.LeetCode.TwoSum;
-using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.TwoSum
 {
     public partial class TwoSumTests
     {
-        private readonly Solution _solution = new();
         private static int[] _nums;
         private int _target;
 
