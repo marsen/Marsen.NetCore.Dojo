@@ -4,9 +4,9 @@ namespace Marsen.NetCore.Dojo.LeetCode.BinarySearch;
 
 public class Solution
 {
-    public int Search(int[] array, int target)
+    public int Search(int[] nums, int target)
     {
-        if (array.Contains(target))
+        if (nums.Contains(target))
         {
             return 0;
         }
