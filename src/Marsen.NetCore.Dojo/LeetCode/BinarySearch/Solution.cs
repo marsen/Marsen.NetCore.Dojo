@@ -6,11 +6,6 @@ public class Solution
 {
     public int Search(int[] nums, int target)
     {
-        if (nums.Contains(target))
-        {
-            return 0;
-        }
-
-        return -1;
+        return nums.ToList().IndexOf(target);
     }
 }
