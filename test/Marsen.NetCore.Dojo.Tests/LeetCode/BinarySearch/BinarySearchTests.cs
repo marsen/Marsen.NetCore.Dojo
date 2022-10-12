@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Marsen.NetCore.Dojo.LeetCode.BinarySearch;
 using Xunit;
 
@@ -10,28 +11,12 @@ public class BinarySearchTests
     [Fact]
     public void You_Got_Minus_1_with_Empty_Array()
     {
-        // Arrange
-        int[] array = { };
-        int target = 1;
-
-        // Act
-        var ans = _sol.Search(array, target);
-
-        // Assert
-        Assert.Equal(-1, ans);
+        _sol.Search(new int[] { }, 1).Should().Be(-1);
     }
 
     [Fact]
     public void You_Got_1_with_0_1_Array()
     {
-        // Arrange
-        int[] array = {0, 1};
-        int target = 1;
-
-        // Act
-        var ans = _sol.Search(array, target);
-
-        // Assert
-        Assert.Equal(1, ans);
+        _sol.Search(new int[] {0, 1}, 1).Should().Be(1);
     }
 }
