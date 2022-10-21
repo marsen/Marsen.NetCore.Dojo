@@ -8,7 +8,7 @@ public class Solution
     public int Search(int[] nums, int target)
     {
         if (nums.Length > 0)
-            return 1;
+            return 0;
         return -1;
     }
 

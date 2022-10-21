@@ -15,8 +15,8 @@ public class BinarySearchTests
     }
 
     [Fact]
-    public void You_Got_1_with_0_1_Array()
+    public void You_Got_0_When_Looking_4_in_Array_4()
     {
-        _sol.Search(new int[] {0, 1}, 1).Should().Be(1);
+        _sol.Search(new int[] {4}, 4).Should().Be(0);
     }
 }
