@@ -8,7 +8,17 @@ public class Solution
     public int Search(int[] nums, int target)
     {
         if (nums.Length > 0)
-            return 0;
+        {
+            int left = 0;
+            int right = nums.Length - 1;
+            int mid = (right - left) / 2;
+            if (nums[mid] == target)
+            {
+                return mid;
+            }
+        }
+
+
         return -1;
     }
 
