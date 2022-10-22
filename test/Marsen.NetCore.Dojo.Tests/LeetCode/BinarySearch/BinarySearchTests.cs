@@ -20,4 +20,10 @@ public class BinarySearchTests
     {
         _sol.Search(new int[] {5}, 5).Should().Be(0);
     }
+
+    [Fact]
+    public void Search_5_in_5_6_Array()
+    {
+        _sol.Search(new int[] {5, 6}, 5).Should().Be(0);
+    }
 }
