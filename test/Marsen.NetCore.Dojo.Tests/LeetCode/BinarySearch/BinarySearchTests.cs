@@ -32,4 +32,16 @@ public class BinarySearchTests
     {
         _sol.Search(new int[] {4, 5}, 5).Should().Be(1);
     }
+
+    [Fact]
+    public void Search_5_in_3_4_5_Array()
+    {
+        _sol.Search(new int[] {3, 4, 5}, 5).Should().Be(2);
+    }
+
+    [Fact]
+    public void Search_5_in_5_6_7_Array()
+    {
+        _sol.Search(new int[] {5, 6, 7}, 5).Should().Be(0);
+    }
 }

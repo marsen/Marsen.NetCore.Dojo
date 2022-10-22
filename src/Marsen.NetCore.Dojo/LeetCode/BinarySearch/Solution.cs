@@ -21,6 +21,11 @@ public class Solution
             {
                 left = mid + 1;
             }
+
+            if (nums[mid] > target)
+            {
+                right = mid - 1;
+            }
         }
 
 
