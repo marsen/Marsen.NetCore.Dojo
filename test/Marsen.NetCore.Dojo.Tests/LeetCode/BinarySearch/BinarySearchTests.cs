@@ -15,4 +15,9 @@ public class BinarySearchTests
         _sol.Search(Array.Empty<int>(), 1).Should().Be(-1);
     }
 
+    [Fact]
+    public void Search_5_in_5_Array()
+    {
+        _sol.Search(new int[] {5}, 5).Should().Be(0);
+    }
 }
