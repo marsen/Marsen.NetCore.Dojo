@@ -11,7 +11,7 @@ public class Solution
         int right = nums.Length - 1;
         while (right >= left)
         {
-            int mid = right == left ? left : (right - left) / 2;
+            int mid = right == left ? left : (right - left) / 2 + left;
             if (nums[mid] == target)
             {
                 return mid;

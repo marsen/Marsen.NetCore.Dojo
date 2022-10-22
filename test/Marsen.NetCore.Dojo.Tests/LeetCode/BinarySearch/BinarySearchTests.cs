@@ -44,4 +44,10 @@ public class BinarySearchTests
     {
         _sol.Search(new int[] {5, 6, 7}, 5).Should().Be(0);
     }
+    
+    [Fact]
+    public void Search_9_in_m1_0_3_5_9_12_Array()
+    {
+        _sol.Search(new int[] {-1,0,3,5,9,12}, 9).Should().Be(4);
+    }
 }
