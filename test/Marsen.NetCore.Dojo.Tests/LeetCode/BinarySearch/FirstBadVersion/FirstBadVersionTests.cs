@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Marsen.NetCore.Dojo.LeetCode.BinarySearch.FirstBadVersion;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.BinarySearch.FirstBadVersion;
@@ -12,5 +13,15 @@ public class FirstBadVersionTests
         sol.FirstBadVersion(1).Should().Be(1);
     }
 }
+
 /* The isBadVersion API is defined in the parent class VersionControl.
       bool IsBadVersion(int version); */
+public class VersionControlTests
+{
+    [Fact]
+    public void Bad_Version_is_4_And_input_3()
+    {
+        var target = new VersionControl();
+        target.IsBadVersion(3).Should().BeFalse();
+    }
+}
