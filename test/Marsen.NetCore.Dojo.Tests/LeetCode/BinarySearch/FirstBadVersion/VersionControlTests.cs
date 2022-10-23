@@ -13,21 +13,11 @@ public class VersionControlTests
     }
 
     [Theory]
-    [InlineData(3,false)]
-    public void Bad_Version_is_4_And_input_3(int version,bool isBad)
+    [InlineData(3, false)]
+    [InlineData(4, true)]
+    [InlineData(5, true)]
+    public void IsBadVersion(int version, bool isBad)
     {
         _target.IsBadVersion(version).Should().Be(isBad);
-    }
-
-    [Fact]
-    public void Bad_Version_is_4_And_input_5()
-    {
-        _target.IsBadVersion(5).Should().BeTrue();
-    }
-
-    [Fact]
-    public void Bad_Version_is_4_And_input_4()
-    {
-        _target.IsBadVersion(4).Should().BeTrue();
     }
 }
