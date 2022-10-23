@@ -21,7 +21,16 @@ public class VersionControlTests
     [Fact]
     public void Bad_Version_is_4_And_input_3()
     {
-        var target = new VersionControl();
+        var target = new MockVersionControl();
+        target.SetBadVersion(4);
         target.IsBadVersion(3).Should().BeFalse();
+    }
+}
+
+public class MockVersionControl:VersionControl
+{
+    public void SetBadVersion(int n)
+    {
+        badVersion = n;
     }
 }
