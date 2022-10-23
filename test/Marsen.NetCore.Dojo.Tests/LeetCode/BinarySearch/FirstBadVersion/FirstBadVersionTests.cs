@@ -13,24 +13,3 @@ public class FirstBadVersionTests
         sol.FirstBadVersion(1).Should().Be(1);
     }
 }
-
-/* The isBadVersion API is defined in the parent class VersionControl.
-      bool IsBadVersion(int version); */
-public class VersionControlTests
-{
-    [Fact]
-    public void Bad_Version_is_4_And_input_3()
-    {
-        var target = new MockVersionControl();
-        target.SetBadVersion(4);
-        target.IsBadVersion(3).Should().BeFalse();
-    }
-}
-
-public class MockVersionControl:VersionControl
-{
-    public void SetBadVersion(int n)
-    {
-        badVersion = n;
-    }
-}
