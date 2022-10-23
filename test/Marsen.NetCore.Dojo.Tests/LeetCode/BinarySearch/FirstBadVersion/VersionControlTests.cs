@@ -12,10 +12,11 @@ public class VersionControlTests
         _target.SetBadVersion(4);
     }
 
-    [Fact]
-    public void Bad_Version_is_4_And_input_3()
+    [Theory]
+    [InlineData(3,false)]
+    public void Bad_Version_is_4_And_input_3(int version,bool isBad)
     {
-        _target.IsBadVersion(3).Should().BeFalse();
+        _target.IsBadVersion(version).Should().Be(isBad);
     }
 
     [Fact]
