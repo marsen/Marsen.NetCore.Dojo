@@ -6,6 +6,6 @@ public class MockVersionControl : VersionControl
 {
     public void SetBadVersion(int n)
     {
-        badVersion = n;
+        BadVersion = n;
     }
 }

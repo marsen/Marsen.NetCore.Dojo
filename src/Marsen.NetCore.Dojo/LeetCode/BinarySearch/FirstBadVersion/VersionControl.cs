@@ -2,12 +2,16 @@ using System;
 
 namespace Marsen.NetCore.Dojo.LeetCode.BinarySearch.FirstBadVersion;
 
-public class VersionControl
+public interface IVersionControl
 {
-    protected int badVersion;
+    bool IsBadVersion(int n);
+}
 
-    public bool IsBadVersion(int n)
+public class VersionControl : IVersionControl
+{
+    protected int BadVersion;
+    public virtual bool IsBadVersion(int n)
     {
-        return n >= badVersion;
+        return n >= BadVersion;
     }
 }
