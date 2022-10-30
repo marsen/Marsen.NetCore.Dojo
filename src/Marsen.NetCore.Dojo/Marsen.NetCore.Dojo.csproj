@@ -30,6 +30,7 @@
 
     <ItemGroup>
         <Folder Include="Books\TalkAboutDesignPattern\BridgePattern" />
+        <Folder Include="LeetCode\BinarySearch\SearchInsertPosition" />
     </ItemGroup>
 
 </Project>
