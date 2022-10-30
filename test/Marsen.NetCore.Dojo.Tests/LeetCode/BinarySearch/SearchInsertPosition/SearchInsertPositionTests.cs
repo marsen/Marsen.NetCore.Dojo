@@ -32,4 +32,10 @@ public class SearchInsertPositionTests
     {
         _sol.SearchInsert(new[] { 3, 5, 7 }, 5).Should().Be(1);
     }
+
+    [Fact]
+    public void Find_7_In_1_3_5_6_Array_Should_be_4()
+    {
+        _sol.SearchInsert(new[] { 1, 3, 5, 6 }, 7).Should().Be(4);
+    }
 }
