@@ -9,12 +9,13 @@ public class FirstBadVersionTests
 {
     readonly Solution _sol = Substitute.For<Solution>();
 
-    [Fact]
-    public void The_1_Version_is_Bad_Version()
+    [Theory]
+    [InlineData(1, 1)]
+    //[InlineData(2, 1)]
+    //[InlineData(3, 1)]
+    public void The_1_Version_is_Bad_Version(int input, int output)
     {
-        _sol.IsBadVersion(Arg.Is(1)).Returns(true);
-        _sol.IsBadVersion(Arg.Is(2)).Returns(true);
-        _sol.FirstBadVersion(1).Should().Be(1);
-        _sol.FirstBadVersion(2).Should().Be(1);
+        _sol.IsBadVersion(Arg.Is<int>(x => x >= 1)).Returns(true);
+        _sol.FirstBadVersion(input).Should().Be(output);
     }
 }
