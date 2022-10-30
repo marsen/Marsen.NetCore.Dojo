@@ -24,6 +24,32 @@ Output: 1
 
 
 Constraints:
-````
+```
 1 <= bad <= n <= 231 - 1
 ```
+
+Overflow Issue:
+
+There are 2 int a, b and b > a ;
+If we want find mid number between a and b ;
+we should do this :
+mid = (a+b)/2
+
+but in programming this would be an issue with overflow
+if a and b are big int number both
+so what should we do ?
+```
+2mid = a+b
+=>
+2mid = b-a+2a
+mid = (b-a)/2+a
+```
+and why this is safety with overflow
+because a and b should be safe ,
+and b > a so (b-a)/2+a should be safety too
+we can not control the size of a+b (mean it's unsafe)
+but we can control b-a
+
+
+
+
