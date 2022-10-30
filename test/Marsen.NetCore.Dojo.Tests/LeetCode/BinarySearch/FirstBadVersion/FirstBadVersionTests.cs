@@ -26,4 +26,13 @@ public class FirstBadVersionTests
         _sol.IsBadVersion(Arg.Is<int>(x => x >= 3)).Returns(true);
         _sol.FirstBadVersion(input).Should().Be(output);
     }
+
+    [Theory]
+    [InlineData(2126753390, 1702766719)]
+    public void The_1702766719_Version_is_Bad_Version(int input, int output)
+    {
+        const int badVersion = 1702766719;
+        _sol.IsBadVersion(Arg.Is<int>(x => x >= badVersion)).Returns(true);
+        _sol.FirstBadVersion(input).Should().Be(output);
+    }
 }
