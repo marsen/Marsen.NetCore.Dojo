@@ -15,4 +15,11 @@ public class SquaresOfASortedArrayTests
         var result = _sol.SortedSquares(Array.Empty<int>());
         result.Should().BeEquivalentTo(Array.Empty<int>());
     }
+
+    [Fact]
+    public void Get_4_WhenInput_2_Array()
+    {
+        var result = _sol.SortedSquares(new[] { 2 });
+        result.Should().BeEquivalentTo(new[] { 4 });
+    }
 }
