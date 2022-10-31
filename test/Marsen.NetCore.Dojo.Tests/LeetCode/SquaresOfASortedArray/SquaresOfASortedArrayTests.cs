@@ -7,7 +7,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.SquaresOfASortedArray;
 public class SquaresOfASortedArrayTests
 {
     [Fact]
-    public void METHOD()
+    public void GetArrayEmptyWhenInputArrayEmpty()
     {
         var sol = new Solution();
         int[] result = sol.SortedSquares(Array.Empty<int>());
@@ -19,6 +19,6 @@ public class Solution
 {
     public int[] SortedSquares(int[] nums)
     {
-        throw new NotImplementedException();
+        return Array.Empty<int>();
     }
 }
