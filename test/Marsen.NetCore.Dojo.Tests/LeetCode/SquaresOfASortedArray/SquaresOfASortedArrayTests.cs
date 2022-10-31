@@ -12,21 +12,24 @@ public class SquaresOfASortedArrayTests
     [Fact]
     public void GetArrayEmptyWhenInputArrayEmpty()
     {
-        var result = _sol.SortedSquares(Array.Empty<int>());
-        result.Should().Equal(Array.Empty<int>());
+        _sol.SortedSquares(Array.Empty<int>())
+            .Should()
+            .Equal(Array.Empty<int>());
     }
 
     [Fact]
     public void Get_4_WhenInput_2_Array()
     {
-        var result = _sol.SortedSquares(new[] { 2 });
-        result.Should().Equal(new[] { 4 });
+        _sol.SortedSquares(new[] { 2 })
+            .Should()
+            .Equal(new[] { 4 });
     }
 
     [Fact]
     public void Get_4_9_WhenInput_m3_2_Array()
     {
-        var result = _sol.SortedSquares(new[] { -3, 2 });
-        result.Should().Equal(new[] { 4, 9 });
+        _sol.SortedSquares(new[] { -3, 2 })
+            .Should()
+            .Equal(new[] { 4, 9 });
     }
 }
