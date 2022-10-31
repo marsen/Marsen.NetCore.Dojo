@@ -11,20 +11,23 @@ public class Solution
         int left = 0, right = nums.Length - 1, end = nums.Length - 1;
         while (left <= right)
         {
-            var sqrtLeft = nums[left] * nums[left];
-            var sqrtRight = nums[right] * nums[right];
-            if (sqrtLeft >= sqrtRight)
+            if (Sqrt(nums[left]) >= Sqrt(nums[right]))
             {
-                result[end--] = sqrtLeft;
+                result[end--] = Sqrt(nums[left]);
                 left++;
             }
             else
             {
-                result[end--] = sqrtRight;
+                result[end--] = Sqrt(nums[right]);
                 right--;
             }
         }
 
         return result;
+    }
+
+    private int Sqrt(int n)
+    {
+        return n * n;
     }
 }
