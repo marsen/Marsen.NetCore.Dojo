@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Marsen.NetCore.Dojo.LeetCode.RotateArray;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.RotateArray;
@@ -10,7 +11,7 @@ public class Solution1stTests
     public void MethodName_WithSomething_ShouldDoSomething()
     {
         // Arrange
-        var sol = new Solution1st();
+        var sol = new Solution001();
         // Act
         int[] r = sol.Rotate(Array.Empty<int>(), 0);
 
@@ -19,10 +20,3 @@ public class Solution1stTests
     }
 }
 
-public class Solution1st
-{
-    public int[] Rotate(int[] nums, int i)
-    {
-        return Array.Empty<int>();
-    }
-}
