@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.RotateArray;
 
-public class Solution1stTests
+public class Solution001Tests
 {
     [Fact]
     public void MethodName_WithSomething_ShouldDoSomething()
