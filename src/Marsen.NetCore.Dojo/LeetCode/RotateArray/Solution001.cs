@@ -12,15 +12,16 @@ public class Solution001
         {
             for (int i = 0; i < nums.Length - rotateNum; i++)
             {
-                r[i] = nums[i];
+                r[i] = rotateNum == 0 ? nums[i] : nums[nums.Length - 1 - i];
+                r[rotateNum + i] = nums[i];
             }
 
             return r;
         }
 
-        for (int i = 0; i < rotateNum; i++)
+        for (int i = 0; i < nums.Length - rotateNum; i++)
         {
-            r[i] = nums[nums.Length - 1 - i];
+            r[i] = rotateNum == 0 ? nums[i] : nums[nums.Length - 1 - i];
             r[rotateNum + i] = nums[i];
         }
 
