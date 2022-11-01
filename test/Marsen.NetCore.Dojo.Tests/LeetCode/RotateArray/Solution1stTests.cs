@@ -23,6 +23,6 @@ public class Solution1st
 {
     public int[] Rotate(int[] nums, int i)
     {
-        throw new NotImplementedException();
+        return Array.Empty<int>();
     }
 }
