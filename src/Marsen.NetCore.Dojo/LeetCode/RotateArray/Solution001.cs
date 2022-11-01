@@ -7,20 +7,18 @@ public class Solution001
 {
     public int[] Rotate(int[] nums, int rotateNum)
     {
-        var r = new int[nums.Length];
-        if (rotateNum > 0)
-        {
-            r[0] = nums[nums.Length-1];
-            r[1] = nums[0];
-            return r;
-        }
-
-
-        if (nums.Length > 0 & rotateNum == 0)
+        if (rotateNum == 0)
         {
             return nums;
         }
 
-        return Array.Empty<int>();
+        var r = new int[nums.Length];
+        for (int i = 0; i < rotateNum; i++)
+        {
+            r[i] = nums[nums.Length - 1 - i];
+            r[rotateNum + i] = nums[i];
+        }
+
+        return r;
     }
 }
