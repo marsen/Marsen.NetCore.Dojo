@@ -1,7 +1,7 @@
 using System;
-using System.Linq;
 using System.Runtime.InteropServices;
 using Marsen.NetCore.Dojo.Kata.ReverseString;
+using Marsen.NetCore.Dojo.LeetCode.ReverseInteger;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
@@ -50,25 +50,6 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.ReverseInteger
         {
             var actual = _solution.Reverse(-2147483648);
             Assert.Equal(0, actual);
-        }
-    }
-
-    public class Solution
-    {
-        public int Reverse(int x)
-        {
-            int symbol = x < 0 ? -1 : 1;
-            if (x <= int.MinValue)
-            {
-                return 0;
-            }
-            long tmp = long.Parse(new string((symbol * x).ToString().Reverse().ToArray()));
-            if (tmp > int.MaxValue || tmp < int.MinValue)
-            {
-                return 0;
-            }
-
-            return symbol * (int)tmp;
         }
     }
 }
