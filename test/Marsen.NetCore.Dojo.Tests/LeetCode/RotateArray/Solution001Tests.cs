@@ -20,8 +20,16 @@ public class Solution001Tests
     [Fact]
     public void Zero_Rotate()
     {
-        _sol.Rotate(new[] {1, 2}, 0)
+        _sol.Rotate(new[] { 1, 2 }, 0)
             .Should()
-            .Equal(new[] {1, 2});
+            .Equal(new[] { 1, 2 });
+    }
+
+    [Fact]
+    public void Rotate_1_2_with_1()
+    {
+        _sol.Rotate(new[] { 1, 2 }, 1)
+            .Should()
+            .Equal(new[] { 2, 1 });
     }
 }
