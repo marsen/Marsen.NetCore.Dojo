@@ -4,11 +4,11 @@ namespace Marsen.NetCore.Dojo.LeetCode.RotateArray;
 
 public class Solution001
 {
-    public int[] Rotate(int[] nums, int i)
+    public int[] Rotate(int[] nums, int rotateNum)
     {
-        if (nums.Length > 0)
+        if (nums.Length > 0 & rotateNum == 0)
         {
-            return new[] {1, 2};
+            return nums;
         }
 
         return Array.Empty<int>();
