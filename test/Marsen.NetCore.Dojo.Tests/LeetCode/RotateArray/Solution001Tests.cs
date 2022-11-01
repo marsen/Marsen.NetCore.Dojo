@@ -7,16 +7,21 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.RotateArray;
 
 public class Solution001Tests
 {
-    [Fact]
-    public void MethodName_WithSomething_ShouldDoSomething()
-    {
-        // Arrange
-        var sol = new Solution001();
-        // Act
-        int[] r = sol.Rotate(Array.Empty<int>(), 0);
+    readonly Solution001 _sol = new();
 
-        // Assert
-        r.Should().Equal(Array.Empty<int>());
+    [Fact]
+    public void Empty_Array()
+    {
+        _sol.Rotate(Array.Empty<int>(), 0)
+            .Should()
+            .Equal(Array.Empty<int>());
+    }
+
+    [Fact]
+    public void Zero_Rotate()
+    {
+        _sol.Rotate(new[] {1, 2}, 0)
+            .Should()
+            .Equal(new[] {1, 2});
     }
 }
-
