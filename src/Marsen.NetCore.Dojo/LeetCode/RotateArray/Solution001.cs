@@ -7,11 +7,16 @@ public class Solution001
     public void Rotate(int[] nums, int rotateNum)
     {
         var r = new int[nums.Length];
-        for (int i = 0; i < nums.Length - rotateNum; i++)
+        for (var i = 0; i < nums.Length - rotateNum; i++)
         {
             r[i] = rotateNum == 0 ? nums[i] : nums[nums.Length - 1 - i];
-            r[rotateNum + i] = nums[i];
         }
+
+        for (var i = nums.Length - 1; i > 0; i--)
+        {
+            r[i] = nums[i-rotateNum];
+        }
+
 
         Array.Copy(r, nums, nums.Length);
     }
