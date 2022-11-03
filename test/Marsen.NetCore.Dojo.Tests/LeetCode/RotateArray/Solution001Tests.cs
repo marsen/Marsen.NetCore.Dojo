@@ -22,7 +22,7 @@ public class Solution001Tests
     {
         var nums = new[] { 1, 2 };
         _sol.Rotate(nums, 0);
-        nums.Should().Equal(new[] { 1, 2 });
+        nums.Should().Equal(1, 2);
     }
 
     [Fact]
@@ -30,6 +30,6 @@ public class Solution001Tests
     {
         var nums = new[] { 1, 2 };
         _sol.Rotate(nums, 1);
-        nums.Should().Equal(new[] { 2, 1 });
+        nums.Should().Equal(2, 1);
     }
 }
