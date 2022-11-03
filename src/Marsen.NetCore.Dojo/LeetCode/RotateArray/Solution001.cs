@@ -1,11 +1,10 @@
 using System;
-using System.Linq;
 
 namespace Marsen.NetCore.Dojo.LeetCode.RotateArray;
 
 public class Solution001
 {
-    public int[] Rotate(int[] nums, int rotateNum)
+    public void Rotate(int[] nums, int rotateNum)
     {
         var r = new int[nums.Length];
         for (int i = 0; i < nums.Length - rotateNum; i++)
@@ -14,6 +13,6 @@ public class Solution001
             r[rotateNum + i] = nums[i];
         }
 
-        return r;
+        Array.Copy(r, nums, nums.Length);
     }
 }

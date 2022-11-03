@@ -12,24 +12,24 @@ public class Solution001Tests
     [Fact]
     public void Empty_Array()
     {
-        _sol.Rotate(Array.Empty<int>(), 0)
-            .Should()
-            .Equal(Array.Empty<int>());
+        var nums = Array.Empty<int>();
+        _sol.Rotate(nums, 0);
+        nums.Should().Equal(Array.Empty<int>());
     }
 
     [Fact]
     public void Zero_Rotate()
     {
-        _sol.Rotate(new[] { 1, 2 }, 0)
-            .Should()
-            .Equal(new[] { 1, 2 });
+        var nums = new[] { 1, 2 };
+        _sol.Rotate(nums, 0);
+        nums.Should().Equal(new[] { 1, 2 });
     }
 
     [Fact]
     public void Rotate_1_2_with_1()
     {
-        _sol.Rotate(new[] { 1, 2 }, 1)
-            .Should()
-            .Equal(new[] { 2, 1 });
+        var nums = new[] { 1, 2 };
+        _sol.Rotate(nums, 1);
+        nums.Should().Equal(new[] { 2, 1 });
     }
 }
