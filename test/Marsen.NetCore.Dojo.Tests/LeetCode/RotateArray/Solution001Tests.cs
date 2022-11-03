@@ -32,4 +32,12 @@ public class Solution001Tests
         _sol.Rotate(nums, 1);
         nums.Should().Equal(2, 1);
     }
+
+    [Fact]
+    public void Rotate_1_2_3_with_1()
+    {
+        var nums = new[] { 1, 2, 3 };
+        _sol.Rotate(nums, 1);
+        nums.Should().Equal(3, 1, 2);
+    }
 }
