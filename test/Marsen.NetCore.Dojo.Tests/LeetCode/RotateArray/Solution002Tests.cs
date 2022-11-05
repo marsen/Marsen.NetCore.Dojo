@@ -56,4 +56,12 @@ public class Solution002Tests
         _sol.Rotate(nums, 2);
         nums.Should().Equal(-1);
     }
+
+    [Fact]
+    public void Rotate_null_with_2()
+    {
+        int[] nums = null;
+        _sol.Rotate(nums, 2);
+        nums.Should().Equal(null);
+    }
 }
