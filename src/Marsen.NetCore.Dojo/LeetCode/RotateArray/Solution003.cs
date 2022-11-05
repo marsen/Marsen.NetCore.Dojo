@@ -4,15 +4,15 @@ internal class Solution003
 {
     public void Rotate(int[] nums, int k)
     {
-        if (nums == null || nums.Length == 0 || k == 0)
-            return;
+        if (nums != null && nums.Length != 0 && k != 0)
+        {
+            var n = nums.Length;
+            var tmp = new int[n];
+            for (var i = 0; i < n; i++)
+                tmp[(i + k) % n] = nums[i];
 
-        var n = nums.Length;
-        var tmp = new int[n];
-        for (var i = 0; i < n; i++)
-            tmp[(i + k) % n] = nums[i];
-
-        for (var i = 0; i < n; i++)
-            nums[i] = tmp[i];
+            for (var i = 0; i < n; i++)
+                nums[i] = tmp[i];
+        }
     }
 }
