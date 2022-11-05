@@ -12,9 +12,9 @@ public class Solution001
             r[i] = k == 0 ? nums[i] : nums[nums.Length - 1 - i];
         }
 
-        for (var i = nums.Length - 1; i > 0; i--)
+        for (var i = nums.Length - 1; i >= k; i--)
         {
-            r[i] = nums[i-k];
+            r[i] = nums[i - k];
         }
 
 
