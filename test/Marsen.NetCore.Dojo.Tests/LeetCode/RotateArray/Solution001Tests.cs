@@ -48,4 +48,12 @@ public class Solution001Tests
         _sol.Rotate(nums, 3);
         nums.Should().Equal(5, 6, 7, 1, 2, 3, 4);
     }
+
+    [Fact]
+    public void Rotate_minus_1_with_2()
+    {
+        var nums = new[] { -1 };
+        _sol.Rotate(nums, 2);
+        nums.Should().Equal(-1);
+    }
 }
