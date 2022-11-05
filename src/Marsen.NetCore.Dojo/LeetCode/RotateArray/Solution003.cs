@@ -4,7 +4,7 @@ internal class Solution003
 {
     public void Rotate(int[] nums, int k)
     {
-        if (nums != null && nums.Length != 0 && k != 0)
+        if (nums != null && nums.Length != 0)
         {
             var n = nums.Length;
             var tmp = new int[n];
