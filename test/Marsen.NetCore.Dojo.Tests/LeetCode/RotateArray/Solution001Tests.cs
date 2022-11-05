@@ -46,6 +46,6 @@ public class Solution001Tests
     {
         var nums = new[] { 1, 2, 3, 4, 5, 6, 7 };
         _sol.Rotate(nums, 3);
-        nums.Should().Equal(7, 6, 5, 1, 2, 3, 4);
+        nums.Should().Equal(5, 6, 7, 1, 2, 3, 4);
     }
 }
