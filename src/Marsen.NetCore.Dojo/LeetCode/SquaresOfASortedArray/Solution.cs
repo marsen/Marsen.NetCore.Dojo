@@ -26,7 +26,7 @@ public class Solution
         return result;
     }
 
-    private int Sqrt(int n)
+    private static int Sqrt(int n)
     {
         return n * n;
     }

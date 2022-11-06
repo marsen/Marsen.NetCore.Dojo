@@ -32,4 +32,12 @@ public class SquaresOfASortedArrayTests
             .Should()
             .Equal(new[] { 4, 9 });
     }
+
+    [Fact]
+    public void Get_4_9_WhenInput_m2_3_Array()
+    {
+        _sol.SortedSquares(new[] { -2, 3 })
+            .Should()
+            .Equal(new[] { 4, 9 });
+    }
 }
