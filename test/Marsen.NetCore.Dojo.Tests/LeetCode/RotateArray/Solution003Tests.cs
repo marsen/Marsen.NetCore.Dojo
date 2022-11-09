@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.LeetCode.RotateArray;
 using Xunit;
@@ -7,7 +8,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.RotateArray;
 
 public class Solution003Tests
 {
-    readonly Solution003 _sol = new();
+    private readonly Solution003 _sol = new();
 
     [Fact]
     public void Empty_Array()
@@ -58,6 +59,7 @@ public class Solution003Tests
     }
 
     [Fact]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
     public void Rotate_Empty_with_0()
     {
         int[] nums = null;
