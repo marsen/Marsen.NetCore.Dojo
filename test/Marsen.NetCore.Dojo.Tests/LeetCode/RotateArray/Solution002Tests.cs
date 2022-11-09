@@ -7,7 +7,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.RotateArray;
 
 public class Solution002Tests
 {
-    readonly Solution002 _sol = new();
+    private readonly Solution002 _sol = new();
 
     [Fact]
     public void Empty_Array()
