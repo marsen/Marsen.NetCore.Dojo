@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Marsen.NetCore.Dojo.LeetCode.MoveZeroes;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.MoveZeroes;
@@ -16,13 +16,5 @@ public class MoveZeroesTests
         var expected = new[] {0};
         // Assert
         Assert.Equal(expected, actual);
-    }
-}
-
-public class Solution
-{
-    public int[] MoveZeroes(int[] nums)
-    {
-        throw new System.NotImplementedException();
     }
 }
