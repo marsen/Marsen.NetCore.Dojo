@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
-using Castle.Core.Internal;
 using Marsen.NetCore.Dojo.Common;
 using Marsen.NetCore.Dojo.Kata.PickupService.Entity;
 using Marsen.NetCore.Dojo.Kata.PickupService.Entity.PickupService;
@@ -26,7 +25,7 @@ public class PickupService : IQueryStatus
     internal HttpClient HttpClient;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="PickupService" /> class.
+    /// Initializes a new instance of the <see cref="PickupService" /> class.
     /// </summary>
     public PickupService(IConfigService configService, IStoreSettingService storeSettingService, ILogger logger)
     {
@@ -43,14 +42,14 @@ public class PickupService : IQueryStatus
             var result = new List<ShippingOrderUpdateEntity>();
 
             var loginId = _storeSettingService.GetValue(storeId, "pickup.service", "loginId");
-            if (loginId.IsNullOrEmpty()) throw new DojoException("error login Id");
+            if (string.IsNullOrEmpty(loginId)) throw new DojoException("error login Id");
 
             HttpClient.DefaultRequestHeaders.Add("login_id", loginId);
 
             var auth = _storeSettingService.GetValue(storeId, "pickup.service", "auth");
             HttpClient.DefaultRequestHeaders.Add("authorization", auth);
             var httpContent = new StringContent(
-                JsonSerializer.Serialize(new { Type = DeliveryOrder, waybillNo }),
+                JsonSerializer.Serialize(new {Type = DeliveryOrder, waybillNo}),
                 Encoding.UTF8, "application/json");
             var url = _configService.GetAppSetting("pickup.service.url");
             var responseMessage = HttpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync().Result;
