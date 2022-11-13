@@ -36,4 +36,6 @@ public class SolutionTest
                 new() { 1, 2 }
             }, o => o.WithStrictOrdering());
     }
+
+
 }
