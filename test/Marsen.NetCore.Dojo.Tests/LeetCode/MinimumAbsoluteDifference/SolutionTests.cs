@@ -37,5 +37,14 @@ public class SolutionTest
             }, o => o.WithStrictOrdering());
     }
 
-
+    [Fact]
+    public void Array_3_2_1_Return_1_2_v_2_3()
+    {
+        _sol.MinimumAbsDifference(new[] { 3, 2, 1 })
+            .Should().BeEquivalentTo(new List<List<int>>
+            {
+                new() { 1, 2 },
+                new() { 2, 3 }
+            }, o => o.WithStrictOrdering());
+    }
 }
