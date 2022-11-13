@@ -24,7 +24,17 @@ public class SolutionTest
             .Should().BeEquivalentTo(new List<List<int>>
             {
                 new() { 1, 2 }
-            });
+            }, o => o.WithStrictOrdering());
+    }
+
+    [Fact]
+    public void Array_2_1_Return_1_2()
+    {
+        _sol.MinimumAbsDifference(new[] { 2, 1 })
+            .Should().BeEquivalentTo(new List<List<int>>
+            {
+                new() { 1, 2 }
+            }, o => o.WithStrictOrdering());
     }
 }
 
@@ -35,7 +45,7 @@ public class Solution
         var result = new List<IList<int>>();
         if (arr.Length > 0)
         {
-            return new List<IList<int>> { arr.ToList() };
+            result = new List<IList<int>> { arr.ToList() };
         }
 
         return result;
