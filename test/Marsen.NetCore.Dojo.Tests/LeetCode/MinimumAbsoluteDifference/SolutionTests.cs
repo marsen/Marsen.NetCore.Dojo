@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using FluentAssertions;
+using Marsen.NetCore.Dojo.LeetCode.MinimumAbsoluteDifference;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.MinimumAbsoluteDifference;
@@ -35,21 +35,5 @@ public class SolutionTest
             {
                 new() { 1, 2 }
             }, o => o.WithStrictOrdering());
-    }
-}
-
-public class Solution
-{
-    public IList<IList<int>> MinimumAbsDifference(int[] arr)
-    {
-        var result = new List<IList<int>>();
-        var list = arr.ToList();
-        list.Sort();
-        if (arr.Length > 0)
-        {
-            result = new List<IList<int>> { list };
-        }
-
-        return result;
     }
 }
