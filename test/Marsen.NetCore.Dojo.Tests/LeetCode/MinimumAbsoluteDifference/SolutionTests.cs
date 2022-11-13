@@ -47,4 +47,15 @@ public class SolutionTest
                 new() { 2, 3 }
             }, o => o.WithStrictOrdering());
     }
+
+    [Fact]
+    public void Array_9_8_7_1_Return_7_8_v_8_9()
+    {
+        _sol.MinimumAbsDifference(new[] { 9, 8, 7, 1 })
+            .Should().BeEquivalentTo(new List<List<int>>
+            {
+                new() { 7, 8 },
+                new() { 8, 9 }
+            }, o => o.WithStrictOrdering());
+    }
 }
