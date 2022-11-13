@@ -7,12 +7,13 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.MinimumAbsoluteDifference;
 
 public class SolutionTest
 {
+    readonly Solution _sol = new();
+
     [Fact]
     public void EmptyArrayReturnArray()
     {
-        var sol = new Solution();
-        IList<IList<int>> actual = sol.MinimumAbsDifference(Array.Empty<int>());
-        actual.Should().BeEquivalentTo(new List<List<int>>());
+        _sol.MinimumAbsDifference(Array.Empty<int>())
+            .Should().BeEquivalentTo(new List<List<int>>());
     }
 }
 
