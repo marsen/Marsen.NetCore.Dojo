@@ -7,13 +7,21 @@ public class Solution
     public int[] MoveZeroes(int[] nums)
     {
         var zeroCount = 0;
-        for (var i = 0; i < nums.Length - 1; i++)
+        var result = new int[nums.Length];
+        int j = 1;
+        for (int i = 0; i < nums.Length; i++)
         {
             if (nums[i] == 0)
             {
-                zeroCount++;
+                result[nums.Length - 1] = 0;
+            }
+            else
+            {
+                result[0] = 1;
             }
         }
+
+        return result;
 
         if (zeroCount > 0)
         {
