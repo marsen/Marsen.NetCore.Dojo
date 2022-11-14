@@ -28,4 +28,11 @@ public class MoveZeroesTests
         _sol.MoveZeroes(new[] {0, 1})
             .Should().Equal(new[] {1, 0});
     }
+
+    [Fact]
+    public void When_3_1_2_Get_3_1_2()
+    {
+        _sol.MoveZeroes(new[] {3, 1, 2})
+            .Should().Equal(new[] {3, 1, 2});
+    }
 }
