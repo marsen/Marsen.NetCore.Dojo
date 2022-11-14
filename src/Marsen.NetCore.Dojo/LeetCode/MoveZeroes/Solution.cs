@@ -4,6 +4,6 @@ public class Solution
 {
     public int[] MoveZeroes(int[] nums)
     {
-        return new[] {0};
+        return nums;
     }
 }
