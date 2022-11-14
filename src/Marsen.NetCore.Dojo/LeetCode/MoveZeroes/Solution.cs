@@ -18,6 +18,7 @@ public class Solution
             else
             {
                 result[k] = nums[i];
+                k++;
             }
         }
 
