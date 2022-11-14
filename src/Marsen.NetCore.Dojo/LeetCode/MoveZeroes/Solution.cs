@@ -6,28 +6,21 @@ public class Solution
 {
     public int[] MoveZeroes(int[] nums)
     {
-        var zeroCount = 0;
         var result = new int[nums.Length];
-        int j = 1;
+        int j = nums.Length - 1;
+        int k = 0;
         for (int i = 0; i < nums.Length; i++)
         {
             if (nums[i] == 0)
             {
-                result[nums.Length - 1] = 0;
+                result[j] = 0;
             }
             else
             {
-                result[0] = 1;
+                result[k] = nums[i];
             }
         }
 
         return result;
-
-        if (zeroCount > 0)
-        {
-            return nums.Reverse().ToArray();
-        }
-
-        return nums;
     }
 }
