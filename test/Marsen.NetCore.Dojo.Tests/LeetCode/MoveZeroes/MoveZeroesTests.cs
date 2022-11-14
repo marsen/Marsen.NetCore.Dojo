@@ -21,4 +21,11 @@ public class MoveZeroesTests
         _sol.MoveZeroes(new[] {1, 0})
             .Should().Equal(new[] {1, 0});
     }
+
+    [Fact]
+    public void When_0_1_Get_1_0()
+    {
+        _sol.MoveZeroes(new[] {0, 1})
+            .Should().Equal(new[] {1, 0});
+    }
 }
