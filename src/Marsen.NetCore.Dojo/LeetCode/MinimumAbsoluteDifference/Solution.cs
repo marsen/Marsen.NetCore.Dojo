@@ -19,9 +19,10 @@ public class Solution
             {
                 min = diff;
                 result = new List<IList<int>>();
+                result.Add(new List<int> {list[i], list[i + 1]});
             }
-
-            result.Add(new List<int> { list[i], list[i + 1] });
+            else if (diff == min)
+                result.Add(new List<int> {list[i], list[i + 1]});
         }
 
         return result;
