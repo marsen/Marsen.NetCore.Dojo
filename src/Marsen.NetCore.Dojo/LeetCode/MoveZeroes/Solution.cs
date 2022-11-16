@@ -6,25 +6,25 @@ public class Solution
 {
     public void MoveZeroes(int[] nums)
     {
-        var result = new int[nums.Length];
-        int j = nums.Length - 1;
-        int k = 0;
-        foreach (var t in nums)
+        var nonZeroIdx = 0;
+        var zeroIdx = 0;
+        for (int i = 0; i < nums.Length; i++)
         {
-            if (t == 0)
+            if (nums[i] == 0)
             {
-                result[j] = 0;
+                zeroIdx++;
             }
-            else
+
+            if (nums[i] != 0)
             {
-                result[k] = t;
-                k++;
+                nums[nonZeroIdx] = nums[i];
+                nonZeroIdx++;
             }
         }
 
-        for (var i = 0; i < result.Length; i++)
+        for (int i = 0; i < zeroIdx; i++)
         {
-            nums[i] = result[i];
+            nums[i + nonZeroIdx] = 0;
         }
     }
 }
