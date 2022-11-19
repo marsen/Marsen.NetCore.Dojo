@@ -6,9 +6,12 @@ public class Solution
     {
         var result = new int[2];
         int index1 = 1, index2 = 2;
-        if (numbers[index1 - 1] + numbers[index2 - 1] == target)
+        for (int i = 0; i < numbers.Length - 1; i++)
         {
-            result = new[] { index1, index2 };
+            if (numbers[index1 - 1] + numbers[index2 - 1 + i] == target)
+            {
+                result = new[] { index1, index2 + i };
+            }
         }
 
         return result;

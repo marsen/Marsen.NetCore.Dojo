@@ -13,4 +13,10 @@ public class TwoSum2Tests
     {
         _sol.TwoSum(new[] { 1, 2 }, 3).Should().Equal(1, 2);
     }
+
+    [Fact]
+    public void Given_0_1_3_target_3_return_1_3()
+    {
+        _sol.TwoSum(new[] { 0, 1, 3 }, 3).Should().Equal(1, 3);
+    }
 }
