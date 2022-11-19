@@ -5,11 +5,14 @@ public class Solution
     public int[] TwoSum(int[] numbers, int target)
     {
         var result = new int[2];
-        for (int i = 0; i < numbers.Length - 1; i++)
+        for (int k = 0; k < numbers.Length - 1; k++)
         {
-            if (numbers[1 - 1] + numbers[i + 1] == target)
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
-                result = new[] {1, i + 2};
+                if (numbers[k] + numbers[i + 1] == target)
+                {
+                    result = new[] {k + 1, i + 2};
+                }
             }
         }
 
