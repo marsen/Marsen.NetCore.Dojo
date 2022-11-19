@@ -7,11 +7,11 @@ public class Solution
         var result = new int[2];
         for (int k = 0; k < numbers.Length - 1; k++)
         {
-            for (int i = 0; i < numbers.Length - 1; i++)
+            for (int i = k + 1; i < numbers.Length; i++)
             {
-                if (numbers[k] + numbers[i + 1] == target)
+                if (numbers[k] + numbers[i] == target)
                 {
-                    result = new[] {k + 1, i + 2};
+                    result = new[] {k + 1, i + 1};
                 }
             }
         }
