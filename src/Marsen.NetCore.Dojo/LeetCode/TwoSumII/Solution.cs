@@ -10,9 +10,7 @@ public class Solution
         for (int k = 0; k < numbers.Length; k++)
         {
             var n = Array.BinarySearch(numbers, target - numbers[k]);
-            //for (int i = k + 1; i < numbers.Length; i++)
             {
-                //if (numbers[k] + numbers[i] == target)
                 if (n > -1)
                 {
                     return new[] {k + 1, n + 1};
