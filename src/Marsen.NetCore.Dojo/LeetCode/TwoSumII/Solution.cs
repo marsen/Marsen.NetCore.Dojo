@@ -10,11 +10,10 @@ public class Solution
         for (int k = 0; k < numbers.Length; k++)
         {
             var n = Array.BinarySearch(numbers, target - numbers[k]);
+            if (n > -1)
             {
-                if (n > -1)
-                {
-                    return new[] {k + 1, n + 1};
-                }
+                var y = n == k ? n + 2 : n + 1;
+                return new[] {k + 1, y};
             }
         }
 
