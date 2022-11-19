@@ -1,3 +1,5 @@
+using System;
+
 namespace Marsen.NetCore.Dojo.LeetCode.TwoSumII;
 
 public class Solution
@@ -5,13 +7,15 @@ public class Solution
     public int[] TwoSum(int[] numbers, int target)
     {
         var result = new int[2];
-        for (int k = 0; k < numbers.Length - 1; k++)
+        for (int k = 0; k < numbers.Length; k++)
         {
-            for (int i = k + 1; i < numbers.Length; i++)
+            var n = Array.BinarySearch(numbers, target - numbers[k]);
+            //for (int i = k + 1; i < numbers.Length; i++)
             {
-                if (numbers[k] + numbers[i] == target)
+                //if (numbers[k] + numbers[i] == target)
+                if (n > -1)
                 {
-                    result = new[] {k + 1, i + 1};
+                    return new[] {k + 1, n + 1};
                 }
             }
         }
