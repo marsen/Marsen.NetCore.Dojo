@@ -21,6 +21,12 @@ public class TwoSum2Tests
     }
 
     [Fact]
+    public void Given_0_1_3_4_target_7_return_3_4()
+    {
+        _sol.TwoSum(new[] { 0, 1, 3, 4 }, 7).Should().Equal(3, 4);
+    }
+
+    [Fact]
     public void Given_minus_1_0_target_minus_1_return_1_2()
     {
         _sol.TwoSum(new[] { -1, 0 }, -1).Should().Equal(1, 2);
