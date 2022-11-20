@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace Marsen.NetCore.Dojo.Kata.ReverseString.ReverseWordsInAString;
 
 public class Solution
@@ -11,13 +13,8 @@ public class Solution
 
     public string ReverseWords(string s)
     {
-        var l = s.Split(' ');
-        var r = "";
-        foreach (var s1 in l)
-        {
-            r += _reversal.Do(s1)+" ";
-        }
-
-        return r.Trim();
+        return s.Split(' ')
+            .Aggregate("", (current, str) => current + _reversal.Do(str) + " ")
+            .Trim();
     }
 }
