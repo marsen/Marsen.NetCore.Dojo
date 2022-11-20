@@ -1,4 +1,6 @@
-﻿namespace Marsen.NetCore.Dojo.Kata.ReverseString;
+﻿using System;
+
+namespace Marsen.NetCore.Dojo.Kata.ReverseString;
 
 public class HalfLoopReversal : IStringReversal
 {
@@ -6,15 +8,13 @@ public class HalfLoopReversal : IStringReversal
     {
         if (input is null) return null;
 
-        var cArray = input.ToCharArray();
-        for (var i = 0; i < cArray.Length / 2; i++)
+        var arr = input.ToCharArray();
+        var lastIdx = arr.Length - 1;
+        for (var i = 0; i < arr.Length / 2; i++)
         {
-            var temp = cArray[i];
-            var l = cArray.Length - 1 - i;
-            cArray[i] = cArray[l];
-            cArray[l] = temp;
+            (arr[i], arr[lastIdx - i]) = (arr[lastIdx - i], arr[i]);
         }
 
-        return new string(cArray);
+        return new string(arr);
     }
 }
