@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Marsen.NetCore.Dojo.LeetCode.LongestConsecutiveSequence;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.LongestConsecutiveSequence;
@@ -42,32 +43,11 @@ public class LongestConsecutiveSequenceTests
         _sol.LongestConsecutive(new[] { 4, 2, 1, 6, 5 })
             .Should().Be(3);
     }
-}
 
-public class Solution
-{
-    public int LongestConsecutive(int[] nums)
+    [Fact]
+    public void Given_Empty_Should_Get_0()
     {
-        var result = 1;
-        Array.Sort(nums);
-        var current = result;
-        for (var i = 0; i < nums.Length - 1; i++)
-        {
-            if (nums[i + 1] - nums[i] == 1)
-            {
-                current++;
-            }
-            else
-            {
-                current = 1;
-            }
-
-            if (current > result)
-            {
-                result = current;
-            }
-        }
-
-        return result;
+        _sol.LongestConsecutive(Array.Empty<int>())
+            .Should().Be(0);
     }
 }
