@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Marsen.NetCore.Dojo.LeetCode.LongestConsecutiveSequence;
 
@@ -6,9 +7,32 @@ public class Solution
 {
     public int LongestConsecutive(int[] nums)
     {
-        if (nums.Length == 0) return 0;
+        var hashSet = new HashSet<int>();
+        foreach (var num in nums)
+        {
+            if (!hashSet.Contains(num))
+                hashSet.Add(num);
+        }
 
-        var result = 1;
+        var max = 0;
+        foreach (var num in hashSet)
+        {
+            if (!hashSet.Contains(num + 1))
+            {
+                var length = 0;
+                var number = num;
+                while (hashSet.Contains(number))
+                {
+                    length++;
+                    number--;
+                }
+
+                max = Math.Max(max, length);
+            }
+        }
+
+        return max;
+        var result = nums.Length == 0 ? 0 : 1;
         var current = result;
         Array.Sort(nums);
         for (var i = 0; i < nums.Length - 1; i++)
