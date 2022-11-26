@@ -1,15 +1,24 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.LongestConsecutiveSequence;
 
 public class LongestConsecutiveSequenceTests
 {
+    private readonly Solution _sol = new();
+
     [Fact]
     public void Given_1_Should_Get_1()
     {
-        var sol = new Solution();
-        var actual = sol.LongestConsecutive(new[] { 1 });
-        Assert.Equal(1, actual);
+        _sol.LongestConsecutive(new[] { 1 })
+            .Should().Be(1);
+    }
+
+    [Fact]
+    public void Given_1_2_Should_Get_2()
+    {
+        _sol.LongestConsecutive(new[] { 1, 2 })
+            .Should().Be(2);
     }
 }
 
@@ -17,6 +26,6 @@ public class Solution
 {
     public int LongestConsecutive(int[] nums)
     {
-        return 1;
+        return nums.Length;
     }
 }
