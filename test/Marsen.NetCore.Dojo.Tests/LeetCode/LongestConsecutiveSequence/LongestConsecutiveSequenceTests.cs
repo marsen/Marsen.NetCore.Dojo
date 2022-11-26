@@ -6,7 +6,7 @@ namespace Marsen.NetCore.Dojo.Tests.LeetCode.LongestConsecutiveSequence;
 public class LongestConsecutiveSequenceTests
 {
     [Fact]
-    public void METHOD()
+    public void Given_1_Should_Get_1()
     {
         var sol = new Solution();
         var actual = sol.LongestConsecutive(new[] { 1 });
@@ -19,5 +19,6 @@ public class Solution
     public int LongestConsecutive(int[] nums)
     {
         throw new NotImplementedException();
+        
     }
 }
