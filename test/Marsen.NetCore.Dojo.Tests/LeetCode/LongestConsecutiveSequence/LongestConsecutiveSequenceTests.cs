@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.LongestConsecutiveSequence;
@@ -18,7 +17,6 @@ public class Solution
 {
     public int LongestConsecutive(int[] nums)
     {
-        throw new NotImplementedException();
-        
+        return 1;
     }
 }
