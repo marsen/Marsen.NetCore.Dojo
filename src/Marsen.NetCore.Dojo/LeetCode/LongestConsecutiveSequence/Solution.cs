@@ -10,11 +10,14 @@ public class Solution
         {
             return 0;
         }
+
         var result = 1;
         Array.Sort(nums);
         var current = result;
         for (var i = 0; i < nums.Length - 1; i++)
         {
+            if (nums[i + 1] - nums[i] == 0)
+                continue;
             if (nums[i + 1] - nums[i] == 1)
             {
                 current++;
