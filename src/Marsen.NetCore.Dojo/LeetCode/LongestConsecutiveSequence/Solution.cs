@@ -6,30 +6,24 @@ public class Solution
 {
     public int LongestConsecutive(int[] nums)
     {
-        if (nums.Length == 0)
-        {
-            return 0;
-        }
+        if (nums.Length == 0) return 0;
 
         var result = 1;
-        Array.Sort(nums);
         var current = result;
+        Array.Sort(nums);
         for (var i = 0; i < nums.Length - 1; i++)
         {
-            if (nums[i + 1] - nums[i] == 0)
-                continue;
-            if (nums[i + 1] - nums[i] == 1)
+            switch (nums[i + 1] - nums[i])
             {
-                current++;
-            }
-            else
-            {
-                current = 1;
-            }
-
-            if (current > result)
-            {
-                result = current;
+                case 0:
+                    continue;
+                case 1:
+                    current++;
+                    if (current > result) result = current;
+                    break;
+                default:
+                    current = 1;
+                    break;
             }
         }
 
