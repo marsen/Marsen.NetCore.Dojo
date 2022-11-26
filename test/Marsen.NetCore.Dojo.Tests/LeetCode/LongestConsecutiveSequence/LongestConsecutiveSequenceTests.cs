@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using Xunit;
 
@@ -27,6 +28,20 @@ public class LongestConsecutiveSequenceTests
         _sol.LongestConsecutive(new[] { 1, 2, 4 })
             .Should().Be(2);
     }
+
+    [Fact]
+    public void Given_1_2_4_5_6_Should_Get_3()
+    {
+        _sol.LongestConsecutive(new[] { 1, 2, 4, 5, 6 })
+            .Should().Be(3);
+    }
+
+    [Fact]
+    public void Given_4_2_1_6_5_Should_Get_3()
+    {
+        _sol.LongestConsecutive(new[] { 4, 2, 1, 6, 5 })
+            .Should().Be(3);
+    }
 }
 
 public class Solution
@@ -34,10 +49,23 @@ public class Solution
     public int LongestConsecutive(int[] nums)
     {
         var result = 1;
-        for (int i = 0; i < nums.Length -1 ; i++)
+        Array.Sort(nums);
+        var current = result;
+        for (var i = 0; i < nums.Length - 1; i++)
         {
             if (nums[i + 1] - nums[i] == 1)
-                result++;
+            {
+                current++;
+            }
+            else
+            {
+                current = 1;
+            }
+
+            if (current > result)
+            {
+                result = current;
+            }
         }
 
         return result;
