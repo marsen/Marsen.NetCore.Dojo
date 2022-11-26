@@ -26,6 +26,12 @@ public class Solution
 {
     public int LongestConsecutive(int[] nums)
     {
-        return nums.Length;
+        var result = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            result++;
+        }
+
+        return result;
     }
 }
