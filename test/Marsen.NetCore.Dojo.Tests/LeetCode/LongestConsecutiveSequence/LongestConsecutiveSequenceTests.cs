@@ -78,4 +78,11 @@ public class LongestConsecutiveSequenceTests
         _sol.LongestConsecutive(new[] { 1, 2, 4, 5, 7 })
             .Should().Be(2);
     }
+
+    [Fact]
+    public void Given_0_1_1000000000_m1000000000_2_3_Should_Get_4()
+    {
+        _sol.LongestConsecutive(new[] { 0, 1, 1000000000, -1000000000, 2, 3 })
+            .Should().Be(4);
+    }
 }
