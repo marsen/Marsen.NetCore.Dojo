@@ -64,4 +64,18 @@ public class LongestConsecutiveSequenceTests
         _sol.LongestConsecutive(new[] { 1, 2, 2, 3, 4 })
             .Should().Be(4);
     }
+
+    [Fact]
+    public void Given_m3_m2_m1_0_1_2_3_Should_Get_7()
+    {
+        _sol.LongestConsecutive(new[] { -3, -2, -1, 0, 1, 2, 3 })
+            .Should().Be(7);
+    }
+
+    [Fact]
+    public void Given_1_2_4_5_7_Should_Get_2()
+    {
+        _sol.LongestConsecutive(new[] { 1, 2, 4, 5, 7 })
+            .Should().Be(2);
+    }
 }
