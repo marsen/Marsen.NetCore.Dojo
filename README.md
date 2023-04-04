@@ -49,8 +49,8 @@ For KATA
 
 ### 20220203
 
-- Update .Net Core 6.0
-- Update Stryker
-- Fix CI problem
+- [x] Update .Net Core 6.0
+- [x] Update Stryker
+- [x] Fix CI problem
 
 (fin)
