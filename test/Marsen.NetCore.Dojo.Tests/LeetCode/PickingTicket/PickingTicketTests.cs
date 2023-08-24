@@ -52,4 +52,13 @@ public class PickingTicketTests
         // Act、Assert
         _target.MaxTickets(ary).Should().Be(2);
     }
+    
+    [Fact]
+    public void Two_Subsequence_Array_0_1_3_4_Should_2()
+    {
+        // Arrange
+        var ary = new[] { 0, 1, 3, 4 };
+        // Act、Assert
+        _target.MaxTickets(ary).Should().Be(2);
+    }
 }
