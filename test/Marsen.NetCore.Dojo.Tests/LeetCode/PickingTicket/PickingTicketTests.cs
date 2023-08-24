@@ -1,5 +1,7 @@
+using System;
 using FluentAssertions;
 using Marsen.NetCore.Dojo.LeetCode.PickingTicket;
+using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.PickingTicket;
@@ -88,4 +90,14 @@ public class PickingTicketTests
         // Act、Assert
         _target.MaxTickets(ary).Should().Be(3);
     }
+    
+    [Fact]
+    public void Array_Empty_Should_Throw_Exception()
+    {
+        // Arrange
+        var ary = Array.Empty<int>();
+        // Act、Assert
+        _target.MaxTickets(ary).Should().Throws(new PickingTicketException());
+    }
 }
+
