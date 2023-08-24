@@ -30,7 +30,6 @@
 
     <ItemGroup>
         <Folder Include="Books\TalkAboutDesignPattern\BridgePattern" />
-        <Folder Include="LeetCode\PickingTicket\" />
     </ItemGroup>
 
 </Project>
