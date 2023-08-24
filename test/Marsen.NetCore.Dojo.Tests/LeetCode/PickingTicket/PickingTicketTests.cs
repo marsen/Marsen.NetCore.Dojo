@@ -1,27 +1,21 @@
+using FluentAssertions;
+using Marsen.NetCore.Dojo.LeetCode.PickingTicket;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.PickingTicket;
 
 public class PickingTicketTests
 {
+    private readonly Solution _target = new();
+
     [Fact]
     public void MethodName_WithWhat_ShouldDoWhat()
     {
         // Arrange
-        var target = new Solution();
-        var ary = new int[] { 1 };
+        var ary = new[] { 1 };
         // Act
-        var result = target.MaxTickets(ary);
-
+        var result = _target.MaxTickets(ary);
         // Assert
-        Assert.Equal(result, 1);
-    }
-}
-
-public class Solution
-{
-    public int MaxTickets(int[] ary)
-    {
-        return 1;
+        result.Should().Be(1);
     }
 }
