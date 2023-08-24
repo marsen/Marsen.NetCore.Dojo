@@ -11,15 +11,13 @@ public class Solution
 
         for (var i = 1; i < ary.Length; i++)
         {
-            if (ary[i] - ary[i - 1] <= 1)
-            {
-                current++;
-            }
-            else
+            if (ary[i] - ary[i - 1] > 1)
             {
                 result = current;
                 current = 1;
             }
+            else
+                current++;
         }
 
         return Math.Max(current, result);
