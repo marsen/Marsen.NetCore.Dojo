@@ -6,6 +6,10 @@ public class Solution
 {
     public int MaxTickets(int[] ary)
     {
+        if (ary.Length==0)
+        {
+            throw new PickingTicketException();
+        }
         Array.Sort(ary);
         int current = 1, result = 1;
 
