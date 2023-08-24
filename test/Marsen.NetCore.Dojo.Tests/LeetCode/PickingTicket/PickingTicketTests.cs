@@ -43,4 +43,13 @@ public class PickingTicketTests
         // Act、Assert
         _target.MaxTickets(ary).Should().Be(2);
     }
+
+    [Fact]
+    public void Sort_Array_3_0_1_Should_2()
+    {
+        // Arrange
+        var ary = new[] { 3, 0, 1 };
+        // Act、Assert
+        _target.MaxTickets(ary).Should().Be(2);
+    }
 }
