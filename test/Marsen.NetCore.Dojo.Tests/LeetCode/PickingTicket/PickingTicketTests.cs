@@ -9,7 +9,7 @@ public class PickingTicketTests
     private readonly Solution _target = new();
 
     [Fact]
-    public void MethodName_WithWhat_ShouldDoWhat()
+    public void Should_Return_An_Integer_Array_1_Return_1()
     {
         // Arrange
         var ary = new[] { 1 };
