@@ -52,7 +52,7 @@ public class PickingTicketTests
         // Act、Assert
         _target.MaxTickets(ary).Should().Be(2);
     }
-    
+
     [Fact]
     public void Two_Subsequence_Array_0_1_3_4_Should_2()
     {
@@ -60,5 +60,23 @@ public class PickingTicketTests
         var ary = new[] { 0, 1, 3, 4 };
         // Act、Assert
         _target.MaxTickets(ary).Should().Be(2);
+    }
+
+    [Fact(Skip = "Just One More Test")]
+    public void Array_0_1_2_4_4_Should_3()
+    {
+        // Arrange
+        var ary = new[] { 0, 1, 2, 4, 4 };
+        // Act、Assert
+        _target.MaxTickets(ary).Should().Be(3);
+    }
+
+    [Fact(DisplayName = "PM Sample")]
+    public void Array_8_5_4_8_4_Should_3()
+    {
+        // Arrange
+        var ary = new[] { 8, 5, 4, 8, 4 };
+        // Act、Assert
+        _target.MaxTickets(ary).Should().Be(3);
     }
 }

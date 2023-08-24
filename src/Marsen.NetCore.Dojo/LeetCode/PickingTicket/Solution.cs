@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace Marsen.NetCore.Dojo.LeetCode.PickingTicket;
@@ -6,13 +7,13 @@ public class Solution
 {
     public int MaxTickets(int[] ary)
     {
-        var ary2 = ary.OrderBy(x => x).ToArray();
+        var tickets = SortArray(ary);
         var current = 1;
         var result = 1;
 
-        for (var i = 1; i < ary2.Length; i++)
+        for (var i = 1; i < tickets.Length; i++)
         {
-            if (ary2[i] - ary2[i - 1] <= 1)
+            if (tickets[i] - tickets[i - 1] <= 1)
             {
                 current++;
             }
@@ -22,12 +23,11 @@ public class Solution
                 current = 1;
             }
         }
+        return Math.Max(current,result);
+    }
 
-        if (current > result)
-        {
-            result = current;
-        }
-
-        return result;
+    private static int[] SortArray(int[] ary)
+    {
+        return ary.OrderBy(x => x).ToArray();
     }
 }
