@@ -14,8 +14,7 @@ public class PickingTicketTests
         // Arrange
         var ary = new[] { 1 };
         // Act
-        var result = _target.MaxTickets(ary);
         // Assert
-        result.Should().Be(1);
+        _target.MaxTickets(ary).Should().Be(1);
     }
 }
