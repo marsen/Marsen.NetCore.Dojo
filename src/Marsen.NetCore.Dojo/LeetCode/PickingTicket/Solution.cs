@@ -5,6 +5,6 @@ public class Solution
 {
     public int MaxTickets(int[] ary)
     {
-        return 1;
+        return ary.Length;
     }
 }
