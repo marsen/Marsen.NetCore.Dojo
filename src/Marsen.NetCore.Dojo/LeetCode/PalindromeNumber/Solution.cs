@@ -1,4 +1,4 @@
-namespace Marsen.NetCore.Dojo.Tests.LeetCode.PalindromeNumber;
+namespace Marsen.NetCore.Dojo.LeetCode.PalindromeNumber;
 
 public class Solution
 {

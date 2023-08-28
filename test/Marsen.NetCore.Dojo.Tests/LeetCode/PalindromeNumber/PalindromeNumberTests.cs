@@ -1,3 +1,4 @@
+using Marsen.NetCore.Dojo.LeetCode.PalindromeNumber;
 using Xunit;
 
 namespace Marsen.NetCore.Dojo.Tests.LeetCode.PalindromeNumber;
