@@ -73,7 +73,7 @@ public void Case1_Just_Run()
 
 這裡依造我以前的開發習慣，直接開幹，  
 把 HttpClient new 出來，刪除 Todo Comment  
-Commited 然後發 Pull Request
+Committed 然後發 Pull Request
 
 ```csharp
 -            //// TODO 1.建立 HttpClient
@@ -83,7 +83,7 @@ Commited 然後發 Pull Request
 ### Do Todo 建立 auth
 
 通常在串接第三方服務的過程中，  
-第三方會提供沙盒(SandBob)作開發人員測試使用  
+第三方會提供沙盒(SandBox)作開發人員測試使用  
 這裡我加了一點遮罩，但實務上如果是沙盒的 auth 資訊  
 我可能會直接 Commit 進去(壞味道)。
 

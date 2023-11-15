@@ -79,7 +79,7 @@ Production Code 就單純很多了
     }
 ```
 
-而 Produciton Code 很單純的加上 Logger 並調整建構子
+而 Production Code 很單純的加上 Logger 並調整建構子
 
 ```csharp
 -   public PickupService(IConfigService configService, IStoreSettingService storeSettingService)        
