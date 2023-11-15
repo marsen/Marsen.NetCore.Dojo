@@ -53,7 +53,7 @@ Step 2 . 隨著過程把 TODO 拆的更細
 ### Case 1 
 
 我目前對測試案例有任何的想法(這是個壞味道)， 
-但是我打算直接呼叫我的 Prodction Code 
+但是我打算直接呼叫我的 Production Code 
 
 ```csharp
 [Fact]
@@ -67,7 +67,7 @@ public void Case1_Just_Run()
 ```
 
 因為沒有想法，所以沒有 `Assert`
-但是我得到一個小工具可以隨時呼叫我的 Prodcution Code
+但是我得到一個小工具可以隨時呼叫我的 Production Code
 
 ### Do Todo 建立 HttpClient
 
@@ -338,7 +338,7 @@ Production Code (部份)
 
 這個時候基本的功能都好了，來收拾一下剩下的 TODO 項目吧  
 主要都是取得設定值的功能，實務上這些設定值可能來自不同的服務  
-Database、Config Service 或 Settring API 等…  
+Database、Config Service 或 Setting API 等…  
 我在這裡先簡化成 `IStoreSettingService` 取值就好。
 
 ```csharp
@@ -351,7 +351,7 @@ Database、Config Service 或 Settring API 等…
 
 同時測試代碼也要修改，  
 注意這裡的 testId 其實是 Pickup Service 提供給我們的測試 Id  
-在 Production 你需要整合進你的 Database、Config Service 或 Settring API 裡  
+在 Production 你需要整合進你的 Database、Config Service 或 Setting API 裡  
 在整合測試可以直接 mock 它
 
 
