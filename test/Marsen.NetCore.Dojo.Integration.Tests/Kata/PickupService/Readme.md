@@ -1,4 +1,4 @@
-﻿# 
+﻿#  Marsen way TDD Kata - PickupService I
 ## 前情提要
 
 作完金流作物流，這次在開發的過程中首次全程用 TDD 進行，  
@@ -52,7 +52,7 @@ Step 2 . 隨著過程把 TODO 拆的更細
 
 ### Case 1 
 
-我目前對測試案例有任何的想法(這是個壞味道)， 
+我目前對測試案例沒有任何的想法(這是個壞味道)， 
 但是我打算直接呼叫我的 Production Code 
 
 ```csharp
