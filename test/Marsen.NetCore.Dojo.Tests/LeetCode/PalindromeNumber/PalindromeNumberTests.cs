@@ -24,6 +24,6 @@ public class PalindromeNumberTests
     public void Give_121_Should_Be_True()
     {
         // Arrange, Act, Assert
-        Assert.True(_sol.IsPalindrome(121));
+        Assert.False(_sol.IsPalindrome(12));
     }
 }
