@@ -4,7 +4,12 @@ public class Solution
 {
     public bool IsPalindrome(int i)
     {
-        if (i > 0 && i / 10 == 0)
+        if (i < 0)
+        {
+            return false;
+        }
+
+        if (i / 10 == 0)
         {
             return true;
         }
