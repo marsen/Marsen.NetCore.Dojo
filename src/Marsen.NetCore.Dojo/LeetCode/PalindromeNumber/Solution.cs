@@ -4,6 +4,11 @@ public class Solution
 {
     public bool IsPalindrome(int i)
     {
+        if (i / 10 > 0)
+        {
+            return false;
+        }
+
         if (i > 0)
         {
             return true;
