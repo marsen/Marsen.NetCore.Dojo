@@ -1,3 +1,5 @@
+using System;
+
 namespace Marsen.NetCore.Dojo.LeetCode.PalindromeNumber;
 
 public class Solution
@@ -13,6 +15,10 @@ public class Solution
         for (var temp = origin; temp != 0; temp /= 10)
         {
             reversed = reversed * 10 + temp % 10;
+            if (reversed<0)
+            {
+                throw new OverflowException();
+            }
         }
 
         return origin == reversed;
