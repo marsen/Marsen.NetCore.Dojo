@@ -18,17 +18,5 @@ public class Solution
         }
         reverse += temp;
         return i == reverse;
-
-        if (i > 99)
-        {
-            return true;
-        }
-
-        if (i / 10 == 0) // 0~9
-        {
-            return true;
-        }
-
-        return (i / 10 == i % 10); // 10~99
     }
 }
