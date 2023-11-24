@@ -16,14 +16,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         private Dojo.Kata.PickupService.Services.PickupService _target;
         private const long TestStoreId = 1;
         private readonly List<string> _testWaybillNo = new() {"TEST2002181800010"};
-        private const string UrlMockDone = "http://www.mocky.io/v2/5e4e56832f0000f55116a60b";
-        private const string UrlMockShipping = "http://www.mocky.io/v2/5e5284962d0000f622357b3f";
-        private const string UrlMockFail = "http://www.mocky.io/v2/5e5290812d0000261d357b5c";
-        private const string UrlMockExpiry = "http://www.mocky.io/v2/5e5292462d00004c00357b5e";
-        private const string UrlMockArrived = "http://www.mocky.io/v2/5e5293ff2d0000dd36357b61";
-        private const string UrlMockResultError = "http://www.mocky.io/v2/5e5bb89b3000004c00f9f29f";
-        private const string UrlMockContentError = "http://www.mocky.io/v2/5e5c83cd3200006d0043c197";
-        private const string UrlMockException = "https://www.mocky.io/v2/5e5cad1b320000530043c260";
+        private const string MockDone = "https://demo3287250.mockable.io/DONE";
+        private const string MockShipping = "https://demo3287250.mockable.io/Shipping";
+        private const string MockFail = "https://demo3287250.mockable.io/FAIL";
+        private const string MockExpiry = "https://demo3287250.mockable.io/Expiry";
+        private const string MockArrived = "https://demo3287250.mockable.io/Arrived";
+        private const string MockResultError = "https://demo3287250.mockable.io/Error";
+        private const string MockContentError = "https://demo3287250.mockable.io/ContentError";
+        private const string MockException = "https://demo3287250.mockable.io/Exception";
         private readonly IStoreSettingService _storeSettingService;
         private readonly ILogger _logger;
 
@@ -40,14 +40,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         [Fact]
         public void Case1_Query_Done_waybillNo()
         {
-            var actual = QueryWaybillNoWith(UrlMockDone);
+            var actual = QueryWaybillNoWith(MockDone);
             actual.Should().Be(Status.Finish);
         }
 
         [Fact]
         public void Case2_Query_Shipping_waybillNo()
         {
-            var actual = QueryWaybillNoWith(UrlMockShipping);
+            var actual = QueryWaybillNoWith(MockShipping);
             actual.Should().Be(Status.Processing);
         }
 
@@ -55,7 +55,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         [Fact]
         public void Case3_Query_FAIL_waybillNo()
         {
-            var actual = QueryWaybillNoWith(UrlMockFail);
+            var actual = QueryWaybillNoWith(MockFail);
             actual.Should().Be(Status.Abnormal);
         }
 
@@ -63,14 +63,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         [Fact]
         public void Case4_Query_Expiry_waybillNo()
         {
-            var actual = QueryWaybillNoWith(UrlMockExpiry);
+            var actual = QueryWaybillNoWith(MockExpiry);
             actual.Should().Be(Status.Abnormal);
         }
 
         [Fact]
         public void Case5_Query_Arrived_waybillNo()
         {
-            var actual = QueryWaybillNoWith(UrlMockArrived);
+            var actual = QueryWaybillNoWith(MockArrived);
             actual.Should().Be(Status.Arrived);
         }
 
@@ -78,17 +78,17 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         [Fact]
         public void Case6_Query_Error_Result()
         {
-            GetPickupServiceWith(UrlMockResultError);
+            GetPickupServiceWith(MockResultError);
             Action act = () => _target.GetUpdateStatus(TestStoreId, _testWaybillNo);
             act.Should().Throw<Exception>();
-            _logger.ReceivedWithAnyArgs().LogError(default(string));
+            _logger.ReceivedWithAnyArgs().LogError(default);
         }
 
 
         [Fact]
         public void Case7_Query_Error_Content()
         {
-            GetPickupServiceWith(UrlMockContentError);
+            GetPickupServiceWith(MockContentError);
             var actual = _target.GetUpdateStatus(TestStoreId, _testWaybillNo);
             actual.Should().BeEmpty();
         }
@@ -96,10 +96,10 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         [Fact]
         public void Case8_Query_Exception()
         {
-            GetPickupServiceWith(UrlMockException);
+            GetPickupServiceWith(MockException);
             Action act = () => _target.GetUpdateStatus(TestStoreId, _testWaybillNo);
             act.Should().Throw<Exception>();
-            _logger.ReceivedWithAnyArgs().LogError(default(string));
+            _logger.ReceivedWithAnyArgs().LogError(default);
         }
 
         private void GetPickupServiceWith(string url)
@@ -115,7 +115,7 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         private Status? QueryWaybillNoWith(string url)
         {
             GetPickupServiceWith(url);
-            return _target.GetUpdateStatus(TestStoreId, _testWaybillNo).FirstOrDefault().Status;
+            return _target.GetUpdateStatus(TestStoreId, _testWaybillNo).FirstOrDefault()?.Status;
         }
     }
 }

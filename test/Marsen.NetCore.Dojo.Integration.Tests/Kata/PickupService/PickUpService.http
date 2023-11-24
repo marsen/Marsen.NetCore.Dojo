@@ -1,6 +1,6 @@
-@Prod https://pickup/service/
-@Sandbox http://sandbox/service/
-@host = @Sandbox
+# @Prod https://pickup/service/
+# @Sandbox http://sandbox/service/
+@host = http://sandbox/service/
 
 @loginId = apitest
 @auth = 
