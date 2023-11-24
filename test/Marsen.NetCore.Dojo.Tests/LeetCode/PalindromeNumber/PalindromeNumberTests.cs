@@ -36,9 +36,16 @@ public class PalindromeNumberTests
     }
 
     [Fact]
-    public void Give_123_Should_Be_True()
+    public void Give_121_Should_Be_True()
     {
         // Arrange, Act, Assert
         Assert.True(_sol.IsPalindrome(121));
+    }
+
+    [Fact]
+    public void Give_123_Should_Be_False()
+    {
+        // Arrange, Act, Assert
+        Assert.False(_sol.IsPalindrome(123));
     }
 }

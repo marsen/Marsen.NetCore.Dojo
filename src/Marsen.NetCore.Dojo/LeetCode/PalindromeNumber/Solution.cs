@@ -9,6 +9,16 @@ public class Solution
             return false;
         }
 
+        var temp = i;
+        var reverse = 0;
+        while (temp / 10 != 0)
+        {
+            reverse = reverse * 10 + temp % 10 * 10;
+            temp /= 10;
+        }
+        reverse += temp;
+        return i == reverse;
+
         if (i > 99)
         {
             return true;
