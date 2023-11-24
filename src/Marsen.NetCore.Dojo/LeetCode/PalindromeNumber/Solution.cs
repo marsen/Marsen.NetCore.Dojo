@@ -9,11 +9,16 @@ public class Solution
             return false;
         }
 
-        if (i / 10 == 0)
+        if (i > 99)
         {
             return true;
         }
 
-        return (i / 10 == i % 10);
+        if (i / 10 == 0) // 0~9
+        {
+            return true;
+        }
+
+        return (i / 10 == i % 10); // 10~99
     }
 }
