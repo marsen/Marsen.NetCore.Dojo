@@ -1,3 +1,4 @@
+using System;
 using Marsen.NetCore.Dojo.LeetCode.PalindromeNumber;
 using Xunit;
 
@@ -47,5 +48,11 @@ public class PalindromeNumberTests
     {
         // Arrange, Act, Assert
         Assert.False(_sol.IsPalindrome(123));
+    }
+
+    [Fact]
+    public void Give_MaxInt_Should_Throw_OverflowException()
+    {
+        Assert.Throws<OverflowException>(() => _sol.IsPalindrome(int.MaxValue));
     }
 }
