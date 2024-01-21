@@ -22,4 +22,7 @@ jobs:
     - name: Dotnet Stryker
       env:
         STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-      run: dotnet stryker -s Marsen.NetCore.Dojo.Integration.Test.sln --dashboard-api-key=$STRYKER_DASHBOARD_API_KEY
+      run: |
+        echo "DOTNET_ROOT=/opt/hostedtoolcache/dncs/8.0.101/x64" >> $GITHUB_ENV
+        echo "/opt/hostedtoolcache/dncs/8.0.101/x64" >> $GITHUB_PATH
+        dotnet stryker -s Marsen.NetCore.Dojo.Integration.Test.sln --dashboard-api-key=$STRYKER_DASHBOARD_API_KEY
