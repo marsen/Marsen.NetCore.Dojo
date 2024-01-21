@@ -22,6 +22,7 @@ jobs:
     - name: Run Sonarqube
       run:  |
           java -version  # Verify Java version
+          sonar-scanner \
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo 
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src 
