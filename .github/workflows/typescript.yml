@@ -20,7 +20,8 @@ jobs:
     - name: Setup Sonarqube
       uses: warchant/setup-sonar-scanner@v3      
     - name: Run Sonarqube
-      run:  sonar-scanner
+      run:  |
+          java -version  # Verify Java version
           -Dsonar.organization=marsen-github 
           -Dsonar.projectKey=Marsen.TypeScript.Dojo 
           -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src 
