@@ -23,11 +23,11 @@ jobs:
       run:  |
           java -version  # Verify Java version
           sonar-scanner \
-          -Dsonar.organization=marsen-github 
-          -Dsonar.projectKey=Marsen.TypeScript.Dojo 
-          -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src 
-          -Dsonar.host.url=https://sonarcloud.io 
-          -Dsonar.login=$SONAR_TS_LOGIN   
+          -Dsonar.organization=marsen-github \
+          -Dsonar.projectKey=Marsen.TypeScript.Dojo \
+          -Dsonar.sources=./src/Marsen.TypeScript.Dojo/src \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=$SONAR_TS_LOGIN  \
           -Dsonar.typescript.lcov.reportPaths=src/Marsen.TypeScript.Dojo/coverage/lcov.info 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}           
