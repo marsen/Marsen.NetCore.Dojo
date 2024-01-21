@@ -12,17 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4.1.1
+    - uses: actions/checkout@v2
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1.5.0
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 8.0.x
     - name: Restore tool
-      run: dotnet tool restore
-    - name: Dotnet Stryker
-      env:
-        STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-      run: |
-        echo "DOTNET_ROOT=/opt/hostedtoolcache/dncs/8.0.101/x64" >> $GITHUB_ENV
-        echo "/opt/hostedtoolcache/dncs/8.0.101/x64" >> $GITHUB_PATH
-        dotnet stryker -s Marsen.NetCore.Dojo.Integration.Test.sln --dashboard-api-key=$STRYKER_DASHBOARD_API_KEY
+      run: dotnet tool restore      
+    - name: Dotnet Stryker      
+      run: dotnet stryker -s Marsen.NetCore.Dojo.Integration.Test.sln --dashboard-api-key=$STRYKER_DASHBOARD_API_KEY
+    env:
+      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}  
