@@ -18,7 +18,7 @@ jobs:
     - name: Run Cover
       run: npm run cover --prefix src/Marsen.TypeScript.Dojo        
     - name: Setup Sonarqube
-      uses: warchant/setup-sonar-scanner@v3      
+      uses: warchant/setup-sonar-scanner@v7      
     - name: Run Sonarqube
       run:  |
           java -version  # Verify Java version
