@@ -1,0 +1,3 @@
+[submodule "src/Marsen.TypeScript.Dojo"]
+	path = src/Marsen.TypeScript.Dojo
+	url = https://github.com/marsen/Marsen.TypeScript.Dojo.git
