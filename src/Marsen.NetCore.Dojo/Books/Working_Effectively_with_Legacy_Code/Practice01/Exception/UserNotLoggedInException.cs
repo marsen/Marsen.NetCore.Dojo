@@ -19,6 +19,7 @@ public class UserNotLoggedInException : System.Exception
     {
     }
 
+    [Obsolete("Obsolete:這個方法未被使用可以刪除，但是來自書中範例故保留")]
     protected UserNotLoggedInException(SerializationInfo info, StreamingContext context) : base(info,
         context)
     {
