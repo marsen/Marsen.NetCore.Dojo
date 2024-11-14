@@ -64,12 +64,12 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Classes.GOOS
     {
         protected InitializationTest()
         {
-            GreetingServer.main();
+            GreetingServer.Main();
         }
 
         public void Dispose()
         {
-            GreetingServer.stop();
+            GreetingServer.Stop();
             SystemDateTime.Reset();
         }
     }

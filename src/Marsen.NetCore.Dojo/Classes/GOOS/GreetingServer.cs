@@ -9,7 +9,7 @@ public static class GreetingServer
 {
     private static HttpListener _httpListener;
 
-    public static void main(params string[] args)
+    public static void Main(params string[] args)
     {
         _httpListener = new HttpListener();
         _httpListener.Prefixes.Add(SampleUri);
@@ -33,7 +33,7 @@ public static class GreetingServer
         }
     }
 
-    public static void stop()
+    public static void Stop()
     {
         _httpListener.Stop();
     }

@@ -16,7 +16,7 @@ public class Movie
         SetPriceCode(moveType);
     }
 
-    public void SetPriceCode(MoveType arg)
+    private void SetPriceCode(MoveType arg)
     {
         switch (arg)
         {
