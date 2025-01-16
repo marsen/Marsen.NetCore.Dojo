@@ -17,14 +17,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         private const long TestStoreId = 1;
         // your can get mock response from readme3.md
         private readonly List<string> _testWaybillNo = ["TEST2002181800010"];
-        private const string MockDone = "https://run.mocky.io/v3/78b1a1a1-73df-438f-bdc2-a9dc44eb831d";
-        private const string MockShipping = "https://run.mocky.io/v3/9b45256d-9a97-4c1b-a47d-02d48936f430";
-        private const string MockFail = "https://run.mocky.io/v3/08f3a00d-422c-4857-8013-461aa83e6fe5";
-        private const string MockExpiry = "https://run.mocky.io/v3/eebd3428-ba81-446b-aa12-50b0911025c7";
-        private const string MockArrived = "https://run.mocky.io/v3/d573611f-f313-463f-b1f9-962ff997de6c";
-        private const string MockResultError = "https://run.mocky.io/v3/e5d70d4a-952e-44cd-872a-83d67df0f27c";
-        private const string MockContentError = "https://run.mocky.io/v3/92e7d9d4-9890-417a-9d02-ddf373a4a3c2";
-        private const string MockException = "https://demo3287250.mockable.io/Exception";
+        private const string MockDone = "https://marsen.free.beeceptor.com/DONE";
+        private const string MockShipping = "https://marsen.free.beeceptor.com/Shipping";
+        private const string MockFail = "https://marsen.free.beeceptor.com/FAIL";
+        private const string MockExpiry = "https://marsen.free.beeceptor.com/Expiry";
+        private const string MockArrived = "https://marsen.free.beeceptor.com/Arrived";
+        private const string MockResultError = "https://marsen.free.beeceptor.com/ResultError";
+        private const string MockContentError = "https://marsen.free.beeceptor.com/ContentError";
+        private const string MockException = "https://marsen.free.beeceptor.com/Exception";
         private readonly IStoreSettingService _storeSettingService;
         private readonly ILogger _logger;
 
