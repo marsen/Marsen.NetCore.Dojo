@@ -12,6 +12,9 @@
 - ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/Stryker%20.NET/badge.svg)[ more...](https://dashboard.stryker-mutator.io/reports/github.com/marsen/Marsen.NetCore.Dojo/main)
 - ![Github Action](https://github.com/marsen/Marsen.NetCore.Dojo/workflows/TypeScript/badge.svg)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=marsen/Marsen.NetCore.Dojo&type=Date)](https://www.star-history.com/#marsen/Marsen.NetCore.Dojo&Date)
 ---
 
 ## Test Result
