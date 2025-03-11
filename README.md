@@ -1,6 +1,6 @@
 # Marsen.NetCore.Dojo
 
-[![Travis CI](https://travis-ci.com/marsen/Marsen.NetCore.Dojo.svg?branch=master)](https://travis-ci.com/marsen/Marsen.NetCore.Dojo) [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmarsen%2FMarsen.NetCore.Dojo%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/marsen/Marsen.NetCore.Dojo/main#mutant)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmarsen%2FMarsen.NetCore.Dojo%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/marsen/Marsen.NetCore.Dojo/main#mutant)
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Marsen.NetCore.Dojo)](https://sonarcloud.io/summary/new_code?id=Marsen.NetCore.Dojo)
 
