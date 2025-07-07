@@ -16,6 +16,12 @@ public class LoggerDecorator : IAuthentication
         _accountService = accountService;
     }
 
+    private string ProtectSensitiveData(string sensitiveData)
+    {
+        // Example obfuscation: reverse the string (replace with actual encryption in production)
+        return new string(sensitiveData.Reverse().ToArray());
+    }
+
     public bool Verify(string accountId, string password, string otp)
     {
         return _authenticationService.Verify(accountId, password, otp) || VerifyFailedLog(accountId);
@@ -23,7 +29,7 @@ public class LoggerDecorator : IAuthentication
 
     private bool VerifyFailedLog(string accountId)
     {
-        _logger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
+        _logger.Log($"accountId:{ProtectSensitiveData(accountId)} failed times:{_accountService.FailedCount(accountId)}");
         return false;
     }
 }
