@@ -1,4 +1,4 @@
-#  Marsen way TDD Kata - PickupService III
+# Marsen way TDD Kata - PickupService III
 
 ## 前情提要
 
@@ -194,15 +194,15 @@
 }
 ```
 
-
-
 ### Test Case Error
+
 ```json
 {
   "result": "error",
   "content": []
 }
 ```
+
 ### Test Case Error Content
 
 ```json
