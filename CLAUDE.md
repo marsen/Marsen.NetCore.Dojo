@@ -49,6 +49,10 @@ npm run cover          # 使用 nyc 執行測試覆蓋率分析
 
 ## CI/CD 整合
 
-- GitHub Actions 工作流程處理 .NET Core、TypeScript、SonarCloud 分析和 Stryker 變異測試
-- 透過 SonarCloud 強制執行程式碼品質檢查
+- GitHub Actions 工作流程處理 .NET Core、TypeScript、CodeQL 分析和 Stryker 變異測試
+- SonarCloud 整合可能需要檢查專案設定 (projectKey: `Marsen.NetCore.Dojo`, organization: `marsen-github`)
 - 變異測試徽章追蹤程式碼品質指標
+
+### 已知問題
+
+- SonarCloud 工作流程可能因專案設定或 Token 權限問題而失敗
