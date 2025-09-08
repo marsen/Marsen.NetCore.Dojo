@@ -30,7 +30,7 @@ public class LoggerDecorator : IAuthentication
 
     private bool VerifyFailedLog(string accountId)
     {
-        _logger.Log($"accountId:{ProtectSensitiveData(accountId)} failed times:{_accountService.FailedCount(accountId)}");
+        _logger.Log($"accountId:{accountId} failed times:{_accountService.FailedCount(accountId)}");
         return false;
     }
 }
