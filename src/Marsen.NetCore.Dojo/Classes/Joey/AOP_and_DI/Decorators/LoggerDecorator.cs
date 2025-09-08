@@ -1,4 +1,5 @@
-﻿using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
+﻿using System.Linq;
+using Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Interface;
 
 namespace Marsen.NetCore.Dojo.Classes.Joey.AOP_and_DI.Decorators;
 
@@ -19,7 +20,7 @@ public class LoggerDecorator : IAuthentication
     private string ProtectSensitiveData(string sensitiveData)
     {
         // Example obfuscation: reverse the string (replace with actual encryption in production)
-        return new string(sensitiveData.Reverse().ToArray());
+        return new string(sensitiveData.AsEnumerable().Reverse().ToArray());
     }
 
     public bool Verify(string accountId, string password, string otp)
