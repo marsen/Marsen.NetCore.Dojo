@@ -11,7 +11,7 @@ public class Solution
         {
             return 0;
         }
-        long tmp = long.Parse(new string((symbol * x).ToString().Reverse().ToArray()));
+        long tmp = long.Parse(new string((symbol * x).ToString().AsEnumerable().Reverse().ToArray()));
         if (tmp > int.MaxValue || tmp < int.MinValue)
         {
             return 0;
