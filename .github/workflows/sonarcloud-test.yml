@@ -1,0 +1,58 @@
+name: SonarCloud Test
+on:
+  workflow_dispatch:  # Manual trigger only for testing
+
+jobs:
+  sonarcloud-official:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0.x'
+    - name: SonarCloud Scan (Official Action)
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      with:
+        args: >
+          -Dsonar.projectKey=Marsen.NetCore.Dojo
+          -Dsonar.organization=marsen-github
+
+  sonarcloud-highbyte:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: SonarCloud Scan (Alternative Action)
+      uses: highbyte/sonarscan-dotnet@v2.4.2
+      with:
+        sonarProjectKey: Marsen.NetCore.Dojo
+        sonarProjectName: Marsen.NetCore.Dojo
+        sonarOrganization: marsen-github
+        dotnetBuildArguments: Marsen.NetCore.Dojo.sln
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        
+  sonarcloud-custom:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: SonarCloud Scan (Current Custom Action)
+      uses: marsen/sonarscan-dotnet@v2.4.1
+      with:
+        sonarProjectKey: Marsen.NetCore.Dojo
+        sonarProjectName: Marsen.NetCore.Dojo
+        sonarOrganization: marsen-github
+        dotnetBuildArguments: Marsen.NetCore.Dojo.sln
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
