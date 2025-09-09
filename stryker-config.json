@@ -1,6 +1,6 @@
 {
   "stryker-config": {
-    "solution": "Marsen.NetCore.Dojo.sln",
+    "solution": "Marsen.NetCore.Dojo.Integration.Test.sln",
     "project": "Marsen.NetCore.Dojo.csproj",
     "test-projects": [
       "./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj",
