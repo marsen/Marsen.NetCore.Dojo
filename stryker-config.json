@@ -1,5 +1,6 @@
 {
   "stryker-config": {
+    "solution": "Marsen.NetCore.Dojo.sln",
     "project": "Marsen.NetCore.Dojo.csproj",
     "test-projects": [
       "./test/Marsen.NetCore.Dojo.Tests/Marsen.NetCore.Dojo.Tests.csproj",
@@ -7,8 +8,7 @@
     ],
     "reporters": [
       "progress",
-      "json",
-      "dashboard"
+      "json"
     ],
     "project-info": { 
       "name":"github.com/marsen/Marsen.NetCore.Dojo", 
