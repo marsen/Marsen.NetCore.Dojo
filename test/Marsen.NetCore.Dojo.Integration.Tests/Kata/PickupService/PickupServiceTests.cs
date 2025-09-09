@@ -17,14 +17,14 @@ namespace Marsen.NetCore.Dojo.Integration.Tests.Kata.PickupService
         private const long TestStoreId = 1;
         // your can get mock response from readme3.md
         private readonly List<string> _testWaybillNo = ["TEST2002181800010"];
-        private const string MockDone = "https://a48336a7d9e54e4d9c7ad8eff9bab5f7.api.mockbin.io/"; //done
-        private const string MockShipping = "https://a82a520d039c468eb486a9590fc88a01.api.mockbin.io/"; //shipping
-        private const string MockFail = "https://9a07e631689c47fbaca24d0eb11b90be.api.mockbin.io/"; //fail
-        private const string MockExpiry = "https://c28fbf0d3179426fa718cd7ea24cad92.api.mockbin.io/"; //expiry
-        private const string MockArrived = "https://ad20abf5c5564ad290c630339d5cb2c6.api.mockbin.io/"; //arrived
-        private const string MockResultError = "https://marsen.free.beeceptor.com/ResultError";
+        private const string MockDone = "https://marsen.me/mocks/pickup-service/api/done.json"; //done
+        private const string MockShipping = "https://marsen.me/mocks/pickup-service/api/shipping.json"; //shipping
+        private const string MockFail = "https://marsen.me/mocks/pickup-service/api/fail.json"; //fail
+        private const string MockExpiry = "https://marsen.me/mocks/pickup-service/api/expiry.json"; //expiry
+        private const string MockArrived = "https://marsen.me/mocks/pickup-service/api/arrived.json"; //arrived
+        private const string MockResultError = "https://blog.marsen.me/mocks/pickup-service/api/content-error.json"; //result error
         private const string MockContentError = "https://ed9776f44ac242e0ae4088579d0ee6b4.api.mockbin.io/"; //content error
-        private const string MockException = "https://marsen.free.beeceptor.com/Exception";
+        private const string MockException = "https://blog.marsen.me/mocks/pickup-service/api/exception.txt"; //exception
         private readonly IStoreSettingService _storeSettingService;
         private readonly ILogger _logger;
 
