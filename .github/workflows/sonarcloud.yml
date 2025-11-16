@@ -16,7 +16,7 @@ jobs:
         fetch-depth: 0
     - name: SonarCloud Scan
       # support dotnet10.0
-      uses: marsen/sonarscan-dotnet@v2.4.1
+      uses: marsen/sonarscan-dotnet@v2.5.0
       with:
         # The key of the SonarQube project
         sonarProjectKey: Marsen.NetCore.Dojo
