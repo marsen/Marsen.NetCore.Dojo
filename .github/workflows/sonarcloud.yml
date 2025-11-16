@@ -14,9 +14,9 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+
     - name: SonarCloud Scan
-      # support dotnet10.0
-      uses: marsen/sonarscan-dotnet@v2.5.0
+      uses: highbyte/sonarscan-dotnet@v2.5.0
       with:
         # The key of the SonarQube project
         sonarProjectKey: Marsen.NetCore.Dojo
