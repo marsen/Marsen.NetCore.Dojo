@@ -1,5 +1,4 @@
 using System.Linq;
-using Marsen.NetCore.Dojo.Extend;
 
 namespace Marsen.NetCore.Dojo.Kata.GuessNumber;
 
