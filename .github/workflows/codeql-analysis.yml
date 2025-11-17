@@ -59,9 +59,17 @@ jobs:
         dotnet restore "Marsen.NetCore.Dojo.sln"
         dotnet build "Marsen.NetCore.Dojo.sln" --no-restore
 
-    # For JavaScript/TypeScript, no build is needed (interpreted language).
-    # CodeQL will recursively scan for .ts/.js files in all subdirectories.
-    # No additional setup required - the analyze step handles everything.
+    - name: Setup Node.js
+      if: matrix.language == 'javascript'
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install TypeScript dependencies
+      if: matrix.language == 'javascript'
+      run: |
+        cd src/Marsen.TypeScript.Dojo
+        npm install
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
